@@ -570,5 +570,5 @@ public class creatCustomers_page extends PageObject {
     public WebElementFacade collectionAccountCurrencyCNY;
 
     @FindBy(xpath = "//div[text()=' Questionnaire ']")
-    public WebElementFacade
+    public WebElementFacade questionnaireTitle;
 }

@@ -23,25 +23,25 @@ Feature: tube By Inputtingt
 
     @ext
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
-#      Given logon "environments_1" on tube by inputting system
-#      When open the email browser page
-#      And I switch to the SCF page
-#      When I click Customers and select Onboarding List
-#      And I click Create Customer and fill in the supplier information in the pop-up window
-#      Then I Check to see if you jump to the Authorized Person page
-#      When Fill in email 1 and email 2 supplier information on the Authorized Person page
-#      And I click the email icon to send the email
-#      And I received an email from Green Union Bank on the email page
-#      Then I check that the email has been sent successfully
-#      When I get the verification code in the email and click to jump to the GLDB page to fill in the information and generate the verification code
-#      And I went back to the email page to get the verification code
-#      And I enter Company ID and click Login button
-#      Then Click login to jump to the Set New Password page
-#      When After login Set a New Password on the Set New Password page
-#      Then I jump to the login page
-#      When I fill in the content on the login page and click operation
-      Given logon "environments_3" test code
-      When I login service agreement window
+      Given logon "environments_1" on tube by inputting system
+      When open the email browser page
+      And I switch to the SCF page
+      When I click Customers and select Onboarding List
+      And I click Create Customer and fill in the supplier information in the pop-up window
+      Then I Check to see if you jump to the Authorized Person page
+      When Fill in email 1 and email 2 supplier information on the Authorized Person page
+      And I click the email icon to send the email
+      And I received an email from Green Union Bank on the email page
+      Then I check that the email has been sent successfully
+      When I get the verification code in the email and click to jump to the GLDB page to fill in the information and generate the verification code
+      And I went back to the email page to get the verification code
+      And I enter Company ID and click Login button
+      Then Click login to jump to the Set New Password page
+      When After login Set a New Password on the Set New Password page
+      Then I jump to the login page
+      When I fill in the content on the login page and click operation
+#      Given logon "environments_3" test code
+#      When I login service agreement window
       When I click agree Service Agreement
       Then I jump to the Tell Us About Your Company page
       When I entered information on the Tell Us About Your Company page
