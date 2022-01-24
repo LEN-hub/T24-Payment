@@ -197,7 +197,7 @@ public class creatCustomers_glue {
 
     @When("^I login service agreement window$")
     public void iLoginServiceAgreementWindow() {
-        customers_step.openEmailUrl();
+        customers_step.openEmailUrlTest();
         customers_step.iLoginServiceAgreementWindow();
     }
 
@@ -257,6 +257,31 @@ public class creatCustomers_glue {
     @When("^Enter the Account information$")
     public void enterTheAccountInformation() {
         customers_step.enterTheAccountInformation();
+    }
+
+    @Then("^Check whether the Questionnaire page is displayed$")
+    public void checkWhetherTheQuestionnairePageIsDisplayed() {
+        customers_step.checkWhetherTheQuestionnairePageIsDisplayed();
+    }
+
+    @When("^Enter information on the Questionnaire page$")
+    public void enterInformationOnTheQuestionnairePage() {
+        customers_step.questionNaireInformation();
+    }
+
+    @Then("^Verify whether the Confirm page is displayed$")
+    public void verifyWhetherTheConfirmPageIsDisplayed() {
+        customers_step.confirmPageTitle();
+    }
+
+    @When("^Click the Submit button on the Confirm page$")
+    public void clickTheSubmitButtonOnTheConfirmPage() {
+        customers_step.clickSubmitBtnOnGLDB();
+    }
+
+    @When("^I click next Button on the page$")
+    public void iClickNextButtonOnThePage() {
+        customers_step.testNext();
     }
 
 //    @After
