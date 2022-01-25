@@ -134,7 +134,7 @@ public class relationship_step extends ScenarioSteps {
     public void supplierList(){
         List<WebElementFacade> roles = relationship_page.contentList;
         List<WebElementFacade> editBtn = relationship_page.editButton;
-        for(int i =0; i<8; i++){
+        for(int i =0; i<roles.size(); i++){
             if (roles.get(i).getText().equals("Supplier")) {
                 editBtn.get(i).click();
                 break;
@@ -147,7 +147,7 @@ public class relationship_step extends ScenarioSteps {
     public void deleteCompanyOnSupplier(){
         List<WebElementFacade> roles = relationship_page.deleteContentList;
         List<WebElementFacade> deleteBtn = relationship_page.deleteBtnList;
-        for (int i = 0; i < 10;i++){
+        for (int i = 0; i < roles.size();i++){
             if (roles != null) {
                 String content = roles.get(i).getText();
                 bddUtil.scrollWindowToElement(relationship_page.deleteBtn);
