@@ -6,10 +6,15 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 import java.util.List;
 
+import static java.time.temporal.ChronoUnit.SECONDS;
+
 public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//span[text()='Customers']")
     public WebElementFacade clickCustomersMenu;
+
+    @FindBy(xpath = "//span[text()='Onboarding Review']")
+    public WebElementFacade clickOnboardingReview;
 
     @FindBy(xpath = "//div[@class='name']")
     public WebElementFacade scfTitle;
@@ -290,11 +295,14 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()=' Administrator 1 ']/parent::div/following-sibling::div//label[@for='legalCertificationType']/following-sibling::div//span[@class='lls-input__suffix']")
     public WebElementFacade admin1LegalCertificationType;
 
-    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='Personal ID']")
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//li[1]/span")
     public WebElementFacade admin1LegalCertificationTypeSelectPersonlId;
 
     @FindBy(xpath = "//div[text()=' Administrator 1 ']/parent::div/following-sibling::div//label[@for='legalCertificationNo']/following-sibling::div//input")
     public WebElementFacade admin1LegalCertificationNo;
+
+    @FindBy(xpath = "//div[text()=' Administrator 1 ']/parent::div/following-sibling::div//label[@for='timePermanent']/following-sibling::div//label[1]/span[@class='lls-radio__input']")
+    public WebElementFacade admin1TimePermanentCheckBox;
 
     @FindBy(xpath = "//div[text()=' Administrator 2 ']/parent::div/following-sibling::div//label[@for='timePermanent']")
     public WebElementFacade admin2TimePermanent;
@@ -320,7 +328,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()=' Administrator 2 ']/parent::div/following-sibling::div//label[@for='legalCertificationType']/following-sibling::div//span[@class='lls-input__suffix']")
     public WebElementFacade admin2LegalCertificationType;
 
-    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='Passport']")
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//li[2]/span")
     public WebElementFacade admin2LegalCertificationTypeSelectPassport;
 
     @FindBy(xpath = "//div[text()=' Administrator 2 ']/parent::div/following-sibling::div//label[@for='legalCertificationNo']/following-sibling::div//input")
@@ -328,6 +336,24 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//div[text()=' Administrator 2 ']/parent::div/following-sibling::div//label[@for='timePermanent']/following-sibling::div//label[1]/span[@class='lls-radio__input']")
     public WebElementFacade admin2TimePermanentCheckBox;
+
+    @FindBy(xpath = "//label[@for='industry']/following-sibling::div//span[@class='lls-input__suffix']")
+    public WebElementFacade adminIndustry;
+
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='Agriculture & Fishing']")
+    public WebElementFacade adminIndustrySelect;
+
+    @FindBy(xpath = "//label[@for='legalStructure']/following-sibling::div//span[@class='lls-input__suffix']")
+    public WebElementFacade adminLegalStructure;
+
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='Private Limited Co']")
+    public WebElementFacade adminLegalStructureSelect;
+
+    @FindBy(xpath = "//label[@for='isNonProfit']/following-sibling::div//span[@class='lls-radio__input is-checked']")
+    public WebElementFacade adminIsNonProfitCheckBox;
+
+    @FindBy(xpath = "//label[@for='sector']/following-sibling::div//input")
+    public WebElementFacade adminSectorInput;
 
     @FindBy(xpath = "//div[@class='title']")
     public WebElementFacade directorOfTheInformation;
@@ -344,8 +370,11 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()=' Director 1 ']/parent::div/following-sibling::div//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix']")
     public WebElementFacade director1CertificationType;
 
-    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='Personal ID']")
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//li[1]/span")
     public WebElementFacade director1PersonalId;
+
+    @FindBy(xpath = "//div[text()=' Director 1 ']/parent::div/following-sibling::div//label[@for='timePermanent']/following-sibling::div//label[1]/span[@class='lls-radio__input']")
+    public WebElementFacade director1CheckBox2;
 
     @FindBy(xpath = "//div[text()=' Director 1 ']/parent::div/following-sibling::div//label[@for='certificationNo']/following-sibling::div//input")
     public WebElementFacade director1CertificationNo;
@@ -386,7 +415,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()=' Director 2 ']/parent::div/following-sibling::div//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix']")
     public WebElementFacade director2CertificationType;
 
-    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='Passport']")
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//li[2]/span")
     public WebElementFacade director2Passport;
 
     @FindBy(xpath = "//div[text()=' Director 2 ']/parent::div/following-sibling::div//label[@for='certificationNo']/following-sibling::div//input")
@@ -434,7 +463,10 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()=' Shareholder 1 ']/parent::div/following-sibling::div//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix']")
     public WebElementFacade shareholder1CertificationType;
 
-    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='Personal ID']")
+    @FindBy(xpath = "//div[text()=' Shareholder 1 ']/parent::div/following-sibling::div//label[@for='timePermanent']/following-sibling::div//label[1]/span[@class='lls-radio__input']")
+    public WebElementFacade shareholder1Checkbox;
+
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//li[1]/span")
     public WebElementFacade shareholder1CertificationTypeSelectPersonalId;
 
     @FindBy(xpath = "//div[text()=' Shareholder 1 ']/parent::div/following-sibling::div//label[@for='certificationNo']/following-sibling::div//input")
@@ -476,7 +508,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()=' Shareholder 2 ']/parent::div/following-sibling::div//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix']")
     public WebElementFacade shareholder2CertificationType;
 
-    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='Passport']")
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//li[2]/span")
     public WebElementFacade shareholder2CertificationTypeSelectPassport;
 
     @FindBy(xpath = "//div[text()=' Shareholder 2 ']/parent::div/following-sibling::div//label[@for='certificationNo']/following-sibling::div//input")
@@ -527,7 +559,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()=' Beneficial Owner 1 ']/parent::div/following-sibling::div//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix']")
     public WebElementFacade beneficial1CertificationType;
 
-    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='Personal ID']")
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//li[1]/span")
     public WebElementFacade beneficial1CertificationTypeSelectPersonalId;
 
     @FindBy(xpath = "//div[text()=' Beneficial Owner 1 ']/parent::div/following-sibling::div//label[@for='certificationNo']/following-sibling::div//input")
@@ -616,4 +648,71 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//span[contains(text(), 'Confirm')]")
     public WebElementFacade clickConfirmBtnOnGLDB;
+
+    @FindBy(id = "form-username")
+    public WebElementFacade userNameInputbox;
+
+    @FindBy(id = "form-password")
+    public WebElementFacade passwordInputbox;
+
+    @FindBy(xpath = "//tr[@align='center']//button[@type='submit' ]")
+    public WebElementFacade clickLogonBtn;
+
+    @FindBy(xpath = "//p[text()='SCF']")
+    public WebElementFacade clickSCFlink;
+
+    @FindBy(xpath = "//span[text()='Onboarding Review']")
+    public WebElementFacade onboardingReview;
+
+    @FindBy(xpath = "//span[text()='Review Customer Profile']")
+    public WebElementFacade onboardingReviewTitle;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-wrap']//tbody//td[@data-key='f2a6amdf']")
+    public List<WebElementFacade> assignToMeBtn;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-wrap']//tbody//td[@data-key='f24mh683']")
+    public List<WebElementFacade> companyNameList;
+
+    @FindBy(xpath = "//div[@id='tab-1']//span")
+    public WebElementFacade clickAssignToMeTitle;
+
+    @FindBy(xpath = "//span[@data-key='f0r1iqk6']/button")
+    public List<WebElementFacade> proceedBtn;
+
+    @FindBy(xpath = "//td[@data-key='f2ln8n3n']")
+    public List<WebElementFacade> comPanyNameListOnAssginToMePage;
+
+    @FindBy(xpath = "//label[@for='auditState']/following-sibling::div//span[@class='lls-input__suffix']")
+    public WebElementFacade resultCheckBox;
+
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='Approve']")
+    public WebElementFacade selectApprove;
+
+    @FindBy(xpath = "//label[@for='comment']/following-sibling::div//textarea")
+    public WebElementFacade inputBoxComment;
+
+    @FindBy(xpath = "//span[contains(text(),'Submit')]")
+    public WebElementFacade submitBtnOnAssignToMePage;
+
+    @FindBy(xpath = "//label[@for='relatedParty']/following-sibling::div//label[1]/span[@class='lls-radio__input']")
+    public WebElementFacade relatedPartyCheckBox;
+
+
+
+
+
+    public void enterUserName(String userName){
+        withTimeoutOf(10,SECONDS)
+                .waitFor(userNameInputbox)
+                .waitUntilVisible()
+                .sendKeys(userName);
+    }
+
+
+    public void enterPassWord(String userName){
+        withTimeoutOf(10,SECONDS)
+                .waitFor(passwordInputbox)
+                .waitUntilVisible()
+                .sendKeys(userName);
+    }
 }
