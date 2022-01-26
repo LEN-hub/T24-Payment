@@ -50,7 +50,10 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         createBuyerCreditFile_page.pickAYear.click();
         createBuyerCreditFile_page.getDRSKRating.clear();
         createBuyerCreditFile_page.getDRSKRating.sendKeys("1");
-//        createBuyerCreditFile_page.upScreenshotOfDRSKRating.sendKeys("C:\\Users\\陈楠\\Desktop\\test.jpg");  //上传DRSK评级截图
+        createBuyerCreditFile_page.upScreenshotOfDRSKRating.click();
+        bddUtil.sleep(2);
+        bddUtil.fileUpload();
+        bddUtil.sleep(5);
         createBuyerCreditFile_page.getToReportingCurrency.click();
         bddUtil.scrollWindowToElement(createBuyerCreditFile_page.getReportingCurrency);
         createBuyerCreditFile_page.getReportingCurrency.click();
@@ -68,8 +71,14 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         createBuyerCreditFile_page.getCashAndCashEquivalents.sendKeys("10000");
         createBuyerCreditFile_page.getBookValueOfEquity.clear();
         createBuyerCreditFile_page.getBookValueOfEquity.sendKeys("10000");
-//        createBuyerCreditFile_page.upFinancialInformationInLastYear.sendKeys("C:\\Users\\陈楠\\Desktop\\test.jpg"); //上传去年的财务信息
-//        createBuyerCreditFile_page.upOtherFiles.sendKeys("C:\\Users\\陈楠\\Desktop\\test.jpg");  //上传其它文件
+        createBuyerCreditFile_page.upFinancialInformationInLastYear.click();
+        bddUtil.sleep(2);
+        bddUtil.fileUpload();
+        bddUtil.sleep(5);
+        createBuyerCreditFile_page.upOtherFiles.click();
+        bddUtil.sleep(2);
+        bddUtil.fileUpload();
+        bddUtil.sleep(5);
         createBuyerCreditFile_page.clickSaveBuyerCreditProfile.click();
     }
 
