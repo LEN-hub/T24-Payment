@@ -88,6 +88,11 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@class='btn-container center']/div[3]/button/span")
     public WebElementFacade submit;
 
+    //div[@data-key="f1tp2hln"]//input    //点击查看是否创建成功
+                                            //输入创建好的名称
+   //span[text()='Product Management']         //点击这个刷新
+    //td[@data-key="f2e7uikt"]  //显示成功
+
     @FindBy(xpath = "//span[text()='Quote List']")  //第二个
     public WebElementFacade clickQuoteList;
 
@@ -118,7 +123,7 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f266mn95']/child::div//span/span")
     public WebElementFacade Buyer;
 
-    @FindBy(xpath = "//span[text()='121321']")     //所选的值与供应商对应,所以不能用固定值
+    @FindBy(xpath = "//span[text()='test02']")     //所选的值与供应商对应,所以不能用固定值
     public WebElementFacade BuyerKey;
 
     @FindBy(xpath = "//label[contains(text(),'Currency')]/following-sibling::div//input/following-sibling::span")
@@ -184,7 +189,7 @@ public class product_page extends PageObject {
     //选择供应商
 
     @FindBy(xpath = "//div[@data-key='f16ldena']//span/span")
-    public WebElementFacade ProductName;
+    public WebElementFacade ProductNAME;
 
     //选择供应商对应的名字
 
@@ -206,11 +211,37 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f16qkp7l']//span/span")
     public WebElementFacade RefundInterest;
 
+    @FindBy(xpath = "//span[text()='N']")
+    public WebElementFacade RefundInterestN;
+
     @FindBy(xpath = "//div[@data-key='f2dvgd1f']//input")
     public WebElementFacade EstimatedFinancingTenor;
 
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")
+    public List<WebElementFacade> buyerList;
+
     @FindBy(xpath = "//div[@data-key='f21qf3bf']//input")
     public WebElementFacade GracePeriod;
+
+    @FindBy(xpath = "//div[@data-key='f3d1nljn']//span")
+    public WebElementFacade Confirm;
+
+//登录供应商门户查看、
+    @FindBy(xpath = "//input[@placeholder='Enter email']")
+    public WebElementFacade Email;
+
+    @FindBy(xpath = "//input[@placeholder='Enter password']")
+    public WebElementFacade PasswordEmail;
+
+    @FindBy(xpath = "//input[@placeholder='Enter Company ID']")
+    public WebElementFacade EnterCompanyID;
+
+    @FindBy(xpath = "//input[@placeholder='Enter code']")
+    public WebElementFacade EnterCode;
+
+    @FindBy(xpath = "//span[text()='Login']")
+    public WebElementFacade LoginProducts;
+
 
 
 }
