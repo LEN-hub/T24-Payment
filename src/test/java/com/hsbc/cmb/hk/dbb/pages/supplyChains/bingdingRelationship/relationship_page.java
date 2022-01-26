@@ -53,6 +53,9 @@ public class relationship_page extends PageObject {
     @FindBy(xpath = "//div[@class='lowcode-table-wrap']//tbody//td[@data-key='f2jge6kt']")
     public List<WebElementFacade> contentList;
 
+    @FindBy(xpath = "//div[@class='lowcode-table-wrap']//td//span[@class='lls-tooltip item']")
+    public List<WebElementFacade> companyNameList;
+
     @FindBy(xpath = "//div[@class='lls-design-container is-not-empty']/child::div/child::div[2]/child::div/child::div[5]//td[@data-key='f1581lib']")
     public List<WebElementFacade> deleteContentList;
 
@@ -67,4 +70,16 @@ public class relationship_page extends PageObject {
 
     @FindBy(xpath = "//span[text()='s4@qq.com']")
     public WebElementFacade newContent;
+
+    @FindBy(xpath = "//span[contains(text(),'Create New Relationship')]")
+    public WebElementFacade createNewRelationShipBtn;
+
+    @FindBy(xpath = "//span[@class='single-line-text lls-container-row is-empty']/following-sibling::div//span[@class='lls-input__suffix']")
+    public WebElementFacade companyNameSelectCheckBox;
+
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")
+    public List<WebElementFacade> companyNameSelectList;
+
+    @FindBy(xpath = "//button[@type='button']/span[contains(text(),'Confirm')]")
+    public WebElementFacade confirmBtn;
 }

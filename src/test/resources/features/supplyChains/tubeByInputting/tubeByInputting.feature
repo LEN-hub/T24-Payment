@@ -25,7 +25,7 @@ Feature: tube By Inputtingt
     And I received an email from Green Union Bank on the email page
     Then I check that the email has been sent successfully
 
-  @ext
+
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
       Given logon "environments_1" on tube by inputting system
       When open the email browser page
@@ -66,6 +66,6 @@ Feature: tube By Inputtingt
       Then Verify whether the Confirm page is displayed
       When Click the Submit button on the Confirm page
       When End the current browser process
-      Given logon "environments_1" on tube by inputting system
-      When Approval in the supply chain system
-      Then Switch To the Assign To Me page and perform the corresponding operations
+#      Given logon "environments_1" on tube by inputting system
+#      When Approval in the supply chain system
+#      Then Switch To the Assign To Me page and perform the corresponding operations

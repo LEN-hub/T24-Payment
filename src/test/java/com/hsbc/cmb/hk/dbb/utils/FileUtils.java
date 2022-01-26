@@ -108,7 +108,7 @@ public class FileUtils {
     public static void main(String[] args) {
         //String filePath = "C:/workspace/DBB_GL_AutoTesting-dev/src/test/resources/testData/autopay/test.txt";
         String filePath = "test";
-        FileUtils.FileString4(filePath,"datatest");
+        FileUtils.FileString4(filePath,"datatest2022");
         System.out.println(FileUtils.LastReadFileInput3("test"));
 //        String rtn = FileInput3(filePath);
 //        String[] arry = rtn.split(",");
