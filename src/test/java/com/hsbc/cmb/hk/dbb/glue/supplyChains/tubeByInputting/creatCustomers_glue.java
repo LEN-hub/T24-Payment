@@ -28,6 +28,7 @@ public class creatCustomers_glue {
     private logon_step logon_step;
     public String mailName = JRandomNameTool.getStringRandom(8);
     public String mailName1 = JRandomNameTool.getStringRandom(8);
+    public String CompanyName = JRandomNameTool.getRandomJianHan(4);
 
     @When("^login successfully and click the SCF link$")
     public void loginSuccessfullyAndClickTheSCFLink() {
@@ -46,7 +47,7 @@ public class creatCustomers_glue {
         customers_step.getClickCreateCustomerBtn();
         customers_step.getSelectCustomerType();
         customers_step.getCustomerTypeValue();
-        customers_step.getCompanyName(JRandomNameTool.getStringRandom(4));
+        customers_step.getCompanyName(CompanyName);
         customers_step.getCompanyID(RandomPhoneNumber.randomPhoneNum());
         customers_step.getSelectCountryOfRegistration();
         customers_step.getCountryOfRegistrationValue();
@@ -59,7 +60,7 @@ public class creatCustomers_glue {
         customers_step.getClickCreateCustomerBtn();
         customers_step.getSelectCustomerType();
         customers_step.getCustomerTypeSupplier();
-        customers_step.getCompanyName(JRandomNameTool.getRandomJianHan(4));
+        customers_step.getCompanyName(CompanyName);
         customers_step.getCompanyID(RandomPhoneNumber.randomPhoneNum());
         customers_step.getSelectCountryOfRegistration();
         customers_step.getCountryOfRegistrationValue();
@@ -98,7 +99,7 @@ public class creatCustomers_glue {
         bddUtil.switchToNewWindow();
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
-        customers_step.getEmailInput(mailName + "@@MailTemp.top");
+        customers_step.getEmailInput(mailName + "@MailTemp.top");
         System.out.println("---------------第一个邮箱地址："+ mailName + "@MailTemp.top"+"----------------------");
         customers_step.getLastName(JRandomNameTool.getRandomJianHan(4));
         customers_step.getMobileInput(RandomPhoneNumber.randomPhoneNum());
@@ -197,7 +198,7 @@ public class creatCustomers_glue {
 
     @When("^I login service agreement window$")
     public void iLoginServiceAgreementWindow() {
-        customers_step.openEmailUrl();
+        customers_step.openEmailUrlTest();
         customers_step.iLoginServiceAgreementWindow();
     }
 
@@ -257,6 +258,51 @@ public class creatCustomers_glue {
     @When("^Enter the Account information$")
     public void enterTheAccountInformation() {
         customers_step.enterTheAccountInformation();
+    }
+
+    @Then("^Check whether the Questionnaire page is displayed$")
+    public void checkWhetherTheQuestionnairePageIsDisplayed() {
+        customers_step.checkWhetherTheQuestionnairePageIsDisplayed();
+    }
+
+    @When("^Enter information on the Questionnaire page$")
+    public void enterInformationOnTheQuestionnairePage() {
+        customers_step.questionNaireInformation();
+    }
+
+    @Then("^Verify whether the Confirm page is displayed$")
+    public void verifyWhetherTheConfirmPageIsDisplayed() {
+        customers_step.confirmPageTitle();
+    }
+
+    @When("^Click the Submit button on the Confirm page$")
+    public void clickTheSubmitButtonOnTheConfirmPage() {
+        customers_step.clickSubmitBtnOnGLDB();
+    }
+
+    @When("^I click next Button on the page$")
+    public void iClickNextButtonOnThePage() {
+        customers_step.testNext();
+    }
+
+    @When("^Approval in the supply chain system$")
+    public void approvalInTheSupplyChainSystem() {
+        customers_step.getClickCustomersMenu();
+        customers_step.onboardingReview();
+        customers_step.onboardingReviewTitle();
+        customers_step.assignToMeBtn(CompanyName);
+    }
+
+    @When("^End the current browser process$")
+    public void endTheCurrentBrowserProcess() {
+        bddUtil.quitDriver();
+    }
+
+    @Then("^Switch To the Assign To Me page and perform the corresponding operations$")
+    public void switchToTheAssignToMePageAndPerformTheCorrespondingOperations() {
+        customers_step.clickAssignToMeTitle();
+        customers_step.clickProceedBtnOnAssignToMePage(CompanyName);
+        customers_step.processPageApprove();
     }
 
 //    @After

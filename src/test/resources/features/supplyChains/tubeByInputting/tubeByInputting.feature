@@ -4,6 +4,8 @@ Feature: tube By Inputtingt
 
   Scenario:Create buyer's customer file selection: operator input, operator input buyer's basic information, no need to review, create buyer's customer successfully
     Given logon "environments_1" on tube by inputting system
+    When open the email browser page
+    And I switch to the SCF page
     When I click Customers and select Onboarding List
     And I click Create Customer and fill in the buyer information in the pop-up window
     Then I Check to see if you jump to the Authorized Person page
@@ -13,6 +15,8 @@ Feature: tube By Inputtingt
 
   Scenario:Create your own profile and send invitations
     Given logon "environments_1" on tube by inputting system
+    When open the email browser page
+    And I switch to the SCF page
     When I click Customers and select Onboarding List
     And I click Create Customer and fill in the supplier information in the pop-up window
     Then I Check to see if you jump to the Authorized Person page
@@ -21,7 +25,7 @@ Feature: tube By Inputtingt
     And I received an email from Green Union Bank on the email page
     Then I check that the email has been sent successfully
 
-    @ext
+  @ext
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
       Given logon "environments_1" on tube by inputting system
       When open the email browser page
@@ -44,9 +48,11 @@ Feature: tube By Inputtingt
 #      When I login service agreement window
       When I click agree Service Agreement
       Then I jump to the Tell Us About Your Company page
+      When I click next Button on the page
       When I entered information on the Tell Us About Your Company page
       Then Check whether to jump to the next page after filling in the content of Company page
       When Fill in the administrator information on the People page and click Next to go to the Next page
+#      When I click next Button on the page
       Then Verify whether the director page is displayed
       When Fill in the board information on the current page and click the Next button
       Then Verify whether the Shareholder page is displayed
@@ -55,3 +61,11 @@ Feature: tube By Inputtingt
       When Fill in the information on the Beneficial page
       Then Verify whether the Account page is displayed
       When Enter the Account information
+      Then Check whether the Questionnaire page is displayed
+      When Enter information on the Questionnaire page
+      Then Verify whether the Confirm page is displayed
+      When Click the Submit button on the Confirm page
+      When End the current browser process
+      Given logon "environments_1" on tube by inputting system
+      When Approval in the supply chain system
+      Then Switch To the Assign To Me page and perform the corresponding operations

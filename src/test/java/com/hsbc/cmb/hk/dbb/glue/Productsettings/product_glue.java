@@ -111,7 +111,7 @@ public class product_glue {
         productStep.clickInterestRate("5");
         productStep.clickInterestRateOverdue("10");
         productStep.clickFeePaidBy();
-        productStep.clickFeePaidBySeller();
+        productStep.clickFeePaidByBuyer();
         productStep.clickFeeCollectedat();
         productStep.clickFeeCollectedatDiscount();
         productStep.clickFeeCalculatedby();

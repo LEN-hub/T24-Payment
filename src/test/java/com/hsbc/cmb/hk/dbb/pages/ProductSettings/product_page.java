@@ -147,8 +147,8 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f2n6huih']//i")
     public WebElementFacade FeePaidBy;
 
-    @FindBy(xpath = "//span[text()='Seller']")
-    public WebElementFacade FeePaidBySeller;
+    @FindBy(xpath = "//span[text()='Buyer']")
+    public WebElementFacade FeePaidByBuyer;
 
     @FindBy(xpath = "//div[@data-key='f2u5j11h']//i")
     public WebElementFacade FeeCollectedat;
@@ -183,15 +183,13 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f0k782n4']/button/span")
     public WebElementFacade CreatAddProductProfile;
 
-    @FindBy(xpath = "//div[@data-key='f14ftav7']//span/span")
+    @FindBy(xpath = "//div[@data-key='f14ftav7']//span/span")  //选择供应商
     public WebElementFacade clientName;
 
-    //选择供应商
-
-    @FindBy(xpath = "//div[@data-key='f16ldena']//span/span")
+    @FindBy(xpath = "//div[@data-key='f16ldena']//span/span")  //第一个脚本里创建的产品名称
     public WebElementFacade ProductNAME;
 
-    //选择供应商对应的名字
+    //选择供应商对应买方名字，引用第二个脚本里的数据
 
     @FindBy(xpath = "//div[@data-key='f2khb5s7']//span/span")
     public WebElementFacade FunderOe;

@@ -201,7 +201,7 @@ public class product_step extends ScenarioSteps {
     public void clickFeePaidBy(){productPage.FeePaidBy.click();}
 
     @Step
-    public void clickFeePaidBySeller(){productPage.FeePaidBySeller.click();}
+    public void clickFeePaidByBuyer(){productPage.FeePaidByBuyer.click();}
 
     @Step
     public void clickFeeCollectedat(){productPage.FeeCollectedat.click();}
