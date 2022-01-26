@@ -30,6 +30,11 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickCustomersMenu.click();
     }
 
+    @Step
+    public void onboardingReview(){
+        customers_page.onboardingReview.click();
+    }
+
     public void getClickOnboardingListMenu(){
         customers_page.clickOnboardingListMenu.click();
     }
@@ -162,7 +167,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void openEmailUrlTest(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=q6ckj7bE\");");
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=362DDf6O\");");
     }
 
     @Step
@@ -303,6 +308,13 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(customers_page.selectLegalStructure).click();
         customers_page.isNonProfitYes.click();
         customers_page.sectorInputBox.sendKeys(JRandomNameTool.getStringRandom(10));
+        bddUtil.scrollWindowToElement(customers_page.adminSectorInput);
+        customers_page.adminIndustry.click();
+        bddUtil.scrollWindowToElement(customers_page.adminIndustrySelect).click();
+        customers_page.adminLegalStructure.click();
+        bddUtil.scrollWindowToElement(customers_page.adminLegalStructureSelect).click();
+        customers_page.adminIsNonProfitCheckBox.click();
+        customers_page.adminSectorInput.sendKeys(JRandomNameTool.getStringRandom(10));
 //        customers_page.SaveBtnIndustry.click();
         customers_page.nextBtnIndustry.click();
     }
@@ -310,12 +322,6 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void testNext(){
         customers_page.nextBtnIndustry.click();
-    }
-
-    @Step
-    public void open_the_first_dbb_logon_page(String envName) {
-        String logonUrl = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".webdriver.base.url");
-        customers_page.openUrl(logonUrl);
     }
 
     @Step
@@ -331,7 +337,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void iLoginServiceAgreementWindow(){
-        customers_page.GLDBEmailInput.sendKeys("q6ckj7bE@MailTemp.top");
+        customers_page.GLDBEmailInput.sendKeys("362DDf6O@MailTemp.top");
         customers_page.GLDBEmailPassword.sendKeys("Gl123456");
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();
@@ -363,6 +369,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.admin1LegalCertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.admin1LegalCertificationTypeSelectPersonlId).click();
         customers_page.admin1LegalCertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        customers_page.admin1TimePermanentCheckBox.click();
         bddUtil.scrollWindowToElement(customers_page.admin2TimePermanent);
         customers_page.admin2DateOfBirth.sendKeys(bddUtil.dateFormate());
         customers_page.admin2LegalCountry.click();
@@ -396,6 +403,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.director1CertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.director1PersonalId).click();
         customers_page.director1CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        customers_page.director1CheckBox2.click();
         customers_page.director1DateOfBirth.sendKeys(bddUtil.dateFormate());
         customers_page.director1Country.click();
         bddUtil.scrollWindowToElement(customers_page.director1CountrySelectChina).click();
@@ -431,6 +439,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.shareholder1CertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.shareholder1CertificationTypeSelectPersonalId).click();
         customers_page.shareholder1CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        customers_page.shareholder1Checkbox.click();
         customers_page.shareholder1DateOfBirth.sendKeys(bddUtil.dateFormate());
         customers_page.shareholder1Country.click();
         bddUtil.scrollWindowToElement(customers_page.shareholder1CountrySelectChina).click();
@@ -497,8 +506,10 @@ public class creatCustomers_step extends ScenarioSteps {
     public void enterTheAccountInformation(){
         customers_page.accountCurrency.click();
         bddUtil.scrollWindowToElement(customers_page.accountCurrencyCNY).click();
+        customers_page.tellUsAboutAccoutPageTitle.click();
         customers_page.collectionAccountCurrency.click();
         bddUtil.scrollWindowToElement(customers_page.collectionAccountCurrencyCNY).click();
+        customers_page.tellUsAboutAccoutPageTitle.click();
 //        customers_page.SaveBtnIndustry.click();
         customers_page.nextBtnIndustry.click();
     }
@@ -523,5 +534,68 @@ public class creatCustomers_step extends ScenarioSteps {
 //        customers_page.SaveBtnIndustry.click();
         customers_page.nextBtnIndustry.click();
     }
+
+    @Step
+    public void approvalInTheSupplyChainSystem(){
+        getClickCustomersMenu();
+        customers_page.clickOnboardingReview.click();
+
+    }
+
+    @Step
+    public void click_login_btn(){
+        customers_page.clickLogonBtn.click();
+    }
+
+    @Step
+    public void open_the_first_dbb_logon_page(String envName) {
+        String logonUrl = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".webdriver.base.url");
+        customers_page.openUrl(logonUrl);
+    }
+
+    @Step
+    public void onboardingReviewTitle(){
+        customers_page.onboardingReviewTitle.isVisible();
+    }
+
+    @Step
+    public void assignToMeBtn(String value){
+        List<WebElementFacade> assignToMe = customers_page.assignToMeBtn;
+        List<WebElementFacade> companyName = customers_page.companyNameList;
+        for (int i = 0; i < companyName.size(); i++){
+            if (value.equals(companyName.get(i).getText())){
+                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+                webdriver.executeScript("arguments[0].click();", assignToMe.get(i).getText());
+                break;
+            }
+        }
+    }
+
+    @Step
+    public void clickAssignToMeTitle(){
+        customers_page.clickAssignToMeTitle.click();
+    }
+
+    @Step
+    public void clickProceedBtnOnAssignToMePage(String value){
+        List<WebElementFacade> proceedBtn = customers_page.proceedBtn;
+        List<WebElementFacade> assignToMeContent = customers_page.comPanyNameListOnAssginToMePage;
+        for (int i = 0; i < assignToMeContent.size(); i++){
+            if (value.equals(assignToMeContent.get(i).getText())){
+                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+                webdriver.executeScript("arguments[0].click();", proceedBtn.get(i).getText());
+                break;
+            }
+        }
+    }
+
+    public void processPageApprove(){
+        bddUtil.scrollWindowToElement(customers_page.relatedPartyCheckBox).click();
+        customers_page.resultCheckBox.click();
+        bddUtil.scrollWindowToElement(customers_page.selectApprove).click();
+        customers_page.inputBoxComment.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.submitBtnOnAssignToMePage.click();
+    }
+
 
 }
