@@ -2,6 +2,7 @@ package com.hsbc.cmb.hk.dbb.steps.supplyChains.bingdingRelationship;
 
 import com.hsbc.cmb.hk.dbb.pages.supplyChains.bingdingRelationship.relationship_page;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import com.hsbc.cmb.hk.dbb.utils.FileUtils;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
@@ -131,11 +132,25 @@ public class relationship_step extends ScenarioSteps {
     }
 
     @Step
+    public void createNewRelationShip(){
+        relationship_page.createNewRelationShipBtn.click();
+        relationship_page.companyNameSelectCheckBox.click();
+        List<WebElementFacade> textValue = relationship_page.companyNameSelectList;
+        for (int i = 0; i< textValue.size(); i++){
+            if (FileUtils.LastReadFileInput3("companyData").equals(textValue.get(i).getText())){
+                bddUtil.scrollWindowToElement(textValue.get(i)).click();
+                relationship_page.confirmBtn.click();
+                break;
+            }
+        }
+    }
+
+    @Step
     public void supplierList(){
-        List<WebElementFacade> roles = relationship_page.contentList;
+        List<WebElementFacade> companyName = relationship_page.companyNameList;
         List<WebElementFacade> editBtn = relationship_page.editButton;
-        for(int i =0; i<roles.size(); i++){
-            if (roles.get(i).getText().equals("Supplier")) {
+        for(int i =0; i<companyName.size(); i++){
+            if (companyName.get(i).getText().equals("Supplier")) {
                 editBtn.get(i).click();
                 break;
             }

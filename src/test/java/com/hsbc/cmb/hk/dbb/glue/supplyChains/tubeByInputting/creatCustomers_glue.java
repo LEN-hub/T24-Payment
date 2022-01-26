@@ -61,6 +61,8 @@ public class creatCustomers_glue {
         customers_step.getSelectCustomerType();
         customers_step.getCustomerTypeSupplier();
         customers_step.getCompanyName(CompanyName);
+        FileUtils.FileString4("companyData",CompanyName);
+        FileUtils.FileString4("emailData",CompanyName);
         customers_step.getCompanyID(RandomPhoneNumber.randomPhoneNum());
         customers_step.getSelectCountryOfRegistration();
         customers_step.getCountryOfRegistrationValue();
@@ -80,6 +82,7 @@ public class creatCustomers_glue {
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
         customers_step.getEmailInput(mailName + "@MailTemp.top");
+        FileUtils.FileString4("emailData",mailName + "@MailTemp.top");
         System.out.println("---------------第一个邮箱地址："+ mailName + "@MailTemp.top"+"----------------------");
         customers_step.getLastName(JRandomNameTool.getRandomJianHan(4));
         customers_step.getMobileInput(RandomPhoneNumber.randomPhoneNum());

@@ -97,4 +97,9 @@ public class relationship_glue {
     public void iClickDeleteOnTheDownstreamCompanySupplierPage() {
         relationship_step.deleteCompanyOnSupplier();
     }
+
+    @When("^I click the Create New Relationship button and Create a New Relationship$")
+    public void iClickTheCreateNewRelationshipButtonAndCreateANewRelationship() {
+        relationship_step.createNewRelationShip();
+    }
 }

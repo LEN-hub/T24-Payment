@@ -1,14 +1,20 @@
 package com.hsbc.cmb.hk.dbb.steps.ProductSettings;
 
 import com.hsbc.cmb.hk.dbb.pages.ProductSettings.product_page;
-import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
-import com.hsbc.cmb.hk.dbb.utils.CommonUtil;
-import com.hsbc.cmb.hk.dbb.utils.JRandomNameTool;
-import com.hsbc.cmb.hk.dbb.utils.RandomPhoneNumber;
+import com.hsbc.cmb.hk.dbb.utils.*;
+import cucumber.api.java.bs.I;
 import cucumber.deps.com.thoughtworks.xstream.io.binary.Token;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.Arrays.*;
 
 public class product_step extends ScenarioSteps {
     private BDDUtil bddUtil;
@@ -46,7 +52,7 @@ public class product_step extends ScenarioSteps {
     public void clickPostACC() { productPage.postAcc.click();}
 
     @Step
-    public void sendkeysStart(String Value) { productPage.start.sendKeys(Value);}
+    public void sendkeysStart(String Value) {productPage.start.sendKeys(Value);}
 
     @Step
     public void sendkeysEnd(String Value) { productPage.end.sendKeys(Value);}
@@ -103,7 +109,11 @@ public class product_step extends ScenarioSteps {
     public void clickBoth() {productPage.Both.click();}
 
     @Step
-    public void clickSubmit() {productPage.submit.click();}
+    public void clickSubmit() {
+        productPage.submit.click();
+        bddUtil.sleep(3);}
+
+    //需要添加一个判断，是否创建成功
 
     @Step
     public void clickQuoteList() {productPage.clickQuoteList.click();}   //第二个
@@ -137,10 +147,37 @@ public class product_step extends ScenarioSteps {
     }
 
     @Step
-    public void clickBuyer(){productPage.Buyer.click();}
+    public void clickBuyer(){
+        productPage.Buyer.click();}
+
+//    @Step
+//    public void selectBuyerList(){
+//        String filePath = "D:\\Program Files (x86)\\workspace\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\testData.txt";
+//        List<WebElementFacade> buyer = productPage.buyerList;
+//        for (int i = 0; i< buyer.size();i++){
+//            if (buyer != null){
+//                List<String> fileContent = Collections.singletonList(FileUtils.FileRead(filePath));
+//                for (int j = 0; j< fileContent.size();j++){
+//                    List<String> fileTest = asList(fileContent.get(j));
+//                    if (fileContent.size() == 1){
+//                        bddUtil.scrollWindowToElement(buyer.get(i)).click();
+//                        List<String> strs = asList(buyer.get(i).getText());
+//                        FileUtils.FileWrite(filePath,strs.stream().collect(Collectors.joining("\r\n")));
+//                    }else if (fileContent.size()>1){
+//                        bddUtil.scrollWindowToElement(buyer.get(fileContent.size()+1)).click();
+//                        List<String> strs = asList(buyer.get(fileContent.size()+1).getText());
+//                        FileUtils.FileWrite(filePath,strs.stream().collect(Collectors.joining("\r\n")));
+//                    }
+//                    break;
+//                }
+//            }
+//            break;
+//        }
+//    }
 
     @Step
-    public void clickBuyerKey(){productPage.BuyerKey.click();}      //所选的值与供应商对应,所以不能用固定值
+    public void clickBuyerKey(){
+        productPage.BuyerKey.click();}      //所选的值与供应商对应,所以不能用固定值
 
     @Step
     public void clickCurrency(){productPage.Currency.click();}
@@ -164,7 +201,7 @@ public class product_step extends ScenarioSteps {
     public void clickFeePaidBy(){productPage.FeePaidBy.click();}
 
     @Step
-    public void clickFeePaidBySeller(){productPage.FeePaidBySeller.click();}
+    public void clickFeePaidByBuyer(){productPage.FeePaidByBuyer.click();}
 
     @Step
     public void clickFeeCollectedat(){productPage.FeeCollectedat.click();}
@@ -190,13 +227,18 @@ public class product_step extends ScenarioSteps {
     @Step
     public void clickSubmitOne(){productPage.SubmitOne.click();}
 
+
     //第三个
 
     @Step
-    public void clickProductProfile(){productPage.ProductProfileC.click();bddUtil.sleep(5);}
+    public void clickProductProfile(){
+        productPage.ProductProfileC.click();
+       }
 
     @Step
-    public void clickAddProductProfile(){productPage.CreatAddProductProfile.click();}
+    public void clickAddProductProfile(){
+        productPage.productManagerTitle.isVisible();
+        productPage.CreatAddProductProfile.click();}
 
     @Step            //选择创建报价的供应商名称
     public void clickClientName(String value){
@@ -205,15 +247,12 @@ public class product_step extends ScenarioSteps {
 
     }
 
-
-
     @Step
     public void clickProductName(){productPage.productName.click();}
 
-    //选择供应商对应的名字（也就是第创建产品的名称）
-    @Step
+    @Step             //选择供应商对应的名字（也就是创建产品的名称）
     public void SendKeyProductName(){
-        productPage.productName.click();
+        productPage.ProductNAME.click();
         bddUtil.scrollWindowToElement(productPage.find(By.xpath("//div[@x-placement='bottom-start']//li/span[text()='"+content+"']"))).click();
     }
 
@@ -236,12 +275,42 @@ public class product_step extends ScenarioSteps {
     @Step
     public void clickRefundInterest(){productPage.RefundInterest.click();}
 
-//   需要创建变量（yes/no） Refund Interest
     @Step
-    public void clickEstimatedFinancingTenor(String value){productPage.EstimatedFinancingTenor.sendKeys(value);} //需要使用随机数
+    public void clickRefundInterestN(){productPage.RefundInterestN.click();}
+
+    @Step
+    public void clickEstimatedFinancingTenor(String value){productPage.EstimatedFinancingTenor.sendKeys(value);}
 
     @Step
     public void clickGracePeriod(String value){productPage.GracePeriod.sendKeys(value);}
+
+    @Step
+    public void clickConfirm(){productPage.Confirm.click();}
+
+    @Step
+    public void JumpToSupplierPortal() {
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open('http://119.8.173.195:8080')");
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(40);
+        }
+
+    @Step
+    public void SupplierEmail(String value) {
+        productPage.Email.sendKeys(value);
+    }
+    @Step
+    public void SupplierPassword(String value) {
+        productPage.PasswordEmail.sendKeys(value);}
+    @Step
+    public void SupplierEnterCompanyID(String value) {productPage.EnterCompanyID.sendKeys(value);}
+
+    @Step
+    public void SupplierEnterCode(String value) {productPage.EnterCode.sendKeys(value);}
+
+    @Step
+    public void SupplierLoginProducts(){productPage.LoginProducts.click();}
+
 
 }
 

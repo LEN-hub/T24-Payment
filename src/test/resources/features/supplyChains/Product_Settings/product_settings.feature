@@ -21,7 +21,7 @@ Feature: Product Settings test case
     When I click product
     When I click on Quote List
     And  click Create Quote
-    When enter the second case information and select supplier "Syngenta India Limited" on this page
+    When enter the second case information and select supplier "chenchen" on this page
     Then I click Submit to submit a new product
 
 
@@ -36,9 +36,15 @@ Feature: Product Settings test case
     When I click product
     When I click on Quote List
     And  click Create Quote
-    When enter the second case information and select supplier "Syngenta India Limited" on this page
+    When enter the second case information and select supplier "chenchen" on this page
     Then I click Submit to submit a new product
     When I click product
     When I click ProductProfile
     And click Create ProductProfile
-    When Enter page information and select Client Name "Syngenta India Limited" on this page
+    When Enter page information and select Client Name "chenchen" on this page
+    Then I click Submit product profile
+
+
+#    When The vendor logs in to the vendor portal to view products
+#    And Enter login information
+#    Then click login
