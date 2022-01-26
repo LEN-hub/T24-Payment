@@ -44,11 +44,53 @@ public class creditLimit_glue {
 
     @Then("^I should see Proceed Button on the UnderWriting Approval page$")
     public void iShouldSeeProceedButtonOnTheUnderWritingApprovalPage() {
-        creditLimit_step.seeProceedBtn();
+        creditLimit_step.clickProceedBtn();
     }
 
     @When("^I click Completed Button on the UnderWriting Approval page$")
     public void iClickCompletedButtonOnTheUnderWritingApprovalPage() {
         creditLimit_step.clickCompletedBtn();
+        bddUtil.sleep(1);
+        bddUtil.quitDriver();
+    }
+
+    @When("^I click Result button on the UnderWriting Approval page$")
+    public void iClickResultButtonOnTheUnderWritingApprovalPage() {
+        creditLimit_step.clickResultBtn();
+    }
+
+
+    @And("^I click Approve button and click Submit button on the page$")
+    public void iClickApproveButtonAndClickSubmitButtonOnThePage() {
+        creditLimit_step.clickApproveBtn();
+        bddUtil.sleep(1);
+    }
+
+    @When("^I click UnderWriting List button on the page$")
+    public void iClickUnderWritingListButtonOnThePage() {
+        creditLimit_step.clickUnderWritingListBtn();
+    }
+
+    @And("^I click Approve and click Submit button on the page$")
+    public void iClickApproveAndClickSubmitButtonOnThePage() {
+        creditLimit_step.clickApproveBtn();
+        bddUtil.sleep(1);
+    }
+
+    @When("^I the second click Completed Button on the UnderWriting Approval page$")
+    public void iTheSecondClickCompletedButtonOnTheUnderWritingApprovalPage() {
+        creditLimit_step.clickCompletedBtn();
+        bddUtil.sleep(1);
+    }
+
+    @When("^I click Supplier Assign to Me button on UnderWriting Approval page$")
+    public void iClickSupplierAssignToMeButtonOnUnderWritingApprovalPage() {
+        creditLimit_step.clickSupplierAssignBtn();
+    }
+
+
+    @When("^I should see Supplier Proceed Button and click on the UnderWriting Approval page$")
+    public void iShouldSeeSupplierProceedButtonAndClickOnTheUnderWritingApprovalPage() {
+        creditLimit_step.clickSupplierProceedBtn();
     }
 }
