@@ -51,7 +51,7 @@ public class createSupplierCreditFile_step extends PageObject {
         for(int i = 0;i < companyNameList.size();i++)
             if(companyName.equals(companyNameList.get(i).getText())) {
                 JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-                webdriver.executeScript("arguments[0].click();", clickEditSupplierCreditFileList.get(i).getText());
+                webdriver.executeScript("arguments[0].click();", clickEditSupplierCreditFileList.get(i));
                 break;
             }
     }
@@ -80,6 +80,7 @@ public class createSupplierCreditFile_step extends PageObject {
         bddUtil.sleep(2);
         bddUtil.fileUpload();
         bddUtil.sleep(5);
+        createSupplierCreditFile_page.clickFinancialInformation.click();
         createSupplierCreditFile_page.clickInLastYearReportingCurrency.click();
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getInLastYearReportingCurrency).click();
         createSupplierCreditFile_page.getTotalAssets.clear();
@@ -108,10 +109,12 @@ public class createSupplierCreditFile_step extends PageObject {
         bddUtil.sleep(2);
         bddUtil.fileUpload();
         bddUtil.sleep(5);
+        bddUtil.scrollWindowToElement(createSupplierCreditFile_page.findFinancialInformation);
         createSupplierCreditFile_page.clickInYearBeforeLastReportingCurrency.click();
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getInYearBeforeLastReportingCurrency).click();
         createSupplierCreditFile_page.getInYearBeforeLastNetProfit.clear();
         createSupplierCreditFile_page.getInYearBeforeLastNetProfit.sendKeys("0");
+        createSupplierCreditFile_page.clickOtherDocuments.click();
         createSupplierCreditFile_page.upFileFinancialInformationInYearBeforeLast.click();
         bddUtil.sleep(2);
         bddUtil.fileUpload();
@@ -130,7 +133,7 @@ public class createSupplierCreditFile_step extends PageObject {
         for (int i = 0;i < companyNameList.size();i++){
             if (companyName.equals(companyNameList.get(i).getText())){
                 JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-                webdriver.executeScript("arguments[0].click();", submitToReview.get(i).getText());
+                webdriver.executeScript("arguments[0].click();", submitToReview.get(i));
                 break;
             }
         }
@@ -149,7 +152,7 @@ public class createSupplierCreditFile_step extends PageObject {
         for (int i = 0;i < companyNameListToAssignToMe.size();i++){
             if(companyName.equals(companyNameListToAssignToMe.get(i).getText())){
                 JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-                webdriver.executeScript("arguments[0].click();", assignTome.get(i).getText());
+                webdriver.executeScript("arguments[0].click();", assignTome.get(i));
                 break;
             }
         }
@@ -165,7 +168,7 @@ public class createSupplierCreditFile_step extends PageObject {
         for (int i = 0;i < companyNameInAssignedToMePage.size();i++){
             if(companyName.equals(companyNameInAssignedToMePage.get(i).getText())){
                 JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-                webdriver.executeScript("arguments[0].click();", proceedInAssignedToMePage.get(i).getText());
+                webdriver.executeScript("arguments[0].click();", proceedInAssignedToMePage.get(i));
                 break;
             }
         }

@@ -19,7 +19,7 @@ public class createBuyerCreditFile_glue {
     @Steps
     private createBuyerCreditFile_step createBuyerCreditFile_step;
     private BDDUtil bddUtil;
-
+    public String buyer = "AutoTestBuyer_chen";
 
 
     @When("^login successfully and click the SCF link to createBuyerCreditFile$")
@@ -33,7 +33,7 @@ public class createBuyerCreditFile_glue {
 
     @And("^edit Buyer Credit Profile$")
     public void editBuyerCreditProfile(){
-        createBuyerCreditFile_step.editBuyerCreditProfile();  //编辑买方信用档案
+        createBuyerCreditFile_step.editBuyerCreditProfile(buyer);  //编辑买方信用档案
         createBuyerCreditFile_step.displayedCreateBuyerCreditProfilePage(); //判断是否进入买方信用档案编辑界面
         createBuyerCreditFile_step.toEditBuyerCreditProfile(); //编辑买方信用档案并保存
         bddUtil.sleep(2);
@@ -41,6 +41,6 @@ public class createBuyerCreditFile_glue {
 
     @Then("^submit Buyer Credit Profile$")
     public void submitBuyerCreditProfile(){
-        createBuyerCreditFile_step.submitBuyerProfileList(); //提交
+        createBuyerCreditFile_step.submitBuyerProfileList(buyer); //提交
     }
 }

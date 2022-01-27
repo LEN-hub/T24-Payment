@@ -92,6 +92,9 @@ public class createSupplierCreditFile_page extends PageObject {
     @FindBy(xpath = "//label[text()=\"Screenshot of DRSK Rating\"]/following-sibling::div//div[@class=\"lls-upload-dragger\"]")
     public WebElementFacade upFileScreenshotOfDRSKRating;
 
+    @FindBy(xpath = "//div[text()=\" Financial Information \"]")
+    public WebElementFacade clickFinancialInformation;
+
     @FindBy(xpath = "//div[@class=\"cust_info_tag_top topTag\"]/following-sibling::div//label[text()=\"Reporting Currency\"]/following-sibling::div//input")
     public WebElementFacade clickInLastYearReportingCurrency;
 
@@ -137,6 +140,12 @@ public class createSupplierCreditFile_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"cust_info_tag_top undefined\"]/following-sibling::div//label[text()=\"Reporting Currency\"]/following-sibling::div//input")
     public WebElementFacade clickInYearBeforeLastReportingCurrency;
 
+    @FindBy(xpath = "//div[text()=\"Financial Information\"]")
+    public WebElementFacade findFinancialInformation;
+
+    @FindBy(xpath = "//div[text()=\" Other Documents \"]")
+    public WebElementFacade clickOtherDocuments;
+
     @FindBy(xpath = "//div[@class=\"cust_info_tag_top undefined\"]/following-sibling::div//span[text()=\"CNY\"]")
     public WebElementFacade getInYearBeforeLastReportingCurrency;
 
@@ -155,7 +164,7 @@ public class createSupplierCreditFile_page extends PageObject {
     @FindBy(xpath = "//div[@class='lowcode-table-wrap']//tbody//td[@data-key=\"f2e1tmh0\"]")
     public List<WebElementFacade> companyNameList;
 
-    @FindBy(xpath = "//div[@class='lowcode-table-wrap']//table[@class=\"fixed-right-table\"]//tbody//td[@data-key=\"f1to9uku\"]//span[@data-key=\"f3vg3h03\"]")
+    @FindBy(xpath = "//div[@class='lowcode-table-wrap']//table[@class=\"fixed-right-table\"]//tbody//td[@data-key=\"f1to9uku\"]//span[@data-key=\"f3vg3h03\"]//i")
     public List<WebElementFacade> submitListToReview;
 
     @FindBy(xpath = "//div[@class=\"lls-submenu__content\"]//span[text()=\"Supplier Credit Profile Review\"]")

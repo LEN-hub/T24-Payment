@@ -8,6 +8,7 @@ import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import net.thucydides.core.annotations.Steps;
+import org.yecht.Data;
 
 public class createBuyerCreditFileReview_glue {
 
@@ -23,6 +24,8 @@ public class createBuyerCreditFileReview_glue {
     private createBuyerCreditFileReview_step createBuyerCreditFileReview_step;
     public static String envTag;
 
+    public String buyer = "AutoTestBuyer_chen";
+
     @And("^to Buyer Credit Profile Review page$")
     public void toBuyerCreditProfileReviewPage(){
         customers_step.getClickCustomersMenu();
@@ -31,7 +34,7 @@ public class createBuyerCreditFileReview_glue {
 
     @Then("^buyer Credit Profile L1 Review$")
     public void buyerCreditProfileL1Review(){
-        createBuyerCreditFileReview_step.buyerCreditFileL1Review();
+        createBuyerCreditFileReview_step.buyerCreditFileL1Review(buyer);
     }
 
     @And("^change user To L2 Review$")
@@ -55,7 +58,7 @@ public class createBuyerCreditFileReview_glue {
     public void useUserL2ToReview(){
         customers_step.getClickCustomersMenu();
         createBuyerCreditFileReview_step.clickBuyerCreditFileReview();
-        createBuyerCreditFileReview_step.buyerCreditFileL1Review();
+        createBuyerCreditFileReview_step.buyerCreditFileL1Review(buyer);
         customers_step.getClickCustomersMenu();
         createBuyerCreditFile_step.clickBuyerCreditProfileList();
         bddUtil.sleep(5);

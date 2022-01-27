@@ -2,11 +2,15 @@ package com.hsbc.cmb.hk.dbb.steps.supplyChains.creditFile;
 
 import com.hsbc.cmb.hk.dbb.pages.supplyChains.creditFile.createBuyerCreditFile_page;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.server.handler.FindElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 
 public class createBuyerCreditFile_step extends ScenarioSteps {
@@ -34,8 +38,16 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         createBuyerCreditFile_page.clickConfirmToCreateNewUnderwriting.click();
     }
     @Step
-    public void editBuyerCreditProfile(){
-        createBuyerCreditFile_page.clickEditBuyerCreditProfile.click();
+    public void editBuyerCreditProfile(String companyName){
+        List<WebElementFacade> companyNameList = createBuyerCreditFile_page.companyNameList;
+        List<WebElementFacade> editBuyerList = createBuyerCreditFile_page.editBuyerList;
+        for (int i = 0;i < companyNameList.size();i++){
+            if(companyName.equals(companyNameList.get(i).getText())){
+                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+                webdriver.executeScript("arguments[0].click();", editBuyerList.get(i));
+                break;
+            }
+        }
     }
 
     @Step
@@ -83,8 +95,16 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
     }
 
     @Step
-    public void submitBuyerProfileList(){
-        createBuyerCreditFile_page.clickSubmit.click();
+    public void submitBuyerProfileList(String companyName){
+        List<WebElementFacade> companyNameList = createBuyerCreditFile_page.companyNameList;
+        List<WebElementFacade> buyerSubmitList = createBuyerCreditFile_page.buyerSubmitList;
+        for (int i = 0;i < companyNameList.size();i++){
+            if(companyName.equals(companyNameList.get(i).getText())){
+                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+                webdriver.executeScript("arguments[0].click();", buyerSubmitList.get(i));
+                break;
+            }
+        }
     }
 
 }
