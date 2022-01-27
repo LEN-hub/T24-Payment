@@ -4,6 +4,8 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.util.List;
+
 public class createSupplierCreditFile_page extends PageObject {
 
     @FindBy(xpath = "//div[@class=\"lls-submenu__content\"]//span[text()=\"Supplier Credit Profile List\"]")
@@ -39,8 +41,8 @@ public class createSupplierCreditFile_page extends PageObject {
     @FindBy(xpath = "//div[@data-key=\"f055gmsm\"]//button//span")
     public WebElementFacade clickConfirm;
 
-    @FindBy(xpath = "//td[@title=\"1\"]/following-sibling::td[@data-key=\"f1to9uku\"]//span[@data-key=\"f2213nfl\"]//i")
-    public WebElementFacade clickEditSupplierCreditFile;
+    @FindBy(xpath = "//div[@class='lowcode-table-wrap']//table[@class=\"fixed-right-table\"]//tbody//td[@data-key=\"f1to9uku\"]//span[@data-key=\"f2213nfl\"]//i")
+    public List<WebElementFacade> clickEditSupplierCreditFileList;
 
     @FindBy(xpath = "//label[text()=\"Is a Public Company?\"]/following-sibling::div//label[@class=\"lls-radio is-checked\"]//span//span")
     public WebElementFacade clickPublicCompany;
@@ -150,6 +152,41 @@ public class createSupplierCreditFile_page extends PageObject {
     @FindBy(xpath = "//span[text()=\"Save \"]")
     public WebElementFacade clickSave;
 
-    @FindBy(xpath = "//td[@title=\"1\"]/following-sibling::td[@data-key=\"f1to9uku\"]//span[@data-key=\"f3vg3h03\"]//i")
+    @FindBy(xpath = "//div[@class='lowcode-table-wrap']//tbody//td[@data-key=\"f2e1tmh0\"]")
+    public List<WebElementFacade> companyNameList;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-wrap']//table[@class=\"fixed-right-table\"]//tbody//td[@data-key=\"f1to9uku\"]//span[@data-key=\"f3vg3h03\"]")
+    public List<WebElementFacade> submitListToReview;
+
+    @FindBy(xpath = "//div[@class=\"lls-submenu__content\"]//span[text()=\"Supplier Credit Profile Review\"]")
+    public WebElementFacade clickSupplierCreditProfileReview;
+
+    @FindBy(xpath = "//td[@data-key=\"f3mbtifu\"]")
+    public List<WebElementFacade> companyNameListToAssignToMe;
+
+    @FindBy(xpath = "//td[@data-key=\"f3gcso3e\"]//button")
+    public List<WebElementFacade> AssignToMe;
+
+    @FindBy(id="tab-1")
+    public WebElementFacade clickToAssignedToMePage;
+
+    @FindBy(xpath = "//td[@data-key=\"f1ukpqvq\"]")
+    public List<WebElementFacade> companyNameInAssignedToMePage;
+
+    @FindBy(xpath = "//td[@data-key=\"f29m37ir\"]//span[@data-key=\"f19rqem9\"]//button")
+    public List<WebElementFacade> proceedInAssignedToMePage;
+
+    @FindBy(xpath = "//label[text()=\"Result\"]/following-sibling::div//input")
+    public WebElementFacade clickResult;
+
+    @FindBy(xpath = "//span[text()=\"Approve\"]")
+    public WebElementFacade getApprove;
+
+    @FindBy(xpath = "//label[text()=\"Comments\"]/following-sibling::div//textarea")
+    public WebElementFacade getComments;
+
+    @FindBy(xpath = "//button[@class=\"lls-button btn-item lls-button--primary\"]")
     public WebElementFacade clickSubmit;
+
+
 }

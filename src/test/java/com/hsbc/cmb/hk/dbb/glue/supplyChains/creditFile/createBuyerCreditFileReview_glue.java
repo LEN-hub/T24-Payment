@@ -58,7 +58,7 @@ public class createBuyerCreditFileReview_glue {
         createBuyerCreditFileReview_step.buyerCreditFileL1Review();
         customers_step.getClickCustomersMenu();
         createBuyerCreditFile_step.clickBuyerCreditProfileList();
-        bddUtil.sleep(10);
+        bddUtil.sleep(5);
     }
 
 }
