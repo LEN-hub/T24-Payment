@@ -48,6 +48,7 @@ public class creatCustomers_glue {
         customers_step.getSelectCustomerType();
         customers_step.getCustomerTypeValue();
         customers_step.getCompanyName(CompanyName);
+        FileUtils.FileString4("buyer",CompanyName);
         customers_step.getCompanyID(RandomPhoneNumber.randomPhoneNum());
         customers_step.getSelectCountryOfRegistration();
         customers_step.getCountryOfRegistrationValue();

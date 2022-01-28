@@ -1,7 +1,7 @@
 @tubeByInputting
 Feature: tube By Inputtingt
 
-
+  @ext
   Scenario:Create buyer's customer file selection: operator input, operator input buyer's basic information, no need to review, create buyer's customer successfully
     Given logon "environments_1" on tube by inputting system
     When open the email browser page
@@ -25,7 +25,7 @@ Feature: tube By Inputtingt
     And I received an email from Green Union Bank on the email page
     Then I check that the email has been sent successfully
 
-  @ext
+
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
       Given logon "environments_1" on tube by inputting system
       When open the email browser page
@@ -68,4 +68,4 @@ Feature: tube By Inputtingt
       When End the current browser process
 #      Given logon "environments_1" on tube by inputting system
 #      When Approval in the supply chain system
-#      Then Switch To the Assign To Me page and perform the corresponding operations
+#      Then Switch To the Assign To Me page and perform the corresponding operation

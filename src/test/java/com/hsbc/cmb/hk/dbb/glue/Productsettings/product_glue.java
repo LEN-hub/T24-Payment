@@ -6,8 +6,6 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.deps.com.thoughtworks.xstream.io.binary.Token;
-import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
