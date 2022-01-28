@@ -294,7 +294,6 @@ public class creatCustomers_glue {
         customers_step.getClickCustomersMenu();
         customers_step.onboardingReview();
         customers_step.onboardingReviewTitle();
-        customers_step.assignToMeBtn(CompanyName);
     }
 
     @When("^End the current browser process$")
@@ -304,8 +303,9 @@ public class creatCustomers_glue {
 
     @Then("^Switch To the Assign To Me page and perform the corresponding operations$")
     public void switchToTheAssignToMePageAndPerformTheCorrespondingOperations() {
+        customers_step.assignToMePage();
         customers_step.clickAssignToMeTitle();
-        customers_step.clickProceedBtnOnAssignToMePage(CompanyName);
+        customers_step.clickProceedButtonOnAssignToMePage();
         customers_step.processPageApprove();
     }
 

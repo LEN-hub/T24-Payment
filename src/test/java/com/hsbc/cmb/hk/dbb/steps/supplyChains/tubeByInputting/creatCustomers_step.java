@@ -558,6 +558,13 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void assignToMePage(){
+        customers_page.searchCompanyInput.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        customers_page.searchCheckBox.click();
+        bddUtil.clickByJS(customers_page.assignToMeButton);
+    }
+
+    @Step
     public void assignToMeBtn(String value){
         List<WebElementFacade> assignToMe = customers_page.assignToMeBtn;
         List<WebElementFacade> companyName = customers_page.companyNameList;
@@ -576,6 +583,13 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void clickProceedButtonOnAssignToMePage(){
+        customers_page.searchCompanyInput.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        customers_page.searchCheckBox.click();
+        customers_page.proceedButtton.click();
+    }
+
+    @Step
     public void clickProceedBtnOnAssignToMePage(String value){
         List<WebElementFacade> proceedBtn = customers_page.proceedBtn;
         List<WebElementFacade> assignToMeContent = customers_page.comPanyNameListOnAssginToMePage;
@@ -591,7 +605,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public void processPageApprove(){
         bddUtil.scrollWindowToElement(customers_page.relatedPartyCheckBox).click();
         customers_page.resultCheckBox.click();
-        bddUtil.scrollWindowToElement(customers_page.selectApprove).click();
+        customers_page.selectApprove.click();
         customers_page.inputBoxComment.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.submitBtnOnAssignToMePage.click();
     }
