@@ -106,17 +106,17 @@ public class FileUtils {
     }
 
     public static void main(String[] args) {
-        //String filePath = "C:/workspace/DBB_GL_AutoTesting-dev/src/test/resources/testData/autopay/test.txt";
+//        String filePath = "C:/workspace/DBB_GL_AutoTesting-dev/src/test/resources/testData/autopay/test.txt";
         String filePath = "emailData";
-//        FileUtils.FileString4(filePath,"datatest2022");
+        FileUtils.FileString4(filePath,"datatest2022");
 //        System.out.println(FileUtils.LastReadFileInput3("test"));
-        String rtn = FileInput3(filePath);
-        String[] arry = rtn.split(",");
-        List<String> fileContent = Arrays.asList(arry);
-        String emailName = fileContent.get(fileContent.size()-2);
-        String lastLine = fileContent.get(fileContent.size() - 1);
-        System.out.println("用户名称："+emailName);
-        System.out.println("邮箱地址："+lastLine);
+//        String rtn = FileInput3(filePath);
+//        String[] arry = rtn.split(",");
+//        List<String> fileContent = Arrays.asList(arry);
+//        String emailName = fileContent.get(fileContent.size()-2);
+//        String lastLine = fileContent.get(fileContent.size() - 1);
+//        System.out.println("用户名称："+emailName);
+//        System.out.println("邮箱地址："+lastLine);
 //        for(int i = 0; i < fileContent.size(); i++){
 //            //通过get方法传递索引获取集合元素
 //            System.out.println(fileContent.get(i-1));

@@ -178,6 +178,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public void clickSendEmailBtn(){
 //        bddUtil.sleep(5);
         customers_page.emailIcon.isVisible();
+        bddUtil.sleep(1);
         customers_page.emailIcon.click();
         customers_page.confirmBtn.click();
     }
