@@ -36,7 +36,7 @@ public class rpa_glue1 {
     public void uploadAFile() {
         rpaStep.clickUpload();
         rpaStep.clickBrowse();
-        rpaStep.clickDATA("2022-05-15");
+        rpaStep.clickData();
 //        rpaStep.clickConfirms();
     }
 }

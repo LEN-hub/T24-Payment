@@ -27,9 +27,11 @@ public class rpa_page extends PageObject {
     public WebElementFacade browse;
 
     //上传图片
+    @FindBy(xpath = "//i[@class='lls-input__icon lls-icon-date']")
+    public WebElementFacade icondata;
 
-    @FindBy(xpath = "//div[@data-key='f1bm94eh']//input")
-    public WebElementFacade DATA;
+    @FindBy(xpath = "//div[@class='lls-picker-panel__sidebar']/button[1]")
+    public WebElementFacade Data;
 
 
     @FindBy(xpath = "//div[@data-key='f3jt43aq']//span")

@@ -52,7 +52,9 @@ public class rpa_steps extends ScenarioSteps {
     //上传图片
 
     @Step
-    public void clickDATA(String Value){rpaPage.DATA.sendKeys();}
+    public void clickData(){
+        rpaPage.icondata.click();
+        rpaPage.Data.click();}
 
     @Step
     public void clickConfirms(){rpaPage.confirms.click();}
