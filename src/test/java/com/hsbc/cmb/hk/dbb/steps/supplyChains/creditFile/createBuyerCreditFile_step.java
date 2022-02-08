@@ -2,11 +2,15 @@ package com.hsbc.cmb.hk.dbb.steps.supplyChains.creditFile;
 
 import com.hsbc.cmb.hk.dbb.pages.supplyChains.creditFile.createBuyerCreditFile_page;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.server.handler.FindElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 
 public class createBuyerCreditFile_step extends ScenarioSteps {
@@ -34,8 +38,16 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         createBuyerCreditFile_page.clickConfirmToCreateNewUnderwriting.click();
     }
     @Step
-    public void editBuyerCreditProfile(){
-        createBuyerCreditFile_page.clickEditBuyerCreditProfile.click();
+    public void editBuyerCreditProfile(String companyName){
+        List<WebElementFacade> companyNameList = createBuyerCreditFile_page.companyNameList;
+        List<WebElementFacade> editBuyerList = createBuyerCreditFile_page.editBuyerList;
+        for (int i = 0;i < companyNameList.size();i++){
+            if(companyName.equals(companyNameList.get(i).getText())){
+                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+                webdriver.executeScript("arguments[0].click();", editBuyerList.get(i));
+                break;
+            }
+        }
     }
 
     @Step
@@ -50,7 +62,10 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         createBuyerCreditFile_page.pickAYear.click();
         createBuyerCreditFile_page.getDRSKRating.clear();
         createBuyerCreditFile_page.getDRSKRating.sendKeys("1");
-//        createBuyerCreditFile_page.upScreenshotOfDRSKRating.sendKeys("C:\\Users\\陈楠\\Desktop\\test.jpg");  //上传DRSK评级截图
+        createBuyerCreditFile_page.upScreenshotOfDRSKRating.click();
+        bddUtil.sleep(2);
+        bddUtil.fileUpload();
+        bddUtil.sleep(5);
         createBuyerCreditFile_page.getToReportingCurrency.click();
         bddUtil.scrollWindowToElement(createBuyerCreditFile_page.getReportingCurrency);
         createBuyerCreditFile_page.getReportingCurrency.click();
@@ -68,14 +83,28 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         createBuyerCreditFile_page.getCashAndCashEquivalents.sendKeys("10000");
         createBuyerCreditFile_page.getBookValueOfEquity.clear();
         createBuyerCreditFile_page.getBookValueOfEquity.sendKeys("10000");
-//        createBuyerCreditFile_page.upFinancialInformationInLastYear.sendKeys("C:\\Users\\陈楠\\Desktop\\test.jpg"); //上传去年的财务信息
-//        createBuyerCreditFile_page.upOtherFiles.sendKeys("C:\\Users\\陈楠\\Desktop\\test.jpg");  //上传其它文件
+        createBuyerCreditFile_page.upFinancialInformationInLastYear.click();
+        bddUtil.sleep(2);
+        bddUtil.fileUpload();
+        bddUtil.sleep(5);
+        createBuyerCreditFile_page.upOtherFiles.click();
+        bddUtil.sleep(2);
+        bddUtil.fileUpload();
+        bddUtil.sleep(5);
         createBuyerCreditFile_page.clickSaveBuyerCreditProfile.click();
     }
 
     @Step
-    public void submitBuyerProfileList(){
-        createBuyerCreditFile_page.clickSubmit.click();
+    public void submitBuyerProfileList(String companyName){
+        List<WebElementFacade> companyNameList = createBuyerCreditFile_page.companyNameList;
+        List<WebElementFacade> buyerSubmitList = createBuyerCreditFile_page.buyerSubmitList;
+        for (int i = 0;i < companyNameList.size();i++){
+            if(companyName.equals(companyNameList.get(i).getText())){
+                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+                webdriver.executeScript("arguments[0].click();", buyerSubmitList.get(i));
+                break;
+            }
+        }
     }
 
 }

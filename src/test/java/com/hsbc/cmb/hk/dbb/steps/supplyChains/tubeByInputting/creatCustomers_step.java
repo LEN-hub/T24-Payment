@@ -2,10 +2,7 @@ package com.hsbc.cmb.hk.dbb.steps.supplyChains.tubeByInputting;
 
 import com.hsbc.cmb.hk.dbb.glue.supplyChains.tubeByInputting.creatCustomers_glue;
 import com.hsbc.cmb.hk.dbb.pages.supplyChains.tubeByInputting.creatCustomers_page;
-import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
-import com.hsbc.cmb.hk.dbb.utils.CommonUtil;
-import com.hsbc.cmb.hk.dbb.utils.JRandomNameTool;
-import com.hsbc.cmb.hk.dbb.utils.RandomPhoneNumber;
+import com.hsbc.cmb.hk.dbb.utils.*;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -103,6 +100,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void getCheckNextPage(){
+        FileUtils.FileInput3("test");
         customers_page.checkNextPage.isVisible();
         assertEquals("Administrator 1",customers_page.checkNextPage.getText());
     }
@@ -180,6 +178,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public void clickSendEmailBtn(){
 //        bddUtil.sleep(5);
         customers_page.emailIcon.isVisible();
+        bddUtil.sleep(1);
         customers_page.emailIcon.click();
         customers_page.confirmBtn.click();
     }
@@ -231,15 +230,15 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void enterNewPassword(){
-        customers_page.firstNewPassword.sendKeys("Gl123456");
-        customers_page.secondNewPassword.sendKeys("Gl123456");
+        customers_page.firstNewPassword.sendKeys("Gl123456-");
+        customers_page.secondNewPassword.sendKeys("Gl123456-");
         customers_page.newPasswordPageConfirmBtn.click();
     }
 
     @Step
     public void enterLoginInformationAgain(String value){
         customers_page.GLDBEmailInput.sendKeys(value + "@MailTemp.top");
-        customers_page.GLDBEmailPassword.sendKeys("Gl123456");
+        customers_page.GLDBEmailPassword.sendKeys("Gl123456-");
         customers_page.enterCompanyId.clear();
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();
@@ -326,6 +325,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void clickSubmitBtnOnGLDB(){
+        bddUtil.sleep(3);
         customers_page.clickSubmitBtnOnGLDB.click();
         customers_page.clickConfirmBtnOnGLDB.click();
     }
@@ -338,7 +338,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void iLoginServiceAgreementWindow(){
         customers_page.GLDBEmailInput.sendKeys("362DDf6O@MailTemp.top");
-        customers_page.GLDBEmailPassword.sendKeys("Gl123456");
+        customers_page.GLDBEmailPassword.sendKeys("Gl123456-");
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
@@ -559,13 +559,20 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void assignToMePage(){
+        customers_page.searchCompanyInput.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        customers_page.searchCheckBox.click();
+        bddUtil.clickByJS(customers_page.assignToMeButton);
+    }
+
+    @Step
     public void assignToMeBtn(String value){
         List<WebElementFacade> assignToMe = customers_page.assignToMeBtn;
         List<WebElementFacade> companyName = customers_page.companyNameList;
         for (int i = 0; i < companyName.size(); i++){
             if (value.equals(companyName.get(i).getText())){
                 JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-                webdriver.executeScript("arguments[0].click();", assignToMe.get(i).getText());
+                webdriver.executeScript("arguments[0].click();", assignToMe.get(i));
                 break;
             }
         }
@@ -577,13 +584,20 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void clickProceedButtonOnAssignToMePage(){
+        customers_page.searchCompanyInput.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        customers_page.searchCheckBox.click();
+        customers_page.proceedButtton.click();
+    }
+
+    @Step
     public void clickProceedBtnOnAssignToMePage(String value){
         List<WebElementFacade> proceedBtn = customers_page.proceedBtn;
         List<WebElementFacade> assignToMeContent = customers_page.comPanyNameListOnAssginToMePage;
         for (int i = 0; i < assignToMeContent.size(); i++){
             if (value.equals(assignToMeContent.get(i).getText())){
                 JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-                webdriver.executeScript("arguments[0].click();", proceedBtn.get(i).getText());
+                webdriver.executeScript("arguments[0].click();", proceedBtn.get(i));
                 break;
             }
         }
@@ -592,7 +606,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public void processPageApprove(){
         bddUtil.scrollWindowToElement(customers_page.relatedPartyCheckBox).click();
         customers_page.resultCheckBox.click();
-        bddUtil.scrollWindowToElement(customers_page.selectApprove).click();
+        customers_page.selectApprove.click();
         customers_page.inputBoxComment.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.submitBtnOnAssignToMePage.click();
     }

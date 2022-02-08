@@ -670,6 +670,15 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lowcode-table-wrap']//tbody//td[@data-key='f2a6amdf']")
     public List<WebElementFacade> assignToMeBtn;
 
+    @FindBy(xpath = "//div[@class='lowcode-table-wrap']//tbody/tr[1]/td[@data-key='f2a6amdf']//button")
+    public WebElementFacade assignToMeButton;
+
+    @FindBy(xpath = "//input[@placeholder='Search company']")
+    public WebElementFacade searchCompanyInput;
+
+    @FindBy(xpath = "//input[@placeholder='Search company']/following-sibling::span")
+    public WebElementFacade searchCheckBox;
+
     @FindBy(xpath = "//div[@class='lowcode-table-wrap']//tbody//td[@data-key='f24mh683']")
     public List<WebElementFacade> companyNameList;
 
@@ -678,6 +687,9 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//span[@data-key='f0r1iqk6']/button")
     public List<WebElementFacade> proceedBtn;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-wrap']//tbody/tr[1]/td[@data-key='f2avdhbq']//div[@class='lls-design-table-btn-wrapper']/span[1]/button")
+    public WebElementFacade proceedButtton;
 
     @FindBy(xpath = "//td[@data-key='f2ln8n3n']")
     public List<WebElementFacade> comPanyNameListOnAssginToMePage;

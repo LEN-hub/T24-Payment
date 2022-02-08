@@ -5,6 +5,8 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class createBuyerCreditFile_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"lls-submenu__content\"]//span[text()=\"Buyer Credit Profile List\"]")
     public WebElementFacade clickBuyerCreditProfileList;
@@ -30,8 +32,11 @@ public class createBuyerCreditFile_page extends PageObject {
     @FindBy(xpath = "//div[@data-key=\"f0fto2q8\"]//button//span")
     public WebElementFacade clickConfirmToCreateNewUnderwriting;
 
-    @FindBy(xpath = "//td[@title=\"1\"]/following-sibling::td[@data-key=\"f103l7h9\"]//span[@data-key=\"f3up86pa\"]//i")
-    public WebElementFacade clickEditBuyerCreditProfile;
+    @FindBy(xpath = "//td[@data-key=\"f1glrqpn\"]")
+    public List<WebElementFacade> companyNameList;
+
+    @FindBy(xpath = "//td[@data-key=\"f103l7h9\"]//span[@data-key=\"f3up86pa\"]//i")
+    public List<WebElementFacade> editBuyerList;
 
     @FindBy(xpath = "//div[text()=\"Create Buyer Credit Profile\"]")
     public WebElementFacade checkCreateBuyerCreditProfilePage;
@@ -89,4 +94,7 @@ public class createBuyerCreditFile_page extends PageObject {
 
     @FindBy(xpath = "//td[@title=\"1\"]/following-sibling::td[@data-key=\"f103l7h9\"]//span[@data-key=\"f1bkanph\"]//i")
     public WebElementFacade clickSubmit;
+
+    @FindBy(xpath = "//td[@data-key=\"f103l7h9\"]//span[@data-key=\"f1bkanph\"]//i")
+    public List<WebElementFacade> buyerSubmitList;
 }
