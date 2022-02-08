@@ -106,7 +106,6 @@ public class FileUtils {
     }
 
     public static void main(String[] args) {
-<<<<<<< HEAD
 //        //String filePath = "C:/workspace/DBB_GL_AutoTesting-dev/src/test/resources/testData/autopay/test.txt";
 //        String filePath = "test";
 //        FileUtils.FileString4(filePath,"datatest2022");
@@ -119,7 +118,6 @@ public class FileUtils {
         for(int i = 0; i < fileContent.size(); i++){
             //通过get方法传递索引获取集合元素
             System.out.println(fileContent.get(i));
-=======
 //        String filePath = "C:/workspace/DBB_GL_AutoTesting-dev/src/test/resources/testData/autopay/test.txt";
         String filePath = "emailData";
         FileUtils.FileString4(filePath,"datatest2022");
@@ -135,7 +133,6 @@ public class FileUtils {
 //            //通过get方法传递索引获取集合元素
 //            System.out.println(fileContent.get(i-1));
 //        }
->>>>>>> eb3ea4bcf3651d2c0186fa4e2e1fefe02ca0bccd
         }
         }
 
