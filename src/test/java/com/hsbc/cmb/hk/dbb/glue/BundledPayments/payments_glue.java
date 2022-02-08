@@ -20,16 +20,6 @@ public class payments_glue {
     public static String envTag;
 
 
-    @When("^logon \"([^\"]*)\" on tubea by inputting system$")
-    public void logon_onboarding_custom_portal(String envName) {
-        envTag = envName;
-        if (!envName.isEmpty()) {
-            paymentsStep.open_the_first_dbb_logon_page(envName);
-//            productStep.enter_Organisation_ID("123456");
-        }
-
-    }
-
     @When("^When I hit Operations$")
     public void whenIHitOperations() {
         paymentsStep.clickOperations();
