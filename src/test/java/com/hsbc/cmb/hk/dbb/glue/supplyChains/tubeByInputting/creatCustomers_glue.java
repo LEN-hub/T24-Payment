@@ -28,7 +28,7 @@ public class creatCustomers_glue {
     private logon_step logon_step;
     public String mailName = JRandomNameTool.getStringRandom(8);
     public String mailName1 = JRandomNameTool.getStringRandom(8);
-    public String CompanyName = JRandomNameTool.getRandomJianHan(4);
+    public String CompanyName = JRandomNameTool.getStringRandom(4);
 
     @When("^login successfully and click the SCF link$")
     public void loginSuccessfullyAndClickTheSCFLink() {
@@ -48,6 +48,7 @@ public class creatCustomers_glue {
         customers_step.getSelectCustomerType();
         customers_step.getCustomerTypeValue();
         customers_step.getCompanyName(CompanyName);
+        FileUtils.FileString4("buyer",CompanyName);
         customers_step.getCompanyID(RandomPhoneNumber.randomPhoneNum());
         customers_step.getSelectCountryOfRegistration();
         customers_step.getCountryOfRegistrationValue();
@@ -84,7 +85,7 @@ public class creatCustomers_glue {
         customers_step.getEmailInput(mailName + "@MailTemp.top");
         FileUtils.FileString4("emailData",mailName + "@MailTemp.top");
         System.out.println("---------------第一个邮箱地址："+ mailName + "@MailTemp.top"+"----------------------");
-        customers_step.getLastName(JRandomNameTool.getRandomJianHan(4));
+        customers_step.getLastName(JRandomNameTool.getStringRandom(4));
         customers_step.getMobileInput(RandomPhoneNumber.randomPhoneNum());
         customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
         customers_step.getEmailSecondInput(mailName1  + "@MailTemp.top");
@@ -104,7 +105,7 @@ public class creatCustomers_glue {
         bddUtil.switchToWindows();
         customers_step.getEmailInput(mailName + "@MailTemp.top");
         System.out.println("---------------第一个邮箱地址："+ mailName + "@MailTemp.top"+"----------------------");
-        customers_step.getLastName(JRandomNameTool.getRandomJianHan(4));
+        customers_step.getLastName(JRandomNameTool.getStringRandom(4));
         customers_step.getMobileInput(RandomPhoneNumber.randomPhoneNum());
         customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
         customers_step.getEmailSecondInput(mailName1  + "@MailTemp.top");
@@ -293,7 +294,6 @@ public class creatCustomers_glue {
         customers_step.getClickCustomersMenu();
         customers_step.onboardingReview();
         customers_step.onboardingReviewTitle();
-        customers_step.assignToMeBtn(CompanyName);
     }
 
     @When("^End the current browser process$")
@@ -303,8 +303,9 @@ public class creatCustomers_glue {
 
     @Then("^Switch To the Assign To Me page and perform the corresponding operations$")
     public void switchToTheAssignToMePageAndPerformTheCorrespondingOperations() {
+        customers_step.assignToMePage();
         customers_step.clickAssignToMeTitle();
-        customers_step.clickProceedBtnOnAssignToMePage(CompanyName);
+        customers_step.clickProceedButtonOnAssignToMePage();
         customers_step.processPageApprove();
     }
 

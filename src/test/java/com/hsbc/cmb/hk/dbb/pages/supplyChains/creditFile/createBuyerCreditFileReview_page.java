@@ -4,19 +4,27 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.util.List;
+
 public class createBuyerCreditFileReview_page extends PageObject{
 
     @FindBy(xpath = "//div[@class=\"lls-submenu__content\"]//div[@class=\"lls-menu-item\"]//span[text()=\"Buyer Credit Profile Review\"]")
     public WebElementFacade clickBuyerCreditProfileReview;
 
-    @FindBy(xpath = "//td[text()=\"1\"]/following-sibling::td//div/span")
-    public WebElementFacade clickAssignToMe;
+    @FindBy(xpath = "//td[@data-key=\"f2a3fner\"]")
+    public List<WebElementFacade> companyNameList;
+
+    @FindBy(xpath = "//td[@data-key=\"f2ah94do\"]//button")
+    public List<WebElementFacade> assignToMeList;
 
     @FindBy(id="tab-1")
     public WebElementFacade clickAssignToMePage;
 
-    @FindBy(xpath = "//td[text()=\"1\"]/following-sibling::td//div/span")
-    public WebElementFacade clickProceedToL2;
+    @FindBy(xpath = "//td[@data-key=\"f2vfll17\"]")
+    public List<WebElementFacade> assignToMePageCompanyNameList;
+
+    @FindBy(xpath = "//td[@data-key=\"f3po7mnv\"]//span[@data-key=\"f2jgmic1\"]//button")
+    public List<WebElementFacade> proceedList;
 
     @FindBy(xpath = "//label[text()=\"Result\"]/following-sibling::div//input")
     public WebElementFacade getL1Result;
