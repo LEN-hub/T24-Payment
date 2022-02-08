@@ -6,8 +6,9 @@ Feature: Product Settings test case
     When I click product
     When I click on Product List
     And click Create Product
-    Then enter the page information
+    When enter the page information
     Then click Submit to submit a new product
+    Then Refresh check whether the data is added successfully
 
 
   @sun
@@ -18,10 +19,11 @@ Feature: Product Settings test case
     And  click Create Product
     When enter the page information
     Then click Submit to submit a new product
+    Then Refresh check whether the data is added successfully
     When I click product
     When I click on Quote List
     And  click Create Quote
-    When enter the second case information and select supplier "chenchen" on this page
+    When enter the second case information supplier with buyer
     Then I click Submit to submit a new product
 
 
@@ -33,18 +35,18 @@ Feature: Product Settings test case
     And  click Create Product
     When enter the page information
     Then click Submit to submit a new product
+    Then Refresh check whether the data is added successfully
     When I click product
     When I click on Quote List
     And  click Create Quote
-    When enter the second case information and select supplier "chenchen" on this page
+    When enter the second case information supplier with buyer
     Then I click Submit to submit a new product
     When I click product
     When I click ProductProfile
     And click Create ProductProfile
-    When Enter page information and select Client Name "chenchen" on this page
+    When enter the second case information supplier and buyer
     Then I click Submit product profile
+    When The vendor logs in to the vendor portal to view products
+    And Enter login information
 
 
-#    When The vendor logs in to the vendor portal to view products
-#    And Enter login information
-#    Then click login
