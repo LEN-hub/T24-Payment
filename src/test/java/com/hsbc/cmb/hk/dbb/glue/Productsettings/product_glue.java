@@ -6,8 +6,6 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.deps.com.thoughtworks.xstream.io.binary.Token;
-import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
@@ -102,7 +100,8 @@ public class product_glue {
         productStep.clickGLB();
         productStep.clickSupplier(value);          //supplier  供应商选择，值不定，变量引用
         productStep.clickBuyer();
-        productStep.clickBuyerKey();          //所选的值与供应商对应，买方
+//        productStep.selectBuyerList();   //测试遍历
+       productStep.clickBuyerKey();          //所选的值与供应商对应，买方
         productStep.clickCurrency();
         productStep.clickSGD();
         productStep.clickQuotationMode();
@@ -110,7 +109,7 @@ public class product_glue {
         productStep.clickInterestRate("5");
         productStep.clickInterestRateOverdue("10");
         productStep.clickFeePaidBy();
-        productStep.clickFeePaidBySeller();
+        productStep.clickFeePaidByBuyer();
         productStep.clickFeeCollectedat();
         productStep.clickFeeCollectedatDiscount();
         productStep.clickFeeCalculatedby();
@@ -153,12 +152,40 @@ public class product_glue {
         productStep.clickFinancingMode();
         productStep.clickFinancingModeManual();
         productStep.clickRefundInterest();
-        //   需要创建变量（yes/no） Refund Interest
+        productStep.clickRefundInterestN();
         productStep.clickEstimatedFinancingTenor("10");
         productStep.clickGracePeriod("20");
 
 
     }
+
+    @Then("^I click Submit product profile$")
+    public void iClickSubmitProductProfile() {
+        productStep.clickConfirm();
+    }
+
+
+//    @When("^Close the current page$")
+//    public void closeTheCurrentPage() {
+//        bddUtil.quitDriver();
+//    }
+
+    @When("^The vendor logs in to the vendor portal to view products$")
+    public void theVendorLogsInToTheVendorPortalToViewProducts() {
+        productStep.JumpToSupplierPortal() ;}
+
+    @And("^Enter login information$")
+    public void enterLoginInformation(String value) {
+        productStep.SupplierEmail("y@163.com");
+        productStep.SupplierPassword("Password1");
+        productStep.SupplierEnterCompanyID("147852");
+        productStep.SupplierEnterCode("1234");
+    }
+
+    @Then("^click login$")
+    public void clickLogin() { productStep.SupplierLoginProducts();}
+
+
 }
 
 
