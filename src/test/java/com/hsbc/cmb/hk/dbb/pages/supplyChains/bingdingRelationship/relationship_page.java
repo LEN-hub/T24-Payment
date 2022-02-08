@@ -26,7 +26,7 @@ public class relationship_page extends PageObject {
     @FindBy(xpath = "//span[contains(text(), 'Edit')]")
     public List<WebElementFacade> editButton;
 
-    @FindBy(xpath = "//div[@class='lls-page-header__button']//div[@class='btn-container']/div/button")
+    @FindBy(xpath = "//div[@class='lls-page-header__button']//div[@class='btn-container']/div/button/span")
     public WebElementFacade createNewCounter;
 
     @FindBy(xpath = "//td[@title='s4@qq.com']/following-sibling::td[5]/child::div/child::div/child::span")
@@ -40,6 +40,9 @@ public class relationship_page extends PageObject {
 
     @FindBy(xpath = "//label[@class='lls-radio'][2]/span[@class='lls-radio__input']/span")
     public WebElementFacade downstreamCompanyButton;
+
+    @FindBy(xpath = "//label[@class='lls-radio'][1]/span[@class='lls-radio__input']/span")
+    public WebElementFacade upstreamCompanyButton;
 
     @FindBy(xpath = "//div[@class='btn-container center']//button[@class='lls-button lls-button--primary lls-design-btn btn-font-weight']/span")
     public WebElementFacade confirmButton;

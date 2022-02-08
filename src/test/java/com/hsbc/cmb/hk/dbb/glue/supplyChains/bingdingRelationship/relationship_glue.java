@@ -98,8 +98,23 @@ public class relationship_glue {
         relationship_step.deleteCompanyOnSupplier();
     }
 
-    @When("^I click the Create New Relationship button and Create a New Relationship$")
-    public void iClickTheCreateNewRelationshipButtonAndCreateANewRelationship() {
-        relationship_step.createNewRelationShip();
+    @When("^I click the Create New Supplier Relationship button and Create a New Relationship$")
+    public void iClickTheCreateNewSupplierRelationshipButtonAndCreateANewRelationship() {
+        relationship_step.createNewSupplierRelationShip();
+    }
+
+    @And("^I should bind a buyer information in his downstream$")
+    public void iShouldBindABuyerInformationInHisDownstream() {
+        relationship_step.insertBuyerInformation();
+    }
+
+    @When("^I click the Create New Buyer Relationship button and Create a New Relationship$")
+    public void iClickTheCreateNewBuyerRelationshipButtonAndCreateANewRelationship() {
+        relationship_step.createNewBuyerRelationShip();
+    }
+
+    @And("^I should bind a Supplier information in his upstream$")
+    public void iShouldBindASupplierInformationInHisUpstream() {
+        relationship_step.insertSupplierInformation();
     }
 }

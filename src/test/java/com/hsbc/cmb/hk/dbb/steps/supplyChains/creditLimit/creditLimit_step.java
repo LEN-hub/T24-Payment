@@ -2,6 +2,7 @@ package com.hsbc.cmb.hk.dbb.steps.supplyChains.creditLimit;
 
 import com.hsbc.cmb.hk.dbb.pages.supplyChains.creditLimit.creditLimit_page;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import com.hsbc.cmb.hk.dbb.utils.FileUtils;
 import net.thucydides.core.steps.ScenarioSteps;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
@@ -44,6 +45,27 @@ public class creditLimit_step extends ScenarioSteps {
 
         }
         bddUtil.sleep(1);
+    }
+
+    @Step
+    public void clickBuyerTestDataAssignBtn(){
+        List<WebElementFacade> data = creditLimit_page.applicant;
+        List<WebElementFacade> assignBtn = creditLimit_page.assignToMeBtn;
+        for (int i = 0; i < data.size(); i++) {
+            if (FileUtils.LastReadFileInput3("buyer").equals(data.get(i).getText())){
+                bddUtil.scrollWindowToElement(data.get(i)).click();
+                assignBtn.get(i).click();
+                break;
+            }
+        }
+        bddUtil.sleep(1);
+        /*for (int i = 0; i <8 ; i++) {
+            if (data.get(i).getText().equals("test06")){
+                assignBtn.get(i).click();
+                break;
+            }
+
+        }*/
     }
 
     @Step
@@ -119,6 +141,20 @@ public class creditLimit_step extends ScenarioSteps {
                 break;
             }
 
+        }
+        bddUtil.sleep(1);
+    }
+
+    @Step
+    public void clickSupplierTestDataAssignBtn(){
+        List<WebElementFacade> data = creditLimit_page.applicant;
+        List<WebElementFacade> assignBtn = creditLimit_page.assignToMeBtn;
+        for (int i = 0; i < data.size(); i++) {
+            if (FileUtils.LastReadFileInput3("companyData").equals(data.get(i).getText())){
+                bddUtil.scrollWindowToElement(data.get(i)).click();
+                assignBtn.get(i).click();
+                break;
+            }
         }
         bddUtil.sleep(1);
     }
