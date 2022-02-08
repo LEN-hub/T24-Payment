@@ -47,7 +47,7 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void code() {
-        productPage.code.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        productPage.code.sendKeys("SCF.REV.PF.BMLTDREC");
     }
 
     @Step
