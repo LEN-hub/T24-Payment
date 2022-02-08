@@ -28,5 +28,6 @@ public class financingRequest_step extends ScenarioSteps {
     }
     public void uploadRequestFinancing(){
         financingRequest_page.clickUpload.click();
+        financingRequest_page.clickOfUploadFile.click();
     }
 }

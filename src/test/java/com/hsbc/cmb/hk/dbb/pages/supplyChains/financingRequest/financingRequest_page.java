@@ -27,4 +27,7 @@ public class financingRequest_page extends PageObject {
     @FindBy(xpath = "//div[@data-key=\"f23gdh29\"]//button//span")
     public WebElementFacade clickUpload;
 
+    @FindBy(xpath = "//div[@data-key=\"f13i7oou\"]//span[text()=\"Browse\"]")
+    public WebElementFacade clickOfUploadFile;
+
 }
