@@ -61,7 +61,7 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         createBuyerCreditFile_page.getLastFiscalYear.click();
         createBuyerCreditFile_page.pickAYear.click();
         createBuyerCreditFile_page.getDRSKRating.clear();
-        createBuyerCreditFile_page.getDRSKRating.sendKeys("1");
+        createBuyerCreditFile_page.getDRSKRating.sendKeys("100000");
         createBuyerCreditFile_page.upScreenshotOfDRSKRating.click();
         bddUtil.sleep(2);
         bddUtil.fileUpload();
@@ -70,9 +70,9 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(createBuyerCreditFile_page.getReportingCurrency);
         createBuyerCreditFile_page.getReportingCurrency.click();
         createBuyerCreditFile_page.getTotalLiabilities.clear();
-        createBuyerCreditFile_page.getTotalLiabilities.sendKeys("1");
+        createBuyerCreditFile_page.getTotalLiabilities.sendKeys("100000");
         createBuyerCreditFile_page.getCurrentLiabilities.clear();
-        createBuyerCreditFile_page.getCurrentLiabilities.sendKeys("1");
+        createBuyerCreditFile_page.getCurrentLiabilities.sendKeys("100000");
         createBuyerCreditFile_page.getTotalAsset.clear();
         createBuyerCreditFile_page.getTotalAsset.sendKeys("1000000");
         createBuyerCreditFile_page.getTotalRevenue.clear();
