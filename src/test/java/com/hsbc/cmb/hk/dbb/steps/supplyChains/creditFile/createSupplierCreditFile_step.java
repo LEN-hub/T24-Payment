@@ -59,11 +59,11 @@ public class createSupplierCreditFile_step extends PageObject {
     @Step
     public void toEditSupplierCreditFile(){
         createSupplierCreditFile_page.clickPublicCompany.click();
-        createSupplierCreditFile_page.getStartingYearOfBusiness.click();
-        createSupplierCreditFile_page.clickStartingYearOfBusiness.click();
+        createSupplierCreditFile_page.getStartingYearOfBusiness.sendKeys("2020");
+//        createSupplierCreditFile_page.clickStartingYearOfBusiness.click();
         createSupplierCreditFile_page.clickHaveFinancials.click();
-        createSupplierCreditFile_page.getStartingYearOfBuyerRelationship.click();
-        createSupplierCreditFile_page.clickStartingYearOfBuyerRelationship.click();
+        createSupplierCreditFile_page.getStartingYearOfBuyerRelationship.sendKeys("2020");
+//        createSupplierCreditFile_page.clickStartingYearOfBuyerRelationship.click();
         createSupplierCreditFile_page.clickExchange.click();
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getExchange).click();
         createSupplierCreditFile_page.getTickerSymbol.clear();
@@ -72,8 +72,8 @@ public class createSupplierCreditFile_step extends PageObject {
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getIndustry).click();
         createSupplierCreditFile_page.getDRSKRating.clear();
         createSupplierCreditFile_page.getDRSKRating.sendKeys("1");
-        createSupplierCreditFile_page.getLastFiscalYear.click();
-        createSupplierCreditFile_page.clickLastFiscalYear.click();
+        createSupplierCreditFile_page.getLastFiscalYear.sendKeys("2020");
+//        createSupplierCreditFile_page.clickLastFiscalYear.click();
         createSupplierCreditFile_page.getBuyerCOGS.clear();
         createSupplierCreditFile_page.getBuyerCOGS.sendKeys("0");
         createSupplierCreditFile_page.upFileScreenshotOfDRSKRating.click();
@@ -81,6 +81,7 @@ public class createSupplierCreditFile_step extends PageObject {
         bddUtil.fileUpload();
         bddUtil.sleep(5);
         createSupplierCreditFile_page.clickFinancialInformation.click();
+        bddUtil.sleep(1);
         createSupplierCreditFile_page.clickInLastYearReportingCurrency.click();
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getInLastYearReportingCurrency).click();
         createSupplierCreditFile_page.getTotalAssets.clear();
