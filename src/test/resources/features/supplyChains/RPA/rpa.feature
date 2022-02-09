@@ -6,5 +6,8 @@ Feature:Bundled RPA test case
     When I click on the first Customers
     And click ContractManagement
     Then Enter the name of the supplier to filter
-    When Upload a file
+#    When Upload a file
+    Then Jump to the supplier portal to check the RPA
+
+
 

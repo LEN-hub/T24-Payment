@@ -37,6 +37,13 @@ public class rpa_glue1 {
         rpaStep.clickUpload();
         rpaStep.clickBrowse();
         rpaStep.clickData();
-//        rpaStep.clickConfirms();
+        rpaStep.clickConfirms();
+    }
+
+    @Then("^Jump to the supplier portal to check the RPA$")
+    public void jumpToTheSupplierPortalToCheckTheRPA() {
+        rpaStep.jumpToSupplierPortal();
+        rpaStep.openEmailUrlTest();
+        rpaStep.loginServiceAgreementWindow();
     }
 }

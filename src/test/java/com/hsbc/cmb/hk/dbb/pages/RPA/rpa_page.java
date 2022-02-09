@@ -27,14 +27,46 @@ public class rpa_page extends PageObject {
     public WebElementFacade browse;
 
     //上传图片
-    @FindBy(xpath = "//i[@class='lls-input__icon lls-icon-date']")
-    public WebElementFacade icondata;
 
-    @FindBy(xpath = "//div[@class='lls-picker-panel__sidebar']/button[1]")
-    public WebElementFacade Data;
+    @FindBy(xpath = "//div[@class='lls-date-editor lls-input lls-input--suffix lls-date-editor--date']/input")
+    public WebElementFacade sendData;
+
+
 
 
     @FindBy(xpath = "//div[@data-key='f3jt43aq']//span")
     public WebElementFacade confirms;
+
+
+    @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")
+    public WebElementFacade clickRefreshBtn;
+
+    @FindBy(xpath = "//div[@class='tab-pane message-body active']//h2")
+    public WebElementFacade emailVerificationCode;
+
+    @FindBy(xpath = "//div[@class='lls-form-item__content']//input[@placeholder='Enter email']")
+    public WebElementFacade GLDBEmailInput;
+
+    @FindBy(xpath = "//div[@class='lls-form-item__content']//input[@type='password']")
+    public WebElementFacade GLDBEmailPassword;
+
+    @FindBy(xpath = "//div[@class='lls-input-group__append']/button")
+    public WebElementFacade sendCodeBtn;
+
+    @FindBy(xpath = "//div[@id='message-list']/button[1]//span[text()='Green Link Digital Bank - Verification Code']")
+    public WebElementFacade thirdEmail;
+
+    @FindBy(xpath = "//div[@class='lls-input-group__append']/preceding-sibling::input")
+    public WebElementFacade inputSendCode;
+
+    @FindBy(xpath = "//input[@placeholder='Enter Company ID']")
+    public WebElementFacade enterCompanyId;
+
+    @FindBy(xpath = "//span[text()='Login']")
+    public WebElementFacade GLDBEmailLoginBtn;
+
+    @FindBy(xpath = "//span[text()='Contract']")
+    public WebElementFacade Contract;
+
 
 }

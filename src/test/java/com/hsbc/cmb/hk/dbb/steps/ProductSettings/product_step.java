@@ -407,7 +407,7 @@ public class product_step extends ScenarioSteps {
         JavascriptExecutor webdriver = (JavascriptExecutor) getDriver();
         webdriver.executeScript("window.open('http://119.8.173.195:8080')");
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(40);
+        bddUtil.sleep(10);
     }
     @Step
     public void openEmailUrlTest(){

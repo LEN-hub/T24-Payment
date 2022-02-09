@@ -53,11 +53,50 @@ public class rpa_steps extends ScenarioSteps {
 
     @Step
     public void clickData(){
-        rpaPage.icondata.click();
-        rpaPage.Data.click();}
+        rpaPage.sendData.sendKeys("2024-05-06");
+
+        }
 
     @Step
     public void clickConfirms(){rpaPage.confirms.click();}
+
+    @Step
+    public void jumpToSupplierPortal() {     //跳转供应商门户
+        JavascriptExecutor webdriver = (JavascriptExecutor) getDriver();
+        webdriver.executeScript("window.open('http://119.8.173.195:8080')");
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(10);
+    }
+
+    @Step
+    public void openEmailUrlTest(){
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
+        System.out.println("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");
+    }
+
+
+    @Step
+    public void loginServiceAgreementWindow() {
+        rpaPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
+        rpaPage.GLDBEmailPassword.sendKeys("Gl123456");
+        rpaPage.enterCompanyId.sendKeys("1234");
+        rpaPage.sendCodeBtn.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(3);
+        rpaPage.clickRefreshBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.thirdEmail.click();
+        String Vcode = rpaPage.emailVerificationCode.getText();
+        bddUtil.switchToWindows();
+        rpaPage.inputSendCode.sendKeys(Vcode);
+        rpaPage.GLDBEmailLoginBtn.click();
+        bddUtil.sleep(10);
+        rpaPage.Contract.click();
+        assertEquals("RPA Agreement",rpaPage.find(By.xpath("//td[text()='RPA Agreement']")).getText());
+
+    }
+
 
 
 }
