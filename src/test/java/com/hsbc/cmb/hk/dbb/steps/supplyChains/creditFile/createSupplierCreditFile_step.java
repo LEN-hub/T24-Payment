@@ -60,9 +60,11 @@ public class createSupplierCreditFile_step extends PageObject {
     public void toEditSupplierCreditFile(){
         createSupplierCreditFile_page.clickPublicCompany.click();
         createSupplierCreditFile_page.getStartingYearOfBusiness.sendKeys("2020");
+        createSupplierCreditFile_page.clickBlank.click();
 //        createSupplierCreditFile_page.clickStartingYearOfBusiness.click();
         createSupplierCreditFile_page.clickHaveFinancials.click();
         createSupplierCreditFile_page.getStartingYearOfBuyerRelationship.sendKeys("2020");
+        createSupplierCreditFile_page.clickBlank.click();
 //        createSupplierCreditFile_page.clickStartingYearOfBuyerRelationship.click();
         createSupplierCreditFile_page.clickExchange.click();
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getExchange).click();
@@ -73,6 +75,7 @@ public class createSupplierCreditFile_step extends PageObject {
         createSupplierCreditFile_page.getDRSKRating.clear();
         createSupplierCreditFile_page.getDRSKRating.sendKeys("1");
         createSupplierCreditFile_page.getLastFiscalYear.sendKeys("2020");
+        createSupplierCreditFile_page.clickBlank.click();
 //        createSupplierCreditFile_page.clickLastFiscalYear.click();
         createSupplierCreditFile_page.getBuyerCOGS.clear();
         createSupplierCreditFile_page.getBuyerCOGS.sendKeys("0");

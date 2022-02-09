@@ -41,7 +41,7 @@ public class createSupplierCreditFile_page extends PageObject {
     @FindBy(xpath = "//div[@data-key=\"f055gmsm\"]//button//span")
     public WebElementFacade clickConfirm;
 
-    @FindBy(xpath = "//div[@class='lowcode-table-wrap']//table[@class=\"fixed-right-table\"]//tbody//td[@data-key=\"f1to9uku\"]//span[@data-key=\"f2213nfl\"]//i")
+    @FindBy(xpath = "//span[@data-key=\"f2213nfl\"]//i")
     public List<WebElementFacade> clickEditSupplierCreditFileList;
 
     @FindBy(xpath = "//label[text()=\"Is a Public Company?\"]/following-sibling::div//label//span[text()=\"Yes\"]/preceding-sibling::span//span")
@@ -49,6 +49,9 @@ public class createSupplierCreditFile_page extends PageObject {
 
     @FindBy(xpath = "//label[text()=\"Starting Year of Business\"]/following-sibling::div//input")
     public WebElementFacade getStartingYearOfBusiness;
+
+    @FindBy(xpath = "//div[text()=\"Create Supplier Credit Profile\"]")
+    public WebElementFacade clickBlank;
 
     @FindBy(xpath = "//label[text()=\"Starting Year of Business\"]/following-sibling::div//td//a[text()=\"2020\"]")
     public WebElementFacade clickStartingYearOfBusiness;
@@ -164,7 +167,7 @@ public class createSupplierCreditFile_page extends PageObject {
     @FindBy(xpath = "//div[@class='lowcode-table-wrap']//tbody//td[@data-key=\"f2e1tmh0\"]")
     public List<WebElementFacade> companyNameList;
 
-    @FindBy(xpath = "//div[@class='lowcode-table-wrap']//table[@class=\"fixed-right-table\"]//tbody//td[@data-key=\"f1to9uku\"]//span[@data-key=\"f3vg3h03\"]//i")
+    @FindBy(xpath = "//span[@data-key=\"f3vg3h03\"]//i")
     public List<WebElementFacade> submitListToReview;
 
     @FindBy(xpath = "//div[@class=\"lls-submenu__content\"]//span[text()=\"Supplier Credit Profile Review\"]")

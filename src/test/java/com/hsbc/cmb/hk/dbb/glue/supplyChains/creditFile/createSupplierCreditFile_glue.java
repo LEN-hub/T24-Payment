@@ -22,7 +22,7 @@ public class createSupplierCreditFile_glue {
     private BDDUtil bddUtil;
 
     public String  companyName = "23J1";
-    public String  buyerName = "AutoTestBuyer_chen";
+    public String  buyerName = "Gldb";
 
 
     @When("^login successfully and click the SCF link to createSupplierCreditFile$")
