@@ -27,6 +27,7 @@ Scenario: The operator binds the supplier to a buyer relationship that does not 
      When I click Customers and select Customers Mapping
      Then I should direct to the Customers Mapping page
      When I click Search company box on the Customers Mapping page
+     When I click the Create New Relationship button and Create a New Relationship
      When I click Edit Supplier button on the page
      When I click delete on the Downstream Company Supplier page
 #     Then I should direct to the create new counterparty page

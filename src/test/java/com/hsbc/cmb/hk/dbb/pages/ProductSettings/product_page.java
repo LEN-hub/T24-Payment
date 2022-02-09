@@ -88,7 +88,16 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@class='btn-container center']/div[3]/button/span")
     public WebElementFacade submit;
 
-    @FindBy(xpath = "//span[text()='Quote List']")  //第二个
+    @FindBy(xpath = "//div[@data-key='f1tp2hln']//input")    //点击查看是否创建成功
+    public WebElementFacade ProductNameBth;                                      //输入创建好的名称
+
+    @FindBy(xpath = "//span[text()='Product Management']")        //点击这个刷新
+    public WebElementFacade refresh;
+
+    @FindBy(xpath = "//td[@data-key='f2e7uikt']") //显示成功
+    public WebElementFacade ActiveBth;
+
+    @FindBy(xpath = "//span[text()='Quote List']")  //第二个脚本
     public WebElementFacade clickQuoteList;
 
     @FindBy(xpath = "//div[@class='btn-container flex-end']//button/span")
@@ -112,14 +121,18 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//span[contains(text(),'Green Link Digital Bank')]")
     public WebElementFacade GLB;
 
-    @FindBy(xpath = "//div[@data-key=\"f1hnbv2c\"]//span/child::span")       //supplier  供应商选择
+    @FindBy(xpath = "//div[@data-key=\"f1hnbv2c\"]//span/child::span")       //supplier  供应商选择点击下拉框
     public WebElementFacade supplier;
+
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")      //供应商列表，可删除数据
+    public List<WebElementFacade> supplierSelectList;         //选择供应商数据
 
     @FindBy(xpath = "//div[@data-key='f266mn95']/child::div//span/span")
     public WebElementFacade Buyer;
 
-    @FindBy(xpath = "//span[text()='121321']")     //所选的值与供应商对应,所以不能用固定值
-    public WebElementFacade BuyerKey;
+
+    @FindBy(xpath = " //div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")     //所选的值与供应商对应,所以不能用固定值
+    public List<WebElementFacade> BuyerSelectList;    //买方选择列表
 
     @FindBy(xpath = "//label[contains(text(),'Currency')]/following-sibling::div//input/following-sibling::span")
     public WebElementFacade Currency;
@@ -142,8 +155,8 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f2n6huih']//i")
     public WebElementFacade FeePaidBy;
 
-    @FindBy(xpath = "//span[text()='Seller']")
-    public WebElementFacade FeePaidBySeller;
+    @FindBy(xpath = "//span[text()='Buyer']")
+    public WebElementFacade FeePaidByBuyer;
 
     @FindBy(xpath = "//div[@data-key='f2u5j11h']//i")
     public WebElementFacade FeeCollectedat;
@@ -178,15 +191,13 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f0k782n4']/button/span")
     public WebElementFacade CreatAddProductProfile;
 
-    @FindBy(xpath = "//div[@data-key='f14ftav7']//span/span")
+    @FindBy(xpath = "//div[@data-key='f14ftav7']//span/span")  //选择供应商,需改动
     public WebElementFacade clientName;
 
-    //选择供应商
+    @FindBy(xpath = "//div[@data-key='f16ldena']//span/span")  //第一个脚本里创建的产品名称
+    public WebElementFacade ProductNAME;
 
-    @FindBy(xpath = "//div[@data-key='f16ldena']//span/span")
-    public WebElementFacade ProductName;
-
-    //选择供应商对应的名字
+    //选择供应商对应买方名字，引用第二个脚本里的数据，需改动
 
     @FindBy(xpath = "//div[@data-key='f2khb5s7']//span/span")
     public WebElementFacade FunderOe;
@@ -206,11 +217,52 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f16qkp7l']//span/span")
     public WebElementFacade RefundInterest;
 
+    @FindBy(xpath = "//span[text()='N']")
+    public WebElementFacade RefundInterestN;
+
     @FindBy(xpath = "//div[@data-key='f2dvgd1f']//input")
     public WebElementFacade EstimatedFinancingTenor;
 
+    @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")
+    public List<WebElementFacade> buyerList;
+
     @FindBy(xpath = "//div[@data-key='f21qf3bf']//input")
     public WebElementFacade GracePeriod;
+
+    @FindBy(xpath = "//div[@data-key='f3d1nljn']//span")
+    public WebElementFacade Confirm;
+
+
+
+    //登录供应商门户查看、
+    @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")
+    public WebElementFacade clickRefreshBtn;
+
+    @FindBy(xpath = "//div[@class='tab-pane message-body active']//h2")
+    public WebElementFacade emailVerificationCode;
+
+    @FindBy(xpath = "//div[@class='lls-form-item__content']//input[@placeholder='Enter email']")
+    public WebElementFacade GLDBEmailInput;
+
+    @FindBy(xpath = "//div[@class='lls-form-item__content']//input[@type='password']")
+    public WebElementFacade GLDBEmailPassword;
+
+    @FindBy(xpath = "//div[@class='lls-input-group__append']/button")
+    public WebElementFacade sendCodeBtn;
+
+    @FindBy(xpath = "//div[@id='message-list']/button[1]//span[text()='Green Link Digital Bank - Verification Code']")
+    public WebElementFacade thirdEmail;
+
+    @FindBy(xpath = "//div[@class='lls-input-group__append']/preceding-sibling::input")
+    public WebElementFacade inputSendCode;
+
+    @FindBy(xpath = "//input[@placeholder='Enter Company ID']")
+    public WebElementFacade enterCompanyId;
+
+    @FindBy(xpath = "//span[text()='Login']")
+    public WebElementFacade GLDBEmailLoginBtn;
+
+
 
 
 }

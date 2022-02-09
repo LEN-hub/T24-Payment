@@ -6,8 +6,6 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.deps.com.thoughtworks.xstream.io.binary.Token;
-import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
@@ -80,6 +78,11 @@ public class product_glue {
         productStep.clickSubmit();
     }
 
+    @Then("^Refresh check whether the data is added successfully$")
+    public void refreshCheckWhetherTheDataIsAddedSuccessfully() {
+        productStep.refreshCheck();
+    }
+
 
     //第二个脚本
 
@@ -94,15 +97,15 @@ public class product_glue {
         productStep.clickCreateQuoto();
     }
 
-
-    @When("^enter the second case information and select supplier \"([^\"]*)\" on this page$")
-    public void enterTheSecondCaseInformationAndSelectSupplierOnThisPage(String value) {
+    @When("^enter the second case information supplier with buyer$")
+    public void enterTheSecondCaseInformationSupplierWithBuyer() {
         productStep.secondContentName();
         productStep.clickFunder();
         productStep.clickGLB();
-        productStep.clickSupplier(value);          //supplier  供应商选择，值不定，变量引用
+        productStep.clickSupplier();
+        productStep.SupplierKey();       //supplier  供应商选择，值不定，变量引用，需要改动
         productStep.clickBuyer();
-        productStep.clickBuyerKey();          //所选的值与供应商对应，买方
+        productStep.clickBuyerKey();       //买方值
         productStep.clickCurrency();
         productStep.clickSGD();
         productStep.clickQuotationMode();
@@ -110,7 +113,7 @@ public class product_glue {
         productStep.clickInterestRate("5");
         productStep.clickInterestRateOverdue("10");
         productStep.clickFeePaidBy();
-        productStep.clickFeePaidBySeller();
+        productStep.clickFeePaidByBuyer();
         productStep.clickFeeCollectedat();
         productStep.clickFeeCollectedatDiscount();
         productStep.clickFeeCalculatedby();
@@ -118,9 +121,8 @@ public class product_glue {
         productStep.clickFeeRatE("0");
         productStep.clickInterestRateExtension("0");
         productStep.clickPlatformServiceFeeRate("0");
-
-
     }
+
 
     @Then("^I click Submit to submit a new product$")
     public void iClickSubmitToSubmitANewProduct() {
@@ -141,25 +143,44 @@ public class product_glue {
     }
 
 
-    @When("^Enter page information and select Client Name \"([^\"]*)\" on this page$")
-    public void enterPageInformationAndSelectClientNameOnThisPage(String value) {
-        productStep.clickClientName(value);          //供应商的名字
+    @When("^enter the second case information supplier and buyer$")
+    public void enterTheSecondCaseInformationSupplierAndBuyer() {
+        productStep.clickClientName();          //供应商的名字，应用第二个脚本即可
+        productStep.SupplierKey();
         productStep.clickProductName();             //供应商对应产品名称
         productStep.SendKeyProductName();
         productStep.clickFunderOne();
         productStep.clickFunderOneGLB();
         productStep.clickBuyerOne();
-        productStep.clickBuyerKey();  //供应商对应的买方信息,不确定因素
+        productStep.clickBuyerKey();
         productStep.clickFinancingMode();
         productStep.clickFinancingModeManual();
         productStep.clickRefundInterest();
-        //   需要创建变量（yes/no） Refund Interest
+        productStep.clickRefundInterestN();
         productStep.clickEstimatedFinancingTenor("10");
         productStep.clickGracePeriod("20");
-
-
     }
+
+    @Then("^I click Submit product profile$")
+    public void iClickSubmitProductProfile() {
+        productStep.clickConfirm();
+    }
+
+
+    @When("^The vendor logs in to the vendor portal to view products$")
+    public void theVendorLogsInToTheVendorPortalToViewProducts() {
+        productStep.jumpToSupplierPortal();
+    }
+
+    @And("^Enter login information$")
+    public void enterLoginInformation() {
+        productStep.openEmailUrlTest();
+        productStep.loginServiceAgreementWindow();
+    }
+
+
 }
+
 
 
 
