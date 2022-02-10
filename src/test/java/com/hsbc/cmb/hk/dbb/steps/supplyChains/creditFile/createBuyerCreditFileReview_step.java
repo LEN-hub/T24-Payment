@@ -1,7 +1,9 @@
 package com.hsbc.cmb.hk.dbb.steps.supplyChains.creditFile;
 
 import com.hsbc.cmb.hk.dbb.pages.supplyChains.creditFile.createBuyerCreditFileReview_page;
+import com.hsbc.cmb.hk.dbb.pages.supplyChains.systemManager.logon_page;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import com.hsbc.cmb.hk.dbb.utils.CommonUtil;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -14,6 +16,7 @@ public class createBuyerCreditFileReview_step extends ScenarioSteps {
 
     private createBuyerCreditFileReview_page createBuyerCreditFileReview_page;
     private BDDUtil bddUtil;
+    private logon_page login__page;
 
     @Step
     public void clickBuyerCreditFileReview(){
@@ -53,8 +56,14 @@ public class createBuyerCreditFileReview_step extends ScenarioSteps {
     }
     @Step
     public void changeUserToL2Review(){
-        createBuyerCreditFileReview_page.clickUserToLogOut.click();
-        createBuyerCreditFileReview_page.clickLogOutToChangeUser.click();
+
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"http://10.26.9.74:8080/usoserver/\");");
+        bddUtil.switchToNewWindow();
+
+//        createBuyerCreditFileReview_page.clickUserToLogOut.click();
+//        bddUtil.clickByJS(createBuyerCreditFileReview_page.clickLogOutToChangeUser);
+//        createBuyerCreditFileReview_page.clickLogOutToChangeUser.click();
         createBuyerCreditFileReview_page.clickCancel.click();
         createBuyerCreditFileReview_page.clickGoOn.click();
     }

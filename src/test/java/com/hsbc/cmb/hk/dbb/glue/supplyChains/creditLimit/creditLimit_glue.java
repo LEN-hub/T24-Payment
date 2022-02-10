@@ -131,6 +131,7 @@ public class creditLimit_glue {
     @When("^I login email URL$")
     public void iLoginEmailURL() {
         creditLimit_step.loginEmailUrlTest();
+        bddUtil.switchToNewWindow();
         bddUtil.sleep(3);
     }
 
@@ -142,5 +143,10 @@ public class creditLimit_glue {
     @And("^I click first email$")
     public void iClickFirstEmail() {
         creditLimit_step.clickFirstEmail();
+    }
+
+    @And("^I input token$")
+    public void iInputToken() {
+        creditLimit_step.storeToken();
     }
 }

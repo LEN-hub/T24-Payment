@@ -234,4 +234,21 @@ public class creditLimit_step extends ScenarioSteps {
     public void clickFirstEmail(){
         creditLimit_page.firstEmail.click();
     }
+
+    @Step
+    public void storeToken(){
+        creditLimit_page.firstEmail.click();
+        bddUtil.sleep(1);
+        bddUtil.scrollWindowToElement(creditLimit_page.token);
+        String token = creditLimit_page.token.getText();
+        bddUtil.sleep(1);
+        bddUtil.scrollWindowToElement(creditLimit_page.secondEmail);
+        creditLimit_page.secondEmail.click();
+        bddUtil.sleep(1);
+        creditLimit_page.plainText.click();
+        creditLimit_page.tokenLink.click();
+        bddUtil.switchToNewWindow();
+        creditLimit_page.inputToken.sendKeys(token);
+
+    }
 }

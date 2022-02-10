@@ -94,7 +94,7 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//span[@class='dialog-footer']/button")
     public WebElementFacade confirmBtn;
 
-    @FindBy(xpath = "//div[@class='input-group-btn']/button[2]")
+    @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")
     public WebElementFacade refreshListBtn;
 
     @FindBy(xpath = "//div[@class='list-group']/button[1]")
@@ -103,6 +103,15 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//div[@class='list-group']/button[2]")
     public WebElementFacade secondEmail;
 
-    @FindBy(xpath = "//b[@style='font-size: 30px;font-weight: 500;']")
+    @FindBy(xpath = "//h5[contains(text(),'Your OTP (One Time Password) for')]/following-sibling::div/b")
     public WebElementFacade token;
+
+    @FindBy(xpath = "//li[@role='presentation'][2]")
+    public WebElementFacade plainText;
+
+    @FindBy(xpath = "//div[@class='tab-pane message-body active']/a[1]")
+    public WebElementFacade tokenLink;
+
+    @FindBy(xpath = "//div[@class='Verificationode_BoxChildIptChild']/div/form")
+    public WebElementFacade inputToken;
 }
