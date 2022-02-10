@@ -3,6 +3,8 @@ package com.hsbc.cmb.hk.dbb.pages.BundledPayments;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.support.FindBy;
+
+import java.security.cert.X509Certificate;
 import java.util.List;
 
 public class payments_page extends PageObject{
@@ -75,6 +77,43 @@ public class payments_page extends PageObject{
     public  WebElementFacade ConfirmDisbursement;
 
 
+    @FindBy(xpath = "//span[text()='Batch Repayment']")
+    public WebElementFacade batchRepaymentBtn;
 
+    @FindBy(xpath = "//span[text()='Repayment Management']")
+    public WebElementFacade repaymentTitle;
+
+    @FindBy(xpath = "//td[@data-key='f0po7dup']")
+    public List<WebElementFacade> requesterList;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-fixed-right']//span[@data-key='f2uklkic']//span")
+    public List<WebElementFacade> assignToMeList;
+
+    @FindBy(xpath = "//td[@data-key='f07v6rpo']")
+    public List<WebElementFacade> RequestList;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//span[@data-key='f3tpnu1h']//span[contains(text(),'Proceed')]")
+    public List<WebElementFacade> proceedList;
+
+    @FindBy(xpath = "//div[@class='repayment-title']")
+    public WebElementFacade repaymentDetail;
+
+    @FindBy(xpath = "//div[@class='lls-input lls-input--suffix']//input[@class='lls-input__inner']")
+    public WebElementFacade selectLabel;
+
+    @FindBy(xpath = "//div[@class='lls-form-item is-required']//div[@class='lls-select-dropdown lls-popper is-pasted']/div[@class='lls-scrollbar']")
+    public WebElementFacade accountLabel;
+
+    @FindBy(xpath = "//div[@class='lls-form-item is-success is-required']/label[@for='actualRepayAmount']//following-sibling::div")
+    public WebElementFacade repaymentAmount;
+
+    @FindBy(xpath = "//div[@class='lls-form-item is-success is-required']/label[@for='receiveFee']//following-sibling::div")
+    public WebElementFacade commission;
+
+    @FindBy(xpath = "//div[@class='lls-date-editor lls-input lls-input--suffix lls-date-editor--date']/input")
+    public WebElementFacade repaymentData;
+
+    @FindBy(xpath = "//button[@class='lls-button lls-button--primary']/span")
+    public WebElementFacade submitBtn;
 
 }

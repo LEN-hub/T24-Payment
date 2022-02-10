@@ -2,7 +2,9 @@ package com.hsbc.cmb.hk.dbb.steps.supplyChains.creditLimit;
 
 import com.hsbc.cmb.hk.dbb.pages.supplyChains.creditLimit.creditLimit_page;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import com.hsbc.cmb.hk.dbb.utils.CommonUtil;
 import com.hsbc.cmb.hk.dbb.utils.FileUtils;
+import com.hsbc.cmb.hk.dbb.utils.RandomPhoneNumber;
 import net.thucydides.core.steps.ScenarioSteps;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
@@ -173,5 +175,63 @@ public class creditLimit_step extends ScenarioSteps {
                 break;
             }
         }
+    }
+
+
+    @Step
+    public void openToSupplierPortal() {     //跳转供应商门户
+        String Url = "http://119.8.173.195:8080/";
+        creditLimit_page.openUrl(Url);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(20);
+    }
+
+
+
+    @Step
+    public void loginEmailUrlTest(){
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
+        System.out.println("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");
+        //"+FileUtils.LastReadFileInput3("emailData")+");
+    }
+
+
+    @Step
+    public void inputOtherData() {
+        creditLimit_page.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
+        creditLimit_page.GLDBEmailPassword.sendKeys("Gl123456-");
+        creditLimit_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        creditLimit_page.sendCodeBtn.click();
+//        bddUtil.switchToNewWindow();
+        bddUtil.sleep(3);
+//        creditLimit_page.clickRefreshBtn.click();
+//        bddUtil.sleep(1);
+//        creditLimit_page.thirdEmail.click();
+//        String Vcode = creditLimit_page.emailVerificationCode.getText();
+        bddUtil.switchToWindows();
+        creditLimit_page.inputSendCode.sendKeys("1234");
+        creditLimit_page.GLDBEmailLoginBtn.click();
+        bddUtil.sleep(10);
+    }
+
+    @Step
+    public void clickPendingSignatureBtn(){
+        creditLimit_page.pendingSignatureBtn.click();
+    }
+
+    @Step
+    public void clickConfirmBtn(){
+        creditLimit_page.confirmBtn.click();
+    }
+
+    @Step
+    public void clickRefreshBtn(){
+        creditLimit_page.refreshListBtn.click();
+    }
+
+    @Step
+    public void clickFirstEmail(){
+        creditLimit_page.firstEmail.click();
     }
 }

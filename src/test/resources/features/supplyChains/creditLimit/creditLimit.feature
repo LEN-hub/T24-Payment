@@ -103,6 +103,15 @@ Scenario:The operator initiates the supplier's credit, the whole process is appr
     When I click UnderWriting List button on the page
 
 
+@test
+   Scenario:BR signed
+    Given Open Supplier Portal URL
+    When I input login data and click on the Login Supplier Portal URL
+    When I click Pending Signature button
+    And I click confirm Button
+    When I login email URL
+    When I click Refresh Button
+    And I click first email
 
 
 

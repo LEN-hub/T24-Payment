@@ -97,5 +97,66 @@ public class payments_steps extends ScenarioSteps {
 
     //通过买家筛选值
 
+    @Step
+    public void clickBatchRepaymentBtn(){
+        paymentsPage.batchRepaymentBtn.click();
+    }
+
+    @Step
+    public void onTheBatchRepaymentPage(){
+        assertEquals("Repayment Management",paymentsPage.repaymentTitle.getText());
+        bddUtil.sleep(2);
+    }
+
+    @Step
+    public void clickDataAssignToMe(){
+        List<WebElementFacade> requester = paymentsPage.requesterList;
+        List<WebElementFacade> Action = paymentsPage.assignToMeList;
+        for (int i = 0; i <requester.size() ; i++) {
+            if (FileUtils.LastReadFileInput3("companyData").equals(requester.get(i).getText())){
+                bddUtil.scrollWindowToElement(requester.get(i)).click();
+                Action.get(i).click();
+                break;
+            }
+        }
+        bddUtil.sleep(2);
+    }
+
+    @Step
+    public void clickProceedBtn(){
+        List<WebElementFacade> request = paymentsPage.RequestList;
+        List<WebElementFacade> proceed = paymentsPage.proceedList;
+        for (int i = 0; i <request.size() ; i++) {
+            if (FileUtils.LastReadFileInput3("compayn").equals(request.get(i).getText())){
+                bddUtil.scrollWindowToElement(request.get(i)).click();
+                proceed.get(i).click();
+                break;
+            }
+        }
+    }
+
+    @Step
+    public void seeRepaymentDetail(){
+        assertEquals("Repayment Detail",paymentsPage.repaymentDetail.getText());
+        bddUtil.sleep(1);
+    }
+
+    @Step
+    public void selectAccount(){
+        paymentsPage.selectLabel.click();
+        bddUtil.sleep(1);
+        paymentsPage.accountLabel.click();
+    }
+
+    @Step
+    public void inputOtherParameter(){
+        paymentsPage.repaymentAmount.sendKeys("10");
+        bddUtil.sleep(1);
+        paymentsPage.commission.click();
+        paymentsPage.repaymentData.sendKeys(bddUtil.dateFormate());
+        paymentsPage.commission.click();
+        paymentsPage.submitBtn.click();
+
+    }
 
 }

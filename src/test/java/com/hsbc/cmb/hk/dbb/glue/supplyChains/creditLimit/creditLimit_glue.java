@@ -4,6 +4,7 @@ import com.hsbc.cmb.hk.dbb.steps.supplyChains.creditLimit.creditLimit_step;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
@@ -102,5 +103,44 @@ public class creditLimit_glue {
     @When("^I click Supplier Test Data Assign to Me button on UnderWriting Approval page$")
     public void iClickSupplierTestDataAssignToMeButtonOnUnderWritingApprovalPage() {
         creditLimit_step.clickSupplierTestDataAssignBtn();
+    }
+
+    @Given("^Open Supplier Portal URL$")
+    public void openSupplierPortalURL() {
+        creditLimit_step.openToSupplierPortal();
+    }
+
+    @When("^I input login data and click on the Login Supplier Portal URL$")
+    public void iInputLoginDataAndClickOnTheLoginSupplierPortalURL() {
+//        creditLimit_step.inputEmailUrlTest();
+        creditLimit_step.inputOtherData();
+    }
+
+    @When("^I click Pending Signature button$")
+    public void iClickPendingSignatureButton() {
+        creditLimit_step.clickPendingSignatureBtn();
+        bddUtil.sleep(3);
+    }
+
+    @And("^I click confirm Button$")
+    public void iClickConfirmButton() {
+        creditLimit_step.clickConfirmBtn();
+        bddUtil.sleep(2);
+    }
+
+    @When("^I login email URL$")
+    public void iLoginEmailURL() {
+        creditLimit_step.loginEmailUrlTest();
+        bddUtil.sleep(3);
+    }
+
+    @When("^I click Refresh Button$")
+    public void iClickRefreshButton() {
+        creditLimit_step.clickRefreshBtn();
+    }
+
+    @And("^I click first email$")
+    public void iClickFirstEmail() {
+        creditLimit_step.clickFirstEmail();
     }
 }
