@@ -1,5 +1,6 @@
 package com.hsbc.cmb.hk.dbb.utils;
 
+import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.Logon_step;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -22,7 +23,7 @@ public class MobileConfig {
     public void testMobile() throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         //指定测试设备的名称
-        cap.setCapability("deviceName", "R5CRA16L86H");
+        cap.setCapability("deviceName", Logon_step.deviceName);
         //添加操作系统配置
         cap.setCapability("platformName", "Android");
         //添加操作系统版本设置adb devices
@@ -94,7 +95,7 @@ public class MobileConfig {
     }
 
     public void clickCreatPassword() throws InterruptedException {
-        Thread.sleep(30000);
+        Thread.sleep(20000);
         MobileConfig.driver.findElementById("btn_submit").click();
         for (int i = 0; i<2;i++){
             MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_pin')]/child::android.widget.EditText[1]").sendKeys("1");
@@ -107,7 +108,8 @@ public class MobileConfig {
         MobileConfig.driver.findElementById("btn_submit").click();
     }
 
-    public String getVcode(){
+    public String getVcode() throws InterruptedException {
+        Thread.sleep(3000);
         MobileConfig.driver.findElementById("btn_otp").click();
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[1]").sendKeys("1");
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[2]").sendKeys("4");
