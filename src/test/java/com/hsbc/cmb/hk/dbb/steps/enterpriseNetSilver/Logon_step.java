@@ -90,7 +90,7 @@ public class Logon_step extends ScenarioSteps {
         if (!MobileConfig.driver.findElementById("vkey_title").getText().equals("数字令牌")) {
             test.clickSystemPopupWindows();
             test.clickStartButton();
-            test.logonVkeyApp("200007", "0003@qq.com", password);
+            test.logonVkeyApp("201019", "17762216590@163.com", password);
             test.clickLetUsStart();
             test.verification();
             test.clickCreatPassword();
