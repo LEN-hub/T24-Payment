@@ -1,12 +1,11 @@
 package com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver;
 
+import com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver.Logon_glue;
 import com.hsbc.cmb.hk.dbb.pages.enterpriseNetSilver.Logon_page;
-import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
-import com.hsbc.cmb.hk.dbb.utils.CommonUtil;
-import com.hsbc.cmb.hk.dbb.utils.EnterKeys;
-import com.hsbc.cmb.hk.dbb.utils.MobileConfig;
+import com.hsbc.cmb.hk.dbb.utils.*;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.By;
 
 import java.awt.*;
 import java.net.MalformedURLException;
@@ -15,7 +14,10 @@ public class Logon_step extends ScenarioSteps {
     private Logon_page logonPage;
     private BDDUtil bddUtil;
     public static String password;
-
+    public static String email;
+    public static String organisationID;
+    public static String deviceName;
+    public static String newPassword;
 
     @Step
     public void open_the_first_dbb_logon_page(String envName) {
@@ -24,15 +26,17 @@ public class Logon_step extends ScenarioSteps {
     }
 
     @Step
-    public void enter_OrganisationID_into_box(String envName) {
-        String OrganisationID = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".organisationID");
-        logonPage.enterOrganisationID(OrganisationID);
+    public String enter_OrganisationID_into_box(String envName) {
+        organisationID = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".organisationID");
+        logonPage.enterOrganisationID(organisationID);
+        return organisationID;
     }
 
     @Step
-    public void enter_email_into_box(String envName) {
-        String email = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".email");
+    public String enter_email_into_box(String envName) {
+        email = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".email");
         logonPage.enterEmailAddress(email);
+        return email;
     }
 
     @Step
@@ -40,6 +44,18 @@ public class Logon_step extends ScenarioSteps {
         password = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".password");
         logonPage.enterPassWord(password);
         return password;
+    }
+
+    @Step
+    public String get_New_password(String envName) {
+        newPassword = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".newPassword");
+        return newPassword;
+    }
+
+    @Step
+    public String getDeviceName(String envName) {
+        deviceName = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".deviceName");
+        return deviceName;
     }
 
     @Step
@@ -77,7 +93,6 @@ public class Logon_step extends ScenarioSteps {
         enterKeys.EnterKeys(MobileConfig.vcode.substring(4,5));
         logonPage.vcode6.click();
         enterKeys.EnterKeys(MobileConfig.vcode.substring(5,6));
-        bddUtil.sleep(10000000);
     }
 
     @Step
@@ -87,15 +102,19 @@ public class Logon_step extends ScenarioSteps {
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
         test.testMobile();
         Thread.sleep(3000);
-        if (!MobileConfig.driver.findElementById("vkey_title").getText().equals("数字令牌")) {
+        By seletor=new By.ById("btn_otp");
+        HaveOrNo checkElement=new HaveOrNo();
+        if (checkElement.check(MobileConfig.driver,seletor)) {
+            test.getVcode();
+        }else {
             test.clickSystemPopupWindows();
             test.clickStartButton();
-            test.logonVkeyApp("200007", "0003@qq.com", password);
+            test.logonVkeyApp(organisationID, email, password);
             test.clickLetUsStart();
             test.verification();
             test.clickCreatPassword();
         }
-        test.getVcode();
+
     }
 
     @Step
@@ -104,15 +123,16 @@ public class Logon_step extends ScenarioSteps {
     }
 
     @Step
-    public void resetPassword(String value) throws MalformedURLException, InterruptedException, AWTException {
+    public void resetPassword() throws MalformedURLException, InterruptedException, AWTException {
         if (logonPage.changePasswordTitle.isVisible()){
             logonPage.originalPassword.sendKeys(password);
-            logonPage.firstEnterPassword.sendKeys(value);
-            logonPage.secondEnterPassword.sendKeys(value);
+            logonPage.firstEnterPassword.sendKeys(newPassword);
+            logonPage.secondEnterPassword.sendKeys(newPassword);
             logonPage.resetPasswordBtn.click();
-            enter_OrganisationID_into_box("netSilverEnv");
-            enter_email_into_box("netSilverEnv");
-            enter_password_into_box("netSilverEnv");
+            enter_OrganisationID_into_box(Logon_glue.envTag);
+            enter_email_into_box(Logon_glue.envTag);
+            logonPage.password.sendKeys(newPassword);
+//            enter_password_into_box(Logon_glue.envTag);
             clickLogonBtn();
             getVcodeTitle();
             clickNextBtn();
