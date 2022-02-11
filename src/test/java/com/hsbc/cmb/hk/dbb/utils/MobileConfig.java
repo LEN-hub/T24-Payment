@@ -111,6 +111,7 @@ public class MobileConfig {
     public String getVcode() throws InterruptedException {
         Thread.sleep(3000);
         MobileConfig.driver.findElementById("btn_otp").click();
+        Thread.sleep(3000);
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[1]").sendKeys("1");
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[2]").sendKeys("4");
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[3]").sendKeys("7");
