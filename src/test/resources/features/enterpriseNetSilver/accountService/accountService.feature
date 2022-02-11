@@ -1,5 +1,7 @@
-@logon
-Feature: test logon_test
+@accountService
+Feature: accountService
 
-  Scenario:test case
+  @ext
+  Scenario:Process for querying the account list
     Given logon "netSilverEnv" on enterprise net silver
+    When click the Account Details menu in the account
