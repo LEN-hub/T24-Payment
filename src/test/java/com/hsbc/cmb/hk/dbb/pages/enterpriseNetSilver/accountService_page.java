@@ -25,4 +25,16 @@ public class accountService_page extends PageObject {
 
     @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or x-placement=\"top-start\"]/div[1]/div[1]//li")
     public WebElementFacade AccountList;
+
+    @FindBy(xpath = "//span[text()='设置别名']/child::i")
+    public WebElementFacade clickEditAlias;
+
+    @FindBy(xpath = "//span[text()='设置别名']/parent::p/following-sibling::div//input")
+    public WebElementFacade inputAlias;
+
+    @FindBy(xpath = "//span[text()='设置别名']/parent::p/following-sibling::div/child::div[2]//div[@class='btn_box']")
+    public WebElementFacade saveBtn;
+
+    @FindBy(xpath = "//p[@class='line_style alis']/span")
+    public WebElementFacade aliasTextCheck;
 }
