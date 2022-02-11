@@ -20,7 +20,7 @@ public class Logon_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-row']/following-sibling::div//div[@class='btn_box']")
     public WebElementFacade logonBtn;
 
-    @FindBy(xpath = "//div[contains(text(),'Authenticate Using OTP')]")
+    @FindBy(xpath = "//div[contains(text(), '使用OTP进行身份验证')]")
     public WebElementFacade vcodeTitle;
 
     @FindBy(xpath = "//div[@class='ui-button primary common is-block']/div")
@@ -61,6 +61,12 @@ public class Logon_page extends PageObject {
 
     @FindBy(xpath = "//div[contains(text(),' Reset Password')]")
     public WebElementFacade resetPasswordBtn;
+
+    @FindBy(xpath = "//span[text()='English']")
+    public WebElementFacade checkLanguage;
+
+    @FindBy(xpath = "//li[contains(text(),'简体中文')]")
+    public WebElementFacade selectChinese;
 
     public void enterOrganisationID(String userName){
         withTimeoutOf(10,SECONDS)
