@@ -6,6 +6,7 @@ import com.hsbc.cmb.hk.dbb.utils.*;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
 import java.net.MalformedURLException;
@@ -30,6 +31,13 @@ public class Logon_step extends ScenarioSteps {
         organisationID = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".organisationID");
         logonPage.enterOrganisationID(organisationID);
         return organisationID;
+    }
+
+    @Step
+    public void checkLanguage(){
+        Actions action=new Actions(getDriver());
+        action.moveToElement(logonPage.checkLanguage).perform();
+        logonPage.selectChinese.click();
     }
 
     @Step
@@ -103,9 +111,9 @@ public class Logon_step extends ScenarioSteps {
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
         test.testMobile();
         Thread.sleep(3000);
-        By seletor=new By.ById("btn_otp");
-        HaveOrNo checkElement=new HaveOrNo();
-        if (checkElement.check(MobileConfig.driver,seletor)) {
+//        By seletor=new By.ById("btn_otp");
+//        HaveOrNo checkElement=new HaveOrNo();
+        if (MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout [ends-with(@resource-id,'btn_otp')]/child::android.widget.TextView[2]").getText().equals("一次性\n密码")) {
             test.getVcode();
         }else {
             test.clickSystemPopupWindows();

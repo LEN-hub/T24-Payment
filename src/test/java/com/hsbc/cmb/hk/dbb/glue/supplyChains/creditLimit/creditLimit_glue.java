@@ -93,4 +93,14 @@ public class creditLimit_glue {
     public void iShouldSeeSupplierProceedButtonAndClickOnTheUnderWritingApprovalPage() {
         creditLimit_step.clickSupplierProceedBtn();
     }
+
+    @When("^I click buyer Test Data Assign to Me button on UnderWriting Approval page$")
+    public void iClickBuyerTestDataAssignToMeButtonOnUnderWritingApprovalPage() {
+        creditLimit_step.clickBuyerTestDataAssignBtn();
+    }
+
+    @When("^I click Supplier Test Data Assign to Me button on UnderWriting Approval page$")
+    public void iClickSupplierTestDataAssignToMeButtonOnUnderWritingApprovalPage() {
+        creditLimit_step.clickSupplierTestDataAssignBtn();
+    }
 }
