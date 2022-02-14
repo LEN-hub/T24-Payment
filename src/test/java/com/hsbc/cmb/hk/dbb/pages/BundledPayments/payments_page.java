@@ -16,11 +16,11 @@ public class payments_page extends PageObject{
     @FindBy(xpath ="//div[@data-key='f1ioscbb']/button/span")
     public WebElementFacade editGroup;
 
-    @FindBy(xpath ="//span[text()='Confirm']")
+    @FindBy(xpath ="//div[@data-key='f2dgniq3']//span/button[2]/span")
     public WebElementFacade Confirm;
 
-   @FindBy(xpath ="//div[@data-key='f1vmapd3']//div/input")
-   public WebElementFacade buyerS;   //通过买家筛选值
+   @FindBy(xpath ="//div[@data-key='f2a0g0cb']//input")
+   public WebElementFacade RequesterOne;   //通过供应商筛选值
 
     @FindBy(xpath ="//p[@class='lls-form-item']//i")  //刷新
     public WebElementFacade Reset;
@@ -31,8 +31,8 @@ public class payments_page extends PageObject{
     @FindBy(xpath ="//div[@aria-controls='pane-1']")
     public WebElementFacade AssignToMeS;
 
-//    @FindBy(xpath ="//div[@data-key='f1vmapd3']//div/input")
-//    public WebElementFacade buyerS;   //通过买家筛选值
+   @FindBy(xpath ="//div[@data-key='f0bvpsgo']//input")
+    public WebElementFacade RequesterTwo;   //通过供应商筛选值
 
     @FindBy(xpath ="//span[@data-key='f3oj1ki5']/button/span")
     public  WebElementFacade Proceed;
@@ -64,6 +64,9 @@ public class payments_page extends PageObject{
     public  WebElementFacade ReviewDisbursement;
 
     //通过买家筛选值
+    @FindBy(xpath ="//div[@data-key='f2kk04pf']//input")
+    public WebElementFacade Requester3;
+
     @FindBy(xpath ="////span[@data-key='f21orqn5']/button/span")
     public  WebElementFacade PROCEEDS;
 
@@ -74,7 +77,8 @@ public class payments_page extends PageObject{
     @FindBy(xpath ="//span[text()='Confirm Disbursement']")
     public  WebElementFacade ConfirmDisbursement;
 
-
+    @FindBy(xpath ="//div[@data-key='f2q385s2']//input")
+    public  WebElementFacade Requester4;
 
 
 }

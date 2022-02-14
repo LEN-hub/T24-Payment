@@ -14,7 +14,7 @@ public class testMobile {
         if (!MobileConfig.driver.findElementById("vkey_title").getText().equals("数字令牌")) {
             test.clickSystemPopupWindows();
             test.clickStartButton();
-            test.logonVkeyApp("200007", "0003@qq.com", "Gl123456-");
+            test.logonVkeyApp("201019", "17762216590@163.com", "Gl123456-");
             test.clickLetUsStart();
             test.verification();
             test.clickCreatPassword();
