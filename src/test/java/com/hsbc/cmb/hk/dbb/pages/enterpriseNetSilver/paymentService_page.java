@@ -4,7 +4,15 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
-public class receiptAndPaymentService_page extends PageObject {
+import java.util.List;
+
+public class paymentService_page extends PageObject {
+
+    @FindBy(xpath = "//div[@class='el-message-box__title']/span")
+    public WebElementFacade popWindowsTitle;
+
+    @FindBy(xpath = "//div[@class='el-message-box__btns']/button[2]")
+    public WebElementFacade popWindowsOk;
 
     @FindBy(xpath = "//ul[@class='el-menu--horizontal el-menu']/li[5]//span")
     public WebElementFacade transferAndRemittanceMenu;
@@ -19,7 +27,7 @@ public class receiptAndPaymentService_page extends PageObject {
     public WebElementFacade rollOutCurrencySelectWindows;
 
     @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//li")
-    public WebElementFacade rollOutAccount;
+    public List<WebElementFacade> rollOutAccount;
 
 
 }
