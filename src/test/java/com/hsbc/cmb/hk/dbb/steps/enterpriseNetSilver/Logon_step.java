@@ -101,7 +101,6 @@ public class Logon_step extends ScenarioSteps {
         enterKeys.EnterKeys(MobileConfig.vcode.substring(4,5));
         logonPage.vcode6.click();
         enterKeys.EnterKeys(MobileConfig.vcode.substring(5,6));
-        bddUtil.sleep(10000000);
     }
 
     @Step
@@ -123,7 +122,6 @@ public class Logon_step extends ScenarioSteps {
             test.verification();
             test.clickCreatPassword();
         }
-        test.getVcode();
     }
 
     @Step
