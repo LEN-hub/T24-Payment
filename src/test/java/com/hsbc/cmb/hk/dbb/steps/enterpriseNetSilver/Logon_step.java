@@ -122,7 +122,6 @@ public class Logon_step extends ScenarioSteps {
             test.verification();
             test.clickCreatPassword();
         }
-
     }
 
     @Step
