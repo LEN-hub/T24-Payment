@@ -6,6 +6,10 @@ Feature: accountService
     Given logon "netSilverEnv" on enterprise net silver
     When click the Account Details menu in the account
 
+  Scenario:account details page display
+    Given logon "netSilverEnv" on enterprise net silver
+    When account details page display
+
   Scenario:alias setting main process
     Given logon "netSilverEnv" on enterprise net silver
     When click the Account Details menu and set alias information
@@ -32,7 +36,15 @@ Feature: accountService
   Scenario:personal center online banking transaction query screening conditions
     Given logon "netSilverEnv" on enterprise net silver
     When personal center online banking transaction query screening conditions
-  @ext
+
   Scenario:personal center online banking transaction query submission time selection nearly seven days
     Given logon "netSilverEnv" on enterprise net silver
     When personal center online banking transaction query submission time selection nearly seven days
+
+  Scenario:Transaction details list query process
+    Given logon "netSilverEnv" on enterprise net silver
+    When click account Details to query and verify the presence of elements
+
+  Scenario:Transaction query page flow
+    Given logon "netSilverEnv" on enterprise net silver
+    When click the Account details query and click the query button to query

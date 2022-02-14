@@ -56,6 +56,44 @@ public class accountService_step extends ScenarioSteps {
     }
 
     @Step
+    public void accountInformationDetails(){
+        accountService_page.accountInformationDetails.isDisplayed();
+        accountService_page.basicInformation.isDisplayed();
+        accountService_page.backBtn.isDisplayed();
+        accountService_page.detailsQuery.isDisplayed();
+        accountService_page.domesticTransferBtn.isDisplayed();
+        accountService_page.regularBasisBtn.isDisplayed();
+    }
+
+    @Step
+    public void accountAndCurrency(){
+        accountService_page.accountAndCurrency.isDisplayed();
+        accountService_page.accountAlias.isDisplayed();
+        accountService_page.balance.isDisplayed();
+        accountService_page.balanceSecond.isDisplayed();
+        Actions action=new Actions(getDriver());
+        action.moveToElement(accountService_page.detailsList).perform();
+        accountService_page.detailedQuery.isDisplayed();
+        accountService_page.domesticTransfer.isDisplayed();
+        accountService_page.regularBasis.isDisplayed();
+        accountService_page.accountDetails.isDisplayed();
+    }
+
+    @Step
+    public void accountTitle(){
+        accountService_page.accountTitle.isDisplayed();
+        accountService_page.currencyTitle.isDisplayed();
+        accountService_page.selectDataTitle.isDisplayed();
+        accountService_page.resetBtn.isDisplayed();
+        accountService_page.queryButton.isDisplayed();
+    }
+
+    @Step
+    public void queryButton(){
+        accountService_page.queryButton.click();
+    }
+
+    @Step
     public void clickEditAlias(){
         accountService_page.clickEditAlias.click();
     }

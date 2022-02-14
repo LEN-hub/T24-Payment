@@ -19,8 +19,62 @@ public class accountService_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-tooltip btn-icon']/img")
     public WebElementFacade detailsList;
 
+    @FindBy(xpath = "//p[@class='line_style acctNo_style']")
+    public WebElementFacade accountAndCurrency;
+
+    @FindBy(xpath = "//label[@for='payerAcctObj']")
+    public WebElementFacade accountTitle;
+
+    @FindBy(xpath = "//label[@for='payerAcctObj']/parent::div/following-sibling::div//label")
+    public WebElementFacade currencyTitle;
+
+    @FindBy(xpath = "//label[@for='payerAcctObj']/parent::div/parent::div/parent::div/following-sibling::div//label")
+    public WebElementFacade selectDataTitle;
+
+    @FindBy(xpath = "//label[@for='payerAcctObj']/parent::div/parent::div/parent::div/following-sibling::div[2]//div[@class='ui-button secondary common']//div[@class='btn_box']")
+    public WebElementFacade resetBtn;
+
+    @FindBy(xpath = "//label[@for='payerAcctObj']/parent::div/parent::div/parent::div/following-sibling::div[2]//div[@class='ui-button primary common']//div[@class='btn_box']")
+    public WebElementFacade queryButton;
+
+    @FindBy(xpath = "//p[@class='line_style alis']/span")
+    public WebElementFacade accountAlias;
+
+    @FindBy(xpath = "//div[@class='bankcard-info']/span[1]")
+    public WebElementFacade balance;
+
+    @FindBy(xpath = "//div[@class='bankcard-info']/span[2]")
+    public WebElementFacade balanceSecond;
+
+    @FindBy(xpath = "//div[@class='el-tooltip__popper is-light']/div[1]/div[1]")
+    public WebElementFacade detailedQuery;
+
+    @FindBy(xpath = "//div[@class='el-tooltip__popper is-light']/div[1]/div[2]")
+    public WebElementFacade domesticTransfer;
+
+    @FindBy(xpath = "//div[@class='el-tooltip__popper is-light']/div[1]/div[3]")
+    public WebElementFacade regularBasis;
+
     @FindBy(xpath = "//div[@class='el-tooltip__popper is-light']/div[1]/div[4]")
     public WebElementFacade accountDetails;
+
+    @FindBy(xpath = "//div[@class='ui-theme-container-main']/div[2]//div[contains(text(),'A.')]")
+    public WebElementFacade accountInformationDetails;
+
+    @FindBy(xpath = "//div[@class='ui-theme-container-main']/div[2]//div[contains(text(),'B.')]/parent::div/parent::div/following-sibling::div/child::div[1]//div[@class='btn_box']")
+    public WebElementFacade backBtn;
+
+    @FindBy(xpath = "//div[@class='ui-theme-container-main']/div[2]//div[contains(text(),'B.')]/parent::div/parent::div/following-sibling::div/child::div[2]//div[@class='btn_box']")
+    public WebElementFacade detailsQuery;
+
+    @FindBy(xpath = "//div[@class='ui-theme-container-main']/div[2]//div[contains(text(),'B.')]/parent::div/parent::div/following-sibling::div/child::div[3]//div[@class='btn_box']")
+    public WebElementFacade domesticTransferBtn;
+
+    @FindBy(xpath = "//div[@class='ui-theme-container-main']/div[2]//div[contains(text(),'B.')]/parent::div/parent::div/following-sibling::div/child::div[4]//div[@class='btn_box']")
+    public WebElementFacade regularBasisBtn;
+
+    @FindBy(xpath = "//div[@class='ui-theme-container-main']/div[2]//div[contains(text(),'B.')]")
+    public WebElementFacade basicInformation;
 
     @FindBy(xpath = "//label[@for='payerAcctObj']/following-sibling::div//span[@class='el-input__suffix-inner']")
     public WebElementFacade payerAccount;
@@ -40,7 +94,7 @@ public class accountService_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-message-box__title']/span")
     public WebElementFacade popWindowsTitle;
 
-    @FindBy(xpath = "//span[contains(text(),'ok')]")
+    @FindBy(xpath = "//div[@class='el-message-box__btns']/button[2]")
     public WebElementFacade popWindowsOk;
 
     @FindBy(xpath = "//p[@class='line_style alis']/span")

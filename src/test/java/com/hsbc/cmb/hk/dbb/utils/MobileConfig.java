@@ -19,6 +19,7 @@ public class MobileConfig {
     HaveOrNo checkElement=new HaveOrNo();
     private BDDUtil bddUtil;
     public static String vcode;
+    public static String vxcode;
 
     public void testMobile() throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
@@ -143,6 +144,32 @@ public class MobileConfig {
                 IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String transactionCode(){
+        MobileConfig.driver.findElementById("btn_tc").click();
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[1]").sendKeys("1");
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[2]").sendKeys("4");
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[3]").sendKeys("7");
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[4]").sendKeys("2");
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[5]").sendKeys("5");
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[6]").sendKeys("8");
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[1]").sendKeys("1");
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[2]").sendKeys("2");
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[3]").sendKeys("3");
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[4]").sendKeys("4");
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[5]").sendKeys("5");
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[6]").sendKeys("6");
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[7]").sendKeys("7");
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[8]").sendKeys("8");
+        String vxcode1 = MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[1]").getText();
+        String vxcode2 = MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[2]").getText();
+        String vxcode3 = MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[3]").getText();
+        String vxcode4 = MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[4]").getText();
+        String vxcode5 = MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[5]").getText();
+        String vxcode6 = MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[6]").getText();
+        vxcode = vxcode1+vxcode2+vxcode3+vxcode4+vxcode5+vxcode6;
+        return vxcode;
     }
 
 

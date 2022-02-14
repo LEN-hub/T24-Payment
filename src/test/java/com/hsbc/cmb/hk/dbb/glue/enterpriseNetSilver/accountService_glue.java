@@ -29,6 +29,7 @@ public class accountService_glue {
         accountService_step.accountInformationQuery();
         accountService_step.detailsList();
         accountService_step.accountDetails();
+        accountService_step.accountInformationDetails();
     }
 
     @When("^click the Account Details menu and set alias information$")
@@ -83,4 +84,27 @@ public class accountService_glue {
     public void personalCenterOnlineBankingTransactionQuerySubmissionTimeSelectionNearlySevenDays() {
         accountService_step.selectSevenDay();
     }
+
+    @When("^account details page display$")
+    public void accountDetailsPageDisplay() {
+        accountService_step.selectAccountDetails();
+        accountService_step.accountInformationQuery();
+        accountService_step.accountAndCurrency();
+    }
+
+    @When("^click account Details to query and verify the presence of elements$")
+    public void clickAccountDetailsToQueryAndVerifyThePresenceOfElements() {
+        accountService_step.selectAccountDetails();
+        accountService_step.accountDetailsQuery();
+        accountService_step.accountTitle();
+    }
+
+    @When("^click the Account details query and click the query button to query$")
+    public void clickTheAccountDetailsQueryAndClickTheQueryButtonToQuery() {
+        accountService_step.selectAccountDetails();
+        accountService_step.accountDetailsQuery();
+        accountService_step.accountTitle();
+        accountService_step.queryButton();
+    }
+
 }

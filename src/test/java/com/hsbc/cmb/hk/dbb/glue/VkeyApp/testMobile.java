@@ -19,7 +19,7 @@ public class testMobile {
             test.verification();
             test.clickCreatPassword();
         }
-        test.getVcode();
+        test.transactionCode();
 
 //        // TODO Auto-generated method stub
 //        //1.添加配置，创建DesiredCapabilities对象
