@@ -33,14 +33,19 @@ public class payments_steps extends ScenarioSteps {
     public void clickRequestDisbursement() {paymentsPage.requestDisbursement.click();}
 
     @Step
-    public void clickEditGroup() {paymentsPage.editGroup.click();}
+    public void clickEditGroup() {
+        paymentsPage.editGroup.click();
+        bddUtil.sleep(5);}
 
     @Step
-    public void clickConfirm() {paymentsPage.Confirm.click();}
+    public void clickConfirm() {
+        paymentsPage.Confirm.click();
+        bddUtil.sleep(5);}
 
    @Step     //通过买家/供应商筛选值,点击刷新
-   public void clickBuyers() {
-        paymentsPage.buyerS.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+   public void clickRequesterOne() {
+        paymentsPage.RequesterOne.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        bddUtil.sleep(3);
         paymentsPage.Reset.click();
     }
 
@@ -52,8 +57,11 @@ public class payments_steps extends ScenarioSteps {
     public void clickAssignToMeS() {paymentsPage.AssignToMeS.click();}
 
 
-    //    @Step
-//    public void clickBuyers() { paymentsPage.buyerS.click();} //通过买家筛选值
+    @Step     //通过买家/供应商筛选值,点击刷新
+    public void clickRequesterTwo() {
+        paymentsPage.RequesterTwo.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        paymentsPage.Reset.click();
+    }
 
     @Step
     public void clickProceed() {paymentsPage.Proceed.click();}
@@ -83,7 +91,11 @@ public class payments_steps extends ScenarioSteps {
     @Step
     public void clickReviewDisbursement(){paymentsPage.ReviewDisbursement.click();}
 
-    //通过买家筛选值
+    @Step     //通过买家/供应商筛选值,点击刷新
+    public void clickRequester3() {
+        paymentsPage.Requester3.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        paymentsPage.Reset.click();
+    }
 
     @Step
     public void clickPROCEEDS(){paymentsPage.PROCEEDS.click();}
@@ -96,6 +108,10 @@ public class payments_steps extends ScenarioSteps {
     public void clickConfirmDisbursement(){paymentsPage.ConfirmDisbursement.click();}
 
     //通过买家筛选值
-
+    @Step     //通过买家/供应商筛选值,点击刷新
+    public void clickRequester4() {
+        paymentsPage.Requester4.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        paymentsPage.Reset.click();
+    }
 
 }
