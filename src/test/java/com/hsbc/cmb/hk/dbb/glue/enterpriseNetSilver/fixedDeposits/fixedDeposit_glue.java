@@ -37,7 +37,7 @@ public class fixedDeposit_glue {
     }
     @And("View details of fixedDeposit")
     public void viewDetailsOfFixedDeposit(){
-        fixedDeposit_step.clickDetails();
+        //fixedDeposit_step.clickDetails();
         fixedDeposit_step.clickFixedDepositsMenu();
     }
 }

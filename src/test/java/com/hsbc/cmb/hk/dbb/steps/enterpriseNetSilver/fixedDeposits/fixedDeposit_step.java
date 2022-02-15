@@ -11,7 +11,7 @@ public class fixedDeposit_step extends ScenarioSteps {
     private BDDUtil bddUtil;
 
     public void clickFixedDepositsMenu(){
-        if(fixedDeposit_page.checkPopup.isDisplayed()){
+        if(fixedDeposit_page.checkPopup.isVisible()){
             fixedDeposit_page.clickOk.click();
         }
         fixedDeposit_page.clickFixedDeposit.click();
