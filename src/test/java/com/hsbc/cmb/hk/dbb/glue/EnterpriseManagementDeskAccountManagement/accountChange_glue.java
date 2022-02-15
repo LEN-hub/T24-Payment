@@ -8,6 +8,7 @@ import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 
+import java.awt.*;
 import java.net.MalformedURLException;
 
 public class accountChange_glue {
@@ -91,7 +92,7 @@ public class accountChange_glue {
     }
 
     @When("^I typed TC Code and click Authenticate Now$")
-    public void iTypedTCCodeAndClickAuthenticateNow() throws MalformedURLException, InterruptedException {
+    public void iTypedTCCodeAndClickAuthenticateNow() throws MalformedURLException, InterruptedException, AWTException {
         accountChange_steps.vkeyTCCode();
         accountChange_steps.enterTcCode();
         accountChange_steps.authenticateNowBtn();

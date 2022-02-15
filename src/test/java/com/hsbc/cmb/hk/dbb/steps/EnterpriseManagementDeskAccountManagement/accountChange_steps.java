@@ -3,10 +3,12 @@ package com.hsbc.cmb.hk.dbb.steps.EnterpriseManagementDeskAccountManagement;
 import com.hsbc.cmb.hk.dbb.pages.EnterpriseManagementDeskAccountManagement.accountChange_page;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.Logon_step;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import com.hsbc.cmb.hk.dbb.utils.EnterKeys;
 import com.hsbc.cmb.hk.dbb.utils.MobileConfig;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.interactions.Actions;
 
+import java.awt.*;
 import java.net.MalformedURLException;
 
 public class accountChange_steps extends ScenarioSteps {
@@ -76,13 +78,20 @@ public class accountChange_steps extends ScenarioSteps {
         accountChange_page.authenticateNowBtn.click();
     }
 
-    public void enterTcCode(){
-        accountChange_page.enterFirstTcCode.sendKeys(MobileConfig.vxcode.substring(0,1));
-        accountChange_page.enterSecondeTcCode.sendKeys(MobileConfig.vxcode.substring(1,2));
-        accountChange_page.enterThirdTcCode.sendKeys(MobileConfig.vxcode.substring(2,3));
-        accountChange_page.enterFourTcCode.sendKeys(MobileConfig.vxcode.substring(3,4));
-        accountChange_page.enterFiveTcCode.sendKeys(MobileConfig.vxcode.substring(4,5));
-        accountChange_page.enterSixTcCode.sendKeys(MobileConfig.vxcode.substring(5,6));
+    public void enterTcCode() throws AWTException {
+        EnterKeys enterKeys = new EnterKeys();
+        accountChange_page.enterFirstTcCode.click();
+        enterKeys.EnterKeys(MobileConfig.vxcode.substring(0,1));
+        accountChange_page.enterSecondeTcCode.click();
+        enterKeys.EnterKeys(MobileConfig.vxcode.substring(1,2));
+        accountChange_page.enterThirdTcCode.click();
+        enterKeys.EnterKeys(MobileConfig.vxcode.substring(2,3));
+        accountChange_page.enterFourTcCode.click();
+        enterKeys.EnterKeys(MobileConfig.vxcode.substring(3,4));
+        accountChange_page.enterFiveTcCode.click();
+        enterKeys.EnterKeys(MobileConfig.vxcode.substring(4,5));
+        accountChange_page.enterSixTcCode.click();
+        enterKeys.EnterKeys(MobileConfig.vxcode.substring(5,6));
     }
 
     public void clickNextBtn(){

@@ -1,6 +1,5 @@
 package com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver;
 
-import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.accountService_step;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.paymentService_step;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
 import cucumber.api.java.en.When;
@@ -14,7 +13,10 @@ public class paymentService_glue {
     public Pages pages;
 
     private BDDUtil bddUtil;
+
+    @Steps
     private paymentService_step paymentService_step;
+
 
     @When("^I will exchange information to fill in$")
     public void iWillExchangeInformationToFillIn() {

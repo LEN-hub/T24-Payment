@@ -5,7 +5,6 @@ import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
 import com.hsbc.cmb.hk.dbb.utils.JRandomNameTool;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;

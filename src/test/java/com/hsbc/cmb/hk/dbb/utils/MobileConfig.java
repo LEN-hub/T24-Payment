@@ -147,8 +147,9 @@ public class MobileConfig {
         }
     }
 
-    public String transactionCode(){
+    public String transactionCode() throws InterruptedException {
         MobileConfig.driver.findElementById("btn_tc").click();
+        Thread.sleep(3000);
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[1]").sendKeys("1");
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[2]").sendKeys("4");
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[3]").sendKeys("7");
@@ -170,7 +171,6 @@ public class MobileConfig {
         String vxcode5 = MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[5]").getText();
         String vxcode6 = MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[6]").getText();
         vxcode = vxcode1+vxcode2+vxcode3+vxcode4+vxcode5+vxcode6;
-        System.out.println(vxcode);
         return vxcode;
     }
     public void quitAndroid() {
