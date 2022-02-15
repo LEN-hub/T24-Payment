@@ -19,7 +19,6 @@ public class accountChange_steps extends ScenarioSteps {
         if (accountChange_page.popWindowsTitle.isVisible()){
             accountChange_page.popWindowsOk.click();
         }
-//        accountChange_page.ok.click();
         Actions action = new Actions(getDriver());
         action.moveToElement(accountChange_page.EnterpriseManagementDesk).perform();
     }

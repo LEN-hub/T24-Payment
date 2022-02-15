@@ -7,12 +7,18 @@ import com.hsbc.cmb.hk.dbb.utils.RandomPhoneNumber;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.interactions.Actions;
 
+import static com.hsbc.cmb.hk.dbb.utils.RandomPhoneNumber.randomPhoneNum;
+
 public class userManagement_steps extends ScenarioSteps {
     private BDDUtil bddUtil;
-    private RandomPhoneNumber RandomPhoneNumber;
+    public static String code = randomPhoneNum();
 
-        private userManagement_page userManagement_page;
+    private userManagement_page userManagement_page;
+
     public void selectEnterpriseManagementDesk() {
+        if (userManagement_page.popWindowsTitle.isVisible()){
+            userManagement_page.popWindowsOk.click();
+        }
         Actions action = new Actions(getDriver());
         action.moveToElement(userManagement_page.EnterpriseManagementDesk).perform();
     }
@@ -26,13 +32,14 @@ public class userManagement_steps extends ScenarioSteps {
 
     public void clickModifyInformation(){userManagement_page.modifyInformation.click();}
 
-
-    public void clickMobilePhonNo(String Value){userManagement_page.mobilePhoneNo.sendKeys(Value);}
+    public void clickMobilePhonNo(){
+        userManagement_page.mobilePhoneNo.clear();
+        userManagement_page.mobilePhoneNo.sendKeys(code);}
 
     public void clickNext(){userManagement_page.clickNext.click();}
 
-    public void clicksumbits(){userManagement_page.sumbits.click();}
+    public void clickSumbits(){userManagement_page.sumbits.click();}
 
-    public void clickcodeNext(){userManagement_page.codeNext.click();}
+    public void clickCodeNext(){userManagement_page.codeNext.click();}
 
 }

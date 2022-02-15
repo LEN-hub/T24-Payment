@@ -21,7 +21,6 @@ public class MobileConfig {
     private BDDUtil bddUtil;
     public static String vcode;
     public static String vxcode;
-    private accountChange_steps accountChange_steps;
 
     public void testMobile() throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
@@ -156,14 +155,14 @@ public class MobileConfig {
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[4]").sendKeys("2");
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[5]").sendKeys("5");
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_vkey_pin')]/child::android.widget.EditText[6]").sendKeys("8");
-        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[1]").sendKeys(accountChange_steps.tcCode().substring(0,1));
-        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[2]").sendKeys(accountChange_steps.tcCode().substring(1,2));
-        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[3]").sendKeys(accountChange_steps.tcCode().substring(2,3));
-        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[4]").sendKeys(accountChange_steps.tcCode().substring(3,4));
-        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[5]").sendKeys(accountChange_steps.tcCode().substring(4,5));
-        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[6]").sendKeys(accountChange_steps.tcCode().substring(5,6));
-        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[7]").sendKeys(accountChange_steps.tcCode().substring(6,7));
-        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[8]").sendKeys(accountChange_steps.tcCode().substring(7,8));
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[1]").sendKeys(accountChange_steps.tcCode.substring(0,1));
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[2]").sendKeys(accountChange_steps.tcCode.substring(1,2));
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[3]").sendKeys(accountChange_steps.tcCode.substring(2,3));
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[4]").sendKeys(accountChange_steps.tcCode.substring(3,4));
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[5]").sendKeys(accountChange_steps.tcCode.substring(4,5));
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[6]").sendKeys(accountChange_steps.tcCode.substring(5,6));
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[7]").sendKeys(accountChange_steps.tcCode.substring(6,7));
+        MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_tc_sign')]/child::android.widget.EditText[8]").sendKeys(accountChange_steps.tcCode.substring(7,8));
         String vxcode1 = MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[1]").getText();
         String vxcode2 = MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[2]").getText();
         String vxcode3 = MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[3]").getText();

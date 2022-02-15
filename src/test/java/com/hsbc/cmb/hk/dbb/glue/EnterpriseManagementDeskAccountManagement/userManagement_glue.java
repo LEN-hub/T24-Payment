@@ -18,30 +18,23 @@ public class userManagement_glue {
     private userManagement_steps  userManagement_steps;
     private BDDUtil bddUtil;
 
+    @When("^I click on the Enterprise Administration as well user administration$")
+    public void iClickOnTheEnterpriseAdministrationAsWellUserAdministration() {
 
-
-    @When("^I click on the Enterprise Administration Desk as well as user administration$")
-    public void iClickOnTheEnterpriseAdministrationDeskAsWellAsUserAdministration() {
         userManagement_steps.selectEnterpriseManagementDesk();
         userManagement_steps.clickAccountManagement();
-
     }
+
+
 
     @When("^I click modify info menu$")
     public void iClickModifyInfoMenu() {
         userManagement_steps.selectTheMenu();
         userManagement_steps.clickModifyInformation();
-        userManagement_steps.clickMobilePhonNo("RandomPhoneNumber");
+        userManagement_steps.clickMobilePhonNo();
         userManagement_steps.clickNext();
-        userManagement_steps.clicksumbits();
-        userManagement_steps.clickcodeNext();
+        userManagement_steps.clickSumbits();
+        userManagement_steps.clickCodeNext();
 
-
-
-
-    }
 }
-
-
-
-
+        }

@@ -7,8 +7,6 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class accountChange_page extends PageObject {
 
-//    @FindBy(xpath = "//button[@class='el-button el-button--default el-button--small el-button--primary ']/span")
-//    public WebElementFacade ok;
     @FindBy(xpath = "//div[@class='el-message-box__title']/span")
     public WebElementFacade popWindowsTitle;
 
@@ -70,7 +68,7 @@ public class accountChange_page extends PageObject {
     public WebElementFacade eightTCCode;
 
     @FindBy(xpath = "//div[@class='demo-tips']/div[4]//div[@class='btn_box']")
-    public WebElementFacade clcikNextBtn;
+    public WebElementFacade clcikNextBtn;  //获取TC码后点击下一步
 
     @FindBy(xpath = "//div[@class='codebox']/span[1]")
     public WebElementFacade enterFirstTcCode;

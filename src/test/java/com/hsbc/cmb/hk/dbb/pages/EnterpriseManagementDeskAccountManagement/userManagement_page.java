@@ -5,8 +5,12 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
 public class userManagement_page extends PageObject {
-//    @FindBy(xpath = "//button[@class='el-button el-button--default el-button--small el-button--primary ']/span")
-//    public WebElementFacade ok;
+    @FindBy(xpath = "//div[@class='el-message-box__title']/span")
+    public WebElementFacade popWindowsTitle;
+
+    @FindBy(xpath = "//div[@class='el-message-box__btns']/button[2]")
+    public WebElementFacade popWindowsOk;
+
     @FindBy(xpath = "//div[@class='ui-layout-header-aside-content']//li[6]//span")
     public WebElementFacade EnterpriseManagementDesk; //企业管理台
 
@@ -31,7 +35,23 @@ public class userManagement_page extends PageObject {
     @FindBy(xpath = "//div[text()='Next']")
     public WebElementFacade codeNext;  //TC码
 
+//需要验证
 
 
+//新增用户
+    @FindBy(xpath = "//div[@class='ui-container-full__body']/div/div[2]/div/div")
+    public WebElementFacade addUsers;
+
+    @FindBy(xpath = "//label[@for='callNm']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade call; //称呼
+
+    @FindBy(xpath = "//div[@class='el-select-dropdown el-popper']//li[1]/span")
+    public WebElementFacade Mr;
+
+    @FindBy(xpath = "//label[@for='userNm']/following-sibling::div//input")
+    public WebElementFacade sendkeyName;
+
+    @FindBy(xpath = "//label[@for='certfctTypeCd']/following-sibling::div/label[2]//span[@class='el-radio__inner']")
+    public WebElementFacade clickPassport;
 
 }
