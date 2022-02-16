@@ -36,7 +36,7 @@ public class Logon_glue {
             logon_step.clickLogonBtn();
             logon_step.getVcodeTitle();
             logon_step.clickNextBtn();
-            logon_step.vkeyAppVcode();
+             logon_step.vkeyAppVcode();
             logon_step.enterVcode();
             logon_step.getAuthenticateNowBtn();
             logon_step.resetPassword();

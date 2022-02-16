@@ -27,7 +27,7 @@ public class createBuyerCreditFile_glue {
         customers_step.getClickCustomersMenu();
         createBuyerCreditFile_step.clickBuyerCreditProfileList();//进入买方信用档案列表
         createBuyerCreditFile_step.clickCreateNewUnderwriting();
-        createBuyerCreditFile_step.createNewUnderwriting();//创建买方信用档案
+       // createBuyerCreditFile_step.createNewUnderwriting();//创建买方信用档案
         bddUtil.sleep(2);
     }
 
