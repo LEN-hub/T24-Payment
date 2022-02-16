@@ -108,7 +108,6 @@ public class payments_steps extends ScenarioSteps {
     public void clickConfirmDisbursement(){paymentsPage.ConfirmDisbursement.click();}
 
     //通过买家筛选值
-<<<<<<< HEAD
 
     @Step
     public void clickBatchRepaymentBtn(){
@@ -162,20 +161,19 @@ public class payments_steps extends ScenarioSteps {
     }
 
     @Step
-    public void inputOtherParameter(){
+    public void inputOtherParameter() {
         paymentsPage.repaymentAmount.sendKeys("10");
         bddUtil.sleep(1);
         paymentsPage.commission.click();
         paymentsPage.repaymentData.sendKeys(bddUtil.dateFormate());
         paymentsPage.commission.click();
         paymentsPage.submitBtn.click();
+    }
 
-=======
     @Step     //通过买家/供应商筛选值,点击刷新
     public void clickRequester4() {
         paymentsPage.Requester4.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         paymentsPage.Reset.click();
->>>>>>> 8db4dfed7795dd83dabc0f964abcb3c6be55a39f
     }
 
 }

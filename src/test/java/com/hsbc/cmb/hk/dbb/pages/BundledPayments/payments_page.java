@@ -79,14 +79,11 @@ public class payments_page extends PageObject{
     @FindBy(xpath ="//span[text()='Confirm Disbursement']")
     public  WebElementFacade ConfirmDisbursement;
 
-<<<<<<< HEAD
 
     @FindBy(xpath = "//span[text()='Batch Repayment']")
     public WebElementFacade batchRepaymentBtn;
-=======
     @FindBy(xpath ="//div[@data-key='f2q385s2']//input")
     public  WebElementFacade Requester4;
->>>>>>> 8db4dfed7795dd83dabc0f964abcb3c6be55a39f
 
     @FindBy(xpath = "//span[text()='Repayment Management']")
     public WebElementFacade repaymentTitle;
