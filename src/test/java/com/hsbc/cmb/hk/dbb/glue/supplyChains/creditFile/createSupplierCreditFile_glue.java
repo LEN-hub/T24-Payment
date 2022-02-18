@@ -21,8 +21,8 @@ public class createSupplierCreditFile_glue {
     private createSupplierCreditFile_step createSupplierCreditFile_step;
     private BDDUtil bddUtil;
 
-    public String  companyName = "23J1";
-    public String  buyerName = "Gldb";
+    public String  companyName = "uO56";
+    public String  buyerName = "4Qw2";
 
 
     @When("^login successfully and click the SCF link to createSupplierCreditFile$")
