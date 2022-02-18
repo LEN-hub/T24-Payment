@@ -1,4 +1,4 @@
-@accountService
+@fixedDeposit
 Feature: fixedDeposit
 
   Scenario:fixedDeposit_SGD_SixMonth_DoNotRenewOrWithdrawAutomatically
