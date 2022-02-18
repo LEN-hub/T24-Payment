@@ -27,10 +27,9 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         createBuyerCreditFile_page.clickCreateNewUnderwriting.click();
     }
     @Step
-    public void createNewUnderwriting(){
+    public void createNewUnderwriting(String companyName){
         createBuyerCreditFile_page.clickToGetCustomerName.click();
-        bddUtil.scrollWindowToElement(createBuyerCreditFile_page.getBuyerName);
-        createBuyerCreditFile_page.getBuyerName.click();
+        bddUtil.scrollWindowToElement(createBuyerCreditFile_page.find(By.xpath("//span[text()='"+ companyName +"']"))).click();
         createBuyerCreditFile_page.clickToGetUnderwritingMode.click();
         bddUtil.scrollWindowToElement(createBuyerCreditFile_page.getUnderwritingMode);
         createBuyerCreditFile_page.getUnderwritingMode.click();

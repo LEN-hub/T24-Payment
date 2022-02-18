@@ -24,7 +24,7 @@ public class createBuyerCreditFileReview_glue {
     private createBuyerCreditFileReview_step createBuyerCreditFileReview_step;
     public static String envTag;
 
-    public String buyer = "AutoTestBuyer_chen";
+    public String buyer = "4Qw2";
 
     @And("^to Buyer Credit Profile Review page$")
     public void toBuyerCreditProfileReviewPage(){
