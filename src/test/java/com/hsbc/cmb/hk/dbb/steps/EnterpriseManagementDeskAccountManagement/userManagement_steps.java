@@ -4,13 +4,16 @@ import com.hsbc.cmb.hk.dbb.pages.EnterpriseManagementDeskAccountManagement.accou
 import com.hsbc.cmb.hk.dbb.pages.EnterpriseManagementDeskAccountManagement.userManagement_page;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.Logon_step;
 import com.hsbc.cmb.hk.dbb.utils.*;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
 import java.net.MalformedURLException;
+import java.util.List;
 
 import static com.hsbc.cmb.hk.dbb.steps.EnterpriseManagementDeskAccountManagement.accountChange_steps.tcCode;
 import static com.hsbc.cmb.hk.dbb.utils.RandomPhoneNumber.randomPhoneNum;
@@ -20,6 +23,7 @@ public class userManagement_steps extends ScenarioSteps {
     private BDDUtil bddUtil;
     public static String code = randomPhoneNum();
     public static String content = JRandomNameTool.getStringRandom(6);
+    public static String verificationCode;
 
     private userManagement_page userManagement_page;
 
@@ -40,19 +44,29 @@ public class userManagement_steps extends ScenarioSteps {
 
 
     public void selectTheMenus() {
-        Actions action = new Actions(getDriver());
-        action.moveToElement(userManagement_page.theMenu).perform();
+        List<WebElementFacade> checkEmail = userManagement_page.checkEmail;
+        List<WebElementFacade> sumNum = userManagement_page.sumNum;
+        a:for (int x = 0; x < sumNum.size(); x++){
+            sumNum.get(sumNum.size()-1).click();
+            for (int i = 0; i < checkEmail.size(); i++) {
+                if (checkEmail.get(checkEmail.size()-1).getText().equals(FileUtils.LastReadFileInput3("emailData"))) {
+                    Actions action = new Actions(getDriver());
+                    action.moveToElement(userManagement_page.find(By.xpath("//div[@class='el-table__body-wrapper is-scrolling-none']//tbody/tr["+checkEmail.size()+"]/td[7]//img"))).perform();
+                    break a;
+                }
+            }
+        }
         bddUtil.sleep(5);
     }
 
     public void clickModifyInformation() {
         userManagement_page.modifyInformation.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(5);
     }
 
     public void clickMobilePHONNO() {
         userManagement_page.mobilePhoneNo.clear();
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
         userManagement_page.mobilePhoneNo.sendKeys(code);
         bddUtil.sleep(3);
     }
@@ -179,15 +193,31 @@ public class userManagement_steps extends ScenarioSteps {
     }
 
     public void clickValidationCode() {
+        bddUtil.sleep(1);
         getDriver().switchTo().alert().getText();
-//        getDriver().switchTo().alert().accept();
-        String value = getDriver().switchTo().alert().getText().substring(7, 12);
+        bddUtil.sleep(2);
+        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
+        bddUtil.sleep(2);
         getDriver().switchTo().alert().accept();
-        System.out.println(value);
+        bddUtil.sleep(1);
     }
 
-    public void sendKeyBoth(){
-        String value= userManagement_page.sendKeysBox.getValue();
+    public void sendKeyBoth() throws AWTException {
+        EnterKeys enterKeys = new EnterKeys();
+        bddUtil.sleep(2);
+        userManagement_page.sendKeysBox.click();
+        enterKeys.EnterKeys(verificationCode.substring(0,1));
+        bddUtil.sleep(3);
+        userManagement_page.secondKeysBox.click();
+        enterKeys.EnterKeys(verificationCode.substring(1,2));
+        userManagement_page.thirdKeysBox.click();
+        enterKeys.EnterKeys(verificationCode.substring(2,3));
+        userManagement_page.fourKeysBox.click();
+        enterKeys.EnterKeys(verificationCode.substring(3,4));
+        userManagement_page.fiveKeysBox.click();
+        enterKeys.EnterKeys(verificationCode.substring(4,5));
+        userManagement_page.sixKeysBox.click();
+        enterKeys.EnterKeys(verificationCode.substring(5,6));
     }
 
     public void clickKeysEmail () {
@@ -223,11 +253,11 @@ public class userManagement_steps extends ScenarioSteps {
 
     public void seeViewLabel(){
         if (userManagement_page.JudgeChinese.getText().equals("停用")){
-
+            System.out.println(userManagement_page.JudgeChinese.getText());
          }else {
                 assertEquals("Disable",userManagement_page.JudgeEnglish.getText());
-            }
-         }
+        }
+    }
 
 
 
@@ -238,7 +268,7 @@ public class userManagement_steps extends ScenarioSteps {
 
     public void seeViewStart(){
         if (userManagement_page.JudgesChinese.getText().equals("正常")){
-
+            System.out.println(userManagement_page.JudgesChinese.getText());
         }else {
             assertEquals("Active",userManagement_page.JudgesEnglish.getText());
         }

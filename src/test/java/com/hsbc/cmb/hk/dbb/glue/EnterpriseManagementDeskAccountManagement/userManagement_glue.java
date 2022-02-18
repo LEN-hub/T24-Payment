@@ -57,7 +57,7 @@ public class userManagement_glue {
 
 //新增用户
     @When("^I click on Add user$")
-    public void iClickOnAddUser() {
+    public void iClickOnAddUser() throws AWTException {
         userManagement_steps.clickAccountManagements();
         userManagement_steps.clickAddUsers();
         userManagement_steps.clickCall();
@@ -74,6 +74,8 @@ public class userManagement_glue {
         userManagement_steps.sendKeyBoth();
         userManagement_steps.clickKeysEmail();
         userManagement_steps.clickValidationEmail();
+        userManagement_steps.clickValidationCode();
+        userManagement_steps.sendKeyBoth();
         userManagement_steps.clickPermissions();
         userManagement_steps.clickNextOne();
         userManagement_steps.clickNextOne();

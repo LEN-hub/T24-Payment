@@ -6,6 +6,8 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.util.List;
+
 public class userManagement_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-message-box__title']/span")
     public WebElementFacade popWindowsTitle;
@@ -132,11 +134,38 @@ public class userManagement_page extends PageObject {
     @FindBy(xpath = "//div[@class='ui-button secondary common']/div/div")
     public WebElementFacade validation; //验证手机号
 
-    @FindBy(xpath = "  //div[@class='codebox']/span[1]")
+    @FindBy(xpath = "//div[@class='codebox']/span[1]")
     public WebElementFacade sendKeysBox; //填验证码的框框
+
+    @FindBy(xpath = "//div[@class='codebox']/span[2]")
+    public WebElementFacade secondKeysBox;
+
+    @FindBy(xpath = "//div[@class='codebox']/span[3]")
+    public WebElementFacade thirdKeysBox;
+
+    @FindBy(xpath = "//div[@class='codebox']/span[4]")
+    public WebElementFacade fourKeysBox;
+
+    @FindBy(xpath = "//div[@class='codebox']/span[5]")
+    public WebElementFacade fiveKeysBox;
+
+    @FindBy(xpath = "//div[@class='codebox']/span[6]")
+    public WebElementFacade sixKeysBox;
 
     @FindBy(xpath = "//label[@for='emailAddr']/following-sibling::div//input")
     public WebElementFacade keysEmail;  //输入邮箱
+
+    @FindBy(xpath = "//div[@class='el-table__body-wrapper is-scrolling-none']//tbody/tr/td[6]/div")
+    public List<WebElementFacade> checkEmail;
+
+    @FindBy(xpath = "//div[@class='el-table__body-wrapper is-scrolling-none']//tbody/tr/td[7]/div")
+    public List<WebElementFacade> moreEdit;
+
+    @FindBy(xpath = "//tr[@class='el-table__row']/td[5]/div")
+    public List<WebElementFacade> status;
+
+    @FindBy(xpath = "//ul[@class='el-pager']/li")
+    public List<WebElementFacade> sumNum;
 
     @FindBy(xpath = "//div[@class='ui-button secondary common']//div[@class='btn_box']")
     public WebElementFacade validationEmail;  //验证邮箱
@@ -188,7 +217,10 @@ public class userManagement_page extends PageObject {
 //密码重置
    @FindBy(xpath = "//div[@class='el-tooltip__popper is-light']/div/div[2]//div[@class='btn_box']")
    public WebElementFacade passwordChange;
+//确定
 
+    @FindBy(xpath = "//div[@class='el-col el-col-10']/div[3]//div[@class='status']")
+    public WebElementFacade successful;  //判断是否成功
 
 
 

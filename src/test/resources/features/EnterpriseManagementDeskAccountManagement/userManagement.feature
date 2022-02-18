@@ -32,8 +32,7 @@ Feature: userManagements
       Then I click Next
       When I initiate captcha verification
       Then End the deal
-#      Given logon "netSilverEnv_sun" on enterprise net silver
-#      When I click on the Enterprise Administration as well user administration
+
 
 
 
