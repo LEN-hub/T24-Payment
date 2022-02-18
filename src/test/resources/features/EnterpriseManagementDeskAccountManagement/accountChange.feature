@@ -4,7 +4,7 @@ Feature: accountChange
   @ModifyingAccountRights
 #    账户修改
   Scenario:Process for querying the account change
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I hit Permissions modify
     Then TC code is then required for Vkey authentication
