@@ -25,7 +25,7 @@ public class MobileConfig {
     public void testMobile() throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         //指定测试设备的名称
-        cap.setCapability("deviceName", "RFCR10FTC3Z");
+        cap.setCapability("deviceName", Logon_step.deviceName);
         //添加操作系统配置
         cap.setCapability("platformName", "Android");
         //添加操作系统版本设置adb devices

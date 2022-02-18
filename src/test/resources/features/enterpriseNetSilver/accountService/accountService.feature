@@ -68,6 +68,13 @@ Feature: accountService
     When I click on the first piece of data to authorize
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
+#   When I switched to the account of the Level 2 Authorized
+    Given logon "Level2AuthorizedAccount" on enterprise net silver
+    When I click My Tasks button on the logon page
+    Then I should direct to the Awaiting authorization page
+    When I click on the first piece of data to authorize
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
 
 
 
