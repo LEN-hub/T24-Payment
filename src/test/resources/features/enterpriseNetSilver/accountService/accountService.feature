@@ -48,3 +48,29 @@ Feature: accountService
   Scenario:Transaction query page flow
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When click the Account details query and click the query button to query
+
+    @accountServices
+  Scenario:Authorization Center
+    Given logon "netSilverEnvAuthorizationCenter" on enterprise net silver
+    When I click My Tasks button on the logon page
+    Then I should direct to the Awaiting authorization page
+    When I click on the first piece of data to authorize
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+#    When I click next to continue
+
+
+  @SecondaryApproval
+  Scenario:Authorization Center
+    Given logon "Level1AuthorizedAccount" on enterprise net silver
+    When I click My Tasks button on the logon page
+    Then I should direct to the Awaiting authorization page
+    When I click on the first piece of data to authorize
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+
+
+
+
+
+

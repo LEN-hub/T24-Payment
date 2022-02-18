@@ -2,19 +2,26 @@ package com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver;
 
 import com.hsbc.cmb.hk.dbb.pages.enterpriseNetSilver.accountService_page;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import com.hsbc.cmb.hk.dbb.utils.EnterKeys;
 import com.hsbc.cmb.hk.dbb.utils.JRandomNameTool;
+import com.hsbc.cmb.hk.dbb.utils.MobileConfig;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
 
+import java.awt.*;
+import java.net.MalformedURLException;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class accountService_step extends ScenarioSteps {
     private BDDUtil bddUtil;
     private accountService_page accountService_page;
     public static String aliasText = JRandomNameTool.getStringRandom(8);
+    public static String tcCode;
 
     @Step
     public void selectAccountDetails(){
@@ -202,5 +209,33 @@ public class accountService_step extends ScenarioSteps {
         accountService_page.manageTransactions.click();
         accountService_page.selectSevenDay.click();
         accountService_page.queryBtn.click();
+    }
+
+    @Step
+    public void clickMyTaskBtn(){
+        accountService_page.myTaskBtn.click();
+    }
+
+    @Step
+    public void seeApprovalTitle(){
+        assertEquals("等待授权",accountService_page.PendingApprovalTitle.getText());
+    }
+
+    @Step
+    public void clickFirstAuthorizeBtn(){
+        accountService_page.firstAuthorizeBtn.click();
+        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(accountService_page.passThroughBtn).click();
+        bddUtil.sleep(1);
+        accountService_page.submitBtn.click();
+        bddUtil.sleep(1);
+        accountService_page.nextBtn.click();
+        bddUtil.sleep(2);
+    }
+
+
+    @Step
+    public void clickNextBtn(){
+        accountService_page.nextBtn.click();
     }
 }

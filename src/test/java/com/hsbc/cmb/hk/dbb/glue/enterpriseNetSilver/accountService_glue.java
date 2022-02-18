@@ -107,4 +107,24 @@ public class accountService_glue {
         accountService_step.queryButton();
     }
 
+    @When("^I click My Tasks button on the logon page$")
+    public void iClickMyTasksButtonOnTheLogonPage() {
+        accountService_step.clickMyTaskBtn();
+    }
+
+    @Then("^I should direct to the Awaiting authorization page$")
+    public void iShouldDirectToTheAwaitingAuthorizationPage() {
+        accountService_step.seeApprovalTitle();
+    }
+
+    @When("^I click on the first piece of data to authorize$")
+    public void iClickOnTheFirstPieceOfDataToAuthorize() {
+        accountService_step.clickFirstAuthorizeBtn();
+    }
+
+    @When("^I click next to continue$")
+    public void iClickNextToContinue() {
+        accountService_step.clickNextBtn();
+    }
+
 }
