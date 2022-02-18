@@ -175,6 +175,7 @@ Feature: receipt and payment service
 
 
     #境外转账-跨行转账时间选择每周一
+  @ext
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
