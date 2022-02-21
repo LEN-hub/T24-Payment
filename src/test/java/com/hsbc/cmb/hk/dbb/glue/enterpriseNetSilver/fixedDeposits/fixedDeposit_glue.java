@@ -3,9 +3,11 @@ package com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver.fixedDeposits;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.fixedDeposits.fixedDeposit_step;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
 import com.hsbc.cmb.hk.dbb.utils.CommonUtil;
+import cucumber.api.java.bs.A;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 
 public class fixedDeposit_glue {

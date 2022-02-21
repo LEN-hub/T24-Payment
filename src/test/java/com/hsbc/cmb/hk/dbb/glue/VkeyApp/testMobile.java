@@ -9,17 +9,19 @@ public class testMobile {
         MobileConfig test = new MobileConfig();
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
-        test.testMobile();
+        test.testSecondMobile();
         Thread.sleep(3000);
-        if (!MobileConfig.driver.findElementById("vkey_title").getText().equals("数字令牌")) {
+        if (MobileConfig.driver.findElementByXPath("//android.widget.TextView[ends-with(@resource-id,'permission_message')]").isDisplayed()) {
             test.clickSystemPopupWindows();
             test.clickStartButton();
-            test.logonVkeyApp("201019", "17762216590@163.com", "Gl123456-");
+            test.logonVkeyApp("201297", "cyq2412337655@163.com", "Gl123456.");
             test.clickLetUsStart();
             test.verification();
             test.clickCreatPassword();
+            test.getVcode();
+        }else {
+            test.getVcode();
         }
-        test.transactionCode();
 
 //        // TODO Auto-generated method stub
 //        //1.添加配置，创建DesiredCapabilities对象

@@ -2,14 +2,19 @@ package com.hsbc.cmb.hk.dbb.glue.supplyChains.creditLimit;
 
 import com.hsbc.cmb.hk.dbb.steps.supplyChains.creditLimit.creditLimit_step;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import org.apache.tools.ant.taskdefs.Sleep;
+
+import java.util.List;
+import java.util.Map;
 
 public class creditLimit_glue {
     @ManagedPages
@@ -102,5 +107,51 @@ public class creditLimit_glue {
     @When("^I click Supplier Test Data Assign to Me button on UnderWriting Approval page$")
     public void iClickSupplierTestDataAssignToMeButtonOnUnderWritingApprovalPage() {
         creditLimit_step.clickSupplierTestDataAssignBtn();
+    }
+
+    @Given("^Open Supplier Portal URL$")
+    public void openSupplierPortalURL() {
+        creditLimit_step.openToSupplierPortal();
+    }
+
+    @When("^I input login data and click on the Login Supplier Portal URL$")
+    public void iInputLoginDataAndClickOnTheLoginSupplierPortalURL(DataTable otherData) {
+//        creditLimit_step.inputEmailUrlTest();
+        List<Map<String, String>> Data = otherData.asMaps(String.class,String.class);
+        creditLimit_step.inputOtherData(Data.get(0).get("pass word"),Data.get(0).get("send code"));
+    }
+
+    @When("^I click Pending Signature button$")
+    public void iClickPendingSignatureButton() {
+        creditLimit_step.clickPendingSignatureBtn();
+        bddUtil.sleep(3);
+    }
+
+    @And("^I click confirm Button$")
+    public void iClickConfirmButton() {
+        creditLimit_step.clickConfirmBtn();
+        bddUtil.sleep(2);
+    }
+
+    @When("^I login email URL$")
+    public void iLoginEmailURL() {
+        creditLimit_step.loginEmailUrlTest();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(3);
+    }
+
+    @When("^I click Refresh Button$")
+    public void iClickRefreshButton() {
+        creditLimit_step.clickRefreshBtn();
+    }
+
+    @And("^I click first email$")
+    public void iClickFirstEmail() {
+        creditLimit_step.clickFirstEmail();
+    }
+
+    @And("^I input token$")
+    public void iInputToken() {
+        creditLimit_step.storeToken();
     }
 }

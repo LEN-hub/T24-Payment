@@ -25,17 +25,15 @@ public class accountChange_glue {
     @When("^I click on the Enterprise Administration Desk and select Account Management$")
     public void iClickOnTheEnterpriseAdministrationDeskAndSelectAccountManagement() {
         accountChange_steps.selectEnterpriseManagementDesk();
-
+        accountChange_steps.accountManagement();
     }
 
     @When("^I hit Permissions modify$")
     public void iHitPermissionsModify() {
-        accountChange_steps.accountManagement();
         accountChange_steps.selectModifyList();
         accountChange_steps.clickModify();
         accountChange_steps.clickFinancial();
         accountChange_steps.clickNumberList();
-        accountChange_steps.clickFirstPeople();
         accountChange_steps.clickNext();
         accountChange_steps.clickSubmitChange();
     }
@@ -44,6 +42,47 @@ public class accountChange_glue {
     @Then("^TC code is then required for Vkey authentication$")
     public void tcCodeIsThenRequiredForVkeyAuthentication() {
         accountChange_steps.clickCodeNext();
+    }
+
+//账户加挂
+    @When("^I click link account$")
+    public void iClickLinkAccount() {
+        accountChange_steps.clickLinkAccount();
+        accountChange_steps.clickAccountSelect();
+        accountChange_steps.clickAccountChoose();
+        accountChange_steps.clickFinancial();
+        accountChange_steps.clickNumberList();
+        accountChange_steps.clickNext();
+        accountChange_steps.clickSubmit1();
+    }
+
+    //CA账户开立
+    @When("^I click account Opening$")
+    public void iClickAccountOpening() {
+        accountChange_steps.clickAccountOpening();
+        accountChange_steps.clickAccountSelect();
+        accountChange_steps.clickCA();
+        accountChange_steps.clickTransfer();
+        accountChange_steps.clickChooseFinancial();
+        accountChange_steps.clickNext();
+        accountChange_steps.clickAgree();
+        accountChange_steps.clickNextSubmit();
+    }
+
+
+//MCA账户开立
+
+
+    @When("^click open account and select MCA$")
+    public void clickOpenAccountAndSelectMCA() {
+        accountChange_steps.clickAccountOpening();
+        accountChange_steps.clickAccountSelect();
+        accountChange_steps.clickMCA();
+        accountChange_steps.clickTransfer();
+        accountChange_steps.clickChooseFinancial();
+        accountChange_steps.clickNext();
+        accountChange_steps.clickAgree();
+        accountChange_steps.clickNextSubmit();
     }
 
     @When("^I get the TC code and click Next$")
@@ -58,94 +97,4 @@ public class accountChange_glue {
         accountChange_steps.enterTcCode();
         accountChange_steps.authenticateNowBtn();
     }
-
-//账户加挂
-    @When("^I click link account$")
-    public void iClickLinkAccount() {
-        accountChange_steps.accountManagement();
-        accountChange_steps.clickLinkAccount();
-        accountChange_steps.clickAccountSelect();
-        accountChange_steps.clickAccountChoose();
-        accountChange_steps.clickFinancial();
-        accountChange_steps.clickNumberList();
-        accountChange_steps.clickNext();
-        accountChange_steps.clickSubmit1();
-    }
-
-    //CA账户开立
-    @When("^I click account Opening$")
-    public void iClickAccountOpening() {
-        accountChange_steps.accountManagement();
-        accountChange_steps.clickAccountOpening();
-        accountChange_steps.clickAccountSelect();
-        accountChange_steps.clickCA();
-        accountChange_steps.clickTransfer();
-        accountChange_steps.clickChooseFinancial();
-        accountChange_steps.clickNumberList();
-        accountChange_steps.clickNext();
-        accountChange_steps.clickAgree();
-        accountChange_steps.clickNextSubmit();
-    }
-
-
-//MCA账户开立
-
-    @When("^click open account and select MCA$")
-    public void clickOpenAccountAndSelectMCA() {
-        accountChange_steps.accountManagement();
-        accountChange_steps.clickAccountOpening();
-        accountChange_steps.clickAccountSelect();
-        accountChange_steps.clickMCA();
-        accountChange_steps.clickTransfer();
-        accountChange_steps.clickChooseFinancial();
-        accountChange_steps.clickNumberList();
-        accountChange_steps.clickNext();
-        accountChange_steps.clickAgree();
-        accountChange_steps.clickNextSubmit();
-    }
-
-    //授权模式
-    @When("^click authorization$")
-    public void clickAuthorization() {
-        accountChange_steps.clickAuthorization();
-        accountChange_steps.clickChangeAuthorization();
-        accountChange_steps.clickASingle();
-        accountChange_steps.clickSubmit1();
-        accountChange_steps.clickConfirmBt();
-
-    }
-
-    //新增币种
-
-    @When("^I click add currency to fill in the information$")
-    public void iClickAddCurrencyToFillInTheInformation() {
-        accountChange_steps.accountManagement();
-        accountChange_steps.selectModifyList();
-        accountChange_steps.clickCurrencyManagement();
-        accountChange_steps.clickAddCurrency();
-        accountChange_steps.clickSelectCurrency();
-        accountChange_steps.clickNextCurrency();
-        accountChange_steps.clickSubmitCurrency();
-
-    }
-
-    //删除币种
-
-    @When("^I click delete currency information$")
-    public void iClickDeleteCurrencyInformation() {
-        accountChange_steps.accountManagement();
-        accountChange_steps.selectModifyList();
-        accountChange_steps.clickCurrencyManagement();
-        accountChange_steps.clickDelCurrency();
-        accountChange_steps.clickRemoveCurrencyBox();
-        accountChange_steps.clickSelectRemoveCurrency();
-        accountChange_steps.clickBalanceToBox();
-        accountChange_steps.clickSelectCount();
-        accountChange_steps.clickCurrencyBox();
-        accountChange_steps.clickSelectCurrencyBt();
-        accountChange_steps.clickNextCurrency();
-        accountChange_steps.clickSubmitCurrency();
-
-    }
-
 }
