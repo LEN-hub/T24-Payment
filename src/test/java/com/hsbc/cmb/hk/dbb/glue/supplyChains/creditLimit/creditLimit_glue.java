@@ -2,6 +2,7 @@ package com.hsbc.cmb.hk.dbb.glue.supplyChains.creditLimit;
 
 import com.hsbc.cmb.hk.dbb.steps.supplyChains.creditLimit.creditLimit_step;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -11,6 +12,9 @@ import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import org.apache.tools.ant.taskdefs.Sleep;
+
+import java.util.List;
+import java.util.Map;
 
 public class creditLimit_glue {
     @ManagedPages
@@ -111,9 +115,10 @@ public class creditLimit_glue {
     }
 
     @When("^I input login data and click on the Login Supplier Portal URL$")
-    public void iInputLoginDataAndClickOnTheLoginSupplierPortalURL() {
+    public void iInputLoginDataAndClickOnTheLoginSupplierPortalURL(DataTable otherData) {
 //        creditLimit_step.inputEmailUrlTest();
-        creditLimit_step.inputOtherData();
+        List<Map<String, String>> Data = otherData.asMaps(String.class,String.class);
+        creditLimit_step.inputOtherData(Data.get(0).get("pass word"),Data.get(0).get("send code"));
     }
 
     @When("^I click Pending Signature button$")

@@ -19,6 +19,9 @@ public class eStatement_page extends PageObject {
     @FindBy(xpath = "//div[text()='eStatements Overview']")
     public WebElementFacade eStatementsOverview;
 
+    @FindBy(xpath = "//div[text()='电子结单概况']")
+    public WebElementFacade eStatementSOverviewChina;
+
     @FindBy(xpath = "//span[@class='el-input__suffix-inner']")
     public WebElementFacade selectBox;
 

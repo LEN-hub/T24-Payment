@@ -127,4 +127,7 @@ public class accountService_glue {
         accountService_step.clickNextBtn();
     }
 
+    @When("^I switched to the account of the Level two Authorized$")
+    public void iSwitchedToTheAccountOfTheLevelTwoAuthorized() {
+    }
 }

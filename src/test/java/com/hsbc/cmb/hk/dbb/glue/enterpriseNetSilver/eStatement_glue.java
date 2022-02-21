@@ -2,12 +2,16 @@ package com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver;
 
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.eStatement_step;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
+
+import java.util.List;
+import java.util.Map;
 
 public class eStatement_glue {
     @ManagedPages
@@ -33,10 +37,13 @@ public class eStatement_glue {
     }
 
     @When("^I click select box$")
-    public void iClickSelectBox() {
+    public void iClickSelectBox(DataTable select) {
         estatement_step.clickSelectBox();
         bddUtil.sleep(1);
-        estatement_step.selectData();
+//        estatement_step.selectData();
+//        利用Table的形式灵活传参。
+        List<Map<String, String>> selectData = select.asMaps(String.class,String.class);
+        estatement_step.selectData(selectData.get(0).get("select"));
     }
 
     @And("^I click search button$")

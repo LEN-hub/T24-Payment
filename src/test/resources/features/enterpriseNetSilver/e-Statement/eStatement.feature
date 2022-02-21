@@ -1,13 +1,15 @@
 @accountService
 Feature: e-Statement
 
-  @ext
+  @testEstatement
   Scenario:Download e-Statement file successfully
     Given logon "netSilverEnvTian" on enterprise net silver
     When I click My Downloads Btn
     When I click View eStatements Btn
 #    Then I should direct to the eStatements Overview page
     When I click select box
+      |select       |
+      |11020001852  |
     And I click search button
     Then I should see Account List
     When I click on the first data to download
@@ -23,6 +25,8 @@ Scenario:Download past e-statements successfully
   When I click View eStatements Btn
 #    Then I should direct to the eStatements Overview page
   When I click select box
+    |select       |
+    |11020001852  |
   And I click search button
   Then I should see Account List
   When I click on the past data to download

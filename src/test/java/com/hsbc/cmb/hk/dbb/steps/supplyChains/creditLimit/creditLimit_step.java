@@ -198,9 +198,9 @@ public class creditLimit_step extends ScenarioSteps {
 
 
     @Step
-    public void inputOtherData() {
+    public void inputOtherData(String passWord,String sendCode) {
         creditLimit_page.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
-        creditLimit_page.GLDBEmailPassword.sendKeys("Gl123456-");
+        creditLimit_page.GLDBEmailPassword.sendKeys(passWord);
         creditLimit_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         creditLimit_page.sendCodeBtn.click();
 //        bddUtil.switchToNewWindow();
@@ -210,7 +210,7 @@ public class creditLimit_step extends ScenarioSteps {
 //        creditLimit_page.thirdEmail.click();
 //        String Vcode = creditLimit_page.emailVerificationCode.getText();
         bddUtil.switchToWindows();
-        creditLimit_page.inputSendCode.sendKeys("1234");
+        creditLimit_page.inputSendCode.sendKeys(sendCode);
         creditLimit_page.GLDBEmailLoginBtn.click();
         bddUtil.sleep(10);
     }

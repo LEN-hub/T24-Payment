@@ -21,14 +21,18 @@ public class loanApplication_step extends ScenarioSteps {
     }
 
     //在输入信息页面，输入相对应的信息。
-    public void sendInformation(){
+    public void sendInformation(String amount){
         loanApplication_page.microDemandOverdraft.click();
-        bddUtil.scrollWindowToElement(loanApplication_page.inputLoanAmount).sendKeys("10000");
+        bddUtil.scrollWindowToElement(loanApplication_page.inputLoanAmount).sendKeys(amount);
         bddUtil.scrollWindowToElement(loanApplication_page.submitBtn).click();
         bddUtil.sleep(2);
     }
 
     public void seeLoanInformationEntryTitle(){
-        assertEquals("贷款信息录入",loanApplication_page.LoanInformationEntry.getText());
+        if (loanApplication_page.LoanInformationEntry.getText().equals("Loan Information Entry")){
+            assertEquals("Loan Information Entry",loanApplication_page.LoanInformationEntry.getText());
+        }else {
+            assertEquals("贷款信息录入",loanApplication_page.LoanInformationEntry.getText());
+        }
     }
 }

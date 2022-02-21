@@ -189,7 +189,7 @@ public class accountService_page extends PageObject {
     @FindBy(xpath = "//div[@class='sub-title']/div")
     public WebElementFacade PendingApprovalTitle;
 
-    @FindBy(xpath = "//div[@class='el-table__fixed-body-wrapper']//tr[@class='el-table__row double-row'][1]/td[5]//div[@class='btn_box']")
+    @FindBy(xpath = "//div[@class='el-table__fixed-body-wrapper']//tr[1]//div[text()='授权']")
     public WebElementFacade firstAuthorizeBtn;
 
     //审批页面 通过按钮。

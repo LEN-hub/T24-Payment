@@ -6,6 +6,8 @@ Feature: loan application
     Given logon "netSilverEnvTian" on enterprise net silver
     When I hover over the loan business
     When I continue to fill in the information
+      |amount|
+      |1000  |
     Then I should direct to the Loan information entry page
 
 

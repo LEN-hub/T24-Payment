@@ -26,17 +26,22 @@ public class eStatement_step extends ScenarioSteps {
     }
 
     public void eStatementTitle(){
-        assertEquals("Underwriting Approval",eStatement_page.eStatementsOverview.getText());
+        if (eStatement_page.eStatementsOverview.getText().equals("Underwriting Approval")){
+            assertEquals("Underwriting Approval",eStatement_page.eStatementsOverview.getText());
+        }else {
+            assertEquals("电子结单概况",eStatement_page.eStatementSOverviewChina.getText());
+        }
+
     }
 
     public void clickSelectBox(){
         eStatement_page.selectBox.click();
     }
 
-    public void selectData(){
+    public void selectData(String select){
         List<WebElementFacade> role = eStatement_page.dataList;
         for (int i = 0; i < role.size(); i++) {
-            if (role.get(i).getText().equals("11020001852")){
+            if (role.get(i).getText().equals(select)){
                 role.get(i).click();
                 break;
             }
@@ -51,7 +56,7 @@ public class eStatement_step extends ScenarioSteps {
 
     public void seeViewLabel(){
         if (eStatement_page.viewLabel.getText().equals("View 10 per page")){
-
+            assertEquals("View 10 per page",eStatement_page.viewLabel.getText());
         }else {
             assertEquals("浏览 10 条每页",eStatement_page.viewLabel.getText());
         }

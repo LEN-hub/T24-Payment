@@ -218,7 +218,11 @@ public class accountService_step extends ScenarioSteps {
 
     @Step
     public void seeApprovalTitle(){
-        assertEquals("等待授权",accountService_page.PendingApprovalTitle.getText());
+        if (accountService_page.PendingApprovalTitle.getText().equals("等待授权")){
+            assertEquals("等待授权",accountService_page.PendingApprovalTitle.getText());
+        }else {
+            assertEquals("Pending Authorization",accountService_page.PendingApprovalTitle.getText());
+        }
     }
 
     @Step

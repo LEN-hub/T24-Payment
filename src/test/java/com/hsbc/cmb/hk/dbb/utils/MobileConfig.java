@@ -41,6 +41,23 @@ public class MobileConfig {
         driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
     }
 
+    public void testSecondMobile() throws MalformedURLException {
+        DesiredCapabilities cap = new DesiredCapabilities();
+        //指定测试设备的名称
+        cap.setCapability("deviceName", Logon_step.deviceName);
+        //添加操作系统配置
+        cap.setCapability("platformName", "Android");
+        //添加操作系统版本设置adb devices
+        cap.setCapability("platformVersion", "11");
+        //指定想要测试应用的包名
+        cap.setCapability("appPackage", "com.glbank.mobileapp");
+        //指定想要测试应用的入口activity
+        cap.setCapability("appActivity", "com.glbank.mobileapp.LauncherActivity");
+        cap.setCapability("instrumentation", "UiAutomator2");
+        //2.创建驱动...URL是appium的固定地址；指定appium通讯的地址，将相对应的配置传入到驱动里边
+        driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+    }
+
     public void clickSystemPopupWindows(){
         By seletor=new By.ByXPath("//android.widget.TextView[ends-with(@resource-id,'permission_message')]");
         if (checkElement.check(driver,seletor)){
@@ -51,7 +68,7 @@ public class MobileConfig {
     }
 
     public void clickStartButton() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'btn_methods')]/child::android.widget.TextView[1]").click();
     }
 
@@ -65,7 +82,7 @@ public class MobileConfig {
     }
 
     public void clickLetUsStart() throws InterruptedException {
-        Thread.sleep(4000);
+        Thread.sleep(10000);
         By seletor=new By.ById("btn_submit");
         if (checkElement.check(driver,seletor)){
             driver.findElementById("btn_submit").click();
@@ -73,7 +90,7 @@ public class MobileConfig {
     }
 
     public void verification() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(12000);
         String testText = MobileConfig.driver.findElementById("tv_message").getText();
         System.out.println(testText);
         MobileConfig.driver.findElementById("btn_confirm").click();
@@ -100,6 +117,7 @@ public class MobileConfig {
     public void clickCreatPassword() throws InterruptedException {
         Thread.sleep(20000);
         MobileConfig.driver.findElementById("btn_submit").click();
+        Thread.sleep(1000);
         for (int i = 0; i<2;i++){
             MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_pin')]/child::android.widget.EditText[1]").sendKeys("1");
             MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_pin')]/child::android.widget.EditText[2]").sendKeys("4");
