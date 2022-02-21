@@ -66,7 +66,6 @@ public class Logon_glue {
             logon_step.checkLanguage();
             logon_step.enter_OrganisationID_into_box(envName);
             logon_step.enter_email_into_box(envName);
-            String s = logon_step.enter_password_into_box(envName);
             logon_step.getDeviceName(envName);
             logon_step.get_New_password(envName);
             logon_step.secondVkeyAppVcode();
