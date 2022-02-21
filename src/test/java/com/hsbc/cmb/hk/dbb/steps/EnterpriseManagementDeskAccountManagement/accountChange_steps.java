@@ -21,7 +21,6 @@ public class accountChange_steps extends ScenarioSteps {
         if (accountChange_page.popWindowsTitle.isVisible()){
             accountChange_page.popWindowsOk.click();
         }
-//        accountChange_page.ok.click();
         Actions action = new Actions(getDriver());
         action.moveToElement(accountChange_page.EnterpriseManagementDesk).perform();
     }
@@ -44,6 +43,10 @@ public class accountChange_steps extends ScenarioSteps {
 
     public void clickNumberList(){
         accountChange_page.numberList.click();
+        bddUtil.sleep(3);}
+
+    public void clickFirstPeople(){
+        accountChange_page.firstPeople.click();
         bddUtil.sleep(3);}
 
     public void clickNext(){
@@ -138,14 +141,21 @@ public class accountChange_steps extends ScenarioSteps {
         accountChange_page.CA.click();
         bddUtil.sleep(3);}
 
-    public void clickTransfer(){ accountChange_page.transfer.click();}
+    public void clickTransfer(){
+        accountChange_page.transfer.click();
+        bddUtil.sleep(3);}
 
-    public void clickChooseFinancial(){ accountChange_page.chooseFinancial.click();}
+    public void clickChooseFinancial(){
+        accountChange_page.chooseFinancial.click();
+        bddUtil.sleep(3);}
 
-    public void clickAgree(){ accountChange_page.agree.click();}
+    public void clickAgree(){
+        accountChange_page.agree.click();
+        bddUtil.sleep(3);}
 
-    public void clickNextSubmit(){ accountChange_page.nextSubmit.click();}
-
+    public void clickNextSubmit(){
+        accountChange_page.nextSubmit.click();
+        bddUtil.sleep(3);}
 
 
 //  MCA账户开立
@@ -154,6 +164,82 @@ public class accountChange_steps extends ScenarioSteps {
         accountChange_page.MCA.click();
         bddUtil.sleep(3);}
 
+//授权模式
+    public void clickAuthorization(){
+        accountChange_page.Authorization.click();
+        bddUtil.sleep(3);}
+
+    public void clickChangeAuthorization(){
+        accountChange_page.changeAuthorization.click();
+        bddUtil.sleep(3);}
+
+    public void clickASingle(){
+        accountChange_page.aSingle.click();
+        bddUtil.sleep(2);}
+
+    public void clickConfirmBt(){
+        accountChange_page.confirmBt.click();
+        bddUtil.sleep(2);}
 
 
-}
+    //新增币种
+
+    public void clickCurrencyManagement(){
+        accountChange_page.currencyManagement.click();
+        bddUtil.sleep(2);}
+
+    public void clickAddCurrency(){
+        accountChange_page.addCurrency.click();
+        bddUtil.sleep(2);}
+
+    public void clickSelectCurrency(){
+        accountChange_page.selectCurrency.click();
+        bddUtil.sleep(2);}
+
+    public void clickNextCurrency(){
+        accountChange_page.nextCurrency.click();
+        bddUtil.sleep(2);}
+
+    public void clickSubmitCurrency(){
+        accountChange_page.submitCurrency.click();
+        bddUtil.sleep(2);}
+
+
+    //删除币种
+
+    public void clickDelCurrency(){
+        accountChange_page.delCurrency.click();
+        bddUtil.sleep(2);}
+
+    public void clickRemoveCurrencyBox(){
+        accountChange_page.removeCurrencyBox.click();
+        bddUtil.sleep(2);}
+
+    public void clickSelectRemoveCurrency(){
+        accountChange_page.selectRemoveCurrency.click();
+        bddUtil.sleep(2);}
+
+    public void clickBalanceToBox(){
+        accountChange_page.balanceToBox.click();
+        bddUtil.sleep(2);}
+
+    public void clickSelectCount(){
+        accountChange_page.selectCount.click();
+        bddUtil.sleep(2);}
+
+    public void clickCurrencyBox(){
+        accountChange_page.currencyBox.click();
+        bddUtil.sleep(2);}
+
+    public void clickSelectCurrencyBt(){
+        accountChange_page.selectCurrencyBt.click();
+        bddUtil.sleep(2);}
+
+
+
+
+    
+
+
+    }
+
