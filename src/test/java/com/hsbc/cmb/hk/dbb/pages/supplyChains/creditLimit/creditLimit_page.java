@@ -58,4 +58,60 @@ public class creditLimit_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='lowcode-table-base']//span[@data-key='f3ql3kf8']//span[contains(text(),'Proceed')]")
     public List<WebElementFacade> actionList;
+
+
+    //登录供应商门户
+    @FindBy(xpath = "//div[@class='lls-form-item__content']//input[@placeholder='Enter email']")
+    public WebElementFacade GLDBEmailInput;
+
+    @FindBy(xpath = "//div[@class='lls-form-item__content']//input[@type='password']")
+    public WebElementFacade GLDBEmailPassword;
+
+    @FindBy(xpath = "//div[@class='lls-input-group__append']/button")
+    public WebElementFacade sendCodeBtn;
+
+    @FindBy(xpath = "//div[@id='message-list']/button[1]//span[text()='Green Link Digital Bank - Verification Code']")
+    public WebElementFacade thirdEmail;
+
+    @FindBy(xpath = "//div[@class='lls-input-group__append']/preceding-sibling::input")
+    public WebElementFacade inputSendCode;
+
+    @FindBy(xpath = "//input[@placeholder='Enter Company ID']")
+    public WebElementFacade enterCompanyId;
+
+    @FindBy(xpath = "//span[text()='Login']")
+    public WebElementFacade GLDBEmailLoginBtn;
+
+    @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")
+    public WebElementFacade clickRefreshBtn;
+
+    @FindBy(xpath = "//div[@class='tab-pane message-body active']//h2")
+    public WebElementFacade emailVerificationCode;
+
+    @FindBy(xpath = "//div[@class='passage']")
+    public WebElementFacade pendingSignatureBtn;
+
+    @FindBy(xpath = "//span[@class='dialog-footer']/button")
+    public WebElementFacade confirmBtn;
+
+    @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")
+    public WebElementFacade refreshListBtn;
+
+    @FindBy(xpath = "//div[@class='list-group']/button[1]")
+    public WebElementFacade firstEmail;
+
+    @FindBy(xpath = "//div[@class='list-group']/button[2]")
+    public WebElementFacade secondEmail;
+
+    @FindBy(xpath = "//h5[contains(text(),'Your OTP (One Time Password) for')]/following-sibling::div/b")
+    public WebElementFacade token;
+
+    @FindBy(xpath = "//li[@role='presentation'][2]")
+    public WebElementFacade plainText;
+
+    @FindBy(xpath = "//div[@class='tab-pane message-body active']/a[1]")
+    public WebElementFacade tokenLink;
+
+    @FindBy(xpath = "//div[@class='Verificationode_BoxChildIptChild']/div/form")
+    public WebElementFacade inputToken;
 }

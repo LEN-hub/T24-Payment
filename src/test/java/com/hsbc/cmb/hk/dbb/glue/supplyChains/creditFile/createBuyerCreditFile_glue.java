@@ -19,7 +19,7 @@ public class createBuyerCreditFile_glue {
     @Steps
     private createBuyerCreditFile_step createBuyerCreditFile_step;
     private BDDUtil bddUtil;
-    public String buyer = "4Qw2";
+    public String buyer = "4QW2";
 
 
     @When("^login successfully and click the SCF link to createBuyerCreditFile$")

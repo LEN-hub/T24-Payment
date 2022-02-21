@@ -124,6 +124,33 @@ public class Logon_step extends ScenarioSteps {
         }
     }
 
+    public void secondVkeyAppVcode() throws MalformedURLException, InterruptedException {
+        MobileConfig test = new MobileConfig();
+        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
+        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
+        test.testSecondMobile();
+        Thread.sleep(3000);
+//        By seletor=new By.ById("btn_otp");
+//        HaveOrNo checkElement=new HaveOrNo();
+        if (MobileConfig.driver.findElementByXPath("//android.widget.TextView[ends-with(@resource-id,'permission_message')]").isDisplayed()) {
+            test.clickSystemPopupWindows();
+            test.clickStartButton();
+            test.logonVkeyApp(organisationID, email, password);
+            test.clickLetUsStart();
+            test.verification();
+            test.clickCreatPassword();
+            test.getVcode();
+        }else {
+//            test.clickSystemPopupWindows();
+//            test.clickStartButton();
+//            test.logonVkeyApp(organisationID, email, password);
+//            test.clickLetUsStart();
+//            test.verification();
+//            test.clickCreatPassword();
+            test.getVcode();
+        }
+    }
+
     @Step
     public void getAuthenticateNowBtn(){
         logonPage.authenticateNowBtn.click();
@@ -147,6 +174,12 @@ public class Logon_step extends ScenarioSteps {
             enterVcode();
             getAuthenticateNowBtn();
         }
+    }
+
+    @Step
+    public void quitAndroidDriver(){
+        MobileConfig test = new MobileConfig();
+        test.quitAndroid();
     }
 
 }
