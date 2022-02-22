@@ -139,4 +139,17 @@ public class accountService_glue {
         MobileConfig test = new MobileConfig();
         test.quitAndroid();
     }
+
+    @When("^I click transferMoney button$")
+    public void iClickTransferMoneyButton() {
+        accountService_step.clickTransferMoneyBtn();
+    }
+
+    @When("^I click addPayee button and input information$")
+    public void iClickAddPayeeButtonAndInputInformation() {
+        accountService_step.clickAddPayeeBtn();
+        accountService_step.inputOtherInformation();
+        bddUtil.sleep(5);
+        accountService_step.clickNextBtn();
+    }
 }

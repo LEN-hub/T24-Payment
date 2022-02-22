@@ -62,6 +62,12 @@ Feature: accountService
 
   @SecondaryApproval
   Scenario:Authorization Center
+    Given logon "EnrollerAccount" on enterprise net silver
+    When I click transferMoney button
+    When I click addPayee button and input information
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    When I should switch to the second authorized account
     Given logon second "Level1AuthorizedAccount" on enterprise net silver
     When I click My Tasks button on the logon page
     Then I should direct to the Awaiting authorization page
@@ -79,7 +85,11 @@ Feature: accountService
     When I typed TC Code and click Authenticate Now
 
 
-
-
-
+#  @SecondaryApproval1
+#  Scenario:Authorization Center1
+#    Given logon "EnrollerAccount" on enterprise net silver
+#    When I click transferMoney button
+#    When I click addPayee button and input information
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
 
