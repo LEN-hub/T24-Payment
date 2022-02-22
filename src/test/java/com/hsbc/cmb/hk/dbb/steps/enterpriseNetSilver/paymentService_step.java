@@ -16,6 +16,8 @@ import java.util.Date;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 public class paymentService_step extends ScenarioSteps {
     private BDDUtil bddUtil;
     private paymentService_page paymentService_page;
@@ -255,5 +257,78 @@ public class paymentService_step extends ScenarioSteps {
             paymentService_page.continueBtn.click();
         }
     }
+
+//境外转账
+
+    public void overseasTransfer(){paymentService_page.overseasTransfer.click();}
+
+    public void accountBox(){
+        paymentService_page.accountBox.click();
+        bddUtil.sleep(3);}
+
+    public void selectAccount(){
+        paymentService_page.selectAccount.click();
+        bddUtil.sleep(3);}
+
+    public void enterAmount(){paymentService_page.enterAmount.sendKeys("1000");}
+
+    public void currencyBox(){
+        paymentService_page.currencyBox.click();
+        bddUtil.sleep(5);}
+
+    public void selectUsd(){paymentService_page.selectUsd.click();}
+
+    public void sendPaymentAccount(){paymentService_page.sendPaymentAccount.sendKeys("11020006749");}
+
+    public void namePayee(){paymentService_page.NamePayee.sendKeys("susu");}
+
+    public void collectingBankBox(){
+        paymentService_page.CollectingBankBox.click();
+        bddUtil.sleep(3);}
+
+    public void collectingBank(){
+        paymentService_page.CollectingBank.click();
+        bddUtil.sleep(5);}
+
+    public void clickYes(){
+        paymentService_page.clickYes.click();
+        bddUtil.sleep(2);
+    }
+
+    public void payeeAdd(){
+        paymentService_page.payeeAdd.sendKeys("The United States");}
+
+    public void payeeCountriesEnCdBox(){
+        paymentService_page.payeeCountriesEnCdBox.click();
+        bddUtil.sleep(5);}
+
+    public void clickUsd(){paymentService_page.usd.click();}
+
+    public void remittancePostscriptContent(){paymentService_page.remittancePostscriptContent.sendKeys("fafafa");}
+
+    public void expenseBox(){
+        paymentService_page.expenseBox.click();
+        bddUtil.sleep(5);}
+
+    public void expense() {
+        paymentService_page.expense.click();
+        bddUtil.sleep(2);
+    }
+
+
+    public void paymentAttributeCd(){
+        paymentService_page.paymentAttributeCd.click();
+        bddUtil.sleep(3);}
+
+    public void selectPaymentAttributeCd(){paymentService_page.selectPaymentAttributeCd.click();}
+
+    public void clickNextBox(){paymentService_page.clickNextBox.click();}
+
+
+
+
+
+
+
 
 }

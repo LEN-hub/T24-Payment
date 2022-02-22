@@ -163,4 +163,88 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='el-dialog__wrapper has-icon-small']//div[@class='el-dialog__body']/div[2]//div[@class='ui-button dialog_btn primary common']//div[@class='btn_box']")
     public WebElementFacade continueBtn;
+
+//境外转账
+
+   @FindBy(xpath = "//div[@class='list']/div[1]/p[4]//span")
+    public WebElementFacade overseasTransfer;  //点击境外转账
+
+   @FindBy(xpath = "//div[@class='el-form-item is-success is-required el-form-item--medium']/div//i[@class='el-select__caret el-input__icon el-icon-arrow-up']")
+    public WebElementFacade accountBox; //点击账户选择下拉框
+
+   @FindBy(xpath = "//span[text()='11020006552']")
+    public WebElementFacade selectAccount;  //选择账户
+
+    @FindBy(xpath = "//div[@class='el-form-item is-success is-required el-form-item--medium']/following-sibling::div[3]//input")
+    public WebElementFacade enterAmount; //输入金额 输入
+
+    @FindBy(xpath = "//label[@for='tradeCurrencyTypeCd']/following-sibling::div//i")
+    public WebElementFacade currencyBox; //汇币下拉框
+
+    @FindBy(xpath = "//div[@class='el-dialog__wrapper pdf-dialog']/following-sibling::div[4]//li[14]/span")
+    public WebElementFacade selectUsd; //选择美元
+
+    @FindBy(xpath = "//label[@for='payeeAcctNo']/following-sibling::div//input")
+    public WebElementFacade sendPaymentAccount;  //输入收款账户 输入
+
+    @FindBy(xpath = "//label[@for='payeeNm']/following-sibling::div//input")
+    public WebElementFacade NamePayee;  //收款人名称 输入
+
+    @FindBy(xpath = "//label[@for='payeeBankNm']/following-sibling::div//i")
+    public WebElementFacade CollectingBankBox;  //收款银行下拉框
+
+    @FindBy(xpath = "//div[@class='el-table__body-wrapper is-scrolling-none']/table//tbody/tr[3]//span[@class='el-radio__inner']")
+    public WebElementFacade CollectingBank;  //选择收款银行
+
+    @FindBy(xpath = "//div[@class='el-table__body-wrapper is-scrolling-none']/ancestor::div[@class='body']/following-sibling::div/span/div[2]//div[@class='btn_box']")
+    public WebElementFacade clickYes; //点击确认
+
+    @FindBy(xpath = "//label[@for='payeeAddr']/following-sibling::div//input")
+    public WebElementFacade payeeAdd;  //收款人地址 输入
+
+    @FindBy(xpath = "//label[@for='payeeCountriesEnCd']/following-sibling::div//i")
+    public WebElementFacade payeeCountriesEnCdBox;  //收款国家下拉框
+
+    @FindBy(xpath = "//span[text()='UNITED STATES']")
+    public WebElementFacade usd; //美国
+
+    @FindBy(xpath = "//label[@for='remittancePostscriptContent']/following-sibling::div/div/textarea")
+    public WebElementFacade remittancePostscriptContent;//汇款留言 输入
+
+    @FindBy(xpath = "//label[@for='costFeeAssumeCd']/following-sibling::div//i")
+    public WebElementFacade expenseBox; // 费用承担下拉框
+
+    @FindBy(xpath = "//span[text()='所有费用由汇款人承担' or @text()='All expenses shall be borne by the remitter' ]")
+    public WebElementFacade expense; //费用承担
+
+    @FindBy(xpath = "//label[@for='paymentAttributeCd']/following-sibling::div//i")
+    public WebElementFacade paymentAttributeCd;  //付汇性质下拉框
+
+    @FindBy(xpath = "//span[text()='Business Expenses']")
+    public WebElementFacade selectPaymentAttributeCd;  //随机选择付汇性质
+
+    @FindBy(xpath = "//div[@class='el-col el-col-18']/div[3]/div/div")
+    public  WebElementFacade clickNextBox;  //下一步
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

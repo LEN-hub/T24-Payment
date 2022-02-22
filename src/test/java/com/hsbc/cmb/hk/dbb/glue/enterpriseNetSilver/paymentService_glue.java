@@ -108,4 +108,33 @@ public class paymentService_glue {
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class,String.class);
         paymentService_step.otherDomesticTransfer(payToInfo.get(0).get("account name"),payToInfo.get(0).get("receiving account"),payToInfo.get(0).get("transfer amount"),payToInfo.get(0).get("transfer purpose"));
     }
+
+
+//境外转账
+    @When("^I click overseas transfer and fill in the required information$")
+    public void iClickOverseasTransferAndFillInTheRequiredInformation() {
+        paymentService_step.transferAndRemittanceMenu();
+        paymentService_step.overseasTransfer();
+        paymentService_step.accountBox();
+        paymentService_step.selectAccount();
+        paymentService_step.enterAmount();
+        paymentService_step.currencyBox();
+        paymentService_step.selectUsd();
+        paymentService_step.sendPaymentAccount();
+        paymentService_step.namePayee();
+        paymentService_step.collectingBankBox();
+        paymentService_step.collectingBank();
+        paymentService_step.clickYes();
+        paymentService_step.payeeAdd();
+        paymentService_step.payeeCountriesEnCdBox();
+        paymentService_step.clickUsd();
+        paymentService_step.remittancePostscriptContent();
+        paymentService_step.expenseBox();
+        paymentService_step.expense();
+        paymentService_step.paymentAttributeCd();
+        paymentService_step.selectPaymentAttributeCd();
+        paymentService_step.clickNextBox();
+
+
+    }
 }

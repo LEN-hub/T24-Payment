@@ -243,3 +243,9 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+
+    #境外转账
+  @overseasTransfer
+  Scenario:Positive process of overseas transfer(SGD--USD)
+    Given logon "netSilverEnv_sun" on enterprise net silver
+    When I click overseas transfer and fill in the required information

@@ -88,6 +88,10 @@ public class userManagement_glue {
     //用户注销
     @When("^I click the menu select User Logout$")
     public void iClickTheMenuSelectUserLogout() {
+        userManagement_steps.clickAccountManagements();
+        userManagement_steps.selectMenus();
+        userManagement_steps.clickLogOut();
+        userManagement_steps.clickSure();
     }
 
 //停用用户
@@ -116,28 +120,11 @@ public class userManagement_glue {
 
     }
 
+
     @Then("^End the deals$")
     public void endTheDeals() {
         userManagement_steps.clickComplete();
         userManagement_steps.seeViewStart();
         bddUtil.quitDriver();
     }
-
-
-    //启用用户
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
