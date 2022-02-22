@@ -213,32 +213,10 @@ public class userManagement_page extends PageObject {
 
 
 
+//用户注销
 
-//密码重置
-   @FindBy(xpath = "//div[@class='el-tooltip__popper is-light']/div/div[2]//div[@class='btn_box']")
-   public WebElementFacade passwordChange;
-//确定
-
-    @FindBy(xpath = "//div[@class='el-col el-col-10']/div[3]//div[@class='status']")
-    public WebElementFacade successful;  //判断是否成功
-
-
-
-//    //用户注销
-//    @FindBy(xpath = "//ul[@class='el-pager']/following-sibling::button/i")
-//    public WebElementFacade nextPage; //点击下一页
-//
-//    @FindBy(xpath = "//div[@class='el-table__fixed-body-wrapper']//tr[3]/td[7]/div/div/img")
-//    public WebElementFacade menuBt;
-//
-//
-//    @FindBy(xpath = "//div[@x-placement='bottom']/div/div[5]//div[@class='btn_box']")  //点击注销
-//    public WebElementFacade logOut;
-//
-//    @FindBy(xpath = "//div[@class='dialog-content']/span/div[1]/div/div")
-//    public WebElementFacade yes;
-
-
+    @FindBy(xpath = "//div[@x-placement='bottom']/div/div[5]//div[@class='btn_box']")  //点击注销
+    public WebElementFacade logOut;
 
 }
 //    public void clickBuyerAssignBtn(){
