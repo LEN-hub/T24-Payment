@@ -21,7 +21,7 @@ public class userManagement_glue {
     public Pages pages;
 
     @Steps
-    private userManagement_steps  userManagement_steps;
+    private userManagement_steps userManagement_steps;
     private BDDUtil bddUtil;
 
     @When("^I click on the Enterprise Administration as well user administration$")
@@ -30,7 +30,7 @@ public class userManagement_glue {
     }
 
 
-//修改手机号
+    //修改手机号
     @When("^I click modify info menu$")
     public void iClickModifyInfoMenu() {
         userManagement_steps.clickAccountManagements();
@@ -56,7 +56,7 @@ public class userManagement_glue {
         userManagement_steps.authenticateNowBtn();
     }
 
-//新增用户
+    //新增用户
     @When("^I click on Add user$")
     public void iClickOnAddUser() throws AWTException {
         userManagement_steps.clickAccountManagements();
@@ -94,10 +94,9 @@ public class userManagement_glue {
         userManagement_steps.clickSure();
 
 
-
     }
 
-//停用用户
+    //停用用户
     @When("^I click on user deactivate confirm$")
     public void iClickOnUserDeactivateConfirm() {
         userManagement_steps.clickAccountManagements();
@@ -106,6 +105,7 @@ public class userManagement_glue {
         userManagement_steps.clickSure();
 
     }
+
     @Then("^End the deal$")
     public void endTheDeal() {
         userManagement_steps.clickComplete();
@@ -129,22 +129,7 @@ public class userManagement_glue {
         userManagement_steps.seeViewStart();
         bddUtil.quitDriver();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
