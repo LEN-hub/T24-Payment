@@ -86,6 +86,7 @@ Feature: accountService
 
 
 #  @SecondaryApproval1
+#为审批制造数据的脚本。
 #  Scenario:Authorization Center1
 #    Given logon "EnrollerAccount" on enterprise net silver
 #    When I click transferMoney button
