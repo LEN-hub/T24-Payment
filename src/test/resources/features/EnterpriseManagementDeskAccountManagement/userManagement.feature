@@ -46,13 +46,11 @@ Feature: userManagements
     When I initiate captcha verification
     Then End the deals
 
-
-
-
-
   @UserCancellation
 #    用户注销
   Scenario:Process for querying the New users
     Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click the menu select User Logout
+    Then I click Next
+#    When I initiate captcha verification
