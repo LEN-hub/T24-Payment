@@ -691,13 +691,4 @@ public class BDDUtil extends PageObject {
         }
     }
 
-    public void requestFinancingFileUpload(){
-        Runtime runtime = Runtime.getRuntime();
-        try {
-            runtime.exec("src/test/resources/testData/autopay/ChromRequestFinancingFileUpload.exe");
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 }

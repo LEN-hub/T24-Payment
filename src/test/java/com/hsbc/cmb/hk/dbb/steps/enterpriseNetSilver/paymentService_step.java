@@ -106,6 +106,7 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.domesticTransfer.click();
         CommonUtil.waiting(2000);
         paymentService_page.collectingBankPopWindows.click();
+        paymentService_page.selectTitle.click();
         paymentService_page.overseasTrasferAccount.click();
         paymentService_page.accountName.sendKeys(accountName);
         paymentService_page.paymentAccount.sendKeys(paymentAccount);

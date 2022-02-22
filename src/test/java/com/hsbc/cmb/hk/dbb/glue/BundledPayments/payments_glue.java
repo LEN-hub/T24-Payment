@@ -30,7 +30,7 @@ public class payments_glue {
         paymentsStep.clickRequestDisbursement();
         paymentsStep.clickEditGroup();
         paymentsStep.clickConfirm();
-        paymentsStep.clickRequesterOne();
+//        paymentsStep.clickBuyers();
         paymentsStep.clickAssignToMe();
 
     }
@@ -38,7 +38,7 @@ public class payments_glue {
     @When("^I click on Assign To Me$")
     public void iClickOnAssignToMe() {
         paymentsStep.clickAssignToMeS();
-        paymentsStep.clickRequesterTwo();
+        //        paymentsStep.clickBuyers();
         paymentsStep.clickProceed();
         paymentsStep.clickRemittanceFeePaidBy();
         paymentsStep.clickSupplierBank();
@@ -49,7 +49,7 @@ public class payments_glue {
     @Then("^I click Submit$")
     public void iClickSubmit() {
         paymentsStep.clickSubmit();
-        paymentsStep.clickRequester3();
+        //        paymentsStep.clickBuyers();
     }
 
 
@@ -75,7 +75,52 @@ public class payments_glue {
     public void confirmDisbursementPage() {
         paymentsStep.clickOperations();
         paymentsStep.clickConfirmDisbursement();
-        paymentsStep.clickRequester4();
+    }
+
+    @When("^I click Operations button$")
+    public void iClickOperationsButton() {
+        paymentsStep.clickOperations();
+    }
+
+    @When("^I click Repayment button$")
+    public void iClickRepaymentButton() {
+        paymentsStep.clickBatchRepaymentBtn();
+        bddUtil.sleep(2);
+    }
+
+    @Then("^I should direct to the Repayment Management page$")
+    public void iShouldDirectToTheRepaymentManagementPage() {
+        paymentsStep.onTheBatchRepaymentPage();
+    }
+
+    @When("^I click the Assign to me button of the repayment data$")
+    public void iClickTheAssignToMeButtonOfTheRepaymentData() {
+        paymentsStep.clickDataAssignToMe();
+    }
+
+    @When("^I click Assign to ME title on the on Repayment Management page$")
+    public void iClickAssignToMETitleOnTheOnRepaymentManagementPage() {
+        paymentsStep.clickAssignToMeS();
+        bddUtil.sleep(2);
+    }
+
+    @When("^I click Proceed Button on the Repayment Management Page$")
+    public void iClickProceedButtonOnTheRepaymentManagementPage() {
+        paymentsStep.clickProceedBtn();
+    }
+
+    @Then("^I should direct to the Repayment Detail page$")
+    public void iShouldDirectToTheRepaymentDetailPage() {
+        paymentsStep.seeRepaymentDetail();
+    }
+
+    @When("^I select Repayment Account No on the page$")
+    public void iSelectRepaymentAccountNoOnThePage() {
+        paymentsStep.selectAccount();
+    }
+
+    @And("^I enter other parameters in the current page$")
+    public void iEnterOtherParametersInTheCurrentPage() {
 
     }
 }

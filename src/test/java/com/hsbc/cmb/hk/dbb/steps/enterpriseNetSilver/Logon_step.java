@@ -83,11 +83,7 @@ public class Logon_step extends ScenarioSteps {
 
     @Step
     public void enterVcode() throws AWTException {
-//        for (int i = 0; i <=6; i++){
-//            logonPage.find(By.xpath("//div[@class='OTP-One-Time-Passwo']/following-sibling::div/span["+i+1+"]/i")).sendKeys(MobileConfig.vcode.substring(1,i+1));
-//        }
         EnterKeys enterKeys = new EnterKeys();
-//        robot.delay((int) t1)
         System.out.println(MobileConfig.vcode);
         logonPage.vcode1.click();
         enterKeys.EnterKeys(MobileConfig.vcode.substring(0,1));
@@ -110,8 +106,6 @@ public class Logon_step extends ScenarioSteps {
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
         test.testMobile();
         Thread.sleep(3000);
-//        By seletor=new By.ById("btn_otp");
-//        HaveOrNo checkElement=new HaveOrNo();
         if (MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout [ends-with(@resource-id,'btn_otp')]/child::android.widget.TextView[2]").getText().equals("一次性\n密码")) {
             test.getVcode();
         }else {
@@ -121,6 +115,25 @@ public class Logon_step extends ScenarioSteps {
             test.clickLetUsStart();
             test.verification();
             test.clickCreatPassword();
+        }
+    }
+
+    public void secondVkeyAppVcode() throws MalformedURLException, InterruptedException {
+        MobileConfig test = new MobileConfig();
+        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
+        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
+        test.testSecondMobile();
+        Thread.sleep(3000);
+        if (MobileConfig.driver.findElementByXPath("//android.widget.TextView[ends-with(@resource-id,'permission_message')]").isDisplayed()) {
+            test.clickSystemPopupWindows();
+            test.clickStartButton();
+            test.logonVkeyApp(organisationID, email, password);
+            test.clickLetUsStart();
+            test.verification();
+            test.clickCreatPassword();
+            test.getVcode();
+        }else {
+            test.getVcode();
         }
     }
 
@@ -139,7 +152,6 @@ public class Logon_step extends ScenarioSteps {
             enter_OrganisationID_into_box(Logon_glue.envTag);
             enter_email_into_box(Logon_glue.envTag);
             logonPage.password.sendKeys(newPassword);
-//            enter_password_into_box(Logon_glue.envTag);
             clickLogonBtn();
             getVcodeTitle();
             clickNextBtn();
@@ -147,6 +159,12 @@ public class Logon_step extends ScenarioSteps {
             enterVcode();
             getAuthenticateNowBtn();
         }
+    }
+
+    @Step
+    public void quitAndroidDriver(){
+        MobileConfig test = new MobileConfig();
+        test.quitAndroid();
     }
 
 }

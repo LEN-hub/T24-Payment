@@ -20,6 +20,9 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@class='list']/div[1]/p[2]")
     public WebElementFacade transferMoney;
 
+    @FindBy(xpath = "//nav[@id='banklist']//a[text()='ABCD']")
+    public WebElementFacade selectTitle;
+
     @FindBy(xpath = "//div[@class='bank_list']/div[1]//div[@class='name'][1]")
     public WebElementFacade overseasTrasferAccount;
 
