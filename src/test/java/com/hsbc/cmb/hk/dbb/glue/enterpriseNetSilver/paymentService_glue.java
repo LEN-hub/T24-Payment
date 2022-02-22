@@ -3,6 +3,7 @@ package com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.paymentService_step;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
 import cucumber.api.DataTable;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
@@ -107,5 +108,81 @@ public class paymentService_glue {
         paymentService_step.transferAndRemittanceMenu();
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class,String.class);
         paymentService_step.otherDomesticTransfer(payToInfo.get(0).get("account name"),payToInfo.get(0).get("receiving account"),payToInfo.get(0).get("transfer amount"),payToInfo.get(0).get("transfer purpose"));
+    }
+
+
+//境外转账
+//    @When("^I click overseas transfer and fill in the required information$")
+//    public void iClickOverseasTransferAndFillInTheRequiredInformation(DataTable payDetail) {
+//
+//    }
+
+
+    @When("^I click on overseas transfer payment and select the account$")
+    public void iClickOnOverseasTransferPaymentAndSelectTheAccount() {
+        paymentService_step.transferAndRemittanceMenu();
+        paymentService_step.overseasTransfer();
+        paymentService_step.accountBox();
+        paymentService_step.selectAccount();}
+
+    @When("^I input the payment amount$")
+    public void iInputThePaymentAmount(DataTable payDetail) {
+        List<Map<String, String>> payToInfo = payDetail.asMaps(String.class,String.class);
+        paymentService_step.enterAmount(payToInfo.get(0).get("enterAmount"));}
+
+    @And("^I choose the payment currency$")
+    public void iChooseThePaymentCurrency() {
+        paymentService_step.currencyBox();
+        paymentService_step.selectUsd();    }
+
+
+    @When("^I enter the payee information$")
+    public void iEnterThePayeeInformation(DataTable payDetail) {
+        List<Map<String, String>> payToInfos = payDetail.asMaps(String.class,String.class);
+        paymentService_step.sendPaymentAccount(payToInfos.get(0).get("sendPaymentAccount"));
+        List<Map<String, String>> payToInf = payDetail.asMaps(String.class,String.class);
+        paymentService_step.namePayee(payToInf.get(0).get("namePayee"));
+//        paymentService_step.collectingBankBox();
+//        paymentService_step.collectingBank();
+//        paymentService_step.clickYes();
+        List<Map<String, String>> payToIn = payDetail.asMaps(String.class,String.class);
+        paymentService_step.payeeAdd(payToIn.get(0).get("payeeAdd"));
+        paymentService_step.payeeCountriesEnCdBox();
+        paymentService_step.clickUsd();
+        List<Map<String, String>> payToI = payDetail.asMaps(String.class,String.class);
+        paymentService_step.remittancePostscriptContent(payToI.get(0).get("remittancePostscriptContent"));
+    }
+
+    @When("^I choose cost information$")
+    public void iChooseCostInformation() {
+        paymentService_step.expenseBox();
+        paymentService_step.expense();
+    }
+
+    @Then("^I choose payment properties and click next$")
+    public void iChoosePaymentPropertiesAndClickNext() {
+        paymentService_step.paymentAttributeCd();
+        paymentService_step.selectPaymentAttributeCd();
+        paymentService_step.clickNextBox();
+    }
+
+    //USD--SGD
+    @When("^I choose the currency of payment$")
+    public void iChooseTheCurrencyOfPayment() {
+       paymentService_step.clickCurrencyBox();
+       paymentService_step.selectUSD();
+
+    }
+
+    @And("^I choose the payment currency SGD$")
+    public void iChooseThePaymentCurrencySGD() {
+        paymentService_step.currencyBox();
+        paymentService_step.selectSgd();
+    }
+
+    @When("^I choose cost information all$")
+    public void iChooseCostInformationAll() {
+        paymentService_step.expenseBox();
+        paymentService_step.expenseBth();
     }
 }

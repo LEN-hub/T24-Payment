@@ -44,14 +44,18 @@ public class userManagement_steps extends ScenarioSteps {
 
 
     public void selectTheMenus() {
+        bddUtil.sleep(5);
         List<WebElementFacade> checkEmail = userManagement_page.checkEmail;
         List<WebElementFacade> sumNum = userManagement_page.sumNum;
         a:for (int x = 0; x < sumNum.size(); x++){
             sumNum.get(sumNum.size()-1).click();
             for (int i = 0; i < checkEmail.size(); i++) {
-                if (checkEmail.get(checkEmail.size()-1).getText().equals(FileUtils.LastReadFileInput3("emailData"))) {
+                if (checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("emailData")) || checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("userAddEmailData"))) {
                     Actions action = new Actions(getDriver());
-                    action.moveToElement(userManagement_page.find(By.xpath("//div[@class='el-table__body-wrapper is-scrolling-none']//tbody/tr["+checkEmail.size()+"]/td[7]//img"))).perform();
+                    System.out.println(checkEmail.size());
+                    int t = i+1;
+                    System.out.println(t);
+                    action.moveToElement(userManagement_page.find(By.xpath("//div[@class='el-table__body-wrapper is-scrolling-none']//tbody/tr["+t+"]/td[7]//img"))).perform();
                     break a;
                 }
             }
@@ -61,7 +65,7 @@ public class userManagement_steps extends ScenarioSteps {
 
     public void clickModifyInformation() {
         userManagement_page.modifyInformation.click();
-        bddUtil.sleep(5);
+        bddUtil.sleep(2);
     }
 
     public void clickMobilePHONNO() {
@@ -221,7 +225,7 @@ public class userManagement_steps extends ScenarioSteps {
     }
 
     public void clickKeysEmail () {
-            userManagement_page.keysEmail.sendKeys(FileUtils.LastReadFileInput3("emailData"));
+            userManagement_page.keysEmail.sendKeys(FileUtils.LastReadFileInput3("userAddEmailData"));
             bddUtil.sleep(3);}
 
     public void clickValidationEmail(){userManagement_page.validationEmail.click();}
@@ -253,7 +257,6 @@ public class userManagement_steps extends ScenarioSteps {
 
     public void seeViewLabel(){
         if (userManagement_page.JudgeChinese.getText().equals("停用")){
-            System.out.println(userManagement_page.JudgeChinese.getText());
          }else {
                 assertEquals("Disable",userManagement_page.JudgeEnglish.getText());
         }
@@ -268,14 +271,38 @@ public class userManagement_steps extends ScenarioSteps {
 
     public void seeViewStart(){
         if (userManagement_page.JudgesChinese.getText().equals("正常")){
-            System.out.println(userManagement_page.JudgesChinese.getText());
         }else {
             assertEquals("Active",userManagement_page.JudgesEnglish.getText());
         }
     }
 
+//用户注销
+    //选择刚新增未激活的账户，进行注销,注销需谨慎
 
 
+    public void selectMenus() {
+        bddUtil.sleep(5);
+        List<WebElementFacade> checkEmail = userManagement_page.checkEmail;
+        List<WebElementFacade> sumNum = userManagement_page.sumNum;
+        a:for (int x = 0; x < sumNum.size(); x++){
+            sumNum.get(sumNum.size()-1).click();
+            for (int i = 0; i < checkEmail.size(); i++) {
+                if ( checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("userAddEmailData"))) {
+                    Actions action = new Actions(getDriver());
+                    System.out.println(checkEmail.size());
+                    int t = i+1;
+                    System.out.println(t);
+                    action.moveToElement(userManagement_page.find(By.xpath("//div[@class='el-table__body-wrapper is-scrolling-none']//tbody/tr["+t+"]/td[7]//img"))).perform();
+                    break a;
+                }
+            }
+        }
+        bddUtil.sleep(5);
+    }
 
+
+    public void clickLogOut(){
+        userManagement_page.logOut.click();
+    }
 
 }
