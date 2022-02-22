@@ -83,11 +83,17 @@ public class userManagement_glue {
 
     }
 
-
-
     //用户注销
     @When("^I click the menu select User Logout$")
     public void iClickTheMenuSelectUserLogout() {
+        userManagement_steps.clickAccountManagements();
+        userManagement_steps.selectTheMenus();
+        userManagement_steps.selectMenus();
+        userManagement_steps.clickLogOut();
+        userManagement_steps.clickSure();
+
+
+
     }
 
 //停用用户
@@ -124,7 +130,7 @@ public class userManagement_glue {
     }
 
 
-    //启用用户
+
 
 
 

@@ -259,7 +259,7 @@ public class paymentService_step extends ScenarioSteps {
         }
     }
 
-//境外转账
+//境外转账（SGD--USD）
 
     public void overseasTransfer(){paymentService_page.overseasTransfer.click();}
 
@@ -271,7 +271,7 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.selectAccount.click();
         bddUtil.sleep(3);}
 
-    public void enterAmount(){paymentService_page.enterAmount.sendKeys("1000");}
+    public void enterAmount(String enterAmount){paymentService_page.enterAmount.sendKeys(enterAmount);}
 
     public void currencyBox(){
         paymentService_page.currencyBox.click();
@@ -279,25 +279,25 @@ public class paymentService_step extends ScenarioSteps {
 
     public void selectUsd(){paymentService_page.selectUsd.click();}
 
-    public void sendPaymentAccount(){paymentService_page.sendPaymentAccount.sendKeys("11020006749");}
+    public void sendPaymentAccount(String sendPaymentAccount){paymentService_page.sendPaymentAccount.sendKeys(sendPaymentAccount);}
 
-    public void namePayee(){paymentService_page.NamePayee.sendKeys("susu");}
+    public void namePayee(String NamePayee){paymentService_page.NamePayee.sendKeys(NamePayee);}
 
-    public void collectingBankBox(){
-        paymentService_page.CollectingBankBox.click();
-        bddUtil.sleep(3);}
+//    public void collectingBankBox(){
+//        paymentService_page.CollectingBankBox.click();
+//        bddUtil.sleep(3);}
+//
+//    public void collectingBank(){
+//        paymentService_page.CollectingBank.click();
+//        bddUtil.sleep(5);}
+//
+//    public void clickYes(){
+//        paymentService_page.clickYes.click();
+//        bddUtil.sleep(2);
+//    }
 
-    public void collectingBank(){
-        paymentService_page.CollectingBank.click();
-        bddUtil.sleep(5);}
-
-    public void clickYes(){
-        paymentService_page.clickYes.click();
-        bddUtil.sleep(2);
-    }
-
-    public void payeeAdd(){
-        paymentService_page.payeeAdd.sendKeys("The United States");}
+    public void payeeAdd(String payeeAdd){
+        paymentService_page.payeeAdd.sendKeys(payeeAdd);}
 
     public void payeeCountriesEnCdBox(){
         paymentService_page.payeeCountriesEnCdBox.click();
@@ -305,7 +305,8 @@ public class paymentService_step extends ScenarioSteps {
 
     public void clickUsd(){paymentService_page.usd.click();}
 
-    public void remittancePostscriptContent(){paymentService_page.remittancePostscriptContent.sendKeys("fafafa");}
+    public void remittancePostscriptContent(String remittancePostscriptContent){
+        paymentService_page.remittancePostscriptContent.sendKeys(remittancePostscriptContent);}
 
     public void expenseBox(){
         paymentService_page.expenseBox.click();
@@ -313,9 +314,7 @@ public class paymentService_step extends ScenarioSteps {
 
     public void expense() {
         paymentService_page.expense.click();
-        bddUtil.sleep(2);
-    }
-
+        bddUtil.sleep(2);}
 
     public void paymentAttributeCd(){
         paymentService_page.paymentAttributeCd.click();
@@ -325,11 +324,11 @@ public class paymentService_step extends ScenarioSteps {
 
     public void clickNextBox(){paymentService_page.clickNextBox.click();}
 
-
-
-
-
-
+//USD--SGD
+    public void clickCurrencyBox(){paymentService_page.clickCurrencyBox.click();}
+    public void selectUSD(){paymentService_page.selectUSD.click();}
+    public void selectSgd(){paymentService_page.selectSgd.click();}
+    public void expenseBth(){paymentService_page.expenseBth.click();}
 
 
 }

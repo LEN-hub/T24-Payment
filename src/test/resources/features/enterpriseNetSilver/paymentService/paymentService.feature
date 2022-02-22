@@ -247,4 +247,34 @@ Feature: receipt and payment service
   @overseasTransfer
   Scenario:Positive process of overseas transfer(SGD--USD)
     Given logon "netSilverEnv_sun" on enterprise net silver
-    When I click overseas transfer and fill in the required information
+#    When I click overseas transfer and fill in the required information
+    When I click on overseas transfer payment and select the account
+    When I input the payment amount
+      |enterAmount|
+      |1000       |
+    And I choose the payment currency
+    When I enter the payee information
+      |sendPaymentAccount|namePayee|payeeAdd |remittancePostscriptContent|
+      |11020009098       |lucky    |countries|ok                         |
+    When I choose cost information
+    Then I choose payment properties and click next
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+
+#USD--SGD
+  @overseasTransfer01
+  Scenario:Positive process of overseas transfer(USD--SGD)
+    Given logon "netSilverEnv_sun" on enterprise net silver
+#    When I click overseas transfer and fill in the required information
+    When I click on overseas transfer payment and select the account
+    When I choose the currency of payment
+    When I input the payment amount
+      |enterAmount|
+      |1000       |
+    And I choose the payment currency SGD
+    When I enter the payee information
+      |sendPaymentAccount|namePayee|payeeAdd |remittancePostscriptContent|
+      |11020009098       |lucky    |countries|ok                         |
+    When I choose cost information all
+    Then I choose payment properties and click next

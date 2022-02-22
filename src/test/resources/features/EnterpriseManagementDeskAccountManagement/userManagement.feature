@@ -57,4 +57,4 @@ Feature: userManagements
     When I click on the Enterprise Administration as well user administration
     When I click the menu select User Logout
     Then I click Next
-    When I initiate captcha verification
+#    When I initiate captcha verification
