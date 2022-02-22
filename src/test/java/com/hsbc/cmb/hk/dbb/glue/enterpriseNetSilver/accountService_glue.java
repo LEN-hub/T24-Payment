@@ -3,6 +3,7 @@ package com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.Logon_step;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.accountService_step;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import com.hsbc.cmb.hk.dbb.utils.MobileConfig;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -129,5 +130,13 @@ public class accountService_glue {
 
     @When("^I switched to the account of the Level two Authorized$")
     public void iSwitchedToTheAccountOfTheLevelTwoAuthorized() {
+    }
+
+    @When("^I should switch to the second authorized account$")
+    public void iShouldSwitchToTheSecondAuthorizedAccount() {
+        bddUtil.sleep(3);
+        bddUtil.quitDriver();
+        MobileConfig test = new MobileConfig();
+        test.quitAndroid();
     }
 }

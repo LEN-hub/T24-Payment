@@ -51,35 +51,6 @@ public class Logon_glue {
     public void logonSecondOnEnterpriseNetSilver(String envName) throws MalformedURLException, InterruptedException, AWTException {
         envTag = envName;
         if (!envName.isEmpty()) {
-//            logon_step.open_the_first_dbb_logon_page(envName);
-//            logon_step.checkLanguage();
-//            logon_step.enter_OrganisationID_into_box(envName);
-//            logon_step.enter_email_into_box(envName);
-//            String s = logon_step.enter_password_into_box(envName);
-//            logon_step.getDeviceName(envName);
-//            logon_step.get_New_password(envName);
-//            logon_step.clickLogonBtn();
-//            logon_step.getVcodeTitle();
-//            logon_step.clickNextBtn();
-//            logon_step.secondVkeyAppVcode();
-//            logon_step.enterVcode();
-//            logon_step.getAuthenticateNowBtn();
-//            logon_step.resetPassword();
-//            bddUtil.quitDriver();
-            logon_step.open_the_first_dbb_logon_page(envName);
-            logon_step.checkLanguage();
-            logon_step.enter_OrganisationID_into_box(envName);
-            logon_step.enter_email_into_box(envName);
-            logon_step.getDeviceName(envName);
-            logon_step.get_New_password(envName);
-            logon_step.secondVkeyAppVcode();
-            logon_step.clickLogonBtn();
-            logon_step.getVcodeTitle();
-            logon_step.clickNextBtn();
-            logon_step.enterVcode();
-            logon_step.getAuthenticateNowBtn();
-            logon_step.resetPassword();
-            logon_step.quitAndroidDriver();
             try {
                 logon_step.open_the_first_dbb_logon_page(envName);
                 logon_step.checkLanguage();

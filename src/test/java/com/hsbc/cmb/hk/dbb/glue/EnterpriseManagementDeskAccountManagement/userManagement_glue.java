@@ -6,6 +6,7 @@ import com.hsbc.cmb.hk.dbb.steps.EnterpriseManagementDeskAccountManagement.userM
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
 import com.hsbc.cmb.hk.dbb.utils.RandomPhoneNumber;
 import cucumber.api.java.en.When;
+import cucumber.api.java.en.Then;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
@@ -22,19 +23,19 @@ public class userManagement_glue {
 
     @When("^I click on the Enterprise Administration Desk as well as user administration$")
     public void iClickOnTheEnterpriseAdministrationDeskAsWellAsUserAdministration() {
-        userManagement_steps.selectEnterpriseManagementDesk();
-        userManagement_steps.clickAccountManagement();
+        userManagement_steps.clickEnterpriseManagementDesk();
+        userManagement_steps.clickAccountManagements();
 
     }
 
     @When("^I click modify info menu$")
     public void iClickModifyInfoMenu() {
-        userManagement_steps.selectTheMenu();
+        userManagement_steps.selectTheMenus();
         userManagement_steps.clickModifyInformation();
-        userManagement_steps.clickMobilePhonNo("RandomPhoneNumber");
+        userManagement_steps.clickMobilePHONNO();
         userManagement_steps.clickNext();
-        userManagement_steps.clicksumbits();
-        userManagement_steps.clickcodeNext();
+        userManagement_steps.clickSumbits();
+        userManagement_steps.clickCodeNext();
 
 
 
