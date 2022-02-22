@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.security.cert.X509Certificate;
 import java.util.List;
 
 public class accountService_page extends PageObject {
@@ -180,4 +181,26 @@ public class accountService_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='ui-container-full__body']//div[@class='form-top-0']//div[@class='el-row'][1]//div[@class='el-form-item__content']/div[1]/div[1]")
     public WebElementFacade selectSevenDay;
+
+    @FindBy(xpath = "//div[@class='content-right']//div[@class='btn_box']")
+    public WebElementFacade myTaskBtn;
+
+//    等待授权页面标题。
+    @FindBy(xpath = "//div[@class='sub-title']/div")
+    public WebElementFacade PendingApprovalTitle;
+
+    @FindBy(xpath = "//div[@class='el-table__fixed-body-wrapper']//tr[1]//div[text()='授权']")
+    public WebElementFacade firstAuthorizeBtn;
+
+    //审批页面 通过按钮。
+    @FindBy(xpath = "//div[@class='el-radio-group']/label[1]/span[1]")
+    public WebElementFacade passThroughBtn;
+
+    @FindBy(xpath = "//div[text()='提交']")
+    public WebElementFacade submitBtn;
+
+    @FindBy(xpath = "//div[text()='Next']")
+    public WebElementFacade nextBtn;
+
+
 }
