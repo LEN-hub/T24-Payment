@@ -24,7 +24,6 @@ public class userManagement_glue {
     public void iClickOnTheEnterpriseAdministrationDeskAsWellAsUserAdministration() {
         userManagement_steps.selectEnterpriseManagementDesk();
         userManagement_steps.clickAccountManagement();
-
     }
 
     @When("^I click modify info menu$")
@@ -35,10 +34,6 @@ public class userManagement_glue {
         userManagement_steps.clickNext();
         userManagement_steps.clicksumbits();
         userManagement_steps.clickcodeNext();
-
-
-
-
     }
 }
 

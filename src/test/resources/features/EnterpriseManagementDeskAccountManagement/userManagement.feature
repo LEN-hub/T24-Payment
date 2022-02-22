@@ -46,10 +46,6 @@ Feature: userManagements
     When I initiate captcha verification
     Then End the deals
 
-
-
-
-
   @UserCancellation
 #    用户注销
   Scenario:Process for querying the New users
