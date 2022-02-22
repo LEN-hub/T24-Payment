@@ -37,13 +37,13 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.clickLetGo.click();
     }
 
-    public void provideEssentialInformation(String emailName){
+    public void provideEssentialInformation(String emailName,String mobileNumber){
         openAccount_page.clickSalutation.click();
         bddUtil.scrollWindowToElement(openAccount_page.getSalutation).click();
         openAccount_page.inputFullName.sendKeys("AutoTest_" + JRandomNameTool.getStringRandom(10));
         openAccount_page.clickCountryCode.click();
         bddUtil.scrollWindowToElement(openAccount_page.getCountryCode).click();
-        openAccount_page.inputMobileNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        openAccount_page.inputMobileNumber.sendKeys(mobileNumber);
         openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
     }
 
@@ -109,7 +109,7 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.clickNextToStep3.click();
     }
 
-    public void inputPeoplesDetails(String contactPersonNm,String aliasNm,String passportNumber){
+    public void inputDirectorDetails(String contactPersonNm,String aliasNm,String passportNumber,String directorPhoneNumber,String directorEmailName){
         openAccount_page.inputContactPersonNm.click();
         openAccount_page.inputContactPersonNm.sendKeys(contactPersonNm);
         openAccount_page.inputAliasNm.sendKeys(aliasNm);
@@ -121,6 +121,31 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.inputPassportNumber.sendKeys(passportNumber);
         openAccount_page.inputDateOfExpiry.sendKeys("2030-01-01");
         openAccount_page.clickDateOfExpiry.click();
+        openAccount_page.clickIddInput.click();
+        bddUtil.scrollWindowToElement(openAccount_page.getIdd).click();
+        openAccount_page.inputDirectorMobilePhoneNo.sendKeys(directorPhoneNumber);
+        openAccount_page.inputDirectorEmailAddress.sendKeys(directorEmailName + "@MailTemp.top");
+        openAccount_page.clickNextOnEnterConnectedPeoplesDetails.click();
+        bddUtil.sleep(2);
+    }
+
+    public void inputUltimateBeneficialOwnerDetails(String ultimateBeneficialOwnerName,String ultimateBeneficialOwnerAliasName,String ultimateBeneficialOwnerPassportNumber,String ultimateBeneficialOwnerPhoneNumber,String ultimateBeneficialOwnerEmailName){
+        bddUtil.scrollWindowToElement(openAccount_page.goContactPersonNm);
+        openAccount_page.inputUBOName.sendKeys(ultimateBeneficialOwnerName);
+        openAccount_page.inputUBOAliasName.sendKeys(ultimateBeneficialOwnerAliasName);
+        openAccount_page.inputUBOBirthDate.sendKeys("2000-01-01");
+        openAccount_page.goContactPersonNm.click();
+        openAccount_page.clickUBOIdentificationType.click();
+        openAccount_page.inputUBOPassportNo.sendKeys(ultimateBeneficialOwnerPassportNumber);
+        openAccount_page.inputUBOPassportDueDate.sendKeys("2030-01-01");
+        openAccount_page.goContactPersonNm.click();
+        openAccount_page.clickUBOIdd.click();
+        bddUtil.scrollWindowToElement(openAccount_page.getUBOIdd).click();
+        openAccount_page.inputUBOMobilePhoneNo.sendKeys(ultimateBeneficialOwnerPhoneNumber);
+        openAccount_page.inputUBOEmailAddress.sendKeys(ultimateBeneficialOwnerEmailName + "@MailTemp.top");
+        openAccount_page.clickNextForUBO.click();
+        bddUtil.sleep(2);
+
     }
 
 }

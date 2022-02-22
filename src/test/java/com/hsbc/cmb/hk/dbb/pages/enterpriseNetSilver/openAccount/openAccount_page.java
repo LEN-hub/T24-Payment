@@ -152,4 +152,55 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//label[@for=\"certfctDueDate\"]")
     public WebElementFacade clickDateOfExpiry;
+
+    @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//input")
+    public WebElementFacade clickIddInput;
+
+    @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//span[text()=\"CHINESE\"]")
+    public WebElementFacade getIdd;
+
+    @FindBy(xpath = "//label[@for=\"mobilePhoneNo\"]/following-sibling::div//input")
+    public WebElementFacade inputDirectorMobilePhoneNo;
+
+    @FindBy(xpath = "//label[@for=\"emailAddr\"]/following-sibling::div//input")
+    public WebElementFacade inputDirectorEmailAddress;
+
+    @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"btn_box\"]")
+    public WebElementFacade clickNextOnEnterConnectedPeoplesDetails;
+
+    @FindBy(xpath = "//label[@for=\"contactPersonNm\"]")
+    public WebElementFacade goContactPersonNm;
+
+    @FindBy(xpath = "//label[@for=\"contactPersonNm\"]/following-sibling::div//input")
+    public WebElementFacade inputUBOName;
+
+    @FindBy(xpath = "//label[@for=\"aliasNm\"]/following-sibling::div//input")
+    public WebElementFacade inputUBOAliasName;
+
+    @FindBy(xpath = "//label[@for=\"birthDate\"]/following-sibling::div//input")
+    public WebElementFacade inputUBOBirthDate;
+
+    @FindBy(xpath = "//label[@for=\"certfctTypeCd\"]/following-sibling::div//label[2]//span//span")
+    public WebElementFacade clickUBOIdentificationType;
+
+    @FindBy(xpath = "//label[@for=\"certfctNo\"]/following-sibling::div//input")
+    public WebElementFacade inputUBOPassportNo;
+
+    @FindBy(xpath = "//label[@for=\"certfctDueDate\"]/following-sibling::div//input")
+    public WebElementFacade inputUBOPassportDueDate;
+
+    @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//input")
+    public WebElementFacade clickUBOIdd;
+
+    @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//span[text()=\"CHINESE\"]")
+    public WebElementFacade getUBOIdd;
+
+    @FindBy(xpath = "//label[@for=\"mobilePhoneNo\"]/following-sibling::div//input")
+    public WebElementFacade inputUBOMobilePhoneNo;
+
+    @FindBy(xpath = "//label[@for=\"emailAddr\"]/following-sibling::div//input")
+    public WebElementFacade inputUBOEmailAddress;
+
+    @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"btn_box\"]")
+    public WebElementFacade clickNextForUBO;
 }
