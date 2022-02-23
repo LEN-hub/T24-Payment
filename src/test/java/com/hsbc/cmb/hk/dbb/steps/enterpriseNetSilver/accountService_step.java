@@ -242,4 +242,32 @@ public class accountService_step extends ScenarioSteps {
     public void clickNextBtn(){
         accountService_page.nextBtn.click();
     }
+
+    @Step
+    public void clickTransferMoneyBtn(){
+        accountService_page.transferMoneyBtn.click();
+        accountService_page.rosterManagementBtn.click();
+    }
+
+    @Step
+    public void clickAddPayeeBtn(){
+        accountService_page.addPayeeBtn.click();
+        bddUtil.sleep(1);
+    }
+
+    @Step
+    public void inputOtherInformation(){
+        String a = JRandomNameTool.getStringRandom(6);
+        accountService_page.inputReceivingAccount.sendKeys(a);
+        accountService_page.inputPayeeAccountName.sendKeys(a);
+        accountService_page.selectBankInfo.click();
+        List<WebElementFacade> bankList = accountService_page.bankList;
+        for (int i = 0; i < bankList.size(); i++) {
+            if (bankList.get(i).getText().equals("BANK OF CHINA")){
+                bankList.get(i).click();
+                break;
+            }
+        }
+        accountService_page.createSaveBtn.click();
+    }
 }
