@@ -67,10 +67,10 @@ public class openAccount_step extends ScenarioSteps {
 
     public void inputValidationCode() throws AWTException {
         EnterKeys enterKeys = new EnterKeys();
-        bddUtil.sleep(2);
+        bddUtil.sleep(1);
         openAccount_page.sendKeysBox.click();
         enterKeys.EnterKeys(verificationCode.substring(0, 1));
-        bddUtil.sleep(3);
+        bddUtil.sleep(1);
         openAccount_page.secondKeysBox.click();
         enterKeys.EnterKeys(verificationCode.substring(1, 2));
         openAccount_page.thirdKeysBox.click();
@@ -171,7 +171,7 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.clickUBO2Idd.click();
         bddUtil.scrollWindowToElement(openAccount_page.getUBO2Idd).click();
         openAccount_page.inputUBO2MobilePhoneNo.sendKeys(onlyUBOPhoneNumber);
-        openAccount_page.inputUBO2EmailAddress.sendKeys(onlyUBOEmailName);
+        openAccount_page.inputUBO2EmailAddress.sendKeys(onlyUBOEmailName + "@MailTemp.top");
         openAccount_page.clickNextForUBO2.click();
         bddUtil.sleep(2);
     }
@@ -191,8 +191,8 @@ public class openAccount_step extends ScenarioSteps {
             openAccount_page.inputDirector2City.sendKeys("City");
             openAccount_page.inputDirector2PostalCode.sendKeys("710000");
             openAccount_page.inputDirector2Country.click();
-            List<WebElementFacade> getDirector2Country = openAccount_page.getDirector2Country;
-            bddUtil.scrollWindowToElement(getDirector2Country.get(2)).click();
+            bddUtil.sleep(1);
+            bddUtil.scrollWindowToElement(openAccount_page.getDirector2Country).click();
         }
         else {
             openAccount_page.clickDirector1.click();
@@ -206,9 +206,8 @@ public class openAccount_step extends ScenarioSteps {
             openAccount_page.inputDirector2CityCN.sendKeys("City");
             openAccount_page.inputDirector2PostalCodeCN.sendKeys("710000");
             openAccount_page.inputDirector2CountryCN.click();
-            List<WebElementFacade> getDirector2Country = openAccount_page.getDirector2Country;
-            JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-            webdriver.executeScript("arguments[0].click();", getDirector2Country.get(2));
+            bddUtil.sleep(1);
+            bddUtil.scrollWindowToElement(openAccount_page.getDirector2Country).click();
         }
         openAccount_page.clickNextToStep4.click();
         bddUtil.sleep(2);
@@ -226,7 +225,7 @@ public class openAccount_step extends ScenarioSteps {
     public void createCompanyAdministratorsProfiles(String contactPersonNm){
         openAccount_page.clickYESConnectedPerson1.click();
         openAccount_page.clickConnectedPersons1Name.click();
-        bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//span[text()="+ contactPersonNm +"]"))).click();
+        bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//span[text()='"+ contactPersonNm +"']"))).click();
         bddUtil.scrollWindowToElement(openAccount_page.goVerifyMobileNumber1);
         openAccount_page.clickVerifyMobileNumber1.click();
     }
@@ -242,13 +241,16 @@ public class openAccount_step extends ScenarioSteps {
     }
 
     public void clickNextToAdministrator2AndEdit(String ultimateBeneficialOwnerName){
-        openAccount_page.clickNextToAdministrator2.click();
+        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(openAccount_page.clickNextToAdministrator2).click();
+        bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(openAccount_page.goChoseYESConnectedPerson2);
         openAccount_page.clickYESConnectedPerson2.click();
         openAccount_page.clickConnectedPersons2Name.click();
-        bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//span[text()="+ ultimateBeneficialOwnerName +"]"))).click();
+        bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//span[text()='"+ ultimateBeneficialOwnerName +"']"))).click();
         bddUtil.scrollWindowToElement(openAccount_page.goVerifyMobileNumber1);
         openAccount_page.clickVerifyMobileNumber2.click();
+        bddUtil.sleep(2);
     }
 
     public void clickVerifyEmailAddress2(){
@@ -262,7 +264,9 @@ public class openAccount_step extends ScenarioSteps {
     }
 
     public void clickNextToStep6(){
-        openAccount_page.clickNextToStep6.click();
+        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(openAccount_page.clickNextToStep6).click();
+        bddUtil.sleep(2);
     }
 
     public void choseRiskProfile(){
@@ -315,8 +319,10 @@ public class openAccount_step extends ScenarioSteps {
 
     public void getOrganisationID(String emailName){
         bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox\");");
+        bddUtil.sleep(2);
         openAccount_page.sendEmail.clear();
         openAccount_page.sendEmail.sendKeys(emailName);
         openAccount_page.createEmailButton.click();

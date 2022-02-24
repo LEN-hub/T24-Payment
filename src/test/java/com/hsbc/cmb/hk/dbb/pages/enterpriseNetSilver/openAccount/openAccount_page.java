@@ -308,8 +308,8 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@role=\"group\"]//div[2]//form//label[text()=\"居住国家\"]/following-sibling::div//input")
     public WebElementFacade inputDirector2CountryCN;
 
-    @FindBy(xpath = "//span[text()=\"SINGAPOREAN\"]")
-    public List<WebElementFacade> getDirector2Country;
+    @FindBy(xpath = "//div[6]//span[text()=\"SINGAPOREAN\"]")
+    public WebElementFacade getDirector2Country;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextToStep4;
