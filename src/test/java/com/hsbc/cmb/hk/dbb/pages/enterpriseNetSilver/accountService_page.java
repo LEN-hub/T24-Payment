@@ -202,5 +202,31 @@ public class accountService_page extends PageObject {
     @FindBy(xpath = "//div[text()='Next']")
     public WebElementFacade nextBtn;
 
+    @FindBy(xpath = "//ul[@class='el-menu--horizontal el-menu']/li[5]/div")
+    public WebElementFacade transferMoneyBtn;
 
+    @FindBy(xpath = "//div[@class='list']/div[2]/p[2]/span")
+    public WebElementFacade rosterManagementBtn;
+
+    @FindBy(xpath = "//div[@class='ui-theme-container-main']/div[1]//div[@class='el-row']/div[2]/div")
+    public WebElementFacade addPayeeBtn;
+
+    //收款账号
+    @FindBy(xpath = "//label[@for='payeeAcctNo']/following-sibling::div//input")
+    public WebElementFacade inputReceivingAccount;
+
+//    收款户名
+    @FindBy(xpath = "//label[@for='payeeAcctNm']/following-sibling::div//input")
+    public WebElementFacade inputPayeeAccountName;
+
+    // 收款银行
+    @FindBy(xpath = "//label[@for='bankInfo']/following-sibling::div//input")
+    public WebElementFacade selectBankInfo;
+
+    //收款银行名称列表
+    @FindBy(xpath = "//ul[@class='el-scrollbar__view el-select-dropdown__list']/li")
+    public List<WebElementFacade> bankList;
+
+    @FindBy(xpath = "//body[@class='theme-ui el-popup-parent--hidden']/div[@class='el-dialog__wrapper large-dialog superLarge-left']//div[@class='body']/div//div[@class='ui-button primary common']")
+    public WebElementFacade createSaveBtn;
 }
