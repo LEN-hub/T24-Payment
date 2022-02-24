@@ -3,7 +3,7 @@ Feature: receipt and payment service
 
   #SDG->HKD
   Scenario:I have successfully transferred from one currency to another (Singapore dollar to Hong Kong dollar)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_susu" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount|intoAccount|amount|
       |11010003704   |11010003836|0.1   |
@@ -243,38 +243,208 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643346550706|11010003437      |0.10             |Business Expenses|
 
+
     #境外转账
   @overseasTransfer
   Scenario:Positive process of overseas transfer(SGD--USD)
     Given logon "netSilverEnv_sun" on enterprise net silver
-#    When I click overseas transfer and fill in the required information
     When I click on overseas transfer payment and select the account
-    When I input the payment amount
-      |enterAmount|
-      |1000       |
+    When I choose the payment account payment currency and payment amount
+      |selectAccount|payeeCurrency|enterAmount|
+      |11020006552  |SGD          |50         |
     And I choose the payment currency
+      |selectAccBth|
+      |USD         |
     When I enter the payee information
-      |sendPaymentAccount|namePayee|payeeAdd |remittancePostscriptContent|
-      |11020009098       |lucky    |countries|ok                         |
-    When I choose cost information
-    Then I choose payment properties and click next
+      |sendPaymentAccount|namePayee|collectingBank|payeeAdd |payeeCountries|remittancePostscriptContent|
+      |11020009098       |lucky    |CITIBANK USA  |countries|UNITED STATES |ok                         |
+    When I choose the party to bear the expenses and the nature of payment
+      |expense         |selectPaymentAttributeCd|
+      |所有费用由汇款人承担|Commission              |
 #    Then TC code is then required for Vkey authentication
 #    When I get the TC code and click Next
 #    When I typed TC Code and click Authenticate Now
 
-#USD--SGD
+
   @overseasTransfer01
   Scenario:Positive process of overseas transfer(USD--SGD)
     Given logon "netSilverEnv_sun" on enterprise net silver
-#    When I click overseas transfer and fill in the required information
     When I click on overseas transfer payment and select the account
-    When I choose the currency of payment
-    When I input the payment amount
-      |enterAmount|
-      |1000       |
-    And I choose the payment currency SGD
+    When I choose the payment account payment currency and payment amount
+      |selectAccount|payeeCurrency|enterAmount|
+      |11020006552  |USD          |60         |
+    And I choose the payment currency
+      |selectAccBth|
+      |SGD         |
     When I enter the payee information
-      |sendPaymentAccount|namePayee|payeeAdd |remittancePostscriptContent|
-      |11020009098       |lucky    |countries|ok                         |
-    When I choose cost information all
-    Then I choose payment properties and click next
+      |sendPaymentAccount|namePayee|collectingBank|payeeAdd |payeeCountries|remittancePostscriptContent|
+      |11020009098       |luckys |CITIBANK USA  |countries|UNITED STATES |ok                         |
+    When I choose the party to bear the expenses and the nature of payment
+       |expense   |selectPaymentAttributeCd|
+       |费用各自承担|Commission              |
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+
+
+  @overseasTransfer02
+  Scenario:Positive process of overseas transfer(CNY--SGD)
+    Given logon "netSilverEnv_sun" on enterprise net silver
+    When I click on overseas transfer payment and select the account
+    When I choose the payment account payment currency and payment amount
+      |selectAccount|payeeCurrency|enterAmount|
+      |11020006552  |CNY          |50         |
+    And I choose the payment currency
+      |selectAccBth|
+      |SGD         |
+    When I enter the payee information
+      |sendPaymentAccount|namePayee|collectingBank|payeeAdd |payeeCountries|remittancePostscriptContent|
+      |11020009098       |lucky    |CITIBANK USA  |countries|UNITED STATES |ok                         |
+    When I choose the party to bear the expenses and the nature of payment
+      |expense   |selectPaymentAttributeCd|
+      |费用各自承担|Commission              |
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+
+  @overseasTransfer03
+  Scenario:Positive process of overseas transfer(EUR--SGD)
+    Given logon "netSilverEnv_sun" on enterprise net silver
+    When I click on overseas transfer payment and select the account
+    When I choose the payment account payment currency and payment amount
+      |selectAccount|payeeCurrency|enterAmount|
+      |11020006552  |EUR          |50         |
+    And I choose the payment currency
+      |selectAccBth|
+      |SGD         |
+    When I enter the payee information
+      |sendPaymentAccount|namePayee|collectingBank|payeeAdd |payeeCountries|remittancePostscriptContent|
+      |11020009098       |lucky    |CITIBANK USA  |countries|UNITED STATES |ok                         |
+    When I choose the party to bear the expenses and the nature of payment
+      |expense   |selectPaymentAttributeCd|
+      |费用各自承担|Commission              |
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+
+  @overseasTransfer04
+  Scenario:Positive process of overseas transfer(HKD--SGD)
+    Given logon "netSilverEnv_sun" on enterprise net silver
+    When I click on overseas transfer payment and select the account
+    When I choose the payment account payment currency and payment amount
+      |selectAccount|payeeCurrency|enterAmount|
+      |11020006552  |HKD          |50         |
+    And I choose the payment currency
+      |selectAccBth|
+      |SGD         |
+    When I enter the payee information
+      |sendPaymentAccount|namePayee|collectingBank|payeeAdd |payeeCountries|remittancePostscriptContent|
+      |11020009098       |lucky    |CITIBANK USA  |countries|UNITED STATES |ok                         |
+    When I choose the party to bear the expenses and the nature of payment
+      |expense   |selectPaymentAttributeCd|
+      |费用各自承担|Commission              |
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+
+  @overseasTransfer05
+  Scenario:Positive process of overseas transfer(SGD--SGD)
+    Given logon "netSilverEnv_sun" on enterprise net silver
+    When I click on overseas transfer payment and select the account
+    When I choose the payment account payment currency and payment amount
+      |selectAccount|payeeCurrency|enterAmount|
+      |11020006552  |SGD          |50         |
+    And I choose the payment currency
+      |selectAccBth|
+      |SGD         |
+    When I enter the payee information
+      |sendPaymentAccount|namePayee|collectingBank|payeeAdd |payeeCountries|remittancePostscriptContent|
+      |11020009098       |lucky    |CITIBANK USA  |countries|UNITED STATES |ok                         |
+    When I choose the party to bear the expenses and the nature of payment
+      |expense   |selectPaymentAttributeCd|
+      |费用各自承担|Commission              |
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+
+
+#
+  @overseasTransfer06
+  Scenario:Positive process of overseas transfer(CNY--CNY)
+    Given logon "netSilverEnv_sun" on enterprise net silver
+    When I click on overseas transfer payment and select the account
+    When I choose the payment account payment currency and payment amount
+      |selectAccount|payeeCurrency|enterAmount|
+      |11020006552  |CNY          |50         |
+    And I choose the payment currency
+      |selectAccBth|
+      |CNY         |
+    When I enter the payee information
+      |sendPaymentAccount|namePayee|collectingBank|payeeAdd |payeeCountries|remittancePostscriptContent|
+      |11020009098       |lucky    |CITIBANK USA  |countries|UNITED STATES |ok                         |
+    When I choose the party to bear the expenses and the nature of payment
+      |expense   |selectPaymentAttributeCd|
+      |费用各自承担|Commission              |
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#
+  @overseasTransfer07
+  Scenario:Positive process of overseas transfer(EUR--EUR)
+    Given logon "netSilverEnv_sun" on enterprise net silver
+    When I click on overseas transfer payment and select the account
+    When I choose the payment account payment currency and payment amount
+      |selectAccount|payeeCurrency|enterAmount|
+      |11020006552  |EUR          |50         |
+    And I choose the payment currency
+      |selectAccBth|
+      |EUR         |
+    When I enter the payee information
+      |sendPaymentAccount|namePayee|collectingBank|payeeAdd |payeeCountries|remittancePostscriptContent|
+      |11020009098       |lucky    |CITIBANK USA  |countries|UNITED STATES |ok                         |
+    When I choose the party to bear the expenses and the nature of payment
+      |expense   |selectPaymentAttributeCd|
+      |费用各自承担|Commission              |
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#
+  @overseasTransfer08
+  Scenario:Positive process of overseas transfer(HKD--HKD)
+    Given logon "netSilverEnv_sun" on enterprise net silver
+    When I click on overseas transfer payment and select the account
+    When I choose the payment account payment currency and payment amount
+      |selectAccount|payeeCurrency|enterAmount|
+      |11020006552  |HKD          |50         |
+    And I choose the payment currency
+      |selectAccBth|
+      |HKD         |
+    When I enter the payee information
+      |sendPaymentAccount|namePayee|collectingBank|payeeAdd |payeeCountries|remittancePostscriptContent|
+      |11020009098       |lucky    |CITIBANK USA  |countries|UNITED STATES |ok                         |
+    When I choose the party to bear the expenses and the nature of payment
+      |expense   |selectPaymentAttributeCd|
+      |费用各自承担|Commission              |
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#
+  @overseasTransfer09
+  Scenario:Positive process of overseas transfer(USD--USD)
+    Given logon "netSilverEnv_sun" on enterprise net silver
+    When I click on overseas transfer payment and select the account
+    When I choose the payment account payment currency and payment amount
+      |selectAccount|payeeCurrency|enterAmount|
+      |11020006552  |USD          |50         |
+    And I choose the payment currency
+      |selectAccBth|
+      |USD         |
+    When I enter the payee information
+      |sendPaymentAccount|namePayee|collectingBank|payeeAdd |payeeCountries|remittancePostscriptContent|
+      |11020009098       |lucky    |CITIBANK USA  |countries|UNITED STATES |ok                         |
+    When I choose the party to bear the expenses and the nature of payment
+      |expense   |selectPaymentAttributeCd|
+      |费用各自承担|Commission              |
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now

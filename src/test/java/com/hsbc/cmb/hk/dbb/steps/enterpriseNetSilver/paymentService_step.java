@@ -3,6 +3,7 @@ package com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver;
 import com.hsbc.cmb.hk.dbb.pages.enterpriseNetSilver.paymentService_page;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
 import com.hsbc.cmb.hk.dbb.utils.CommonUtil;
+import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -21,6 +22,7 @@ import static org.junit.Assert.assertEquals;
 public class paymentService_step extends ScenarioSteps {
     private BDDUtil bddUtil;
     private paymentService_page paymentService_page;
+    private String selectAccBth;
 
     @Step
     public void transferAndRemittanceMenu(){
@@ -263,72 +265,101 @@ public class paymentService_step extends ScenarioSteps {
 
     public void overseasTransfer(){paymentService_page.overseasTransfer.click();}
 
-    public void accountBox(){
+    public void selectPaymentAccount(String selectAccount){
         paymentService_page.accountBox.click();
-        bddUtil.sleep(3);}
-
-    public void selectAccount(){
-        paymentService_page.selectAccount.click();
-        bddUtil.sleep(3);}
+        bddUtil.sleep(3);
+        List<WebElementFacade> Acc = paymentService_page.selectAccount;
+        for (int i = 0; i < Acc.size(); i++){
+            if (selectAccount.equals(Acc.get(i).getText())){
+                Acc.get(i).click();
+                break;
+            }
+        }
+        bddUtil.sleep(3);
+    }
+    public void clickCurrency(String payeeCurrency){
+        paymentService_page.clickCurrencyBox.click();
+        List<WebElementFacade> payee = paymentService_page.payeeCurrency;
+        for (int i = 0; i <payee.size(); i++){
+            if (payeeCurrency.equals(payee.get(i).getText())){
+                payee.get(i).click();
+                break;
+            }
+        }
+        bddUtil.sleep(5);}
 
     public void enterAmount(String enterAmount){paymentService_page.enterAmount.sendKeys(enterAmount);}
 
-    public void currencyBox(){
-        paymentService_page.currencyBox.click();
-        bddUtil.sleep(5);}
-
-    public void selectUsd(){paymentService_page.selectUsd.click();}
+    public void selectAccBth(String selectAccBth){
+            paymentService_page.currencyBox.click();
+            bddUtil.sleep(3);
+        List<WebElementFacade> selectAcc = paymentService_page.selectAccBth;
+        for (int i = 0; i < selectAcc.size(); i++){
+            if (selectAccBth.equals(selectAcc.get(i).getText())){
+                selectAcc.get(i).click();
+                break;
+            }
+        }
+    }
 
     public void sendPaymentAccount(String sendPaymentAccount){paymentService_page.sendPaymentAccount.sendKeys(sendPaymentAccount);}
 
     public void namePayee(String NamePayee){paymentService_page.NamePayee.sendKeys(NamePayee);}
 
-//    public void collectingBankBox(){
-//        paymentService_page.CollectingBankBox.click();
-//        bddUtil.sleep(3);}
-//
-//    public void collectingBank(){
-//        paymentService_page.CollectingBank.click();
-//        bddUtil.sleep(5);}
-//
-//    public void clickYes(){
-//        paymentService_page.clickYes.click();
-//        bddUtil.sleep(2);
-//    }
+    public void collectingBankBox(String collectingBank) {
+        paymentService_page.collectingBankBox.click();
+        bddUtil.sleep(3);
+        List<WebElementFacade> bank = paymentService_page.collectingBank;
+        for (int i = 0; i < bank.size(); i++) {
+            if (collectingBank.equals(bank.get(i).getText())) {
+                bank.get(i).click();
+                break;
+            }
+        }
+    }
 
     public void payeeAdd(String payeeAdd){
         paymentService_page.payeeAdd.sendKeys(payeeAdd);}
 
-    public void payeeCountriesEnCdBox(){
+    public void payeeCountriesEnCd(String payeeCountries) {
         paymentService_page.payeeCountriesEnCdBox.click();
-        bddUtil.sleep(5);}
-
-    public void clickUsd(){paymentService_page.usd.click();}
-
+        bddUtil.sleep(5);
+        List<WebElementFacade> countries = paymentService_page.payeeCountries;
+        for (int i = 0; i < countries.size(); i++) {
+            if (payeeCountries.equals(countries.get(i).getText())) {
+                countries.get(i).click();
+                break;
+            }
+        }
+    }
     public void remittancePostscriptContent(String remittancePostscriptContent){
         paymentService_page.remittancePostscriptContent.sendKeys(remittancePostscriptContent);}
 
-    public void expenseBox(){
+    public void expense(String expense){
         paymentService_page.expenseBox.click();
-        bddUtil.sleep(5);}
+        bddUtil.sleep(5);
+    List<WebElementFacade> bears = paymentService_page.expense;
+        for (int i = 0; i < bears.size(); i++) {
+        if (expense.equals(bears.get(i).getText())) {
+            bears.get(i).click();
+            break;
+        }
+      }
+    }
 
-    public void expense() {
-        paymentService_page.expense.click();
-        bddUtil.sleep(2);}
-
-    public void paymentAttributeCd(){
-        paymentService_page.paymentAttributeCd.click();
-        bddUtil.sleep(3);}
-
-    public void selectPaymentAttributeCd(){paymentService_page.selectPaymentAttributeCd.click();}
+    public void paymentAttributeCd(String selectPaymentAttributeCd){
+        paymentService_page.paymentAttributeCdBox.click();
+        bddUtil.sleep(3);
+        List<WebElementFacade> AttributeCd = paymentService_page.selectPaymentAttributeCd;
+        for (int i = 0; i < AttributeCd.size(); i++) {
+            if (selectPaymentAttributeCd.equals(AttributeCd.get(i).getText())) {
+                AttributeCd.get(i).click();
+                break;
+            }
+        }
+    }
 
     public void clickNextBox(){paymentService_page.clickNextBox.click();}
 
-//USD--SGD
-    public void clickCurrencyBox(){paymentService_page.clickCurrencyBox.click();}
-    public void selectUSD(){paymentService_page.selectUSD.click();}
-    public void selectSgd(){paymentService_page.selectSgd.click();}
-    public void expenseBth(){paymentService_page.expenseBth.click();}
-
-
+    public void selectSumB(){paymentService_page.selectSumB.click();}
 }

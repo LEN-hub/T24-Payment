@@ -50,7 +50,7 @@ public class userManagement_steps extends ScenarioSteps {
         a:for (int x = 0; x < sumNum.size(); x++){
             sumNum.get(sumNum.size()-1).click();
             for (int i = 0; i < checkEmail.size(); i++) {
-                if (checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("emailData")) || checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("userAddEmailData"))) {
+                if (checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("emailData"))) {
                     Actions action = new Actions(getDriver());
                     System.out.println(checkEmail.size());
                     int t = i+1;
@@ -170,19 +170,19 @@ public class userManagement_steps extends ScenarioSteps {
         userManagement_page.PassportNumber.sendKeys(code);
     }
 
-    public void clickTimeLimit() {
-        userManagement_page.TimeLimit.sendKeys("2026-05-20");
+    public void clickTimeLimit(String TimeLimit) {
+        userManagement_page.TimeLimit.sendKeys(TimeLimit);
         userManagement_page.disappear.click();
     }
 
-    public void clickBirthday() {
-        userManagement_page.birthday.sendKeys("1990-08-20");
+    public void clickBirthday(String birthday) {
+        userManagement_page.birthday.sendKeys(birthday);
         userManagement_page.disappear.click();
     }
 
-    public void clickCountries() {
+    public void clickCountries(String countries) {
         bddUtil.sleep(5);
-        userManagement_page.countries.sendKeys("CHINESE");
+        userManagement_page.countries.sendKeys(countries);
         bddUtil.sleep(5);
         userManagement_page.chinese.click();
     }
@@ -271,6 +271,7 @@ public class userManagement_steps extends ScenarioSteps {
 
     public void seeViewStart(){
         if (userManagement_page.JudgesChinese.getText().equals("正常")){
+            assertEquals("正常",userManagement_page.JudgesEnglish.getText());
         }else {
             assertEquals("Active",userManagement_page.JudgesEnglish.getText());
         }

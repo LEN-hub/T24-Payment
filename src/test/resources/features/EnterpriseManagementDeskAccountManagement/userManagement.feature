@@ -10,17 +10,16 @@ Feature: userManagements
     Then I click Next
     When I initiate captcha verification
 
-
   @newUsers
 #    新增用户
   Scenario:Add the user operation flow
     Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click on Add user
+      |TimeLimit |birthday  |countries|
+      |2026-08-18|1998-05-20|CHINESE  |
     Then I click Next
     When I initiate captcha verification
-
-
 
 
   @stopUser
@@ -34,8 +33,6 @@ Feature: userManagements
       Then End the deal
 
 
-
-
   @startUser
 #    启动用户
   Scenario:Start the user operation flow
@@ -45,8 +42,6 @@ Feature: userManagements
     Then I click Next
     When I initiate captcha verification
     Then End the deals
-
-
 
 
 
