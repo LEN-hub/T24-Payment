@@ -655,7 +655,7 @@ public class BDDUtil extends PageObject {
         }
 
     }
-    public void getTimeNowThroughCalendar(){
+    public  String getTimeNowThroughCalendar(){
         //使用默认时区和语言环境获得一个日历。
         Calendar    rightNow    =    Calendar.getInstance();
 		/*用Calendar的get(int field)方法返回给定日历字段的值。
@@ -670,7 +670,8 @@ public class BDDUtil extends PageObject {
         Integer millisecond = rightNow.get(rightNow.MILLISECOND);
         String TimeNow12 = year+"-"+month+"-"+day+" "+hour12+":"+minute+":"+second+":"+millisecond;
         String TimeNow24 = year+"-"+month+"-"+day+" "+hour24+":"+minute+":"+second+":"+millisecond;
-        System.out.println("日历："+rightNow+"\n12小时制时钟："+TimeNow12+"\n24小时制时钟："+TimeNow24);
+        return TimeNow24;
+//        System.out.println("日历："+rightNow+"\n12小时制时钟："+TimeNow12+"\n24小时制时钟："+TimeNow24);
     }
 
     public String dateFormate(){

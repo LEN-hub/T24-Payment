@@ -1,10 +1,9 @@
 package com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.openAccount;
 
+import ch.qos.logback.core.util.FileUtil;
 import com.hsbc.cmb.hk.dbb.pages.enterpriseNetSilver.openAccount.openAccount_page;
-import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
-import com.hsbc.cmb.hk.dbb.utils.EnterKeys;
-import com.hsbc.cmb.hk.dbb.utils.JRandomNameTool;
-import com.hsbc.cmb.hk.dbb.utils.RandomPhoneNumber;
+import com.hsbc.cmb.hk.dbb.utils.*;
+import javafx.scene.paint.Stop;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -12,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.List;
 
 public class openAccount_step extends ScenarioSteps {
@@ -317,16 +317,35 @@ public class openAccount_step extends ScenarioSteps {
         bddUtil.sleep(5);
     }
 
-    public void getOrganisationID(String emailName){
-        bddUtil.switchToNewWindow();
+    public void getOrganisationID(String emailName,String applicantName){
         bddUtil.sleep(2);
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox\");");
         bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
         openAccount_page.sendEmail.clear();
         openAccount_page.sendEmail.sendKeys(emailName);
         openAccount_page.createEmailButton.click();
+        for(int i=0;i<10;i++){
+            List<WebElementFacade> emailList = openAccount_page.emailList;
+            emailList.get(0).click();
+            String getApplicantName = openAccount_page.getOrganisationID.getText().substring(6,32);
+            if (getApplicantName.equals(applicantName)){
+                String organisationID = openAccount_page.getOrganisationID.getText().substring(114,120);
+                FileUtils.FileString4("openAccountInformation","开户企业ID:" + organisationID);
+                FileUtils.FileString4("OrganisationID",organisationID);
+                System.out.println("---------------开户企业ID："+ organisationID + "----------------------");
+                break;
+            }
+            else if(i==10)
+                {
+                    System.out.println("---------------未获取到企业ID，排查开户失败原因----------------------");
+                    bddUtil.quitDriver();
+                }
+            else {
+                bddUtil.sleep(5);
+                openAccount_page.clickRefresh.click();
+            }
+        }
     }
-
-
 }

@@ -2,9 +2,7 @@ package com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver.openAccount;
 
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.Logon_step;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.openAccount.openAccount_step;
-import com.hsbc.cmb.hk.dbb.utils.CommonUtil;
-import com.hsbc.cmb.hk.dbb.utils.JRandomNameTool;
-import com.hsbc.cmb.hk.dbb.utils.RandomPhoneNumber;
+import com.hsbc.cmb.hk.dbb.utils.*;
 import cucumber.api.java.bs.A;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -20,6 +18,9 @@ public class openAccount_glue {
     private Logon_step logon_step;
     @Steps
     private openAccount_step openAccount_step;
+
+    private BDDUtil bddUtil;
+
 
     public static String envTag,accountType,currencyType;
     public static String accountName = "AutoTestAccountName" + JRandomNameTool.getStringRandom(5);
@@ -41,6 +42,7 @@ public class openAccount_glue {
     public static String onlyUBOPassportNumber = JRandomNameTool.getStringRandom(10);
     public static String onlyUBOPhoneNumber = RandomPhoneNumber.randomPhoneNum();
     public static String onlyUBOEmailName = JRandomNameTool.getStringRandom(5);
+    public String nowDate = bddUtil.getTimeNowThroughCalendar();
 
 
 
@@ -64,14 +66,18 @@ public class openAccount_glue {
         openAccount_step.fillInInformationOnGettingStartedPage();
         openAccount_step.fillInInformationOnGettingStartedPage2(accountType,accountName,currencyType);
         System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4("openAccountInformation",nowDate+"\n"+"账户名称:" + accountName);
     }
 
     @And("^Provide Essential Information$")
     public void provideEssentialInformation()throws AWTException {
         openAccount_step.provideEssentialInformation(applicantName,emailName,mobileNumber);
         System.out.println("---------------申请人姓名："+ applicantName + "----------------------");
+        FileUtils.FileString4("openAccountInformation","申请人姓名:" + applicantName);
         System.out.println("---------------申请人电话号码："+ mobileNumber + "----------------------");
+        FileUtils.FileString4("openAccountInformation","申请人电话号码:" + mobileNumber);
         System.out.println("---------------申请人邮箱地址："+ emailName + "@MailTemp.top"+"----------------------");
+        FileUtils.FileString4("openAccountInformation","申请人邮箱地址:" + emailName + "@MailTemp.top");
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
         openAccount_step.inputEntityDetails();
@@ -81,22 +87,36 @@ public class openAccount_glue {
     public void enterConnectedPeoplesDetails(){
         openAccount_step.inputDirectorDetails(contactPersonNm,aliasNm,passportNumber,directorPhoneNumber,directorEmailName);
         System.out.println("---------------董事姓名："+ contactPersonNm + "----------------------");
+        FileUtils.FileString4("openAccountInformation","董事姓名:" + contactPersonNm);
         System.out.println("---------------董事别名："+ aliasNm + "----------------------");
+        FileUtils.FileString4("openAccountInformation","董事别名:" + aliasNm);
         System.out.println("---------------董事护照号码："+ passportNumber + "----------------------");
+        FileUtils.FileString4("openAccountInformation","董事护照号码:" + passportNumber);
         System.out.println("---------------董事电话："+ directorPhoneNumber + "----------------------");
+        FileUtils.FileString4("openAccountInformation","董事电话:" + directorPhoneNumber);
         System.out.println("---------------董事邮箱："+ directorEmailName + "@MailTemp.top"+"----------------------");
         openAccount_step.inputUltimateBeneficialOwnerDetails(ultimateBeneficialOwnerName,ultimateBeneficialOwnerAliasName,ultimateBeneficialOwnerPassportNumber,ultimateBeneficialOwnerPhoneNumber,ultimateBeneficialOwnerEmailName);
         System.out.println("---------------最终受益者姓名："+ ultimateBeneficialOwnerName + "----------------------");
+        FileUtils.FileString4("openAccountInformation","最终受益者姓名:" + ultimateBeneficialOwnerName);
         System.out.println("---------------最终受益者别名："+ ultimateBeneficialOwnerAliasName + "----------------------");
+        FileUtils.FileString4("openAccountInformation","最终受益者别名:" + ultimateBeneficialOwnerAliasName);
         System.out.println("---------------最终受益者护照号码："+ ultimateBeneficialOwnerPassportNumber + "----------------------");
+        FileUtils.FileString4("openAccountInformation","最终受益者护照号码:" + ultimateBeneficialOwnerPassportNumber);
         System.out.println("---------------最终受益者电话："+ ultimateBeneficialOwnerPhoneNumber + "----------------------");
+        FileUtils.FileString4("openAccountInformation","最终受益者电话:" + ultimateBeneficialOwnerPhoneNumber);
         System.out.println("---------------最终受益者邮箱："+ ultimateBeneficialOwnerEmailName + "@MailTemp.top"+"----------------------");
+        FileUtils.FileString4("openAccountInformation","最终受益者邮箱:" + ultimateBeneficialOwnerEmailName + "@MailTemp.top");
         openAccount_step.inputOnlyUBODetails(onlyUBOName,onlyUBOAliasName,onlyUBOPassportNumber,onlyUBOPhoneNumber,onlyUBOEmailName);
         System.out.println("---------------最终受益者2姓名："+ onlyUBOName + "----------------------");
+        FileUtils.FileString4("openAccountInformation","最终受益者2姓名:" + onlyUBOName);
         System.out.println("---------------最终受益者2别名："+ onlyUBOAliasName + "----------------------");
+        FileUtils.FileString4("openAccountInformation","最终受益者2别名:" + onlyUBOAliasName);
         System.out.println("---------------最终受益者2护照号码："+ onlyUBOPassportNumber + "----------------------");
+        FileUtils.FileString4("openAccountInformation","最终受益者2护照号码:" + onlyUBOPassportNumber);
         System.out.println("---------------最终受益者2电话："+ onlyUBOPhoneNumber + "----------------------");
+        FileUtils.FileString4("openAccountInformation","最终受益者2电话:" + onlyUBOPhoneNumber);
         System.out.println("---------------最终受益者2邮箱："+ onlyUBOEmailName + "@MailTemp.top"+"----------------------");
+        FileUtils.FileString4("openAccountInformation","最终受益者2邮箱:" + onlyUBOEmailName + "@MailTemp.top");
         openAccount_step.goOnDueDiligence();
     }
 
@@ -139,6 +159,6 @@ public class openAccount_glue {
 
     @Then("^get Organisation ID$")
     public void getOrganisationID(){
-        openAccount_step.getOrganisationID(emailName);
+        openAccount_step.getOrganisationID(emailName,applicantName);
     }
 }

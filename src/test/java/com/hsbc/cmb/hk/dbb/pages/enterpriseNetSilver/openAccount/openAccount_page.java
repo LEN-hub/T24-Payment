@@ -110,7 +110,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"customerTypeIdCd\"]/following-sibling::div//div//input")
     public WebElementFacade clickEntityConsolidatedAnnualSalesTurnover;
 
-    @FindBy(xpath = "//ul[@class=\"el-scrollbar__view el-select-dropdown__list\"]//span[text()=\"＞20,000,000 and ≤100,000,000\"]")
+    @FindBy(xpath = "//div[9]//ul[@class=\"el-scrollbar__view el-select-dropdown__list\"]//li[3]//span")
     public WebElementFacade getEntityConsolidatedAnnualSalesTurnover;
 
     @FindBy(xpath = "//label[@for=\"industry\"]/following-sibling::div//div//input")
@@ -433,4 +433,13 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//form[@class='form-inline']//button")
     public WebElementFacade createEmailButton;
+
+    @FindBy(xpath = "//span[text()=\"Green Link Digital Bank Pte. Ltd message notification\"]")
+    public List<WebElementFacade> emailList;
+
+    @FindBy(xpath = "//div[@class=\"tab-content\"]//div[1]")
+    public WebElementFacade getOrganisationID;
+
+    @FindBy(xpath = "//div[@class=\"input-group-btn\"]//button[2]")
+    public WebElementFacade clickRefresh;
 }
