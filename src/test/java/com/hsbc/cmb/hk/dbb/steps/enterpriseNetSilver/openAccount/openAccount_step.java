@@ -337,7 +337,7 @@ public class openAccount_step extends ScenarioSteps {
                 System.out.println("---------------开户企业ID："+ organisationID + "----------------------");
                 break;
             }
-            else if(i==10)
+            else if(i==9)
                 {
                     System.out.println("---------------未获取到企业ID，排查开户失败原因----------------------");
                     bddUtil.quitDriver();
