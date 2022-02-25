@@ -47,6 +47,7 @@ public class Logon_glue {
     @Given("^logon second \"([^\"]*)\" on enterprise net silver$")
     public void logonSecondOnEnterpriseNetSilver(String envName) throws MalformedURLException, InterruptedException, AWTException {
         envTag = envName;
+        bddUtil.sleep(8);
         if (!envName.isEmpty()) {
             try {
                 logon_step.open_the_first_dbb_logon_page(envName);

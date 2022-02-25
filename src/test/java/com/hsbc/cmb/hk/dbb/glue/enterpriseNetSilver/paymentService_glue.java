@@ -112,29 +112,26 @@ public class paymentService_glue {
 
 
 //境外转账
-//    @When("^I click overseas transfer and fill in the required information$")
-//    public void iClickOverseasTransferAndFillInTheRequiredInformation(DataTable payDetail) {
-//
-//    }
-
 
     @When("^I click on overseas transfer payment and select the account$")
     public void iClickOnOverseasTransferPaymentAndSelectTheAccount() {
         paymentService_step.transferAndRemittanceMenu();
-        paymentService_step.overseasTransfer();
-        paymentService_step.accountBox();
-        paymentService_step.selectAccount();}
+        paymentService_step.overseasTransfer();}
 
-    @When("^I input the payment amount$")
-    public void iInputThePaymentAmount(DataTable payDetail) {
+
+    @When("^I choose the payment account payment currency and payment amount$")
+    public void iChooseThePaymentAccountPaymentCurrencyAndPaymentAmount(DataTable payDetail) {
         List<Map<String, String>> payToInfo = payDetail.asMaps(String.class,String.class);
-        paymentService_step.enterAmount(payToInfo.get(0).get("enterAmount"));}
-
+        paymentService_step.selectPaymentAccount(payToInfo.get(0).get("selectAccount"));
+        List<Map<String, String>> payToInfoN = payDetail.asMaps(String.class,String.class);
+        paymentService_step.clickCurrency(payToInfoN.get(0).get("payeeCurrency"));
+        List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class,String.class);
+        paymentService_step.enterAmount(payToInfoU.get(0).get("enterAmount"));}
     @And("^I choose the payment currency$")
-    public void iChooseThePaymentCurrency() {
-        paymentService_step.currencyBox();
-        paymentService_step.selectUsd();    }
 
+    public void iChooseThePaymentCurrency(DataTable payDetail) {
+        List<Map<String, String>> payToInfoE = payDetail.asMaps(String.class,String.class);
+        paymentService_step.selectAccBth(payToInfoE.get(0).get("selectAccBth"));}
 
     @When("^I enter the payee information$")
     public void iEnterThePayeeInformation(DataTable payDetail) {
@@ -142,47 +139,29 @@ public class paymentService_glue {
         paymentService_step.sendPaymentAccount(payToInfos.get(0).get("sendPaymentAccount"));
         List<Map<String, String>> payToInf = payDetail.asMaps(String.class,String.class);
         paymentService_step.namePayee(payToInf.get(0).get("namePayee"));
-//        paymentService_step.collectingBankBox();
-//        paymentService_step.collectingBank();
-//        paymentService_step.clickYes();
+        List<Map<String, String>> payToInfo = payDetail.asMaps(String.class,String.class);
+        paymentService_step.collectingBankBox(payToInfo.get(0).get("collectingBank"));
         List<Map<String, String>> payToIn = payDetail.asMaps(String.class,String.class);
         paymentService_step.payeeAdd(payToIn.get(0).get("payeeAdd"));
-        paymentService_step.payeeCountriesEnCdBox();
-        paymentService_step.clickUsd();
+        List<Map<String, String>> payToInq = payDetail.asMaps(String.class,String.class);
+        paymentService_step.payeeCountriesEnCd(payToInq.get(0).get("payeeCountries"));
         List<Map<String, String>> payToI = payDetail.asMaps(String.class,String.class);
         paymentService_step.remittancePostscriptContent(payToI.get(0).get("remittancePostscriptContent"));
     }
 
-    @When("^I choose cost information$")
-    public void iChooseCostInformation() {
-        paymentService_step.expenseBox();
-        paymentService_step.expense();
+    @When("^I choose the party to bear the expenses and the nature of payment$")
+    public void iChooseThePartyToBearTheExpensesAndTheNatureOfPayment(DataTable payDetail) {
+        List<Map<String, String>> payToI = payDetail.asMaps(String.class,String.class);
+        paymentService_step.expense(payToI.get(0).get("expense"));
+        List<Map<String, String>> payToIN = payDetail.asMaps(String.class,String.class);
+        paymentService_step.paymentAttributeCd(payToIN.get(0).get("selectPaymentAttributeCd"));
+
     }
 
-    @Then("^I choose payment properties and click next$")
-    public void iChoosePaymentPropertiesAndClickNext() {
-        paymentService_step.paymentAttributeCd();
-        paymentService_step.selectPaymentAttributeCd();
+    @When("^choose to submit the transfer information$")
+    public void chooseToSubmitTheTransferInformation() {
         paymentService_step.clickNextBox();
+        paymentService_step.selectSumB();
     }
 
-    //USD--SGD
-    @When("^I choose the currency of payment$")
-    public void iChooseTheCurrencyOfPayment() {
-       paymentService_step.clickCurrencyBox();
-       paymentService_step.selectUSD();
-
-    }
-
-    @And("^I choose the payment currency SGD$")
-    public void iChooseThePaymentCurrencySGD() {
-        paymentService_step.currencyBox();
-        paymentService_step.selectSgd();
-    }
-
-    @When("^I choose cost information all$")
-    public void iChooseCostInformationAll() {
-        paymentService_step.expenseBox();
-        paymentService_step.expenseBth();
-    }
 }

@@ -3,6 +3,11 @@ package com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver.EnterpriseManagementDeskAcc
 
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.EnterpriseManagementDeskAccountManagement.userManagement_steps;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+<<<<<<< HEAD:src/test/java/com/hsbc/cmb/hk/dbb/glue/enterpriseNetSilver/EnterpriseManagementDeskAccountManagement/userManagement_glue.java
+=======
+import com.hsbc.cmb.hk.dbb.utils.RandomPhoneNumber;
+import cucumber.api.DataTable;
+>>>>>>> db86899cffda8c5d5d778700c9eda0bddc811ef6:src/test/java/com/hsbc/cmb/hk/dbb/glue/EnterpriseManagementDeskAccountManagement/userManagement_glue.java
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
@@ -11,6 +16,8 @@ import net.thucydides.core.pages.Pages;
 
 import java.awt.*;
 import java.net.MalformedURLException;
+import java.util.List;
+import java.util.Map;
 
 public class userManagement_glue {
     @ManagedPages
@@ -54,7 +61,7 @@ public class userManagement_glue {
 
     //新增用户
     @When("^I click on Add user$")
-    public void iClickOnAddUser() throws AWTException {
+    public void iClickOnAddUser(DataTable payDetail) throws AWTException {
         userManagement_steps.clickAccountManagements();
         userManagement_steps.clickAddUsers();
         userManagement_steps.clickCall();
@@ -62,9 +69,12 @@ public class userManagement_glue {
         userManagement_steps.clickSendKeyName();
         userManagement_steps.clickPassport();
         userManagement_steps.passportNumber();
-        userManagement_steps.clickTimeLimit();
-        userManagement_steps.clickBirthday();
-        userManagement_steps.clickCountries();
+        List<Map<String, String>> payToInf = payDetail.asMaps(String.class,String.class);
+        userManagement_steps.clickTimeLimit(payToInf.get(0).get("TimeLimit"));
+        List<Map<String, String>> payToInfo = payDetail.asMaps(String.class,String.class);
+        userManagement_steps.clickBirthday(payToInfo.get(0).get("birthday"));
+        List<Map<String, String>> payToInfN = payDetail.asMaps(String.class,String.class);
+        userManagement_steps.clickCountries(payToInfN.get(0).get("countries"));
         userManagement_steps.clickPNumber();
         userManagement_steps.clickValidation();
         userManagement_steps.clickValidationCode();
