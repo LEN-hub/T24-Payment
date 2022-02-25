@@ -272,10 +272,4 @@ public class accountChange_steps extends ScenarioSteps {
         accountChange_page.selectCurrencyBt.click();
         bddUtil.sleep(2);}
 
-
-
-
-    
-
-
     }

@@ -16,7 +16,6 @@ public class fixedDepositManage_step extends ScenarioSteps {
         List<WebElementFacade> fdAccountNumberList = fixedDepositManage_page.fdAccountNumberList;
         List<WebElementFacade> moreMenuList = fixedDepositManage_page.moreMenuList;
         String withdrawFD = "Withdraw FD";
-        String withdrawFDCN = "提前支取";
         for(int i = 0;i < fdAccountNumberList.size();i++)
             if(fdAccountNumber.equals(fdAccountNumberList.get(i).getText())) {
                 Actions action=new Actions(getDriver());
@@ -26,7 +25,7 @@ public class fixedDepositManage_step extends ScenarioSteps {
                     webdriver.executeScript("arguments[0].click();", fixedDepositManage_page.clickWithdrawFD);
                     break;
                 }
-                else if(fixedDepositManage_page.clickWithdrawFD.getText().equals(withdrawFDCN)){
+                else {
                     JavascriptExecutor webdriver = (JavascriptExecutor) getDriver();
                     webdriver.executeScript("arguments[0].click();", fixedDepositManage_page.clickWithdrawFDCN);
                     break;
