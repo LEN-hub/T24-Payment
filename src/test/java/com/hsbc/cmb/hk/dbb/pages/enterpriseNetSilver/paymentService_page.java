@@ -29,16 +29,16 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@class='list']/div[1]/p[3]")
     public WebElementFacade domesticTransfer;
 
-    @FindBy(xpath = "//div[@id='mask']/following-sibling::div/div//i")
+    @FindBy(xpath = "//div[@class='mandatory']/following-sibling::form/child::div[2]/child::div[2]/child::div[1]//span[@class='el-input__suffix-inner']")
     public WebElementFacade collectingBankPopWindows;
 
-    @FindBy(xpath = "//div[@class='name']")
-    public WebElementFacade selectSGD;
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//ul/li")
+    public List<WebElementFacade> selectSGD;
 
-    @FindBy(xpath = "//div[@id='mask']/parent::div/following-sibling::div[1]//input")
+    @FindBy(xpath = "//div[@class='mandatory']/following-sibling::form/child::div[2]/child::div[2]/child::div[2]//input")
     public WebElementFacade accountName;
 
-    @FindBy(xpath = "//div[@id='mask']/parent::div/following-sibling::div[2]//input")
+    @FindBy(xpath = "//label[@for='payeeAcctNo']/following-sibling::div//input")
     public WebElementFacade paymentAccount;
 
     @FindBy(xpath = "//label[@for='tradeAmont']/following-sibling::div//input")
@@ -103,6 +103,12 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='el-col el-col-17']/div[2]/div")
     public WebElementFacade checkDetails;
+
+    @FindBy(xpath = "//div[@class='body']/parent::div/preceding-sibling::div/span")
+    public WebElementFacade popwindowsTitleTransferInformation;
+
+    @FindBy(xpath = "//div[@class='body']//span[@class='dialog-footer']/div[2]//div[@class='btn_box']")
+    public WebElementFacade continueButtonClick;
 
     @FindBy(xpath = "//div[@class='detail_page-container']/div[2]/div[2]/div[2]/div[1]/div[1]/div[@class='con-content']")
     public WebElementFacade checkCollectionName;

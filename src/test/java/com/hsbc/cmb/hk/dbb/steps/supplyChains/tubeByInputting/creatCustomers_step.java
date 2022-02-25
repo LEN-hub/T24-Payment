@@ -165,7 +165,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void openEmailUrlTest(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=362DDf6O\");");
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=tW54A75Q\");");
     }
 
     @Step
@@ -229,16 +229,16 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
-    public void enterNewPassword(){
-        customers_page.firstNewPassword.sendKeys("Gl123456-");
-        customers_page.secondNewPassword.sendKeys("Gl123456-");
+    public void enterNewPassword(String firstPassword,String secondPassword){
+        customers_page.firstNewPassword.sendKeys(firstPassword);
+        customers_page.secondNewPassword.sendKeys(secondPassword);
         customers_page.newPasswordPageConfirmBtn.click();
     }
 
     @Step
-    public void enterLoginInformationAgain(String value){
+    public void enterLoginInformationAgain(String value,String password){
         customers_page.GLDBEmailInput.sendKeys(value + "@MailTemp.top");
-        customers_page.GLDBEmailPassword.sendKeys("Gl123456-");
+        customers_page.GLDBEmailPassword.sendKeys(password);
         customers_page.enterCompanyId.clear();
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();
@@ -337,8 +337,8 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void iLoginServiceAgreementWindow(){
-        customers_page.GLDBEmailInput.sendKeys("362DDf6O@MailTemp.top");
-        customers_page.GLDBEmailPassword.sendKeys("Gl123456-");
+        customers_page.GLDBEmailInput.sendKeys("tW54A75Q@MailTemp.top");
+        customers_page.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
@@ -609,6 +609,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.selectApprove.click();
         customers_page.inputBoxComment.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.submitBtnOnAssignToMePage.click();
+        bddUtil.quitDriver();
     }
 
 
