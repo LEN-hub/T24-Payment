@@ -3,11 +3,7 @@ package com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver.EnterpriseManagementDeskAcc
 
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.EnterpriseManagementDeskAccountManagement.userManagement_steps;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
-<<<<<<< HEAD:src/test/java/com/hsbc/cmb/hk/dbb/glue/enterpriseNetSilver/EnterpriseManagementDeskAccountManagement/userManagement_glue.java
-=======
-import com.hsbc.cmb.hk.dbb.utils.RandomPhoneNumber;
 import cucumber.api.DataTable;
->>>>>>> db86899cffda8c5d5d778700c9eda0bddc811ef6:src/test/java/com/hsbc/cmb/hk/dbb/glue/EnterpriseManagementDeskAccountManagement/userManagement_glue.java
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;

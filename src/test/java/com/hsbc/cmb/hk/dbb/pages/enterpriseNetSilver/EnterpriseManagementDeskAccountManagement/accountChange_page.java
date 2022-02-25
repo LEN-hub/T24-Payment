@@ -4,12 +4,8 @@ package com.hsbc.cmb.hk.dbb.pages.enterpriseNetSilver.EnterpriseManagementDeskAc
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-
-<<<<<<< HEAD:src/test/java/com/hsbc/cmb/hk/dbb/pages/enterpriseNetSilver/EnterpriseManagementDeskAccountManagement/accountChange_page.java
-=======
 import java.util.List;
 
->>>>>>> db86899cffda8c5d5d778700c9eda0bddc811ef6:src/test/java/com/hsbc/cmb/hk/dbb/pages/EnterpriseManagementDeskAccountManagement/accountChange_page.java
 public class accountChange_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='el-message-box__title']/span")
