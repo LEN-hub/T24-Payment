@@ -5,11 +5,15 @@ import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.Logon_step;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
 import com.hsbc.cmb.hk.dbb.utils.EnterKeys;
 import com.hsbc.cmb.hk.dbb.utils.MobileConfig;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
 import java.net.MalformedURLException;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class accountChange_steps extends ScenarioSteps {
     private BDDUtil bddUtil;
@@ -25,11 +29,14 @@ public class accountChange_steps extends ScenarioSteps {
         action.moveToElement(accountChange_page.EnterpriseManagementDesk).perform();
     }
 
-    public void accountManagement() {accountChange_page.AccountManagement.click();}
+    public void accountManagement() {
+        accountChange_page.AccountManagement.click();
+        bddUtil.sleep(3);}
 
     public void selectModifyList() {
         Actions action = new Actions(getDriver());
         action.moveToElement(accountChange_page.ModifyList).perform();
+        bddUtil.sleep(5);
     }
 
     //账户修改
@@ -59,7 +66,7 @@ public class accountChange_steps extends ScenarioSteps {
 
     public void clickCodeNext(){
         accountChange_page.codeNext.click();
-        bddUtil.sleep(3);}
+        bddUtil.sleep(5);}
 
     public void vkeyTCCode() throws InterruptedException, MalformedURLException {
         MobileConfig test = new MobileConfig();
@@ -99,7 +106,7 @@ public class accountChange_steps extends ScenarioSteps {
     }
 
     public void clickNextBtn(){
-        accountChange_page.clcikNextBtn.click();
+        accountChange_page.clickNextBtn.click();
     }
 
     public String tcCode (){
@@ -137,9 +144,29 @@ public class accountChange_steps extends ScenarioSteps {
 
     public void clickAccountOpening(){ accountChange_page.accountOpening.click();}
 
-    public void clickCA(){
-        accountChange_page.CA.click();
-        bddUtil.sleep(3);}
+    public void clickCA(String CA) {
+        List<WebElementFacade> selectCA = accountChange_page.CA;
+        for (int i = 0; i < selectCA.size(); i++) {
+            if (CA.equals(selectCA.get(i).getText())) {
+                selectCA.get(i).click();
+                break;
+            }
+        }
+    }
+    public void selectCurrencyBth(String selectCurrencyBth,String selectCurrencyEng) {
+        List<WebElementFacade> selectCurrencyB = accountChange_page.selectCurrencyBth;
+        List<WebElementFacade> selectCurrencyE = accountChange_page.selectCurrencyEng;
+        for (int i = 0; i < selectCurrencyB.size(); i++) {
+            if (selectCurrencyB.get(i).getText().equals(selectCurrencyBth)) {
+                selectCurrencyB.get(i).click();
+            }else {
+                selectCurrencyE.get(i).getText().equals(selectCurrencyEng);
+                selectCurrencyE.get(i).click();
+                break;
+            }
+        }
+    }
+    //selectCurrencyBth
 
     public void clickTransfer(){
         accountChange_page.transfer.click();
@@ -182,7 +209,7 @@ public class accountChange_steps extends ScenarioSteps {
         bddUtil.sleep(2);}
 
 
-    //新增币种
+    //新增币种需要授权
 
     public void clickCurrencyManagement(){
         accountChange_page.currencyManagement.click();
@@ -202,8 +229,18 @@ public class accountChange_steps extends ScenarioSteps {
 
     public void clickSubmitCurrency(){
         accountChange_page.submitCurrency.click();
-        bddUtil.sleep(2);}
+        bddUtil.sleep(2);
+    }
 
+    public void authorization() {
+        if (accountChange_page.waitinAauthorization.getText().equals("等待授权")) {
+            assertEquals("等待授权", accountChange_page.waitinAauthorization.getText());
+        } else {
+            assertEquals("wait for authorization", accountChange_page.waitinAauthorization.getText());
+        }
+        bddUtil.sleep(2);
+        bddUtil.quitDriver();
+    }
 
     //删除币种
 
