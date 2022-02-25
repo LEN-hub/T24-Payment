@@ -10,6 +10,7 @@ Feature: userManagements
     Then I click Next
     When I initiate captcha verification
 
+
   @newUsers
 #    新增用户
   Scenario:Add the user operation flow
@@ -20,6 +21,7 @@ Feature: userManagements
       |2026-08-18|1998-05-20|CHINESE  |
     Then I click Next
     When I initiate captcha verification
+
 
 
   @stopUser

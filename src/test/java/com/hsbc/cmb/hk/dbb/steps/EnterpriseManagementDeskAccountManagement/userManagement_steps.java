@@ -230,12 +230,6 @@ public class userManagement_steps extends ScenarioSteps {
 
     public void clickValidationEmail(){userManagement_page.validationEmail.click();}
 
-    public void validationEmail() {
-        getDriver().switchTo().alert().getText();
-        String value = getDriver().switchTo().alert().getText().substring(7, 12);
-        getDriver().switchTo().alert().accept();
-        System.out.println(value);}
-
     public void clickPermissions(){userManagement_page.permissions.click();}
 
     public void clickNextOne(){userManagement_page.clickNextOne.click();}
@@ -257,6 +251,7 @@ public class userManagement_steps extends ScenarioSteps {
 
     public void seeViewLabel(){
         if (userManagement_page.JudgeChinese.getText().equals("停用")){
+            assertEquals("停用",userManagement_page.JudgeEnglish.getText());
          }else {
                 assertEquals("Disable",userManagement_page.JudgeEnglish.getText());
         }

@@ -446,6 +446,12 @@ Feature: receipt and payment service
     When I choose the party to bear the expenses and the nature of payment
       |expense   |selectPaymentAttributeCd|
       |费用各自承担|Commission              |
-#    Then TC code is then required for Vkey authentication
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    Given logon second "Level2AuthorizedAccount" on enterprise net silver
+    When I click My Tasks button on the logon page
+    Then I should direct to the Awaiting authorization page
+    When I click on the first piece of data to authorize
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now

@@ -2,6 +2,7 @@ package com.hsbc.cmb.hk.dbb.glue.EnterpriseManagementDeskAccountManagement;
 
 import com.hsbc.cmb.hk.dbb.steps.EnterpriseManagementDeskAccountManagement.accountChange_steps;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
@@ -10,6 +11,8 @@ import net.thucydides.core.pages.Pages;
 
 import java.awt.*;
 import java.net.MalformedURLException;
+import java.util.List;
+import java.util.Map;
 
 public class accountChange_glue {
 
@@ -74,11 +77,14 @@ public class accountChange_glue {
 
     //CA账户开立
     @When("^I click account Opening$")
-    public void iClickAccountOpening() {
+    public void iClickAccountOpening(DataTable payDetail) {
         accountChange_steps.accountManagement();
         accountChange_steps.clickAccountOpening();
         accountChange_steps.clickAccountSelect();
-        accountChange_steps.clickCA();
+        List<Map<String, String>> payToI = payDetail.asMaps(String.class,String.class);
+        accountChange_steps.clickCA(payToI.get(0).get("CA"));
+        List<Map<String, String>> payToIO = payDetail.asMaps(String.class,String.class);
+        accountChange_steps.selectCurrencyBth(payToIO.get(0).get("selectCurrencyBth"),payToIO.get(0).get("selectCurrencyEng"));
         accountChange_steps.clickTransfer();
         accountChange_steps.clickChooseFinancial();
         accountChange_steps.clickNumberList();
@@ -128,6 +134,10 @@ public class accountChange_glue {
         accountChange_steps.clickSubmitCurrency();
 
     }
+    @Then("^verify whether to wait for authorization$")
+    public void verifyWhetherToWaitForAuthorization() {
+        accountChange_steps.authorization();
+    }
 
     //删除币种
 
@@ -147,5 +157,6 @@ public class accountChange_glue {
         accountChange_steps.clickSubmitCurrency();
 
     }
+
 
 }

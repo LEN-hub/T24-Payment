@@ -5,6 +5,8 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.util.List;
+
 public class accountChange_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='el-message-box__title']/span")
@@ -40,7 +42,7 @@ public class accountChange_page extends PageObject {
     @FindBy(xpath = "//div[@submitinfo='[object Object]']/div[2]/div[3]/div/div")
     public WebElementFacade submitChange; //提交
 
-    @FindBy(xpath = "//div[text()='Next']")
+    @FindBy(xpath = "//div[@class='demo-tips']/div[4]//div[@class='btn_box']")
     public WebElementFacade codeNext;  //TC码
 
     @FindBy(xpath = "//div[@class='codebox']/span[1]")
@@ -68,7 +70,7 @@ public class accountChange_page extends PageObject {
     public WebElementFacade eightTCCode;
 
     @FindBy(xpath = "//div[@class='demo-tips']/div[4]//div[@class='btn_box']")
-    public WebElementFacade clcikNextBtn;  //获取TC码后点击下一步
+    public WebElementFacade clickNextBtn;  //获取TC码后点击下一步
 
     @FindBy(xpath = "//div[@class='codebox']/span[1]")
     public WebElementFacade enterFirstTcCode;
@@ -110,8 +112,15 @@ public class accountChange_page extends PageObject {
     @FindBy(xpath = "//div[@style='margin: 24px 0px 0px;']/div/div")
     public WebElementFacade accountOpening;  //点击账户开立
 
-    @FindBy(xpath = "//span[text()='Current Account']")
-    public WebElementFacade CA;
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//span")
+    public List<WebElementFacade> CA;
+
+    @FindBy(xpath = "//div[@class='el-radio-group']/label/span[2]")
+    public List<WebElementFacade>selectCurrencyBth;//选择开立的币种
+
+
+    @FindBy(xpath = "//div[@class='el-radio-group']/label/span[2]")
+    public List<WebElementFacade>selectCurrencyEng;//选择开立的币种，英文
 
     @FindBy(xpath = "//div[@class='el-form-item is-required el-form-item--medium']/following-sibling::div//div[@role='group']/label[2]/span/span")
     public WebElementFacade transfer;//账户权限选择转账和理财
@@ -164,6 +173,9 @@ public class accountChange_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='detail_page-container']/following-sibling::div/div[2]//div[@class='btn_box']")
     public WebElementFacade submitCurrency; //提交
+
+    @FindBy(xpath = "//div[@class='trade-status']//div[2]")
+    public WebElementFacade waitinAauthorization;
 
 
     //删除币种
