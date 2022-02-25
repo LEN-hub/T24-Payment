@@ -1,6 +1,6 @@
 package com.hsbc.cmb.hk.dbb.utils;
 
-import com.hsbc.cmb.hk.dbb.steps.EnterpriseManagementDeskAccountManagement.accountChange_steps;
+import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.EnterpriseManagementDeskAccountManagement.accountChange_steps;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.Logon_step;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;

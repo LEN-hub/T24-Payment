@@ -108,7 +108,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-  @ext
+
 #时间选择每周
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given Closing the Browser driver
@@ -134,7 +134,7 @@ Feature: receipt and payment service
   Then I check the details on the transfer success details page
     |account name    |receiving account|transfer amount  |transfer purpose |
     |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-
+  @ext
 #时间选择每月
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
