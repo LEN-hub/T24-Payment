@@ -1,6 +1,6 @@
 package com.hsbc.cmb.hk.dbb.utils;
 
-import com.hsbc.cmb.hk.dbb.steps.EnterpriseManagementDeskAccountManagement.accountChange_steps;
+import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.EnterpriseManagementDeskAccountManagement.accountChange_steps;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.Logon_step;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -68,7 +68,7 @@ public class MobileConfig {
     }
 
     public void clickStartButton() throws InterruptedException {
-        Thread.sleep(8000);
+        Thread.sleep(130000);
         driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'btn_methods')]/child::android.widget.TextView[1]").click();
     }
 
@@ -115,7 +115,7 @@ public class MobileConfig {
     }
 
     public void clickCreatPassword() throws InterruptedException {
-        Thread.sleep(20000);
+        Thread.sleep(30000);
         MobileConfig.driver.findElementById("btn_submit").click();
         Thread.sleep(1000);
         for (int i = 0; i<2;i++){
