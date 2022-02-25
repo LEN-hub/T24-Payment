@@ -82,11 +82,17 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     @Step
-    public void domesticTransfer(String accountName,String paymentAccount,String transferAmount,String tradeAmountSelect){
+    public void domesticTransfer(String bankName,String accountName,String paymentAccount,String transferAmount,String tradeAmountSelect){
         paymentService_page.domesticTransfer.click();
         CommonUtil.waiting(2000);
         paymentService_page.collectingBankPopWindows.click();
-        paymentService_page.selectSGD.click();
+        List<WebElementFacade> selectBank = paymentService_page.selectSGD;
+        for (int j = 0; j< selectBank.size(); j++){
+            if (bankName.equals(selectBank.get(j).getText())){
+                bddUtil.scrollWindowToElement(selectBank.get(j)).click();
+                break;
+            }
+        }
         paymentService_page.accountName.sendKeys(accountName);
         paymentService_page.paymentAccount.sendKeys(paymentAccount);
         paymentService_page.transferAmount.sendKeys(transferAmount);
@@ -202,6 +208,9 @@ public class paymentService_step extends ScenarioSteps {
 
     @Step
     public void checkCollectionName(String accountName,String paymentAccount,String transferAmount,String tradeAmountSelect){
+        if (paymentService_page.popwindowsTitleTransferInformation.isVisible()){
+            paymentService_page.continueButtonClick.click();
+        }
         Assert.assertEquals(accountName,paymentService_page.checkCollectionName.getText());
         Assert.assertEquals(paymentAccount,paymentService_page.checkPaymentAccount.getText());
         Assert.assertEquals(transferAmount,paymentService_page.checkTransferAmount.getText());
