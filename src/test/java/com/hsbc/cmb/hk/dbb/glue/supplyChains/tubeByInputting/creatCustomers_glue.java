@@ -3,6 +3,7 @@ package com.hsbc.cmb.hk.dbb.glue.supplyChains.tubeByInputting;
 import com.hsbc.cmb.hk.dbb.steps.supplyChains.systemManager.logon_step;
 import com.hsbc.cmb.hk.dbb.steps.supplyChains.tubeByInputting.creatCustomers_step;
 import com.hsbc.cmb.hk.dbb.utils.*;
+import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -12,6 +13,9 @@ import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import org.openqa.selenium.JavascriptExecutor;
+
+import java.util.List;
+import java.util.Map;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
@@ -169,8 +173,9 @@ public class creatCustomers_glue {
     }
 
     @When("^After login Set a New Password on the Set New Password page$")
-    public void afterLoginSetANewPasswordOnTheSetNewPasswordPage() {
-        customers_step.enterNewPassword();
+    public void afterLoginSetANewPasswordOnTheSetNewPasswordPage(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class,String.class);
+        customers_step.enterNewPassword(payToInfo.get(0).get("first_new_password"),payToInfo.get(0).get("second_new_password"));
     }
 
     @Then("^I jump to the login page$")
@@ -179,8 +184,9 @@ public class creatCustomers_glue {
     }
 
     @When("^I fill in the content on the login page and click operation$")
-    public void iFillInTheContentOnTheLoginPageAndClickOperation() {
-        customers_step.enterLoginInformationAgain(mailName);
+    public void iFillInTheContentOnTheLoginPageAndClickOperation(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class,String.class);
+        customers_step.enterLoginInformationAgain(mailName,payToInfo.get(0).get("password"));
     }
 
 
@@ -307,6 +313,11 @@ public class creatCustomers_glue {
         customers_step.clickAssignToMeTitle();
         customers_step.clickProceedButtonOnAssignToMePage();
         customers_step.processPageApprove();
+    }
+
+    @When("^Closing the Browser driver$")
+    public void closingTheBrowserDriver() {
+        bddUtil.quitDriver();
     }
 
 //    @After

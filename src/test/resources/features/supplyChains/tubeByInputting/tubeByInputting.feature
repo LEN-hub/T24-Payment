@@ -1,9 +1,9 @@
 @tubeByInputting
-Feature: tube By Inputtingt
-
+Feature: tube By Inputting
 
   Scenario:Create buyer's customer file selection: operator input, operator input buyer's basic information, no need to review, create buyer's customer successfully
-    Given logon "environments_1" on tube by inputting system
+    Given Closing the Browser driver
+    When logon "environments_1" on tube by inputting system
     When open the email browser page
     And I switch to the SCF page
     When I click Customers and select Onboarding List
@@ -14,7 +14,8 @@ Feature: tube By Inputtingt
 
 
   Scenario:Create your own profile and send invitations
-    Given logon "environments_1" on tube by inputting system
+    Given Closing the Browser driver
+    When logon "environments_1" on tube by inputting system
     When open the email browser page
     And I switch to the SCF page
     When I click Customers and select Onboarding List
@@ -26,7 +27,8 @@ Feature: tube By Inputtingt
     Then I check that the email has been sent successfully
 
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
-      Given logon "environments_1" on tube by inputting system
+      Given Closing the Browser driver
+      When logon "environments_1" on tube by inputting system
       When open the email browser page
       And I switch to the SCF page
       When I click Customers and select Onboarding List
@@ -41,8 +43,12 @@ Feature: tube By Inputtingt
       And I enter Company ID and click Login button
       Then Click login to jump to the Set New Password page
       When After login Set a New Password on the Set New Password page
+      |first_new_password|second_new_password|
+      |P@ssw0rd_123      |P@ssw0rd_123       |
       Then I jump to the login page
       When I fill in the content on the login page and click operation
+      |password    |
+      |P@ssw0rd_123|
 #      Given logon "environments_3" test code
 #      When I login service agreement window
       When I click agree Service Agreement
