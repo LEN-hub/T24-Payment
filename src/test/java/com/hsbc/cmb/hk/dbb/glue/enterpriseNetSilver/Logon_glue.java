@@ -41,7 +41,7 @@ public class Logon_glue {
                 logon_step.enterVcode();
                 logon_step.getAuthenticateNowBtn();
                 logon_step.resetPassword();
-            }finally {
+            } finally {
                 logon_step.quitAndroidDriver();
             }
         }
@@ -66,11 +66,32 @@ public class Logon_glue {
                 logon_step.enterVcode();
                 logon_step.getAuthenticateNowBtn();
                 logon_step.resetPassword();
-            }finally {
+            } finally {
                 logon_step.quitAndroidDriver();
             }
         }
     }
 
 
+    @Given("^I am on the login screen$")
+    public void iAmOnTheLoginScreen(String envName) throws MalformedURLException, InterruptedException, AWTException {
+        envTag = envName;
+        if (!envName.isEmpty()) {
+            try {
+                logon_step.open_the_first_dbb_logon_page(envName);
+                logon_step.checkLanguage();
+            } finally {
+                logon_step.quitAndroidDriver();
+            }
+        }
+    }
+
+    @Given("^open \"([^\"]*)\" on enterprise net silver$")
+    public void openOnEnterpriseNetSilver(String envName) throws MalformedURLException, InterruptedException, AWTException {
+        envTag = envName;
+        if (!envName.isEmpty()) {
+                logon_step.open_the_first_dbb_logon_page(envName);
+                logon_step.checkLanguage();
+        }
+    }
 }
