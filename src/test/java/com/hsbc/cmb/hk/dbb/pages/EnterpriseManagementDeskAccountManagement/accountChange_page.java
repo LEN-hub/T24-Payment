@@ -5,6 +5,8 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.util.logging.XMLFormatter;
+
 public class accountChange_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='el-message-box__title']/span")
@@ -188,5 +190,6 @@ public class accountChange_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='el-dialog__wrapper pdf-dialog']/following-sibling::div[5]//ul/li[1]/span")
     public WebElementFacade selectCurrencyBt;  //选择币种
+
 
 }
