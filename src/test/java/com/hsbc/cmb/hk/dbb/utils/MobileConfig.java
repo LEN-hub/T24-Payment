@@ -68,7 +68,7 @@ public class MobileConfig {
     }
 
     public void clickStartButton() throws InterruptedException {
-        Thread.sleep(130000);
+        Thread.sleep(10000);
         driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'btn_methods')]/child::android.widget.TextView[1]").click();
     }
 

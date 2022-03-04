@@ -155,7 +155,8 @@ public class changePassword_step extends ScenarioSteps {
 
     public void inputEmailAddress(String emailAddress){
         changePassword_page.emailInputBox.sendKeys(emailAddress);
-        changePassword_page.getCodeBtn.click();
+//        changePassword_page.getCodeBtn.click();
+        bddUtil.sleep(1);
     }
 
     public void clickNextBtn(){
