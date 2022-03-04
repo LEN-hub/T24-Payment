@@ -655,7 +655,7 @@ public class BDDUtil extends PageObject {
         }
 
     }
-    public  String getTimeNowThroughCalendar(){
+    public static String getTimeNowThroughCalendar(){
         //使用默认时区和语言环境获得一个日历。
         Calendar    rightNow    =    Calendar.getInstance();
 		/*用Calendar的get(int field)方法返回给定日历字段的值。

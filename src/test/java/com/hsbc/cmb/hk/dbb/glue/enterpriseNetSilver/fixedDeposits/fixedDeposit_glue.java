@@ -116,6 +116,276 @@ public class fixedDeposit_glue {
         bddUtil.sleep(10);
     }
 
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About SGD NineMonth DoNotRenewOrWithdrawAutomatically$")
+    public void toCreateFixedDepositAboutSGDNineMonthDoNotRenewOrWithdrawAutomatically(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_SGD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_SGD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_NineMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_DoNotRenewOrWithdrawAutomatically");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About USD NineMonth DoNotRenewOrWithdrawAutomatically$")
+    public void toCreateFixedDepositAboutUSDNIneMonthDoNotRenewOrWithdrawAutomatically(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_USD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_USD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_NineMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_DoNotRenewOrWithdrawAutomatically");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About SGD NineMonth RenewPrincipalAmountAndWithdrawInterest$")
+    public void toCreateFixedDepositAboutSGDNineMonthRenewPrincipalAmountAndWithdrawInterest(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_SGD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_SGD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_NineMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_RenewPrincipalAmountAndWithdrawInterest");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About USD NineMonth RenewPrincipalAmountAndWithdrawInterest$")
+    public void toCreateFixedDepositAboutUSDNineMonthRenewPrincipalAmountAndWithdrawInterest(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_USD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_USD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_NineMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_RenewPrincipalAmountAndWithdrawInterest");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About SGD NineMonth RenewPrincipalAmountAndInterest$")
+    public void toCreateFixedDepositAboutSGDNineMonthRenewPrincipalAmountAndInterest(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_SGD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_SGD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_NineMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_RenewPrincipalAmountAndInterest");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About USD NineMonth RenewPrincipalAmountAndInterest$")
+    public void toCreateFixedDepositAboutUSDNineMonthRenewPrincipalAmountAndInterest(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_USD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_USD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_NineMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_RenewPrincipalAmountAndInterest");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About SGD TwelveMonth DoNotRenewOrWithdrawAutomatically$")
+    public void toCreateFixedDepositAboutSGDTwelveMonthDoNotRenewOrWithdrawAutomatically(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_SGD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_SGD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_TwelveMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_DoNotRenewOrWithdrawAutomatically");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About USD TwelveMonth DoNotRenewOrWithdrawAutomatically$")
+    public void toCreateFixedDepositAboutUSDTwelveMonthDoNotRenewOrWithdrawAutomatically(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_USD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_USD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_TwelveMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_DoNotRenewOrWithdrawAutomatically");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About SGD TwelveMonth RenewPrincipalAmountAndWithdrawInterest$")
+    public void toCreateFixedDepositAboutSGDTwelveMonthRenewPrincipalAmountAndWithdrawInterest(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_SGD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_SGD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_TwelveMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_RenewPrincipalAmountAndWithdrawInterest");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About USD TwelveMonth RenewPrincipalAmountAndWithdrawInterest$")
+    public void toCreateFixedDepositAboutUSDTwelveMonthRenewPrincipalAmountAndWithdrawInterest(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_USD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_USD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_TwelveMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_RenewPrincipalAmountAndWithdrawInterest");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About SGD TwelveMonth RenewPrincipalAmountAndInterest$")
+    public void toCreateFixedDepositAboutSGDTwelveMonthRenewPrincipalAmountAndInterest(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_SGD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_SGD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_TwelveMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_RenewPrincipalAmountAndInterest");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About USD TwelveMonth RenewPrincipalAmountAndInterest$")
+    public void toCreateFixedDepositAboutUSDTwelveMonthRenewPrincipalAmountAndInterest(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_USD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_USD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_TwelveMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_RenewPrincipalAmountAndInterest");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About SGD EighteenMonth DoNotRenewOrWithdrawAutomatically$")
+    public void toCreateFixedDepositAboutSGDEighteenMonthDoNotRenewOrWithdrawAutomatically(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_SGD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_SGD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_EighteenMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_DoNotRenewOrWithdrawAutomatically");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About USD EighteenMonth DoNotRenewOrWithdrawAutomatically$")
+    public void toCreateFixedDepositAboutUSDEighteenMonthDoNotRenewOrWithdrawAutomatically(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_USD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_USD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_EighteenMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_DoNotRenewOrWithdrawAutomatically");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About SGD EighteenMonth RenewPrincipalAmountAndWithdrawInterest$")
+    public void toCreateFixedDepositAboutSGDEighteenMonthRenewPrincipalAmountAndWithdrawInterest(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_SGD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_SGD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_EighteenMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_RenewPrincipalAmountAndWithdrawInterest");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About USD EighteenMonth RenewPrincipalAmountAndWithdrawInterest$")
+    public void toCreateFixedDepositAboutUSDEighteenMonthRenewPrincipalAmountAndWithdrawInterest(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_USD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_USD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_EighteenMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_RenewPrincipalAmountAndWithdrawInterest");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About SGD EighteenMonth RenewPrincipalAmountAndInterest$")
+    public void toCreateFixedDepositAboutSGDEighteenMonthRenewPrincipalAmountAndInterest(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_SGD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_SGD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_EighteenMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_RenewPrincipalAmountAndInterest");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
+    @Then("^Use \"([^\"]*)\" To create fixedDeposit About USD EighteenMonth RenewPrincipalAmountAndInterest$")
+    public void toCreateFixedDepositAboutUSDEighteenMonthRenewPrincipalAmountAndInterest(String envName){
+        fromAccount = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fromAccount_USD");
+        accountCurrency = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountCurrency_USD");
+        placementDuration = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".placementDuration_EighteenMonth");
+        autTraSavFlag = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".autTraSavFlag_RenewPrincipalAmountAndInterest");
+        fixedDeposit_step.createFixedDeposit(fromAccount);
+        fixedDeposit_step.isDisabledMultiCurrency(accountCurrency);
+        fixedDeposit_step.choicePlacementDuration(placementDuration);
+        fixedDeposit_step.choiceAutTraSavFlag(autTraSavFlag);
+        bddUtil.sleep(2);
+        fixedDeposit_step.submitFixedDepositDate();
+        bddUtil.sleep(10);
+    }
+
     @And("View details of fixedDeposit")
     public void viewDetailsOfFixedDeposit(){
         //fixedDeposit_step.clickDetails();
