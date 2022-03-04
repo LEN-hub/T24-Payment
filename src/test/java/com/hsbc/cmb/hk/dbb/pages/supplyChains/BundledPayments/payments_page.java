@@ -41,7 +41,7 @@ public class payments_page extends PageObject{
     @FindBy(xpath ="//*[text()='Remittance Fee Paid by']/parent::div//span/span")
     public  WebElementFacade remittanceFeePaidby;
 
-    @FindBy(xpath ="////span[text()='SHA']")
+    @FindBy(xpath ="//span[text()='BEN']")
     public  WebElementFacade SHA;
 
     @FindBy(xpath ="//*[text()='Supplier Bank']/parent::div//span/span")
@@ -68,7 +68,7 @@ public class payments_page extends PageObject{
     @FindBy(xpath ="//div[@data-key='f2kk04pf']//input")
     public WebElementFacade Requester3;
 
-    @FindBy(xpath ="////span[@data-key='f21orqn5']/button/span")
+    @FindBy(xpath ="//span[@data-key='f21orqn5']/button/span")
     public  WebElementFacade PROCEEDS;
 
     @FindBy(xpath ="////div[@data-key='f2jule36']//span")
@@ -78,9 +78,9 @@ public class payments_page extends PageObject{
     @FindBy(xpath ="//span[text()='Confirm Disbursement']")
     public  WebElementFacade ConfirmDisbursement;
 
-
     @FindBy(xpath = "//span[text()='Batch Repayment']")
     public WebElementFacade batchRepaymentBtn;
+
     @FindBy(xpath ="//div[@data-key='f2q385s2']//input")
     public  WebElementFacade Requester4;
 

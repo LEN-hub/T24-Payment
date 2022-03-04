@@ -40,7 +40,7 @@ public class payments_steps extends ScenarioSteps {
 
    @Step     //通过买家/供应商筛选值,点击刷新
    public void clickRequesterOne() {
-        paymentsPage.RequesterOne.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        paymentsPage.RequesterOne.sendKeys(FileUtils.LastReadFileInput3("test"));
         bddUtil.sleep(3);
         paymentsPage.Reset.click();
     }
@@ -55,7 +55,7 @@ public class payments_steps extends ScenarioSteps {
 
     @Step     //通过买家/供应商筛选值,点击刷新
     public void clickRequesterTwo() {
-        paymentsPage.RequesterTwo.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        paymentsPage.RequesterTwo.sendKeys(FileUtils.LastReadFileInput3("test"));
         paymentsPage.Reset.click();
     }
 
@@ -89,7 +89,7 @@ public class payments_steps extends ScenarioSteps {
 
     @Step     //通过买家/供应商筛选值,点击刷新
     public void clickRequester3() {
-        paymentsPage.Requester3.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        paymentsPage.Requester3.sendKeys(FileUtils.LastReadFileInput3("test"));
         paymentsPage.Reset.click();
     }
 
@@ -121,7 +121,7 @@ public class payments_steps extends ScenarioSteps {
         List<WebElementFacade> requester = paymentsPage.requesterList;
         List<WebElementFacade> Action = paymentsPage.assignToMeList;
         for (int i = 0; i <requester.size() ; i++) {
-            if (FileUtils.LastReadFileInput3("companyData").equals(requester.get(i).getText())){
+            if (FileUtils.LastReadFileInput3("test").equals(requester.get(i).getText())){
                 bddUtil.scrollWindowToElement(requester.get(i)).click();
                 Action.get(i).click();
                 break;
@@ -135,7 +135,7 @@ public class payments_steps extends ScenarioSteps {
         List<WebElementFacade> request = paymentsPage.RequestList;
         List<WebElementFacade> proceed = paymentsPage.proceedList;
         for (int i = 0; i <request.size() ; i++) {
-            if (FileUtils.LastReadFileInput3("compayn").equals(request.get(i).getText())){
+            if (FileUtils.LastReadFileInput3("test").equals(request.get(i).getText())){
                 bddUtil.scrollWindowToElement(request.get(i)).click();
                 proceed.get(i).click();
                 break;
@@ -168,7 +168,7 @@ public class payments_steps extends ScenarioSteps {
 
     @Step     //通过买家/供应商筛选值,点击刷新
     public void clickRequester4() {
-        paymentsPage.Requester4.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        paymentsPage.Requester4.sendKeys(FileUtils.LastReadFileInput3("test"));
         paymentsPage.Reset.click();
     }
 

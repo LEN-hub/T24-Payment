@@ -197,7 +197,7 @@ public class paymentService_page extends PageObject {
     public WebElementFacade currencyBox; //汇币下拉框
 
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//span")
-    public List<WebElementFacade>selectAccBth; //选择美元
+    public List<WebElementFacade>selectAccBth; //选择收款币种
 
     @FindBy(xpath = "//label[@for='payeeAcctNo']/following-sibling::div//input")
     public WebElementFacade sendPaymentAccount;  //输入收款账户 输入
@@ -229,16 +229,93 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul//li")
     public List<WebElementFacade> expense; //费用承担
 
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul//li")
+    public List<WebElementFacade> expenseEnglish; //费用承担
+
     @FindBy(xpath = "//label[@for='paymentAttributeCd']/following-sibling::div//i")
     public WebElementFacade paymentAttributeCdBox;  //付汇性质下拉框
 
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul//li")
-    public List<WebElementFacade> selectPaymentAttributeCd;  //随机选择付汇性质
+    public List<WebElementFacade> selectPaymentAttributeCd;  //选择付汇性质
 
     @FindBy(xpath = "//div[@class='el-col el-col-18']/div[3]/div/div")
     public  WebElementFacade clickNextBox;  //下一步
 
-    @FindBy(xpath = "//div[text()='下一步' or text()='Next']")
+    @FindBy(xpath = "//div[@class='ui-button dialog_btn primary common is-block']//div[@class='btn_box']")
+    public WebElementFacade staging;  //暂存
+
+    @FindBy(xpath = "//div[@class='el-col el-col-24']/div[2]//div[@class='btn_box']")
     public WebElementFacade selectSumB;
+
+   @FindBy(xpath = "//div[@class='trade-status']//div[2]")
+    public WebElementFacade BankProcess;  //提交状态为银行处理中
+
+    @FindBy(xpath = "//div[@class='el-col el-col-17']/div[2]//div[@class='btn_box']")
+    public WebElementFacade checkDetail;   //查看详情
+
+    @FindBy(xpath = "//div[@class='detail_page-block'][1]//div[@class='el-col el-col-8'][3]//div[@class='con-content']")
+    public WebElementFacade checkSelectAccount;  //付款
+
+    @FindBy(xpath = "//div[@class='detail_page-block'][2]//div[@class='el-col el-col-8'][3]//div[@class='con-content']")
+    public WebElementFacade checkSendPaymentAccount;//收款
+
+//模板导入
+    @FindBy(xpath = "//div[@class='el-col el-col-18']/div[1]//div[@class='btn_box']")
+    public WebElementFacade saveTemplate; //保存至模板
+
+    @FindBy(xpath = "//label[@for='templateNm']/following-sibling::div//input")
+    public WebElementFacade templateName; //模板名称，参数提取
+
+    @FindBy(xpath = "//label[@for='templateNm']/parent::div/following-sibling::div[2]//div[@class='btn_box']")
+    public WebElementFacade save;
+
+    @FindBy(xpath = "//div[@class='el-table__fixed-body-wrapper']//tr[1]/td[9]//img")
+    public WebElementFacade theMenu;  //菜单
+
+    @FindBy(xpath = "//div[@x-placement='bottom' or @x-placement='top']/div/div[2]//div[@class='btn_box']")
+    public WebElementFacade templateImport;//从模板导入
+
+    //贸易融资
+    @FindBy(xpath = "//label[@for='transportMethod']/following-sibling::div//i")
+    public List<WebElementFacade> TransportationWay;  //sea 运输途径
+
+    @FindBy(xpath = "//label[@for='shipNm']/following-sibling::div//input")
+    public WebElementFacade shipNm;  //船名
+
+    @FindBy(xpath = "//label[@for='shipNo']/following-sibling::div//input")
+    public WebElementFacade shipNo;  //船编号
+
+    @FindBy(xpath = "//label[@for='shipmentAddr']/following-sibling::div//input")
+    public WebElementFacade shipmentAddR; //装货港
+
+    @FindBy(xpath = "//label[@for='trafficAddr']/following-sibling::div//input")
+    public WebElementFacade trafficAddR;  //交货港
+
+    @FindBy(xpath = "//label[@for='goodInvolved']/following-sibling::div//input")
+    public WebElementFacade goodInvolved;  //涉及到的货物
+
+    @FindBy(xpath = "//div[@class='out_title_level-1']/parent::div/div[9]//div[@class='box_left']/i")
+    public WebElementFacade invoice; //上传发票
+
+    @FindBy(xpath = "//div[@class='out_title_level-1']/parent::div/div[11]//div[@class='box_left']/i")
+    public WebElementFacade billLading; //上传提货单
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

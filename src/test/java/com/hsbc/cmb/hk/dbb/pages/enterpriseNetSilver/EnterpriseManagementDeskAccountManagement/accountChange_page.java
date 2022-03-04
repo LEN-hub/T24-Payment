@@ -94,7 +94,8 @@ public class accountChange_page extends PageObject {
 
 
 //账户加挂
-    @FindBy(xpath = "//div[@style='margin: 24px 16px 0px 0px;']/div/div")  //点击账户加挂
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='ui-button primary common'][]/div/1div")  //点击账户加挂
     public WebElementFacade linkAccount;
 
     @FindBy(xpath = "//i[@class='el-select__caret el-input__icon el-icon-arrow-up']")
@@ -107,19 +108,28 @@ public class accountChange_page extends PageObject {
     public WebElementFacade submit1;//提交
 
 
-    //CA账户开立
-    @FindBy(xpath = "//div[@style='margin: 24px 0px 0px;']/div/div")
+//CA账户开立
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='ui-button primary common'][2]/div/div")
     public WebElementFacade accountOpening;  //点击账户开立
 
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//span")
     public List<WebElementFacade> CA;
 
-    @FindBy(xpath = "//div[@class='el-radio-group']/label/span[2]")
-    public List<WebElementFacade>selectCurrencyBth;//选择开立的币种
+    @FindBy(xpath = "//div[@class='el-radio-group']/label[1]/span[1]")
+    public WebElementFacade selectCurrencySGD;  //点击账户开立
 
+    @FindBy(xpath = "//div[@class='el-radio-group']/label[2]/span[1]")
+    public WebElementFacade selectCurrencyCNY;  //点击账户开立
 
-    @FindBy(xpath = "//div[@class='el-radio-group']/label/span[2]")
-    public List<WebElementFacade>selectCurrencyEng;//选择开立的币种，英文
+    @FindBy(xpath = "//div[@class='el-radio-group']/label[3]/span[1]")
+    public WebElementFacade selectCurrencyUSD;  //点击账户开立
+
+    @FindBy(xpath = "//div[@class='el-radio-group']/label[4]/span[1]")
+    public WebElementFacade selectCurrencyHKD;  //点击账户开立
+
+    @FindBy(xpath = "//div[@class='el-radio-group']/label[5]/span[1]")
+    public WebElementFacade selectCurrencyEUR;  //点击账户开立
 
     @FindBy(xpath = "//div[@class='el-form-item is-required el-form-item--medium']/following-sibling::div//div[@role='group']/label[2]/span/span")
     public WebElementFacade transfer;//账户权限选择转账和理财
@@ -134,14 +144,22 @@ public class accountChange_page extends PageObject {
     public WebElementFacade nextSubmit;
 
 
+//MCA账户开立
 
-    //MCA账户开立
+    @FindBy(xpath = "//div[@class='el-checkbox-group']/label[2]/span[1]")
+    public WebElementFacade mcaCNY; //选择MCA账户开立
 
-    @FindBy(xpath = "//span[text()='Multi-Currency Account']")
-    public WebElementFacade MCA; //选择MCA账户开立
+    @FindBy(xpath = "//div[@class='el-checkbox-group']/label[3]/span[1]")
+    public WebElementFacade mcaUSD; //选择MCA账户开立
+
+    @FindBy(xpath = "//div[@class='el-checkbox-group']/label[4]/span[1]")
+    public WebElementFacade mcaHKD; //选择MCA账户开立
+
+    @FindBy(xpath = "//div[@class='el-checkbox-group']/label[5]/span[1]")
+    public WebElementFacade mcaEUR; //选择MCA账户开立
 
 
-    //授权模式
+//授权模式
 
     @FindBy(xpath = "//div[@class='children-list']//p[2]//span")
     public WebElementFacade Authorization;
@@ -149,16 +167,28 @@ public class accountChange_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-col el-col-23']/div[4]/div/div")
     public WebElementFacade changeAuthorization;
 
-    @FindBy(xpath = "//div[@id='mode-choose']/div/div[2]/div")
-    public WebElementFacade aSingle;
+    @FindBy(xpath = "//div[@id='mode-choose']/div/div/div[2]//img")
+    public WebElementFacade singleASingle;  //单人授权
 
-    @FindBy(xpath = "//div[@class='dialog-footer']//div[2]//div[@class='btn_box']")
+    @FindBy(xpath = "//div[@id='mode-choose']/div/div/div[3]//img")
+    public WebElementFacade dualASingle;  //双人授权
+
+    @FindBy(xpath = "//div[@id='mode-choose']/div/div/div[1]//img")
+    public WebElementFacade aSingle;  //无授权
+
+    @FindBy(xpath = "//div[@id='other-mode']//div[2]//div[@class='btn_box']")
     public WebElementFacade confirmBt;
+
+    @FindBy(xpath = "//div[@class='dialog-content']//span/div[1]//div[@class='btn_box']")
+    public WebElementFacade determine;
+
+    @FindBy(xpath = "//div[@class='ui-button primary common is-block']//div[@class='btn_box']")
+    public WebElementFacade secondaryAuthorization; //双人授权需要选择二级授权人员
 
 
 //新增币种
 
-    @FindBy(xpath = "//div[@class='el-tooltip__popper is-light']/div/div[1]//div[@class='btn_box']")
+    @FindBy(xpath = "//div[@x-placement='bottom']/div/div[1]//div[@class='btn_box']")
     public WebElementFacade currencyManagement;  //币种管理
 
     @FindBy(xpath = "//div[@class='detail_page-container']/following-sibling::div/div[3]//div[@class='btn_box']")

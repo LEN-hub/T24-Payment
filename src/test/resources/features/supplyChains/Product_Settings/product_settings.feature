@@ -1,6 +1,6 @@
 @productSettings
 Feature: Product Settings test case
-
+  @sun01
   Scenario:UAT_ Supply chain_ Inner tube_ Create product_ 0001
     Given logon "environments_1" on tube by inputting system
     When I click product
@@ -11,7 +11,7 @@ Feature: Product Settings test case
     Then Refresh check whether the data is added successfully
 
 
-  @sun
+  @sun02
   Scenario:UAT_ Supply chain_ Inner tube_ Create product_ 002
     Given logon "environments_1" on tube by inputting system
     When I click product

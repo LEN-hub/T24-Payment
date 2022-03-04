@@ -27,6 +27,7 @@ public class product_step extends ScenarioSteps {
     @Step
     public void clickProducts() {
         productPage.products.click();
+        bddUtil.sleep(3);
     }
 
     @Step
@@ -167,7 +168,7 @@ public class product_step extends ScenarioSteps {
         assertEquals("Active", productPage.find(By.xpath("//td[@data-key='f2e7uikt']")).getText());
     }
 
-    //需要添加一个判断，是否创建成功
+
 
     @Step
     public void clickQuoteList() {
@@ -198,13 +199,6 @@ public class product_step extends ScenarioSteps {
         productPage.GLB.click();
     }
 
-
-    //    @Step                //supplier  供应商选择，因为目前的供应商值是不定的，所以通过变量来添加，需改动
-//    public void clickSupplier(String value){
-//        productPage.supplier.click();
-//       bddUtil.scrollWindowToElement(productPage.find(By.xpath("//body/div[4]//ul[@class='lls-scrollbar__view lls-select-dropdown__list']//span[text()='"+value+"']"))).click();
-
-    @Step                //supplier  供应商选择，因为目前的供应商值是不定的，所以通过变量来添加，需改动
     public void clickSupplier() {
         productPage.supplier.click();
     }
@@ -413,7 +407,6 @@ public class product_step extends ScenarioSteps {
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
         System.out.println("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");
-        //"+FileUtils.LastReadFileInput3("emailData")+");
     }
 
 
