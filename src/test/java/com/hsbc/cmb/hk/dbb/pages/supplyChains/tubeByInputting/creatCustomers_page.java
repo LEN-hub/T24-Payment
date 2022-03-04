@@ -55,7 +55,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='form_btn_bottom']//span[contains(text(), 'Previous ')]")
     public WebElementFacade previousBtn;
 
-    @FindBy(xpath = "//span[text()='Administrator 1 ']")
+    @FindBy(xpath = "//span[contains(text(),'Administrator 1')]")
     public WebElementFacade checkNextPage;
 
     @FindBy(xpath = "//label[@for='authorOne.firstName']/following-sibling::div//input")
@@ -82,7 +82,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='authorTwo.mobile']/following-sibling::div//input")
     public WebElementFacade mobileSecondInput;
 
-    @FindBy(xpath = "//span[text()='Submit ']")
+    @FindBy(xpath = "//span[contains(text(),'Submit')]")
     public WebElementFacade submitBtn;
 
     @FindBy(xpath = "//span[text()='Customer Profiles']")
@@ -166,7 +166,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//p[text()='New password']/following-sibling::div[2]//input")
     public WebElementFacade secondNewPassword;
 
-    @FindBy(xpath = "//span[text()='Confirm']")
+    @FindBy(xpath = "//span[contains(text(),'Confirm')]")
     public WebElementFacade newPasswordPageConfirmBtn;
 
     @FindBy(xpath = "//span[text()='Service Agreement']")
@@ -612,6 +612,36 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//div[text()=' Questionnaire ']")
     public WebElementFacade questionnaireTitle;
+
+    @FindBy(xpath = "//label[@for='FUNDING_ACCOUNT_WAY']/following-sibling::div//label[1]")
+    public WebElementFacade questionFirstCheckBox;
+
+    @FindBy(xpath = "//label[@for='FUNDING_ACCOUNT_WAY']/following-sibling::div//label[2]")
+    public WebElementFacade questionSecondCheckBox;
+
+    @FindBy(xpath = "//label[@for='PAYMENTS_RECEIVABLES']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade selectCheckBox;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]/div[@class='lls-scrollbar']/div[1]//li")
+    public List<WebElementFacade> selectData;
+
+    @FindBy(xpath = "//label[@for='ESTIMATED_NUMBER']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade selectSecondCheckBox;
+
+    @FindBy(xpath = "//label[@for='COUNTRIES']/following-sibling::div/label[1]//span[@class='lls-radio__inner']")
+    public WebElementFacade clickFirstYes;
+
+    @FindBy(xpath = "//label[@for='RELATED_PARTY']/following-sibling::div/label[1]//span[@class='lls-radio__inner']")
+    public WebElementFacade clickSecondYes;
+
+    @FindBy(xpath = "//label[@for='IS_CONTROLLERED']/following-sibling::div/label[1]//span[@class='lls-radio__inner']")
+    public WebElementFacade clickThirdYes;
+
+    @FindBy(xpath = "//span[contains(text(),'Previous')]")
+    public WebElementFacade clickPreviousBtn;
+
+    @FindBy(xpath = "//span[contains(text(),' Next')]")
+    public WebElementFacade clickNextBtn;
 
     @FindBy(xpath = "//label[@for='FUNDING_ACCOUNT_WAY']/following-sibling::div//span[@class='lls-input__suffix']")
     public WebElementFacade firstQuestion;
