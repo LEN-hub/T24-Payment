@@ -136,9 +136,11 @@ public class paymentService_step extends ScenarioSteps {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<WebElementFacade> rollOutDate = paymentService_page.rollOutDate;
         a:for (int j = 0; j < rollOutDate.size(); j++){
-            if (sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals(rollOutDate.get(j).getText())){
-                rollOutDate.get(j).click();
-                break;
+            if (sdf.format(getNextWeekMonday(new Date())).charAt(8) == '0' ){
+                if (sdf.format(getNextWeekMonday(new Date())).substring(9,10).equals(rollOutDate.get(j).getText())){
+                    rollOutDate.get(j).click();
+                    break;
+                }
             }else if (!sdf.format(getNextWeekMonday(new Date())).substring(5,7).equals(sdf.format(getThisWeekMonday(new Date())).substring(5,7))){
                 paymentService_page.nextMonth.click();
                 for (int x = 0;x < rollOutDate.size(); x++){
@@ -166,25 +168,31 @@ public class paymentService_step extends ScenarioSteps {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<WebElementFacade> rollOutDate = paymentService_page.rollOutDate;
         a:for (int j = 0; j < rollOutDate.size(); j++){
-            if (sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals(rollOutDate.get(j).getText())){
-                if (!sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("29") || !sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("30") || !sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("31")){
-                   rollOutDate.get(j).click();
-                   break;
-                }else if(sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("29") || sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("30") || sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("31")){
-                    paymentService_page.nextMonth.click();
-                    for (int x = 0;x < rollOutDate.size(); x++){
-                        if (sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals(rollOutDate.get(x).getText())) {
-                            rollOutDate.get(x).click();
-                            break a;
+            if (sdf.format(getNextWeekMonday(new Date())).charAt(8) == '0'){
+                if (sdf.format(getNextWeekMonday(new Date())).substring(9,10).equals(rollOutDate.get(j).getText())){
+                    if (!sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("29") || !sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("30") || !sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("31")){
+                        rollOutDate.get(j).click();
+                        break a;
+                    }else if(sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("29") || sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("30") || sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("31")){
+                        paymentService_page.nextMonth.click();
+                        for (int x = 0;x < rollOutDate.size(); x++){
+                            if (sdf.format(getNextWeekMonday(new Date())).charAt(8) == '0') {
+                                if (sdf.format(getNextWeekMonday(new Date())).substring(9, 10).equals(rollOutDate.get(j).getText())) {
+                                    rollOutDate.get(x).click();
+                                    break a;
+                                }
+                            }
                         }
                     }
                 }
             }else if (!sdf.format(getNextWeekMonday(new Date())).substring(5,7).equals(sdf.format(getThisWeekMonday(new Date())).substring(5,7))){
                 paymentService_page.nextMonth.click();
                 for (int n = 0;n < rollOutDate.size(); n++){
-                    if (sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals(rollOutDate.get(n).getText())){
-                        rollOutDate.get(n).click();
-                        break a;
+                    if (sdf.format(getNextWeekMonday(new Date())).charAt(8) == '0') {
+                        if (sdf.format(getNextWeekMonday(new Date())).substring(9, 10).equals(rollOutDate.get(j).getText())) {
+                            rollOutDate.get(n).click();
+                            break a;
+                        }
                     }
                 }
             }

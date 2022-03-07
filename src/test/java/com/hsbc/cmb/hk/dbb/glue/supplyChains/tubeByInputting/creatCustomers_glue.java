@@ -276,8 +276,9 @@ public class creatCustomers_glue {
     }
 
     @When("^Enter information on the Questionnaire page$")
-    public void enterInformationOnTheQuestionnairePage() {
-        customers_step.questionNaireInformation();
+    public void enterInformationOnTheQuestionnairePage(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class,String.class);
+        customers_step.questionFirstCheckBox(payToInfo.get(0).get("currency"),payToInfo.get(0).get("num"));
     }
 
     @Then("^Verify whether the Confirm page is displayed$")

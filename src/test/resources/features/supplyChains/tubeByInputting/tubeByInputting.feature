@@ -68,6 +68,8 @@ Feature: tube By Inputting
       When Enter the Account information
       Then Check whether the Questionnaire page is displayed
       When Enter information on the Questionnaire page
+        |currency         |num    |
+        |SGD 0 - 10,000   |1 to 20|
       Then Verify whether the Confirm page is displayed
       When Click the Submit button on the Confirm page
       When End the current browser process
