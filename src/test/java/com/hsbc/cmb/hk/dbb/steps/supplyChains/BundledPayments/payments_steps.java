@@ -135,7 +135,7 @@ public class payments_steps extends ScenarioSteps {
         List<WebElementFacade> request = paymentsPage.RequestList;
         List<WebElementFacade> proceed = paymentsPage.proceedList;
         for (int i = 0; i <request.size() ; i++) {
-            if (FileUtils.LastReadFileInput3("compayn").equals(request.get(i).getText())){
+            if (FileUtils.LastReadFileInput3("companyData").equals(request.get(i).getText())){
                 bddUtil.scrollWindowToElement(request.get(i)).click();
                 proceed.get(i).click();
                 break;

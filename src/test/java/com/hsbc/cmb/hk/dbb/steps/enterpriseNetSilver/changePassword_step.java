@@ -21,6 +21,7 @@ public class changePassword_step extends ScenarioSteps {
     public static String iphoneText;
     public static String verificationCode;
     public static String passWord = JRandomNameTool.getStringRandom(6);
+    public static String newPassWordText;
 
     public void clickForgotPassword(){
         changePassword_page.forgotPassword.click();
@@ -154,7 +155,8 @@ public class changePassword_step extends ScenarioSteps {
 
     public void inputEmailAddress(String emailAddress){
         changePassword_page.emailInputBox.sendKeys(emailAddress);
-        changePassword_page.getCodeBtn.click();
+//        changePassword_page.getCodeBtn.click();
+        bddUtil.sleep(1);
     }
 
     public void clickNextBtn(){
@@ -164,9 +166,12 @@ public class changePassword_step extends ScenarioSteps {
 
     public void inputNewPassword(){
         System.out.println(passWord+".");
+        newPassWordText = "Gl"+passWord+".";//将改变后的密码 写入TXT文件里。
+        FileUtils.FileString4("changePassWord_tian",newPassWordText);
         changePassword_page.newPassword.sendKeys("Gl"+passWord+".");
         changePassword_page.confirmNewPassword.sendKeys("Gl"+passWord+".");
         changePassword_page.confirmBtn.click();
         bddUtil.sleep(5);
+
     }
 }

@@ -52,6 +52,7 @@ public class eStatement_step extends ScenarioSteps {
 
     public void clickSearchBtn(){
         eStatement_page.SearchBtn.click();
+        bddUtil.sleep(3);
     }
 
     public void seeViewLabel(){
@@ -74,6 +75,11 @@ public class eStatement_step extends ScenarioSteps {
 //            break;
 //        }
         eStatement_page.downloadPdf.click();
+        bddUtil.sleep(1);
+        eStatement_page.submitBtn.click();
+        bddUtil.sleep(2);
+        eStatement_page.downloadFirstBtn.click();
+        bddUtil.sleep(5);
     }
 
     public void seeMyDownloadsList(){
@@ -84,6 +90,11 @@ public class eStatement_step extends ScenarioSteps {
         Actions actions = new Actions(getDriver());
         actions.moveToElement(eStatement_page.pastThreePoint).perform();
         eStatement_page.pastDownloads.click();
+        bddUtil.sleep(1);
+        eStatement_page.submitBtn.click();
+        bddUtil.sleep(2);
+        eStatement_page.downloadFirstBtn.click();
+        bddUtil.sleep(5);
     }
 
     public void clickViewEAdvicesBtn(){
@@ -91,6 +102,14 @@ public class eStatement_step extends ScenarioSteps {
     }
 
     public void clickDownLoadBtn(){
-        eStatement_page.downLoadBtn.click();
+        Actions actions = new Actions(getDriver());
+        actions.moveToElement(eStatement_page.downLoadBtn).perform();
+//        eStatement_page.downLoadBtn.click();
+        eStatement_page.downloadNotice.click();
+        bddUtil.sleep(1);
+        eStatement_page.submitBtn.click();
+        bddUtil.sleep(2);
+        eStatement_page.downloadFirstBtn.click();
+        bddUtil.sleep(5);
     }
 }
