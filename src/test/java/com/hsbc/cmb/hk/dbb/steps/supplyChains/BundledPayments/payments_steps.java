@@ -23,10 +23,14 @@ public class payments_steps extends ScenarioSteps {
     }
 
     @Step
-    public void clickOperations() {paymentsPage.operationsList.click();}
+    public void clickOperations() {
+        paymentsPage.operationsList.click();
+    }
 
     @Step
-    public void clickRequestDisbursement() {paymentsPage.requestDisbursement.click();}
+    public void clickRequestDisbursement() {
+        paymentsPage.requestDisbursement.click();
+    }
 
     @Step
     public void clickEditGroup() {
@@ -43,14 +47,19 @@ public class payments_steps extends ScenarioSteps {
         paymentsPage.RequesterOne.sendKeys(FileUtils.LastReadFileInput3("test"));
         bddUtil.sleep(3);
         paymentsPage.Reset.click();
+        bddUtil.sleep(3);
     }
 
     @Step
-    public void clickAssignToMe() {paymentsPage.assignToMe.click();}
+    public void clickAssignToMe() {
+        paymentsPage.assignToMe.click();
+    }
 
 //点击分配给我
     @Step
-    public void clickAssignToMeS() {paymentsPage.AssignToMeS.click();}
+    public void clickAssignToMeS() {
+        paymentsPage.AssignToMeS.click();
+    }
 
 
     @Step     //通过买家/供应商筛选值,点击刷新
@@ -66,18 +75,23 @@ public class payments_steps extends ScenarioSteps {
     public void clickRemittanceFeePaidBy() {
         paymentsPage.remittanceFeePaidby.click();
         paymentsPage.SHA.click();
+        CommonUtil.waiting(3000);
     }
 
     @Step
     public void clickSupplierBank(){
         paymentsPage.SupplierBank.click();
+        CommonUtil.waiting(3000);
         paymentsPage.GLDB.click();
+        CommonUtil.waiting(3000);
     }
 
     @Step
     public void clickAccountNo(){
         paymentsPage.AccountNo.click();
+        CommonUtil.waiting(3000);
         paymentsPage.NUMBER.click();
+        CommonUtil.waiting(3000);
 
     }
     @Step

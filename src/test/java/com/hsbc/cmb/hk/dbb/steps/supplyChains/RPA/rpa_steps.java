@@ -37,13 +37,12 @@ public class rpa_steps extends ScenarioSteps {
     public void clickUpload(){rpaPage.upload.click();}
 
     @Step
-    public void clickBrowse(){
+    public void clickBrowse() {
         rpaPage.browse.click();
         bddUtil.sleep(2);
         bddUtil.fileUpload();
         bddUtil.sleep(5);
     }
-    //上传图片
 
     @Step
     public void clickData(){

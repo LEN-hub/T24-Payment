@@ -42,7 +42,7 @@ Feature: userManagements
 
 
    @startUser
-##    启动用户
+#    启动用户
   Scenario:Start the user operation flow
     Given Closing the Browser driver
     When logon "netSilverEnv_sun" on enterprise net silver
@@ -51,6 +51,7 @@ Feature: userManagements
     Then I click Next
     When I initiate captcha verification
     Then End the deals
+
 
   @UserCancellation
 #    用户注销

@@ -32,7 +32,7 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-
+  @accountOpeningUSD
     #    CA账户USD开立
   Scenario:Enterprise management console CA account CNY opened
     Given Closing the Browser driver
@@ -251,7 +251,7 @@ Feature: accountChange
     Then I verify that the transaction is successful
 
   @addCurrency
-#    新增币种,注意，此case需要双人授权模式，需要换号授权
+#    新增币种,注意，此case需要双人管理模式，需要后管设置授权模式， 换号授权
   Scenario:Enterprise management desk new currency
     Given Closing the Browser driver
     When logon "netSilverEnv_sun" on enterprise net silver

@@ -30,7 +30,7 @@ public class payments_glue {
         paymentsStep.clickRequestDisbursement();
         paymentsStep.clickEditGroup();
         paymentsStep.clickConfirm();
-//        paymentsStep.clickBuyers();
+        paymentsStep.clickRequesterOne();
         paymentsStep.clickAssignToMe();
 
     }
@@ -38,7 +38,7 @@ public class payments_glue {
     @When("^I click on Assign To Me$")
     public void iClickOnAssignToMe() {
         paymentsStep.clickAssignToMeS();
-        //        paymentsStep.clickBuyers();
+        paymentsStep.clickRequesterTwo();
         paymentsStep.clickProceed();
         paymentsStep.clickRemittanceFeePaidBy();
         paymentsStep.clickSupplierBank();
@@ -49,7 +49,7 @@ public class payments_glue {
     @Then("^I click Submit$")
     public void iClickSubmit() {
         paymentsStep.clickSubmit();
-        //        paymentsStep.clickBuyers();
+        paymentsStep.clickRequester3();
     }
 
 

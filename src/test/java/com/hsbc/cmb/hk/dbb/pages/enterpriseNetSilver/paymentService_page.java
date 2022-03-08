@@ -277,7 +277,10 @@ public class paymentService_page extends PageObject {
 
     //贸易融资
     @FindBy(xpath = "//label[@for='transportMethod']/following-sibling::div//i")
-    public List<WebElementFacade> TransportationWay;  //sea 运输途径
+    public WebElementFacade transportMethodBox;  //运输途径框
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//ul/li")
+    public List<WebElementFacade> transportMethod;  //sea 运输途径
 
     @FindBy(xpath = "//label[@for='shipNm']/following-sibling::div//input")
     public WebElementFacade shipNm;  //船名
@@ -299,8 +302,6 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='out_title_level-1']/parent::div/div[11]//div[@class='box_left']/i")
     public WebElementFacade billLading; //上传提货单
-
-
 
 
 

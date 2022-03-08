@@ -1,8 +1,9 @@
 @productSettings
 Feature: Product Settings test case
-  @sun01
+  @ProductSet
+#    产品设置，注意，三个脚本需要用到test/testBuyer/emailData.txt ，因为三个需要关联，执行第三个即可
   Scenario:UAT_ Supply chain_ Inner tube_ Create product_ 0001
-    Given logon "environments_1" on tube by inputting system
+    Given logon "environments_001" on tube by inputting system
     When I click product
     When I click on Product List
     And click Create Product
@@ -11,9 +12,10 @@ Feature: Product Settings test case
     Then Refresh check whether the data is added successfully
 
 
-  @sun02
+  @productQuotation
+#    产品报价
   Scenario:UAT_ Supply chain_ Inner tube_ Create product_ 002
-    Given logon "environments_1" on tube by inputting system
+    Given logon "environments_001" on tube by inputting system
     When I click product
     When I click on Product List
     And  click Create Product
@@ -27,9 +29,10 @@ Feature: Product Settings test case
     Then I click Submit to submit a new product
 
 
-  @ClientProfile
+  @ProductIntroduction
+#    产品简介
   Scenario:UAT_ Supply chain_ Inner tube_ Create product_ 003
-    Given logon "environments_1" on tube by inputting system
+    Given logon "environments_001" on tube by inputting system
     When I click product
     When I click on Product List
     And  click Create Product

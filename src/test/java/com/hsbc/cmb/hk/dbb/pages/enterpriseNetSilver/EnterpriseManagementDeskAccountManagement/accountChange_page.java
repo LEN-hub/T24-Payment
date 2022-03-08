@@ -95,7 +95,7 @@ public class accountChange_page extends PageObject {
 
 //账户加挂
 
-    @FindBy(xpath = "//div[@class='container-component']//div[@class='ui-button primary common'][]/div/1div")  //点击账户加挂
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='ui-button primary common'][1]/div/div")  //点击账户加挂
     public WebElementFacade linkAccount;
 
     @FindBy(xpath = "//i[@class='el-select__caret el-input__icon el-icon-arrow-up']")

@@ -294,9 +294,9 @@ public class userManagement_steps extends ScenarioSteps {
             for (int i = 0; i < checkEmail.size(); i++) {
                 if ( checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("userAddEmailDataSFR"))) {
                     Actions action = new Actions(getDriver());
-                    System.out.println(checkEmail.size());
+//                    System.out.println(checkEmail.size());
                     int t = i+1;
-                    System.out.println(t);
+//                    System.out.println(t);
                     action.moveToElement(userManagement_page.find(By.xpath("//div[@class='el-table__body-wrapper is-scrolling-none']//tbody/tr["+t+"]/td[7]//img"))).perform();
                     break a;
                 }

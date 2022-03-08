@@ -216,7 +216,7 @@ public class userManagement_page extends PageObject {
 
 //用户注销
 
-    @FindBy(xpath = "//div[@x-placement='bottom']/div/div[5]//div[@class='btn_box']")  //点击注销
+    @FindBy(xpath = "//div[@x-placement='bottom' or @x-placement='top']/div/div[5]//div[@class='btn_box']")  //点击注销
     public WebElementFacade logOut;
 
 }

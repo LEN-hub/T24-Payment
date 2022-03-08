@@ -180,13 +180,14 @@ public class paymentService_glue {
         paymentService_step.saveB();
         paymentService_step.theMenu();
         paymentService_step.templateImport();
-
+        List<Map<String, String>> payToINo = payDetail.asMaps(String.class, String.class);
+        paymentService_step.collectingBankBox(payToINo.get(0).get("collectingBank"));
     }
 
     @When("^I chose trade finance, the transportation route chose nautical$")
     public void iChoseTradeFinanceTheTransportationRouteChoseNautical(DataTable payDetail) {
         List<Map<String, String>> payToIN = payDetail.asMaps(String.class, String.class);
-        paymentService_step.TransportationWay(payToIN.get(0).get("TransportationWay"));
+        paymentService_step.transportMethod(payToIN.get(0).get("transportMethod"));
         List<Map<String, String>> payToINO = payDetail.asMaps(String.class, String.class);
         paymentService_step.shipNm(payToINO.get(0).get("shipNm"));
         List<Map<String, String>> payToINU = payDetail.asMaps(String.class, String.class);

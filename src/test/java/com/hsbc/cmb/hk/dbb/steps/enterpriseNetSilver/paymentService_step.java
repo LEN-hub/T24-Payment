@@ -406,13 +406,17 @@ public class paymentService_step extends ScenarioSteps {
         action.moveToElement(paymentService_page.theMenu).perform();
     }
 
-    public void templateImport() {paymentService_page.templateImport.click();}
+    public void templateImport() {
+        paymentService_page.templateImport.click();
+        CommonUtil.waiting(5000);
+    }
 
  //贸易融资
-    public void TransportationWay(String TransportationWay){
-        List<WebElementFacade> Transportation = paymentService_page.TransportationWay;
+    public void transportMethod(String transportMethod){
+        paymentService_page.transportMethodBox.click();
+        List<WebElementFacade> Transportation = paymentService_page.transportMethod;
         for (int i = 0; i < Transportation.size(); i++) {
-             if (TransportationWay.equals(Transportation.get(i).getText())) {
+             if (transportMethod.equals(Transportation.get(i).getText())) {
                  Transportation.get(i).click();
                  break;
          }
@@ -421,13 +425,13 @@ public class paymentService_step extends ScenarioSteps {
 
     public void shipNm(String shipNm){paymentService_page.shipNm.sendKeys(shipNm);}
 
-    public void shipNo(String shipNo){paymentService_page.shipNm.sendKeys(shipNo);}
+    public void shipNo(String shipNo){paymentService_page.shipNo.sendKeys(shipNo);}
 
-    public void shipmentAddR(String shipmentAddR){paymentService_page.shipNm.sendKeys(shipmentAddR);}
+    public void shipmentAddR(String shipmentAddR){paymentService_page.shipmentAddR.sendKeys(shipmentAddR);}
 
-    public void trafficAddR(String trafficAddR){paymentService_page.shipNm.sendKeys(trafficAddR);}
+    public void trafficAddR(String trafficAddR){paymentService_page.trafficAddR.sendKeys(trafficAddR);}
 
-    public void goodInvolved(String goodInvolved){paymentService_page.shipNm.sendKeys(goodInvolved);}
+    public void goodInvolved(String goodInvolved){paymentService_page.goodInvolved.sendKeys(goodInvolved);}
 
     public void invoice() {
         paymentService_page.invoice.click();
