@@ -37,8 +37,14 @@ public class eStatement_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-table__fixed-body-wrapper']//div[@class='cell']//div[@class='el-tooltip btn-icon']/img")
     public List<WebElementFacade> threePoint;
 
-    @FindBy(xpath = "//div[@x-placement=\"bottom\"]/div/div[2]//div[@class='btn_box']")
+    @FindBy(xpath = "//div[@x-placement=\"bottom\"]/div[1]/div//div[@class='btn_box']")
     public WebElementFacade downloadPdf;
+
+    @FindBy(xpath = "//div[@class='dialog-content']/span/div[2]//div[@class='btn_box']")
+    public WebElementFacade submitBtn;
+
+    @FindBy(xpath = "//tr[@class='el-table__row'][1]//td[5]//div[@class='btn_box']")
+    public WebElementFacade downloadFirstBtn;
 
     @FindBy(xpath = "//div[@class='el-table__fixed-right']//tbody/tr[1]/td[5]//img")
     public WebElementFacade firstThreePoint;
@@ -49,7 +55,7 @@ public class eStatement_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-table__fixed-right']//tbody/tr[7]/td[5]//img")
     public WebElementFacade pastThreePoint;
 
-    @FindBy(xpath = "//div[@x-placement=\"top\"]/div/div[2]//div[@class='btn_box']")
+    @FindBy(xpath = "//div[@class='el-tooltip__popper is-light']//div[@class='btn_box']")
     public WebElementFacade pastDownloads;
 
     @FindBy(xpath = "//li[@class='el-dropdown-menu__item'][text()='View eAdvices']")
@@ -57,4 +63,7 @@ public class eStatement_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='el-table__fixed-body-wrapper']//tr[@class='el-table__row'][1]/td[6]/div")
     public WebElementFacade downLoadBtn;
+
+    @FindBy(xpath = "//div[@x-placement='bottom']//div[@class='btn_box']")
+    public WebElementFacade downloadNotice;//电子通知下载按钮。
 }

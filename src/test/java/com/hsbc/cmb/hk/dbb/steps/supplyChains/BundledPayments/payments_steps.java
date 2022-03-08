@@ -51,15 +51,11 @@ public class payments_steps extends ScenarioSteps {
     }
 
     @Step
-    public void clickAssignToMe() {
-        paymentsPage.assignToMe.click();
-    }
+    public void clickAssignToMe() {paymentsPage.assignToMe.click();}
 
 //点击分配给我
     @Step
-    public void clickAssignToMeS() {
-        paymentsPage.AssignToMeS.click();
-    }
+    public void clickAssignToMeS() {paymentsPage.AssignToMeS.click();}
 
 
     @Step     //通过买家/供应商筛选值,点击刷新

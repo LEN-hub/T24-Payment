@@ -165,7 +165,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void openEmailUrlTest(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=tW54A75Q\");");
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=jb53CVsQ\");");
     }
 
     @Step
@@ -201,6 +201,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.firstEmail.click();
         String password = customers_page.emailPassword.getText();
         customers_page.greenLinkSystem.isVisible();
+        CommonUtil.waiting(2000);
         customers_page.greenLinkSystem.click();
         customers_page.GLDBEmailInput.sendKeys(value + "@MailTemp.top");
         customers_page.GLDBEmailPassword.sendKeys(password);
@@ -337,7 +338,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void iLoginServiceAgreementWindow(){
-        customers_page.GLDBEmailInput.sendKeys("tW54A75Q@MailTemp.top");
+        customers_page.GLDBEmailInput.sendKeys("jb53CVsQ@MailTemp.top");
         customers_page.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();
@@ -533,6 +534,32 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.sixQuestionCheckBox.click();
 //        customers_page.SaveBtnIndustry.click();
         customers_page.nextBtnIndustry.click();
+    }
+
+    @Step
+    public void questionFirstCheckBox(String currency,String num){
+        customers_page.questionFirstCheckBox.click();
+        customers_page.questionSecondCheckBox.click();
+        customers_page.selectCheckBox.click();
+        List<WebElementFacade> selectData = customers_page.selectData;
+        for (int i = 0; i < selectData.size(); i++){
+            if (currency.equals(selectData.get(i).getText())){
+                selectData.get(i).click();
+                break;
+            }
+        }
+        customers_page.selectSecondCheckBox.click();
+        for (int j = 0; j < selectData.size(); j++){
+            if (num.equals(selectData.get(j).getText())){
+                selectData.get(j).click();
+                break;
+            }
+        }
+        bddUtil.scrollWindowToElement(customers_page.clickThirdYes);
+        customers_page.clickFirstYes.click();
+        customers_page.clickSecondYes.click();
+        customers_page.clickThirdYes.click();
+        customers_page.clickNextBtn.click();
     }
 
     @Step

@@ -89,7 +89,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"nationality\"]/following-sibling::div//div//input")
     public WebElementFacade clickCountryOfIncorporation;
 
-    @FindBy(xpath = "//div[@class=\"el-picker-panel el-date-picker el-popper\"]/following-sibling::div//ul//span[text()=\"SINGAPOREAN\"]")
+    @FindBy(xpath = "//div[@class=\"el-picker-panel el-date-picker el-popper\"]/following-sibling::div//ul//span[text()=\"SINGAPORE\"]")
     public WebElementFacade getCountryOfIncorporation;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[@class=\"btn_box\"]")
@@ -194,6 +194,21 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"certfctDueDate\"]/following-sibling::div//input")
     public WebElementFacade inputUBOPassportDueDate;
 
+    @FindBy(xpath = "//label[@for=\"addr\"]/following-sibling::div//input")
+    public WebElementFacade inputUBOResidentialAddress;
+
+    @FindBy(xpath = "//label[@for=\"cityNm\"]/following-sibling::div//input")
+    public WebElementFacade inputUBOCityName;
+
+    @FindBy(xpath = "//label[@for=\"zipCd\"]/following-sibling::div//input")
+    public WebElementFacade inputUBOPostalCode;
+
+    @FindBy(xpath = "//label[@for=\"countryCd\"]/following-sibling::div//input")
+    public WebElementFacade clickUBOCountryCode;
+
+    @FindBy(xpath = "//span[text()=\"SINGAPORE\"]")
+    public WebElementFacade getUBOCountry;
+
     @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//input")
     public WebElementFacade clickUBOIdd;
 
@@ -211,6 +226,21 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//label[@for=\"contactPersonNm\"]")
     public WebElementFacade goUBO2Name;
+
+    @FindBy(xpath = "//label[@for=\"addr\"]/following-sibling::div//input")
+    public WebElementFacade inputUBO2ResidentialAddress;
+
+    @FindBy(xpath = "//label[@for=\"cityNm\"]/following-sibling::div//input")
+    public WebElementFacade inputUBO2CityName;
+
+    @FindBy(xpath = "//label[@for=\"zipCd\"]/following-sibling::div//input")
+    public WebElementFacade inputUBO2PostalCode;
+
+    @FindBy(xpath = "//label[@for=\"countryCd\"]/following-sibling::div//input")
+    public WebElementFacade clickUBO2Country;
+
+    @FindBy(xpath = "//span[text()=\"SINGAPORE\"]")
+    public WebElementFacade getUBO2Country;
 
     @FindBy(xpath = "//label[@for=\"contactPersonNm\"]/following-sibling::div//input")
     public WebElementFacade inputOnlyUBOName;
@@ -326,6 +356,12 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextToStep5;
 
+    @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[@class=\"mandatory\"]/following-sibling::form//label[1]//span[1]//span")
+    public WebElementFacade clickOneAdministrators;
+
+    @FindBy(xpath = "//div[@class=\"body\"]//span//div[1]//div[1]//div[@class=\"btn_box\"]")
+    public WebElementFacade clickYESOneAdministrators;
+
     @FindBy(xpath = "//label[@for=\"isConcact\"]/following-sibling::div//label[1]//span//span")
     public WebElementFacade clickYESConnectedPerson1;
 
@@ -422,8 +458,11 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[3]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextToStep13;
 
-    @FindBy(xpath = "//div[@class=\"el-col el-col-22\"]//span[@class=\"el-checkbox__inner\"]")
+    @FindBy(xpath = "//div[@class=\"el-col el-col-22\"]//label[1]//span[@class=\"el-checkbox__inner\"]")
     public WebElementFacade clickAccepted;
+
+    @FindBy(xpath = "//div[@class=\"el-col el-col-22\"]//label[2]//span[@class=\"el-checkbox__inner\"]")
+    public WebElementFacade clickAcceptedCNY;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[3]//div[@class=\"btn_box\"]")
     public WebElementFacade clickSubmitToStep14;

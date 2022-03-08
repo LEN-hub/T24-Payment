@@ -11,9 +11,9 @@ public class fixedDeposit_step extends ScenarioSteps {
     private BDDUtil bddUtil;
 
     public void clickFixedDepositsMenu(){
-        if(fixedDeposit_page.checkPopup.isVisible()){
-            fixedDeposit_page.clickOk.click();
-        }
+//        if(fixedDeposit_page.checkPopup.isVisible()){
+//            fixedDeposit_page.clickOk.click();
+//        }
         fixedDeposit_page.clickFixedDeposit.click();
     }
 
@@ -29,7 +29,7 @@ public class fixedDeposit_step extends ScenarioSteps {
             fixedDeposit_page.clickAccountCurrency.click();
             bddUtil.scrollWindowToElement(fixedDeposit_page.find(By.xpath("//div[@class=\"el-scrollbar\"]//div/ul/li/span[text()='"+ accountCurrency +"']"))).click();
         }
-        fixedDeposit_page.getPlacementAmount.sendKeys("10000");
+        fixedDeposit_page.getPlacementAmount.sendKeys("250000");
     }
     public void choicePlacementDuration(String placementDuration){
         fixedDeposit_page.clickPlacementDuration.click();

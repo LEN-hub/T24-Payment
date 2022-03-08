@@ -4,6 +4,7 @@ import com.hsbc.cmb.hk.dbb.steps.supplyChains.creditFile.createBuyerCreditFile_s
 import com.hsbc.cmb.hk.dbb.steps.supplyChains.creditFile.createSupplierCreditFile_step;
 import com.hsbc.cmb.hk.dbb.steps.supplyChains.tubeByInputting.creatCustomers_step;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import com.hsbc.cmb.hk.dbb.utils.FileUtils;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -21,8 +22,8 @@ public class createSupplierCreditFile_glue {
     private createSupplierCreditFile_step createSupplierCreditFile_step;
     private BDDUtil bddUtil;
 
-    public String  companyName = "23J1";
-    public String  buyerName = "Gldb";
+    public String  companyName = FileUtils.LastReadFileInput3("supplierName_chen");
+    public String  buyerName = FileUtils.LastReadFileInput3("buyerName_chen");
 
 
     @When("^login successfully and click the SCF link to createSupplierCreditFile$")
