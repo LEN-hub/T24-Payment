@@ -178,8 +178,11 @@ public class userManagement_page extends PageObject {
     @FindBy(xpath = "//div[@class='demo-tips']/div[4]//div[@class='btn_box']")
     public WebElementFacade clcikNextBtns;  //获取TC码后点击下一步***
 
+    @FindBy(xpath = "//div[@class='trade-status']//div[2]")
+    public WebElementFacade successful;
 
-
+    @FindBy(xpath = "//div[@class='trade-status']//div[2]")
+    public WebElementFacade successfulEnglish;
 //停用此用户
 
    @FindBy(xpath = "//div[@role='tooltip']/div/div[4]//div[@class='btn_box']")
@@ -191,10 +194,10 @@ public class userManagement_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-dialog__wrapper large-dialog middle-left']/div/div[2]/div[2]/span/button/span")
     public WebElementFacade complete; //操作成功，点击完成
 
-    @FindBy(xpath = "//div[@class='ui-table']/div[2]/div[3]//tr[10]/td[5]/div[text()='停用']")
+    @FindBy(xpath = "//div[@class='el-table__body-wrapper is-scrolling-none']//tr[3]/td[5]/div")
     public WebElementFacade JudgeChinese;
 
-    @FindBy(xpath = "//div[@class='ui-table']/div[2]/div[3]//tr[10]/td[5]/div[text()='Disable']")
+    @FindBy(xpath = "//div[@class='el-table__body-wrapper is-scrolling-none']//tr[3]/td[5]/div")
     public WebElementFacade JudgeEnglish;
 
 
@@ -203,30 +206,17 @@ public class userManagement_page extends PageObject {
    @FindBy(xpath = "//div[@role='tooltip']/div/div[3]//div[@class='btn_box']")
    public WebElementFacade startUser; //启动用户
 
-    @FindBy(xpath = "//div[@class='ui-table']/div[2]/div[3]//tr[10]/td[5]/div[text()='正常']")
+    @FindBy(xpath = "//div[@class='el-table__body-wrapper is-scrolling-none']//tr[3]/td[5]/div")
     public WebElementFacade JudgesChinese;
 
-    @FindBy(xpath = "//div[@class='ui-table']/div[2]/div[3]//tr[9]/td[5]/div[text()='Active']")
+    @FindBy(xpath = "//div[@class='el-table__body-wrapper is-scrolling-none']//tr[3]/td[5]/div")
     public WebElementFacade JudgesEnglish;
 
 
 
 //用户注销
 
-    @FindBy(xpath = "//div[@x-placement='bottom']/div/div[5]//div[@class='btn_box']")  //点击注销
+    @FindBy(xpath = "//div[@x-placement='bottom' or @x-placement='top']/div/div[5]//div[@class='btn_box']")  //点击注销
     public WebElementFacade logOut;
 
 }
-//    public void clickBuyerAssignBtn(){
-//        List<WebElementFacade> role = creditLimit_page.role;  //管理员
-//        List<WebElementFacade> assignBtn = creditLimit_page.assignToMeBtn;  //是否正常
-//        List<WebElementFacade> assignBtn = creditLimit_page.assignToMeBtn;  //三个点
-//        for (int i = 0; i <role.size() ; i++) {
-//            if (role.get(i).getText().equals("Buyer")){
-//                assignBtn.get(i).click();//三个点
-//                break;
-//            }
-//
-//        }
-//        bddUtil.sleep(1);
-//    }}

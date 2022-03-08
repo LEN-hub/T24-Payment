@@ -3,6 +3,7 @@ package com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver.EnterpriseManagementDeskAcc
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.EnterpriseManagementDeskAccountManagement.accountChange_steps;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
 import cucumber.api.DataTable;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
@@ -77,14 +78,33 @@ public class accountChange_glue {
 
     //CA账户开立
     @When("^I click account Opening$")
-    public void iClickAccountOpening(DataTable payDetail) {
+    public void iClickAccountOpening(DataTable payDetails) {
         accountChange_steps.accountManagement();
         accountChange_steps.clickAccountOpening();
         accountChange_steps.clickAccountSelect();
-        List<Map<String, String>> payToI = payDetail.asMaps(String.class,String.class);
-        accountChange_steps.clickCA(payToI.get(0).get("CA"));
-        List<Map<String, String>> payToIO = payDetail.asMaps(String.class,String.class);
-        accountChange_steps.selectCurrencyBth(payToIO.get(0).get("selectCurrencyBth"),payToIO.get(0).get("selectCurrencyEng"));
+        List<Map<String, String>> payToI = payDetails.asMaps(String.class,String.class);
+        accountChange_steps.clickCA(payToI.get(0).get("CA"));}
+//        List<Map<String, String>> payToIO = payDetails.asMaps(String.class,String.class);
+//        accountChange_steps.selectCurrency(payToIO.get(0).get("selectCurrencyBth"),payToIO.get(0).get("selectCurrencyEng"));}
+
+    @And("^I choose the currency to open the account SGD$")
+    public void iChooseTheCurrencyToOpenTheAccountSGD() {accountChange_steps.selectCurrencySGD();}
+
+    @And("^I choose the currency to open the account USD$")
+    public void iChooseTheCurrencyToOpenTheAccountUSD() {accountChange_steps.selectCurrencyUSD();}
+
+    @And("^I choose the currency to open the account CNY$")
+    public void iChooseTheCurrencyToOpenTheAccountCNY() {accountChange_steps.selectCurrencyCNY();}
+
+    @And("^I choose the currency to open the account HKD$")
+    public void iChooseTheCurrencyToOpenTheAccountHKD() {accountChange_steps.selectCurrencyHKD();}
+
+    @And("^I choose the currency to open the account EUR$")
+    public void iChooseTheCurrencyToOpenTheAccountEUR() {accountChange_steps.selectCurrencyEUR();}
+
+
+    @When("^I select account permissions$")
+    public void iSelectAccountPermissions() {
         accountChange_steps.clickTransfer();
         accountChange_steps.clickChooseFinancial();
         accountChange_steps.clickNumberList();
@@ -95,31 +115,76 @@ public class accountChange_glue {
 
 
 //MCA账户开立
+    @And("^I choose the currency to open CNY$")
+    public void iChooseTheCurrencyToOpenCNY() { accountChange_steps.macCNY();}
 
-    @When("^click open account and select MCA$")
-    public void clickOpenAccountAndSelectMCA() {
-        accountChange_steps.accountManagement();
-        accountChange_steps.clickAccountOpening();
-        accountChange_steps.clickAccountSelect();
-        accountChange_steps.clickMCA();
-        accountChange_steps.clickTransfer();
-        accountChange_steps.clickChooseFinancial();
-        accountChange_steps.clickNumberList();
-        accountChange_steps.clickNext();
-        accountChange_steps.clickAgree();
-        accountChange_steps.clickNextSubmit();
+    @And("^I choose the currency to open USD$")
+    public void iChooseTheCurrencyToOpenUSD() { accountChange_steps.mcaUSD();}
+
+    @And("^I choose the currency to open HKD$")
+    public void iChooseTheCurrencyToOpenHKD() { accountChange_steps.mcaHKD();}
+
+    @And("^I choose the currency to open EUR$")
+    public void iChooseTheCurrencyToOpenEUR() { accountChange_steps.mcaEUR();}
+
+    @And("^I choose the currency to open All$")
+    public void iChooseTheCurrencyToOpenAll() {
+        accountChange_steps.macCNY();
+        accountChange_steps.mcaUSD();
+        accountChange_steps.mcaHKD();
+        accountChange_steps.mcaEUR();
+    }
+    @And("^I choose the currency to open SGD USD CNY$")
+    public void iChooseTheCurrencyToOpenSGDUSDCNY() {
+        accountChange_steps.mcaUSD();
+        accountChange_steps.macCNY();
+    }
+    @And("^I choose the currency to open SGD USD EUR$")
+    public void iChooseTheCurrencyToOpenSGDUSDEUR() {
+        accountChange_steps.mcaUSD();
+        accountChange_steps.mcaEUR();
+    }
+    @And("^I choose the currency to open SGD USD HKD$")
+    public void iChooseTheCurrencyToOpenSGDUSDHKD() {
+        accountChange_steps.mcaUSD();
+        accountChange_steps.mcaHKD();
+    }
+    @And("^I choose the currency to open SGD CNY HKD$")
+    public void iChooseTheCurrencyToOpenSGDCNYHKD() {
+        accountChange_steps.macCNY();
+        accountChange_steps.mcaHKD();
     }
 
-    //授权模式
+    //授权模式双人
     @When("^click authorization$")
     public void clickAuthorization() {
         accountChange_steps.clickAuthorization();
         accountChange_steps.clickChangeAuthorization();
-        accountChange_steps.clickASingle();
-        accountChange_steps.clickSubmit1();
-        accountChange_steps.clickConfirmBt();
-
     }
+
+    @When("^I choose two-person authorization management mode$")
+    public void iChooseTwoPersonAuthorizationManagementMode() {accountChange_steps.dualASingle();}
+
+    @And("^Confirm the authorization mode and submit it$")
+    public void confirmTheAuthorizationModeAndSubmitIt() {
+        accountChange_steps.clickConfirmBt();
+        accountChange_steps.determine();
+    }
+
+    @When("^secondary authorized person notification is then displayed$")
+    public void secondaryAuthorizedPersonNotificationIsThenDisplayed() {accountChange_steps.secondaryAuthorization();}
+
+    @Then("^I verify that the transaction is successful$")
+    public void iVerifyThatTheTransactionIsSuccessful() {accountChange_steps.authorizations();}
+
+    //授权模式单人
+    @When("^I choose single-player license management mode$")
+    public void iChooseSinglePlayerLicenseManagementMode() {accountChange_steps.singleASingle();}
+
+    //无授权模式
+    @When("^I choose unlicensed management mode$")
+    public void iChooseUnlicensedManagementMode() {accountChange_steps.aSingle();}
+
 
     //新增币种
 
@@ -155,8 +220,8 @@ public class accountChange_glue {
         accountChange_steps.clickSelectCurrencyBt();
         accountChange_steps.clickNextCurrency();
         accountChange_steps.clickSubmitCurrency();
-
     }
+
 
 
 }

@@ -352,17 +352,26 @@ public class paymentService_step extends ScenarioSteps {
     public void remittancePostscriptContent(String remittancePostscriptContent){
         paymentService_page.remittancePostscriptContent.sendKeys(remittancePostscriptContent);}
 
-    public void expense(String expense){
+    public void expense(String expense ,String expenseEnglish) {
         paymentService_page.expenseBox.click();
         bddUtil.sleep(5);
-    List<WebElementFacade> bears = paymentService_page.expense;
+        List<WebElementFacade> bears = paymentService_page.expense;
+//        List<WebElementFacade> bearBth = paymentService_page.expenseEnglish;
         for (int i = 0; i < bears.size(); i++) {
-        if (expense.equals(bears.get(i).getText())) {
-            bears.get(i).click();
-            break;
+              if (expense.equals(bears.get(i).getText())) {
+                    bears.get(i).click();
+//              } else {
+//                    expenseEnglish.equals(bearBth.get(i).getText());
+//                    expenseEnglish.equals(bearBth.get(i).getText());
+//                    bearBth.get(i).click();
+                    break;
+                }
+            }
         }
-      }
-    }
+
+
+
+
 
     public void paymentAttributeCd(String selectPaymentAttributeCd){
         paymentService_page.paymentAttributeCdBox.click();
@@ -378,5 +387,75 @@ public class paymentService_step extends ScenarioSteps {
 
     public void clickNextBox(){paymentService_page.clickNextBox.click();}
 
+    public void staging() {paymentService_page.staging.click();}
+
     public void selectSumB(){paymentService_page.selectSumB.click();}
+
+    @Step
+    public void InspectionStatus(String selectAccount,String sendPaymentAccount) {
+        if (paymentService_page.BankProcess.getText().equals("银行处理中") || paymentService_page.BankProcess.getText().equals("bank in processing")) {
+            CommonUtil.waiting(3000);
+            paymentService_page.checkDetail.click();
+        }
+        CommonUtil.waiting(3000);
+        Assert.assertEquals(selectAccount, paymentService_page.checkSelectAccount.getText());
+        Assert.assertEquals(sendPaymentAccount, paymentService_page.checkSendPaymentAccount.getText());
+    }
+
+
+    public void saveTemplate() {paymentService_page.saveTemplate.click();}
+
+    public void templateName(String templateName) {paymentService_page.templateName.sendKeys(templateName);}
+
+    public void saveB() {paymentService_page.save.click();}
+
+    public void theMenu() {
+        Actions action = new Actions(getDriver());
+        action.moveToElement(paymentService_page.theMenu).perform();
+    }
+
+    public void templateImport() {
+        paymentService_page.templateImport.click();
+        CommonUtil.waiting(5000);
+    }
+
+ //贸易融资
+    public void transportMethod(String transportMethod){
+        paymentService_page.transportMethodBox.click();
+        List<WebElementFacade> Transportation = paymentService_page.transportMethod;
+        for (int i = 0; i < Transportation.size(); i++) {
+             if (transportMethod.equals(Transportation.get(i).getText())) {
+                 Transportation.get(i).click();
+                 break;
+         }
+     }
+ }
+
+    public void shipNm(String shipNm){paymentService_page.shipNm.sendKeys(shipNm);}
+
+    public void shipNo(String shipNo){paymentService_page.shipNo.sendKeys(shipNo);}
+
+    public void shipmentAddR(String shipmentAddR){paymentService_page.shipmentAddR.sendKeys(shipmentAddR);}
+
+    public void trafficAddR(String trafficAddR){paymentService_page.trafficAddR.sendKeys(trafficAddR);}
+
+    public void goodInvolved(String goodInvolved){paymentService_page.goodInvolved.sendKeys(goodInvolved);}
+
+    public void invoice() {
+        paymentService_page.invoice.click();
+        CommonUtil.waiting(5000);
+        bddUtil.fileUpload();
+        CommonUtil.waiting(3000);
+    }
+
+    public void billLading() {
+        paymentService_page.billLading.click();
+        CommonUtil.waiting(5000);
+        bddUtil.fileUpload();
+        CommonUtil.waiting(3000);
+    }
+
+
+
+
 }

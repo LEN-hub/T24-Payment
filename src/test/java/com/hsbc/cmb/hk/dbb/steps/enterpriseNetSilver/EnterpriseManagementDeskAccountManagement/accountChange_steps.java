@@ -153,20 +153,15 @@ public class accountChange_steps extends ScenarioSteps {
             }
         }
     }
-    public void selectCurrencyBth(String selectCurrencyBth,String selectCurrencyEng) {
-        List<WebElementFacade> selectCurrencyB = accountChange_page.selectCurrencyBth;
-        List<WebElementFacade> selectCurrencyE = accountChange_page.selectCurrencyEng;
-        for (int i = 0; i < selectCurrencyB.size(); i++) {
-            if (selectCurrencyB.get(i).getText().equals(selectCurrencyBth)) {
-                selectCurrencyB.get(i).click();
-            }else {
-                selectCurrencyE.get(i).getText().equals(selectCurrencyEng);
-                selectCurrencyE.get(i).click();
-                break;
-            }
-        }
-    }
-    //selectCurrencyBth
+    public void selectCurrencySGD(){accountChange_page.selectCurrencySGD.click();}
+
+    public void selectCurrencyCNY(){accountChange_page.selectCurrencyCNY.click();}
+
+    public void selectCurrencyUSD(){accountChange_page.selectCurrencyUSD.click();}
+
+    public void selectCurrencyHKD(){accountChange_page.selectCurrencyHKD.click();}
+
+    public void selectCurrencyEUR(){accountChange_page.selectCurrencyEUR.click();}
 
     public void clickTransfer(){
         accountChange_page.transfer.click();
@@ -187,9 +182,13 @@ public class accountChange_steps extends ScenarioSteps {
 
 //  MCA账户开立
 
-    public void clickMCA(){
-        accountChange_page.MCA.click();
-        bddUtil.sleep(3);}
+    public void macCNY(){accountChange_page.mcaCNY.click();}
+
+    public void mcaUSD(){accountChange_page.mcaUSD.click();}
+
+    public void mcaHKD(){accountChange_page.mcaHKD.click();}
+
+    public void mcaEUR(){accountChange_page.mcaEUR.click();}
 
 //授权模式
     public void clickAuthorization(){
@@ -200,14 +199,31 @@ public class accountChange_steps extends ScenarioSteps {
         accountChange_page.changeAuthorization.click();
         bddUtil.sleep(3);}
 
-    public void clickASingle(){
-        accountChange_page.aSingle.click();
-        bddUtil.sleep(2);}
+    public void aSingle(){accountChange_page.aSingle.click();}
+
+    public void singleASingle(){accountChange_page.singleASingle.click();}
+
+    public void dualASingle(){accountChange_page.dualASingle.click();}
 
     public void clickConfirmBt(){
         accountChange_page.confirmBt.click();
         bddUtil.sleep(2);}
 
+    public void determine(){
+        accountChange_page.determine.click();
+        bddUtil.sleep(2);}
+
+    public void secondaryAuthorization(){
+        accountChange_page.secondaryAuthorization.click();
+        bddUtil.sleep(2);}
+
+    public void authorizations() {
+        if (accountChange_page.waitinAauthorization.getText().equals("交易成功")) {
+            assertEquals("交易成功", accountChange_page.waitinAauthorization.getText());
+        } else {
+            assertEquals("Successful", accountChange_page.waitinAauthorization.getText());
+        }
+        bddUtil.sleep(2);}
 
     //新增币种需要授权
 
@@ -270,6 +286,6 @@ public class accountChange_steps extends ScenarioSteps {
 
     public void clickSelectCurrencyBt(){
         accountChange_page.selectCurrencyBt.click();
-        bddUtil.sleep(2);}
+        bddUtil.sleep(5);}
 
     }
