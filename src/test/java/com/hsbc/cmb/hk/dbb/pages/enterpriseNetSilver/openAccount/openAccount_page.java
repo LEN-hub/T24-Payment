@@ -20,7 +20,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//form[@class=\"el-form out_form el-form--label-left\"]//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"el-form-item__content\"]//label[2]//span[@class=\"el-radio__inner\"]")
     public WebElementFacade clickNeedThisAccount;
 
-    @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[@class=\"btn_box\"]")
+    @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[5]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextOnGettingStartedPage;
 
     @FindBy(xpath = "//input[@class=\"el-input__inner\"]")
@@ -29,7 +29,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"purposeOfAccount\"]/following-sibling::div//div//label[3]")
     public WebElementFacade clickCreateType;
 
-    @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[@class=\"btn_box\"]")
+    @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[6]//div[@class=\"btn_box\"]")
     public WebElementFacade clickWhatNeed;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[@class=\"btn_box\"]")
@@ -47,7 +47,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"iddbox\"]//input")
     public WebElementFacade clickCountryCode;
 
-    @FindBy(xpath = "//ul[@class='flag_box-ul']/li/div/span[text()=\"CHINESE\"]")
+    @FindBy(xpath = "//ul[@class='flag_box-ul']/li/div/span[text()=\"CHINA\"]")
     public WebElementFacade getCountryCode;
 
     @FindBy(xpath = "//label[@for=\"operatePersonMobilePhoneNo\"]/following-sibling::div//div//input")
