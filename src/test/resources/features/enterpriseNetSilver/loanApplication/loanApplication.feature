@@ -95,6 +95,31 @@ Feature: loan application
     When I click next button on the upLoadFile page
 
 
+  @text4
+  Scenario:Accounts Payable Financing Loan Draw Application Process
+    Given logon "netSilverEnvLoan_Tian" on enterprise net silver
+    When I click the loan draw button
+    When I choose to apply for disbursement of financing receivables
+    When I choose Singapore Dollar
+    When I have filled in the other information
+      |amount|dayNum|goodsDescr|fileAddress|
+      |100   |30    |testAnd12 |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    Then I should see Submitted successfully page
 
 
-
+  @text5
+  Scenario:2Accounts Payable Financing Loan Disbursement Application Process (The payment currency is USD, no review is required)
+    Given logon "netSilverEnvLoan_Tian" on enterprise net silver
+    When I click the loan draw button
+    When I choose to apply for disbursement of financing receivables
+    When I choose US Dollar
+    When I have filled in the other information
+      |amount|dayNum|goodsDescr|fileAddress|
+      |100   |30    |testAnd12 |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    Then I should see Submitted successfully page

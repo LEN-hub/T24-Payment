@@ -101,6 +101,7 @@ public class Logon_step extends ScenarioSteps {
 
     @Step
     public void vkeyAppVcode() throws MalformedURLException, InterruptedException {
+        try{
         MobileConfig test = new MobileConfig();
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
@@ -115,6 +116,9 @@ public class Logon_step extends ScenarioSteps {
             test.clickLetUsStart();
             test.verification();
             test.clickCreatPassword();
+            }
+        } finally {
+            quitAndroidDriver();
         }
     }
 

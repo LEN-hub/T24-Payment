@@ -4,6 +4,7 @@ import com.hsbc.cmb.hk.dbb.pages.enterpriseNetSilver.loanApplication_page;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
@@ -22,6 +23,18 @@ public class loanApplication_step extends ScenarioSteps {
         loanApplication_page.loan.click();
         loanApplication_page.loanApplicationBtn.click();
         bddUtil.sleep(1);
+    }
+
+    public void clickLoanDisbursementBtn(){
+        loanApplication_page.loan.click();
+        loanApplication_page.loanDisbursementBtn.click();
+    }
+
+    public void clickApplicationForPayment(){
+        bddUtil.sleep(2);
+//        loanApplication_page.threePoint.click();
+        getDriver().findElement(By.xpath("//div[@class='el-table__fixed-right']//tbody/tr[3]/td[7]//div/div")).click();
+        loanApplication_page.ApplicationForPayment.click();
     }
 
     //在输入信息页面，输入相对应的信息。
@@ -260,5 +273,36 @@ public class loanApplication_step extends ScenarioSteps {
         loanApplication_page.carInfo.sendKeys(brand);
         loanApplication_page.buyAmount.sendKeys(price);
         loanApplication_page.nextStep.click();
+    }
+
+    public void selectISingaporeDollar(){
+        loanApplication_page.currency.click();
+        loanApplication_page.SingaporeDollars.click();
+    }
+
+    public void selectUsDollar(){
+        loanApplication_page.currency.click();
+        loanApplication_page.usDollar.click();
+    }
+
+    public void inputApplyForAmount(String amount,String dayNum,String goodsDescr,String fileAddress){
+        loanApplication_page.ApplyForAmount.sendKeys(amount);
+        loanApplication_page.financingDayNum.sendKeys(dayNum);
+        loanApplication_page.goodsDescr.sendKeys(goodsDescr);
+        loanApplication_page.transportMethod.click();
+        loanApplication_page.landTran.click();
+        bddUtil.scrollWindowToElement(getDriver().findElement(By.xpath("//div[@class='ui-container-full__body']/div//form/div[3]//div[@class='upload_pic_container'][1]/div/div")));
+        loanApplication_page.LendingAccount.click();
+        bddUtil.sleep(1);
+        loanApplication_page.account.click();
+        getDriver().findElement(By.xpath("//div[@class='ui-container-full__body']/div//form/div[3]//div[@class='upload_pic_container'][1]//input")).sendKeys(fileAddress);
+        bddUtil.sleep(2);
+        getDriver().findElement(By.xpath("//div[@class='ui-container-full__body']/div//form/div[5]//div[@class='upload_pic_container']//input")).sendKeys(fileAddress);
+        bddUtil.sleep(2);
+        loanApplication_page.nextOnUpLoadFile.click();
+        bddUtil.sleep(2);
+        loanApplication_page.agreeToTerms.click();
+        loanApplication_page.submitOnSpendPage.click();
+        bddUtil.sleep(5);
     }
 }

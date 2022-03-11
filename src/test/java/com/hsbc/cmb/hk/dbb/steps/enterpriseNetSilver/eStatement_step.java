@@ -77,7 +77,7 @@ public class eStatement_step extends ScenarioSteps {
         eStatement_page.downloadPdf.click();
         bddUtil.sleep(1);
         eStatement_page.submitBtn.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(5);
         eStatement_page.downloadFirstBtn.click();
         bddUtil.sleep(5);
     }
