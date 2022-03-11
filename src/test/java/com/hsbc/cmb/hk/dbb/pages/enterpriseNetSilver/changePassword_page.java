@@ -113,12 +113,12 @@ public class changePassword_page extends PageObject {
     @FindBy(xpath = "//div[@class='pwd-div']//div[5]/div[2]//div[@class='btn_box']")
     public WebElementFacade nextBtn;
 
-    @FindBy(xpath = "//form[@class='el-form']//div[@class='el-form-item el-form-item--medium'][1]//input")
+    @FindBy(xpath = "//form[@class='el-form out_form rest-pwd-form el-form--label-left']//div[@class='el-form-item el-form-item--medium'][1]//input")
     public WebElementFacade newPassword;
 
-    @FindBy(xpath = "//form[@class='el-form']//div[@class='el-form-item el-form-item--medium'][3]//input")
+    @FindBy(xpath = "//form[@class='el-form out_form rest-pwd-form el-form--label-left']//div[@class='el-form-item el-form-item--medium'][2]//input")
     public WebElementFacade confirmNewPassword;
 
-    @FindBy(xpath = "//form[@class='el-form']/div[4]//div[@class='btn_box']")
+    @FindBy(xpath = "//form[@class='el-form out_form rest-pwd-form el-form--label-left']/div[3]//div[@class='btn_box']")
     public WebElementFacade confirmBtn;
 }

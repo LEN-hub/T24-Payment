@@ -61,10 +61,11 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         createBuyerCreditFile_page.pickAYear.click();
         createBuyerCreditFile_page.getDRSKRating.clear();
         createBuyerCreditFile_page.getDRSKRating.sendKeys("100000");
-        createBuyerCreditFile_page.upScreenshotOfDRSKRating.click();
+//        createBuyerCreditFile_page.upScreenshotOfDRSKRating.click();
         bddUtil.sleep(2);
         bddUtil.fileUpload();
         bddUtil.sleep(5);
+        bddUtil.scrollWindowToElement(getDriver().findElement(By.xpath("//label[@for='bloombergDrskRatings']")));
         createBuyerCreditFile_page.getToReportingCurrency.click();
         bddUtil.scrollWindowToElement(createBuyerCreditFile_page.getReportingCurrency);
         createBuyerCreditFile_page.getReportingCurrency.click();
@@ -82,6 +83,7 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         createBuyerCreditFile_page.getCashAndCashEquivalents.sendKeys("10000");
         createBuyerCreditFile_page.getBookValueOfEquity.clear();
         createBuyerCreditFile_page.getBookValueOfEquity.sendKeys("10000");
+        bddUtil.scrollWindowToElement(createBuyerCreditFile_page.upFinancialInformationInLastYear);
         createBuyerCreditFile_page.upFinancialInformationInLastYear.click();
         bddUtil.sleep(2);
         bddUtil.fileUpload();

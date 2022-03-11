@@ -145,4 +145,35 @@ public class loanApplication_glue {
         List<Map<String, String>> maps = data.asMaps(String.class, String.class);
         loanApplication_step.inputVehicleDetails(maps.get(0).get("brand"),maps.get(0).get("price"));
     }
+
+    @When("^I click the loan draw button$")
+    public void iClickTheLoanDrawButton() {
+        loanApplication_step.clickLoanDisbursementBtn();
+    }
+
+    @When("^I choose to apply for disbursement of financing receivables$")
+    public void iChooseToApplyForDisbursementOfFinancingReceivables() {
+        loanApplication_step.clickApplicationForPayment();
+    }
+
+    @When("^I have filled in the other information$")
+    public void iHaveFilledInTheOtherInformation(DataTable data) {
+        List<Map<String, String>> maps = data.asMaps(String.class, String.class);
+        loanApplication_step.inputApplyForAmount(maps.get(0).get("amount"),maps.get(0).get("dayNum"),maps.get(0).get("goodsDescr"),maps.get(0).get("fileAddress"));
+    }
+
+    @Then("^I should see Submitted successfully page$")
+    public void iShouldSeeSubmittedSuccessfullyPage() {
+        bddUtil.sleep(10);
+    }
+
+    @When("^I choose Singapore Dollar$")
+    public void iChooseSingaporeDollar() {
+        loanApplication_step.selectISingaporeDollar();
+    }
+
+    @When("^I choose US Dollar$")
+    public void iChooseUSDollar() {
+        loanApplication_step.selectUsDollar();
+    }
 }
