@@ -3,11 +3,10 @@ Feature: receipt and payment service
 
   #SDG->HKD
   Scenario:I have successfully transferred from one currency to another (Singapore dollar to Hong Kong dollar)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003704   |11010003836|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 704   |1101 0003 836|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -17,8 +16,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-    |rollOutAccount|intoAccount|amount|
-    |11010003704   |11010003828|0.1   |
+    |rollOutAccount  |intoAccount  |amount|
+    |1101 0003 704   |1101 0003 828|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -28,8 +27,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003704   |11010003844|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 704   |1101 0003 844|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -39,8 +38,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003704   |11010003526|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 704   |1101 0003 526|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -50,8 +49,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003712   |11010003801|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 712   |1101 0003 801|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -61,8 +60,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003720   |11010003828|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 720   |1101 0003 828|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -72,8 +71,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003747   |11010003844|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 747   |1101 0003 844|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -83,8 +82,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003739   |11010003836|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 739   |1101 0003 836|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -94,8 +93,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003704   |11010003712|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 704   |1101 0003 712|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -106,8 +105,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003739   |11010003704|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 739   |1101 0003 704|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -117,8 +116,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003739   |11010003844|1     |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 739   |1101 0003 844|1     |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -128,8 +127,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003739   |11010003828|1     |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 739   |1101 0003 828|1     |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -139,8 +138,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003739   |11010003801|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 739   |1101 0003 801|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -150,8 +149,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003720   |11010003801|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 720   |1101 0003 801|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -161,8 +160,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003720   |11010003844|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 720   |1101 0003 844|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -172,8 +171,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003720   |11010003526|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 720   |1101 0003 526|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -183,8 +182,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003720   |11010003836|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 720   |1101 0003 836|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -194,8 +193,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003747   |11010003801|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 747   |1101 0003 801|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -205,8 +204,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003747   |11010003836|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 747   |1101 0003 836|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -216,8 +215,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003747   |11010003526|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 747   |1101 0003 526|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -227,8 +226,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003747   |11010003828|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 747   |1101 0003 828|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -238,8 +237,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003712   |11010003836|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 712   |1101 0003 836|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -249,8 +248,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003712   |11010003828|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 712   |1101 0003 828|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -260,8 +259,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003712   |11010003526|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 712   |1101 0003 526|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -271,8 +270,8 @@ Feature: receipt and payment service
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount|intoAccount|amount|
-      |11010003712   |11010003844|0.1   |
+      |rollOutAccount  |intoAccount  |amount|
+      |1101 0003 712   |1101 0003 844|0.1   |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -467,7 +466,6 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-
 
 
     #境内转账-行内转账时间选择每周一(SDG->USD)
@@ -759,7 +757,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335621223 |11010003739      |0.10             |Business Expenses|
 
-
+  @ext
     #境内转账-跨行转账时间选择每周一(SDG->SDG)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -779,7 +777,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-
+  @ext
 #时间选择每周(SDG->SDG)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given Closing the Browser driver
@@ -805,7 +803,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-
+  @ext
 #时间选择每月(SDG->SDG)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -832,7 +830,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643346550706|11010003437      |0.10             |Business Expenses|
 
-
+  @ext
     #时间选择每季度(SDG->SDG)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -858,7 +856,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-
+  @ext
    #境内转账-跨行转账时间选择每周一(SDG->CNY)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -878,7 +876,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-
+  @ext
 #时间选择每周(SDG->CNY)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given Closing the Browser driver
@@ -904,7 +902,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-
+  @ext
 #时间选择每月(SDG->CNY)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -931,7 +929,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356258424|11010003712      |0.10             |Business Expenses|
 
-
+  @ext
     #时间选择每季度(SDG->CNY)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -957,7 +955,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-
+  @ext
   #境内转账-跨行转账时间选择每周一(SDG->USD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -977,7 +975,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-
+  @ext
 #时间选择每周(SDG->USD)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given Closing the Browser driver
@@ -1003,7 +1001,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-
+  @ext
 #时间选择每月(SDG->USD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -1030,7 +1028,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356259982|11010003720      |0.10             |Business Expenses|
 
-
+  @ext
     #时间选择每季度(SDG->USD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -1056,7 +1054,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-
+  @ext
    #境内转账-跨行转账时间选择每周一(SDG->EUR)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -1076,7 +1074,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-
+  @ext
 #时间选择每周(SDG->EUR)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given Closing the Browser driver
@@ -1129,7 +1127,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335629908 |11010003747      |0.10             |Business Expenses|
 
-
+  @ext
     #时间选择每季度(SDG->EUR)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -1156,7 +1154,8 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335629908 |11010003747      |0.10             |Business Expenses|
 
-       #境内转账-跨行转账时间选择每周一(SDG->HKD)
+  @ext
+ #境内转账-跨行转账时间选择每周一(SDG->HKD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
     When logon "netSilverEnv_Kevin" on enterprise net silver
@@ -1176,6 +1175,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335621223 |11010003739      |0.10             |Business Expenses|
 
+  @ext
 #时间选择每周(SDG->HKD)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given Closing the Browser driver
@@ -1202,6 +1202,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335621223 |11010003739      |0.10             |Business Expenses|
 
+  @ext
 #时间选择每月(SDG->HKD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -1228,7 +1229,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335621223 |11010003739      |0.10             |Business Expenses|
 
-
+  @ext
     #时间选择每季度(SDG->HKD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -1254,7 +1255,6 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-
 
     #境外转账
   @overseasTransfer
@@ -1283,7 +1283,6 @@ Feature: receipt and payment service
       |11020006552  |11020009098       |
 
 
-
   @overseasTransfer01
   Scenario:Positive process of overseas transfer(USD--SGD)
     Given Closing the Browser driver
@@ -1292,7 +1291,6 @@ Feature: receipt and payment service
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense   |expenseEnglish                           |
       |11020006552  |SGD          |60         |费用各自承担|The expenses shall be borne by each party|
-
     And I choose the payment currency
       |selectAccBth|
       |SGD         |
@@ -1319,7 +1317,6 @@ Feature: receipt and payment service
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
       |11020006552  |CNY          |50         |费用各自承担|The expenses shall be borne by each party|
-
     And I choose the payment currency
       |selectAccBth|
       |SGD         |
@@ -1333,6 +1330,7 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
+    When Closing the Browser driver
 
 
   @overseasTransfer03
@@ -1343,7 +1341,6 @@ Feature: receipt and payment service
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
       |11020006552  |EUR          |50         |费用各自承担|The expenses shall be borne by each party|
-
     And I choose the payment currency
       |selectAccBth|
       |SGD         |
@@ -1357,6 +1354,7 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
+    When Closing the Browser driver
 
   @overseasTransfer04
   Scenario:Positive process of overseas transfer(HKD--SGD)
@@ -1366,7 +1364,6 @@ Feature: receipt and payment service
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
       |11020006552  |HKD          |50         |费用各自承担|The expenses shall be borne by each party|
-
     And I choose the payment currency
       |selectAccBth|
       |SGD         |
@@ -1380,6 +1377,7 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
+
 
 
   @overseasTransfer05
@@ -1390,7 +1388,6 @@ Feature: receipt and payment service
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
       |11020006552  |SGD         |50         |费用各自承担|The expenses shall be borne by each party|
-
     And I choose the payment currency
       |selectAccBth|
       |SGD         |

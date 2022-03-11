@@ -39,7 +39,7 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.rollOutCurrencySelectWindows.click();
         List<WebElementFacade> currency = paymentService_page.rollOutAccountSGD;
         for (int i = 0; i< currency.size();i++){
-            if (rollOutAccount.equals(currency.get(i).getText().substring(0,currency.get(i).getText().indexOf("/")))){
+            if (rollOutAccount.contains(currency.get(i).getText().substring(0,currency.get(i).getText().indexOf("/")).trim())){
                 currency.get(i).click();
                 break;
             }
@@ -48,7 +48,7 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.secondPopWindows.click();
         List<WebElementFacade> secondCurrency = paymentService_page.secondCurrencySelectSGD;
         for(int j = 0; j < secondCurrency.size(); j++){
-            if (intoAccount.equals(secondCurrency.get(j).getText().substring(0,secondCurrency.get(j).getText().indexOf("/")))){
+            if (intoAccount.contains(secondCurrency.get(j).getText().substring(0,secondCurrency.get(j).getText().indexOf("/")).trim())){
                 secondCurrency.get(j).click();
                 break;
             }
@@ -110,12 +110,18 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     @Step
-    public void otherDomesticTransfer(String accountName,String paymentAccount,String transferAmount,String tradeAmountSelect){
+    public void otherDomesticTransfer(String bankName,String accountName,String paymentAccount,String transferAmount,String tradeAmountSelect){
         paymentService_page.domesticTransfer.click();
         CommonUtil.waiting(2000);
         paymentService_page.collectingBankPopWindows.click();
-        paymentService_page.selectTitle.click();
-        paymentService_page.overseasTrasferAccount.click();
+        List<WebElementFacade> selectTitle = paymentService_page.selectTitle;
+        for (int j = 0; j < selectTitle.size(); j++){
+            if (bankName.equals(selectTitle.get(j).getText())){
+                selectTitle.get(j).click();
+                break;
+            }
+        }
+//        paymentService_page.overseasTrasferAccount.click();
         paymentService_page.accountName.sendKeys(accountName);
         paymentService_page.paymentAccount.sendKeys(paymentAccount);
         paymentService_page.transferAmount.sendKeys(transferAmount);
@@ -136,8 +142,8 @@ public class paymentService_step extends ScenarioSteps {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<WebElementFacade> rollOutDate = paymentService_page.rollOutDate;
         a:for (int j = 0; j < rollOutDate.size(); j++){
-            if (sdf.format(getNextWeekMonday(new Date())).charAt(8) == '0' ){
-                if (sdf.format(getNextWeekMonday(new Date())).substring(9,10).equals(rollOutDate.get(j).getText())){
+            if (sdf.format(new Date()).charAt(8) == '0' ){
+                if (sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals(rollOutDate.get(j).getText())){
                     rollOutDate.get(j).click();
                     break;
                 }
@@ -168,8 +174,8 @@ public class paymentService_step extends ScenarioSteps {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<WebElementFacade> rollOutDate = paymentService_page.rollOutDate;
         a:for (int j = 0; j < rollOutDate.size(); j++){
-            if (sdf.format(getNextWeekMonday(new Date())).charAt(8) == '0'){
-                if (sdf.format(getNextWeekMonday(new Date())).substring(9,10).equals(rollOutDate.get(j).getText())){
+            if (sdf.format(new Date()).charAt(8) == '0'){
+                if (sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals(rollOutDate.get(j).getText())){
                     if (!sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("29") || !sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("30") || !sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("31")){
                         rollOutDate.get(j).click();
                         break a;
@@ -177,7 +183,7 @@ public class paymentService_step extends ScenarioSteps {
                         paymentService_page.nextMonth.click();
                         for (int x = 0;x < rollOutDate.size(); x++){
                             if (sdf.format(getNextWeekMonday(new Date())).charAt(8) == '0') {
-                                if (sdf.format(getNextWeekMonday(new Date())).substring(9, 10).equals(rollOutDate.get(j).getText())) {
+                                if (sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals(rollOutDate.get(j).getText())) {
                                     rollOutDate.get(x).click();
                                     break a;
                                 }
@@ -188,8 +194,8 @@ public class paymentService_step extends ScenarioSteps {
             }else if (!sdf.format(getNextWeekMonday(new Date())).substring(5,7).equals(sdf.format(getThisWeekMonday(new Date())).substring(5,7))){
                 paymentService_page.nextMonth.click();
                 for (int n = 0;n < rollOutDate.size(); n++){
-                    if (sdf.format(getNextWeekMonday(new Date())).charAt(8) == '0') {
-                        if (sdf.format(getNextWeekMonday(new Date())).substring(9, 10).equals(rollOutDate.get(j).getText())) {
+                    if (sdf.format(new Date()).charAt(8) == '0') {
+                        if (sdf.format(getNextWeekMonday(new Date())).substring(8, 10).equals(rollOutDate.get(j).getText())) {
                             rollOutDate.get(n).click();
                             break a;
                         }
