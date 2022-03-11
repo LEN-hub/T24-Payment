@@ -11,8 +11,6 @@ import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 
-import java.io.File;
-
 public class createBuyerCreditFile_glue {
 
     @ManagedPages

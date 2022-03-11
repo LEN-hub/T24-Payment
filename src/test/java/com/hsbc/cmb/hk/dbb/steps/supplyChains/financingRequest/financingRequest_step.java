@@ -34,7 +34,7 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.clickUpload.click();
         financingRequest_page.clickOfUploadFile.click();
         bddUtil.sleep(2);
-//        bddUtil.requestFinancingFileUpload();
+        bddUtil.requestFinancingFileUpload();
         bddUtil.sleep(5);
         financingRequest_page.clickConfirmOfUpload.click();
         bddUtil.sleep(3);

@@ -73,6 +73,7 @@ public class MobileConfig {
     }
 
     public void logonVkeyApp(String profile, String email, String password){
+        CommonUtil.waiting(2000);
         driver.findElementById("et_acct_id").clear();
         driver.findElementById("et_acct_id").sendKeys(profile);
         driver.findElementById("et_email").clear();

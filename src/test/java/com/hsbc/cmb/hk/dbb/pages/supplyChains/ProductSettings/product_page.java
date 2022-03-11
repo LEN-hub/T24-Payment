@@ -43,7 +43,7 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//label[contains(text(), 'Interest Paid By')]/following-sibling::div//input/following-sibling::span")
     public WebElementFacade Paid;
 
-    @FindBy(xpath = "//span[text()='The Seller Pays Interest']")
+    @FindBy(xpath = "//span[text()='Supplier']")
     public WebElementFacade seller;
 
     @FindBy(xpath = "//label[contains(text(), 'Interest Collected')]/following-sibling::div//input/following-sibling::span")

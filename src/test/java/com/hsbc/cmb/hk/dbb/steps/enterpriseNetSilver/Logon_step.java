@@ -101,11 +101,12 @@ public class Logon_step extends ScenarioSteps {
 
     @Step
     public void vkeyAppVcode() throws MalformedURLException, InterruptedException {
+        try{
         MobileConfig test = new MobileConfig();
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
         test.testMobile();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         if (MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout [ends-with(@resource-id,'btn_otp')]/child::android.widget.TextView[2]").getText().equals("一次性\n密码")) {
             test.getVcode();
         }else {
@@ -115,6 +116,9 @@ public class Logon_step extends ScenarioSteps {
             test.clickLetUsStart();
             test.verification();
             test.clickCreatPassword();
+            }
+        } finally {
+            quitAndroidDriver();
         }
     }
 
@@ -123,7 +127,7 @@ public class Logon_step extends ScenarioSteps {
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
         test.testSecondMobile();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         if (MobileConfig.driver.findElementByXPath("//android.widget.TextView[ends-with(@resource-id,'permission_message')]").isDisplayed()) {
             test.clickSystemPopupWindows();
             test.clickStartButton();

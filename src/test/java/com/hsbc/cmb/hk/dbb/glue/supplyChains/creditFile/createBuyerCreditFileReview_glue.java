@@ -5,6 +5,7 @@ import com.hsbc.cmb.hk.dbb.steps.supplyChains.creditFile.createBuyerCreditFile_s
 import com.hsbc.cmb.hk.dbb.steps.supplyChains.systemManager.logon_step;
 import com.hsbc.cmb.hk.dbb.steps.supplyChains.tubeByInputting.creatCustomers_step;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import com.hsbc.cmb.hk.dbb.utils.FileUtils;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import net.thucydides.core.annotations.Steps;
@@ -24,7 +25,7 @@ public class createBuyerCreditFileReview_glue {
     private createBuyerCreditFileReview_step createBuyerCreditFileReview_step;
     public static String envTag;
 
-    public String buyer = "AutoTestBuyer_chen";
+    public String buyer = FileUtils.LastReadFileInput3("buyerName_chen");
 
     @And("^to Buyer Credit Profile Review page$")
     public void toBuyerCreditProfileReviewPage(){

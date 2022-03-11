@@ -222,7 +222,7 @@ public class userManagement_steps extends ScenarioSteps {
     }
 
     public void clickKeysEmail () {
-            userManagement_page.keysEmail.sendKeys(FileUtils.LastReadFileInput3("userAddEmailData"));
+            userManagement_page.keysEmail.sendKeys(FileUtils.LastReadFileInput3("userAddEmailDataSFR"));
             bddUtil.sleep(3);}
 
     public void clickValidationEmail(){userManagement_page.validationEmail.click();}
@@ -233,6 +233,15 @@ public class userManagement_steps extends ScenarioSteps {
 
     public void NextBtnS(){userManagement_page.clcikNextBtns.click();}
 
+    public void authorizations() {
+        if (userManagement_page.successful.getText().equals("交易成功")) {
+            assertEquals("交易成功", userManagement_page.successful.getText());
+        } else {
+            assertEquals("the transaction was successful", userManagement_page.successfulEnglish.getText());
+        }
+        bddUtil.sleep(2);
+        bddUtil.quitDriver();
+    }
 
 
 //停用此用户
@@ -252,6 +261,7 @@ public class userManagement_steps extends ScenarioSteps {
          }else {
                 assertEquals("Disable",userManagement_page.JudgeEnglish.getText());
         }
+        bddUtil.quitDriver();
     }
 
 
@@ -266,7 +276,9 @@ public class userManagement_steps extends ScenarioSteps {
             assertEquals("正常",userManagement_page.JudgesEnglish.getText());
         }else {
             assertEquals("Active",userManagement_page.JudgesEnglish.getText());
+
         }
+        bddUtil.quitDriver();
     }
 
 //用户注销
@@ -280,11 +292,11 @@ public class userManagement_steps extends ScenarioSteps {
         a:for (int x = 0; x < sumNum.size(); x++){
             sumNum.get(sumNum.size()-1).click();
             for (int i = 0; i < checkEmail.size(); i++) {
-                if ( checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("userAddEmailData"))) {
+                if ( checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("userAddEmailDataSFR"))) {
                     Actions action = new Actions(getDriver());
-                    System.out.println(checkEmail.size());
+//                    System.out.println(checkEmail.size());
                     int t = i+1;
-                    System.out.println(t);
+//                    System.out.println(t);
                     action.moveToElement(userManagement_page.find(By.xpath("//div[@class='el-table__body-wrapper is-scrolling-none']//tbody/tr["+t+"]/td[7]//img"))).perform();
                     break a;
                 }

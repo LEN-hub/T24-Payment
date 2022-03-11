@@ -1,8 +1,8 @@
 @payments
 Feature:Bundled payments test case
-
+ @lending
   Scenario:UAT_ Supply chain_ Inner tube_ Create payments_ 0001
-    Given logon "environments_1" on tube by inputting system
+    Given logon "environments_001" on tube by inputting system
     When When I hit Operations
     And click Request for Disbursement
     When I click on Assign To Me

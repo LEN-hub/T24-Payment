@@ -23,6 +23,7 @@ public class openAccount_step extends ScenarioSteps {
     public void clickOpenAccount() {
         openAccount_page.clickOpenAccount.click();
         openAccount_page.clickNewUser.click();
+        bddUtil.sleep(2);
     }
 
 
@@ -34,9 +35,32 @@ public class openAccount_step extends ScenarioSteps {
     }
 
     public void fillInInformationOnGettingStartedPage2(String accountType, String accountName, String currencyType) {
-        openAccount_page.find(By.xpath("//label[@for=\"accountTypeCd\"]/following-sibling::div//div[@class=\"el-radio-group width_percent_100\"]/label[" + accountType + "]/span/span")).click();
+        openAccount_page.find(By.xpath("//label[@for=\"accountTypeCd\"]/following-sibling::div//div[@role=\"radiogroup\"]/label[" + accountType + "]/span/span")).click();
         openAccount_page.inputAccountName.sendKeys(accountName);
         openAccount_page.find(By.xpath("//label[@for=\"currencyTypeCd\"]/following-sibling::div//label[" + currencyType + "]/span/span")).click();
+        openAccount_page.clickCreateType.click();
+        openAccount_page.clickWhatNeed.click();
+        openAccount_page.clickLetGo.click();
+        bddUtil.sleep(3);
+    }
+
+    public void fillInInformationOnGettingStartedPage2MCA_SGD_CNY(String accountType, String accountName, String currencyType) {
+        openAccount_page.find(By.xpath("//label[@for=\"accountTypeCd\"]/following-sibling::div//div[@role=\"radiogroup\"]/label[" + accountType + "]/span/span")).click();
+        openAccount_page.inputAccountName.sendKeys(accountName);
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyType + "]/span/span")).click();
+        openAccount_page.clickCreateType.click();
+        openAccount_page.clickWhatNeed.click();
+        openAccount_page.clickLetGo.click();
+        bddUtil.sleep(3);
+    }
+
+    public void fillInInformationOnGettingStartedPage2MCA_SGD_USD_CNY_HKD_EUR(String accountType, String accountName, String currencyTypeUSD, String currencyTypeCNY, String currencyTypeHKD, String currencyTypeEUR) {
+        openAccount_page.find(By.xpath("//label[@for=\"accountTypeCd\"]/following-sibling::div//div[@role=\"radiogroup\"]/label[" + accountType + "]/span/span")).click();
+        openAccount_page.inputAccountName.sendKeys(accountName);
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyTypeUSD + "]/span/span")).click();
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyTypeCNY + "]/span/span")).click();
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyTypeHKD + "]/span/span")).click();
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyTypeEUR + "]/span/span")).click();
         openAccount_page.clickCreateType.click();
         openAccount_page.clickWhatNeed.click();
         openAccount_page.clickLetGo.click();
@@ -89,7 +113,7 @@ public class openAccount_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(openAccount_page.goEntityDetails);
         bddUtil.sleep(1);
         openAccount_page.inputCompanyRegistrationNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
-        openAccount_page.inputCompanyRegisterDate.sendKeys("2010-01-01");
+        openAccount_page.inputCompanyRegisterDate.sendKeys("01/01/2010");
         openAccount_page.goEntityDetails.click();
         openAccount_page.clickCountryOfIncorporation.click();
         bddUtil.scrollWindowToElement(openAccount_page.getCountryOfIncorporation).click();
@@ -122,13 +146,13 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.inputContactPersonNm.clear();
         openAccount_page.inputContactPersonNm.sendKeys(contactPersonNm);
         openAccount_page.inputAliasNm.sendKeys(aliasNm);
-        openAccount_page.inputBirthDate.sendKeys("2000-01-01");
+        openAccount_page.inputBirthDate.sendKeys("01/01/2010");
         openAccount_page.clickRoleCd.click();
         bddUtil.scrollWindowToElement(openAccount_page.goIdentificationType);
         bddUtil.sleep(1);
         openAccount_page.clickIdentificationType.click();
         openAccount_page.inputPassportNumber.sendKeys(passportNumber);
-        openAccount_page.inputDateOfExpiry.sendKeys("2030-01-01");
+        openAccount_page.inputDateOfExpiry.sendKeys("01/01/2030");
         openAccount_page.clickDateOfExpiry.click();
         openAccount_page.clickIddInput.click();
         bddUtil.scrollWindowToElement(openAccount_page.getIdd).click();
@@ -143,13 +167,18 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.inputUBOName.clear();
         openAccount_page.inputUBOName.sendKeys(ultimateBeneficialOwnerName);
         openAccount_page.inputUBOAliasName.sendKeys(ultimateBeneficialOwnerAliasName);
-        openAccount_page.inputUBOBirthDate.sendKeys("2000-01-01");
+        openAccount_page.inputUBOBirthDate.sendKeys("01/01/2010");
         openAccount_page.goContactPersonNm.click();
         openAccount_page.clickUBOIdentificationType.click();
         openAccount_page.inputUBOPassportNo.sendKeys(ultimateBeneficialOwnerPassportNumber);
-        openAccount_page.inputUBOPassportDueDate.sendKeys("2030-01-01");
+        openAccount_page.inputUBOPassportDueDate.sendKeys("01/01/2030");
         openAccount_page.goContactPersonNm.click();
-        openAccount_page.clickUBOIdd.click();
+        openAccount_page.inputUBOResidentialAddress.sendKeys("ResidentialAddress");
+        openAccount_page.inputUBOCityName.sendKeys("City");
+        openAccount_page.inputUBOPostalCode.sendKeys("710000");
+        openAccount_page.clickUBOCountryCode.click();
+        bddUtil.scrollWindowToElement(openAccount_page.getUBOCountry).click();
+        bddUtil.scrollWindowToElement(openAccount_page.clickUBOIdd).click();
         bddUtil.scrollWindowToElement(openAccount_page.getUBOIdd).click();
         openAccount_page.inputUBOMobilePhoneNo.sendKeys(ultimateBeneficialOwnerPhoneNumber);
         openAccount_page.inputUBOEmailAddress.sendKeys(ultimateBeneficialOwnerEmailName + "@MailTemp.top");
@@ -162,13 +191,18 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.inputOnlyUBOName.clear();
         openAccount_page.inputOnlyUBOName.sendKeys(onlyUBOName);
         openAccount_page.inputOnlyUBOAliasName.sendKeys(onlyUBOAliasName);
-        openAccount_page.inputUBO2BirthDate.sendKeys("2000-01-01");
+        openAccount_page.inputUBO2BirthDate.sendKeys("01/01/2010");
         openAccount_page.goUBO2Name.click();
         openAccount_page.clickUBO2IdentificationType.click();
         openAccount_page.inputUBO2PassportNo.sendKeys(onlyUBOPassportNumber);
-        openAccount_page.inputUBO2PassportDueDate.sendKeys("2030-01-01");
+        openAccount_page.inputUBO2PassportDueDate.sendKeys("01/01/2030");
         openAccount_page.goUBO2Name.click();
-        openAccount_page.clickUBO2Idd.click();
+        openAccount_page.inputUBO2ResidentialAddress.sendKeys("ResidentialAddress");
+        openAccount_page.inputUBO2CityName.sendKeys("City");
+        openAccount_page.inputUBO2PostalCode.sendKeys("710000");
+        openAccount_page.clickUBO2Country.click();
+        bddUtil.scrollWindowToElement(openAccount_page.getUBO2Country).click();
+        bddUtil.scrollWindowToElement(openAccount_page.clickUBO2Idd).click();
         bddUtil.scrollWindowToElement(openAccount_page.getUBO2Idd).click();
         openAccount_page.inputUBO2MobilePhoneNo.sendKeys(onlyUBOPhoneNumber);
         openAccount_page.inputUBO2EmailAddress.sendKeys(onlyUBOEmailName + "@MailTemp.top");
@@ -187,12 +221,12 @@ public class openAccount_step extends ScenarioSteps {
             openAccount_page.clickDirector1Country.click();
             bddUtil.scrollWindowToElement(openAccount_page.getDirector1Country).click();
             openAccount_page.clickDirector2.click();
-            openAccount_page.inputDirector2ResidentialAddress.sendKeys("Address");
-            openAccount_page.inputDirector2City.sendKeys("City");
-            openAccount_page.inputDirector2PostalCode.sendKeys("710000");
-            openAccount_page.inputDirector2Country.click();
-            bddUtil.sleep(1);
-            bddUtil.scrollWindowToElement(openAccount_page.getDirector2Country).click();
+//            openAccount_page.inputDirector2ResidentialAddress.sendKeys("Address");
+//            openAccount_page.inputDirector2City.sendKeys("City");
+//            openAccount_page.inputDirector2PostalCode.sendKeys("710000");
+//            openAccount_page.inputDirector2Country.click();
+//            bddUtil.sleep(1);
+//            bddUtil.scrollWindowToElement(openAccount_page.getDirector2Country).click();
         }
         else {
             openAccount_page.clickDirector1.click();
@@ -220,6 +254,17 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.inputPostalCodeConnectedCorporateEntity2.sendKeys("710000");
         openAccount_page.clickNextToStep5.click();
         bddUtil.sleep(2);
+    }
+
+    public void choseOneAdministrator(String contactPersonNm){
+        openAccount_page.clickOneAdministrators.click();
+        bddUtil.sleep(1);
+        openAccount_page.clickYESOneAdministrators.click();
+        openAccount_page.clickYESConnectedPerson1.click();
+        openAccount_page.clickConnectedPersons1Name.click();
+        bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//span[text()='"+ contactPersonNm +"']"))).click();
+        bddUtil.scrollWindowToElement(openAccount_page.goVerifyMobileNumber1);
+        openAccount_page.clickVerifyMobileNumber1.click();
     }
 
     public void createCompanyAdministratorsProfiles(String contactPersonNm){
@@ -317,6 +362,13 @@ public class openAccount_step extends ScenarioSteps {
         bddUtil.sleep(5);
     }
 
+    public void reviewDetailsCNY(){
+        bddUtil.scrollWindowToElement(openAccount_page.clickAccepted).click();
+        bddUtil.scrollWindowToElement(openAccount_page.clickAcceptedCNY).click();
+        openAccount_page.clickSubmitToStep14.click();
+        bddUtil.sleep(5);
+    }
+
     public void getOrganisationID(String emailName,String applicantName){
         bddUtil.sleep(2);
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
@@ -337,7 +389,7 @@ public class openAccount_step extends ScenarioSteps {
                 System.out.println("---------------开户企业ID："+ organisationID + "----------------------");
                 break;
             }
-            else if(i==10)
+            else if(i==9)
                 {
                     System.out.println("---------------未获取到企业ID，排查开户失败原因----------------------");
                     bddUtil.quitDriver();

@@ -83,7 +83,10 @@ public class userManagement_glue {
         userManagement_steps.clickNextOne();
         userManagement_steps.clickNextOne();
         userManagement_steps.NextBtnS();
-
+    }
+    @Then("^I  Verify success$")
+    public void iVerifySuccess() {
+        userManagement_steps.authorizations();
     }
 
     //用户注销
@@ -112,7 +115,6 @@ public class userManagement_glue {
     public void endTheDeal() {
         userManagement_steps.clickComplete();
         userManagement_steps.seeViewLabel();
-        bddUtil.quitDriver();
     }
 
     //启动用户
@@ -129,7 +131,8 @@ public class userManagement_glue {
     public void endTheDeals() {
         userManagement_steps.clickComplete();
         userManagement_steps.seeViewStart();
-        bddUtil.quitDriver();
     }
+
+
 }
 

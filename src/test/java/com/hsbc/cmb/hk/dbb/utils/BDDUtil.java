@@ -655,7 +655,7 @@ public class BDDUtil extends PageObject {
         }
 
     }
-    public  String getTimeNowThroughCalendar(){
+    public static String getTimeNowThroughCalendar(){
         //使用默认时区和语言环境获得一个日历。
         Calendar    rightNow    =    Calendar.getInstance();
 		/*用Calendar的get(int field)方法返回给定日历字段的值。
@@ -687,6 +687,17 @@ public class BDDUtil extends PageObject {
         //通过Runtime对象调用exe方法
         try {
             runtime.exec("src/test/resources/testData/autopay/chromUpload.exe");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void requestFinancingFileUpload(){
+        //实现文件上传。通过Runtime的静态方法获取Runtime对象
+        Runtime runtime = Runtime.getRuntime();
+        //通过Runtime对象调用exe方法
+        try {
+            runtime.exec("src/test/resources/testData/autopay/ChromRequestFinancingFileUpload.exe");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -51,8 +51,8 @@ public class product_glue {
         productStep.code();
         productStep.productType();
         productStep.clickPostACC();
-        productStep.sendkeysStart("2022-01-19");
-        productStep.sendkeysEnd("2024-01-19");
+        productStep.sendkeysStart("2022-03-01");
+        productStep.sendkeysEnd("2025-03-10");
         productStep.clickDocs();
         productStep.clickAccepted();
         productStep.clickPaid();
@@ -102,9 +102,9 @@ public class product_glue {
         productStep.clickFunder();
         productStep.clickGLB();
         productStep.clickSupplier();
-        productStep.SupplierKey();       //supplier  供应商选择，值不定，变量引用，需要改动
+        productStep.SupplierKey();
         productStep.clickBuyer();
-        productStep.clickBuyerKey();       //买方值
+        productStep.clickBuyerKey();
         productStep.clickCurrency();
         productStep.clickSGD();
         productStep.clickQuotationMode();
