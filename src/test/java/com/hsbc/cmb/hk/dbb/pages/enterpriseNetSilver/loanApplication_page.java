@@ -14,6 +14,9 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//div[@class='children-list']//div[@class='list']/div[2]//span[@class='sub-menu-title']")
     public WebElementFacade loanApplicationBtn;
 
+    @FindBy(xpath = "//div[@class='children-list']//div[@class='list']/div[1]/p[2]//span[@class='sub-menu-title']")
+    public WebElementFacade loanDisbursementBtn;
+
     @FindBy(xpath = "//span[text()='Turnover ≤ SGD 1 Million']")
     public WebElementFacade lessThanOneMillion;//选择小于一百万的综合销售额。
 
@@ -312,6 +315,48 @@ public class loanApplication_page extends PageObject {
 
     @FindBy(xpath = "//label[@for='carType']/following-sibling::div//label[1]/span[1]")
     public WebElementFacade carType;//车辆类型选择乘用车。
+
+    @FindBy(xpath = "//div[@class='el-table__fixed-right']//tbody/tr[3]/td[7]//div/div")
+    public WebElementFacade threePoint;//贷款支用的支用申请按钮。
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom']//div[@class='btn_box']")
+    public WebElementFacade ApplicationForPayment;//支用申请按钮。
+
+    @FindBy(xpath = "//label[@for='disburseCurrencyTypeCd']/following-sibling::div//input")
+    public WebElementFacade currency;//支用币种.
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//li[1]")
+    public WebElementFacade SingaporeDollars;//新币、
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//li[2]")
+    public WebElementFacade usDollar;//美元。
+
+    @FindBy(xpath = "//label[@for='issueLoanSettleAcctNo']/following-sibling::div//input")
+    public WebElementFacade LendingAccount;//放款账户。
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//li[1]//span")
+    public WebElementFacade account;//第一个账户。
+
+    @FindBy(xpath = "//label[@for='disburseApplyforAmont']/following-sibling::div//input")
+    public WebElementFacade ApplyForAmount;//申请支用金额。
+
+    @FindBy(xpath = "//label[@for='financingDayNum']/following-sibling::div//input")
+    public WebElementFacade financingDayNum;//融资天数。
+
+    @FindBy(xpath = "//label[@for='goodsDescr']/following-sibling::div//textarea")
+    public WebElementFacade goodsDescr;//货物描述及数量。
+
+    @FindBy(xpath = "//label[@for='transportMethod']/following-sibling::div//input")
+    public WebElementFacade transportMethod;//运输途径。
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//li[1]")
+    public WebElementFacade landTran;//陆运
+
+    @FindBy(xpath = "//span[@class='el-checkbox__input']")
+    public WebElementFacade agreeToTerms;//同意条款。
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']/div/div[2]//div[@class='ui-button primary common']/div")
+    public WebElementFacade submitOnSpendPage;//支用界面的提交按钮。
 
 }
 

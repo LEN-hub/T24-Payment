@@ -3,12 +3,15 @@ package com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver.openAccount;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.Logon_step;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.openAccount.openAccount_step;
 import com.hsbc.cmb.hk.dbb.utils.*;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
 import java.awt.*;
+import java.util.List;
+import java.util.Map;
 
 public class openAccount_glue {
 
@@ -16,9 +19,6 @@ public class openAccount_glue {
     private Logon_step logon_step;
     @Steps
     private openAccount_step openAccount_step;
-
-
-
 
     public static String envTag,accountType,currencyType,currencyTypeUSD,currencyTypeCNY,currencyTypeHKD,currencyTypeEUR;
     public static String accountName = "AutoTestAccountName" + JRandomNameTool.getStringRandom(5);
@@ -153,6 +153,21 @@ public class openAccount_glue {
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
         openAccount_step.inputEntityDetails();
+    }
+
+    @And("^Provide Essential Information About SubIndustry$")
+    public void provideEssentialInformationAboutSubIndustry(DataTable subIndustry1)throws AWTException {
+        List<Map<String, String>> subIndustry = subIndustry1.asMaps(String.class,String.class);
+        openAccount_step.provideEssentialInformation(applicantName,emailName,mobileNumber);
+        System.out.println("---------------申请人姓名："+ applicantName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"","申请人姓名:" + applicantName);
+        System.out.println("---------------申请人电话号码："+ mobileNumber + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"","申请人电话号码:" + mobileNumber);
+        System.out.println("---------------申请人邮箱地址："+ emailName + "@MailTemp.top"+"----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"","申请人邮箱地址:" + emailName + "@MailTemp.top");
+        openAccount_step.clickValidationCode();
+        openAccount_step.inputValidationCode();
+        openAccount_step.inputEntityDetails1(subIndustry.get(0).get("subIndustry"));
     }
 
     @Then("^Enter Connected People's Details$")

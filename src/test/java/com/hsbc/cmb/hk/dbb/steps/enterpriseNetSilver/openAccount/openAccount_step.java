@@ -1,17 +1,16 @@
 package com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.openAccount;
 
-import ch.qos.logback.core.util.FileUtil;
 import com.hsbc.cmb.hk.dbb.pages.enterpriseNetSilver.openAccount.openAccount_page;
-import com.hsbc.cmb.hk.dbb.utils.*;
-import javafx.scene.paint.Stop;
+import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import com.hsbc.cmb.hk.dbb.utils.EnterKeys;
+import com.hsbc.cmb.hk.dbb.utils.FileUtils;
+import com.hsbc.cmb.hk.dbb.utils.RandomPhoneNumber;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
 import java.awt.*;
-import java.io.IOException;
 import java.util.List;
 
 public class openAccount_step extends ScenarioSteps {
@@ -141,6 +140,42 @@ public class openAccount_step extends ScenarioSteps {
         bddUtil.sleep(2);
     }
 
+    public void inputEntityDetails1(String subIndustry) {
+        String entityType = "Public Limited Co (not listed in Singapore)";
+        String industry = "Financial & Insurance Activities";
+        bddUtil.scrollWindowToElement(openAccount_page.goEntityDetails);
+        bddUtil.sleep(1);
+        openAccount_page.inputCompanyRegistrationNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        openAccount_page.inputCompanyRegisterDate.sendKeys("01/01/2010");
+        openAccount_page.goEntityDetails.click();
+        openAccount_page.clickCountryOfIncorporation.click();
+        bddUtil.scrollWindowToElement(openAccount_page.getCountryOfIncorporation).click();
+        openAccount_page.clickNextOnProvideEssentialInformationPage.click();
+        bddUtil.scrollWindowToElement(openAccount_page.goEntityType);
+        bddUtil.sleep(1);
+        openAccount_page.clickEntityType.click();
+        if (openAccount_page.getEntityType.getText().equals(entityType)) {
+            bddUtil.scrollWindowToElement(openAccount_page.getEntityType).click();
+        } else {
+            bddUtil.scrollWindowToElement(openAccount_page.getEntityTypeCN).click();
+        }
+        openAccount_page.clickEntityConsolidatedAnnualSalesTurnover.click();
+        bddUtil.scrollWindowToElement(openAccount_page.getEntityConsolidatedAnnualSalesTurnover).click();
+        openAccount_page.clickIndustry.click();
+        if (openAccount_page.getIndustryToSub.getText().equals(industry)) {
+            bddUtil.scrollWindowToElement(openAccount_page.getIndustryToSub).click();
+        } else {
+            bddUtil.scrollWindowToElement(openAccount_page.getGetIndustryToSubCN).click();
+        }
+        openAccount_page.clickSubIndustry.click();
+        bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//ul[@class=\"el-scrollbar__view el-select-dropdown__list\"]//span[text()='"+ subIndustry +"']"))).click();
+        openAccount_page.clickNonprofitFlag.click();
+        openAccount_page.clickNext2OnProvideEssentialInformationPage.click();
+        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(openAccount_page.clickNextToStep3).click();
+        bddUtil.sleep(2);
+    }
+
     public void inputDirectorDetails(String contactPersonNm, String aliasNm, String passportNumber, String directorPhoneNumber, String directorEmailName) {
         openAccount_page.inputContactPersonNm.click();
         openAccount_page.inputContactPersonNm.clear();
@@ -221,12 +256,6 @@ public class openAccount_step extends ScenarioSteps {
             openAccount_page.clickDirector1Country.click();
             bddUtil.scrollWindowToElement(openAccount_page.getDirector1Country).click();
             openAccount_page.clickDirector2.click();
-//            openAccount_page.inputDirector2ResidentialAddress.sendKeys("Address");
-//            openAccount_page.inputDirector2City.sendKeys("City");
-//            openAccount_page.inputDirector2PostalCode.sendKeys("710000");
-//            openAccount_page.inputDirector2Country.click();
-//            bddUtil.sleep(1);
-//            bddUtil.scrollWindowToElement(openAccount_page.getDirector2Country).click();
         }
         else {
             openAccount_page.clickDirector1.click();

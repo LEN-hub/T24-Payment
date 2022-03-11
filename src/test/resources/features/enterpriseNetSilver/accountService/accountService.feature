@@ -71,7 +71,7 @@ Feature: accountService
 
 
   @accountServices1234
-  Scenario:Authorization Center
+  Scenario:Authorization Center2
 #    Given logon "EnrollerAccount" on enterprise net silver
 #    When I click transferMoney button
 #    When I click addPayee button and input information

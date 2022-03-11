@@ -127,7 +127,7 @@ public class changePassword_step extends ScenarioSteps {
 
     public void clickCodeButton() {
         changePassword_page.getCodeBtn.click();
-        bddUtil.sleep(1);
+        bddUtil.sleep(2);
         getDriver().switchTo().alert().getText();
         verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
         System.out.println(verificationCode);
