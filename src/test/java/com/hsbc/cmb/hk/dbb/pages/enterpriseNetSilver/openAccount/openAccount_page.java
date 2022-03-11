@@ -122,6 +122,15 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//ul[@class=\"el-scrollbar__view el-select-dropdown__list\"]//span[text()=\"制造业\"]")
     public WebElementFacade getIndustryCN;
 
+    @FindBy(xpath = "//ul[@class=\"el-scrollbar__view el-select-dropdown__list\"]//span[text()=\"Financial & Insurance Activities\"]")
+    public WebElementFacade getIndustryToSub;
+
+    @FindBy(xpath = "//ul[@class=\"el-scrollbar__view el-select-dropdown__list\"]//span[text()=\"金融和保险行业\"]")
+    public WebElementFacade getGetIndustryToSubCN;
+
+    @FindBy(xpath = "//label[@for=\"subIndustry\"]/following-sibling::div//div//input")
+    public WebElementFacade clickSubIndustry;
+
     @FindBy(xpath = "//label[@for=\"nonprofitFlag\"]/following-sibling::div//label[2]//span[1]//span")
     public WebElementFacade clickNonprofitFlag;
 

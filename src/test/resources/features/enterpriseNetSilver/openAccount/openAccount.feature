@@ -151,3 +151,105 @@ Feature: openAccount
     Then Upload Supporting Documents
     And Review Details CNY
     Then get Organisation ID
+
+    #主行业为Financial & Insurance Activities，子行业为Finance Companies
+  Scenario:openAccount Singapore enterprise About SubIndustry is Finance Companies
+    Given Closing the Browser driver
+    When open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
+    And Provide Essential Information About SubIndustry
+      | subIndustry       |
+      | Finance Companies |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+    Then get Organisation ID
+
+    #主行业为Financial & Insurance Activities，子行业为Trust, Funds & Similar Financial Entities
+  Scenario:openAccount Singapore enterprise About SubIndustry is Trust, Funds & Similar Financial Entities
+    Given Closing the Browser driver
+    When open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
+    And Provide Essential Information About SubIndustry
+      | subIndustry                               |
+      | Trust, Funds & Similar Financial Entities |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+    Then get Organisation ID
+
+       #主行业为Financial & Insurance Activities，子行业为Insurance & Reinsurance Underwriting
+  Scenario:openAccount Singapore enterprise About SubIndustry is Insurance & Reinsurance Underwriting
+    Given Closing the Browser driver
+    When open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
+    And Provide Essential Information About SubIndustry
+      | subIndustry                          |
+      | Insurance & Reinsurance Underwriting |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+    Then get Organisation ID
+
+     #主行业为Financial & Insurance Activities，子行业为Provident & Pension Fund
+  Scenario:openAccount Singapore enterprise About SubIndustry is Provident & Pension Fund
+    Given Closing the Browser driver
+    When open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
+    And Provide Essential Information About SubIndustry
+      | subIndustry              |
+      | Provident & Pension Fund |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+    Then get Organisation ID
+
+   #主行业为Financial & Insurance Activities，子行业为Securities & Commodities Contracts Brokerage
+  Scenario:openAccount Singapore enterprise About SubIndustry is Securities & Commodities Contracts Brokerage
+    Given Closing the Browser driver
+    When open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
+    And Provide Essential Information About SubIndustry
+      | subIndustry                                  |
+      | Securities & Commodities Contracts Brokerage |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+    Then get Organisation ID
+
+       #主行业为Financial & Insurance Activities，子行业为Other Financial Service Activities
+  Scenario:openAccount Singapore enterprise About SubIndustry is Other Financial Service Activities
+    Given Closing the Browser driver
+    When open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
+    And Provide Essential Information About SubIndustry
+      | subIndustry                        |
+      | Other Financial Service Activities |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+    Then get Organisation ID
