@@ -3,9 +3,13 @@ package com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver.fixedDeposits;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.fixedDeposits.fixedDepositManage_step;
 import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
 import com.hsbc.cmb.hk.dbb.utils.CommonUtil;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
+
+import java.util.List;
+import java.util.Map;
 
 public class fixedDepositManage_glue {
 
@@ -59,6 +63,14 @@ public class fixedDepositManage_glue {
     public void ToWithdrawFDAboutUSDSixMonthRenewPrincipalAmountAndInterest(String envName){
         fdAccountNumber = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".fdAccountNumber_USD_SixMonth_DoNotRenewOrWithdrawAutomatically");
         fixedDepositManage_step.clickToWithdrawFD(fdAccountNumber);
+        fixedDepositManage_step.clickSubmit();
+        bddUtil.sleep(5);
+    }
+
+    @Then("^Use \"([^\"]*)\" To WithdrawFD$")
+    public void ToWithdrawFD(DataTable fdAccountNumber){
+        List<Map<String, String>> loanAmount = fdAccountNumber.asMaps(String.class,String.class);
+        fixedDepositManage_step.clickToWithdrawFD(loanAmount.get(0).get("fdAccountNumber"));
         fixedDepositManage_step.clickSubmit();
         bddUtil.sleep(5);
     }

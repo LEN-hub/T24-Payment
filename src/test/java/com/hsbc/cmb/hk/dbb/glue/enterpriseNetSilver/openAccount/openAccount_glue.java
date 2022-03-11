@@ -3,9 +3,7 @@ package com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver.openAccount;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.Logon_step;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.openAccount.openAccount_step;
 import com.hsbc.cmb.hk.dbb.utils.*;
-import cucumber.api.java.bs.A;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
@@ -22,7 +20,7 @@ public class openAccount_glue {
 
 
 
-    public static String envTag,accountType,currencyType;
+    public static String envTag,accountType,currencyType,currencyTypeUSD,currencyTypeCNY,currencyTypeHKD,currencyTypeEUR;
     public static String accountName = "AutoTestAccountName" + JRandomNameTool.getStringRandom(5);
     public static String applicantName = "AutoTestApplicantName" + JRandomNameTool.getStringRandom(5);
     public static String emailName = JRandomNameTool.getStringRandom(5); //
@@ -116,6 +114,29 @@ public class openAccount_glue {
         currencyType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_HKD");
         openAccount_step.fillInInformationOnGettingStartedPage();
         openAccount_step.fillInInformationOnGettingStartedPage2(accountType,accountName,currencyType);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_CNY$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_CNY_SGD(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_CNY");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_CNY(accountType,accountName,currencyType);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_USD_CNY_HKD_EUR$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_SGD_USD_CNY_HDK_EUR(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyTypeUSD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_USD");
+        currencyTypeCNY = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_CNY");
+        currencyTypeHKD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_HKD");
+        currencyTypeEUR = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_EUR");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_USD_CNY_HKD_EUR(accountType,accountName,currencyTypeUSD,currencyTypeCNY,currencyTypeHKD,currencyTypeEUR);
         System.out.println("---------------账户名称："+ accountName + "----------------------");
         FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
     }

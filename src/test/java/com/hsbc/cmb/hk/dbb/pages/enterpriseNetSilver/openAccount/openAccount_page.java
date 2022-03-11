@@ -20,7 +20,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//form[@class=\"el-form out_form el-form--label-left\"]//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"el-form-item__content\"]//label[2]//span[@class=\"el-radio__inner\"]")
     public WebElementFacade clickNeedThisAccount;
 
-    @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[@class=\"btn_box\"]")
+    @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[5]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextOnGettingStartedPage;
 
     @FindBy(xpath = "//input[@class=\"el-input__inner\"]")
@@ -29,10 +29,10 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"purposeOfAccount\"]/following-sibling::div//div//label[3]")
     public WebElementFacade clickCreateType;
 
-    @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[@class=\"btn_box\"]")
+    @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[6]//div[@class=\"btn_box\"]")
     public WebElementFacade clickWhatNeed;
 
-    @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[@class=\"btn_box\"]")
+    @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[4]//div[@class=\"btn_box\"]")
     public WebElementFacade clickLetGo;
 
     @FindBy(xpath = "//input[@readonly=\"readonly\"]")
@@ -47,7 +47,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"iddbox\"]//input")
     public WebElementFacade clickCountryCode;
 
-    @FindBy(xpath = "//ul[@class='flag_box-ul']/li/div/span[text()=\"CHINESE\"]")
+    @FindBy(xpath = "//ul[@class='flag_box-ul']/li/div/span[text()=\"CHINA\"]")
     public WebElementFacade getCountryCode;
 
     @FindBy(xpath = "//label[@for=\"operatePersonMobilePhoneNo\"]/following-sibling::div//div//input")
@@ -161,7 +161,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//input")
     public WebElementFacade clickIddInput;
 
-    @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//span[text()=\"CHINESE\"]")
+    @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//span[text()=\"CHINA\"]")
     public WebElementFacade getIdd;
 
     @FindBy(xpath = "//label[@for=\"mobilePhoneNo\"]/following-sibling::div//input")
@@ -212,7 +212,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//input")
     public WebElementFacade clickUBOIdd;
 
-    @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//span[text()=\"CHINESE\"]")
+    @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//span[text()=\"CHINA\"]")
     public WebElementFacade getUBOIdd;
 
     @FindBy(xpath = "//label[@for=\"mobilePhoneNo\"]/following-sibling::div//input")
@@ -263,7 +263,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//input")
     public WebElementFacade clickUBO2Idd;
 
-    @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//span[text()=\"CHINESE\"]")
+    @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//span[text()=\"CHINA\"]")
     public WebElementFacade getUBO2Idd;
 
     @FindBy(xpath = "//label[@for=\"mobilePhoneNo\"]/following-sibling::div//input")
