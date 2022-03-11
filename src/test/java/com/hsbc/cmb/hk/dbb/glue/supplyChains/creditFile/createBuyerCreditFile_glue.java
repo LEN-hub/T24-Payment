@@ -20,7 +20,7 @@ public class createBuyerCreditFile_glue {
     @Steps
     private createBuyerCreditFile_step createBuyerCreditFile_step;
     private BDDUtil bddUtil;
-    public String buyer = FileUtils.LastReadFileInput3("buyerName_chen");
+    public String buyer = FileUtils.LastReadFileInput3("buyer");
 
 
     @When("^login successfully and click the SCF link to createBuyerCreditFile$")
