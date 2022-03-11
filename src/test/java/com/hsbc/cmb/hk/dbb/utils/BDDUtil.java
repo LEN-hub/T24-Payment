@@ -551,7 +551,7 @@ public class BDDUtil extends PageObject {
 
     public void quitDriver(){
         getDriver().quit();
-        getDriver().findElement(By.xpath("test")).sendKeys("");
+//        getDriver().findElement(By.xpath("test")).sendKeys("");
     }
 
     public void clickWithRetry(WebElementFacade element){

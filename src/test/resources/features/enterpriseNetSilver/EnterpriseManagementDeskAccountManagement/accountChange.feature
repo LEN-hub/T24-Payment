@@ -216,6 +216,7 @@ Feature: accountChange
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
+
   @accountOpeningMCA03
 #  MCA账户,默认选择SGD，SGD+USD+HKD开立
   Scenario:Enterprise management console MCA account All opened
@@ -251,17 +252,17 @@ Feature: accountChange
     Then I verify that the transaction is successful
 
   @addCurrency
-#    新增币种,注意，此case需要双人管理模式，需要后管设置授权模式， 换号授权
+#    新增币种,注意，此case需要双人管理模式，需要后管设置授权模式，换号授权
   Scenario:Enterprise management desk new currency
     Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
-    When I click on the Enterprise Administration Desk and select Account Management
-    When I click add currency to fill in the information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then verify whether to wait for authorization
-    Given logon second "netSilverEnv_susu" on enterprise net silver
+#    When logon "netSilverEnv_susu" on enterprise net silver
+#    When I click on the Enterprise Administration Desk and select Account Management
+#    When I click add currency to fill in the information
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then verify whether to wait for authorization
+    Given logon second "netSilverEnv_sun" on enterprise net silver
     When I click My Tasks button on the logon page
     Then I should direct to the Awaiting authorization page
     When I click on the first piece of data to authorize
