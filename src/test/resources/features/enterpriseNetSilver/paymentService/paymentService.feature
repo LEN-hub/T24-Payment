@@ -540,7 +540,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356259982|11010003720      |0.10             |Business Expenses|
 
-  @ext
+
   #选择每季度并且不写周期(SDG->USD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -636,7 +636,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335629908 |11010003747      |0.10             |Business Expenses|
 
-  @ext
+
   #选择每季度并且不写周期(SDG->EUR)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -757,7 +757,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335621223 |11010003739      |0.10             |Business Expenses|
 
-  @ext
+
     #境内转账-跨行转账时间选择每周一(SDG->SDG)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -777,7 +777,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-  @ext
+
 #时间选择每周(SDG->SDG)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given Closing the Browser driver
@@ -803,7 +803,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-  @ext
+
 #时间选择每月(SDG->SDG)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -830,7 +830,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643346550706|11010003437      |0.10             |Business Expenses|
 
-  @ext
+
     #时间选择每季度(SDG->SDG)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -856,7 +856,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-  @ext
+
    #境内转账-跨行转账时间选择每周一(SDG->CNY)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -876,7 +876,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-  @ext
+
 #时间选择每周(SDG->CNY)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given Closing the Browser driver
@@ -902,7 +902,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-  @ext
+
 #时间选择每月(SDG->CNY)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -929,7 +929,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356258424|11010003712      |0.10             |Business Expenses|
 
-  @ext
+
     #时间选择每季度(SDG->CNY)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -955,7 +955,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-  @ext
+
   #境内转账-跨行转账时间选择每周一(SDG->USD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -975,7 +975,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-  @ext
+
 #时间选择每周(SDG->USD)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given Closing the Browser driver
@@ -1001,7 +1001,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-  @ext
+
 #时间选择每月(SDG->USD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -1028,7 +1028,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356259982|11010003720      |0.10             |Business Expenses|
 
-  @ext
+
     #时间选择每季度(SDG->USD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -1054,7 +1054,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-  @ext
+
    #境内转账-跨行转账时间选择每周一(SDG->EUR)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -1074,7 +1074,7 @@ Feature: receipt and payment service
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-  @ext
+
 #时间选择每周(SDG->EUR)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given Closing the Browser driver
@@ -1127,7 +1127,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335629908 |11010003747      |0.10             |Business Expenses|
 
-  @ext
+
     #时间选择每季度(SDG->EUR)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -1154,7 +1154,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335629908 |11010003747      |0.10             |Business Expenses|
 
-  @ext
+
  #境内转账-跨行转账时间选择每周一(SDG->HKD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -1175,7 +1175,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335621223 |11010003739      |0.10             |Business Expenses|
 
-  @ext
+
 #时间选择每周(SDG->HKD)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given Closing the Browser driver
@@ -1202,7 +1202,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335621223 |11010003739      |0.10             |Business Expenses|
 
-  @ext
+
 #时间选择每月(SDG->HKD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver
@@ -1229,7 +1229,7 @@ Feature: receipt and payment service
       |account name    |receiving account|transfer amount  |transfer purpose |
       |TSC164335621223 |11010003739      |0.10             |Business Expenses|
 
-  @ext
+
     #时间选择每季度(SDG->HKD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given Closing the Browser driver

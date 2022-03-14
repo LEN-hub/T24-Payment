@@ -98,7 +98,7 @@ public class accountService_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-message-box__btns']/button[2]")
     public WebElementFacade popWindowsOk;
 
-    @FindBy(xpath = "//p[@class='line_style alis']/span")
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//div[@class='outer-box'][1]//div[@class='el-row']/div[2]/p/span")
     public WebElementFacade aliasTextCheck;
 
     @FindBy(xpath = "//div[@class='header-top-right']/div[5]")
@@ -116,7 +116,7 @@ public class accountService_page extends PageObject {
     @FindBy(xpath = "//a[@class='md-tab-title']")
     public WebElementFacade downloadTemplate;
 
-    @FindBy(xpath = "//tr[@class='el-table__row']/td[3]//a")
+    @FindBy(xpath = "//tr[@class='el-table__row']/td[3]//div[@class='btn_box']")
     public WebElementFacade downloadBtn;
 
     @FindBy(xpath = "//div[@class='el-col el-col-14']/div[2]/div/div[2]//div[@class='btn_box']")
@@ -149,7 +149,7 @@ public class accountService_page extends PageObject {
     @FindBy(xpath = "//div[@class='list']/div[2]//span[@class='sub-menu-title']")
     public WebElementFacade operationLogQuery;
 
-    @FindBy(xpath = "//div[@class='ui-container-full__body']//form/div[3]//div[@class='ui-button primary common']//div[@class='btn_box']")
+    @FindBy(xpath = "//form[@class='el-form box el-form--label-left']//div[@class='ui-button primary common']//div[@class='btn_box']")
     public WebElementFacade queryBtn;
 
     @FindBy(xpath = "//table[@class='el-table__body']/tbody//tr[1]/td[7]//span")
@@ -179,7 +179,7 @@ public class accountService_page extends PageObject {
     @FindBy(xpath = "//div[@class='ui-container-full__body']//form[1]//label[@class='el-form-item__label']")
     public List<WebElementFacade> transactionField;
 
-    @FindBy(xpath = "//div[@class='ui-container-full__body']//div[@class='form-top-0']//div[@class='el-row'][1]//div[@class='el-form-item__content']/div[1]/div[1]")
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[@class='el-form box el-form--label-left']//div[@class='tag'][1]")
     public WebElementFacade selectSevenDay;
 
     @FindBy(xpath = "//div[@class='content-right']//div[@class='btn_box']")
