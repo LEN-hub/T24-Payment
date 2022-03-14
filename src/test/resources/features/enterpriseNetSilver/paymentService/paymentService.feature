@@ -1264,7 +1264,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense         |expenseEnglish                             |
-      |11020006552  |SGD          |50         |所有费用由汇款人承担|All expenses shall be borne by the remitter|
+      |1102 0006 552|SGD          |50         |所有费用由汇款人承担|All expenses shall be borne by the remitter|
     And I choose the payment currency
       |selectAccBth|
       |USD         |
@@ -1283,6 +1283,7 @@ Feature: receipt and payment service
       |11020006552  |11020009098       |
 
 
+
   @overseasTransfer01
   Scenario:Positive process of overseas transfer(USD--SGD)
     Given Closing the Browser driver
@@ -1290,7 +1291,8 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense   |expenseEnglish                           |
-      |11020006552  |SGD          |60         |费用各自承担|The expenses shall be borne by each party|
+      |1102 0006 552|SGD          |60         |费用各自承担|The expenses shall be borne by each party|
+
     And I choose the payment currency
       |selectAccBth|
       |SGD         |
@@ -1316,7 +1318,8 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
-      |11020006552  |CNY          |50         |费用各自承担|The expenses shall be borne by each party|
+      |1102 0006 552|CNY          |50         |费用各自承担|The expenses shall be borne by each party|
+
     And I choose the payment currency
       |selectAccBth|
       |SGD         |
@@ -1330,7 +1333,6 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    When Closing the Browser driver
 
 
   @overseasTransfer03
@@ -1340,7 +1342,8 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
-      |11020006552  |EUR          |50         |费用各自承担|The expenses shall be borne by each party|
+      |1102 0006 552|EUR          |50         |费用各自承担|The expenses shall be borne by each party|
+
     And I choose the payment currency
       |selectAccBth|
       |SGD         |
@@ -1354,7 +1357,6 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    When Closing the Browser driver
 
   @overseasTransfer04
   Scenario:Positive process of overseas transfer(HKD--SGD)
@@ -1363,7 +1365,8 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
-      |11020006552  |HKD          |50         |费用各自承担|The expenses shall be borne by each party|
+      |1102 0006 552|HKD          |50         |费用各自承担|The expenses shall be borne by each party|
+
     And I choose the payment currency
       |selectAccBth|
       |SGD         |
@@ -1387,7 +1390,8 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
-      |11020006552  |SGD         |50         |费用各自承担|The expenses shall be borne by each party|
+      |1102 0006 552|SGD         |50         |费用各自承担|The expenses shall be borne by each party|
+
     And I choose the payment currency
       |selectAccBth|
       |SGD         |
@@ -1412,7 +1416,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
-      |11020006552  |CNY          |50         |费用各自承担|The expenses shall be borne by each party|
+      |1102 0006 552|CNY          |50         |费用各自承担|The expenses shall be borne by each party|
 
     And I choose the payment currency
       |selectAccBth|
@@ -1436,7 +1440,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
-      |11020006552  |EUR         |50         |费用各自承担|The expenses shall be borne by each party|
+      |1102 0006 552|EUR         |50         |费用各自承担|The expenses shall be borne by each party|
 
     And I choose the payment currency
       |selectAccBth|
@@ -1459,7 +1463,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
-      |11020006552  |HKD          |50         |费用各自承担|The expenses shall be borne by each party|
+      |1102 0006 552|HKD          |50         |费用各自承担|The expenses shall be borne by each party|
 
     And I choose the payment currency
       |selectAccBth|
@@ -1483,7 +1487,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense   |expenseEnglish                          |
-      |11020006552  |USD          |50         |费用各自承担|The expenses shall be borne by each party|
+      |1102 0006 552|USD          |50         |费用各自承担|The expenses shall be borne by each party|
 
     And I choose the payment currency
       |selectAccBth|
@@ -1511,7 +1515,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense         |expenseEnglish                             |
-      |11020006552  |USD          |50         |所有费用由汇款人承担|All expenses shall be borne by the remitter|
+      |1102 0006 552|USD          |50         |所有费用由汇款人承担|All expenses shall be borne by the remitter|
     And I choose the payment currency
       |selectAccBth|
       |SGD         |
@@ -1522,8 +1526,8 @@ Feature: receipt and payment service
       |selectPaymentAttributeCd|
       |Commission              |
     When I click save content to template
-      |templateName|collectingBank|
-      |SGD-USD     |CITIBANK USA  |
+      |templateName|collectingBank      |
+      |SGD-USD     |BILL BANK LUXEMBOURG|
     When I choose to submit the transfer information
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
@@ -1540,7 +1544,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense   |expenseEnglish                           |
-      |11020006552  |SGD          |60         |费用各自承担|The expenses shall be borne by each party|
+      |1102 0006 552|SGD          |60         |费用各自承担|The expenses shall be borne by each party|
 
     And I choose the payment currency
       |selectAccBth|

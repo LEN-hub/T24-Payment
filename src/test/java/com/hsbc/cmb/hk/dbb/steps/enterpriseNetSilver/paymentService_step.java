@@ -428,6 +428,7 @@ public class paymentService_step extends ScenarioSteps {
  //贸易融资
     public void transportMethod(String transportMethod){
         paymentService_page.transportMethodBox.click();
+        CommonUtil.waiting(3000);
         List<WebElementFacade> Transportation = paymentService_page.transportMethod;
         for (int i = 0; i < Transportation.size(); i++) {
              if (transportMethod.equals(Transportation.get(i).getText())) {

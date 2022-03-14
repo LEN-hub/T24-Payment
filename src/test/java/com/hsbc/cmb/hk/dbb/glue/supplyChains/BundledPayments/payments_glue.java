@@ -49,33 +49,41 @@ public class payments_glue {
     @Then("^I click Submit$")
     public void iClickSubmit() {
         paymentsStep.clickSubmit();
-        paymentsStep.clickRequester3();
+        paymentsStep.complete();
+        paymentsStep.requesterValidation();
     }
-
-
-
 
     @When("^I click on Review Disbursement$")
     public void iClickOnReviewDisbursement() {
         paymentsStep.clickOperations();
         paymentsStep.clickReviewDisbursement();
-        paymentsStep.clickAssignToMeS();
+        paymentsStep.clickRequester3();
+        paymentsStep.assignToMe2();
 
     }
 
     @And("^click proceed$")
-    public void clickProceed() {paymentsStep.clickPROCEEDS();}
+    public void clickProceed() {
+        paymentsStep.clickAssignToMeS();
+        paymentsStep.Requester5();
+        paymentsStep.clickPROCEEDS();}
 
 
     @Then("^Click on the submit APPROVE$")
-    public void clickOnTheSubmitAPPROVE() {paymentsStep.clickAPPROVE();}
-
+    public void clickOnTheSubmitAPPROVE() {
+        paymentsStep.clickAPPROVE();
+        paymentsStep.complete();
+        paymentsStep.validation();
+        //差个验证
+    }
 
     @When("^Confirm Disbursement page$")
     public void confirmDisbursementPage() {
         paymentsStep.clickOperations();
         paymentsStep.clickConfirmDisbursement();
     }
+
+
 
     @When("^I click Operations button$")
     public void iClickOperationsButton() {

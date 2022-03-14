@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features = "src/test/resources/features",
         plugin = {"pretty","html:target/cucumber","json:target/json/cucumber.json"},
-        tags = "@testext1")
+        tags = "@paymentService")
 public class WebRunner {
 
 }

@@ -91,11 +91,11 @@ public class MobileConfig {
     }
 
     public void verification() throws InterruptedException {
-        Thread.sleep(12000);
+        Thread.sleep(14000);
         String testText = MobileConfig.driver.findElementById("tv_message").getText();
         System.out.println(testText);
         MobileConfig.driver.findElementById("btn_confirm").click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_sms_code')]/child::android.widget.EditText[1]").sendKeys(testText.substring(0,1));
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_sms_code')]/child::android.widget.EditText[2]").sendKeys(testText.substring(1,2));
         MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_sms_code')]/child::android.widget.EditText[3]").sendKeys(testText.substring(2,3));
