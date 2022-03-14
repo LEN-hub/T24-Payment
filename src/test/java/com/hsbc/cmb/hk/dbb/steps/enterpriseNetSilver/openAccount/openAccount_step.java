@@ -66,6 +66,69 @@ public class openAccount_step extends ScenarioSteps {
         bddUtil.sleep(3);
     }
 
+    public void fillInInformationOnGettingStartedPage2MCA_SGD_USD(String accountType, String accountName, String currencyTypeUSD) {
+        openAccount_page.find(By.xpath("//label[@for=\"accountTypeCd\"]/following-sibling::div//div[@role=\"radiogroup\"]/label[" + accountType + "]/span/span")).click();
+        openAccount_page.inputAccountName.sendKeys(accountName);
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyTypeUSD + "]/span/span")).click();
+        openAccount_page.clickCreateType.click();
+        openAccount_page.clickWhatNeed.click();
+        openAccount_page.clickLetGo.click();
+        bddUtil.sleep(3);
+    }
+
+    public void fillInInformationOnGettingStartedPage2MCA_SGD_HKD(String accountType, String accountName, String currencyTypeHKD) {
+        openAccount_page.find(By.xpath("//label[@for=\"accountTypeCd\"]/following-sibling::div//div[@role=\"radiogroup\"]/label[" + accountType + "]/span/span")).click();
+        openAccount_page.inputAccountName.sendKeys(accountName);
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyTypeHKD + "]/span/span")).click();
+        openAccount_page.clickCreateType.click();
+        openAccount_page.clickWhatNeed.click();
+        openAccount_page.clickLetGo.click();
+        bddUtil.sleep(3);
+    }
+
+    public void fillInInformationOnGettingStartedPage2MCA_SGD_EUR(String accountType, String accountName,String currencyTypeEUR) {
+        openAccount_page.find(By.xpath("//label[@for=\"accountTypeCd\"]/following-sibling::div//div[@role=\"radiogroup\"]/label[" + accountType + "]/span/span")).click();
+        openAccount_page.inputAccountName.sendKeys(accountName);
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyTypeEUR + "]/span/span")).click();
+        openAccount_page.clickCreateType.click();
+        openAccount_page.clickWhatNeed.click();
+        openAccount_page.clickLetGo.click();
+        bddUtil.sleep(3);
+    }
+
+    public void fillInInformationOnGettingStartedPage2MCA_SGD_USD_CNY(String accountType, String accountName, String currencyTypeUSD, String currencyTypeCNY) {
+        openAccount_page.find(By.xpath("//label[@for=\"accountTypeCd\"]/following-sibling::div//div[@role=\"radiogroup\"]/label[" + accountType + "]/span/span")).click();
+        openAccount_page.inputAccountName.sendKeys(accountName);
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyTypeUSD + "]/span/span")).click();
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyTypeCNY + "]/span/span")).click();
+        openAccount_page.clickCreateType.click();
+        openAccount_page.clickWhatNeed.click();
+        openAccount_page.clickLetGo.click();
+        bddUtil.sleep(3);
+    }
+
+    public void fillInInformationOnGettingStartedPage2MCA_SGD_USD_HKD(String accountType, String accountName, String currencyTypeUSD, String currencyTypeHKD) {
+        openAccount_page.find(By.xpath("//label[@for=\"accountTypeCd\"]/following-sibling::div//div[@role=\"radiogroup\"]/label[" + accountType + "]/span/span")).click();
+        openAccount_page.inputAccountName.sendKeys(accountName);
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyTypeUSD + "]/span/span")).click();
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyTypeHKD + "]/span/span")).click();
+        openAccount_page.clickCreateType.click();
+        openAccount_page.clickWhatNeed.click();
+        openAccount_page.clickLetGo.click();
+        bddUtil.sleep(3);
+    }
+
+    public void fillInInformationOnGettingStartedPage2MCA_SGD_USD_EUR(String accountType, String accountName, String currencyTypeUSD,String currencyTypeEUR) {
+        openAccount_page.find(By.xpath("//label[@for=\"accountTypeCd\"]/following-sibling::div//div[@role=\"radiogroup\"]/label[" + accountType + "]/span/span")).click();
+        openAccount_page.inputAccountName.sendKeys(accountName);
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyTypeUSD + "]/span/span")).click();
+        openAccount_page.find(By.xpath("//label[@for=\"currencyList\"]/following-sibling::div//label[" + currencyTypeEUR + "]/span/span")).click();
+        openAccount_page.clickCreateType.click();
+        openAccount_page.clickWhatNeed.click();
+        openAccount_page.clickLetGo.click();
+        bddUtil.sleep(3);
+    }
+
     public void provideEssentialInformation(String applicantName, String emailName, String mobileNumber) {
         openAccount_page.clickSalutation.click();
         bddUtil.scrollWindowToElement(openAccount_page.getSalutation).click();

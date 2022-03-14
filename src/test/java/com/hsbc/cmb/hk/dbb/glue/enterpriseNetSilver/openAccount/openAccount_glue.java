@@ -141,6 +141,69 @@ public class openAccount_glue {
         FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
     }
 
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_USD$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_SGD_USD(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyTypeUSD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_USD");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_USD(accountType,accountName,currencyTypeUSD);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_HKD$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_SGD_HDK(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyTypeHKD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_HKD");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_HKD(accountType,accountName,currencyTypeHKD);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_EUR$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_SGD_EUR(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyTypeEUR = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_EUR");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_EUR(accountType,accountName,currencyTypeEUR);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_USD_CNY$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_SGD_USD_CNY(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyTypeUSD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_USD");
+        currencyTypeCNY = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_CNY");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_USD_CNY(accountType,accountName,currencyTypeUSD,currencyTypeCNY);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_USD_HKD$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_SGD_USD_HDK(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyTypeUSD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_USD");
+        currencyTypeHKD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_HKD");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_USD_HKD(accountType,accountName,currencyTypeUSD,currencyTypeHKD);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_USD_EUR$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_SGD_USD_EUR(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyTypeUSD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_USD");
+        currencyTypeEUR = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_EUR");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_USD_EUR(accountType,accountName,currencyTypeUSD,currencyTypeEUR);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
     @And("^Provide Essential Information$")
     public void provideEssentialInformation()throws AWTException {
         openAccount_step.provideEssentialInformation(applicantName,emailName,mobileNumber);
