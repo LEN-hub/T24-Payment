@@ -9,34 +9,34 @@ import java.util.List;
 public class payments_page extends PageObject{
 
     @FindBy(xpath = "//span[text()='Operations']")
-    public WebElementFacade operationsList;
+    public WebElementFacade operationsList;  //放款列表
 
     @FindBy(xpath = "//span[text()='Request For Disbursement']")
-    public WebElementFacade requestDisbursement;
+    public WebElementFacade requestDisbursement;  //放款下拉框
 
     @FindBy(xpath ="//div[@data-key='f1ioscbb']/button/span")
-    public WebElementFacade editGroup;
+    public WebElementFacade editGroup;   //新建组
 
     @FindBy(xpath ="//div[@data-key='f2dgniq3']//span/button[2]/span")
     public WebElementFacade Confirm;
 
    @FindBy(xpath ="//div[@data-key='f2a0g0cb']//input")
-   public WebElementFacade RequesterOne;   //通过供应商筛选值
+   public WebElementFacade RequesterOne;   //通过供应商筛选值放款的用户
 
     @FindBy(xpath ="//label[text()='Requester']")  //刷新
     public WebElementFacade Reset;
 
     @FindBy(xpath ="//span[@data-key='f2r0o090']/button/span")
-    public WebElementFacade assignToMe;
+    public WebElementFacade assignToMe;  //筛选出来分配给我
 
     @FindBy(xpath ="//div[@aria-controls='pane-1']/span")
-    public WebElementFacade AssignToMeS;
+    public WebElementFacade AssignToMeS;  //点击分配给我列表
 
    @FindBy(xpath ="//div[@data-key='f0bvpsgo']//input")
     public WebElementFacade RequesterTwo;   //通过供应商筛选值
 
     @FindBy(xpath ="//span[@data-key='f3oj1ki5']/button/span")
-    public  WebElementFacade Proceed;
+    public  WebElementFacade Proceed;   //审核
 
     @FindBy(xpath ="//label[text()='Remittance Fee Paid by']/parent::div//span/span")
     public  WebElementFacade remittanceFeePaidby;
@@ -59,30 +59,55 @@ public class payments_page extends PageObject{
     @FindBy(xpath ="//span[text()='Submit']")
     public  WebElementFacade Submit;
 
+    @FindBy(xpath = "//div[@id='tab-2']/span")
+    public WebElementFacade complete; //点击已完成核对
+
+    @FindBy(xpath ="//div[@data-key='f1eqn01p']//input")
+    public WebElementFacade Requester1;  //未分配界面通过买家筛选值
+
+
     //第二个
 
     @FindBy(xpath ="//span[text()='Request For Disbursement']/parent::div/following-sibling::div[1]/span")
-    public  WebElementFacade ReviewDisbursement;
+    public  WebElementFacade ReviewDisbursement;  //点击查看付款
 
-    //通过买家筛选值
     @FindBy(xpath ="//div[@data-key='f2kk04pf']//input")
-    public WebElementFacade Requester3;
+    public WebElementFacade Requester3;  //未分配界面通过买家筛选值
+
+    @FindBy(xpath = "//span[@data-key='f29pjeiu']/button/span")
+    public WebElementFacade assignToMe2;  //分配给我
+
+    @FindBy(xpath = "//div[@data-key='f05m5m0n']//input")
+    public WebElementFacade Requester5; //输入筛选值
 
     @FindBy(xpath ="//span[@data-key='f21orqn5']/button/span")
-    public  WebElementFacade PROCEEDS;
+    public  WebElementFacade PROCEEDS;   //点击分配给我审批
 
-    @FindBy(xpath ="////div[@data-key='f2jule36']//span")
-    public  WebElementFacade APPROVE;
+    @FindBy(xpath ="//div[@data-key='f2jule36']//span")
+    public  WebElementFacade APPROVE;  //提交审批
 
-//第三个
-    @FindBy(xpath ="//span[text()='Confirm Disbursement']")
-    public  WebElementFacade ConfirmDisbursement;
+//    @FindBy(xpath = "//div[@id='tab-2']/span")
+//    public WebElementFacade complete; //点击已完成核对
 
-    @FindBy(xpath = "//span[text()='Batch Repayment']")
-    public WebElementFacade batchRepaymentBtn;
+    @FindBy(xpath = "//div[@data-key='f1l6svfn']//input")
+    public WebElementFacade Requester6;  //未分配界面输入筛选值
+
+//刷新
+    //需要加判断
+
+    //第三个
+    @FindBy(xpath ="//span[text()='Request For Disbursement']/parent::div/following-sibling::div[2]/span")
+    public  WebElementFacade ConfirmDisbursement;  //付款请求确认
+
+    @FindBy(xpath = "//div[@id='tab-1']/span")
+    public WebElementFacade completed;
 
     @FindBy(xpath ="//div[@data-key='f2q385s2']//input")
-    public  WebElementFacade Requester4;
+    public  WebElementFacade Requester4;  //已完成中输入筛选值，查看是否成功
+
+    //还款
+    @FindBy(xpath = "//span[text()='Batch Repayment']")
+    public WebElementFacade batchRepaymentBtn;
 
     @FindBy(xpath = "//span[text()='Repayment Management']")
     public WebElementFacade repaymentTitle;
