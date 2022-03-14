@@ -122,7 +122,7 @@ Feature: openAccount
     And Review Details
     Then get Organisation ID
 
-  #多币种开户 新币+港元
+  #多币种开户 新币+人民币
   Scenario:openAccount Current Account MCA_SGD_CNY
     Given Closing the Browser driver
     When open "netSilverEnv_ycjpt" enterprise net silver page
@@ -150,6 +150,96 @@ Feature: openAccount
     And Share Account’s Risk Profile
     Then Upload Supporting Documents
     And Review Details CNY
+    Then get Organisation ID
+
+      #多币种账户 新币+美元
+  Scenario:openAccount Current Account MCA_SGD_USD
+    Given Closing the Browser driver
+    When open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD
+    And Provide Essential Information
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+    Then get Organisation ID
+
+      #多币种账户 新币+港币
+  Scenario:openAccount Current Account MCA_SGD_HKD
+    Given Closing the Browser driver
+    When open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_HKD
+    And Provide Essential Information
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+    Then get Organisation ID
+
+      #多币种账户 新币+欧元
+  Scenario:openAccount Current Account MCA_SGD_EUR
+    Given Closing the Browser driver
+    When open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_EUR
+    And Provide Essential Information
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+    Then get Organisation ID
+
+      #多币种账户 新币+美元+人民币
+  Scenario:openAccount Current Account MCA_SGD_USD_CNY
+    Given Closing the Browser driver
+    When open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD_CNY
+    And Provide Essential Information
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details CNY
+    Then get Organisation ID
+
+      #多币种账户 新币+美元+港币
+  Scenario:openAccount Current Account MCA_SGD_USD_HKD
+    Given Closing the Browser driver
+    When open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD_HKD
+    And Provide Essential Information
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+    Then get Organisation ID
+
+      #多币种账户 新币+美元+欧元
+  Scenario:openAccount Current Account MCA_SGD_USD_EUR
+    Given Closing the Browser driver
+    When open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD_EUR
+    And Provide Essential Information
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
     Then get Organisation ID
 
     #主行业为Financial & Insurance Activities，子行业为Finance Companies
