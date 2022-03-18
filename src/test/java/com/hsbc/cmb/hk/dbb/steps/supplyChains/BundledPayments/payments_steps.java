@@ -66,7 +66,7 @@ public class payments_steps extends ScenarioSteps {
     public void clickRemittanceFeePaidBy() {
         paymentsPage.remittanceFeePaidby.click();
         paymentsPage.SHA.click();
-        CommonUtil.waiting(3000);}
+        CommonUtil.waiting(4000);}
 
     @Step
     public void clickSupplierBank(){
@@ -113,9 +113,6 @@ public class payments_steps extends ScenarioSteps {
         paymentsPage.Reset.click();}
 
     @Step
-    public void clickPROCEEDS(){paymentsPage.PROCEEDS.click();}
-
-    @Step
     public void clickAPPROVE(){paymentsPage.APPROVE.click();}
 
     @Step
@@ -133,6 +130,7 @@ public class payments_steps extends ScenarioSteps {
         paymentsPage.completed.click();
         paymentsPage.Requester4.sendKeys(FileUtils.LastReadFileInput3("test"));
         paymentsPage.Reset.click();
+
     }
     @Step
     public void clickBatchRepaymentBtn(){

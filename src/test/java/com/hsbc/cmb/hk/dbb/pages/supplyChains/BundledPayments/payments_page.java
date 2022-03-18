@@ -35,7 +35,7 @@ public class payments_page extends PageObject{
    @FindBy(xpath ="//div[@data-key='f0bvpsgo']//input")
     public WebElementFacade RequesterTwo;   //通过供应商筛选值
 
-    @FindBy(xpath ="//span[@data-key='f3oj1ki5']/button/span")
+    @FindBy(xpath ="//div[@class='lls-design-table-btn-wrapper']//button/span")
     public  WebElementFacade Proceed;   //审核
 
     @FindBy(xpath ="//label[text()='Remittance Fee Paid by']/parent::div//span/span")
@@ -44,7 +44,7 @@ public class payments_page extends PageObject{
     @FindBy(xpath ="//span[text()='BEN']")
     public  WebElementFacade SHA;
 
-    @FindBy(xpath ="//label[text()='Supplier Bank']/parent::div//span/span")
+    @FindBy(xpath ="//label[@for='sellerReveiveBankName']/following-sibling::div//span[@class='lls-input__suffix-inner']")
     public  WebElementFacade SupplierBank;
 
     @FindBy(xpath ="//div[@class='lls-input lls-input--suffix is-focus']/following-sibling::div//li/span")
@@ -80,20 +80,11 @@ public class payments_page extends PageObject{
     @FindBy(xpath = "//div[@data-key='f05m5m0n']//input")
     public WebElementFacade Requester5; //输入筛选值
 
-    @FindBy(xpath ="//span[@data-key='f21orqn5']/button/span")
-    public  WebElementFacade PROCEEDS;   //点击分配给我审批
-
-    @FindBy(xpath ="//div[@data-key='f2jule36']//span")
+    @FindBy(xpath ="//div[@class='btn-container center']/div[3]//span")
     public  WebElementFacade APPROVE;  //提交审批
-
-//    @FindBy(xpath = "//div[@id='tab-2']/span")
-//    public WebElementFacade complete; //点击已完成核对
 
     @FindBy(xpath = "//div[@data-key='f1l6svfn']//input")
     public WebElementFacade Requester6;  //未分配界面输入筛选值
-
-//刷新
-    //需要加判断
 
     //第三个
     @FindBy(xpath ="//span[text()='Request For Disbursement']/parent::div/following-sibling::div[2]/span")

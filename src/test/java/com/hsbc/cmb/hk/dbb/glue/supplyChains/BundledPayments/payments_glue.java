@@ -66,7 +66,7 @@ public class payments_glue {
     public void clickProceed() {
         paymentsStep.clickAssignToMeS();
         paymentsStep.Requester5();
-        paymentsStep.clickPROCEEDS();}
+        paymentsStep.clickProceed();}
 
 
     @Then("^Click on the submit APPROVE$")

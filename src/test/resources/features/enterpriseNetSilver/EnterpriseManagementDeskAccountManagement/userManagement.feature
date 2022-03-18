@@ -20,7 +20,7 @@ Feature: userManagements
     When I click on the Enterprise Administration as well user administration
     When I click on Add user
       |TimeLimit |birthday  |countries|
-      |2026-08-18|1998-05-20|CHINESE  |
+      |2026-08-18|1998-05-20|+86      |
     Then I click Next
     When I initiate captcha verification
     Then I  Verify success
