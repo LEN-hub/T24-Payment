@@ -13,8 +13,7 @@ Feature: receipt and payment service
 
   #SDG->USD
   Scenario:I have successfully transferred from Singapore currency to US dollar
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
     |rollOutAccount  |intoAccount  |amount|
     |1101 0003 704   |1101 0003 828|0.1   |
@@ -24,8 +23,7 @@ Feature: receipt and payment service
 
   #SDG->EUR
   Scenario:I have successfully transferred from Singapore currency to Euro
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 704   |1101 0003 844|0.1   |
@@ -35,8 +33,7 @@ Feature: receipt and payment service
 
   #SDG->SDG
   Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 704   |1101 0003 526|0.1   |
@@ -46,8 +43,7 @@ Feature: receipt and payment service
 
   #CNY->CNY
   Scenario:Oneself mutual turn with currency mutual turn (CNY) trade flow
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 712   |1101 0003 801|0.1   |
@@ -57,8 +53,7 @@ Feature: receipt and payment service
 
   #USD->USD
   Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 720   |1101 0003 828|0.1   |
@@ -68,8 +63,7 @@ Feature: receipt and payment service
 
   #EUR->EUR
   Scenario:I mutual transfer with currency mutual transfer (euro) transaction process
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 747   |1101 0003 844|0.1   |
@@ -79,8 +73,7 @@ Feature: receipt and payment service
 
   #HKD->HKD
   Scenario:I mutual transfer with currency mutual transfer (HKD) transaction process
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 739   |1101 0003 836|0.1   |
@@ -90,8 +83,7 @@ Feature: receipt and payment service
 
   #SDG->CNY
   Scenario:I mutual transfer not the same currency mutual transfer (Singapore dollar to RMB) transfer transaction successfully
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 704   |1101 0003 712|0.1   |
@@ -102,8 +94,7 @@ Feature: receipt and payment service
 
  #HKD->SDG
   Scenario:I have successfully changed Hong Kong dollars into Singapore dollars
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 739   |1101 0003 704|0.1   |
@@ -113,8 +104,7 @@ Feature: receipt and payment service
 
   #HKD->EUR
   Scenario:I have successfully exchanged Hong Kong dollars for euros
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 739   |1101 0003 844|1     |
@@ -124,8 +114,7 @@ Feature: receipt and payment service
 
   #HKD->USD
   Scenario:I have changed Hong Kong dollars into US dollars successfully
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 739   |1101 0003 828|1     |
@@ -135,8 +124,7 @@ Feature: receipt and payment service
 
   #HKD->CNY
   Scenario:I have changed Hong Kong dollars into CNY successfully
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 739   |1101 0003 801|0.1   |
@@ -146,8 +134,7 @@ Feature: receipt and payment service
 
   #USD->CNY
   Scenario:I have successfully changed dollars into CNY
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 720   |1101 0003 801|0.1   |
@@ -157,8 +144,7 @@ Feature: receipt and payment service
 
  #USD->EUR
   Scenario:I have succeeded in exchanging dollars for euros
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 720   |1101 0003 844|0.1   |
@@ -168,8 +154,7 @@ Feature: receipt and payment service
 
  #USD->SDG
   Scenario:I have successfully changed us dollars into Singapore dollars
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 720   |1101 0003 526|0.1   |
@@ -179,8 +164,7 @@ Feature: receipt and payment service
 
  #USD->HKD
   Scenario:I have successfully changed us dollars into Hong Kong dollars
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 720   |1101 0003 836|0.1   |
@@ -190,8 +174,7 @@ Feature: receipt and payment service
 
   #EUR->CNY
   Scenario:I have successfully converted Euro dollars into CNY
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 747   |1101 0003 801|0.1   |
@@ -201,8 +184,7 @@ Feature: receipt and payment service
 
   #EUR->HKD
   Scenario:I have successfully changed Euro dollars into Hong Kong dollars
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 747   |1101 0003 836|0.1   |
@@ -212,8 +194,7 @@ Feature: receipt and payment service
 
   #EUR->SDG
   Scenario:I have successfully changed Euro dollars into Singapore dollars
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 747   |1101 0003 526|0.1   |
@@ -223,8 +204,7 @@ Feature: receipt and payment service
 
   #EUR->USD
   Scenario:I have successfully exchanged euro dollars for US dollars
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 747   |1101 0003 828|0.1   |
@@ -234,8 +214,7 @@ Feature: receipt and payment service
 
    #CNY->HKD
   Scenario:I have changed RMB into Hong Kong dollars successfully
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 712   |1101 0003 836|0.1   |
@@ -245,8 +224,7 @@ Feature: receipt and payment service
 
   #CNY->USD
   Scenario:I have successfully changed RMB into US dollars
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 712   |1101 0003 828|0.1   |
@@ -256,8 +234,7 @@ Feature: receipt and payment service
 
   #CNY->SDG
   Scenario:I have successfully changed RMB into Singapore currency
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 712   |1101 0003 526|0.1   |
@@ -267,8 +244,7 @@ Feature: receipt and payment service
 
   #CNY->EUR
   Scenario:I have successfully changed CNY into euros
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount|
       |1101 0003 712   |1101 0003 844|0.1   |
@@ -278,8 +254,7 @@ Feature: receipt and payment service
 
 #境内转账-行内转账时间选择每周一(SDG->SDG)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
     |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
     |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
@@ -298,8 +273,7 @@ Feature: receipt and payment service
 
 #时间选择每周(SDG->SDG)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
@@ -324,8 +298,7 @@ Feature: receipt and payment service
 
 #时间选择每月(SDG->SDG)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
@@ -351,8 +324,7 @@ Feature: receipt and payment service
 
     #选择每季度并且不写周期(SDG->SDG)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
@@ -374,8 +346,7 @@ Feature: receipt and payment service
 
     #境内转账-行内转账时间选择每周一(SDG->CNY)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
@@ -394,8 +365,7 @@ Feature: receipt and payment service
 
     #时间选择每周(SDG->CNY)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
@@ -420,8 +390,7 @@ Feature: receipt and payment service
 
 #时间选择每月(SDG->CNY)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
@@ -446,8 +415,7 @@ Feature: receipt and payment service
 
     #选择每季度并且不写周期(SDG->CNY)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
@@ -470,8 +438,7 @@ Feature: receipt and payment service
 
     #境内转账-行内转账时间选择每周一(SDG->USD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
@@ -490,8 +457,7 @@ Feature: receipt and payment service
 
     #时间选择每周(SDG->USD)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
@@ -516,8 +482,7 @@ Feature: receipt and payment service
 
 #时间选择每月(SDG->USD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
@@ -543,8 +508,7 @@ Feature: receipt and payment service
 
   #选择每季度并且不写周期(SDG->USD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
@@ -566,8 +530,7 @@ Feature: receipt and payment service
 
     #境内转账-行内转账时间选择每周一(SDG->EUR)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
@@ -586,8 +549,7 @@ Feature: receipt and payment service
 
     #时间选择每周(SDG->EUR)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
@@ -612,8 +574,7 @@ Feature: receipt and payment service
 
 #时间选择每月(SDG->EUR)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
@@ -639,8 +600,7 @@ Feature: receipt and payment service
 
   #选择每季度并且不写周期(SDG->EUR)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
@@ -663,8 +623,7 @@ Feature: receipt and payment service
 
     #境内转账-行内转账时间选择每周一(SDG->HKD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
@@ -683,8 +642,7 @@ Feature: receipt and payment service
 
     #时间选择每周(SDG->HKD)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
@@ -709,8 +667,7 @@ Feature: receipt and payment service
 
 #时间选择每月(SDG->HKD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
@@ -736,8 +693,7 @@ Feature: receipt and payment service
 
   #选择每季度并且不写周期(SDG->HKD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
@@ -760,8 +716,7 @@ Feature: receipt and payment service
 
     #境内转账-跨行转账时间选择每周一(SDG->SDG)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
@@ -780,8 +735,7 @@ Feature: receipt and payment service
 
 #时间选择每周(SDG->SDG)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
@@ -806,8 +760,7 @@ Feature: receipt and payment service
 
 #时间选择每月(SDG->SDG)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
@@ -833,8 +786,7 @@ Feature: receipt and payment service
 
     #时间选择每季度(SDG->SDG)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
@@ -859,8 +811,7 @@ Feature: receipt and payment service
 
    #境内转账-跨行转账时间选择每周一(SDG->CNY)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
@@ -879,8 +830,7 @@ Feature: receipt and payment service
 
 #时间选择每周(SDG->CNY)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
@@ -905,8 +855,7 @@ Feature: receipt and payment service
 
 #时间选择每月(SDG->CNY)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
@@ -932,8 +881,7 @@ Feature: receipt and payment service
 
     #时间选择每季度(SDG->CNY)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
@@ -958,8 +906,7 @@ Feature: receipt and payment service
 
   #境内转账-跨行转账时间选择每周一(SDG->USD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
@@ -978,8 +925,7 @@ Feature: receipt and payment service
 
 #时间选择每周(SDG->USD)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
@@ -1004,8 +950,7 @@ Feature: receipt and payment service
 
 #时间选择每月(SDG->USD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
@@ -1031,8 +976,7 @@ Feature: receipt and payment service
 
     #时间选择每季度(SDG->USD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
@@ -1057,8 +1001,7 @@ Feature: receipt and payment service
 
    #境内转账-跨行转账时间选择每周一(SDG->EUR)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
@@ -1077,8 +1020,7 @@ Feature: receipt and payment service
 
 #时间选择每周(SDG->EUR)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
@@ -1103,8 +1045,7 @@ Feature: receipt and payment service
 
 #时间选择每月(SDG->EUR)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
@@ -1130,8 +1071,7 @@ Feature: receipt and payment service
 
     #时间选择每季度(SDG->EUR)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
@@ -1157,8 +1097,7 @@ Feature: receipt and payment service
 
  #境内转账-跨行转账时间选择每周一(SDG->HKD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
@@ -1178,8 +1117,7 @@ Feature: receipt and payment service
 
 #时间选择每周(SDG->HKD)
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
@@ -1205,8 +1143,7 @@ Feature: receipt and payment service
 
 #时间选择每月(SDG->HKD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
@@ -1232,8 +1169,7 @@ Feature: receipt and payment service
 
     #时间选择每季度(SDG->HKD)
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
       |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
@@ -1259,8 +1195,7 @@ Feature: receipt and payment service
     #境外转账
   @overseasTransfer
   Scenario:Positive process of overseas transfer(SGD--USD)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense         |expenseEnglish                             |
@@ -1286,8 +1221,7 @@ Feature: receipt and payment service
 
   @overseasTransfer01
   Scenario:Positive process of overseas transfer(USD--SGD)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense   |expenseEnglish                           |
@@ -1313,8 +1247,7 @@ Feature: receipt and payment service
 
   @overseasTransfer02
   Scenario:Positive process of overseas transfer(CNY--SGD)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
@@ -1337,8 +1270,7 @@ Feature: receipt and payment service
 
   @overseasTransfer03
   Scenario:Positive process of overseas transfer(EUR--SGD)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
@@ -1360,8 +1292,7 @@ Feature: receipt and payment service
 
   @overseasTransfer04
   Scenario:Positive process of overseas transfer(HKD--SGD)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
@@ -1385,8 +1316,7 @@ Feature: receipt and payment service
 
   @overseasTransfer05
   Scenario:Positive process of overseas transfer(SGD--SGD)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
@@ -1407,12 +1337,9 @@ Feature: receipt and payment service
     When I typed TC Code and click Authenticate Now
 
 
-
-#
   @overseasTransfer06
   Scenario:Positive process of overseas transfer(CNY--CNY)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
@@ -1435,8 +1362,7 @@ Feature: receipt and payment service
 
   @overseasTransfer07
   Scenario:Positive process of overseas transfer(EUR--EUR)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
@@ -1458,8 +1384,7 @@ Feature: receipt and payment service
 
   @overseasTransfer08
   Scenario:Positive process of overseas transfer(HKD--HKD)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |expenseEnglish                           |
@@ -1479,11 +1404,9 @@ Feature: receipt and payment service
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
 
-#
   @overseasTransfer09
   Scenario:Positive process of overseas transfer(USD--USD)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense   |expenseEnglish                          |
@@ -1510,8 +1433,7 @@ Feature: receipt and payment service
   @overseasTransfer10
 #    保存模板
   Scenario:Positive process of overseas transfer(SGD--USD)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense         |expenseEnglish                             |
@@ -1539,8 +1461,7 @@ Feature: receipt and payment service
   @overseasTransfer11
 #    贸易融资
   Scenario:Positive process of overseas transfer(USD--SGD)
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense   |expenseEnglish                           |

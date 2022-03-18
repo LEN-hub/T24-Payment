@@ -10,8 +10,6 @@ public class logon_step extends ScenarioSteps {
     public String profileNum;
 
 
-
-
     @Step
     public void open_the_first_dbb_logon_page(String envName) {
         String logonUrl = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".webdriver.base.url");

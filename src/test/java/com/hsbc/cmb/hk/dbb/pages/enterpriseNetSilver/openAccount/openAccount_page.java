@@ -182,29 +182,35 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextOnEnterConnectedPeoplesDetails;
 
-    @FindBy(xpath = "//label[@for=\"contactPersonNm\"]")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for='contactPersonNm']")
     public WebElementFacade goContactPersonNm;
 
-    @FindBy(xpath = "//label[@for=\"contactPersonNm\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for=\"contactPersonNm\"]/following-sibling::div//input")
     public WebElementFacade inputUBOName;
 
-    @FindBy(xpath = "//label[@for=\"aliasNm\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for=\"aliasNm\"]/following-sibling::div//input")
     public WebElementFacade inputUBOAliasName;
 
-    @FindBy(xpath = "//label[@for=\"birthDate\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for=\"birthDate\"]/following-sibling::div//input")
     public WebElementFacade inputUBOBirthDate;
 
-    @FindBy(xpath = "//label[@for=\"certfctTypeCd\"]/following-sibling::div//label[2]//span//span")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for=\"certfctTypeCd\"]/following-sibling::div//label[2]//span//span")
     public WebElementFacade clickUBOIdentificationType;
 
-    @FindBy(xpath = "//label[@for=\"certfctNo\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for=\"certfctNo\"]/following-sibling::div//input")
     public WebElementFacade inputUBOPassportNo;
 
-    @FindBy(xpath = "//label[@for=\"certfctDueDate\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for=\"certfctDueDate\"]/following-sibling::div//input")
     public WebElementFacade inputUBOPassportDueDate;
 
     @FindBy(xpath = "//label[@for=\"addr\"]/following-sibling::div//input")
     public WebElementFacade inputUBOResidentialAddress;
+
+    @FindBy(xpath = "//div[contains(text(), 'Connected Person 2')]/following-sibling::div")
+    public WebElementFacade selectCheckBox2;
+
+    @FindBy(xpath = "//div[contains(text(), 'Connected Person 3')]/following-sibling::div")
+    public WebElementFacade selectCheckBox3;
 
     @FindBy(xpath = "//label[@for=\"cityNm\"]/following-sibling::div//input")
     public WebElementFacade inputUBOCityName;
@@ -218,67 +224,79 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//span[text()=\"SINGAPORE\"]")
     public WebElementFacade getUBOCountry;
 
-    @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for='idd']/following-sibling::div//input")
     public WebElementFacade clickUBOIdd;
 
     @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//span[text()=\"CHINA\"]")
     public WebElementFacade getUBOIdd;
 
-    @FindBy(xpath = "//label[@for=\"mobilePhoneNo\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for=\"mobilePhoneNo\"]/following-sibling::div//input")
     public WebElementFacade inputUBOMobilePhoneNo;
 
-    @FindBy(xpath = "//label[@for=\"emailAddr\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for=\"emailAddr\"]/following-sibling::div//input")
     public WebElementFacade inputUBOEmailAddress;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextForUBO;
 
-    @FindBy(xpath = "//label[@for=\"contactPersonNm\"]")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for='contactPersonNm']")
     public WebElementFacade goUBO2Name;
 
-    @FindBy(xpath = "//label[@for=\"addr\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for=\"addr\"]/following-sibling::div//input")
     public WebElementFacade inputUBO2ResidentialAddress;
 
-    @FindBy(xpath = "//label[@for=\"cityNm\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for=\"addr\"]/following-sibling::div//input")
+    public WebElementFacade inputUBO2ResidentialAddress3;
+
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for=\"cityNm\"]/following-sibling::div//input")
     public WebElementFacade inputUBO2CityName;
 
-    @FindBy(xpath = "//label[@for=\"zipCd\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for=\"cityNm\"]/following-sibling::div//input")
+    public WebElementFacade inputUBO2CityName3;
+
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for=\"zipCd\"]/following-sibling::div//input")
     public WebElementFacade inputUBO2PostalCode;
 
-    @FindBy(xpath = "//label[@for=\"countryCd\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for=\"zipCd\"]/following-sibling::div//input")
+    public WebElementFacade inputUBO2PostalCode3;
+
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for=\"countryCd\"]/following-sibling::div//input")
     public WebElementFacade clickUBO2Country;
 
-    @FindBy(xpath = "//span[text()=\"SINGAPORE\"]")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for=\"countryCd\"]/following-sibling::div//input")
+    public WebElementFacade clickUBO2Country3;
+
+    @FindBy(xpath = "//div[@x-placement=\"top-start\" or @x-placement=\"bottom-start\"]//span[text()=\"SINGAPORE\"]")
     public WebElementFacade getUBO2Country;
 
-    @FindBy(xpath = "//label[@for=\"contactPersonNm\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for=\"contactPersonNm\"]/following-sibling::div//input")
     public WebElementFacade inputOnlyUBOName;
 
-    @FindBy(xpath = "//label[@for=\"aliasNm\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for=\"aliasNm\"]/following-sibling::div//input")
     public WebElementFacade inputOnlyUBOAliasName;
 
-    @FindBy(xpath = "//label[@for=\"birthDate\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for=\"birthDate\"]/following-sibling::div//input")
     public WebElementFacade inputUBO2BirthDate;
 
-    @FindBy(xpath = "//label[@for=\"certfctTypeCd\"]/following-sibling::div//label[2]//span//span")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for=\"certfctTypeCd\"]/following-sibling::div//label[2]//span//span")
     public WebElementFacade clickUBO2IdentificationType;
 
-    @FindBy(xpath = "//label[@for=\"certfctNo\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for=\"certfctNo\"]/following-sibling::div//input")
     public WebElementFacade inputUBO2PassportNo;
 
-    @FindBy(xpath = "//label[@for=\"certfctDueDate\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for=\"certfctDueDate\"]/following-sibling::div//input")
     public WebElementFacade inputUBO2PassportDueDate;
 
-    @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for=\"idd\"]/following-sibling::div//input")
     public WebElementFacade clickUBO2Idd;
 
     @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//span[text()=\"CHINA\"]")
     public WebElementFacade getUBO2Idd;
 
-    @FindBy(xpath = "//label[@for=\"mobilePhoneNo\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for=\"mobilePhoneNo\"]/following-sibling::div//input")
     public WebElementFacade inputUBO2MobilePhoneNo;
 
-    @FindBy(xpath = "//label[@for=\"emailAddr\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for=\"emailAddr\"]/following-sibling::div//input")
     public WebElementFacade inputUBO2EmailAddress;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"btn_box\"]")
@@ -359,11 +377,17 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextToConnectedCorporateEntity2;
 
+    @FindBy(xpath = "//div[contains(text(), 'Connected Corporate Entity 2')]/following-sibling::div")
+    public WebElementFacade clickConnectedCorporateEntity2;
+
     @FindBy(xpath = "//div[@class=\"el-col el-col-8\"]//input")
     public WebElementFacade inputPostalCodeConnectedCorporateEntity2;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextToStep5;
+
+    @FindBy(xpath = "//div[@class=\"el-collapse-item is-active\"]//div[@class=\"el-col el-col-8\"]//input")
+    public WebElementFacade inputPostalCodeConnectedCorporateEntity;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[@class=\"mandatory\"]/following-sibling::form//label[1]//span[1]//span")
     public WebElementFacade clickOneAdministrators;

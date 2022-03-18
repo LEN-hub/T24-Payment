@@ -278,6 +278,7 @@ public class openAccount_glue {
 
     @Then("^Create Company Administrators’ Profiles$")
     public void createCompanyAdministratorsProfiles()throws AWTException{
+        openAccount_step.enterConnectedEntitiesDetails2();
         openAccount_step.createCompanyAdministratorsProfiles(contactPersonNm);
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();

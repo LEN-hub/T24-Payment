@@ -261,6 +261,7 @@ public class openAccount_step extends ScenarioSteps {
     }
 
     public void inputUltimateBeneficialOwnerDetails(String ultimateBeneficialOwnerName, String ultimateBeneficialOwnerAliasName, String ultimateBeneficialOwnerPassportNumber, String ultimateBeneficialOwnerPhoneNumber, String ultimateBeneficialOwnerEmailName) {
+        openAccount_page.selectCheckBox2.click();
         bddUtil.scrollWindowToElement(openAccount_page.goContactPersonNm);
         openAccount_page.inputUBOName.clear();
         openAccount_page.inputUBOName.sendKeys(ultimateBeneficialOwnerName);
@@ -285,6 +286,7 @@ public class openAccount_step extends ScenarioSteps {
     }
 
     public void inputOnlyUBODetails(String onlyUBOName, String onlyUBOAliasName, String onlyUBOPassportNumber, String onlyUBOPhoneNumber, String onlyUBOEmailName) {
+        openAccount_page.selectCheckBox3.click();
         bddUtil.scrollWindowToElement(openAccount_page.goUBO2Name);
         openAccount_page.inputOnlyUBOName.clear();
         openAccount_page.inputOnlyUBOName.sendKeys(onlyUBOName);
@@ -295,10 +297,10 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.inputUBO2PassportNo.sendKeys(onlyUBOPassportNumber);
         openAccount_page.inputUBO2PassportDueDate.sendKeys("01/01/2030");
         openAccount_page.goUBO2Name.click();
-        openAccount_page.inputUBO2ResidentialAddress.sendKeys("ResidentialAddress");
-        openAccount_page.inputUBO2CityName.sendKeys("City");
-        openAccount_page.inputUBO2PostalCode.sendKeys("710000");
-        openAccount_page.clickUBO2Country.click();
+        openAccount_page.inputUBO2ResidentialAddress3.sendKeys("ResidentialAddress");
+        openAccount_page.inputUBO2CityName3.sendKeys("City");
+        openAccount_page.inputUBO2PostalCode3.sendKeys("710000");
+        openAccount_page.clickUBO2Country3.click();
         bddUtil.scrollWindowToElement(openAccount_page.getUBO2Country).click();
         bddUtil.scrollWindowToElement(openAccount_page.clickUBO2Idd).click();
         bddUtil.scrollWindowToElement(openAccount_page.getUBO2Idd).click();
@@ -348,6 +350,16 @@ public class openAccount_step extends ScenarioSteps {
         bddUtil.sleep(2);
     }
 
+    public void enterConnectedEntitiesDetails2(){
+        bddUtil.scrollWindowToElement(openAccount_page.inputPostalCodeConnectedCorporateEntity);
+        openAccount_page.inputPostalCodeConnectedCorporateEntity.sendKeys("710000");
+        openAccount_page.clickConnectedCorporateEntity2.click();
+        bddUtil.scrollWindowToElement(openAccount_page.inputPostalCodeConnectedCorporateEntity);
+        openAccount_page.inputPostalCodeConnectedCorporateEntity.sendKeys("710000");
+        openAccount_page.clickNextToStep5.click();
+        bddUtil.sleep(2);
+    }
+
     public void choseOneAdministrator(String contactPersonNm){
         openAccount_page.clickOneAdministrators.click();
         bddUtil.sleep(1);
@@ -358,6 +370,7 @@ public class openAccount_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(openAccount_page.goVerifyMobileNumber1);
         openAccount_page.clickVerifyMobileNumber1.click();
     }
+
 
     public void createCompanyAdministratorsProfiles(String contactPersonNm){
         openAccount_page.clickYESConnectedPerson1.click();

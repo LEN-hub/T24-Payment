@@ -5,8 +5,7 @@ Feature: accountChange
   @ModifyingAccountRights
 #    账户修改
   Scenario:Modify the enterprise management console account
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I hit Permissions modify
     Then TC code is then required for Vkey authentication
@@ -19,8 +18,7 @@ Feature: accountChange
   @accountOpeningSGD
 #    CA账户SGD开立
   Scenario:Enterprise management console CA account SGD opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA             |
@@ -35,8 +33,7 @@ Feature: accountChange
   @accountOpeningUSD
     #    CA账户USD开立
   Scenario:Enterprise management console CA account CNY opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA             |
@@ -51,8 +48,7 @@ Feature: accountChange
   @accountOpeningCNY
 #    CA账户CNY开立
   Scenario:Enterprise management console CA account CNY opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA             |
@@ -67,8 +63,7 @@ Feature: accountChange
   @accountOpeningHKD
 #    CA账户HKD开立
   Scenario:Enterprise management console CA account HKD opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA             |
@@ -83,8 +78,7 @@ Feature: accountChange
   @accountOpeningEUR
 #    CA账户EUR开立
   Scenario:Enterprise management console CA account EUR opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA             |
@@ -100,8 +94,7 @@ Feature: accountChange
   @accountOpeningMCACNY
 #  MCA账户,默认选择SGD，SGD+CNY开立
   Scenario:Enterprise management console MCA account CNY opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
@@ -117,8 +110,7 @@ Feature: accountChange
   @accountOpeningMCAUSD
 #  MCA账户,默认选择SGD，SGD+USD开立
   Scenario:Enterprise management console MCA account USD opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
@@ -135,8 +127,7 @@ Feature: accountChange
   @accountOpeningMCAHKD
 #  MCA账户,默认选择SGD，SGD+HKD开立
   Scenario:Enterprise management console MCA account HKD opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
@@ -152,8 +143,7 @@ Feature: accountChange
   @accountOpeningMCAEUR
 #  MCA账户,默认选择SGD，SGD+EUR开立
   Scenario:Enterprise management console MCA account EUR opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
@@ -169,8 +159,7 @@ Feature: accountChange
   @accountOpeningMCAAll
 #  MCA账户,默认选择SGD，SGD+USD+CNY+HKD+EUR开立
   Scenario:Enterprise management console MCA account All opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
@@ -186,8 +175,7 @@ Feature: accountChange
   @accountOpeningMCA01
 #  MCA账户,默认选择SGD，SGD+USD+CNY开立
   Scenario:Enterprise management console MCA account All opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
@@ -203,8 +191,7 @@ Feature: accountChange
   @accountOpeningMCA02
 #  MCA账户,默认选择SGD，SGD+USD+EUR开立
   Scenario:Enterprise management console MCA account All opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
@@ -220,8 +207,7 @@ Feature: accountChange
   @accountOpeningMCA03
 #  MCA账户,默认选择SGD，SGD+USD+HKD开立
   Scenario:Enterprise management console MCA account All opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
@@ -237,8 +223,7 @@ Feature: accountChange
   @accountOpeningMCA04
 #  MCA账户,默认选择SGD，SGD+CNY+HKD开立
   Scenario:Enterprise management console MCA account All opened
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
@@ -273,8 +258,7 @@ Feature: accountChange
   @deleteCurrency
 #    删除币种
   Scenario:The enterprise management console deletes the currency
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click delete currency information
     Then TC code is then required for Vkey authentication
@@ -286,8 +270,7 @@ Feature: accountChange
   @LinkAccount
 #    账户加挂//换号跑，从头开始跑
   Scenario:The enterprise management console account is added
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click link account
     Then TC code is then required for Vkey authentication
@@ -298,8 +281,7 @@ Feature: accountChange
   @AuthorizationMode01
 #  授权模式双人
   Scenario:Enterprise management desk two-person authorization mode
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When click authorization
     When I choose two-person authorization management mode
@@ -314,8 +296,7 @@ Feature: accountChange
   @AuthorizationMode02
 #  授权模式单人
   Scenario:Enterprise management console single-person authorization mode
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When click authorization
     When I choose single-player license management mode
@@ -330,8 +311,7 @@ Feature: accountChange
   @AuthorizationMode03
 #  无授权模式
   Scenario:Enterprise management console in unauthorized mode
-    Given Closing the Browser driver
-    When logon "netSilverEnv_sun" on enterprise net silver
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When click authorization
     When I choose unlicensed management mode
