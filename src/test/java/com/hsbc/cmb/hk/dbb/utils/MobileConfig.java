@@ -29,7 +29,7 @@ public class MobileConfig {
         //添加操作系统配置
         cap.setCapability("platformName", "Android");
         //添加操作系统版本设置adb devices
-        cap.setCapability("platformVersion", "12");
+        cap.setCapability("platformVersion", "11");
         //指定想要测试应用的包名
         cap.setCapability("appPackage", "com.glbank.mobileapp");
         //指定想要测试应用的入口activity
@@ -48,7 +48,7 @@ public class MobileConfig {
         //添加操作系统配置
         cap.setCapability("platformName", "Android");
         //添加操作系统版本设置adb devices
-        cap.setCapability("platformVersion", "12");
+        cap.setCapability("platformVersion", "11");
         //指定想要测试应用的包名
         cap.setCapability("appPackage", "com.glbank.mobileapp");
         //指定想要测试应用的入口activity
