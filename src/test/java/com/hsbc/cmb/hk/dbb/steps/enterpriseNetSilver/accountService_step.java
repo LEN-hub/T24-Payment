@@ -9,6 +9,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
@@ -113,7 +114,7 @@ public class accountService_step extends ScenarioSteps {
 
     @Step
     public void aliasTextCheck(){
-        Assert.assertEquals(aliasText,accountService_page.aliasTextCheck.getText());
+        Assert.assertEquals(aliasText,accountService_page.find(By.xpath("//span[text()='"+aliasText+"']")).getText());
     }
 
     @Step

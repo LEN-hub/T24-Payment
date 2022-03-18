@@ -220,7 +220,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul//li")
     public List<WebElementFacade> payeeCountries; //美国
 
-    @FindBy(xpath = "//label[@for='remittancePostscriptContent']/following-sibling::div/div/textarea")
+    @FindBy(xpath = "//label[@for='remittancePostscriptContent']/following-sibling::div/div//textarea")
     public WebElementFacade remittancePostscriptContent;//汇款留言 输入
 
     @FindBy(xpath = "//label[@for='costFeeAssumeCd']/following-sibling::div//i")

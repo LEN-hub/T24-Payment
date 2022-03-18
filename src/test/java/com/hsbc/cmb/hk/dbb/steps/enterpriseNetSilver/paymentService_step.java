@@ -142,7 +142,7 @@ public class paymentService_step extends ScenarioSteps {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<WebElementFacade> rollOutDate = paymentService_page.rollOutDate;
         a:for (int j = 0; j < rollOutDate.size(); j++){
-            if (sdf.format(new Date()).charAt(8) == '0' ){
+            if (sdf.format(new Date()).charAt(8) == '0' || sdf.format(new Date()).charAt(8) == '1' || sdf.format(new Date()).charAt(8) == '2' || sdf.format(new Date()).charAt(8) == '3'){
                 if (sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals(rollOutDate.get(j).getText())){
                     rollOutDate.get(j).click();
                     break;
@@ -174,7 +174,7 @@ public class paymentService_step extends ScenarioSteps {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<WebElementFacade> rollOutDate = paymentService_page.rollOutDate;
         a:for (int j = 0; j < rollOutDate.size(); j++){
-            if (sdf.format(new Date()).charAt(8) == '0'){
+            if (sdf.format(new Date()).charAt(8) == '0' || sdf.format(new Date()).charAt(8) == '1' || sdf.format(new Date()).charAt(8) == '2' || sdf.format(new Date()).charAt(8) == '3'){
                 if (sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals(rollOutDate.get(j).getText())){
                     if (!sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("29") || !sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("30") || !sdf.format(getNextWeekMonday(new Date())).substring(8,10).equals("31")){
                         rollOutDate.get(j).click();
@@ -428,6 +428,7 @@ public class paymentService_step extends ScenarioSteps {
  //贸易融资
     public void transportMethod(String transportMethod){
         paymentService_page.transportMethodBox.click();
+        CommonUtil.waiting(3000);
         List<WebElementFacade> Transportation = paymentService_page.transportMethod;
         for (int i = 0; i < Transportation.size(); i++) {
              if (transportMethod.equals(Transportation.get(i).getText())) {

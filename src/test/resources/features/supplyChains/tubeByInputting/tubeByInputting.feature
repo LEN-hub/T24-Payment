@@ -1,9 +1,9 @@
 @tubeByInputting
 Feature: tube By Inputting
 
+
   Scenario:Create buyer's customer file selection: operator input, operator input buyer's basic information, no need to review, create buyer's customer successfully
-    Given Closing the Browser driver
-    When logon "environments_1" on tube by inputting system
+    Given logon "environments_1" on enterprise net silver
     When open the email browser page
     And I switch to the SCF page
     When I click Customers and select Onboarding List
@@ -14,8 +14,7 @@ Feature: tube By Inputting
 
 
   Scenario:Create your own profile and send invitations
-    Given Closing the Browser driver
-    When logon "environments_1" on tube by inputting system
+    Given logon "environments_1" on enterprise net silver
     When open the email browser page
     And I switch to the SCF page
     When I click Customers and select Onboarding List
@@ -27,8 +26,7 @@ Feature: tube By Inputting
     Then I check that the email has been sent successfully
 
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
-      Given Closing the Browser driver
-      When logon "environments_1" on tube by inputting system
+      Given logon "environments_1" on tube by inputting system
       When open the email browser page
       And I switch to the SCF page
       When I click Customers and select Onboarding List

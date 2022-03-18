@@ -3,12 +3,15 @@ package com.hsbc.cmb.hk.dbb.glue.enterpriseNetSilver.openAccount;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.Logon_step;
 import com.hsbc.cmb.hk.dbb.steps.enterpriseNetSilver.openAccount.openAccount_step;
 import com.hsbc.cmb.hk.dbb.utils.*;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
 import java.awt.*;
+import java.util.List;
+import java.util.Map;
 
 public class openAccount_glue {
 
@@ -16,9 +19,6 @@ public class openAccount_glue {
     private Logon_step logon_step;
     @Steps
     private openAccount_step openAccount_step;
-
-
-
 
     public static String envTag,accountType,currencyType,currencyTypeUSD,currencyTypeCNY,currencyTypeHKD,currencyTypeEUR;
     public static String accountName = "AutoTestAccountName" + JRandomNameTool.getStringRandom(5);
@@ -141,6 +141,69 @@ public class openAccount_glue {
         FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
     }
 
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_USD$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_SGD_USD(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyTypeUSD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_USD");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_USD(accountType,accountName,currencyTypeUSD);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_HKD$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_SGD_HDK(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyTypeHKD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_HKD");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_HKD(accountType,accountName,currencyTypeHKD);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_EUR$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_SGD_EUR(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyTypeEUR = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_EUR");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_EUR(accountType,accountName,currencyTypeEUR);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_USD_CNY$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_SGD_USD_CNY(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyTypeUSD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_USD");
+        currencyTypeCNY = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_CNY");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_USD_CNY(accountType,accountName,currencyTypeUSD,currencyTypeCNY);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_USD_HKD$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_SGD_USD_HDK(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyTypeUSD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_USD");
+        currencyTypeHKD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_HKD");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_USD_HKD(accountType,accountName,currencyTypeUSD,currencyTypeHKD);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about MCA_SGD_USD_EUR$")
+    public void fillInInformationOnGettingStartedPageAboutMCA_SGD_USD_EUR(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_Multi-CurrentAccount-Only");
+        currencyTypeUSD = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_USD");
+        currencyTypeEUR = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_EUR");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_USD_EUR(accountType,accountName,currencyTypeUSD,currencyTypeEUR);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
     @And("^Provide Essential Information$")
     public void provideEssentialInformation()throws AWTException {
         openAccount_step.provideEssentialInformation(applicantName,emailName,mobileNumber);
@@ -153,6 +216,21 @@ public class openAccount_glue {
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
         openAccount_step.inputEntityDetails();
+    }
+
+    @And("^Provide Essential Information About SubIndustry$")
+    public void provideEssentialInformationAboutSubIndustry(DataTable subIndustry1)throws AWTException {
+        List<Map<String, String>> subIndustry = subIndustry1.asMaps(String.class,String.class);
+        openAccount_step.provideEssentialInformation(applicantName,emailName,mobileNumber);
+        System.out.println("---------------申请人姓名："+ applicantName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"","申请人姓名:" + applicantName);
+        System.out.println("---------------申请人电话号码："+ mobileNumber + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"","申请人电话号码:" + mobileNumber);
+        System.out.println("---------------申请人邮箱地址："+ emailName + "@MailTemp.top"+"----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"","申请人邮箱地址:" + emailName + "@MailTemp.top");
+        openAccount_step.clickValidationCode();
+        openAccount_step.inputValidationCode();
+        openAccount_step.inputEntityDetails1(subIndustry.get(0).get("subIndustry"));
     }
 
     @Then("^Enter Connected People's Details$")
@@ -200,6 +278,7 @@ public class openAccount_glue {
 
     @Then("^Create Company Administrators’ Profiles$")
     public void createCompanyAdministratorsProfiles()throws AWTException{
+        openAccount_step.enterConnectedEntitiesDetails2();
         openAccount_step.createCompanyAdministratorsProfiles(contactPersonNm);
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
