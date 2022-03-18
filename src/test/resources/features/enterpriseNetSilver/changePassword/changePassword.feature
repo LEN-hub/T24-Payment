@@ -22,8 +22,7 @@ Feature: changePassword
 
   @forgotPassWordIDCard123
   Scenario:idCard Forgot password users log in normally after resetting their passwords
-#    Given Closing the Browser driver
-    When open "netSilverEnvTian" on enterprise net silver
+    Given open "netSilverEnvTian" on enterprise net silver
     When I click forgotPassword button
     When I input Enterprise customer number and other information
       |customerNumber |

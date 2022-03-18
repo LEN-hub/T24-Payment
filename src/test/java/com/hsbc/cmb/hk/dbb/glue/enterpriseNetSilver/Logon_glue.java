@@ -21,6 +21,7 @@ public class Logon_glue {
 
     @Given("^logon \"([^\"]*)\" on enterprise net silver$")
     public void logonOnEnterpriseNetSilver(String envName) throws MalformedURLException, InterruptedException, AWTException {
+        bddUtil.quitDriver();
         envTag = envName;
         if (!envName.isEmpty()) {
             try {
