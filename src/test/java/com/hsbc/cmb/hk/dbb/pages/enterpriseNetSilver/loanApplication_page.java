@@ -15,7 +15,10 @@ public class loanApplication_page extends PageObject {
     public WebElementFacade loanApplicationBtn;
 
     @FindBy(xpath = "//div[@class='children-list']//div[@class='list']/div[1]/p[2]//span[@class='sub-menu-title']")
-    public WebElementFacade loanDisbursementBtn;
+    public WebElementFacade loanDisbursementBtn;//贷款支用。
+
+    @FindBy(xpath = "//div[@class='children-list']//div[@class='list']/div[1]/p[4]//span[@class='sub-menu-title']")
+    public WebElementFacade loanManagement;//贷款管理。
 
     @FindBy(xpath = "//span[text()='Turnover ≤ SGD 1 Million']")
     public WebElementFacade lessThanOneMillion;//选择小于一百万的综合销售额。
@@ -318,6 +321,15 @@ public class loanApplication_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='el-table__fixed-right']//tbody/tr[3]/td[7]//div/div")
     public WebElementFacade threePoint;//贷款支用的支用申请按钮。
+
+    @FindBy(xpath = "//div[@class='el-table__fixed-right']//div[@class='el-tooltip btn-icon']")
+    public WebElementFacade threePointSingapore;//新币的支用还款按钮。
+
+    @FindBy(xpath = "//label[@for='repayDate']/following-sibling::div//input")
+    public WebElementFacade repaymentDate;
+
+    @FindBy(xpath = "//label[@for='repayDate']")
+    public WebElementFacade repayDate;
 
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom']//div[@class='btn_box']")
     public WebElementFacade ApplicationForPayment;//支用申请按钮。

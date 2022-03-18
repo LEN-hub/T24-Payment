@@ -191,7 +191,7 @@ public class createSupplierCreditFile_page extends PageObject {
     @FindBy(xpath = "//label[text()=\"Result\"]/following-sibling::div//input")
     public WebElementFacade clickResult;
 
-    @FindBy(xpath = "//span[text()=\"Approve\"]")
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='Approve']")
     public WebElementFacade getApprove;
 
     @FindBy(xpath = "//label[text()=\"Comments\"]/following-sibling::div//textarea")

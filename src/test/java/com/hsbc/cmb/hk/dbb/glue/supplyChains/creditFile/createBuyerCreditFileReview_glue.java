@@ -25,7 +25,7 @@ public class createBuyerCreditFileReview_glue {
     private createBuyerCreditFileReview_step createBuyerCreditFileReview_step;
     public static String envTag;
 
-    public String buyer = FileUtils.LastReadFileInput3("buyerName_chen");
+    public String buyer = FileUtils.LastReadFileInput3("buyer");
 
     @And("^to Buyer Credit Profile Review page$")
     public void toBuyerCreditProfileReviewPage(){

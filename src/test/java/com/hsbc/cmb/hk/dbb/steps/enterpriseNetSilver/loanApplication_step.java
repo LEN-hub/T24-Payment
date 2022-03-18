@@ -30,6 +30,21 @@ public class loanApplication_step extends ScenarioSteps {
         loanApplication_page.loanDisbursementBtn.click();
     }
 
+    public void clickLoanManagement(){
+        loanApplication_page.loan.click();
+        loanApplication_page.loanManagement.click();
+    }
+
+    public void clickPrepayBtn(String data){
+        getDriver().findElement(By.xpath("//div[@class='el-table__fixed-right']//div[@class='el-tooltip btn-icon']")).click();
+//        loanApplication_page.threePointSingapore.click();
+        loanApplication_page.ApplicationForPayment.click();
+        loanApplication_page.repaymentDate.sendKeys(data);
+        loanApplication_page.repayDate.click();
+        loanApplication_page.nextOnUpLoadFile.click();
+        loanApplication_page.nextOnUpLoadFile.click();
+    }
+
     public void clickApplicationForPayment(){
         bddUtil.sleep(2);
 //        loanApplication_page.threePoint.click();

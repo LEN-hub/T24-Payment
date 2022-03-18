@@ -34,7 +34,9 @@ public class rpa_steps extends ScenarioSteps {
     public void clickCompanyNameClickReset(){rpaPage.CompanyNameClickReset.click();}
 
     @Step
-    public void clickUpload(){rpaPage.upload.click();}
+    public void clickUpload(){
+        rpaPage.upload.click();
+    }
 
     @Step
     public void clickBrowse() {

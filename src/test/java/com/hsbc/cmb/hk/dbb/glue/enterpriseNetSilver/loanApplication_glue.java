@@ -176,4 +176,15 @@ public class loanApplication_glue {
     public void iChooseUSDollar() {
         loanApplication_step.selectUsDollar();
     }
+
+    @When("^I click the loan Manage ment Button$")
+    public void iClickTheLoanManageMentButton() {
+        loanApplication_step.clickLoanManagement();
+    }
+
+    @When("^I click Prepay button$")
+    public void iClickPrepayButton(DataTable data) {
+        List<Map<String, String>> maps = data.asMaps(String.class, String.class);
+        loanApplication_step.clickPrepayBtn(maps.get(0).get("data"));
+    }
 }
