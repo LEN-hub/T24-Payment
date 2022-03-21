@@ -217,7 +217,9 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickBuyer() {
+
         productPage.Buyer.click();
+        bddUtil.sleep(2);
     }
 
     @Step
@@ -413,7 +415,7 @@ public class product_step extends ScenarioSteps {
     @Step
     public void loginServiceAgreementWindow() {
         productPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
-        productPage.GLDBEmailPassword.sendKeys("Gl123456");
+        productPage.GLDBEmailPassword.sendKeys("Gl123456-");
         productPage.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         productPage.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
@@ -426,7 +428,7 @@ public class product_step extends ScenarioSteps {
         productPage.inputSendCode.sendKeys(Vcode);
         productPage.GLDBEmailLoginBtn.click();
         bddUtil.sleep(10);
-        assertEquals(" Post Acceptance ",productPage.find(By.xpath("//div[@class=‘list-left-bottom simple’]/p[4]/span")).getText());
+        assertEquals("Post Acceptance",productPage.find(By.xpath("//div[@class='list-left-bottom simple']/p[4]/span")).getText());
     }
 }
 
