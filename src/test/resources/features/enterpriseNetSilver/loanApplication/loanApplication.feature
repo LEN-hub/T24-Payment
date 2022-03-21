@@ -169,13 +169,24 @@ Feature: loan application
 Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: SGD, product term: 30 days), the repayment is successful
     Given logon "netSilverEnvLoan_Tian" on enterprise net silver
       When I click the loan Manage ment Button
-      When I click Prepay button
+      When I click SGD Prepay button
         |data|
         |2025-06-07|
       Then TC code is then required for Vkey authentication
       When I get the TC code and click Next
       When I typed TC Code and click Authenticate Now
 
+
+    @test8
+ Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: USD, product term: 30 days), the repayment is successful
+      Given logon "netSilverEnvLoan_Tian" on enterprise net silver
+      When I click the loan Manage ment Button
+      When I click USD Prepay button
+        |data|
+        |2025-06-07|
+      Then TC code is then required for Vkey authentication
+      When I get the TC code and click Next
+      When I typed TC Code and click Authenticate Now
 
 
 

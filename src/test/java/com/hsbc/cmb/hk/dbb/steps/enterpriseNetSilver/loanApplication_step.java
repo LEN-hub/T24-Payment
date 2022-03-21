@@ -35,15 +35,25 @@ public class loanApplication_step extends ScenarioSteps {
         loanApplication_page.loanManagement.click();
     }
 
-    public void clickPrepayBtn(String data){
-        getDriver().findElement(By.xpath("//div[@class='el-table__fixed-right']//div[@class='el-tooltip btn-icon']")).click();
+    public void clickSGDPrepayBtn(String data){
+        getDriver().findElement(By.xpath("//div[@class='el-table__fixed-right']//tr[1]//div[@class='el-tooltip btn-icon']")).click();
 //        loanApplication_page.threePointSingapore.click();
         loanApplication_page.ApplicationForPayment.click();
         loanApplication_page.repaymentDate.sendKeys(data);
         loanApplication_page.repayDate.click();
         loanApplication_page.nextOnUpLoadFile.click();
         loanApplication_page.nextOnUpLoadFile.click();
-    }
+    }//点击新币的按钮。
+
+    public void clickUSDPrepayBtn(String data){
+        getDriver().findElement(By.xpath("//div[@class='el-table__fixed-right']//tr[2]//div[@class='el-tooltip btn-icon']")).click();
+//        loanApplication_page.threePointSingapore.click();
+        loanApplication_page.ApplicationForPayment.click();
+        loanApplication_page.repaymentDate.sendKeys(data);
+        loanApplication_page.repayDate.click();
+        loanApplication_page.nextOnUpLoadFile.click();
+        loanApplication_page.nextOnUpLoadFile.click();
+    }//点击美元的按钮。
 
     public void clickApplicationForPayment(){
         bddUtil.sleep(2);

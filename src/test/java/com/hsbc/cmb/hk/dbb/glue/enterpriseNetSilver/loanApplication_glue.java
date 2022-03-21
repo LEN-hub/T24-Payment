@@ -182,9 +182,17 @@ public class loanApplication_glue {
         loanApplication_step.clickLoanManagement();
     }
 
-    @When("^I click Prepay button$")
-    public void iClickPrepayButton(DataTable data) {
+    @When("^I click SGD Prepay button$")
+    public void iClickSGDPrepayButton(DataTable data) {
         List<Map<String, String>> maps = data.asMaps(String.class, String.class);
-        loanApplication_step.clickPrepayBtn(maps.get(0).get("data"));
+        loanApplication_step.clickSGDPrepayBtn(maps.get(0).get("data"));
+    }
+
+
+    @When("^I click USD Prepay button$")
+    public void iClickUSDPrepayButton(DataTable data) {
+        List<Map<String, String>> maps = data.asMaps(String.class, String.class);
+        loanApplication_step.clickUSDPrepayBtn(maps.get(0).get("data"));
+
     }
 }
