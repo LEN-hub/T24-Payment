@@ -1,7 +1,4 @@
 package com.glbank.com.sg.bdd.glue.supplyChains.RPA;
-
-import com.hsbc.cmb.hk.dbb.steps.supplyChains.RPA.rpa_steps;
-import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
 import cucumber.api.DataTable;
 import com.glbank.com.sg.bdd.steps.supplyChains.RPA.rpa_steps;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
