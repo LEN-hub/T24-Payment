@@ -18,7 +18,7 @@ public class fixedDeposit_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"el-row\"]//div[2]//div")
     public WebElementFacade clickPlaceFixedDeposit;
 
-    @FindBy(xpath = "//*[@id=\"app\"]/div[2]/div[4]/div//div[1]/form/div[2]/div[2]/div[1]//div[1]/div/input")
+    @FindBy(xpath = "//label[@for='acctObj']/following-sibling::div//span[@class='el-input__suffix-inner']")
     public WebElementFacade clickFromAccount;
 
     @FindBy(xpath = "//form//div[2]/div/div/div[1]/input")

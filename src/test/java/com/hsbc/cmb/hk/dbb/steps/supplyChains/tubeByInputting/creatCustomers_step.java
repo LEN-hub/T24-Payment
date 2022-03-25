@@ -504,12 +504,12 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
-    public void enterTheAccountInformation(){
+    public void enterTheAccountInformation(String value){
         customers_page.accountCurrency.click();
-        bddUtil.scrollWindowToElement(customers_page.accountCurrencyCNY).click();
+        bddUtil.scrollWindowToElement(customers_page.find(By.xpath("//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='"+value+"']"))).click();
         customers_page.tellUsAboutAccoutPageTitle.click();
         customers_page.collectionAccountCurrency.click();
-        bddUtil.scrollWindowToElement(customers_page.collectionAccountCurrencyCNY).click();
+        bddUtil.scrollWindowToElement(customers_page.find(By.xpath("//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='"+value+"']"))).click();
         customers_page.tellUsAboutAccoutPageTitle.click();
 //        customers_page.SaveBtnIndustry.click();
         customers_page.nextBtnIndustry.click();

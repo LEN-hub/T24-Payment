@@ -266,8 +266,9 @@ public class creatCustomers_glue {
     }
 
     @When("^Enter the Account information$")
-    public void enterTheAccountInformation() {
-        customers_step.enterTheAccountInformation();
+    public void enterTheAccountInformation(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class,String.class);
+        customers_step.enterTheAccountInformation(payToInfo.get(0).get("currency"));
     }
 
     @Then("^Check whether the Questionnaire page is displayed$")

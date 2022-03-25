@@ -3,7 +3,7 @@ Feature: tube By Inputting
 
 
   Scenario:Create buyer's customer file selection: operator input, operator input buyer's basic information, no need to review, create buyer's customer successfully
-    Given logon "environments_1" on enterprise net silver
+    Given logon "environments_1" on tube by inputting system
     When open the email browser page
     And I switch to the SCF page
     When I click Customers and select Onboarding List
@@ -14,7 +14,7 @@ Feature: tube By Inputting
 
 
   Scenario:Create your own profile and send invitations
-    Given logon "environments_1" on enterprise net silver
+    Given logon "environments_1" on tube by inputting system
     When open the email browser page
     And I switch to the SCF page
     When I click Customers and select Onboarding List
@@ -24,7 +24,7 @@ Feature: tube By Inputting
     And I click the email icon to send the email
     And I received an email from Green Union Bank on the email page
     Then I check that the email has been sent successfully
-
+  @text12345
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
       Given logon "environments_1" on tube by inputting system
       When open the email browser page
@@ -64,6 +64,8 @@ Feature: tube By Inputting
       When Fill in the information on the Beneficial page
       Then Verify whether the Account page is displayed
       When Enter the Account information
+        |currency|
+        |SGD      |
       Then Check whether the Questionnaire page is displayed
       When Enter information on the Questionnaire page
         |currency         |num    |
