@@ -1,5 +1,5 @@
 package com.glbank.com.sg.bdd.glue.supplyChains.RPA;
-
+import cucumber.api.DataTable;
 import com.glbank.com.sg.bdd.steps.supplyChains.RPA.rpa_steps;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import cucumber.api.java.en.And;
@@ -8,6 +8,9 @@ import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
+
+import java.util.List;
+import java.util.Map;
 
 public class rpa_glue1 {
     @ManagedPages
@@ -33,9 +36,11 @@ public class rpa_glue1 {
     }
 
     @When("^Upload a file$")
-    public void uploadAFile() {
+    public void uploadAFile(DataTable data) {
         rpaStep.clickUpload();
-        rpaStep.clickBrowse();
+        List<Map<String, String>> maps = data.asMaps(String.class, String.class);
+        rpaStep.clickBrowse(maps.get(0).get("fileAddress"));
+//        rpaStep.clickBrowse();
         rpaStep.clickData();
         rpaStep.clickConfirms();
     }

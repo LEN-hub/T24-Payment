@@ -207,7 +207,7 @@ public class product_step extends ScenarioSteps {
     public void SupplierKey() {
         List<WebElementFacade> textValue = productPage.supplierSelectList;
         for (int i = 0; i < textValue.size(); i++) {
-            if (FileUtils.LastReadFileInput3("test").equals(textValue.get(i).getText())) {
+            if (FileUtils.LastReadFileInput3("companyData").equals(textValue.get(i).getText())) {
                 bddUtil.scrollWindowToElement(textValue.get(i)).click();
                 break;
             }
@@ -217,7 +217,6 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickBuyer() {
-
         productPage.Buyer.click();
         bddUtil.sleep(2);
     }
@@ -226,7 +225,7 @@ public class product_step extends ScenarioSteps {
     public void clickBuyerKey() {
         List<WebElementFacade> textValue = productPage.BuyerSelectList;
         for (int i = 0; i < textValue.size(); i++) {
-            if (FileUtils.LastReadFileInput3("testBuyer").equals(textValue.get(i).getText())) {
+            if (FileUtils.LastReadFileInput3("buyer").equals(textValue.get(i).getText())) {
                 bddUtil.scrollWindowToElement(textValue.get(i)).click();
                 break;
             }
@@ -354,6 +353,7 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickFunderOneGLB() {
+        bddUtil.sleep(1);
         productPage.FunDeronGLB.click();
     }
 
@@ -415,7 +415,7 @@ public class product_step extends ScenarioSteps {
     @Step
     public void loginServiceAgreementWindow() {
         productPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
-        productPage.GLDBEmailPassword.sendKeys("Gl123456-");
+        productPage.GLDBEmailPassword.sendKeys("Gl123456.");
         productPage.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         productPage.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
@@ -428,7 +428,7 @@ public class product_step extends ScenarioSteps {
         productPage.inputSendCode.sendKeys(Vcode);
         productPage.GLDBEmailLoginBtn.click();
         bddUtil.sleep(10);
-        assertEquals("Post Acceptance",productPage.find(By.xpath("//div[@class='list-left-bottom simple']/p[4]/span")).getText());
+        assertEquals("Post Acceptance",productPage.find(By.xpath("//div[@class='list-left-bottom simple']//span[text()=' Post Acceptance ']")).getText());
     }
 }
 

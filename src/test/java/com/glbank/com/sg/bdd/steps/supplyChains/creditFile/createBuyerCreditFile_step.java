@@ -15,6 +15,7 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
 
     private createBuyerCreditFile_page createBuyerCreditFile_page;
     private BDDUtil bddUtil;
+    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
 
     @Step
     public void clickBuyerCreditProfileList(){
@@ -61,8 +62,9 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         createBuyerCreditFile_page.getDRSKRating.sendKeys("100000");
 //        createBuyerCreditFile_page.upScreenshotOfDRSKRating.click();
         bddUtil.sleep(2);
-        bddUtil.fileUpload();
-        bddUtil.sleep(5);
+//        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//label[@for='A0022']/following-sibling::div//input")).sendKeys(fileAddress);
+        bddUtil.sleep(3);
         bddUtil.scrollWindowToElement(getDriver().findElement(By.xpath("//label[@for='bloombergDrskRatings']")));
         createBuyerCreditFile_page.getToReportingCurrency.click();
         bddUtil.scrollWindowToElement(createBuyerCreditFile_page.getReportingCurrency);
@@ -81,14 +83,16 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         createBuyerCreditFile_page.getCashAndCashEquivalents.sendKeys("10000");
         createBuyerCreditFile_page.getBookValueOfEquity.clear();
         createBuyerCreditFile_page.getBookValueOfEquity.sendKeys("10000");
-        bddUtil.scrollWindowToElement(createBuyerCreditFile_page.upFinancialInformationInLastYear);
-        createBuyerCreditFile_page.upFinancialInformationInLastYear.click();
+//        bddUtil.scrollWindowToElement(createBuyerCreditFile_page.getToReportingCurrency);
+//        createBuyerCreditFile_page.upFinancialInformationInLastYear.click();
         bddUtil.sleep(2);
-        bddUtil.fileUpload();
-        bddUtil.sleep(5);
-        createBuyerCreditFile_page.upOtherFiles.click();
+//        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//label[@for='A0020']/following-sibling::div//input")).sendKeys(fileAddress);
+//        bddUtil.sleep(5);
+//        createBuyerCreditFile_page.upOtherFiles.click();
         bddUtil.sleep(2);
-        bddUtil.fileUpload();
+//        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//label[@for='B0030']/following-sibling::div//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
         createBuyerCreditFile_page.clickSaveBuyerCreditProfile.click();
     }
