@@ -28,7 +28,7 @@ public class rpa_steps extends ScenarioSteps {
     public void clickContractManagement(){rpaPage.ContractManagement.click();}
 
     @Step
-    public void clickCompanyName(){rpaPage.CompanyName.sendKeys(FileUtils.LastReadFileInput3("test"));}
+    public void clickCompanyName(){rpaPage.CompanyName.sendKeys(FileUtils.LastReadFileInput3("companyData"));}
 
     @Step
     public void clickCompanyNameClickReset(){rpaPage.CompanyNameClickReset.click();}
@@ -39,17 +39,17 @@ public class rpa_steps extends ScenarioSteps {
     }
 
     @Step
-    public void clickBrowse() {
-        rpaPage.browse.click();
+    public void clickBrowse(String fileAddress) {
+//        rpaPage.browse.click();
         bddUtil.sleep(2);
-        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//div[@class='upload-widget']//input")).sendKeys(fileAddress);
+//        bddUtil.fileUpload();
         bddUtil.sleep(5);
     }
 
     @Step
     public void clickData(){
         rpaPage.sendData.sendKeys("2024-05-06");
-
         }
 
     @Step
@@ -74,7 +74,7 @@ public class rpa_steps extends ScenarioSteps {
     @Step
     public void loginServiceAgreementWindow() {
         rpaPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
-        rpaPage.GLDBEmailPassword.sendKeys("Gl123456");
+        rpaPage.GLDBEmailPassword.sendKeys("Gl123456.");
         rpaPage.enterCompanyId.sendKeys("1234");
         rpaPage.sendCodeBtn.click();
         bddUtil.switchToNewWindow();

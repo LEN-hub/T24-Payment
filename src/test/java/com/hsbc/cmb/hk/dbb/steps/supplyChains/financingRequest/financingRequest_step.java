@@ -6,8 +6,10 @@ import com.hsbc.cmb.hk.dbb.utils.CommonUtil;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
+import javax.swing.*;
 import java.util.List;
 
 public class financingRequest_step extends ScenarioSteps {
@@ -32,15 +34,16 @@ public class financingRequest_step extends ScenarioSteps {
     }
     public void uploadRequestFinancing(){
         financingRequest_page.clickUpload.click();
-        financingRequest_page.clickOfUploadFile.click();
-        bddUtil.sleep(2);
-        bddUtil.requestFinancingFileUpload();
+        getDriver().findElement(By.xpath("//div[@class='upload-widget']//input")).sendKeys("C:\\Users\\ASUS\\Desktop\\testAuto.xlsx");
         bddUtil.sleep(5);
         financingRequest_page.clickConfirmOfUpload.click();
         bddUtil.sleep(3);
-        financingRequest_page.clickAllRequest.click();
+        getDriver().findElement(By.xpath("//div[@class='lowcode-table-base']//tbody/tr//div[@class='lls-cb-indot lls-cb-indot-act2']")).click();
+//        financingRequest_page.clickAllRequest.click();
         financingRequest_page.clickApplyInBatch.click();
         bddUtil.sleep(2);
+        financingRequest_page.SubmitBtn.click();
+        bddUtil.sleep(3);
     }
     public void clickOperationsToL1Review(String companyName){
         financingRequest_page.clickOperations.click();
@@ -48,9 +51,12 @@ public class financingRequest_step extends ScenarioSteps {
         List<WebElementFacade> requestName = financingRequest_page.requesterName;
         List<WebElementFacade> requestFinancingAssignToMe = financingRequest_page.requestFinancingAssignToMe;
         for(int i = 0;i< requestName.size();i++){
-            if(companyName.equals(requestName.get(i).getText())){
-                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-                webdriver.executeScript("arguments[0].click();", requestFinancingAssignToMe.get(i));
+            if(requestName.get(i).equals(companyName)){
+//                bddUtil.scrollWindowToElement(requestName.get(i));
+////                requestFinancingAssignToMe.get(i).click();
+//                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+//                webdriver.executeScript("arguments[0].scrollIntoView();", requestFinancingAssignToMe.get(i));
+                requestFinancingAssignToMe.get(i).click();
                 break;
             }
         }

@@ -207,7 +207,7 @@ public class product_step extends ScenarioSteps {
     public void SupplierKey() {
         List<WebElementFacade> textValue = productPage.supplierSelectList;
         for (int i = 0; i < textValue.size(); i++) {
-            if (FileUtils.LastReadFileInput3("test").equals(textValue.get(i).getText())) {
+            if (FileUtils.LastReadFileInput3("companyData").equals(textValue.get(i).getText())) {
                 bddUtil.scrollWindowToElement(textValue.get(i)).click();
                 break;
             }
@@ -218,14 +218,14 @@ public class product_step extends ScenarioSteps {
     @Step
     public void clickBuyer() {
         productPage.Buyer.click();
+        bddUtil.sleep(2);
     }
 
     @Step
     public void clickBuyerKey() {
         List<WebElementFacade> textValue = productPage.BuyerSelectList;
-        String testBuyer = FileUtils.LastReadFileInput3("testBuyer");
         for (int i = 0; i < textValue.size(); i++) {
-            if (textValue.get(i).getText().equals(testBuyer)) {
+            if (FileUtils.LastReadFileInput3("buyer").equals(textValue.get(i).getText())) {
                 bddUtil.scrollWindowToElement(textValue.get(i)).click();
                 break;
             }

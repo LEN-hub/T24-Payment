@@ -25,6 +25,9 @@ public class rpa_page extends PageObject {
     @FindBy(xpath = "//i[@class='lls-icon-upload']")
     public WebElementFacade browse;
 
+    @FindBy(xpath = "//div[@class='upload-widget']//input")
+    public WebElementFacade inputBtn;
+
     //上传图片
 
     @FindBy(xpath = "//div[@class='lls-date-editor lls-input lls-input--suffix lls-date-editor--date']/input")

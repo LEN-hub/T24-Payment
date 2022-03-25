@@ -175,7 +175,7 @@ Scenario:For accounts receivable financing products, the repayment date is 5 day
       Then TC code is then required for Vkey authentication
       When I get the TC code and click Next
       When I typed TC Code and click Authenticate Now
-
+      Then I should see Submitted successfully page
 
     @test8
  Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: USD, product term: 30 days), the repayment is successful
@@ -187,7 +187,7 @@ Scenario:For accounts receivable financing products, the repayment date is 5 day
       Then TC code is then required for Vkey authentication
       When I get the TC code and click Next
       When I typed TC Code and click Authenticate Now
-
+      Then I should see Submitted successfully page
 
 
 

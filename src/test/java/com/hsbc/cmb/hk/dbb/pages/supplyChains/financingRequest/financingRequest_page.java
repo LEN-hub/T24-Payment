@@ -32,10 +32,10 @@ public class financingRequest_page extends PageObject {
     @FindBy(xpath = "//div[@data-key=\"f13i7oou\"]//span[text()=\"Browse\"]")
     public WebElementFacade clickOfUploadFile;
 
-    @FindBy(xpath = "//div[@data-key=\"f2v8ji72\"]//span")
+    @FindBy(xpath = "//div[@data-key=\"f3oqrhlu\"]//span")
     public WebElementFacade clickConfirmOfUpload;
 
-    @FindBy(xpath = "//div[@class=\"lls-cb-slotbox\"]//div[@class=\"lls-cb-indot lls-cb-indot-act\"]")
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr//div[@class='lls-cb-indot lls-cb-indot-act2']")
     public WebElementFacade clickAllRequest;
 
     @FindBy(xpath = "//div[@data-key=\"f1lrg6e0\"]//span")
@@ -50,7 +50,7 @@ public class financingRequest_page extends PageObject {
     @FindBy(xpath = "//td[@class=\"lls-table_9_column_27 is-left  \"]//div[@class=\"cell lls-tooltip\"]//span")
     public List<WebElementFacade> requesterName;
 
-    @FindBy(xpath = "//td[@class=\"lls-table_9_column_38 is-left   is-hidden\"]//span[text()=\"Assign to Me \"]")
+    @FindBy(xpath = "//div[@class='finance']//div[@class='lls-tabs__content'][1]//div[@class='lls-tab-pane'][1]//section[@class='query-table'][1]/div[1]/div[3]//span[contains(text(),'Assign to Me')]")
     public List<WebElementFacade> requestFinancingAssignToMe;
 
     @FindBy(xpath = "//div[text()=\"Assigned to Me\"]")
@@ -73,6 +73,9 @@ public class financingRequest_page extends PageObject {
 
     @FindBy(xpath = "//span[text()=\"Submit \"]")
     public WebElementFacade clickSubmit;
+
+    @FindBy(xpath = "//div[@class='lls-message-box__btns']//button[2]/span")
+    public WebElementFacade SubmitBtn;
 
     @FindBy(xpath = "//span[text()=\"Financing Status\"]")
     public WebElementFacade clickFinancingStatus;
