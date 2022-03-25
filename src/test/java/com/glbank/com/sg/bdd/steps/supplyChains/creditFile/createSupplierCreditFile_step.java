@@ -14,6 +14,7 @@ public class createSupplierCreditFile_step extends PageObject {
 
     private createSupplierCreditFile_page createSupplierCreditFile_page;
     private BDDUtil bddUtil;
+    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
 
     @Step
     public void clickSupplierCreditProfileList(){
@@ -74,9 +75,10 @@ public class createSupplierCreditFile_step extends PageObject {
 //        createSupplierCreditFile_page.clickLastFiscalYear.click();
         createSupplierCreditFile_page.getBuyerCOGS.clear();
         createSupplierCreditFile_page.getBuyerCOGS.sendKeys("0");
-        createSupplierCreditFile_page.upFileScreenshotOfDRSKRating.click();
+//        createSupplierCreditFile_page.upFileScreenshotOfDRSKRating.click();
         bddUtil.sleep(2);
-        bddUtil.fileUpload();
+//        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//label[@for='A0022']/following-sibling::div//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
         createSupplierCreditFile_page.clickFinancialInformation.click();
         bddUtil.sleep(1);
@@ -104,23 +106,27 @@ public class createSupplierCreditFile_step extends PageObject {
         createSupplierCreditFile_page.getCashAndCashEquivalents.sendKeys("0");
         createSupplierCreditFile_page.getBookValueOfEquity.clear();
         createSupplierCreditFile_page.getBookValueOfEquity.sendKeys("0");
-        createSupplierCreditFile_page.upFinancialInformationInLastYear.click();
+//        createSupplierCreditFile_page.upFinancialInformationInLastYear.click();
         bddUtil.sleep(2);
-        bddUtil.fileUpload();
+//        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//label[@for='A0020']/following-sibling::div//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.findFinancialInformation);
+        bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getOperatingCashFlow);
         createSupplierCreditFile_page.clickInYearBeforeLastReportingCurrency.click();
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getInYearBeforeLastReportingCurrency).click();
         createSupplierCreditFile_page.getInYearBeforeLastNetProfit.clear();
         createSupplierCreditFile_page.getInYearBeforeLastNetProfit.sendKeys("0");
         createSupplierCreditFile_page.clickOtherDocuments.click();
-        createSupplierCreditFile_page.upFileFinancialInformationInYearBeforeLast.click();
+//        createSupplierCreditFile_page.upFileFinancialInformationInYearBeforeLast.click();
         bddUtil.sleep(2);
-        bddUtil.fileUpload();
-        bddUtil.sleep(5);
-        createSupplierCreditFile_page.upFileOtherFiles.click();
+//        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//label[@for='A0021']/following-sibling::div//input")).sendKeys(fileAddress);
+//        bddUtil.sleep(5);
+//        createSupplierCreditFile_page.upFileOtherFiles.click();
         bddUtil.sleep(2);
-        bddUtil.fileUpload();
+//        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//label[@for='A0030']/following-sibling::div//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
         createSupplierCreditFile_page.clickSave.click();
         bddUtil.sleep(2);
@@ -175,7 +181,8 @@ public class createSupplierCreditFile_step extends PageObject {
     @Step
     public void clickSubmit(){
         createSupplierCreditFile_page.clickResult.click();
-        bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getApprove).click();
+        createSupplierCreditFile_page.getApprove.click();
+//        bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getApprove).click();
         createSupplierCreditFile_page.getComments.sendKeys("PASS");
         createSupplierCreditFile_page.clickSubmit.click();
         bddUtil.sleep(2);

@@ -131,7 +131,7 @@ public class product_page extends PageObject {
     public WebElementFacade Buyer;
 
 
-    @FindBy(xpath = " //div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")     //所选的值与供应商对应,所以不能用固定值
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")     //所选的值与供应商对应,所以不能用固定值
     public List<WebElementFacade> BuyerSelectList;    //买方选择列表
 
     @FindBy(xpath = "//label[contains(text(),'Currency')]/following-sibling::div//input/following-sibling::span")
@@ -202,7 +202,7 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f2khb5s7']//span/span")
     public WebElementFacade FunderOe;
 
-    @FindBy(xpath = "//div[@x-placement='bottom-start']//span")
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")
     public WebElementFacade FunDeronGLB;
 
     @FindBy(xpath = "//div[@data-key='f2msdh8u']//input")

@@ -24,6 +24,9 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//div[@class='lowcode-table-fixed-right table-shadow']//div[@class='lls-design-table-btn-wrapper']/span")
     public List<WebElementFacade> assignToMeBtn;
 
+    @FindBy(xpath = "//div[@class='lls-design-table-btn-wrapper']//button")
+    public List<WebElementFacade> assignBtn;
+
     @FindBy(xpath = "//tr/td[@class='lls-design-cloumn'][@data-key='f3o19io2']")
     public List<WebElementFacade> role;
 

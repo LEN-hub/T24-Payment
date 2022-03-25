@@ -15,8 +15,8 @@ public class financingRequest_glue {
     private BDDUtil bddUtil;
 
     public static String envTag;
-    public static String email = "7SA7B1ok@MailTemp.top",password = "Gl123456-",code = "1234",companyId = "1";
-    public static String companyName = "23J1";
+    public static String email = "vG7E00n7@MailTemp.top",password = "Gl123456.",code = "1234",companyId = "1";
+    public static String companyName = "x7zk";
 
     @Given("^login \"([^\"]*)\" To RequestFinancing$")
     public void loginGLDBToRequestFinancing(String envName){

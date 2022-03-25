@@ -146,7 +146,7 @@ public class creditLimit_step extends ScenarioSteps {
     @Step
     public void clickSupplierTestDataAssignBtn(){
         List<WebElementFacade> data = creditLimit_page.applicant;
-        List<WebElementFacade> assignBtn = creditLimit_page.assignToMeBtn;
+        List<WebElementFacade> assignBtn = creditLimit_page.assignBtn;
         for (int i = 0; i < data.size(); i++) {
             if (FileUtils.LastReadFileInput3("companyData").equals(data.get(i).getText())){
                 bddUtil.scrollWindowToElement(data.get(i)).click();
