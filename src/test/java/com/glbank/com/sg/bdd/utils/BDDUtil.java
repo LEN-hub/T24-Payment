@@ -533,6 +533,11 @@ public class BDDUtil extends PageObject {
         evaluateJavascript("arguments[0].click()", element);
     }
 
+    public static Object executeJS(String code, WebDriver driver) {
+         JavascriptExecutor executor = (JavascriptExecutor) driver;
+         return executor.executeScript(code);
+    }
+
     public void selectSufile() {
         selectProfile(suprofile);
         skipQuickTour();

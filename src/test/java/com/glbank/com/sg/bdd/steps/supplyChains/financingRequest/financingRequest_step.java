@@ -8,9 +8,12 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 
 import javax.swing.*;
 import java.util.List;
+
+import static com.glbank.com.sg.bdd.utils.MobileConfig.driver;
 
 public class financingRequest_step extends ScenarioSteps {
 
@@ -51,12 +54,8 @@ public class financingRequest_step extends ScenarioSteps {
         List<WebElementFacade> requestName = financingRequest_page.requesterName;
         List<WebElementFacade> requestFinancingAssignToMe = financingRequest_page.requestFinancingAssignToMe;
         for(int i = 0;i< requestName.size();i++){
-            if(requestName.get(i).equals(companyName)){
-//                bddUtil.scrollWindowToElement(requestName.get(i));
-////                requestFinancingAssignToMe.get(i).click();
-//                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-//                webdriver.executeScript("arguments[0].scrollIntoView();", requestFinancingAssignToMe.get(i));
-                requestFinancingAssignToMe.get(i).click();
+            if(requestName.get(i).getText().equals(companyName)){
+                bddUtil.clickByJS(financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content'][1]//div[@class='lls-tab-pane'][1]//section[@class='query-table'][1]/div[1]/div[3]//tr["+i+"]//span[contains(text(),'Assign to Me')]")));
                 break;
             }
         }
