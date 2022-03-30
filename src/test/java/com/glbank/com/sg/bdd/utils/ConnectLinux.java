@@ -53,7 +53,7 @@ public class ConnectLinux {
     }
 
     public static String getLastOtp(String svccd){
-        execCommand("cd /home/csii/logs/server;grep 'SvcCd=" + svccd + ", reciprocalAcctNo=' common-default.log | tail -1");
+        execCommand("cd /home/csii/logs/server;grep 'SvcCd=" + svccd + ", otp=' common-default.log | tail -1");
         InputStream in = null;
         String otp = null;
         try {
@@ -62,12 +62,15 @@ public class ConnectLinux {
             if(StringUtils.isBlank(data)){
                 throw new RuntimeException("无符合数据");
             }
-            int start = data.lastIndexOf("reciprocalAcctNo=") + 17;
+            int start = data.lastIndexOf("otp=") + 4;
             int end = start + 6;
             otp = data.substring(start, end);
         } catch (IOException e) {
             e.printStackTrace();
         }
+//        finally {//项目运行期间注释掉
+//            releaseConnect();
+//        }
         return otp;
     }
     /**
@@ -76,7 +79,7 @@ public class ConnectLinux {
      * @param args
      */
     public static void main(String[] args){
-        System.out.println(getLastOtp("30130002"));
+        System.out.println(getLastOtp("60120003"));
     }
 
     public static void releaseConnect(){
