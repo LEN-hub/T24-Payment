@@ -329,4 +329,10 @@ public class openAccount_glue {
     public void getOrganisationID(){
         openAccount_step.getOrganisationID(emailName,applicantName);
     }
+
+    //涉及到web页面弹窗案例运行结束时进行资源释放
+    @When("^The program is finished I will release the Linux SSH connection$")
+    public void theProgramIsFinishedIWillReleaseTheLinuxSSHConnection() {
+        ConnectLinux.releaseConnect();
+    }
 }

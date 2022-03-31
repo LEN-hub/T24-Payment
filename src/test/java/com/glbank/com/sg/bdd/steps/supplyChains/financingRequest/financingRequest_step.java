@@ -8,9 +8,12 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 
 import javax.swing.*;
 import java.util.List;
+
+import static com.glbank.com.sg.bdd.utils.MobileConfig.driver;
 
 public class financingRequest_step extends ScenarioSteps {
 
