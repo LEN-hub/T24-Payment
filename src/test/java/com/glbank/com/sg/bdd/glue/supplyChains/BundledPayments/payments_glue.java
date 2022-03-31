@@ -129,6 +129,6 @@ public class payments_glue {
 
     @And("^I enter other parameters in the current page$")
     public void iEnterOtherParametersInTheCurrentPage() {
-
+        paymentsStep.inputOtherParameter();
     }
 }

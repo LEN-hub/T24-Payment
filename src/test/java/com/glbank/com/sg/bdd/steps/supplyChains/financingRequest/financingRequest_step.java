@@ -49,24 +49,19 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.clickOperations.click();
         financingRequest_page.clickFrReview.click();
         List<WebElementFacade> requestName = financingRequest_page.requesterName;
-        List<WebElementFacade> requestFinancingAssignToMe = financingRequest_page.requestFinancingAssignToMe;
         for(int i = 0;i< requestName.size();i++){
-            if(requestName.get(i).equals(companyName)){
-//                bddUtil.scrollWindowToElement(requestName.get(i));
-////                requestFinancingAssignToMe.get(i).click();
-//                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-//                webdriver.executeScript("arguments[0].scrollIntoView();", requestFinancingAssignToMe.get(i));
-                requestFinancingAssignToMe.get(i).click();
+            if(requestName.get(i).getText().equals(companyName)){
+                int j = i + 1;
+                bddUtil.clickByJS(financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content'][1]//div[@class='lls-tab-pane'][1]//section[@class='query-table'][1]/div[1]/div[3]//tr["+j+"]//span[contains(text(),'Assign to Me')]")));
                 break;
             }
         }
         financingRequest_page.clickAssignedToMe.click();
         List<WebElementFacade> getRequesterName = financingRequest_page.getRequesterName;
-        List<WebElementFacade> getProceed = financingRequest_page.getProceed;
         for(int i = 0;i< getRequesterName.size();i++){
             if(companyName.equals(getRequesterName.get(i).getText())){
-                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-                webdriver.executeScript("arguments[0].click();", getProceed.get(i));
+                int j = i + 1;
+                bddUtil.clickByJS(financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content'][1]//div[@class='lls-tab-pane'][2]//section[@class='query-table'][1]/div[1]/div[3]//tr["+j+"]//span[contains(text(),'Proceed')]")));
                 break;
             }
         }
@@ -74,7 +69,7 @@ public class financingRequest_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(financingRequest_page.getApprove).click();
         financingRequest_page.getComments.sendKeys("PASS");
         financingRequest_page.clickSubmit.click();
-
+        bddUtil.sleep(3);
     }
 
     public void clickFinancingStatus(){

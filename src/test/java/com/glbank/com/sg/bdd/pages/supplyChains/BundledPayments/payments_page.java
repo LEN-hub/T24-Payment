@@ -23,6 +23,9 @@ public class payments_page extends PageObject{
    @FindBy(xpath ="//div[@data-key='f2a0g0cb']//input")
    public WebElementFacade RequesterOne;   //通过供应商筛选值放款的用户
 
+   @FindBy(xpath = "//div[@data-key='f0en9ob2']//input")
+   public WebElementFacade requestTian;
+
     @FindBy(xpath ="//label[text()='Requester']")  //刷新
     public WebElementFacade Reset;
 
@@ -106,7 +109,7 @@ public class payments_page extends PageObject{
     @FindBy(xpath = "//td[@data-key='f0po7dup']")
     public List<WebElementFacade> requesterList;
 
-    @FindBy(xpath = "//div[@class='lowcode-table-fixed-right']//span[@data-key='f2uklkic']//span")
+    @FindBy(xpath = "//span[@data-key='f2uklkic']/button/span")
     public List<WebElementFacade> assignToMeList;
 
     @FindBy(xpath = "//td[@data-key='f07v6rpo']")
@@ -124,7 +127,7 @@ public class payments_page extends PageObject{
     @FindBy(xpath = "//div[@class='lls-form-item is-required']//div[@class='lls-select-dropdown lls-popper is-pasted']/div[@class='lls-scrollbar']")
     public WebElementFacade accountLabel;
 
-    @FindBy(xpath = "//div[@class='lls-form-item is-success is-required']/label[@for='actualRepayAmount']//following-sibling::div")
+    @FindBy(xpath = "//label[@for='actualRepayAmount']//following-sibling::div//input")
     public WebElementFacade repaymentAmount;
 
     @FindBy(xpath = "//div[@class='lls-form-item is-success is-required']/label[@for='receiveFee']//following-sibling::div")
