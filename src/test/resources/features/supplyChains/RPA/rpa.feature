@@ -1,6 +1,6 @@
 @rpaUpload
 Feature:Bundled RPA test case
-#此脚本需要用到test/emailData.txt
+#此脚本需要用到test/emailData.txt，邮箱密码需要注意更新
   Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_ 0001
     Given logon "environments_001" on tube by inputting system
     When I click on the first Customers

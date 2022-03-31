@@ -368,7 +368,6 @@ public class paymentService_step extends ScenarioSteps {
                     bears.get(i).click();
 //              } else {
 //                    expenseEnglish.equals(bearBth.get(i).getText());
-//                    expenseEnglish.equals(bearBth.get(i).getText());
 //                    bearBth.get(i).click();
                     break;
                 }

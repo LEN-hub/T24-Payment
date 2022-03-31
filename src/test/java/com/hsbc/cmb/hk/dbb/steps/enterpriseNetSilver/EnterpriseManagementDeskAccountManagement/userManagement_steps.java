@@ -47,7 +47,7 @@ public class userManagement_steps extends ScenarioSteps {
         a:for (int x = 0; x < sumNum.size(); x++){
             sumNum.get(sumNum.size()-1).click();
             for (int i = 0; i < checkEmail.size(); i++) {
-                if (checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("emailData"))) {
+                if (checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("emailSun"))) {
                     Actions action = new Actions(getDriver());
                     System.out.println(checkEmail.size());
                     int t = i+1;
@@ -194,7 +194,7 @@ public class userManagement_steps extends ScenarioSteps {
     }
 
     public void clickValidationCode() {
-        bddUtil.sleep(1);
+        bddUtil.sleep(2);
         getDriver().switchTo().alert().getText();
         bddUtil.sleep(2);
         verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);

@@ -1,7 +1,7 @@
 @productSettings
 Feature: Product Settings test case
   @ProductSet
-#    产品设置，注意，三个脚本需要用到test/testBuyer/emailData.txt ，因为三个需要关联，执行第三个即可
+#    产品设置，注意，三个脚本需要用到test/testBuyer/emailData.txt ，邮箱密码需要更新，因为三个需要关联，执行第三个即可
   Scenario:UAT_ Supply chain_ Inner tube_ Create product_ 0001
     Given logon "environments_001" on tube by inputting system
     When I click product
@@ -26,6 +26,8 @@ Feature: Product Settings test case
     When I click on Quote List
     And  click Create Quote
     When enter the second case information supplier with buyer
+      |selectCurr|
+      |USD       |
     Then I click Submit to submit a new product
 
 
@@ -43,6 +45,8 @@ Feature: Product Settings test case
     When I click on Quote List
     And  click Create Quote
     When enter the second case information supplier with buyer
+      |selectCurr|
+      |USD       |
     Then I click Submit to submit a new product
     When I click product
     When I click ProductProfile

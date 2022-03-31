@@ -30,12 +30,8 @@ public class rpa_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-date-editor lls-input lls-input--suffix lls-date-editor--date']/input")
     public WebElementFacade sendData;
 
-
-
-
     @FindBy(xpath = "//div[@data-key='f3jt43aq']//span")
     public WebElementFacade confirms;
-
 
     @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")
     public WebElementFacade clickRefreshBtn;

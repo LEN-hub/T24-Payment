@@ -60,11 +60,15 @@ public class payments_steps extends ScenarioSteps {
         CommonUtil.waiting(3000);}
 
     @Step
-    public void clickProceed() {paymentsPage.Proceed.click();}
+    public void clickProceed() {
+        paymentsPage.Proceed.click();
+        CommonUtil.waiting(4000);
+    }
 
     @Step
     public void clickRemittanceFeePaidBy() {
         paymentsPage.remittanceFeePaidby.click();
+        CommonUtil.waiting(3000);
         paymentsPage.SHA.click();
         CommonUtil.waiting(4000);}
 
@@ -110,7 +114,9 @@ public class payments_steps extends ScenarioSteps {
     @Step
     public void Requester5(){
         paymentsPage.Requester5.sendKeys(FileUtils.LastReadFileInput3("test"));
-        paymentsPage.Reset.click();}
+        paymentsPage.Reset.click();
+        CommonUtil.waiting(3000);
+    }
 
     @Step
     public void clickAPPROVE(){paymentsPage.APPROVE.click();}
@@ -127,11 +133,13 @@ public class payments_steps extends ScenarioSteps {
 
     @Step
     public void verifySuccess(){
-        paymentsPage.completed.click();
         paymentsPage.Requester4.sendKeys(FileUtils.LastReadFileInput3("test"));
         paymentsPage.Reset.click();
+        CommonUtil.waiting(3000);
+        assertEquals("   No Data", paymentsPage.find(By.xpath("//div[@class='tableNorecord']")).getText());
 
-    }
+
+}
     @Step
     public void clickBatchRepaymentBtn(){
         paymentsPage.batchRepaymentBtn.click();}

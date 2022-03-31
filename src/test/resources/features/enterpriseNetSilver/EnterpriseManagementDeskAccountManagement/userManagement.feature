@@ -1,7 +1,7 @@
 @userManagement
 Feature: userManagements
 
-  @ChangingMobilePhoneNumber
+#  @ChangingMobilePhoneNumber
 #    修改手机号
   Scenario:Process for modifying user information
     Given logon "netSilverEnv_sun" on enterprise net silver
@@ -11,7 +11,7 @@ Feature: userManagements
     When I initiate captcha verification
 
 
-  @newUsers
+#  @newUsers
 #    新增用户
   Scenario:Add the user operation flow
     Given logon "netSilverEnv_sun" on enterprise net silver
@@ -22,7 +22,6 @@ Feature: userManagements
     Then I click Next
     When I initiate captcha verification
     Then I  Verify success
-
 
 
   @stopUser
@@ -38,7 +37,7 @@ Feature: userManagements
 
 
 
-   @startUser
+#   @startUser
 #    启动用户
   Scenario:Start the user operation flow
     Given logon "netSilverEnv_sun" on enterprise net silver
@@ -49,7 +48,7 @@ Feature: userManagements
     Then End the deals
 
 
-  @UserCancellation
+#  @UserCancellation
 #    用户注销
   Scenario:Process for querying the New users
     Given logon "netSilverEnv_sun" on enterprise net silver

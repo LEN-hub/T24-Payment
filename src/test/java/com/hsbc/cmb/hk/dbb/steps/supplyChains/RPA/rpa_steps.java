@@ -72,7 +72,7 @@ public class rpa_steps extends ScenarioSteps {
     @Step
     public void loginServiceAgreementWindow() {
         rpaPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
-        rpaPage.GLDBEmailPassword.sendKeys("Gl123456");
+        rpaPage.GLDBEmailPassword.sendKeys("Gl123456--");
         rpaPage.enterCompanyId.sendKeys("1234");
         rpaPage.sendCodeBtn.click();
         bddUtil.switchToNewWindow();

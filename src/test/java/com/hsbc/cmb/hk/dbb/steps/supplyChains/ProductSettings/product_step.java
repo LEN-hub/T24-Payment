@@ -217,9 +217,8 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickBuyer() {
-
         productPage.Buyer.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
     }
 
     @Step
@@ -237,16 +236,25 @@ public class product_step extends ScenarioSteps {
     @Step
     public void clickCurrency() {
         productPage.Currency.click();
+        CommonUtil.waiting(3000);
     }
 
     @Step
-    public void clickSGD() {
-        productPage.SGD.click();
+    public void clickCurrency(String selectCurr) {
+        List<WebElementFacade> usd = productPage.selectCurr;
+        for (int i = 0; i < usd.size(); i++) {
+            if (selectCurr.equals(usd.get(i).getText())) {
+                usd.get(i).click();
+                break;
+            }
+        }
     }
+
 
     @Step
     public void clickQuotationMode() {
         productPage.QuotationMode.click();
+
     }
 
     @Step
@@ -415,7 +423,7 @@ public class product_step extends ScenarioSteps {
     @Step
     public void loginServiceAgreementWindow() {
         productPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
-        productPage.GLDBEmailPassword.sendKeys("Gl123456-");
+        productPage.GLDBEmailPassword.sendKeys("Gl123456.");
         productPage.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         productPage.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
