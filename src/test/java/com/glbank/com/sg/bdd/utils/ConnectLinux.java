@@ -18,10 +18,10 @@ public class ConnectLinux {
     private static JSch jSch;
     private static Session session;
 
-    private synchronized static void init(){
+    private static void init(){
         try {
             jSch = jSch == null ? new JSch() : jSch;
-            if(session == null){
+            if(session == null || !session.isConnected()){
                 session = jSch.getSession(username, ip, port);
                 session.setPassword(password);
                 session.setConfig(new Properties(){{
@@ -52,7 +52,7 @@ public class ConnectLinux {
         }
     }
 
-    public static String getLastOtp(String svccd){
+    public synchronized static String getLastOtp(String svccd){
         execCommand("cd /home/csii/logs/server;grep 'SvcCd=" + svccd + ", otp=' common-default.log | tail -1");
         InputStream in = null;
         String otp = null;
@@ -79,6 +79,7 @@ public class ConnectLinux {
      * @param args
      */
     public static void main(String[] args){
+
         System.out.println(getLastOtp("60120003"));
     }
 
