@@ -9,5 +9,5 @@ Feature: createSupplierCreditFile
     And to Supplier Credit Profile Review Page
     Then Supplier Credit Profile L1 Review
     And change user To L2 Review
-    Then login "environments_2" on tube by inputting system
+    Given login "environments_2" on tube by inputting system
     And use User L2 to Supplier Review

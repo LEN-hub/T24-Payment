@@ -95,6 +95,7 @@ Feature: loan application
     When I click next button on the upLoadFile page
 
 
+#    贷款支用。无授权
   @text4
   Scenario:Accounts Payable Financing Loan Draw Application Process
     Given logon "netSilverEnvLoan_Tian" on enterprise net silver
@@ -107,7 +108,7 @@ Feature: loan application
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Then I should see Submitted successfully page
+#    Then I should see Submitted successfully page
 
 
   @text5
@@ -123,3 +124,73 @@ Feature: loan application
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
     Then I should see Submitted successfully page
+
+#    单人授权。需要提前更改账号的授权模式。
+  @text6
+  Scenario:Accounts Payable Financing Loan Draw Application Process
+    Given logon "netSilverEnvLoan_Tian" on enterprise net silver
+    When I click on the Enterprise Administration Desk and select Account Management
+    When click authorization
+    When I choose single-player license management mode
+    And Confirm the authorization mode and submit it
+    When secondary authorized person notification is then displayed
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    Then I verify that the transaction is successful
+    When I should switch to the second authorized account
+    When logon second "netSilverEnvLoan_Tian2" on enterprise net silver
+    When I click My Tasks button on the logon page
+    Then I should direct to the Awaiting authorization page
+    When I click on the first piece of data to authorize
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    When I should switch to the second authorized account
+    When  logon second "netSilverEnvLoan_Tian" on enterprise net silver
+    When I click the loan draw button
+    When I choose to apply for disbursement of financing receivables
+    When I choose Singapore Dollar
+    When I have filled in the other information
+      |amount|dayNum|goodsDescr|fileAddress|
+      |100   |30    |testAnd12 |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    When I should switch to the second authorized account
+    Given logon second "netSilverEnvLoan_Tian2" on enterprise net silver
+    When I click My Tasks button on the logon page
+    Then I should direct to the Awaiting authorization page
+    When I click on the first piece of data to authorize
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+
+
+    @test7
+Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: SGD, product term: 30 days), the repayment is successful
+    Given logon "netSilverEnvLoan_Tian" on enterprise net silver
+      When I click the loan Manage ment Button
+      When I click SGD Prepay button
+        |data|
+        |2025-06-07|
+      Then TC code is then required for Vkey authentication
+      When I get the TC code and click Next
+      When I typed TC Code and click Authenticate Now
+      Then I should see Submitted successfully page
+
+    @test8
+ Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: USD, product term: 30 days), the repayment is successful
+      Given logon "netSilverEnvLoan_Tian" on enterprise net silver
+      When I click the loan Manage ment Button
+      When I click USD Prepay button
+        |data|
+        |2025-06-07|
+      Then TC code is then required for Vkey authentication
+      When I get the TC code and click Next
+      When I typed TC Code and click Authenticate Now
+      Then I should see Submitted successfully page
+
+
+
+
+
+

@@ -99,6 +99,26 @@
             <version>1.2.75</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/ch.ethz.ganymed/ganymed-ssh2 -->
+        <dependency>
+            <groupId>ch.ethz.ganymed</groupId>
+            <artifactId>ganymed-ssh2</artifactId>
+            <version>build210</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.55</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.krakens</groupId>
+            <artifactId>java-grok</artifactId>
+            <version>0.1.9</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-sql</artifactId>
@@ -112,7 +132,7 @@
             <scope>test</scope>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>com.hsbc.digital.testautomation</groupId>-->
+            <!--<groupId>com.glbank.digital.testautomation</groupId>-->
             <!--<artifactId>digmock</artifactId>-->
             <!--<version>1.1</version>-->
         <!--</dependency>-->
