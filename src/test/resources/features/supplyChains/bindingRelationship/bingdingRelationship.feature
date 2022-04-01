@@ -33,7 +33,7 @@ Scenario: The operator binds the supplier to a buyer relationship that does not 
 #     Then I should direct to the create new counterparty page
 
 
-  @text
+  @textbangding
   Scenario:Supplier The operator binds the supplier to a buyer relationship that does not exist between a single system, and the binding is successful
     Given logon "environments_1" on tube by inputting system
     When I click Customers and select Customers Mapping

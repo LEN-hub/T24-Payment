@@ -152,4 +152,9 @@ public class creditLimit_glue {
     public void iInputToken() {
         creditLimit_step.storeToken();
     }
+
+    @When("^I changed Rating is BB$")
+    public void iChangedRatingIsBB() {
+        creditLimit_step.changeRating();
+    }
 }

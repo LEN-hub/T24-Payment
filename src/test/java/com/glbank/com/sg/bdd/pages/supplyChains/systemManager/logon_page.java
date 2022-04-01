@@ -22,7 +22,7 @@ public class logon_page extends PageObject {
     @FindBy(xpath = "//tr[@align='center']//button[@type='submit' ]")
     public WebElementFacade clickLogonBtn;
 
-    @FindBy(xpath = "//p[text()='SCF']")
+    @FindBy(xpath = "//p[text()='Supply Chain Finance']")
     public WebElementFacade clickSCFlink;
 
     public void enterUserName(String userName){
