@@ -247,4 +247,17 @@ public class creditLimit_step extends ScenarioSteps {
         creditLimit_page.inputToken.sendKeys(token);
 
     }
+
+    public void changeRating(){
+        bddUtil.scrollWindowToElement(creditLimit_page.underWritingMode);
+        creditLimit_page.rating.click();
+        List<WebElementFacade> roles = creditLimit_page.resultList;
+        for (int i = 0; i <roles.size() ; i++) {
+            System.out.println(roles.get(i).getText());
+            if (roles.get(i).getText().equals("BB")){
+                roles.get(i).click();
+                break;
+            }
+        }
+    }
 }

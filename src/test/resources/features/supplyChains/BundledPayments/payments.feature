@@ -11,7 +11,7 @@ Feature:Bundled payments test case
     And  click proceed
     Then Click on the submit APPROVE
     When Confirm Disbursement page
-
+#放款。
 
 
 
@@ -22,10 +22,11 @@ Feature:Bundled payments test case
     When I click Operations button
     When I click Repayment button
     Then I should direct to the Repayment Management page
-    When I click the Assign to me button of the repayment data
+#    When I click the Assign to me button of the repayment data
     When I click Assign to ME title on the on Repayment Management page
     When I click Proceed Button on the Repayment Management Page
     Then I should direct to the Repayment Detail page
     When I select Repayment Account No on the page
     And I enter other parameters in the current page
 
+#还款。

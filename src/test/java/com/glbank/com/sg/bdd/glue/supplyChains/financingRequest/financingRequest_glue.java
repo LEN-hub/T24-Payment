@@ -43,6 +43,6 @@ public class financingRequest_glue {
     @And("^click Financing Status$")
     public void clickFinancingStatus(){
         financingRequest_step.clickFinancingStatus();
-        bddUtil.sleep(5);
+        bddUtil.sleep(10);
     }
 }
