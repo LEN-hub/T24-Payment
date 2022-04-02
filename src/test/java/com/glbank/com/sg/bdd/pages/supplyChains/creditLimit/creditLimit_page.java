@@ -115,4 +115,10 @@ public class creditLimit_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='Verificationode_BoxChildIptChild']/div/form")
     public WebElementFacade inputToken;
+
+    @FindBy(xpath = "//label[@for='limitType']")
+    public WebElementFacade underWritingMode;
+
+    @FindBy(xpath = "//label[@for='ratingNew']//following-sibling::div//input")
+    public WebElementFacade rating;
 }

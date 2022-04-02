@@ -41,7 +41,7 @@ public class payments_steps extends ScenarioSteps {
 
    @Step
    public void clickRequesterOne() {
-        paymentsPage.RequesterOne.sendKeys(FileUtils.LastReadFileInput3("test"));
+        paymentsPage.RequesterOne.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         bddUtil.sleep(3);
         paymentsPage.Reset.click();
         bddUtil.sleep(3);
@@ -55,20 +55,17 @@ public class payments_steps extends ScenarioSteps {
 
     @Step
     public void clickRequesterTwo() {
-        paymentsPage.RequesterTwo.sendKeys(FileUtils.LastReadFileInput3("test"));
+        paymentsPage.RequesterTwo.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         paymentsPage.Reset.click();
         CommonUtil.waiting(3000);}
 
     @Step
-    public void clickProceed() {
-        paymentsPage.Proceed.click();
-        CommonUtil.waiting(4000);
-    }
+    public void clickProceed() {paymentsPage.Proceed.click();}
 
     @Step
     public void clickRemittanceFeePaidBy() {
+        bddUtil.scrollWindowToElement(bddUtil.find(By.xpath("//label[@for='sellerName']")));
         paymentsPage.remittanceFeePaidby.click();
-        CommonUtil.waiting(3000);
         paymentsPage.SHA.click();
         CommonUtil.waiting(4000);}
 
@@ -105,7 +102,7 @@ public class payments_steps extends ScenarioSteps {
 
     @Step
     public void clickRequester3() {
-        paymentsPage.Requester3.sendKeys(FileUtils.LastReadFileInput3("test"));
+        paymentsPage.Requester3.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         paymentsPage.Reset.click();}
 
     @Step
@@ -113,10 +110,8 @@ public class payments_steps extends ScenarioSteps {
 
     @Step
     public void Requester5(){
-        paymentsPage.Requester5.sendKeys(FileUtils.LastReadFileInput3("test"));
-        paymentsPage.Reset.click();
-        CommonUtil.waiting(3000);
-    }
+        paymentsPage.Requester5.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        paymentsPage.Reset.click();}
 
     @Step
     public void clickAPPROVE(){paymentsPage.APPROVE.click();}
@@ -133,7 +128,8 @@ public class payments_steps extends ScenarioSteps {
 
     @Step
     public void verifySuccess(){
-        paymentsPage.Requester4.sendKeys(FileUtils.LastReadFileInput3("test"));
+        paymentsPage.completed.click();
+        paymentsPage.Requester4.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         paymentsPage.Reset.click();
         CommonUtil.waiting(3000);
         assertEquals("   No Data", paymentsPage.find(By.xpath("//div[@class='tableNorecord']")).getText());
@@ -155,7 +151,19 @@ public class payments_steps extends ScenarioSteps {
         List<WebElementFacade> requester = paymentsPage.requesterList;
         List<WebElementFacade> Action = paymentsPage.assignToMeList;
         for (int i = 0; i <requester.size() ; i++) {
-            if (FileUtils.LastReadFileInput3("test").equals(requester.get(i).getText())){
+            if (FileUtils.LastReadFileInput3("companyData").equals(requester.get(i).getText())) {
+                bddUtil.scrollWindowToElement(requester.get(i)).click();
+                Action.get(i).click();
+                break;
+            } else {
+                bddUtil.scrollWindowToElement(bddUtil.find(By.xpath("//label[text()='Estimated Loan Maturity Date']")));
+                paymentsPage.find(By.xpath("//button[@class='btn-next']")).click();
+                break;
+            }
+
+        }
+        for (int i = 0; i < requester.size(); i++) {
+            if (FileUtils.LastReadFileInput3("companyData").equals(requester.get(i).getText())){
                 bddUtil.scrollWindowToElement(requester.get(i)).click();
                 Action.get(i).click();
                 break;
@@ -166,15 +174,33 @@ public class payments_steps extends ScenarioSteps {
 
     @Step
     public void clickProceedBtn(){
-        List<WebElementFacade> request = paymentsPage.RequestList;
-        List<WebElementFacade> proceed = paymentsPage.proceedList;
-        for (int i = 0; i <request.size() ; i++) {
-            if (FileUtils.LastReadFileInput3("test").equals(request.get(i).getText())){
-                bddUtil.scrollWindowToElement(request.get(i)).click();
-                proceed.get(i).click();
-                break;
-            }
-        }
+//        List<WebElementFacade> request = paymentsPage.RequestList;
+//        List<WebElementFacade> proceed = paymentsPage.proceedList;
+//        for (int i = 0; i <request.size() ; i++) {
+//            if (FileUtils.LastReadFileInput3("companyData").equals(request.get(i).getText())){
+//                bddUtil.scrollWindowToElement(request.get(i)).click();
+//                proceed.get(i).click();
+//                break;
+//            }else {
+//                bddUtil.scrollWindowToElement(bddUtil.find(By.xpath("//label[text()='Estimated Loan Maturity Date']")));
+//                paymentsPage.find(By.xpath("//button[@class='btn-next']")).click();
+//                break;
+//            }
+//        }
+//        for (int i = 0; i < request.size(); i++) {
+//            if (FileUtils.LastReadFileInput3("companyData").equals(request.get(i).getText())){
+//                bddUtil.scrollWindowToElement(request.get(i)).click();
+//                proceed.get(i).click();
+//                bddUtil.scrollWindowToElement(bddUtil.find(By.xpath("//td[1]//div[@class='lls-design-table-btn-wrapper']//span[@data-key='f3tpnu1h']//span"))).click();
+//
+//                break;
+//            }
+//        }
+        paymentsPage.requestTian.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        paymentsPage.Reset.click();
+        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(bddUtil.find(By.xpath("//td[1]//div[@class='lls-design-table-btn-wrapper']//span[@data-key='f3tpnu1h']//span"))).click();
+        bddUtil.sleep(2);
     }
 
     @Step
@@ -192,17 +218,21 @@ public class payments_steps extends ScenarioSteps {
 
     @Step
     public void inputOtherParameter() {
+        bddUtil.sleep(2);
+        paymentsPage.repaymentAmount.click();
+        paymentsPage.repaymentAmount.clear();
         paymentsPage.repaymentAmount.sendKeys("10");
         bddUtil.sleep(1);
         paymentsPage.commission.click();
         paymentsPage.repaymentData.sendKeys(bddUtil.dateFormate());
         paymentsPage.commission.click();
         paymentsPage.submitBtn.click();
+        bddUtil.sleep(10);
     }
 
     @Step     //通过买家/供应商筛选值,点击刷新
     public void clickRequester4() {
-        paymentsPage.Requester4.sendKeys(FileUtils.LastReadFileInput3("test"));
+        paymentsPage.Requester4.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         paymentsPage.Reset.click();
     }
 

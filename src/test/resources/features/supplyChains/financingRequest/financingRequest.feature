@@ -1,10 +1,10 @@
 @financingRequest
 Feature: financingRequest
 
-  Scenario:financingRequest
-#    Given login "environments_3" To RequestFinancing
-#    When login successfully and click RequestFinancing
-#    Then upload RequestFinancing File
+  Scenario:financingRequest1
+    Given login "environments_3" To RequestFinancing
+    When login successfully and click RequestFinancing
+    Then upload RequestFinancing File
     And  logon "environments_1" on tube by inputting system
     Then click Operations to Review
     And change user To L2 Review
