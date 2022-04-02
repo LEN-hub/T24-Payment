@@ -73,12 +73,13 @@ public class userManagement_glue {
         userManagement_steps.clickCountries(payToInfN.get(0).get("countries"));
         userManagement_steps.clickPNumber();
         userManagement_steps.clickValidation();
-        userManagement_steps.clickValidationCode();
+//        userManagement_steps.clickValidationCode();
+        userManagement_steps.clickOPTCode();
         userManagement_steps.sendKeyBoth();
         userManagement_steps.clickKeysEmail();
         userManagement_steps.clickValidationEmail();
-        userManagement_steps.clickValidationCode();
-        userManagement_steps.sendKeyBoth();
+//        userManagement_steps.clickValidationCode();
+//        userManagement_steps.sendKeyBoth();
         userManagement_steps.clickPermissions();
         userManagement_steps.clickNextOne();
         userManagement_steps.clickNextOne();

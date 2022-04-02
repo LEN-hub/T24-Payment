@@ -1,7 +1,7 @@
-package com.hsbc.cmb.hk.dbb.glue.supplyChains.Productsettings;
+package com.glbank.com.sg.bdd.glue.supplyChains.Productsettings;
 
-import com.hsbc.cmb.hk.dbb.steps.supplyChains.ProductSettings.product_step;
-import com.hsbc.cmb.hk.dbb.utils.BDDUtil;
+import com.glbank.com.sg.bdd.steps.supplyChains.ProductSettings.product_step;
+import com.glbank.com.sg.bdd.utils.BDDUtil;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;

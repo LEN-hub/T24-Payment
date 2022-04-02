@@ -192,17 +192,22 @@ public class userManagement_steps extends ScenarioSteps {
         bddUtil.sleep(2);
         userManagement_page.validation.click();
     }
+        public void clickOPTCode() {
+        ConnectLinux.releaseConnect();
+        ConnectLinux.getLastOtp("60120003");
+        ConnectLinux.releaseConnect();
+        }
 
-    public void clickValidationCode() {
-        bddUtil.sleep(2);
-        getDriver().switchTo().alert().getText();
-        bddUtil.sleep(2);
-        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
-        bddUtil.sleep(2);
-        getDriver().switchTo().alert().accept();
-        bddUtil.sleep(1);
-    }
-
+//    public void clickValidationCode() {
+//        bddUtil.sleep(2);
+//        getDriver().switchTo().alert().getText();
+//        bddUtil.sleep(2);
+//        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
+//        bddUtil.sleep(2);
+//        getDriver().switchTo().alert().accept();
+//        bddUtil.sleep(1);
+//    }
+//
     public void sendKeyBoth() throws AWTException {
         EnterKeys enterKeys = new EnterKeys();
         bddUtil.sleep(2);

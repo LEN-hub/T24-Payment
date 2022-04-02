@@ -303,6 +303,14 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@class='out_title_level-1']/parent::div/div[11]//div[@class='box_left']/i")
     public WebElementFacade billLading; //上传提货单
 
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\" ]//li[18]")
+    public WebElementFacade SINGAPORE;
+
+    @FindBy(xpath = "//div[@class='ui-button dialog_btn primary common']/div/div")
+    public WebElementFacade begin;
+
+    @FindBy(xpath = "//img[@class='status-img']")
+    public WebElementFacade popTitle;
 
 
 

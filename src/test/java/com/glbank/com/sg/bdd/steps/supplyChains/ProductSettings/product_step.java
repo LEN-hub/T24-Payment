@@ -1,6 +1,5 @@
 package com.glbank.com.sg.bdd.steps.supplyChains.ProductSettings;
 
-import com.glbank.com.sg.bdd.pages.supplyChains.ProductSettings.product_page;
 import com.glbank.com.sg.bdd.utils.*;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
@@ -8,13 +7,13 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class product_step extends ScenarioSteps {
     private BDDUtil bddUtil;
-    private product_page productPage;
+    private com.hsbc.cmb.hk.dbb.pages.supplyChains.ProductSettings.product_page productPage;
 
     public static String content = JRandomNameTool.getStringRandom(6);
 

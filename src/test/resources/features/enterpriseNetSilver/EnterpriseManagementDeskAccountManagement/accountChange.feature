@@ -179,7 +179,6 @@ Feature: accountChange
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open SGD USD CNY
     When I select account permissions
@@ -236,23 +235,6 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @addCurrency
-#    新增币种,注意，此case需要双人管理模式，需要后管设置管理模式，换号授权
-  Scenario:Enterprise management desk new currency
-    Given Closing the Browser driver
-#    When logon "netSilverEnv_susu" on enterprise net silver
-#    When I click on the Enterprise Administration Desk and select Account Management
-#    When I click add currency to fill in the information
-#    Then TC code is then required for Vkey authentication
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
-#    Then verify whether to wait for authorization
-    Given logon second "netSilverEnv_susu" on enterprise net silver
-    When I click My Tasks button on the logon page
-    Then I should direct to the Awaiting authorization page
-    When I click on the first piece of data to authorize
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
 
 
   @deleteCurrency
@@ -310,12 +292,30 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-#  @LinkAccount
-##    账户加挂，从注册绑定vkey开始跑头开始跑
-#  Scenario:The enterprise management console account is added
-#    Given logon second "netSilverEnvAccout" on enterprise net silver
-#    When I click on the Enterprise Administration Desk and select Account Management
-#    When I click link account
-#    Then TC code is then required for Vkey authentication
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
+  @LinkAccount
+#    账户加挂，从注册绑定vkey开始跑头开始跑
+  Scenario:The enterprise management console account is added
+    Given logon second "netSilverEnvAccout" on enterprise net silver
+    When I click on the Enterprise Administration Desk and select Account Management
+    When I click link account
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+
+  @addCurrency
+#    新增币种,注意，此case需要双人管理模式，需要后管设置管理模式，换号授权
+  Scenario:Enterprise management desk new currency
+    Given Closing the Browser driver
+    When logon "netSilverEnv_susu" on enterprise net silver
+    When I click on the Enterprise Administration Desk and select Account Management
+    When I click add currency to fill in the information
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    Then verify whether to wait for authorization
+    Given logon second "netSilverEnv_susu" on enterprise net silver
+    When I click My Tasks button on the logon page
+    Then I should direct to the Awaiting authorization page
+    When I click on the first piece of data to authorize
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
