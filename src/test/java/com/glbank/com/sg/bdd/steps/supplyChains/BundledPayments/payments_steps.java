@@ -131,8 +131,11 @@ public class payments_steps extends ScenarioSteps {
         paymentsPage.completed.click();
         paymentsPage.Requester4.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         paymentsPage.Reset.click();
+        CommonUtil.waiting(3000);
+        assertEquals("   No Data", paymentsPage.find(By.xpath("//div[@class='tableNorecord']")).getText());
 
-    }
+
+}
     @Step
     public void clickBatchRepaymentBtn(){
         paymentsPage.batchRepaymentBtn.click();}

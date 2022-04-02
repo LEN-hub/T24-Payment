@@ -21,6 +21,7 @@ public class userManagement_steps extends ScenarioSteps {
     public static String code = randomPhoneNum();
     public static String content = JRandomNameTool.getStringRandom(6);
     public static String verificationCode;
+    public static String OTP ;
 
     private userManagement_page userManagement_page;
 
@@ -47,7 +48,7 @@ public class userManagement_steps extends ScenarioSteps {
         a:for (int x = 0; x < sumNum.size(); x++){
             sumNum.get(sumNum.size()-1).click();
             for (int i = 0; i < checkEmail.size(); i++) {
-                if (checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("emailData"))) {
+                if (checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("emailSun"))) {
                     Actions action = new Actions(getDriver());
                     System.out.println(checkEmail.size());
                     int t = i+1;
@@ -193,32 +194,36 @@ public class userManagement_steps extends ScenarioSteps {
         userManagement_page.validation.click();
     }
 
+
+//页面弹框获取验证码
     public void clickValidationCode() {
-        bddUtil.sleep(1);
-        getDriver().switchTo().alert().getText();
+//        bddUtil.sleep(2);
+//        getDriver().switchTo().alert().getText();
+//        bddUtil.sleep(2);
+//        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
+//        bddUtil.sleep(2);
+//        getDriver().switchTo().alert().accept();
+//        bddUtil.sleep(1);
+        OTP = ConnectLinux.getLastOtp("60120003");
         bddUtil.sleep(2);
-        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
-        bddUtil.sleep(2);
-        getDriver().switchTo().alert().accept();
-        bddUtil.sleep(1);
-    }
+}
 
     public void sendKeyBoth() throws AWTException {
         EnterKeys enterKeys = new EnterKeys();
         bddUtil.sleep(2);
         userManagement_page.sendKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(0,1));
         bddUtil.sleep(3);
+        enterKeys.EnterKeys(OTP.substring(0,1));
         userManagement_page.secondKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(1,2));
+        enterKeys.EnterKeys(OTP.substring(1,2));
         userManagement_page.thirdKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(2,3));
+        enterKeys.EnterKeys(OTP.substring(2,3));
         userManagement_page.fourKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(3,4));
+        enterKeys.EnterKeys(OTP.substring(3,4));
         userManagement_page.fiveKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(4,5));
+        enterKeys.EnterKeys(OTP.substring(4,5));
         userManagement_page.sixKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(5,6));
+        enterKeys.EnterKeys(OTP.substring(5,6));
     }
 
     public void clickKeysEmail () {

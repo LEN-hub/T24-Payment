@@ -1,6 +1,7 @@
 @payments
 Feature:Bundled payments test case
  @lending
+   #此脚本需要用到test.txt
   Scenario:UAT_ Supply chain_ Inner tube_ Create payments_ 0001
     Given logon "environments_001" on tube by inputting system
     When When I hit Operations
@@ -16,7 +17,7 @@ Feature:Bundled payments test case
 
 
 
-@test
+@reimbursement
   Scenario:UAT_supply chain_inner management_repayment_0001UAT_supply chain_inner management_repayment_0001
     Given logon "environments_1" on tube by inputting system
     When I click Operations button

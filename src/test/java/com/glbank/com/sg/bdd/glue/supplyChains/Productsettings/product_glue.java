@@ -2,12 +2,16 @@ package com.glbank.com.sg.bdd.glue.supplyChains.Productsettings;
 
 import com.glbank.com.sg.bdd.steps.supplyChains.ProductSettings.product_step;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
+
+import java.util.List;
+import java.util.Map;
 
 public class product_glue {
 
@@ -97,7 +101,7 @@ public class product_glue {
     }
 
     @When("^enter the second case information supplier with buyer$")
-    public void enterTheSecondCaseInformationSupplierWithBuyer() {
+    public void enterTheSecondCaseInformationSupplierWithBuyer(DataTable payDetails) {
         productStep.secondContentName();
         productStep.clickFunder();
         productStep.clickGLB();
@@ -106,7 +110,8 @@ public class product_glue {
         productStep.clickBuyer();
         productStep.clickBuyerKey();
         productStep.clickCurrency();
-        productStep.clickSGD();
+        List<Map<String, String>> payToI = payDetails.asMaps(String.class,String.class);
+        productStep.clickCurrency(payToI.get(0).get("selectCurr"));
         productStep.clickQuotationMode();
         productStep.clickFixed();
         productStep.clickInterestRate("5");

@@ -1,4 +1,4 @@
-package com.glbank.com.sg.bdd.pages.supplyChains.ProductSettings;
+package com.hsbc.cmb.hk.dbb.pages.supplyChains.ProductSettings;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -121,7 +121,7 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//span[contains(text(),'Green Link Digital Bank')]")
     public WebElementFacade GLB;
 
-    @FindBy(xpath = "//div[@data-key=\"f1hnbv2c\"]//span/child::span")       //supplier  供应商选择点击下拉框
+    @FindBy(xpath = "//div[@data-key='f1hnbv2c']//span/child::span")       //supplier  供应商选择点击下拉框
     public WebElementFacade supplier;
 
     @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")      //供应商列表，可删除数据
@@ -130,15 +130,14 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f266mn95']/child::div//span/span")
     public WebElementFacade Buyer;
 
-
-    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")     //所选的值与供应商对应,所以不能用固定值
+    @FindBy(xpath = " //div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")     //所选的值与供应商对应,所以不能用固定值
     public List<WebElementFacade> BuyerSelectList;    //买方选择列表
 
     @FindBy(xpath = "//label[contains(text(),'Currency')]/following-sibling::div//input/following-sibling::span")
     public WebElementFacade Currency;
 
-    @FindBy(xpath = "//span[contains(text(),'SGD')]")
-    public WebElementFacade SGD;
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']/div//ul/li")
+    public List<WebElementFacade> selectCurr;
 
     @FindBy(xpath = "//label[contains(text(),'Quotation Mode')]/following-sibling::div//input/following-sibling::span")
     public WebElementFacade QuotationMode;
@@ -202,7 +201,7 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f2khb5s7']//span/span")
     public WebElementFacade FunderOe;
 
-    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")
+    @FindBy(xpath = "//div[@x-placement='bottom-start']//span")
     public WebElementFacade FunDeronGLB;
 
     @FindBy(xpath = "//div[@data-key='f2msdh8u']//input")

@@ -1,6 +1,5 @@
 package com.glbank.com.sg.bdd.steps.supplyChains.ProductSettings;
 
-import com.glbank.com.sg.bdd.pages.supplyChains.ProductSettings.product_page;
 import com.glbank.com.sg.bdd.utils.*;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
@@ -8,13 +7,13 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class product_step extends ScenarioSteps {
     private BDDUtil bddUtil;
-    private product_page productPage;
+    private com.hsbc.cmb.hk.dbb.pages.supplyChains.ProductSettings.product_page productPage;
 
     public static String content = JRandomNameTool.getStringRandom(6);
 
@@ -218,7 +217,7 @@ public class product_step extends ScenarioSteps {
     @Step
     public void clickBuyer() {
         productPage.Buyer.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
     }
 
     @Step
@@ -236,16 +235,25 @@ public class product_step extends ScenarioSteps {
     @Step
     public void clickCurrency() {
         productPage.Currency.click();
+        CommonUtil.waiting(3000);
     }
 
     @Step
-    public void clickSGD() {
-        productPage.SGD.click();
+    public void clickCurrency(String selectCurr) {
+        List<WebElementFacade> usd = productPage.selectCurr;
+        for (int i = 0; i < usd.size(); i++) {
+            if (selectCurr.equals(usd.get(i).getText())) {
+                usd.get(i).click();
+                break;
+            }
+        }
     }
+
 
     @Step
     public void clickQuotationMode() {
         productPage.QuotationMode.click();
+
     }
 
     @Step
