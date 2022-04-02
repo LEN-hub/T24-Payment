@@ -98,7 +98,6 @@ Feature: accountChange
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open CNY
     When I select account permissions
@@ -114,7 +113,6 @@ Feature: accountChange
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open USD
     When I select account permissions
@@ -131,7 +129,6 @@ Feature: accountChange
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open HKD
     When I select account permissions
@@ -147,7 +144,6 @@ Feature: accountChange
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open EUR
     When I select account permissions
@@ -163,7 +159,6 @@ Feature: accountChange
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open All
     When I select account permissions
@@ -174,7 +169,7 @@ Feature: accountChange
 
   @accountOpeningMCA01
 #  MCA账户,默认选择SGD，SGD+USD+CNY开立
-  Scenario:Enterprise management console MCA account All opened
+  Scenario:Enterprise Management Console MCA account has CNY USD SGD enabled
     Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
@@ -189,12 +184,11 @@ Feature: accountChange
 
   @accountOpeningMCA02
 #  MCA账户,默认选择SGD，SGD+USD+EUR开立
-  Scenario:Enterprise management console MCA account All opened
+  Scenario:Enterprise Management Console MCA account has EUR USD SGD enabled
     Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open SGD USD EUR
     When I select account permissions
@@ -205,12 +199,11 @@ Feature: accountChange
 
   @accountOpeningMCA03
 #  MCA账户,默认选择SGD，SGD+USD+HKD开立
-  Scenario:Enterprise management console MCA account All opened
+  Scenario:Enterprise Management Console MCA account has HKD USD SGD enabled
     Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open SGD USD HKD
     When I select account permissions
@@ -221,12 +214,11 @@ Feature: accountChange
 
   @accountOpeningMCA04
 #  MCA账户,默认选择SGD，SGD+CNY+HKD开立
-  Scenario:Enterprise management console MCA account All opened
-    Given logon "netSilverEnv_susu" on enterprise net silver
+  Scenario:Enterprise Management Console MCA account has CNY HKD SGD enabled
+    Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open SGD CNY HKD
     When I select account permissions

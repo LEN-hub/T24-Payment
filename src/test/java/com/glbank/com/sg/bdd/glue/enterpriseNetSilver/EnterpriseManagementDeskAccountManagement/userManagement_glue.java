@@ -3,7 +3,9 @@ package com.glbank.com.sg.bdd.glue.enterpriseNetSilver.EnterpriseManagementDeskA
 
 import com.glbank.com.sg.bdd.steps.enterpriseNetSilver.EnterpriseManagementDeskAccountManagement.userManagement_steps;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import com.glbank.com.sg.bdd.utils.ConnectLinux;
 import cucumber.api.DataTable;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
@@ -73,18 +75,30 @@ public class userManagement_glue {
         userManagement_steps.clickCountries(payToInfN.get(0).get("countries"));
         userManagement_steps.clickPNumber();
         userManagement_steps.clickValidation();
-//        userManagement_steps.clickValidationCode();
-        userManagement_steps.clickOPTCode();
+    }
+
+    @When("^I get the OTP verification code from the server$")
+    public void iGetTheOTPVerificationCodeFromTheServer() throws MalformedURLException, InterruptedException, AWTException{
+        userManagement_steps.clickValidationCode();
         userManagement_steps.sendKeyBoth();
+    }
+
+    @When("^fill in my email$")
+    public void fillInMyEmail() {
         userManagement_steps.clickKeysEmail();
         userManagement_steps.clickValidationEmail();
-//        userManagement_steps.clickValidationCode();
-//        userManagement_steps.sendKeyBoth();
+    }
+
+    @And("^fill in and submit the new user information$")
+    public void fillInAndSubmitTheNewUserInformation() {
         userManagement_steps.clickPermissions();
         userManagement_steps.clickNextOne();
         userManagement_steps.clickNextOne();
         userManagement_steps.NextBtnS();
     }
+
+
+
     @Then("^I  Verify success$")
     public void iVerifySuccess() {
         userManagement_steps.authorizations();
@@ -133,6 +147,7 @@ public class userManagement_glue {
         userManagement_steps.clickComplete();
         userManagement_steps.seeViewStart();
     }
+
 
 
 }

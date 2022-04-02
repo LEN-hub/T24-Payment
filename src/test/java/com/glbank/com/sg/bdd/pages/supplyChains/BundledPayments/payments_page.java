@@ -93,8 +93,8 @@ public class payments_page extends PageObject{
     @FindBy(xpath ="//span[text()='Request For Disbursement']/parent::div/following-sibling::div[2]/span")
     public  WebElementFacade ConfirmDisbursement;  //付款请求确认
 
-//    @FindBy(xpath = "//div[@id='tab-1']/span")
-//    public WebElementFacade completed;
+    @FindBy(xpath = "//div[@id='tab-1']/span")
+    public WebElementFacade completed;
 
     @FindBy(xpath ="//div[@data-key='f3ksiueo']//input")
     public  WebElementFacade Requester4;  //已完成中输入筛选值，查看是否成功
