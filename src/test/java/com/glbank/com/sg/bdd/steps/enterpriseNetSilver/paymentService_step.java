@@ -328,9 +328,13 @@ public class paymentService_step extends ScenarioSteps {
 
     public void namePayee(String NamePayee){paymentService_page.NamePayee.sendKeys(NamePayee);}
 
-    public void collectingBankBox(String collectingBank) {
+    public void collectingBox(){
         paymentService_page.collectingBankBox.click();
         bddUtil.sleep(3);
+    }
+
+    public void collectingBankBox(String collectingBank) {
+
         List<WebElementFacade> bank = paymentService_page.collectingBank;
         for (int i = 0; i < bank.size(); i++) {
             if (collectingBank.equals(bank.get(i).getText())) {
@@ -361,14 +365,9 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.expenseBox.click();
         bddUtil.sleep(5);
         List<WebElementFacade> bears = paymentService_page.expense;
-//        List<WebElementFacade> bearBth = paymentService_page.expenseEnglish;
         for (int i = 0; i < bears.size(); i++) {
               if (expense.equals(bears.get(i).getText())) {
                     bears.get(i).click();
-//              } else {
-//                    expenseEnglish.equals(bearBth.get(i).getText());
-//                    expenseEnglish.equals(bearBth.get(i).getText());
-//                    bearBth.get(i).click();
                     break;
                 }
             }
@@ -461,7 +460,16 @@ public class paymentService_step extends ScenarioSteps {
         CommonUtil.waiting(3000);
     }
 
+    public void SINGAPORE(){
+        paymentService_page.SINGAPORE.click();
+    }
 
+    public void beginValidation() {
+        if (paymentService_page.popTitle.isVisible()) {
+            paymentService_page.begin.click();
+        }
+
+    }
 
 
 }

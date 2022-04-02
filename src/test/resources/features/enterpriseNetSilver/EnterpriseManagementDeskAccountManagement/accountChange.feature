@@ -98,7 +98,6 @@ Feature: accountChange
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open CNY
     When I select account permissions
@@ -114,7 +113,6 @@ Feature: accountChange
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open USD
     When I select account permissions
@@ -131,7 +129,6 @@ Feature: accountChange
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open HKD
     When I select account permissions
@@ -147,7 +144,6 @@ Feature: accountChange
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open EUR
     When I select account permissions
@@ -163,7 +159,6 @@ Feature: accountChange
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open All
     When I select account permissions
@@ -174,12 +169,11 @@ Feature: accountChange
 
   @accountOpeningMCA01
 #  MCA账户,默认选择SGD，SGD+USD+CNY开立
-  Scenario:Enterprise management console MCA account All opened
+  Scenario:Enterprise Management Console MCA account has CNY USD SGD enabled
     Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open SGD USD CNY
     When I select account permissions
@@ -190,12 +184,11 @@ Feature: accountChange
 
   @accountOpeningMCA02
 #  MCA账户,默认选择SGD，SGD+USD+EUR开立
-  Scenario:Enterprise management console MCA account All opened
+  Scenario:Enterprise Management Console MCA account has EUR USD SGD enabled
     Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open SGD USD EUR
     When I select account permissions
@@ -206,12 +199,11 @@ Feature: accountChange
 
   @accountOpeningMCA03
 #  MCA账户,默认选择SGD，SGD+USD+HKD开立
-  Scenario:Enterprise management console MCA account All opened
+  Scenario:Enterprise Management Console MCA account has HKD USD SGD enabled
     Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open SGD USD HKD
     When I select account permissions
@@ -222,12 +214,11 @@ Feature: accountChange
 
   @accountOpeningMCA04
 #  MCA账户,默认选择SGD，SGD+CNY+HKD开立
-  Scenario:Enterprise management console MCA account All opened
+  Scenario:Enterprise Management Console MCA account has CNY HKD SGD enabled
     Given logon "netSilverEnv_sun" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                    |
-
       |Multi-Currency Account|
     And  I choose the currency to open SGD CNY HKD
     When I select account permissions
@@ -236,23 +227,6 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @addCurrency
-#    新增币种,注意，此case需要双人管理模式，需要后管设置管理模式，换号授权
-  Scenario:Enterprise management desk new currency
-    Given Closing the Browser driver
-    When logon "netSilverEnv_susu" on enterprise net silver
-    When I click on the Enterprise Administration Desk and select Account Management
-    When I click add currency to fill in the information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then verify whether to wait for authorization
-#    Given logon second "netSilverEnv_sun" on enterprise net silver
-#    When I click My Tasks button on the logon page
-#    Then I should direct to the Awaiting authorization page
-#    When I click on the first piece of data to authorize
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
 
 
   @deleteCurrency
@@ -265,17 +239,6 @@ Feature: accountChange
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
-
-
-  @LinkAccount
-#    账户加挂//换号跑，从头开始跑
-  Scenario:The enterprise management console account is added
-    Given logon "netSilverEnv_sun" on enterprise net silver
-    When I click on the Enterprise Administration Desk and select Account Management
-    When I click link account
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
 
 
   @AuthorizationMode01
@@ -320,3 +283,31 @@ Feature: accountChange
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
+
+  @LinkAccount
+#    账户加挂，从注册绑定vkey开始跑头开始跑
+  Scenario:The enterprise management console account is added
+    Given logon second "netSilverEnvAccout" on enterprise net silver
+    When I click on the Enterprise Administration Desk and select Account Management
+    When I click link account
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+
+  @addCurrency
+#    新增币种,注意，此case需要双人管理模式，需要后管设置管理模式，换号授权
+  Scenario:Enterprise management desk new currency
+    Given Closing the Browser driver
+    When logon "netSilverEnv_susu" on enterprise net silver
+    When I click on the Enterprise Administration Desk and select Account Management
+    When I click add currency to fill in the information
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    Then verify whether to wait for authorization
+    Given logon second "netSilverEnv_susu" on enterprise net silver
+    When I click My Tasks button on the logon page
+    Then I should direct to the Awaiting authorization page
+    When I click on the first piece of data to authorize
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now

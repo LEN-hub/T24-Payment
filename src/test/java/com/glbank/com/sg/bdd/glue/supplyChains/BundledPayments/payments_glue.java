@@ -66,21 +66,22 @@ public class payments_glue {
     public void clickProceed() {
         paymentsStep.clickAssignToMeS();
         paymentsStep.Requester5();
-        paymentsStep.clickProceed();}
-
+        paymentsStep.clickProceed();
+        paymentsStep.clickAPPROVE();
+    }
 
     @Then("^Click on the submit APPROVE$")
     public void clickOnTheSubmitAPPROVE() {
-        paymentsStep.clickAPPROVE();
         paymentsStep.complete();
         paymentsStep.validation();
-        //差个验证
     }
+
 
     @When("^Confirm Disbursement page$")
     public void confirmDisbursementPage() {
         paymentsStep.clickOperations();
         paymentsStep.clickConfirmDisbursement();
+        paymentsStep.verifySuccess();
     }
 
 
