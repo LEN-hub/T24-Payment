@@ -127,7 +127,7 @@ Feature: loan application
 
 #    单人授权。需要提前更改账号的授权模式。
   @text6
-  Scenario:Accounts Payable Financing Loan Draw Application Process
+  Scenario:Accounts2 Payable Financing Loan Draw Application Process
     Given logon "netSilverEnvLoan_Tian" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When click authorization
@@ -165,6 +165,8 @@ Feature: loan application
     When I typed TC Code and click Authenticate Now
 
 
+
+#    还款。
     @test7
 Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: SGD, product term: 30 days), the repayment is successful
     Given logon "netSilverEnvLoan_Tian" on enterprise net silver

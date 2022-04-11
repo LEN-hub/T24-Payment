@@ -19,6 +19,7 @@ public class changePassword_step extends ScenarioSteps {
     public static String verificationCode;
     public static String passWord = JRandomNameTool.getStringRandom(6);
     public static String newPassWordText;
+    public static String otp;
 
     public void clickForgotPassword(){
         changePassword_page.forgotPassword.click();
@@ -125,10 +126,12 @@ public class changePassword_step extends ScenarioSteps {
     public void clickCodeButton() {
         changePassword_page.getCodeBtn.click();
         bddUtil.sleep(2);
-        getDriver().switchTo().alert().getText();
-        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
-        System.out.println(verificationCode);
-        getDriver().switchTo().alert().accept();
+        //获取页面验证码。
+//        getDriver().switchTo().alert().getText();
+//        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
+//        System.out.println(verificationCode);
+//        getDriver().switchTo().alert().accept();
+        otp = ConnectLinux.getLastOtp("60120003");
         bddUtil.sleep(2);
     }
 
@@ -136,18 +139,18 @@ public class changePassword_step extends ScenarioSteps {
         EnterKeys enterKeys = new EnterKeys();
         bddUtil.sleep(1);
         changePassword_page.sendKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(0, 1));
+        enterKeys.EnterKeys(otp.substring(0, 1));
         bddUtil.sleep(1);
         changePassword_page.secondKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(1, 2));
+        enterKeys.EnterKeys(otp.substring(1, 2));
         changePassword_page.thirdKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(2, 3));
+        enterKeys.EnterKeys(otp.substring(2, 3));
         changePassword_page.fourKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(3, 4));
+        enterKeys.EnterKeys(otp.substring(3, 4));
         changePassword_page.fiveKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(4, 5));
+        enterKeys.EnterKeys(otp.substring(4, 5));
         changePassword_page.sixKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(5, 6));
+        enterKeys.EnterKeys(otp.substring(5, 6));
     }
 
     public void inputEmailAddress(String emailAddress){
