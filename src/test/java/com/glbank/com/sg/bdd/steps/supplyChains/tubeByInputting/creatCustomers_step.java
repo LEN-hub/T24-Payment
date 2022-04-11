@@ -155,14 +155,25 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void errorEmailLink(){
+        if (customers_page.errorText.isVisible()){
+            customers_page.advancedButton.click();
+            customers_page.enterEmailLink.click();
+        }
+    }
+
+    @Step
     public void openEmailUrl(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox\");");
+        bddUtil.switchToNewWindow();
+        errorEmailLink();
+        bddUtil.switchToWindows();
     }
     @Step
     public void openEmailUrlTest(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=jb53CVsQ\");");
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=Q1ZEtDG7\");");
     }
 
     @Step
@@ -335,7 +346,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void iLoginServiceAgreementWindow(){
-        customers_page.GLDBEmailInput.sendKeys("jb53CVsQ@MailTemp.top");
+        customers_page.GLDBEmailInput.sendKeys("Q1ZEtDG7@MailTemp.top");
         customers_page.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();

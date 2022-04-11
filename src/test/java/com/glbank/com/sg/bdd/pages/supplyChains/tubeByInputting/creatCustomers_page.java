@@ -103,6 +103,15 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//form[@class='form-inline']//button")
     public WebElementFacade createEmailButton;
 
+    @FindBy(xpath = "//div[@id='main-message']/h1")
+    public WebElementFacade errorText;
+
+    @FindBy(id = "details-button")
+    public WebElementFacade advancedButton;
+
+    @FindBy(id = "proceed-link")
+    public WebElementFacade enterEmailLink;
+
     @FindBy(xpath = "//td[@data-key='f38u3atf']")
     public List<WebElementFacade> authPerson;
 
