@@ -69,6 +69,7 @@ public class loanApplication_step extends ScenarioSteps {
         loanApplication_page.currentAssets.click();
         loanApplication_page.nextBtn.click();
         bddUtil.sleep(1);
+        bddUtil.scrollWindowToElement(loanApplication_page.find(By.xpath("//div[@class='mandatory']")));
         loanApplication_page.ApplyForMicroDemand.click();
         loanApplication_page.inputLoanAmount.sendKeys(amount);
         loanApplication_page.submitBtn.click();

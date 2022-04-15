@@ -17,6 +17,7 @@ public class creatCustomers_step extends ScenarioSteps {
     private creatCustomers_page customers_page;
     private BDDUtil bddUtil;
     public static String envTag;
+    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
 
     @Step
     public void getClickCustomersMenu(){
@@ -155,14 +156,28 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void errorEmailLink(){
+        if (customers_page.errorText.isVisible()){
+            customers_page.advancedButton.click();
+            customers_page.enterEmailLink.click();
+        }
+    }
+
+    @Step
     public void openEmailUrl(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox\");");
+        bddUtil.switchToNewWindow();
+        errorEmailLink();
+        bddUtil.switchToWindows();
     }
     @Step
     public void openEmailUrlTest(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=jb53CVsQ\");");
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=QpVi84M8\");");
+        bddUtil.switchToNewWindow();
+        errorEmailLink();
+        bddUtil.switchToWindows();
     }
 
     @Step
@@ -188,7 +203,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void viewEmail(){
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
         customers_page.clickRefreshBtn.click();
         customers_page.firstEmail.click();
     }
@@ -208,6 +223,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void thirdEmail(){
         customers_page.emailPageContent.isVisible();
+        bddUtil.sleep(3);
         customers_page.clickRefreshBtn.click();
         bddUtil.sleep(1);
         customers_page.thirdEmail.click();
@@ -281,15 +297,17 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.checkBoxPublicCompanyYes.click();
         customers_page.companyEmail.sendKeys(value+ "@MailTemp.top");
         customers_page.companyPhoneNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
-        customers_page.fileUpdate.click();
-        bddUtil.sleep(2);
-        bddUtil.fileUpload();
+//        customers_page.fileUpdate.click();
+        getDriver().findElement(By.xpath("//label[@for='A0001']//following-sibling::div//input")).sendKeys("E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg");
+//        bddUtil.sleep(2);
+//        bddUtil.fileUpload();
         bddUtil.sleep(5);
         bddUtil.scrollWindowToElement(customers_page.noExpiryDateTitle);
         customers_page.noExpiryDateInput.sendKeys("2024-9-10");
-        customers_page.memorandumAndArticlesOfAssLink.click();
+//        customers_page.memorandumAndArticlesOfAssLink.click();
         bddUtil.sleep(2);
-        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//label[@for='A0010']//following-sibling::div//input")).sendKeys("E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg");
+//        bddUtil.fileUpload();
         bddUtil.sleep(5);
         customers_page.countryOfTaxation.click();
         bddUtil.scrollWindowToElement(customers_page.selectCountryOfTaxation).click();
@@ -335,7 +353,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void iLoginServiceAgreementWindow(){
-        customers_page.GLDBEmailInput.sendKeys("jb53CVsQ@MailTemp.top");
+        customers_page.GLDBEmailInput.sendKeys("QpVi84M8@MailTemp.top");
         customers_page.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();
@@ -362,6 +380,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.admin1LegalCountry.click();
         bddUtil.scrollWindowToElement(customers_page.admin1LegalCountrySelectChina).click();
         customers_page.admin1CountryOfResidence.click();
+        bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(customers_page.admin1CountryOfResidenceSelectChina).click();
         customers_page.admin1ResidentialAddress.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.admin1LegalCertificationType.click();
@@ -373,9 +392,11 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.admin2LegalCountry.click();
         bddUtil.scrollWindowToElement(customers_page.admin2LegalCountrySelectChina).click();
         customers_page.admin2CountryOfResidence.click();
+        bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(customers_page.admin2CountryOfResidenceSelectChina).click();
         customers_page.admin2ResidentialAddress.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.admin2LegalCertificationType.click();
+        bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(customers_page.admin2LegalCertificationTypeSelectPassport).click();
         customers_page.admin2LegalCertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.admin2TimePermanentCheckBox.click();
@@ -442,6 +463,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.shareholder1Country.click();
         bddUtil.scrollWindowToElement(customers_page.shareholder1CountrySelectChina).click();
         customers_page.shareholder1CountryOfResidence.click();
+        bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(customers_page.shareholder1CountryOfResidenceSelectChina).click();
         customers_page.shareholder1Email.sendKeys(value + "@MailTemp.top");
         customers_page.shareholder1Phone.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -456,8 +478,10 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.shareholder2TimePermanent.click();
         customers_page.shareholder2DateOfBirth.sendKeys(bddUtil.dateFormate());
         customers_page.shareholder2Country.click();
+        bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(customers_page.shareholder2CountrySelectChina).click();
         customers_page.shareholder2CountryOfResidence.click();
+        bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(customers_page.shareholder2CountryOfResidenceSelectChina).click();
         customers_page.shareholder2Email.sendKeys(value + "@MailTemp.top");
         customers_page.shareholder2Phone.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -503,9 +527,11 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void enterTheAccountInformation(String value){
         customers_page.accountCurrency.click();
+        bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(customers_page.find(By.xpath("//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='"+value+"']"))).click();
         customers_page.tellUsAboutAccoutPageTitle.click();
         customers_page.collectionAccountCurrency.click();
+        bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(customers_page.find(By.xpath("//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='"+value+"']"))).click();
         customers_page.tellUsAboutAccoutPageTitle.click();
 //        customers_page.SaveBtnIndustry.click();
@@ -545,7 +571,9 @@ public class creatCustomers_step extends ScenarioSteps {
                 break;
             }
         }
+        bddUtil.scrollWindowToElement(customers_page.clickThirdYes);
         customers_page.selectSecondCheckBox.click();
+        bddUtil.sleep(2);
         for (int j = 0; j < selectData.size(); j++){
             if (num.equals(selectData.get(j).getText())){
                 selectData.get(j).click();
@@ -633,6 +661,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.selectApprove.click();
         customers_page.inputBoxComment.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.submitBtnOnAssignToMePage.click();
+        bddUtil.sleep(3);
         bddUtil.quitDriver();
     }
 

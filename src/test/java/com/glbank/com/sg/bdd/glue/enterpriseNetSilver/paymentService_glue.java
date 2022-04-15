@@ -142,9 +142,23 @@ public class paymentService_glue {
         List<Map<String, String>> payToInfos = payDetail.asMaps(String.class, String.class);
         paymentService_step.sendPaymentAccount(payToInfos.get(0).get("sendPaymentAccount"));
         List<Map<String, String>> payToInf = payDetail.asMaps(String.class, String.class);
-        paymentService_step.namePayee(payToInf.get(0).get("namePayee"));
+        paymentService_step.namePayee(payToInf.get(0).get("namePayee"));}
+
+    @When("^I click on the receiving bank drop down box$")
+    public void iClickOnTheReceivingBankDropDownBox() {
+        paymentService_step.collectingBox();
+        bddUtil.sleep(2);
+    }
+
+    @When("^I choose the receiving bank$")
+    public void iChooseTheReceivingBank(DataTable payDetail) {
         List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
         paymentService_step.collectingBankBox(payToInfo.get(0).get("collectingBank"));
+
+
+        }
+        @When("^I choose the recipient country$")
+        public void iChooseTheRecipientCountry(DataTable payDetail) {
         List<Map<String, String>> payToIn = payDetail.asMaps(String.class, String.class);
         paymentService_step.payeeAdd(payToIn.get(0).get("payeeAdd"));
         List<Map<String, String>> payToInq = payDetail.asMaps(String.class, String.class);
@@ -162,8 +176,10 @@ public class paymentService_glue {
     @When("^I choose to submit the transfer information$")
     public void iChooseToSubmitTheTransferInformation() {
         paymentService_step.clickNextBox();
+        paymentService_step.beginValidation();
         paymentService_step.staging();
         paymentService_step.selectSumB();
+
     }
 
     @Then("^I checked the details on the successful overseas transfer details page$")
@@ -203,4 +219,20 @@ public class paymentService_glue {
 
     }
 
+//收款账户为SGD时，收款银行需要固定银行，因为列表里有两个一样的，所以参数提取不可取。
+    @When("^I click the recipient bank is Singapore$")
+    public void iClickTheRecipientBankIsSingapore() {
+        paymentService_step.SINGAPORE();
+    }
+
+//    对应EUR--单币种账户
+    @When("^I select the payment account, enter the payment amount and the cost commitment$")
+    public void iSelectThePaymentAccountEnterThePaymentAmountAndTheCostCommitment(DataTable payDetail) {
+        List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
+        paymentService_step.selectPaymentAccount(payToInfo.get(0).get("selectAccount"));
+        List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
+        paymentService_step.enterAmount(payToInfoU.get(0).get("enterAmount"));
+        List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
+        paymentService_step.expense(payToI.get(0).get("expense"), payToI.get(0).get("expenseEnglish"));
+    }
 }

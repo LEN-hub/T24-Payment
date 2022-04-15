@@ -103,6 +103,15 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//form[@class='form-inline']//button")
     public WebElementFacade createEmailButton;
 
+    @FindBy(xpath = "//div[@id='main-message']/h1")
+    public WebElementFacade errorText;
+
+    @FindBy(id = "details-button")
+    public WebElementFacade advancedButton;
+
+    @FindBy(id = "proceed-link")
+    public WebElementFacade enterEmailLink;
+
     @FindBy(xpath = "//td[@data-key='f38u3atf']")
     public List<WebElementFacade> authPerson;
 
@@ -625,7 +634,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]/div[@class='lls-scrollbar']/div[1]//li")
     public List<WebElementFacade> selectData;
 
-    @FindBy(xpath = "//label[@for='ESTIMATED_NUMBER']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    @FindBy(xpath = "//div[@class=\"customer_info\"]/div/div[3]//span[@class='lls-input__suffix-inner']")
     public WebElementFacade selectSecondCheckBox;
 
     @FindBy(xpath = "//label[@for='COUNTRIES']/following-sibling::div/label[1]//span[@class='lls-radio__inner']")

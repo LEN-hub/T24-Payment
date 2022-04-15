@@ -36,10 +36,10 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//form[@class='el-form el-form--label-left']/div[3]//div[@class='btn_box']")
     public WebElementFacade nextBtn;
 
-    @FindBy(xpath = "//div[@class='loan_container']/div[1]/div[11]")
+    @FindBy(xpath = "//div[@class='loan_container']/div[1]//div//div[@class='btn_box']")
     public WebElementFacade ApplyForMicroDemand;//申请微型活期透支。
 
-    @FindBy(xpath = "//div[@class='loan_container']/div[3]/div[11]")
+    @FindBy(xpath = "//div[@class='loan_container']/div[3]//div[@class='btn_box']")
     public WebElementFacade demandOverdraft;//活期透支。
 
     @FindBy(xpath = "//div[@class='loan_container']/div[5]/div[11]")

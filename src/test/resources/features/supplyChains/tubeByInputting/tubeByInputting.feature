@@ -24,11 +24,12 @@ Feature: tube By Inputting
     And I click the email icon to send the email
     And I received an email from Green Union Bank on the email page
     Then I check that the email has been sent successfully
+
   @text12345
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
       Given logon "environments_1" on tube by inputting system
       When open the email browser page
-      And I switch to the SCF page
+#      And I switch to the SCF page
       When I click Customers and select Onboarding List
       And I click Create Customer and fill in the supplier information in the pop-up window
       Then I Check to see if you jump to the Authorized Person page
