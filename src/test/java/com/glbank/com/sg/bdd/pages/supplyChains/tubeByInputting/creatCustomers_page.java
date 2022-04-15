@@ -634,7 +634,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]/div[@class='lls-scrollbar']/div[1]//li")
     public List<WebElementFacade> selectData;
 
-    @FindBy(xpath = "//label[@for='ESTIMATED_NUMBER']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    @FindBy(xpath = "//div[@class=\"customer_info\"]/div/div[3]//span[@class='lls-input__suffix-inner']")
     public WebElementFacade selectSecondCheckBox;
 
     @FindBy(xpath = "//label[@for='COUNTRIES']/following-sibling::div/label[1]//span[@class='lls-radio__inner']")
