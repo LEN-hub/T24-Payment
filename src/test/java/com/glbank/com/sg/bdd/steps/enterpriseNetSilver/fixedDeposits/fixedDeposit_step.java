@@ -20,7 +20,8 @@ public class fixedDeposit_step extends ScenarioSteps {
     public void createFixedDeposit(String fromAccount){
         fixedDeposit_page.clickPlaceFixedDeposit.click();
         fixedDeposit_page.clickFromAccount.click();
-        bddUtil.scrollWindowToElement(fixedDeposit_page.find(By.xpath("//div[@class=\"el-select-dropdown el-popper selectClass\"]//span[text()='"+ fromAccount +"']"))).click();
+        fixedDeposit_page.find(By.xpath("//label[@for='acctObj']")).click();
+//        bddUtil.scrollWindowToElement(fixedDeposit_page.find(By.xpath("//div[@class=\"el-select-dropdown el-popper selectClass\"]//span[text()='"+ fromAccount +"']"))).click();
     }
     public void isDisabledMultiCurrency(String accountCurrency){
         //判断是否多币种账户

@@ -40,6 +40,7 @@ Feature: changePassword
     When I click get verification code button
     When I click next button on the change Password page
     When I input new password and click confirm button
+    When The program is finished I will release the Linux SSH connection
 
 
   @forgotPassWordPssPort

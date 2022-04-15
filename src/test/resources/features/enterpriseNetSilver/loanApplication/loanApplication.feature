@@ -1,6 +1,7 @@
 @accountService
 Feature: loan application
 
+  @loanApplication0
   Scenario:Select "≤1,000,000" for "Corporate Turnover (SGD)", select "Current Assets Loan" for the loan type, select the guarantor: Director, select the duration of the financial report: six months, enter the application amount: 10,000 Singapore dollars, "Micro Current "Overdraft" product loan application successful
     Given logon "netSilverEnvLoan_Tian" on enterprise net silver
     When I hover over the loan business
@@ -25,8 +26,9 @@ Feature: loan application
     When I click next button on the upLoadFile page
 
 
-    @text1
+    @loanApplication1
     Scenario:Select “>1,000,000 and ≤ 20,000,000” for “Corporate Turnover (SGD)”, “Current Asset Loan” for the loan type, select collateral: real estate, select guarantor: personal guarantee-director; input the loan amount: 200,000; "Overdraft" product loan application successful
+#     活期透支
       Given logon "netSilverEnvLoan_Tian" on enterprise net silver
       When I hover over the loan business
       When I choose a turnover of one million to two million
@@ -46,8 +48,9 @@ Feature: loan application
         |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
       When I click next button on the upLoadFile page
 
-    @text2
+    @loanApplication2
     Scenario:Select “>1,000,000 and ≤20,000,000” for “Corporate Turnover (SGD)”, select “Current Asset Loan” for the loan type, select the collateral: real estate, select the guarantor: personal guarantee - two directors, input the loan amount: 200,000; 30-Day Accounts Receivable Financing Product Loan Application Successful (Loan Currency Selection: USD)
+#     收账融资
       Given logon "netSilverEnvLoan_Tian" on enterprise net silver
       When I hover over the loan business
       When I choose collection financing
@@ -73,8 +76,9 @@ Feature: loan application
         |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
       When I click next button on the upLoadFile page
 
-  @text3
+  @loanApplication3
   Scenario:Select “>1,000,000 and ≤20,000,000” for “Corporate Turnover (SGD)”, select “Fixed Assets Loan” for the loan type, select the guarantor: Corporate Guarantee - a corporate shareholder, input the loan amount: 1.2 million; 1-year new auto financing product successful loan application
+#    固定资产
     Given logon "netSilverEnvLoan_Tian" on enterprise net silver
     When I hover over the loan business
     When I choose fixed asset loan
@@ -96,7 +100,7 @@ Feature: loan application
 
 
 #    贷款支用。无授权
-  @text4
+  @loanApplication4
   Scenario:Accounts Payable Financing Loan Draw Application Process
     Given logon "netSilverEnvLoan_Tian" on enterprise net silver
     When I click the loan draw button
@@ -111,7 +115,7 @@ Feature: loan application
 #    Then I should see Submitted successfully page
 
 
-  @text5
+  @loanApplication5
   Scenario:2Accounts Payable Financing Loan Disbursement Application Process (The payment currency is USD, no review is required)
     Given logon "netSilverEnvLoan_Tian" on enterprise net silver
     When I click the loan draw button
@@ -126,8 +130,8 @@ Feature: loan application
     Then I should see Submitted successfully page
 
 #    单人授权。需要提前更改账号的授权模式。
-  @text6
-  Scenario:Accounts Payable Financing Loan Draw Application Process
+  @loanApplication6
+  Scenario:Accounts2 Payable Financing Loan Draw Application Process
     Given logon "netSilverEnvLoan_Tian" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When click authorization
@@ -165,7 +169,9 @@ Feature: loan application
     When I typed TC Code and click Authenticate Now
 
 
-    @test7
+
+#    还款。
+    @loanApplication7
 Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: SGD, product term: 30 days), the repayment is successful
     Given logon "netSilverEnvLoan_Tian" on enterprise net silver
       When I click the loan Manage ment Button
@@ -177,7 +183,7 @@ Scenario:For accounts receivable financing products, the repayment date is 5 day
       When I typed TC Code and click Authenticate Now
       Then I should see Submitted successfully page
 
-    @test8
+    @loanApplication48
  Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: USD, product term: 30 days), the repayment is successful
       Given logon "netSilverEnvLoan_Tian" on enterprise net silver
       When I click the loan Manage ment Button

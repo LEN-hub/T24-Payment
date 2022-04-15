@@ -69,6 +69,7 @@ public class loanApplication_step extends ScenarioSteps {
         loanApplication_page.currentAssets.click();
         loanApplication_page.nextBtn.click();
         bddUtil.sleep(1);
+        bddUtil.scrollWindowToElement(loanApplication_page.find(By.xpath("//div[@class='mandatory']")));
         loanApplication_page.ApplyForMicroDemand.click();
         loanApplication_page.inputLoanAmount.sendKeys(amount);
         loanApplication_page.submitBtn.click();
@@ -174,36 +175,40 @@ public class loanApplication_step extends ScenarioSteps {
 
     public void inputOtherFinancialCommitment(String financialInstitutionName,String loanAmt,String outstandingAmt,String monthlyInstallments,String rate){
         loanApplication_page.yesBtn.click();
-        loanApplication_page.financialInstitutionName.sendKeys(financialInstitutionName);
+        bddUtil.scrollWindowToElement(loanApplication_page.yesBtn);
         loanApplication_page.overdraft.click();
+//        loanApplication_page.financialInstitutionName.sendKeys(financialInstitutionName);
         loanApplication_page.loanAmt.sendKeys(loanAmt);
         loanApplication_page.outstandingAmt.sendKeys(outstandingAmt);
         loanApplication_page.monthlyInstallments.sendKeys(monthlyInstallments);
         loanApplication_page.rate.sendKeys(rate);
+        bddUtil.scrollWindowToElement(loanApplication_page.loanAmt);
         loanApplication_page.nextStep.click();
         bddUtil.sleep(3);
     }//填写其他财务承诺。
 
     public void inputOtherFinancialCommitmentOnCompany(String financialInstitutionName,String loanAmt,String outstandingAmt,String monthlyInstallments,String rate){
         loanApplication_page.yesBtnCompany.click();
-        loanApplication_page.financialInstitutionCompanyName.sendKeys(financialInstitutionName);
+//        loanApplication_page.financialInstitutionCompanyName.sendKeys(financialInstitutionName);
         loanApplication_page.overdraftCompany.click();
         loanApplication_page.loanAmtCompany.sendKeys(loanAmt);
-        loanApplication_page.outstandingAmtCompany.sendKeys(outstandingAmt);
-        loanApplication_page.monthlyInstallmentsCompany.sendKeys(monthlyInstallments);
+//        loanApplication_page.outstandingAmtCompany.sendKeys(outstandingAmt);
+//        loanApplication_page.monthlyInstallmentsCompany.sendKeys(monthlyInstallments);
         loanApplication_page.rateCompany.sendKeys(rate);
+        bddUtil.scrollWindowToElement(loanApplication_page.rateCompany);
         loanApplication_page.nextStep.click();
         bddUtil.sleep(3);
     }//填写其他财务承诺在公司担保界面。。
 
     public void inputOtherOnRealEstateMortgage(String financialInstitutionName,String loanAmt,String outstandingAmt,String monthlyInstallments,String rate){
         loanApplication_page.financialCommitment.click();
-        loanApplication_page.financialInstitutionNameHouse.sendKeys(financialInstitutionName);
+//        loanApplication_page.financialInstitutionNameHouse.sendKeys(financialInstitutionName);
         loanApplication_page.overdraftHouse.click();
         loanApplication_page.loanAmtHouse.sendKeys(loanAmt);
-        loanApplication_page.outstandingAmtHouse.sendKeys(outstandingAmt);
-        loanApplication_page.monthlyInstallmentsHouse.sendKeys(monthlyInstallments);
+//        loanApplication_page.outstandingAmtHouse.sendKeys(outstandingAmt);
+//        loanApplication_page.monthlyInstallmentsHouse.sendKeys(monthlyInstallments);
         loanApplication_page.rateHouse.sendKeys(rate);
+        bddUtil.scrollWindowToElement(loanApplication_page.overdraftHouse);
         loanApplication_page.nextStep.click();
         bddUtil.sleep(3);
     }//填写其他财务承诺在房产抵债。

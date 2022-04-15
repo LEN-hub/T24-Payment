@@ -21,8 +21,8 @@ public class createSupplierCreditFile_glue {
     private createSupplierCreditFile_step createSupplierCreditFile_step;
     private BDDUtil bddUtil;
 
-    public String  companyName = FileUtils.LastReadFileInput3("supplierName_chen");
-    public String  buyerName = FileUtils.LastReadFileInput3("buyerName_chen");
+    public String  companyName = FileUtils.LastReadFileInput3("companyData");
+    public String  buyerName = FileUtils.LastReadFileInput3("buyer");
 
 
     @When("^login successfully and click the SCF link to createSupplierCreditFile$")

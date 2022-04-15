@@ -30,16 +30,16 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//label[@for='loanTypeCd']/following-sibling::div//label[1]")
     public WebElementFacade currentAssets;//流动资产贷款。
 
-    @FindBy(xpath = "//label[@for='loanTypeCd']/following-sibling::div//label[2]")
+    @FindBy(xpath = "//label[@for='loanTypeCd']/following-sibling::div//div[@class='flex'][2]/label/span[1]")
     public WebElementFacade fixedAssets;//固定资产贷款。
 
     @FindBy(xpath = "//form[@class='el-form el-form--label-left']/div[3]//div[@class='btn_box']")
     public WebElementFacade nextBtn;
 
-    @FindBy(xpath = "//div[@class='loan_container']/div[1]/div[11]")
+    @FindBy(xpath = "//div[@class='loan_container']/div[1]//div//div[@class='btn_box']")
     public WebElementFacade ApplyForMicroDemand;//申请微型活期透支。
 
-    @FindBy(xpath = "//div[@class='loan_container']/div[3]/div[11]")
+    @FindBy(xpath = "//div[@class='loan_container']/div[3]//div[@class='btn_box']")
     public WebElementFacade demandOverdraft;//活期透支。
 
     @FindBy(xpath = "//div[@class='loan_container']/div[5]/div[11]")
@@ -212,13 +212,13 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//div[@class='contact_container mb24']/following-sibling::form/div[1]/div//input")
     public WebElementFacade financialInstitutionNameHouse;//金融机构名称 房产抵押。
 
-    @FindBy(xpath = "//div[@class='mandatory']/following-sibling::div[7]//form/div[2]//div[@class='el-radio-group']//label[1]//span[1]/span")
+    @FindBy(xpath = "//div[@class='mandatory']/following-sibling::div[7]//form/div[1]/div//label[1]//span[2]")
     public WebElementFacade overdraft;//透支。
 
-    @FindBy(xpath = "//div[@class='mandatory']/following-sibling::div[3]//form/div[2]//div[@class='el-radio-group']//label[1]//span[1]/span")
+    @FindBy(xpath = "//label[@for='loanType']/following-sibling::div/div/label[1]/span[1]")
     public WebElementFacade overdraftCompany;//透支（公司）。
 
-    @FindBy(xpath = "//div[@class='mandatory']/following-sibling::div[3]//form/div[2]//div[@class='el-radio-group']//label[1]//span[1]/span")
+    @FindBy(xpath = "//label[@for='loanType']/following-sibling::div//label[1]//span[2]")
     public WebElementFacade overdraftHouse;//房产抵押 透支按钮。
 
     @FindBy(xpath = "//div[@class='mandatory']/following-sibling::div[7]//form//label[@for='loanAmt']/following-sibling::div//input")

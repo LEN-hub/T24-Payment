@@ -8,7 +8,7 @@ import java.util.List;
 
 public class eStatement_page extends PageObject {
 
-    @FindBy(xpath = "//div[@class='el-dropdown'][3]/div/div/div")
+    @FindBy(xpath = "//div[@class='el-dropdown'][1]/div/div/div")
     public WebElementFacade myDownloadsBtn;
 
     @FindBy(xpath = "//li[@class='el-dropdown-menu__item'][text()='View eStatements']")
