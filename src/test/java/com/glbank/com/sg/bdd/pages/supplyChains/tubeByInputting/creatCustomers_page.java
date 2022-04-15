@@ -184,8 +184,20 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//span[@class='dialog-footer']/label[@class='lls-checkbox']/span[1]")
     public WebElementFacade clickCheckBox;
 
-    @FindBy(xpath = "//span[@class='dialog-footer']/div[@class='btn-sty']/button[2]")
+    @FindBy(xpath = "//span[text()=' Agree ']")
     public WebElementFacade clickAgreeBtn;
+
+    @FindBy(xpath = "//div[@class='dialog-footer-top']//span[@class='lls-checkbox__input']")
+    public WebElementFacade selectFirstCheckBox;
+
+    @FindBy(xpath = "//div[@class='dialog-footer-btm']//label[1]/span[@class='lls-checkbox__input']")
+    public WebElementFacade selectSecondCheckBox1;
+
+    @FindBy(xpath = "//div[@class='dialog-footer-btm']//label[2]/span[@class='lls-checkbox__input']")
+    public WebElementFacade selectThirdCheckBox;
+
+    @FindBy(xpath = "//div[@class='dialog-footer-btm']//label[3]/span[@class='lls-checkbox__input']")
+    public WebElementFacade selectFourCheckBox;
 
     @FindBy(xpath = "//div[text()=' Tell Us About Your Company ']")
     public WebElementFacade checkjumpPageTellUs;
@@ -208,7 +220,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='websiteUrl']/following-sibling::div//input)")
     public WebElementFacade webSiteUrl;
 
-    @FindBy(xpath = "//label[@for='companyEmail']/following-sibling::div//input")
+    @FindBy(xpath = "//label[@for='custEmail']/following-sibling::div//input")
     public WebElementFacade companyEmail;
 
     @FindBy(xpath = "//label[@for='companyPhoneNumber']/following-sibling::div//input")
