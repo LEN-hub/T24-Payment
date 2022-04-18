@@ -1,7 +1,6 @@
 @accountService12345
 Feature: accountService
 
-
   Scenario:process for querying the account list
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When click the Account Details menu in the account
