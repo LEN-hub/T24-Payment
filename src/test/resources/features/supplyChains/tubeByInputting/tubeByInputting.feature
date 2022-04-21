@@ -8,9 +8,7 @@ Feature: tube By Inputting
     And I switch to the SCF page
     When I click Customers and select Onboarding List
     And I click Create Customer and fill in the buyer information in the pop-up window
-    Then I Check to see if you jump to the Authorized Person page
-    When Fill in email 1 and email 2 buyer information on the Authorized Person page
-    Then Successfully create buyer customer information
+#    Then I verify whether the current page is redirected
 
 
   Scenario:Create your own profile and send invitations

@@ -43,7 +43,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='registryCountry']/following-sibling::div//input/following-sibling::span")
     public WebElementFacade selectCountryOfRegistration;
 
-    @FindBy(xpath = "//body[@class='el-popup-parent--hidden']/div[5]//ul//span[text()='China']")
+    @FindBy(xpath = "//body[@class='el-popup-parent--hidden']/div[5]//ul//span[text()='Costa Rica']")
     public WebElementFacade countryOfRegistrationValue;
 
     @FindBy(xpath = "//label[@for='custName']/following-sibling::div//input")
@@ -57,6 +57,12 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//span[contains(text(),'Administrator 1')]")
     public WebElementFacade checkNextPage;
+
+    @FindBy(xpath = "//p[text()=' Approved ']")
+    public WebElementFacade approvedText;
+
+    @FindBy(xpath = "//div[@class=\"lowcode-table-fixed-right\"]//table[1]/tbody/tr[1]//div[@class='lls-design-table-btn-wrapper']/span[1]//button")
+    public WebElementFacade viewButton;
 
     @FindBy(xpath = "//label[@for='authorOne.firstName']/following-sibling::div//input")
     public WebElementFacade firstNameInput;
