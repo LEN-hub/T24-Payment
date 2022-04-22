@@ -22,7 +22,7 @@ public class creatCustomers_step extends ScenarioSteps {
     private BDDUtil bddUtil;
     public static String envTag;
 //    String englishName = RandomNameTool.getName(Language.en, NameType.FULL_NAME);
-//    String chineseName = RandomNameTool.getName(Language.zh, NameType.FULL_NAME);
+//    String chineseName = RandomNameTool.getName(Language.en, NameType.FULL_NAME);
 //    String translateName = EnglishNameUtil.getTranslateName(Language.zh);
 //    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
 
@@ -434,8 +434,8 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void fillInTheInformationOnTheDirectorPage(String value){
         customers_page.director1CheckBox.click();
-        customers_page.director1FirstName.sendKeys(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
-        customers_page.director1LastName.sendKeys(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
+        customers_page.director1FirstName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        customers_page.director1LastName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.director1CertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.director1PersonalId).click();
         customers_page.director1CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -450,8 +450,8 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.director1Phone.sendKeys(RandomPhoneNumber.randomPhoneNum());
         bddUtil.scrollWindowToElement(customers_page.director2TimePermanent);
         customers_page.director2CheckBox.click();
-        customers_page.director2FirstName.sendKeys(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
-        customers_page.director2LastName.sendKeys(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
+        customers_page.director2FirstName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        customers_page.director2LastName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.director2CertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.director2Passport).click();
         customers_page.director2CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -470,8 +470,8 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void fillInTheInformationOnTheShareholderPage(String value){
-        customers_page.shareholder1FirstName.sendKeys(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
-        customers_page.shareholder1LastName.sendKeys(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
+        customers_page.shareholder1FirstName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        customers_page.shareholder1LastName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.shareholder1CertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.shareholder1CertificationTypeSelectPersonalId).click();
         customers_page.shareholder1CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -487,8 +487,8 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.shareholder1ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         bddUtil.scrollWindowToElement(customers_page.shareholder2FundScale);
         customers_page.shareholder1FundScale.sendKeys("25");
-        customers_page.shareholder2FirstName.sendKeys(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
-        customers_page.shareholder2LastName.sendKeys(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
+        customers_page.shareholder2FirstName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        customers_page.shareholder2LastName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.shareholder2CertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.shareholder2CertificationTypeSelectPassport).click();
         customers_page.shareholder2CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -516,8 +516,8 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void fillInTheInformationOnTheBeneficialPage(String value){
         customers_page.beneficialCheckBox.click();
-        customers_page.beneficial1FirstName.sendKeys(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
-        customers_page.beneficial1LastName.sendKeys(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
+        customers_page.beneficial1FirstName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        customers_page.beneficial1LastName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.beneficial1CertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.beneficial1CertificationTypeSelectPersonalId).click();
         customers_page.beneficial1CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());

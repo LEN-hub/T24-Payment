@@ -88,7 +88,7 @@ public class creatCustomers_glue {
 
     @When("^Fill in email 1 and email 2 supplier information on the Authorized Person page$")
     public void fillInAdministratorAndAdministratorSupplierInformationOnTheAuthorizedPersonPage() {
-        customers_step.getFirstNameInput(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
+        customers_step.getFirstNameInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         bddUtil.switchToNewWindow();
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
@@ -100,7 +100,7 @@ public class creatCustomers_glue {
         customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
         customers_step.getEmailSecondInput(mailName1  + "@MailTemp.top");
         System.out.println("---------------第二个邮箱地址："+ mailName1 + "@MailTemp.top"+"----------------------");
-        customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
+        customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
         customers_step.clickInputBySelectBox();
         customers_step.clickSubmitBtn();
@@ -109,18 +109,18 @@ public class creatCustomers_glue {
 
     @When("^Fill in email 1 and email 2 buyer information on the Authorized Person page$")
     public void fillInAdministratorAndAdministratorBuyerInformationOnTheAuthorizedPersonPage() {
-        customers_step.getFirstNameInput(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
+        customers_step.getFirstNameInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         bddUtil.switchToNewWindow();
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
         customers_step.getEmailInput(mailName + "@MailTemp.top");
         System.out.println("---------------第一个邮箱地址："+ mailName + "@MailTemp.top"+"----------------------");
-        customers_step.getLastName(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
+        customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         customers_step.getMobileInput(RandomPhoneNumber.randomPhoneNum());
-        customers_step.getFirstNameSecondInput(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
+        customers_step.getFirstNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         customers_step.getEmailSecondInput(mailName1  + "@MailTemp.top");
         System.out.println("---------------第二个邮箱地址："+ mailName1 + "@MailTemp.top"+"----------------------");
-        customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.zh, NameType.FULL_NAME));
+        customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
         customers_step.clickSubmitBtn();
     }
