@@ -26,7 +26,7 @@ public class payments_page extends PageObject{
    @FindBy(xpath = "//div[@data-key='f0en9ob2']//input")
    public WebElementFacade requestTian;
 
-    @FindBy(xpath ="//label[text()='Requester']")  //刷新
+    @FindBy(xpath ="//label[text()='Requester']")  //空白处
     public WebElementFacade Reset;
 
     @FindBy(xpath ="//span[@data-key='f2r0o090']/button/span")
@@ -37,6 +37,9 @@ public class payments_page extends PageObject{
 
    @FindBy(xpath ="//div[@data-key='f0bvpsgo']//input")
     public WebElementFacade RequesterTwo;   //通过供应商筛选值
+
+   @FindBy(xpath = "//div[@data-key='f0rtkmfs']//input")
+    public WebElementFacade repaymentRequest;
 
     @FindBy(xpath ="//div[@class='lls-design-table-btn-wrapper']//button/span")
     public  WebElementFacade Proceed;   //审核

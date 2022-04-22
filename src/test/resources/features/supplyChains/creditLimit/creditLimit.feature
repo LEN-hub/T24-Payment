@@ -109,14 +109,12 @@ Scenario:The operator initiates the supplier's credit, the whole process is appr
    Scenario:BR signed
     Given Open Supplier Portal URL
     When I input login data and click on the Login Supplier Portal URL
-      |pass word |send code|
-      |Gl123456- |1234     |
-    When I click Pending Signature button
-    And I click confirm Button
+      |pass word   |Company ID|
+      |P@ssw0rd_123|1234      |
+#    When I click Pending Signature button
+#    And I click confirm Button
     When I login email URL
-    When I click Refresh Button
-    And I click first email
-    And I input token
+    When I to sign
 
 
 

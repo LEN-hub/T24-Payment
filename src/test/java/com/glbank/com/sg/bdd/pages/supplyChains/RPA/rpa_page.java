@@ -66,5 +66,66 @@ public class rpa_page extends PageObject {
     @FindBy(xpath = "//span[text()='Contract']")
     public WebElementFacade Contract;
 
+    @FindBy(xpath = "//span[text()='Report']")
+    public WebElementFacade Report;
 
+    @FindBy(xpath = "//td[@title='1']//following-sibling::td[29]//button//span")
+    public WebElementFacade firstViewAdvice;
+
+    @FindBy(xpath = "//div[@id='main-message']/h1")
+    public WebElementFacade errorText;
+
+    @FindBy(id = "details-button")
+    public WebElementFacade advancedButton;
+
+    @FindBy(id = "proceed-link")
+    public WebElementFacade enterEmailLink;
+
+    @FindBy(xpath = "//span[text()='Setting']")
+    public WebElementFacade setting;
+
+    @FindBy(xpath = "//div[@data-key='f28ip5ur']/button/span")
+    public WebElementFacade createUser;
+
+    @FindBy(xpath = "//div[@data-key='f3mhkbh2']//div[@class='lls-form-item is-required'][1]//input")
+    public WebElementFacade firstName;
+
+    @FindBy(xpath = "//div[@data-key='f3mhkbh2']//div[@class='lls-form-item is-required'][2]//input")
+    public WebElementFacade lastName;
+
+    @FindBy(xpath = "//div[@data-key='f3mhkbh2']//div[@class='lls-form-item is-required'][3]//input")
+    public WebElementFacade emailAdd;
+
+    @FindBy(xpath = "//div[@data-key='f3mhkbh2']//div[@class='lls-form-item is-required'][4]//input")
+    public WebElementFacade phone;
+
+    @FindBy(xpath = "//div[@data-key='f306i01b']//span")
+    public WebElementFacade confirmBtn;
+
+    @FindBy(xpath = "//div[@class='lowcode-table default-theme']//div[@class='lowcode-table-fixed-right table-shadow']//tbody//tr[1]//span[@data-key='f2ndb6d8']//button//span")
+    public WebElementFacade sendEmail;
+
+    @FindBy(xpath = "//div[@class='lls-message-box__btns']//button[2]//span")
+    public WebElementFacade confirmInvitation;
+
+    @FindBy(xpath = "//input[@placeholder='mailbox']")
+    public WebElementFacade DisposableEmail;
+
+    @FindBy(xpath = "//button[@class='btn btn-success']")
+    public WebElementFacade emailView;
+
+    @FindBy(xpath = "//span[text()='Green Link Digital Bank - Invitation']")
+    public WebElementFacade firstEmail;
+
+    @FindBy(xpath = "//a[text()='Green Link system']")
+    public WebElementFacade logonLink;
+
+    @FindBy(xpath = "//p[text()='New password']/following-sibling::div[1]//input")
+    public WebElementFacade firstNewPassword;
+
+    @FindBy(xpath = "//p[text()='New password']/following-sibling::div[2]//input")
+    public WebElementFacade secondNewPassword;
+
+    @FindBy(xpath = "//span[contains(text(),'Confirm')]")
+    public WebElementFacade newPasswordPageConfirmBtn;
 }

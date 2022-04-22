@@ -54,6 +54,16 @@ public class payments_steps extends ScenarioSteps {
     public void clickAssignToMeS() {paymentsPage.AssignToMeS.click();}
 
     @Step
+    public void clickAssToMe(){
+        paymentsPage.repaymentRequest.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        bddUtil.sleep(3);
+        paymentsPage.Reset.click();
+        bddUtil.sleep(3);
+        paymentsPage.assignToMeList.get(1).click();
+        bddUtil.sleep(1);
+    }
+
+    @Step
     public void clickRequesterTwo() {
         paymentsPage.RequesterTwo.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         paymentsPage.Reset.click();
@@ -223,7 +233,6 @@ public class payments_steps extends ScenarioSteps {
         paymentsPage.repaymentAmount.clear();
         paymentsPage.repaymentAmount.sendKeys("10");
         bddUtil.sleep(1);
-        paymentsPage.commission.click();
         paymentsPage.repaymentData.sendKeys(bddUtil.dateFormate());
         paymentsPage.commission.click();
         paymentsPage.submitBtn.click();

@@ -6,6 +6,8 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
+import java.util.Random;
+
 import static org.junit.Assert.*;
 
 public class rpa_steps extends ScenarioSteps {
@@ -74,7 +76,7 @@ public class rpa_steps extends ScenarioSteps {
     @Step
     public void loginServiceAgreementWindow() {
         rpaPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
-        rpaPage.GLDBEmailPassword.sendKeys("Gl123456.");
+        rpaPage.GLDBEmailPassword.sendKeys("Password9@");
         rpaPage.enterCompanyId.sendKeys("1234");
         rpaPage.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
@@ -92,7 +94,108 @@ public class rpa_steps extends ScenarioSteps {
 
     }
 
+    public void clickReport(){
+        rpaPage.Report.click();
+        bddUtil.sleep(2);
+//        rpaPage.firstViewAdvice.click();
+        bddUtil.clickByJS(rpaPage.find(By.xpath("//div[@class='container']//div[@class='lls-design-page']//div[@class='is-not-empty']//td[@title='1']//following-sibling::td[@data-fixed='true']//button//span")));
+        bddUtil.sleep(5);
+    }
 
+    public void errorEmailLink() {
+        bddUtil.switchToNewWindow();
+        if (rpaPage.errorText.isVisible()){
+            rpaPage.advancedButton.click();
+            rpaPage.enterEmailLink.click();
+        }
+    }
 
+    public void inputLogin(){
+        rpaPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
+        rpaPage.GLDBEmailPassword.sendKeys("Password9@");
+        rpaPage.enterCompanyId.sendKeys("1234");
+        rpaPage.sendCodeBtn.click();
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
+        bddUtil.switchToNewWindow();
+        if (rpaPage.errorText.isVisible()){
+            rpaPage.advancedButton.click();
+            rpaPage.enterEmailLink.click();
+        }
+        bddUtil.sleep(3);
+        rpaPage.clickRefreshBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.thirdEmail.click();
+        String Vcode = rpaPage.emailVerificationCode.getText();
+        bddUtil.switchToWindows();
+        rpaPage.inputSendCode.sendKeys(Vcode);
+        rpaPage.GLDBEmailLoginBtn.click();
+        bddUtil.sleep(5);
+    }
+
+    public void clickCreateUser(String firstPassword,String secondPassword){
+        rpaPage.setting.click();
+        bddUtil.sleep(1);
+        rpaPage.createUser.click();
+        rpaPage.firstName.sendKeys(JRandomNameTool.getStringRandom(5));
+        rpaPage.lastName.sendKeys(JRandomNameTool.getStringRandom(4));
+        rpaPage.emailAdd.sendKeys(content+ "@MailTemp.top");
+        rpaPage.phone.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        rpaPage.confirmBtn.click();
+        bddUtil.sleep(5);
+        rpaPage.sendEmail.click();
+        rpaPage.confirmInvitation.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        rpaPage.DisposableEmail.sendKeys(content);
+        rpaPage.emailView.click();
+        rpaPage.clickRefreshBtn.click();
+        bddUtil.sleep(2);
+        rpaPage.firstEmail.click();
+        String Vcode = rpaPage.emailVerificationCode.getText();
+        rpaPage.logonLink.click();
+        rpaPage.GLDBEmailInput.sendKeys(content+"@MailTemp.top");
+        rpaPage.GLDBEmailPassword.sendKeys(Vcode);
+        rpaPage.enterCompanyId.sendKeys("1234");
+        rpaPage.sendCodeBtn.click();
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
+        bddUtil.switchToNewWindow();
+        if (rpaPage.errorText.isVisible()){
+            rpaPage.advancedButton.click();
+            rpaPage.enterEmailLink.click();
+        }
+        bddUtil.sleep(3);
+        rpaPage.DisposableEmail.sendKeys(content);
+        rpaPage.emailView.click();
+        rpaPage.clickRefreshBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.thirdEmail.click();
+        String vCode2 = rpaPage.emailVerificationCode.getText();
+        bddUtil.switchToWindows();
+        rpaPage.inputSendCode.sendKeys(vCode2);
+        bddUtil.sleep(1);
+        rpaPage.GLDBEmailLoginBtn.click();
+        bddUtil.sleep(5);
+        rpaPage.firstNewPassword.sendKeys(firstPassword);
+        rpaPage.secondNewPassword.sendKeys(secondPassword);
+        rpaPage.newPasswordPageConfirmBtn.click();
+        bddUtil.sleep(2);
+        rpaPage.GLDBEmailInput.sendKeys(content+"@MailTemp.top");
+        rpaPage.GLDBEmailPassword.sendKeys(firstPassword);
+        rpaPage.enterCompanyId.sendKeys("1234");
+        rpaPage.sendCodeBtn.click();
+        bddUtil.sleep(3);
+        bddUtil.switchToWindows();
+        rpaPage.clickRefreshBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.thirdEmail.click();
+        String vCode3 = rpaPage.emailVerificationCode.getText();
+        bddUtil.switchToWindows();
+        rpaPage.inputSendCode.sendKeys(vCode3);
+        bddUtil.sleep(1);
+        rpaPage.GLDBEmailLoginBtn.click();
+        bddUtil.sleep(10);
+    }
 }
 

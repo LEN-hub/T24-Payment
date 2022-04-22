@@ -79,4 +79,17 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.clickFinancingStatus.click();
         financingRequest_page.clickPaymentInProgress.click();
     }
+
+    public void clickMoreBtn(){
+        financingRequest_page.more.click();
+        financingRequest_page.ratingLimits.click();
+        financingRequest_page.ratingLimitsList.click();
+    }
+
+    public void seeQuotaOccupancy(String companyName){
+        financingRequest_page.client.sendKeys(companyName);
+        financingRequest_page.ratingTitle.click();
+        bddUtil.clickByJS(financingRequest_page.find(By.xpath("//div[@data-key='f2u4lp9q']//div[@class='lowcode-table-base']//tbody//span[@data-key='f0pbd6tn']//span")));
+        bddUtil.sleep(3);
+    }//查看客户额度占用情况。
 }

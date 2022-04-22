@@ -12,3 +12,16 @@ Feature: financingRequest
     And click Operations to Review
     Then login "environments_3" To RequestFinancing
     And click Financing Status
+
+    @test1
+    Scenario:A supplier initiates a financing request on the supplier portal, which will occupy the corresponding quota of the supplier and buyer
+      Given login "environments_3" To RequestFinancing
+      When login successfully and click RequestFinancing
+      Then upload RequestFinancing File
+      Given logon "environments_1" on tube by inputting system
+      When I click more button
+      When I should see Quota occupancy
+
+
+
+

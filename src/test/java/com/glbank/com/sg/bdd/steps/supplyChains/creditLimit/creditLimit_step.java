@@ -17,7 +17,7 @@ public class creditLimit_step extends ScenarioSteps {
     private creditLimit_page creditLimit_page;
     private BDDUtil bddUtil;
     public static String envTag;
-
+    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
 
     @Step
     public void clickUnderWritingAndApproval(){
@@ -119,10 +119,7 @@ public class creditLimit_step extends ScenarioSteps {
         List<WebElementFacade> actions = creditLimit_page.actionList;
         for (int i = 0; i <roles.size() ; i++) {
             if (roles.get(i).getText().equals("Buyer")){
-                System.out.println(roles.get(i).getText());
-                System.out.println(actions.get(i).getText());
-                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-                webdriver.executeScript("arguments[0].click();", actions.get(i));
+                bddUtil.clickByJS(actions.get(i));
 //                actions.get(i).click();
                 break;
             }
@@ -163,11 +160,7 @@ public class creditLimit_step extends ScenarioSteps {
         List<WebElementFacade> actions = creditLimit_page.actionList;
         for (int i = 0; i <roles.size() ; i++) {
             if (roles.get(i).getText().equals("Supplier")){
-                System.out.println(roles.get(i).getText());
-                System.out.println(actions.get(i).getText());
-                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-                webdriver.executeScript("arguments[0].click();", actions.get(i));
-//                actions.get(i).click();
+                bddUtil.clickByJS(actions.get(i));
                 break;
             }
         }
@@ -194,20 +187,29 @@ public class creditLimit_step extends ScenarioSteps {
 
 
     @Step
-    public void inputOtherData(String passWord,String sendCode) {
+    public void inputOtherData(String passWord,String CompanyID) {
         creditLimit_page.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
         creditLimit_page.GLDBEmailPassword.sendKeys(passWord);
-        creditLimit_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        creditLimit_page.enterCompanyId.sendKeys(CompanyID);
         creditLimit_page.sendCodeBtn.click();
 //        bddUtil.switchToNewWindow();
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
         bddUtil.sleep(3);
+        bddUtil.switchToWindows();
+        creditLimit_page.advancedButton.click();
+        creditLimit_page.enterEmailLink.click();
+        creditLimit_page.clickRefreshBtn.click();
+        bddUtil.sleep(1);
+        creditLimit_page.thirdEmail.click();
+        String Vcode = creditLimit_page.emailVerificationCode.getText();
+        bddUtil.switchToWindows();
+        creditLimit_page.inputSendCode.sendKeys(Vcode);
+        creditLimit_page.GLDBEmailLoginBtn.click();
 //        creditLimit_page.clickRefreshBtn.click();
 //        bddUtil.sleep(1);
 //        creditLimit_page.thirdEmail.click();
 //        String Vcode = creditLimit_page.emailVerificationCode.getText();
-        bddUtil.switchToWindows();
-        creditLimit_page.inputSendCode.sendKeys(sendCode);
-        creditLimit_page.GLDBEmailLoginBtn.click();
         bddUtil.sleep(10);
     }
 
@@ -219,6 +221,44 @@ public class creditLimit_step extends ScenarioSteps {
     @Step
     public void clickConfirmBtn(){
         creditLimit_page.confirmBtn.click();
+    }
+
+    @Step
+    public void clickEmail(){
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);//应该留20S
+        creditLimit_page.clickRefreshBtn.click();
+        bddUtil.sleep(4);
+        creditLimit_page.agreement.get(0).click();
+        bddUtil.sleep(1);
+        creditLimit_page.plainText.click();
+        creditLimit_page.tokenLink.click();
+        bddUtil.sleep(3);
+        bddUtil.switchToWindows();
+        bddUtil.switchToWindows();
+        creditLimit_page.clickRefreshBtn.click();
+        bddUtil.sleep(2);
+        creditLimit_page.otpToken.click();
+        bddUtil.sleep(1);
+        String emailToken = creditLimit_page.emailToken.getText();
+        bddUtil.sleep(1);
+//        creditLimit_page.agreement.get(0).click();
+        bddUtil.switchToWindows();
+        bddUtil.sleep(2);
+        creditLimit_page.inputToken.sendKeys(emailToken);
+        creditLimit_page.plainText.click();//故意报错
+//        creditLimit_page.otpToken.click();
+        bddUtil.sleep(5);
+
+    }
+
+    @Step
+    public void toSign(){
+        bddUtil.scrollWindowToElement(creditLimit_page.signHere).click();
+        //div[@class='upload-demo']//div//input
+        creditLimit_page.upLoadImg.sendKeys(fileAddress);
+        bddUtil.sleep(10);
+
     }
 
     @Step
