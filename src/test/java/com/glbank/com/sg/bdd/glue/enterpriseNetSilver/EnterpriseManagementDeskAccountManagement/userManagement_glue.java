@@ -33,9 +33,10 @@ public class userManagement_glue {
 
     //修改手机号
     @When("^I click modify info menu$")
-    public void iClickModifyInfoMenu() {
+    public void iClickModifyInfoMenu(DataTable emailAddress) {
+        List<Map<String, String>> maps = emailAddress.asMaps(String.class, String.class);
         userManagement_steps.clickAccountManagements();
-        userManagement_steps.selectTheMenus();
+        userManagement_steps.selectTheMenus(maps.get(0).get("emailAddress"));
         userManagement_steps.clickModifyInformation();
         userManagement_steps.clickMobilePHONNO();
         userManagement_steps.clickNext();
@@ -106,9 +107,10 @@ public class userManagement_glue {
 
     //用户注销
     @When("^I click the menu select User Logout$")
-    public void iClickTheMenuSelectUserLogout() {
+    public void iClickTheMenuSelectUserLogout(DataTable emailAddress) {
+        List<Map<String, String>> maps = emailAddress.asMaps(String.class, String.class);
         userManagement_steps.clickAccountManagements();
-        userManagement_steps.selectTheMenus();
+        userManagement_steps.selectTheMenus(maps.get(0).get("emailAddress"));
         userManagement_steps.selectMenus();
         userManagement_steps.clickLogOut();
         userManagement_steps.clickSure();
@@ -118,9 +120,10 @@ public class userManagement_glue {
 
     //停用用户
     @When("^I click on user deactivate confirm$")
-    public void iClickOnUserDeactivateConfirm() {
+    public void iClickOnUserDeactivateConfirm(DataTable emailAddress) {
+        List<Map<String, String>> maps = emailAddress.asMaps(String.class, String.class);
         userManagement_steps.clickAccountManagements();
-        userManagement_steps.selectTheMenus();
+        userManagement_steps.selectTheMenus(maps.get(0).get("emailAddress"));
         userManagement_steps.clickStopUser();
         userManagement_steps.clickSure();
 
@@ -134,9 +137,10 @@ public class userManagement_glue {
 
     //启动用户
     @When("^I click launch user and click ok$")
-    public void iClickLaunchUserAndClickOk() {
+    public void iClickLaunchUserAndClickOk(DataTable emailAddress) {
+        List<Map<String, String>> maps = emailAddress.asMaps(String.class, String.class);
         userManagement_steps.clickAccountManagements();
-        userManagement_steps.selectTheMenus();
+        userManagement_steps.selectTheMenus(maps.get(0).get("emailAddress"));
         userManagement_steps.clickStartUser();
         userManagement_steps.clickSure();
 

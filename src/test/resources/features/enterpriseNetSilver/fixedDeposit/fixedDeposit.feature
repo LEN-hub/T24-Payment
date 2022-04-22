@@ -4,7 +4,7 @@ Feature: fixedDeposit
   #定期存款_新币_六个月_不转存
   @reporttest123
   Scenario:fixedDeposit_SGD_SixMonth_DoNotRenewOrWithdrawAutomatically
-    Given logon "netSilverEnvLoan_Tian" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When click Fixed Deposits menu
     Then Use "netSilverEnv_FixedDeposit" To create fixedDeposit About SGD SixMonth DoNotRenewOrWithdrawAutomatically
     And View details of fixedDeposit
