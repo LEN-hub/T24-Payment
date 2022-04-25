@@ -41,7 +41,7 @@ public class eStatement_page extends PageObject {
     @FindBy(xpath = "//div[@class='dialog-content']/span/div[2]//div[@class='btn_box']")
     public WebElementFacade submitBtn;
 
-    @FindBy(xpath = "//tr[@class='el-table__row'][1]//td[5]//div[@class='btn_box']")
+    @FindBy(xpath = "//tr[@class='el-table__row'][2]//td[5]//div[@class='btn_box']")
     public WebElementFacade downloadFirstBtn;
 
     @FindBy(xpath = "//div[@class='el-table__fixed-right']//tbody/tr[1]/td[5]//img")

@@ -153,7 +153,9 @@ public class accountChange_steps extends ScenarioSteps {
             }
         }
     }
-    public void selectCurrencySGD(){accountChange_page.selectCurrencySGD.click();}
+    public void selectCurrencySGD(){
+        accountChange_page.selectCurrencySGD.click();
+    }
 
     public void selectCurrencyCNY(){accountChange_page.selectCurrencyCNY.click();}
 

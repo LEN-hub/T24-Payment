@@ -2,6 +2,7 @@ package com.glbank.com.sg.bdd.glue.supplyChains.financingRequest;
 
 import com.glbank.com.sg.bdd.steps.supplyChains.financingRequest.financingRequest_step;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import com.glbank.com.sg.bdd.utils.FileUtils;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -15,11 +16,12 @@ public class financingRequest_glue {
     private BDDUtil bddUtil;
 
     public static String envTag;
-    public static String email = "vG7E00n7@MailTemp.top",password = "P@ssw0rd_123-",code = "1234",companyId = "1";
-    public static String companyName = "x7zk";
+    public static String email = FileUtils.LastReadFileInput3("emailData"),password = "P@ssw0rd_123",code = "1234",companyId = "1";
+    public static String companyName = FileUtils.LastReadFileInput3("companyData");
 
     @Given("^login \"([^\"]*)\" To RequestFinancing$")
     public void loginGLDBToRequestFinancing(String envName){
+
         envTag = envName;
         financingRequest_step.openGLDBLoginPage(envName);
         financingRequest_step.enterLoginDateToBox(email,password,companyId,code);

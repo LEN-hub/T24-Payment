@@ -77,7 +77,7 @@ Scenario:The operator initiates the supplier's credit, the whole process is appr
 
 
 #授信限额。
-@test
+@testReportCreditLimit
   Scenario:1Supplier The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained
     Given logon "environments_1" on tube by inputting system
     When I click UnderWriting and UnderWriting Approval
@@ -105,14 +105,14 @@ Scenario:The operator initiates the supplier's credit, the whole process is appr
     When I click UnderWriting List button on the page
 
 
-@test
+@testReportBr
    Scenario:BR signed
     Given Open Supplier Portal URL
     When I input login data and click on the Login Supplier Portal URL
       |pass word   |Company ID|
       |P@ssw0rd_123|1234      |
-#    When I click Pending Signature button
-#    And I click confirm Button
+    When I click Pending Signature button
+    And I click confirm Button
     When I login email URL
     When I to sign
 

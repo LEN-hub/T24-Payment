@@ -123,7 +123,7 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//div[@class='tab-pane message-body active']/a[1]")
     public WebElementFacade tokenLink;
 
-    @FindBy(xpath = "//div[@class='Verificationode_BoxChildIptChild']/div/form")
+    @FindBy(xpath = "//div[@class='Verificationode_BoxChildIptChild']/div/form/input")
     public WebElementFacade inputToken;
 
     @FindBy(xpath = "//label[@for='limitType']")

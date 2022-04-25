@@ -172,7 +172,7 @@ public class accountService_step extends ScenarioSteps {
     public void querySuccess(){
         accountService_page.transactionType.isDisplayed();
         accountService_page.operator.isDisplayed();
-        accountService_page.selectData.isDisplayed();
+        accountService_page.selectDate.isDisplayed();
         accountService_page.querySuccess.isDisplayed();
         List<WebElementFacade> filed = accountService_page.fieldList;
         for (int i = 0; i < filed.size();i++){
@@ -185,9 +185,9 @@ public class accountService_step extends ScenarioSteps {
         if (accountService_page.popWindowsTitle.isVisible()){
             accountService_page.popWindowsOk.click();
         }
-        Actions action = new Actions(getDriver());
-        action.moveToElement( accountService_page.myTransactions).perform();
-        accountService_page.manageTransactions.click();
+//        Actions action = new Actions(getDriver());
+//        action.moveToElement( accountService_page.myTransactions).perform();
+        accountService_page.myTransactions.click();
         accountService_page.moreBtn.click();
         List<WebElementFacade> transactionFiled = accountService_page.transactionField;
         for (int i = 0; i < transactionFiled.size(); i++){
@@ -201,9 +201,9 @@ public class accountService_step extends ScenarioSteps {
         if (accountService_page.popWindowsTitle.isVisible()){
             accountService_page.popWindowsOk.click();
         }
-        Actions action = new Actions(getDriver());
-        action.moveToElement( accountService_page.myTransactions).perform();
-        accountService_page.manageTransactions.click();
+//        Actions action = new Actions(getDriver());
+//        action.moveToElement( accountService_page.myTransactions).perform();
+        accountService_page.myTransactions.click();
         accountService_page.selectSevenDay.click();
         accountService_page.queryBtn.click();
     }

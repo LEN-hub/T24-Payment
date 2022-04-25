@@ -1,4 +1,4 @@
-@accountService
+@e-Statement
 Feature: e-Statement
 
   @ext123
@@ -45,6 +45,29 @@ Scenario:Download the electronic notice and successfully generate the download t
 #    When I click My Downloads Btn
 #    When I see My Downloads List
 
+
+
+#  修改密码
+  Scenario:idCard Forgot password users log in normally after resetting their passwords
+    Given open "netSilverEnvTian" on enterprise net silver
+    When I click forgotPassword button
+    When I input Enterprise customer number and other information
+      |customerNumber |
+      |201741         |
+    When I click idCard button and input idCardNumber
+      |idCardNumber|
+      |S4589632C   |
+    And I Select country code and enter mobile number
+      |countryCode|iphoneNumber|
+      |+86        |15229856144 |
+    When I click get verification code button
+    When I input email address
+      |emailAddress     |
+      |986735326@qq.com |
+    When I click get verification code button
+    When I click next button on the change Password page
+    When I input new password and click confirm button
+    When The program is finished I will release the Linux SSH connection
 
 
 

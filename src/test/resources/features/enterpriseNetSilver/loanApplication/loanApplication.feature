@@ -1,4 +1,4 @@
-@accountService
+@loanApplication
 Feature: loan application
 
   @loanApplication0
@@ -129,44 +129,44 @@ Feature: loan application
     When I typed TC Code and click Authenticate Now
     Then I should see Submitted successfully page
 
-#    单人授权。需要提前更改账号的授权模式。
-  @loanApplication6
-  Scenario:Accounts2 Payable Financing Loan Draw Application Process
-    Given logon "netSilverEnvLoan_Tian" on enterprise net silver
-    When I click on the Enterprise Administration Desk and select Account Management
-    When click authorization
-    When I choose single-player license management mode
-    And Confirm the authorization mode and submit it
-    When secondary authorized person notification is then displayed
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I verify that the transaction is successful
-    When I should switch to the second authorized account
-    When logon second "netSilverEnvLoan_Tian2" on enterprise net silver
-    When I click My Tasks button on the logon page
-    Then I should direct to the Awaiting authorization page
-    When I click on the first piece of data to authorize
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    When I should switch to the second authorized account
-    When  logon second "netSilverEnvLoan_Tian" on enterprise net silver
-    When I click the loan draw button
-    When I choose to apply for disbursement of financing receivables
-    When I choose Singapore Dollar
-    When I have filled in the other information
-      |amount|dayNum|goodsDescr|fileAddress|
-      |100   |30    |testAnd12 |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    When I should switch to the second authorized account
-    Given logon second "netSilverEnvLoan_Tian2" on enterprise net silver
-    When I click My Tasks button on the logon page
-    Then I should direct to the Awaiting authorization page
-    When I click on the first piece of data to authorize
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
+##    单人授权。需要提前更改账号的授权模式。
+#  @loanApplication6
+#  Scenario:Accounts2 Payable Financing Loan Draw Application Process
+#    Given logon "netSilverEnvLoan_Tian" on enterprise net silver
+#    When I click on the Enterprise Administration Desk and select Account Management
+#    When click authorization
+#    When I choose single-player license management mode
+#    And Confirm the authorization mode and submit it
+#    When secondary authorized person notification is then displayed
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I verify that the transaction is successful
+#    When I should switch to the second authorized account
+#    When logon second "netSilverEnvLoan_Tian2" on enterprise net silver
+#    When I click My Tasks button on the logon page
+#    Then I should direct to the Awaiting authorization page
+#    When I click on the first piece of data to authorize
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    When I should switch to the second authorized account
+#    When  logon second "netSilverEnvLoan_Tian" on enterprise net silver
+#    When I click the loan draw button
+#    When I choose to apply for disbursement of financing receivables
+#    When I choose Singapore Dollar
+#    When I have filled in the other information
+#      |amount|dayNum|goodsDescr|fileAddress|
+#      |100   |30    |testAnd12 |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    When I should switch to the second authorized account
+#    Given logon second "netSilverEnvLoan_Tian2" on enterprise net silver
+#    When I click My Tasks button on the logon page
+#    Then I should direct to the Awaiting authorization page
+#    When I click on the first piece of data to authorize
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
 
 
 

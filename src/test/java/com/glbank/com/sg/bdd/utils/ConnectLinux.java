@@ -60,7 +60,7 @@ public class ConnectLinux {
             in = exec.getInputStream();
             String data = readInputStream(in);
             if(StringUtils.isBlank(data)){
-                throw new RuntimeException("无符合数据");
+                throw new RuntimeException("无符合条件的数据");
             }
             int start = data.lastIndexOf("otp=") + 4;
             int end = start + 6;
@@ -79,7 +79,6 @@ public class ConnectLinux {
      * @param args
      */
     public static void main(String[] args){
-
         System.out.println(getLastOtp("60120003"));
     }
 

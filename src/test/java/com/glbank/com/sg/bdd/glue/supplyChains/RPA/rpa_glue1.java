@@ -50,6 +50,7 @@ public class rpa_glue1 {
         rpaStep.jumpToSupplierPortal();
         rpaStep.openEmailUrlTest();
         rpaStep.errorEmailLink();
+        bddUtil.switchToWindows();
         rpaStep.loginServiceAgreementWindow();
     }
 

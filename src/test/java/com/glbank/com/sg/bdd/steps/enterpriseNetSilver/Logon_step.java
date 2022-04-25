@@ -36,6 +36,7 @@ public class Logon_step extends ScenarioSteps {
     public void checkLanguage(){
         Actions action=new Actions(getDriver());
         action.moveToElement(logonPage.checkLanguage).perform();
+        bddUtil.sleep(1);
         logonPage.selectChinese.click();
     }
 

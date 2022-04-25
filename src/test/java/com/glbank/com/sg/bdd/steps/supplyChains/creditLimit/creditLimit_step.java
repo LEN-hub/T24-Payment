@@ -7,6 +7,7 @@ import com.glbank.com.sg.bdd.utils.RandomPhoneNumber;
 import net.thucydides.core.steps.ScenarioSteps;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class creditLimit_step extends ScenarioSteps {
     private creditLimit_page creditLimit_page;
     private BDDUtil bddUtil;
     public static String envTag;
-    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
+    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\BR.jpg";
 
     @Step
     public void clickUnderWritingAndApproval(){
@@ -188,6 +189,7 @@ public class creditLimit_step extends ScenarioSteps {
 
     @Step
     public void inputOtherData(String passWord,String CompanyID) {
+        bddUtil.sleep(30);
         creditLimit_page.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
         creditLimit_page.GLDBEmailPassword.sendKeys(passWord);
         creditLimit_page.enterCompanyId.sendKeys(CompanyID);
@@ -226,7 +228,7 @@ public class creditLimit_step extends ScenarioSteps {
     @Step
     public void clickEmail(){
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(2);//应该留20S
+        bddUtil.sleep(40);//应该留40S
         creditLimit_page.clickRefreshBtn.click();
         bddUtil.sleep(4);
         creditLimit_page.agreement.get(0).click();
@@ -236,6 +238,7 @@ public class creditLimit_step extends ScenarioSteps {
         bddUtil.sleep(3);
         bddUtil.switchToWindows();
         bddUtil.switchToWindows();
+        bddUtil.sleep(5);
         creditLimit_page.clickRefreshBtn.click();
         bddUtil.sleep(2);
         creditLimit_page.otpToken.click();
@@ -245,8 +248,9 @@ public class creditLimit_step extends ScenarioSteps {
 //        creditLimit_page.agreement.get(0).click();
         bddUtil.switchToWindows();
         bddUtil.sleep(2);
-        creditLimit_page.inputToken.sendKeys(emailToken);
-        creditLimit_page.plainText.click();//故意报错
+//        creditLimit_page.inputToken.sendKeys(emailToken);
+//        bddUtil.scrollWindowToElement(creditLimit_page.inputToken).sendKeys(emailToken);
+        getDriver().findElement(By.xpath("//div[@class='Verificationode_BoxChildIptChild']/div/form/input")).sendKeys(emailToken);
 //        creditLimit_page.otpToken.click();
         bddUtil.sleep(5);
 
@@ -256,8 +260,11 @@ public class creditLimit_step extends ScenarioSteps {
     public void toSign(){
         bddUtil.scrollWindowToElement(creditLimit_page.signHere).click();
         //div[@class='upload-demo']//div//input
-        creditLimit_page.upLoadImg.sendKeys(fileAddress);
-        bddUtil.sleep(10);
+//        creditLimit_page.upLoadImg.sendKeys(fileAddress);
+        getDriver().findElement(By.xpath("//div[@class='upload-demo']//div//input")).sendKeys(fileAddress);
+        bddUtil.sleep(2);
+        getDriver().findElement(By.xpath("//span[text()='Confirm Digital Signature']")).click();
+        bddUtil.sleep(5);
 
     }
 

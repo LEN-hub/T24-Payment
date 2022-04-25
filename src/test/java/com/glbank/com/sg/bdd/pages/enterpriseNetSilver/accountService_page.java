@@ -145,7 +145,7 @@ public class accountService_page extends PageObject {
     @FindBy(xpath = "//div[@class='list']/div[2]//span[@class='sub-menu-title']")
     public WebElementFacade operationLogQuery;
 
-    @FindBy(xpath = "//span[@class='isup_text']/preceding-sibling::div[1]//div[@class='btn_box']")
+    @FindBy(xpath = "//span[@class='more_btn']/preceding-sibling::div[1]//div[@class='btn_box']")
     public WebElementFacade queryBtn;
 
     @FindBy(xpath = "//table[@class='el-table__body']/tbody//tr[1]/td[7]//span")
@@ -154,11 +154,11 @@ public class accountService_page extends PageObject {
     @FindBy(xpath = "//label[@for='queryTypeCd']")
     public WebElementFacade transactionType;
 
-    @FindBy(xpath = "//div[@class='el-col el-col-14']/div[1]/label")
+    @FindBy(xpath = "//label[@for=\"queryTypeCd\"]/parent ::div/preceding-sibling::div/label")
     public WebElementFacade operator;
 
-    @FindBy(xpath = "//div[@class='el-col el-col-15']//label")
-    public WebElementFacade selectData;
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form/div[2]//label[@class='el-form-item__label']")
+    public WebElementFacade selectDate;
 
     @FindBy(xpath = "//table[@class='el-table__header']//tr/th")
     public List<WebElementFacade> fieldList;

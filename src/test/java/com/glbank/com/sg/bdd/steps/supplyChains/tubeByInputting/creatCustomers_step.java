@@ -2,6 +2,10 @@ package com.glbank.com.sg.bdd.steps.supplyChains.tubeByInputting;
 
 import com.glbank.com.sg.bdd.pages.supplyChains.tubeByInputting.creatCustomers_page;
 import com.glbank.com.sg.bdd.utils.*;
+import com.lu.sn.Language;
+import com.lu.sn.NameType;
+import com.lu.sn.RandomNameTool;
+import com.lu.sn.en.EnglishNameUtil;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -17,6 +21,9 @@ public class creatCustomers_step extends ScenarioSteps {
     private creatCustomers_page customers_page;
     private BDDUtil bddUtil;
     public static String envTag;
+//    String englishName = RandomNameTool.getName(Language.en, NameType.FULL_NAME);
+//    String chineseName = RandomNameTool.getName(Language.en, NameType.FULL_NAME);
+//    String translateName = EnglishNameUtil.getTranslateName(Language.zh);
     String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
 
     @Step
@@ -104,6 +111,12 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void checkApprovedText(){
+        customers_page.viewButton.click();
+        assertEquals("Approved ",customers_page.approvedText.getText());
+    }
+
+    @Step
     public void getFirstNameInput(String value){
         customers_page.firstNameInput.sendKeys(value);
     }
@@ -174,7 +187,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void openEmailUrlTest(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=QpVi84M8\");");
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=A0x9x1oR\");");
         bddUtil.switchToNewWindow();
         errorEmailLink();
         bddUtil.switchToWindows();
@@ -312,30 +325,30 @@ public class creatCustomers_step extends ScenarioSteps {
 //        customers_page.memorandumAndArticlesOfAssLink.click();
         bddUtil.sleep(2);
 //        getDriver().findElement(By.xpath("//label[@for='A0010']//following-sibling::div//input")).sendKeys("C:\\workspace\\DBB_GL_AutoTesting-dev\\src\\test\\resources\\testData\\autopay\\test2.jpg");
-        getDriver().findElement(By.xpath("//label[@for='A0001']//following-sibling::div//input")).sendKeys(fileAddress);
+        getDriver().findElement(By.xpath("//label[@for='A0010']//following-sibling::div//input")).sendKeys(fileAddress);
 //        bddUtil.fileUpload();
         bddUtil.sleep(5);
         customers_page.countryOfTaxation.click();
         bddUtil.scrollWindowToElement(customers_page.selectCountryOfTaxation).click();
         bddUtil.scrollWindowToElement(customers_page.registeredAddressTitle);
-        customers_page.registeredAddress.sendKeys(JRandomNameTool.getStringRandom(11));
+        customers_page.registeredAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         bddUtil.scrollWindowToElement(customers_page.sectorTitle);
         customers_page.businessCountry.click();
         bddUtil.scrollWindowToElement(customers_page.selectBusinessCountry).click();
-        customers_page.businessAddress.sendKeys(JRandomNameTool.getStringRandom(12));
+        customers_page.businessAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.industry.click();
         bddUtil.scrollWindowToElement(customers_page.selectIndustry).click();
         customers_page.legalStructure.click();
         bddUtil.scrollWindowToElement(customers_page.selectLegalStructure).click();
         customers_page.isNonProfitYes.click();
-        customers_page.sectorInputBox.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.sectorInputBox.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         bddUtil.scrollWindowToElement(customers_page.adminSectorInput);
         customers_page.adminIndustry.click();
         bddUtil.scrollWindowToElement(customers_page.adminIndustrySelect).click();
         customers_page.adminLegalStructure.click();
         bddUtil.scrollWindowToElement(customers_page.adminLegalStructureSelect).click();
         customers_page.adminIsNonProfitCheckBox.click();
-        customers_page.adminSectorInput.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.adminSectorInput.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
 //        customers_page.SaveBtnIndustry.click();
         customers_page.nextBtnIndustry.click();
     }
@@ -359,7 +372,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void iLoginServiceAgreementWindow(){
-        customers_page.GLDBEmailInput.sendKeys("QpVi84M8@MailTemp.top");
+        customers_page.GLDBEmailInput.sendKeys("A0x9x1oR@MailTemp.top");
         customers_page.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();
@@ -388,7 +401,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.admin1CountryOfResidence.click();
         bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(customers_page.admin1CountryOfResidenceSelectChina).click();
-        customers_page.admin1ResidentialAddress.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.admin1ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.admin1LegalCertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.admin1LegalCertificationTypeSelectPersonlId).click();
         customers_page.admin1LegalCertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -400,7 +413,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.admin2CountryOfResidence.click();
         bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(customers_page.admin2CountryOfResidenceSelectChina).click();
-        customers_page.admin2ResidentialAddress.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.admin2ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.admin2LegalCertificationType.click();
         bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(customers_page.admin2LegalCertificationTypeSelectPassport).click();
@@ -423,8 +436,8 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void fillInTheInformationOnTheDirectorPage(String value){
         customers_page.director1CheckBox.click();
-        customers_page.director1FirstName.sendKeys(JRandomNameTool.getRandomJianHan(3));
-        customers_page.director1LastName.sendKeys(JRandomNameTool.getRandomJianHan(3));
+        customers_page.director1FirstName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        customers_page.director1LastName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.director1CertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.director1PersonalId).click();
         customers_page.director1CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -432,15 +445,15 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.director1DateOfBirth.sendKeys(bddUtil.dateFormate());
         customers_page.director1Country.click();
         bddUtil.scrollWindowToElement(customers_page.director1CountrySelectChina).click();
-        customers_page.director1ResidentialAddress.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.director1ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.director1Email.sendKeys(value + "@MailTemp.top");
         customers_page.director1CountryOfResidence.click();
         bddUtil.scrollWindowToElement(customers_page.director1CountryOfResidenceSelectChina).click();
         customers_page.director1Phone.sendKeys(RandomPhoneNumber.randomPhoneNum());
         bddUtil.scrollWindowToElement(customers_page.director2TimePermanent);
         customers_page.director2CheckBox.click();
-        customers_page.director2FirstName.sendKeys(JRandomNameTool.getRandomJianHan(3));
-        customers_page.director2LastName.sendKeys(JRandomNameTool.getRandomJianHan(3));
+        customers_page.director2FirstName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        customers_page.director2LastName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.director2CertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.director2Passport).click();
         customers_page.director2CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -448,7 +461,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.director2DateOfBirth.sendKeys(bddUtil.dateFormate());
         customers_page.director2Country.click();
         bddUtil.scrollWindowToElement(customers_page.director2CountrySelectChina).click();
-        customers_page.director2ResidentialAddress.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.director2ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.director2Email.sendKeys(value + "@MailTemp.top");
         customers_page.director2CountryOfResidence.click();
         bddUtil.scrollWindowToElement(customers_page.director2CountryOfResidenceSelectChina).click();
@@ -459,8 +472,8 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void fillInTheInformationOnTheShareholderPage(String value){
-        customers_page.shareholder1FirstName.sendKeys(JRandomNameTool.getRandomJianHan(3));
-        customers_page.shareholder1LastName.sendKeys(JRandomNameTool.getRandomJianHan(4));
+        customers_page.shareholder1FirstName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        customers_page.shareholder1LastName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.shareholder1CertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.shareholder1CertificationTypeSelectPersonalId).click();
         customers_page.shareholder1CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -473,11 +486,11 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(customers_page.shareholder1CountryOfResidenceSelectChina).click();
         customers_page.shareholder1Email.sendKeys(value + "@MailTemp.top");
         customers_page.shareholder1Phone.sendKeys(RandomPhoneNumber.randomPhoneNum());
-        customers_page.shareholder1ResidentialAddress.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.shareholder1ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         bddUtil.scrollWindowToElement(customers_page.shareholder2FundScale);
         customers_page.shareholder1FundScale.sendKeys("25");
-        customers_page.shareholder2FirstName.sendKeys(JRandomNameTool.getRandomJianHan(3));
-        customers_page.shareholder2LastName.sendKeys(JRandomNameTool.getRandomJianHan(4));
+        customers_page.shareholder2FirstName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        customers_page.shareholder2LastName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.shareholder2CertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.shareholder2CertificationTypeSelectPassport).click();
         customers_page.shareholder2CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -491,7 +504,7 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(customers_page.shareholder2CountryOfResidenceSelectChina).click();
         customers_page.shareholder2Email.sendKeys(value + "@MailTemp.top");
         customers_page.shareholder2Phone.sendKeys(RandomPhoneNumber.randomPhoneNum());
-        customers_page.shareholder2ResidentialAddress.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.shareholder2ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.shareholder2FundScale.sendKeys("25");
 //        customers_page.SaveBtnIndustry.click();
         customers_page.nextBtnIndustry.click();
@@ -505,8 +518,8 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void fillInTheInformationOnTheBeneficialPage(String value){
         customers_page.beneficialCheckBox.click();
-        customers_page.beneficial1FirstName.sendKeys(JRandomNameTool.getRandomJianHan(3));
-        customers_page.beneficial1LastName.sendKeys(JRandomNameTool.getRandomJianHan(4));
+        customers_page.beneficial1FirstName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        customers_page.beneficial1LastName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.beneficial1CertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.beneficial1CertificationTypeSelectPersonalId).click();
         customers_page.beneficial1CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -520,7 +533,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.beneficial1Phone.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.beneficial1CountryOfResidence.click();
         bddUtil.scrollWindowToElement(customers_page.beneficial1CountryOfResidenceSelectChina).click();
-        customers_page.beneficial1ResidentialAddress.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.beneficial1ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
 //        customers_page.SaveBtnIndustry.click();
         customers_page.nextBtnIndustry.click();
     }

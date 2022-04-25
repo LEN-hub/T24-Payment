@@ -75,8 +75,9 @@ public class rpa_steps extends ScenarioSteps {
 
     @Step
     public void loginServiceAgreementWindow() {
+        bddUtil.sleep(10);
         rpaPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
-        rpaPage.GLDBEmailPassword.sendKeys("Password9@");
+        rpaPage.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         rpaPage.enterCompanyId.sendKeys("1234");
         rpaPage.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
@@ -112,7 +113,7 @@ public class rpa_steps extends ScenarioSteps {
 
     public void inputLogin(){
         rpaPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
-        rpaPage.GLDBEmailPassword.sendKeys("Password9@");
+        rpaPage.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         rpaPage.enterCompanyId.sendKeys("1234");
         rpaPage.sendCodeBtn.click();
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();

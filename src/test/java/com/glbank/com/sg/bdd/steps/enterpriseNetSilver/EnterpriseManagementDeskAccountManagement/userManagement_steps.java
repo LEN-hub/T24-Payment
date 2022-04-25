@@ -41,14 +41,14 @@ public class userManagement_steps extends ScenarioSteps {
     }
 
 
-    public void selectTheMenus() {
+    public void selectTheMenus(String emailAddress) {
         bddUtil.sleep(5);
         List<WebElementFacade> checkEmail = userManagement_page.checkEmail;
         List<WebElementFacade> sumNum = userManagement_page.sumNum;
         a:for (int x = 0; x < sumNum.size(); x++){
             sumNum.get(sumNum.size()-1).click();
             for (int i = 0; i < checkEmail.size(); i++) {
-                if (checkEmail.get(i).getText().equals(FileUtils.LastReadFileInput3("emailSun"))) {
+                if (checkEmail.get(i).getText().equals(emailAddress)){
                     Actions action = new Actions(getDriver());
                     System.out.println(checkEmail.size());
                     int t = i+1;

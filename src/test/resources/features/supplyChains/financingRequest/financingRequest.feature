@@ -2,7 +2,8 @@
 Feature: financingRequest
 
   Scenario:financingRequest1
-    Given login "environments_3" To RequestFinancing
+    Given logon "environments_3" test code
+    When I input login information
     When login successfully and click RequestFinancing
     Then upload RequestFinancing File
     And  logon "environments_1" on tube by inputting system
@@ -10,7 +11,8 @@ Feature: financingRequest
     And change user To L2 Review
     Then login "environments_2" on tube by inputting system
     And click Operations to Review
-    Then login "environments_3" To RequestFinancing
+    Given logon "environments_3" test code
+    When I input login information
     And click Financing Status
 
     @test1

@@ -19,6 +19,8 @@ public class financingRequest_step extends ScenarioSteps {
 
     private financingRequest_page financingRequest_page;
     private BDDUtil bddUtil;
+    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\BR.jpg";
+
 
     @Step
     public void openGLDBLoginPage(String envName){
@@ -29,6 +31,10 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.enterEmailToBox.sendKeys(email);
         financingRequest_page.enterPasswordToBox.sendKeys(password);
         financingRequest_page.enterCompanyIdToBox.sendKeys(companyId);
+
+
+
+
         financingRequest_page.enterCodeToBox.sendKeys(code);
         financingRequest_page.clickLogin.click();
     }
@@ -37,7 +43,7 @@ public class financingRequest_step extends ScenarioSteps {
     }
     public void uploadRequestFinancing(){
         financingRequest_page.clickUpload.click();
-        getDriver().findElement(By.xpath("//div[@class='upload-widget']//input")).sendKeys("C:\\Users\\ASUS\\Desktop\\testAuto.xlsx");
+        getDriver().findElement(By.xpath("//div[@class='upload-widget']//input")).sendKeys("E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\excel\\testAuto.xlsx");
         bddUtil.sleep(5);
         financingRequest_page.clickConfirmOfUpload.click();
         bddUtil.sleep(3);
