@@ -48,15 +48,15 @@ Feature: accountService
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When click the Account details query and click the query button to query
 
-#    @accountServices
-#  Scenario:Authorization Center
-#    Given logon "netSilverEnvAuthorizationCenter" on enterprise net silver
-#    When I click My Tasks button on the logon page
-#    Then I should direct to the Awaiting authorization page
-#    When I click on the first piece of data to authorize
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
-##    When I click next to continue
+    @accountServices
+  Scenario:Authorization Center
+    Given logon "netSilverEnvAuthorizationCenter" on enterprise net silver
+    When I click My Tasks button on the logon page
+    Then I should direct to the Awaiting authorization page
+    When I click on the first piece of data to authorize
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+#    When I click next to continue
 #
 #
 #  @accountServices1234
@@ -84,12 +84,12 @@ Feature: accountService
 #    When I typed TC Code and click Authenticate Now
 
 
-#  @SecondaryApproval1
+  @SecondaryApproval1
 #为二级审批制造数据的脚本。
-#  Scenario:Authorization Center1
-#    Given logon "EnrollerAccount" on enterprise net silver
-#    When I click transferMoney button
-#    When I click addPayee button and input information
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
+  Scenario:Authorization Center1
+    Given logon "EnrollerAccount" on enterprise net silver
+    When I click transferMoney button
+    When I click addPayee button and input information
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
 
