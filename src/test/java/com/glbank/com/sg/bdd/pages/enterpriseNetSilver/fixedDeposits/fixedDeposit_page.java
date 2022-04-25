@@ -4,6 +4,8 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.util.List;
+
 public class fixedDeposit_page extends PageObject {
 
     @FindBy(xpath = "//div[@class=\"el-message-box__wrapper\"]")
@@ -15,6 +17,9 @@ public class fixedDeposit_page extends PageObject {
     @FindBy(xpath = "//ul[@class=\"el-menu--horizontal el-menu\"]//li[3]//div")
     public WebElementFacade clickFixedDeposit;
 
+    @FindBy(xpath = "//div[@class=\"list\"]//p[3]/span")
+    public WebElementFacade selectSecondMenu;
+
     @FindBy(xpath = "//div[@class=\"el-row\"]//div[2]//div")
     public WebElementFacade clickPlaceFixedDeposit;
 
@@ -24,7 +29,31 @@ public class fixedDeposit_page extends PageObject {
     @FindBy(xpath = "//form//div[2]/div/div/div[1]/input")
     public WebElementFacade clickAccountCurrency;
 
-    @FindBy(xpath = "//div[@class=\"el-form-item__content\"]//span[@class=\"el-popover__reference-wrapper\"]//input")
+    @FindBy(xpath = "//label[@for=\"acctObj\"]/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade clickPopwindows;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start' ]//li/span")
+    public List<WebElementFacade> selectAccountValue;
+
+    @FindBy(xpath = "//div[@class=\"mandatory\"]/following-sibling::form/div[2]/div[2]/div[2]//input[@disabled=\"disabled\"]")
+    public WebElementFacade transferAccountDisabled;
+
+    @FindBy(xpath = "//label[@for=\"payeeAcctObj\"]/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade intoAccountPopwindows;
+
+    @FindBy(xpath = "//label[@for=\"depositPeriodCd\"]/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade periodDate;
+
+    @FindBy(xpath = "//label[@for=\"autTraSavFlag\"]/following-sibling::div//label[1]//span[@class='el-radio__inner']")
+    public WebElementFacade doNotDump;
+
+    @FindBy(xpath = "//label[@for=\"autTraSavFlag\"]/following-sibling::div//label[2]//span[@class='el-radio__inner']")
+    public WebElementFacade principalAdaptation;
+
+    @FindBy(xpath = "//label[@for=\"autTraSavFlag\"]/following-sibling::div//label[3]//span[@class='el-radio__inner']")
+    public WebElementFacade checkBoxThree;
+
+    @FindBy(xpath = "//label[@for=\"tradeAmont\"]/following-sibling::div//input")
     public WebElementFacade getPlacementAmount;
 
     @FindBy(xpath = "//label[@for=\"depositPeriodCd\"]/following-sibling::div//input")

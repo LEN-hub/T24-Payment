@@ -8,8 +8,8 @@ Feature: userManagements
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click modify info menu
-    |emailAddress        |
-    |17762216590@163.com |
+    |emailAddress         |
+    |3201913@MailTemp.top |
     Then I click Next
     When I initiate captcha verification
 
@@ -38,8 +38,8 @@ Feature: userManagements
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click on user deactivate confirm
-      |emailAddress        |
-      |17762216590@163.com |
+      |emailAddress         |
+      |3201913@MailTemp.top |
     Then I click Next
     When I initiate captcha verification
     Then End the deal
@@ -53,8 +53,8 @@ Feature: userManagements
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click launch user and click ok
-      |emailAddress        |
-      |17762216590@163.com |
+      |emailAddress         |
+      |3201913@MailTemp.top |
     Then I click Next
     When I initiate captcha verification
     Then End the deals
@@ -66,7 +66,7 @@ Feature: userManagements
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click the menu select User Logout
-      |emailAddress        |
-      |17762216590@163.com |
+      |emailAddress         |
+      |3201913@MailTemp.top |
     Then I click Next
     When I initiate captcha verification

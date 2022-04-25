@@ -1,6 +1,6 @@
 @paymentService
 Feature: receipt and payment service
-
+  @paymentService123
   #SDG->HKD
   Scenario:I have successfully transferred from one currency to another (Singapore dollar to Hong Kong dollar)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
@@ -256,8 +256,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
+    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
     |account name    |receiving account|transfer amount  |transfer purpose |
@@ -275,8 +275,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
+    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I select date on the domestic transfer bank page
       |selectDate|
       |Weekly    |
@@ -300,8 +300,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
+    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Monthly   |
@@ -326,8 +326,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
+    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Quarterly |
@@ -348,8 +348,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
       |account name    |receiving account|transfer amount  |transfer purpose |
@@ -367,8 +367,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
     When I select date on the domestic transfer bank page
       |selectDate|
       |Weekly    |
@@ -392,8 +392,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Monthly   |
@@ -417,8 +417,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Quarterly |
@@ -440,8 +440,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
       |account name    |receiving account|transfer amount  |transfer purpose |
@@ -459,8 +459,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
     When I select date on the domestic transfer bank page
       |selectDate|
       |Weekly    |
@@ -484,8 +484,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Monthly   |
@@ -510,8 +510,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Quarterly |
@@ -532,8 +532,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
       |account name    |receiving account|transfer amount  |transfer purpose |
@@ -551,8 +551,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
     When I select date on the domestic transfer bank page
       |selectDate|
       |Weekly    |
@@ -576,8 +576,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Monthly   |
@@ -602,8 +602,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Quarterly |
@@ -625,8 +625,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
       |account name    |receiving account|transfer amount  |transfer purpose |
@@ -644,8 +644,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I select date on the domestic transfer bank page
       |selectDate|
       |Weekly    |
@@ -669,8 +669,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Monthly   |
@@ -695,8 +695,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Quarterly |
@@ -718,8 +718,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
       |account name    |receiving account|transfer amount  |transfer purpose |
@@ -737,8 +737,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
+    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I select date on the domestic transfer bank page
       |selectDate|
       |Weekly    |
@@ -762,8 +762,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
+    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Monthly   |
@@ -788,8 +788,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|
+    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Quarterly |
@@ -813,8 +813,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
       |account name    |receiving account|transfer amount  |transfer purpose |
@@ -832,8 +832,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
     When I select date on the domestic transfer bank page
       |selectDate|
       |Weekly    |
@@ -857,8 +857,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Monthly   |
@@ -883,8 +883,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Quarterly |
@@ -908,8 +908,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
       |account name    |receiving account|transfer amount  |transfer purpose |
@@ -927,8 +927,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
     When I select date on the domestic transfer bank page
       |selectDate|
       |Weekly    |
@@ -952,8 +952,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Monthly   |
@@ -978,8 +978,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Quarterly |
@@ -1003,8 +1003,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
       |account name    |receiving account|transfer amount  |transfer purpose |
@@ -1022,8 +1022,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
     When I select date on the domestic transfer bank page
       |selectDate|
       |Weekly    |
@@ -1047,8 +1047,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Monthly   |
@@ -1073,8 +1073,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Quarterly |
@@ -1099,8 +1099,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
       |account name    |receiving account|transfer amount  |transfer purpose |
@@ -1119,8 +1119,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I select date on the domestic transfer bank page
       |selectDate|
       |Weekly    |
@@ -1145,8 +1145,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Monthly   |
@@ -1171,8 +1171,8 @@ Feature: receipt and payment service
   Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |
-      |Green Link Digital Bank Pte. Ltd|TSC164335621223 |11010003739      |0.1              |Business Expenses|
+      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
     When I selected the date on the domestic transfer bank page not after twenty-nine
       |selectDate|
       |Quarterly |
@@ -1263,7 +1263,6 @@ Feature: receipt and payment service
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |
       |1102 0006 552|CNY          |50         |费用各自承担|
-
     And I choose the payment currency
       |selectAccBth|
       |SGD         |
@@ -1355,7 +1354,6 @@ Feature: receipt and payment service
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |
       |1102 0006 552|SGD         |50         |费用各自承担|
-
     And I choose the payment currency
       |selectAccBth|
       |SGD         |
@@ -1386,7 +1384,6 @@ Feature: receipt and payment service
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |selectAccount|payeeCurrency|enterAmount|expense  |
       |1102 0006 552|CNY          |50         |费用各自承担|
-
     And I choose the payment currency
       |selectAccBth|
       |CNY         |

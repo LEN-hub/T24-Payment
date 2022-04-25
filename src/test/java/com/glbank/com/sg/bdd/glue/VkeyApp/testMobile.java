@@ -9,7 +9,8 @@ public class testMobile {
         MobileConfig test = new MobileConfig();
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
-        test.testSecondMobile();
+        test.testMobile();
+        test.transactionCode();
         Thread.sleep(3000);
         if (MobileConfig.driver.findElementByXPath("//android.widget.TextView[ends-with(@resource-id,'permission_message')]").isDisplayed()) {
             test.clickSystemPopupWindows();

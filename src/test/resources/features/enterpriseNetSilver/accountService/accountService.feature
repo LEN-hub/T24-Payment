@@ -48,40 +48,40 @@ Feature: accountService
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When click the Account details query and click the query button to query
 
-#    @accountServices
-#  Scenario:Authorization Center
-#    Given logon "netSilverEnvAuthorizationCenter" on enterprise net silver
-#    When I click My Tasks button on the logon page
-#    Then I should direct to the Awaiting authorization page
-#    When I click on the first piece of data to authorize
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
-##    When I click next to continue
-#
-#
-#  @accountServices1234
-#  Scenario:Authorization Center2
-##    Given logon "EnrollerAccount" on enterprise net silver
-##    When I click transferMoney button
-##    When I click addPayee button and input information
-##    When I get the TC code and click Next
-##    When I typed TC Code and click Authenticate Now
-##    When I should switch to the second authorized account
-#    Given logon second "Level1AuthorizedAccount" on enterprise net silver
-#    When I click My Tasks button on the logon page
-#    Then I should direct to the Awaiting authorization page
-#    When I click on the first piece of data to authorize
+    @accountServices
+  Scenario:Authorization Center
+    Given logon "netSilverEnvAuthorizationCenter" on enterprise net silver
+    When I click My Tasks button on the logon page
+    Then I should direct to the Awaiting authorization page
+    When I click on the first piece of data to authorize
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+#    When I click next to continue
+
+
+  @accountServices1234
+  Scenario:Authorization Center2
+#    Given logon "EnrollerAccount" on enterprise net silver
+#    When I click transferMoney button
+#    When I click addPayee button and input information
 #    When I get the TC code and click Next
 #    When I typed TC Code and click Authenticate Now
 #    When I should switch to the second authorized account
-##   When I switched to the account of the Level two Authorized
-##    Given logon "Level2AuthorizedAccount" on enterprise net silver
-#    Given logon second "Level2AuthorizedAccount" on enterprise net silver
-#    When I click My Tasks button on the logon page
-#    Then I should direct to the Awaiting authorization page
-#    When I click on the first piece of data to authorize
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
+    Given logon second "Level1AuthorizedAccount" on enterprise net silver
+    When I click My Tasks button on the logon page
+    Then I should direct to the Awaiting authorization page
+    When I click on the first piece of data to authorize
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    When I should switch to the second authorized account
+#   When I switched to the account of the Level two Authorized
+#    Given logon "Level2AuthorizedAccount" on enterprise net silver
+    Given logon second "Level2AuthorizedAccount" on enterprise net silver
+    When I click My Tasks button on the logon page
+    Then I should direct to the Awaiting authorization page
+    When I click on the first piece of data to authorize
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
 
 
 #  @SecondaryApproval1

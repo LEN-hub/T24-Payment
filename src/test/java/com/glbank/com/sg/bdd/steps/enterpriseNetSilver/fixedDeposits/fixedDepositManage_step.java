@@ -13,6 +13,12 @@ public class fixedDepositManage_step extends ScenarioSteps {
     private fixedDepositManage_page fixedDepositManage_page;
     private BDDUtil bddUtil;
 
+    public void clickFixedDepositsFirstMenu(){
+        Actions action=new Actions(getDriver());
+        action.moveToElement( fixedDepositManage_page.clickFixedDeposit).perform();
+        fixedDepositManage_page.selectFirstMenu.click();
+    }
+
     public void clickToWithdrawFD(String fdAccountNumber){
         fixedDepositManage_page.click11.click();
         List<WebElementFacade> fdAccountNumberList = fixedDepositManage_page.fdAccountNumberList;

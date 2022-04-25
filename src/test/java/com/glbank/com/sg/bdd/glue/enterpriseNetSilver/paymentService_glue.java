@@ -49,7 +49,7 @@ public class paymentService_glue {
     public void iFillInTheTransferInformationOfDomesticTransferBank(DataTable payDetails) {
         paymentService_step.transferAndRemittanceMenu();
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        paymentService_step.domesticTransfer(payToInfo.get(0).get("bank name"), payToInfo.get(0).get("account name"), payToInfo.get(0).get("receiving account"), payToInfo.get(0).get("transfer amount"), payToInfo.get(0).get("transfer purpose"));
+        paymentService_step.domesticTransfer(payToInfo.get(0).get("bank name"), payToInfo.get(0).get("account name"), payToInfo.get(0).get("receiving account"), payToInfo.get(0).get("transfer amount"), payToInfo.get(0).get("transfer purpose"), payToInfo.get(0).get("payment information"));
     }
 
     @Then("^I verify the information on the next page$")
@@ -107,7 +107,7 @@ public class paymentService_glue {
     public void iFillInTheTransferInformationOfOverseasDomesticTransferBank(DataTable payDetails) {
         paymentService_step.transferAndRemittanceMenu();
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        paymentService_step.otherDomesticTransfer(payToInfo.get(0).get("bank name"),payToInfo.get(0).get("account name"), payToInfo.get(0).get("receiving account"), payToInfo.get(0).get("transfer amount"), payToInfo.get(0).get("transfer purpose"));
+        paymentService_step.otherDomesticTransfer(payToInfo.get(0).get("bank name"),payToInfo.get(0).get("account name"), payToInfo.get(0).get("receiving account"), payToInfo.get(0).get("transfer amount"), payToInfo.get(0).get("transfer purpose"), payToInfo.get(0).get("payment information"));
     }
 
 

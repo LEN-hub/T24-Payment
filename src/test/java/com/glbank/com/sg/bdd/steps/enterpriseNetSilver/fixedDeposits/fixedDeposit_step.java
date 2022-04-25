@@ -2,8 +2,12 @@ package com.glbank.com.sg.bdd.steps.enterpriseNetSilver.fixedDeposits;
 
 import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.fixedDeposits.fixedDeposit_page;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
+
+import java.util.List;
 
 public class fixedDeposit_step extends ScenarioSteps {
 
@@ -11,42 +15,44 @@ public class fixedDeposit_step extends ScenarioSteps {
     private BDDUtil bddUtil;
 
     public void clickFixedDepositsMenu(){
-//        if(fixedDeposit_page.checkPopup.isVisible()){
-//            fixedDeposit_page.clickOk.click();
-//        }
-        fixedDeposit_page.clickFixedDeposit.click();
-    }
-
-    public void createFixedDeposit(String fromAccount){
-        fixedDeposit_page.clickPlaceFixedDeposit.click();
-        fixedDeposit_page.clickFromAccount.click();
-        fixedDeposit_page.find(By.xpath("//label[@for='acctObj']")).click();
-//        bddUtil.scrollWindowToElement(fixedDeposit_page.find(By.xpath("//div[@class=\"el-select-dropdown el-popper selectClass\"]//span[text()='"+ fromAccount +"']"))).click();
-    }
-    public void isDisabledMultiCurrency(String accountCurrency){
-        //判断是否多币种账户
-        if (fixedDeposit_page.clickAccountCurrency.isVisible()){
-            System.out.println("为多币种账户，选择币种");
-            fixedDeposit_page.clickAccountCurrency.click();
-            bddUtil.scrollWindowToElement(fixedDeposit_page.find(By.xpath("//div[@class=\"el-scrollbar\"]//div/ul/li/span[text()='"+ accountCurrency +"']"))).click();
+        if(fixedDeposit_page.checkPopup.isVisible()){
+            fixedDeposit_page.clickOk.click();
         }
-        fixedDeposit_page.getPlacementAmount.sendKeys("250000");
-    }
-    public void choicePlacementDuration(String placementDuration){
-        fixedDeposit_page.clickPlacementDuration.click();
-        bddUtil.scrollWindowToElement(fixedDeposit_page.find(By.xpath("//iframe/following-sibling::div[@class=\"el-select-dropdown el-popper\"]//li["+ placementDuration +"]"))).click();
+        Actions action=new Actions(getDriver());
+        action.moveToElement( fixedDeposit_page.clickFixedDeposit).perform();
+        fixedDeposit_page.selectSecondMenu.click();
     }
 
-    public void choiceAutTraSavFlag(String autTraSavFlag){
-        bddUtil.scrollWindowToElement(fixedDeposit_page.find(By.xpath("//label[@for=\"autTraSavFlag\"]/following-sibling::div//label["+ autTraSavFlag +"]//span[@class=\"el-radio__inner\"]"))).click();
-    }
-
-    public void submitFixedDepositDate(){
+    public void createFixedDeposit(String transferAccount,String intoAccount,String amount,String period,String transferAccountsWay){
+        fixedDeposit_page.clickPopwindows.click();
+        List<WebElementFacade> selectTransferAccount = fixedDeposit_page.selectAccountValue;
+        for (int i = 0; i <= selectTransferAccount.size();i++){
+            if (transferAccount.equals(selectTransferAccount.get(i).getText().substring(0,13))){
+                selectTransferAccount.get(i).click();
+                break;
+            }
+        }
+        fixedDeposit_page.intoAccountPopwindows.click();
+        List<WebElementFacade> selectIntoAccount = fixedDeposit_page.selectAccountValue;
+        for (int j = 0; j <= selectIntoAccount.size();j++){
+            if (intoAccount.equals(selectIntoAccount.get(j).getText().substring(0,11))){
+                selectIntoAccount.get(j).click();
+                break;
+            }
+        }
+        fixedDeposit_page.getPlacementAmount.clear();
+        fixedDeposit_page.getPlacementAmount.sendKeys(amount);
+        fixedDeposit_page.periodDate.click();
+        List<WebElementFacade> periodValue = fixedDeposit_page.selectAccountValue;
+        for (int k = 0; k <= periodValue.size();k++){
+            if (period.equals(periodValue.get(k).getText())){
+                periodValue.get(k).click();
+                break;
+            }
+        }
+        fixedDeposit_page.find(By.xpath("//label[@for=\"autTraSavFlag\"]/following-sibling::div//label["+transferAccountsWay+"]//span[@class='el-radio__inner']")).click();
         fixedDeposit_page.clickNext.click();
         fixedDeposit_page.clickCheck.click();
         fixedDeposit_page.clickSubmit.click();
-    }
-    public void clickDetails(){
-        fixedDeposit_page.clickDetails.click();
     }
 }
