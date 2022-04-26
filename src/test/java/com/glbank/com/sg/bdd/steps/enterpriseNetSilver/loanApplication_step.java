@@ -56,7 +56,7 @@ public class loanApplication_step extends ScenarioSteps {
     public void clickApplicationForPayment(){
         bddUtil.sleep(2);
 //        loanApplication_page.threePoint.click();
-        getDriver().findElement(By.xpath("//div[@class='el-table__fixed-right']//tbody/tr[3]/td[7]//div/div")).click();
+        getDriver().findElement(By.xpath("//div[@class='el-table__fixed-right']//tbody/tr[3]/td[5]//div/div")).click();
         loanApplication_page.ApplicationForPayment.click();
     }
 

@@ -61,6 +61,7 @@ public class accountChange_glue {
         accountChange_steps.vkeyTCCode();
         accountChange_steps.enterTcCode();
         accountChange_steps.authenticateNowBtn();
+        bddUtil.sleep(2);
     }
 
     //账户加挂

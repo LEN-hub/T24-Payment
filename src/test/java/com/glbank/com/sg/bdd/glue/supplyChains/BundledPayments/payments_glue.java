@@ -109,6 +109,7 @@ public class payments_glue {
 
     @When("^I click Assign to ME title on the on Repayment Management page$")
     public void iClickAssignToMETitleOnTheOnRepaymentManagementPage() {
+        paymentsStep.clickAssToMe();
         paymentsStep.clickAssignToMeS();
         bddUtil.sleep(2);
     }

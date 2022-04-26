@@ -31,7 +31,7 @@ Feature: Product Settings test case
     Then I click Submit to submit a new product
 
 
-  @ProductIntroduction
+  @testReportProductIntroduction
 #    产品简介
   Scenario:UAT_ Supply chain_ Inner tube_ Create product_ 003
     Given logon "environments_001" on tube by inputting system
@@ -46,7 +46,7 @@ Feature: Product Settings test case
     And  click Create Quote
     When enter the second case information supplier with buyer
       |selectCurr|
-      |USD       |
+      |SGD       |
     Then I click Submit to submit a new product
     When I click product
     When I click ProductProfile

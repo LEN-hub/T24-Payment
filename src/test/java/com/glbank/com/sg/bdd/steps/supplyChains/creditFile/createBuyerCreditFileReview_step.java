@@ -39,8 +39,9 @@ public class createBuyerCreditFileReview_step extends ScenarioSteps {
         List<WebElementFacade> proceedList = createBuyerCreditFileReview_page.proceedList;
         for (int j = 0;j < assignToMePageCompanyNameList.size();j++){
             if(companyName.equals(assignToMePageCompanyNameList.get(j).getText())){
-                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-                webdriver.executeScript("arguments[0].click();", proceedList.get(j));
+//                JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+//                webdriver.executeScript("arguments[0].click();", proceedList.get(j));
+                bddUtil.clickByJS(createBuyerCreditFileReview_page.proceedList.get(j));
                 break;
             }
         }

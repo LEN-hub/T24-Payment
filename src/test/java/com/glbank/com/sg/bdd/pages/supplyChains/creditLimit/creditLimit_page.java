@@ -4,6 +4,7 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.security.cert.X509Certificate;
 import java.util.List;
 
 
@@ -21,7 +22,7 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//span[@class='single-line-text is-empty']")
     public WebElementFacade underWritingApprovalText;
 
-    @FindBy(xpath = "//div[@class='lowcode-table-fixed-right table-shadow']//div[@class='lls-design-table-btn-wrapper']/span")
+    @FindBy(xpath = "//span[@data-key='f2imibvb']//span")
     public List<WebElementFacade> assignToMeBtn;
 
     @FindBy(xpath = "//div[@class='lls-design-table-btn-wrapper']//button")
@@ -57,8 +58,11 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//td[@class='lls-design-cloumn'][@data-key='f08pkuoi']")
     public List<WebElementFacade> roleList;
 
-    @FindBy(xpath = "//div[@class='lowcode-table-base']//span[@data-key='f3ql3kf8']//span[contains(text(),'Proceed')]")
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//span[@data-key='f2gbnt8g']//span[contains(text(),'Proceed')]")
     public List<WebElementFacade> actionList;
+
+    @FindBy(css = ".lls-button lls-button--primary lls-button--mini is-plain")
+    public List<WebElementFacade> actionLists;
 
 
     //登录供应商门户
@@ -68,7 +72,7 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-form-item__content']//input[@type='password']")
     public WebElementFacade GLDBEmailPassword;
 
-    @FindBy(xpath = "//div[@class='lls-input-group__append']/button")
+    @FindBy(xpath = "//div[@class='lls-input-group__append']/button/span")
     public WebElementFacade sendCodeBtn;
 
     @FindBy(xpath = "//div[@id='message-list']/button[1]//span[text()='Green Link Digital Bank - Verification Code']")
@@ -85,6 +89,12 @@ public class creditLimit_page extends PageObject {
 
     @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")
     public WebElementFacade clickRefreshBtn;
+
+    @FindBy(id = "details-button")
+    public WebElementFacade advancedButton;
+
+    @FindBy(id = "proceed-link")
+    public WebElementFacade enterEmailLink;
 
     @FindBy(xpath = "//div[@class='tab-pane message-body active']//h2")
     public WebElementFacade emailVerificationCode;
@@ -107,13 +117,13 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//h5[contains(text(),'Your OTP (One Time Password) for')]/following-sibling::div/b")
     public WebElementFacade token;
 
-    @FindBy(xpath = "//li[@role='presentation'][2]")
+    @FindBy(xpath = "//li[@role='presentation'][2]//a")
     public WebElementFacade plainText;
 
     @FindBy(xpath = "//div[@class='tab-pane message-body active']/a[1]")
     public WebElementFacade tokenLink;
 
-    @FindBy(xpath = "//div[@class='Verificationode_BoxChildIptChild']/div/form")
+    @FindBy(xpath = "//div[@class='Verificationode_BoxChildIptChild']/div/form/input")
     public WebElementFacade inputToken;
 
     @FindBy(xpath = "//label[@for='limitType']")
@@ -121,4 +131,20 @@ public class creditLimit_page extends PageObject {
 
     @FindBy(xpath = "//label[@for='ratingNew']//following-sibling::div//input")
     public WebElementFacade rating;
+
+    @FindBy(xpath = "//span[text()='BR Agreement']")
+    public List<WebElementFacade> agreement;
+
+    @FindBy(xpath = "//span[text()='OTP (One Time Password) for Digital Sign']")
+    public WebElementFacade otpToken;
+
+    @FindBy(xpath = "//div[@class='tab-pane message-body active']//tr[3]/td/div/div[1]//div/b")
+    public WebElementFacade emailToken;
+
+    @FindBy(xpath = "//div[@id='pdfList']//div[5]//span[1]")
+    public WebElementFacade signHere;
+
+    @FindBy(xpath = "//div[@class='upload-demo']//div//input")
+    public WebElementFacade upLoadImg;
+
 }

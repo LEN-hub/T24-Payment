@@ -19,6 +19,8 @@ public class financingRequest_step extends ScenarioSteps {
 
     private financingRequest_page financingRequest_page;
     private BDDUtil bddUtil;
+    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\BR.jpg";
+
 
     @Step
     public void openGLDBLoginPage(String envName){
@@ -29,6 +31,10 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.enterEmailToBox.sendKeys(email);
         financingRequest_page.enterPasswordToBox.sendKeys(password);
         financingRequest_page.enterCompanyIdToBox.sendKeys(companyId);
+
+
+
+
         financingRequest_page.enterCodeToBox.sendKeys(code);
         financingRequest_page.clickLogin.click();
     }
@@ -37,7 +43,7 @@ public class financingRequest_step extends ScenarioSteps {
     }
     public void uploadRequestFinancing(){
         financingRequest_page.clickUpload.click();
-        getDriver().findElement(By.xpath("//div[@class='upload-widget']//input")).sendKeys("C:\\Users\\ASUS\\Desktop\\testAuto.xlsx");
+        getDriver().findElement(By.xpath("//div[@class='upload-widget']//input")).sendKeys("E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\excel\\testAuto.xlsx");
         bddUtil.sleep(5);
         financingRequest_page.clickConfirmOfUpload.click();
         bddUtil.sleep(3);
@@ -79,4 +85,17 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.clickFinancingStatus.click();
         financingRequest_page.clickPaymentInProgress.click();
     }
+
+    public void clickMoreBtn(){
+        financingRequest_page.more.click();
+        financingRequest_page.ratingLimits.click();
+        financingRequest_page.ratingLimitsList.click();
+    }
+
+    public void seeQuotaOccupancy(String companyName){
+        financingRequest_page.client.sendKeys(companyName);
+        financingRequest_page.ratingTitle.click();
+        bddUtil.clickByJS(financingRequest_page.find(By.xpath("//div[@data-key='f2u4lp9q']//div[@class='lowcode-table-base']//tbody//span[@data-key='f0pbd6tn']//span")));
+        bddUtil.sleep(3);
+    }//查看客户额度占用情况。
 }

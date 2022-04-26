@@ -109,6 +109,7 @@ public class product_glue {
         productStep.SupplierKey();
         productStep.clickBuyer();
         productStep.clickBuyerKey();
+        bddUtil.sleep(1);
         productStep.clickCurrency();
         List<Map<String, String>> payToI = payDetails.asMaps(String.class,String.class);
         productStep.clickCurrency(payToI.get(0).get("selectCurr"));

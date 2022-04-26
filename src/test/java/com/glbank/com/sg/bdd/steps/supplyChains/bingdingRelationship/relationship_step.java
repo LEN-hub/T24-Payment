@@ -203,7 +203,7 @@ public class relationship_step extends ScenarioSteps {
                 break;
             }
         }
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
     }
 
     @Step

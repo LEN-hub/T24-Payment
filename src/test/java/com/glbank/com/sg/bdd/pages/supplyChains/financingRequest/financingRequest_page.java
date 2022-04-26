@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.security.cert.X509Certificate;
 import java.util.List;
 
 public class financingRequest_page extends PageObject {
@@ -32,7 +33,7 @@ public class financingRequest_page extends PageObject {
     @FindBy(xpath = "//div[@data-key=\"f13i7oou\"]//span[text()=\"Browse\"]")
     public WebElementFacade clickOfUploadFile;
 
-    @FindBy(xpath = "//div[@data-key=\"f3oqrhlu\"]//span")
+    @FindBy(xpath = "//div[@data-key=\"f08kpqqr\"]//span")
     public WebElementFacade clickConfirmOfUpload;
 
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr//div[@class='lls-cb-indot lls-cb-indot-act2']")
@@ -82,4 +83,21 @@ public class financingRequest_page extends PageObject {
 
     @FindBy(xpath = "//div[@id=\"tab-1\"]//span")
     public WebElementFacade clickPaymentInProgress;
+
+    @FindBy(xpath = "//span[text()='More']")
+    public WebElementFacade more;
+
+    @FindBy(xpath = "//div[text()='Ratings & Limits']")
+    public WebElementFacade ratingLimits;
+
+    @FindBy(xpath = "//span[text()='Rating & Limits']")
+    public WebElementFacade ratingTitle;
+    @FindBy(xpath = "//span[text()='Ratings & Limits List']")
+    public WebElementFacade ratingLimitsList;
+
+    @FindBy(xpath = "//label[text()='Client']//following-sibling::div//input")
+    public WebElementFacade client;
+
+    @FindBy(xpath = "//div[@data-key='f2u4lp9q']//div[@class='lowcode-table-base']//tbody//span[@data-key='f0pbd6tn']//span")
+    public WebElementFacade viewBtn;
 }

@@ -35,11 +35,15 @@ public class createAdminUser_glue {
         createAdminUsers_step.clickConfirm_Create();
         createAdminUsers_step.clickAuthoritySetting();
         createAdminUsers_step.clickPermissionMenu();
-        createAdminUsers_step.clickImportMean();
+//        createAdminUsers_step.clickImportMean();
         createAdminUsers_step.clickConfirm_Update();
         bddUtil.sleep(20);
 
     }
 
 
+    @When("^I should see home after login$")
+    public void iShouldSeeHomeAfterLogin() {
+        bddUtil.sleep(10);
+    }
 }

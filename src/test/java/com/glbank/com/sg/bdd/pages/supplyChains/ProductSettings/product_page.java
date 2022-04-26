@@ -232,6 +232,11 @@ public class product_page extends PageObject {
     public WebElementFacade Confirm;
 
 
+    @FindBy(id = "details-button")
+    public WebElementFacade advancedButton;
+
+    @FindBy(id = "proceed-link")
+    public WebElementFacade enterEmailLink;
 
     //登录供应商门户查看、
     @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")

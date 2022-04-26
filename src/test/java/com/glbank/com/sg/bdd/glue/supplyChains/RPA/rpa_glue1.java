@@ -49,6 +49,31 @@ public class rpa_glue1 {
     public void jumpToTheSupplierPortalToCheckTheRPA() {
         rpaStep.jumpToSupplierPortal();
         rpaStep.openEmailUrlTest();
+        rpaStep.errorEmailLink();
+        bddUtil.switchToWindows();
         rpaStep.loginServiceAgreementWindow();
+    }
+
+    @When("^I click report button$")
+    public void iClickReportButton() {
+        rpaStep.clickReport();
+        bddUtil.sleep(5);
+    }
+
+    @When("^I enter login information$")
+    public void iEnterLoginInformation() {
+        rpaStep.jumpToSupplierPortal();
+        rpaStep.inputLogin();
+    }
+
+    @When("^I input login information$")
+    public void iInputLoginInformation() {
+        rpaStep.inputLogin();
+    }
+
+    @When("^I click create user button$")
+    public void iClickCreateUserButton(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        rpaStep.clickCreateUser(maps.get(0).get("first_new_password"),maps.get(0).get("second_new_password"));
     }
 }

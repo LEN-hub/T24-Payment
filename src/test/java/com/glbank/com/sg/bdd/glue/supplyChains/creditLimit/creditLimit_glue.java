@@ -116,7 +116,7 @@ public class creditLimit_glue {
     public void iInputLoginDataAndClickOnTheLoginSupplierPortalURL(DataTable otherData) {
 //        creditLimit_step.inputEmailUrlTest();
         List<Map<String, String>> Data = otherData.asMaps(String.class,String.class);
-        creditLimit_step.inputOtherData(Data.get(0).get("pass word"),Data.get(0).get("send code"));
+        creditLimit_step.inputOtherData(Data.get(0).get("pass word"),Data.get(0).get("Company ID"));
     }
 
     @When("^I click Pending Signature button$")
@@ -133,8 +133,7 @@ public class creditLimit_glue {
 
     @When("^I login email URL$")
     public void iLoginEmailURL() {
-        creditLimit_step.loginEmailUrlTest();
-        bddUtil.switchToNewWindow();
+        creditLimit_step.clickEmail();
         bddUtil.sleep(3);
     }
 
@@ -156,5 +155,10 @@ public class creditLimit_glue {
     @When("^I changed Rating is BB$")
     public void iChangedRatingIsBB() {
         creditLimit_step.changeRating();
+    }
+
+    @When("^I to sign$")
+    public void iToSign() {
+        creditLimit_step.toSign();
     }
 }

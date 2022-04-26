@@ -39,6 +39,6 @@ public class createAdminUser_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"lls-tf-btn lls-tf-right lls-tf-rightact\"]")
     public WebElementFacade clickImportMenu;
 
-    @FindBy(xpath = "//span[text()='Confirm']")
+    @FindBy(xpath = "//span[text()=' Confirm ']")
     public WebElementFacade clickConfirm_Update;
 }

@@ -24,7 +24,7 @@ public class creatCustomers_step extends ScenarioSteps {
 //    String englishName = RandomNameTool.getName(Language.en, NameType.FULL_NAME);
 //    String chineseName = RandomNameTool.getName(Language.en, NameType.FULL_NAME);
 //    String translateName = EnglishNameUtil.getTranslateName(Language.zh);
-//    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
+    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
 
     @Step
     public void getClickCustomersMenu(){
@@ -315,7 +315,8 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.companyEmail.sendKeys(value+ "@MailTemp.top");
         customers_page.companyPhoneNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
 //        customers_page.fileUpdate.click();
-        getDriver().findElement(By.xpath("//label[@for='A0001']//following-sibling::div//input")).sendKeys("C:\\workspace\\DBB_GL_AutoTesting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg");
+//        getDriver().findElement(By.xpath("//label[@for='A0001']//following-sibling::div//input")).sendKeys("C:\\workspace\\DBB_GL_AutoTesting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg");
+        getDriver().findElement(By.xpath("//label[@for='A0001']//following-sibling::div//input")).sendKeys(fileAddress);
 //        bddUtil.sleep(2);
 //        bddUtil.fileUpload();
         bddUtil.sleep(5);
@@ -323,7 +324,8 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.noExpiryDateInput.sendKeys("2024-9-10");
 //        customers_page.memorandumAndArticlesOfAssLink.click();
         bddUtil.sleep(2);
-        getDriver().findElement(By.xpath("//label[@for='A0010']//following-sibling::div//input")).sendKeys("C:\\workspace\\DBB_GL_AutoTesting-dev\\src\\test\\resources\\testData\\autopay\\test2.jpg");
+//        getDriver().findElement(By.xpath("//label[@for='A0010']//following-sibling::div//input")).sendKeys("C:\\workspace\\DBB_GL_AutoTesting-dev\\src\\test\\resources\\testData\\autopay\\test2.jpg");
+        getDriver().findElement(By.xpath("//label[@for='A0010']//following-sibling::div//input")).sendKeys(fileAddress);
 //        bddUtil.fileUpload();
         bddUtil.sleep(5);
         customers_page.countryOfTaxation.click();

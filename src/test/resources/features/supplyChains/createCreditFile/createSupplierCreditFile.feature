@@ -1,6 +1,7 @@
 @createSupplierCreditFile
 Feature: createSupplierCreditFile
 
+  @testReportCreditFile
   Scenario:createSupplierCreditFile
     Given logon "environments_1" on tube by inputting system
     When login successfully and click the SCF link to createSupplierCreditFile

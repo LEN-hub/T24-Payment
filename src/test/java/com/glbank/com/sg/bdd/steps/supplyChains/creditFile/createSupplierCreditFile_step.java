@@ -2,6 +2,7 @@ package com.glbank.com.sg.bdd.steps.supplyChains.creditFile;
 
 import com.glbank.com.sg.bdd.pages.supplyChains.creditFile.createSupplierCreditFile_page;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import com.glbank.com.sg.bdd.utils.ModifyExcel;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
@@ -69,7 +70,7 @@ public class createSupplierCreditFile_step extends PageObject {
         createSupplierCreditFile_page.clickIndustry.click();
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getIndustry).click();
         createSupplierCreditFile_page.getDRSKRating.clear();
-        createSupplierCreditFile_page.getDRSKRating.sendKeys("1");
+        createSupplierCreditFile_page.getDRSKRating.sendKeys("IG4");
         createSupplierCreditFile_page.getLastFiscalYear.sendKeys("2020");
         createSupplierCreditFile_page.clickBlank.click();
 //        createSupplierCreditFile_page.clickLastFiscalYear.click();

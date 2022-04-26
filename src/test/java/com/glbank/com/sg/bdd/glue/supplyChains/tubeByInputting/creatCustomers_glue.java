@@ -65,6 +65,7 @@ public class creatCustomers_glue {
         customers_step.getCountryOfRegistrationValue();
         customers_step.getCompanyNameLeft(JRandomNameTool.getStringRandom(10));
         customers_step.clickSubmitBtn();
+        bddUtil.sleep(2);
     }
 
     @And("^I click Create Customer and fill in the supplier information in the pop-up window$")
