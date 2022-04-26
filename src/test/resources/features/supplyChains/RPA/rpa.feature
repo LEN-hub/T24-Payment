@@ -15,8 +15,6 @@ Feature:Bundled RPA test case
     @test
   Scenario:After the download is successful, you can view the document statement
     Given logon "environments_3" test code
-#    When logon "environments_001" on tube by inputting system
-#    Given logon "environments_3" test code
     When I enter login information
     When I click report button
 
@@ -29,5 +27,6 @@ Feature:Bundled RPA test case
       |first_new_password|second_new_password|
       |P@ssw0rd_123      |P@ssw0rd_123       |
       Then I jump to the login page
+
 
 

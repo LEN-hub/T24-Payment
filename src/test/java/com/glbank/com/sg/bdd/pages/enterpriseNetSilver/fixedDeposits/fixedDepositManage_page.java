@@ -10,6 +10,12 @@ public class fixedDepositManage_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-table__fixed-body-wrapper']//tr/td[9]//img")
     public List<WebElementFacade> moreMenuList;
 
+    @FindBy(xpath = "//ul[@class=\"el-menu--horizontal el-menu\"]//li[3]//div")
+    public WebElementFacade clickFixedDeposit;
+
+    @FindBy(xpath = "//div[@class=\"list\"]//p[2]/span")
+    public WebElementFacade selectFirstMenu;
+
     @FindBy(xpath = "//div[@class='pagination']//slot/span")
     public WebElementFacade click11;
 

@@ -47,7 +47,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='tradeAmont']/parent::div/following-sibling::div[1]//span[@class='el-input__suffix-inner']/i")
     public WebElementFacade tradeAmountPopWindows;
 
-    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul/li")
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul/li/span")
     public List<WebElementFacade> tradeAmountSelectFirst;
 
     @FindBy(xpath = "//form[@class='el-form el-form--label-left']/div[6]//div[@class='btn_box']")
@@ -134,7 +134,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='appointmentDdate']/following-sibling::div//input")
     public WebElementFacade dataInputBox;
 
-    @FindBy(xpath = "//form/div[3]/div[2]//div[@class='el-form-item__content']//span[@class='el-checkbox__inner']")
+    @FindBy(xpath = "//label[@class=\"el-checkbox pd0\"]//span[@class='el-checkbox__inner']")
     public WebElementFacade cycleTransferCheckBox;
 
     @FindBy(xpath = "//button[@aria-label='下个月']")
@@ -172,6 +172,13 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='el-dialog__wrapper has-icon-small']//div[@class='el-dialog__body']/div[2]//div[@class='ui-button dialog_btn primary common']//div[@class='btn_box']")
     public WebElementFacade continueBtn;
+
+    @FindBy(xpath = "//label[@for='acctObj']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade clickPopupbtn;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//ul/li/span")
+    public List<WebElementFacade> paymentInformationText;
+
 
 //境外转账（SGD--USD)
 

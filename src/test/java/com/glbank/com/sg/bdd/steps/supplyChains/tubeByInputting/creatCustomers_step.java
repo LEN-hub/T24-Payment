@@ -187,7 +187,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void openEmailUrlTest(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=A0x9x1oR\");");
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=44Dg64u0\");");
         bddUtil.switchToNewWindow();
         errorEmailLink();
         bddUtil.switchToWindows();
@@ -372,7 +372,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void iLoginServiceAgreementWindow(){
-        customers_page.GLDBEmailInput.sendKeys("A0x9x1oR@MailTemp.top");
+        customers_page.GLDBEmailInput.sendKeys("44Dg64u0@MailTemp.top");
         customers_page.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();

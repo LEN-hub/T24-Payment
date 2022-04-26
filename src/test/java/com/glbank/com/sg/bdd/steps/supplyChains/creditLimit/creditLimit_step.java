@@ -53,7 +53,8 @@ public class creditLimit_step extends ScenarioSteps {
         for (int i = 0; i < data.size(); i++) {
             if (FileUtils.LastReadFileInput3("buyer").equals(data.get(i).getText())){
                 bddUtil.scrollWindowToElement(data.get(i)).click();
-                assignBtn.get(i).click();
+//                assignBtn.get(i).click();
+                bddUtil.clickByJS(assignBtn.get(i));
                 break;
             }
         }

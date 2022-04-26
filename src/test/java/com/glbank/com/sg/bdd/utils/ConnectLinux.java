@@ -80,6 +80,7 @@ public class ConnectLinux {
      */
     public static void main(String[] args){
         System.out.println(getLastOtp("60120003"));
+        releaseConnect();
     }
 
     public static void releaseConnect(){

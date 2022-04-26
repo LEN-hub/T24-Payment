@@ -102,7 +102,7 @@ public class rpa_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f306i01b']//span")
     public WebElementFacade confirmBtn;
 
-    @FindBy(xpath = "//div[@class='lowcode-table default-theme']//div[@class='lowcode-table-fixed-right table-shadow']//tbody//tr[1]//span[@data-key='f2ndb6d8']//button//span")
+    @FindBy(xpath = "//div[@class='lowcode-table default-theme']//div[@class='lowcode-table-wrap']//tbody//tr[1]//span[@data-key='f2ndb6d8']//button//span")
     public WebElementFacade sendEmail;
 
     @FindBy(xpath = "//div[@class='lls-message-box__btns']//button[2]//span")

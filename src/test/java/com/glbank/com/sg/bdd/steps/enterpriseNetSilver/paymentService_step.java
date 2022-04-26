@@ -83,9 +83,17 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     @Step
-    public void domesticTransfer(String bankName,String accountName,String paymentAccount,String transferAmount,String tradeAmountSelect){
+    public void domesticTransfer(String bankName, String accountName, String paymentAccount, String transferAmount, String tradeAmountSelect,String paymentInformation){
         paymentService_page.domesticTransfer.click();
         CommonUtil.waiting(2000);
+        paymentService_page.clickPopupbtn.click();
+        List<WebElementFacade> payment = paymentService_page.paymentInformationText;
+        for (int i = 0; i <= payment.size(); i++){
+            if (paymentInformation.equals(payment.get(i).getText().substring(0,13))){
+                bddUtil.scrollWindowToElement(payment.get(i)).click();
+                break;
+            }
+        }
         paymentService_page.collectingBankPopWindows.click();
         List<WebElementFacade> selectBank = paymentService_page.selectSGD;
         for (int j = 0; j< selectBank.size(); j++){
@@ -109,9 +117,17 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     @Step
-    public void otherDomesticTransfer(String bankName,String accountName,String paymentAccount,String transferAmount,String tradeAmountSelect){
+    public void otherDomesticTransfer(String bankName,String accountName,String paymentAccount,String transferAmount,String tradeAmountSelect,String paymentInformation){
         paymentService_page.domesticTransfer.click();
         CommonUtil.waiting(2000);
+        paymentService_page.clickPopupbtn.click();
+        List<WebElementFacade> payment = paymentService_page.paymentInformationText;
+        for (int i = 0; i <= payment.size(); i++){
+            if (paymentInformation.equals(payment.get(i).getText().substring(0,13))){
+                bddUtil.scrollWindowToElement(payment.get(i)).click();
+                break;
+            }
+        }
         paymentService_page.collectingBankPopWindows.click();
         List<WebElementFacade> selectTitle = paymentService_page.selectTitle;
         for (int j = 0; j < selectTitle.size(); j++){

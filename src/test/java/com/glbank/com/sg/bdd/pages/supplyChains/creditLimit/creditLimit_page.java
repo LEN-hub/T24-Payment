@@ -22,7 +22,7 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//span[@class='single-line-text is-empty']")
     public WebElementFacade underWritingApprovalText;
 
-    @FindBy(xpath = "//div[@class='lowcode-table-fixed-right table-shadow']//div[@class='lls-design-table-btn-wrapper']/span")
+    @FindBy(xpath = "//span[@data-key='f2imibvb']//span")
     public List<WebElementFacade> assignToMeBtn;
 
     @FindBy(xpath = "//div[@class='lls-design-table-btn-wrapper']//button")

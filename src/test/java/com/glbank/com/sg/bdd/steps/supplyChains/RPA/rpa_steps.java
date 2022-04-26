@@ -125,7 +125,7 @@ public class rpa_steps extends ScenarioSteps {
         }
         bddUtil.sleep(3);
         rpaPage.clickRefreshBtn.click();
-        bddUtil.sleep(1);
+        bddUtil.sleep(3);
         rpaPage.thirdEmail.click();
         String Vcode = rpaPage.emailVerificationCode.getText();
         bddUtil.switchToWindows();
