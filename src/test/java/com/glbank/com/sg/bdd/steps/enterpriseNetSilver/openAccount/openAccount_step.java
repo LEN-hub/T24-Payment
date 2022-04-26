@@ -280,8 +280,8 @@ public class openAccount_step extends ScenarioSteps {
     public void inputUltimateBeneficialOwnerDetails(String ultimateBeneficialOwnerName, String ultimateBeneficialOwnerAliasName, String ultimateBeneficialOwnerPassportNumber, String ultimateBeneficialOwnerPhoneNumber, String ultimateBeneficialOwnerEmailName) {
         openAccount_page.selectCheckBox2.click();
         bddUtil.scrollWindowToElement(openAccount_page.goContactPersonNm);
-        openAccount_page.inputUBOName.clear();
-        openAccount_page.inputUBOName.sendKeys(ultimateBeneficialOwnerName);
+//        openAccount_page.inputUBOName.clear();
+//        openAccount_page.inputUBOName.sendKeys(ultimateBeneficialOwnerName);
         openAccount_page.inputUBOAliasName.sendKeys(ultimateBeneficialOwnerAliasName);
         openAccount_page.inputUBOBirthDate.sendKeys("01/01/2010");
         openAccount_page.goContactPersonNm.click();
