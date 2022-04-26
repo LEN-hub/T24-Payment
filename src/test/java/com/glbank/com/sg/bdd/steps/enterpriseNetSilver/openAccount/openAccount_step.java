@@ -13,11 +13,14 @@ import org.openqa.selenium.JavascriptExecutor;
 import java.awt.*;
 import java.util.List;
 
+import static com.glbank.com.sg.bdd.utils.ConnectLinux.getLastOtp;
+
 public class openAccount_step extends ScenarioSteps {
 
     private openAccount_page openAccount_page;
     private BDDUtil bddUtil;
     private static String verificationCode;
+    public static String otp;
 
     public void clickOpenAccount() {
         openAccount_page.clickOpenAccount.click();
@@ -34,9 +37,13 @@ public class openAccount_step extends ScenarioSteps {
     }
 
     public void fillInInformationOnGettingStartedPage2(String accountType, String accountName, String currencyType) {
-        openAccount_page.find(By.xpath("//label[@for=\"accountTypeCd\"]/following-sibling::div//div[@role=\"radiogroup\"]/label[" + accountType + "]/span/span")).click();
+        if (accountType.substring(0,3).startsWith("div")){
+            openAccount_page.find(By.xpath("//label[@for='accountTypeCd']/following-sibling::div//div[@role='radiogroup']/label[" + accountType.charAt(3) + "]/span/span")).click();
+        } else if (accountType.substring(0, 5).equals("label")) {
+            openAccount_page.find(By.xpath("//label[@for='accountTypeCd']/following-sibling::div//div[@role='radiogroup']/label[" + accountType.charAt(5) + "]/span/span")).click();
+        }
         openAccount_page.inputAccountName.sendKeys(accountName);
-        openAccount_page.find(By.xpath("//label[@for=\"currencyTypeCd\"]/following-sibling::div//label[" + currencyType + "]/span/span")).click();
+        openAccount_page.find(By.xpath("//label[@for='currencyTypeCd']/following-sibling::div//label[" + currencyType + "]/span/span")).click();
         openAccount_page.clickCreateType.click();
         openAccount_page.clickWhatNeed.click();
         openAccount_page.clickLetGo.click();
@@ -143,11 +150,13 @@ public class openAccount_step extends ScenarioSteps {
 
     public void clickValidationCode() {
         bddUtil.sleep(2);
-        getDriver().switchTo().alert().getText();
-        bddUtil.sleep(2);
-        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
-        bddUtil.sleep(2);
-        getDriver().switchTo().alert().accept();
+//        getDriver().switchTo().alert().getText();
+//        bddUtil.sleep(2);
+//        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
+//        bddUtil.sleep(2);
+//        getDriver().switchTo().alert().accept();
+        otp=getLastOtp("60120003");
+        System.out.println("------------otp验证码:"+otp+"-----------------");
         bddUtil.sleep(1);
     }
 
@@ -155,27 +164,25 @@ public class openAccount_step extends ScenarioSteps {
         EnterKeys enterKeys = new EnterKeys();
         bddUtil.sleep(1);
         openAccount_page.sendKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(0, 1));
+        enterKeys.EnterKeys(otp.substring(0, 1));
         bddUtil.sleep(1);
         openAccount_page.secondKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(1, 2));
+        enterKeys.EnterKeys(otp.substring(1, 2));
         openAccount_page.thirdKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(2, 3));
+        enterKeys.EnterKeys(otp.substring(2, 3));
         openAccount_page.fourKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(3, 4));
+        enterKeys.EnterKeys(otp.substring(3, 4));
         openAccount_page.fiveKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(4, 5));
+        enterKeys.EnterKeys(otp.substring(4, 5));
         openAccount_page.sixKeysBox.click();
-        enterKeys.EnterKeys(verificationCode.substring(5, 6));
+        enterKeys.EnterKeys(otp.substring(5, 6));
     }
 
-    public void inputEntityDetails() {
-        String entityType = "Public Limited Co (not listed in Singapore)";
-        String industry = "Manufacturing";
+    public void inputEntityDetails(String entityType,String entityConsolidated,String entityIndustry,String date) {
         bddUtil.scrollWindowToElement(openAccount_page.goEntityDetails);
         bddUtil.sleep(1);
         openAccount_page.inputCompanyRegistrationNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
-        openAccount_page.inputCompanyRegisterDate.sendKeys("01/01/2010");
+        openAccount_page.inputCompanyRegisterDate.sendKeys(date);
         openAccount_page.goEntityDetails.click();
         openAccount_page.clickCountryOfIncorporation.click();
         bddUtil.scrollWindowToElement(openAccount_page.getCountryOfIncorporation).click();
@@ -183,18 +190,28 @@ public class openAccount_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(openAccount_page.goEntityType);
         bddUtil.sleep(1);
         openAccount_page.clickEntityType.click();
-        if (openAccount_page.getEntityType.getText().equals(entityType)) {
-            bddUtil.scrollWindowToElement(openAccount_page.getEntityType).click();
-        } else {
-            bddUtil.scrollWindowToElement(openAccount_page.getEntityTypeCN).click();
+        List<WebElementFacade> testEntityType = openAccount_page.getEntityType2;
+        for (int i =0;i <= testEntityType.size();i++){
+            if (testEntityType.get(i).getText().equals(entityType)) {
+                bddUtil.scrollWindowToElement(testEntityType.get(i)).click();
+                break;
+            }
         }
         openAccount_page.clickEntityConsolidatedAnnualSalesTurnover.click();
-        bddUtil.scrollWindowToElement(openAccount_page.getEntityConsolidatedAnnualSalesTurnover).click();
+        List<WebElementFacade> testSecondEntityType = openAccount_page.getEntityType2;
+        for (int j =0;j <= testSecondEntityType.size();j++){
+            if (testSecondEntityType.get(j).getText().equals(entityConsolidated)) {
+                bddUtil.scrollWindowToElement(testSecondEntityType.get(j)).click();
+                break;
+            }
+        }
         openAccount_page.clickIndustry.click();
-        if (openAccount_page.getIndustry.getText().equals(industry)) {
-            bddUtil.scrollWindowToElement(openAccount_page.getIndustry).click();
-        } else {
-            bddUtil.scrollWindowToElement(openAccount_page.getIndustryCN).click();
+        List<WebElementFacade> testThreeEntityType = openAccount_page.getEntityType2;
+        for (int k =0;k <= testThreeEntityType.size();k++){
+            if (testThreeEntityType.get(k).getText().equals(entityIndustry)) {
+                bddUtil.scrollWindowToElement(testThreeEntityType.get(k)).click();
+                break;
+            }
         }
         openAccount_page.clickNonprofitFlag.click();
         openAccount_page.clickNext2OnProvideEssentialInformationPage.click();
@@ -239,10 +256,10 @@ public class openAccount_step extends ScenarioSteps {
         bddUtil.sleep(2);
     }
 
-    public void inputDirectorDetails(String contactPersonNm, String aliasNm, String passportNumber, String directorPhoneNumber, String directorEmailName) {
-        openAccount_page.inputContactPersonNm.click();
-        openAccount_page.inputContactPersonNm.clear();
-        openAccount_page.inputContactPersonNm.sendKeys(contactPersonNm);
+    public void inputDirectorDetails(String aliasNm, String passportNumber, String directorPhoneNumber, String directorEmailName) {
+//        openAccount_page.inputContactPersonNm.click();
+//        openAccount_page.inputContactPersonNm.clear();
+//        openAccount_page.inputContactPersonNm.sendKeys(contactPersonNm);
         openAccount_page.inputAliasNm.sendKeys(aliasNm);
         openAccount_page.inputBirthDate.sendKeys("01/01/2010");
         openAccount_page.clickRoleCd.click();

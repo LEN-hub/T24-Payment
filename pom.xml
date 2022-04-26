@@ -276,6 +276,32 @@
     </dependencies>
     <build>
         <plugins>
+            <!-- 编译插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <!-- 源代码用哪个版本的JDK编写的-->
+                    <source>1.8</source>
+                    <!-- 想要Jenkins用哪个版本的JDK编译，版本不一定相同-->
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!-- 执行插件配置-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                   <!-- 执行Java类-->
+                    <includes>
+                      <include>**/WebRunner.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>

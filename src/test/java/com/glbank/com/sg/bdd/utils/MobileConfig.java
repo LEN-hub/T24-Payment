@@ -15,6 +15,8 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static com.glbank.com.sg.bdd.utils.ConnectLinux.getLastOtp;
+
 public class MobileConfig {
     //获取vkey页面元素信息
 //    String test = driver.getPageSource();
@@ -24,6 +26,7 @@ public class MobileConfig {
     private BDDUtil bddUtil;
     public static String vcode;
     public static String vxcode;
+    public static String otp;
 
     public void testMobile() throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
@@ -51,7 +54,7 @@ public class MobileConfig {
         //添加操作系统配置
         cap.setCapability("platformName", "Android");
         //添加操作系统版本设置adb devices
-        cap.setCapability("platformVersion", "12");
+        cap.setCapability("platformVersion", "11");
         //指定想要测试应用的包名
         cap.setCapability("appPackage", "com.glbank.mobileapp");
         //指定想要测试应用的入口activity
@@ -92,6 +95,27 @@ public class MobileConfig {
             driver.findElementById("btn_submit").click();
         }
     }
+    public void enterOpt() throws InterruptedException {
+        Thread.sleep(8000);
+        otp=getLastOtp("60120003");
+        System.out.println(otp);
+        Thread.sleep(8000);
+        driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_sms_code')]/child::android.widget.LinearLayout[1]/child::android.widget.EditText").sendKeys(otp.substring(0,1));
+        driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_sms_code')]/child::android.widget.LinearLayout[2]/child::android.widget.EditText").sendKeys(otp.substring(1,2));
+        driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_sms_code')]/child::android.widget.LinearLayout[3]/child::android.widget.EditText").sendKeys(otp.substring(2,3));
+        driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_sms_code')]/child::android.widget.LinearLayout[4]/child::android.widget.EditText").sendKeys(otp.substring(3,4));
+        driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_sms_code')]/child::android.widget.LinearLayout[5]/child::android.widget.EditText").sendKeys(otp.substring(4,5));
+        driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_sms_code')]/child::android.widget.LinearLayout[6]/child::android.widget.EditText").sendKeys(otp.substring(5,6));
+        Thread.sleep(5000);
+        otp=getLastOtp("60120003");
+        System.out.println(otp);
+        driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_email_code')]/child::android.widget.LinearLayout[1]/child::android.widget.EditText").sendKeys(otp.substring(0,1));
+        driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_email_code')]/child::android.widget.LinearLayout[2]/child::android.widget.EditText").sendKeys(otp.substring(1,2));
+        driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_email_code')]/child::android.widget.LinearLayout[3]/child::android.widget.EditText").sendKeys(otp.substring(2,3));
+        driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_email_code')]/child::android.widget.LinearLayout[4]/child::android.widget.EditText").sendKeys(otp.substring(3,4));
+        driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_email_code')]/child::android.widget.LinearLayout[5]/child::android.widget.EditText").sendKeys(otp.substring(4,5));
+        driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_email_code')]/child::android.widget.LinearLayout[6]/child::android.widget.EditText").sendKeys(otp.substring(5,6));
+    }
 
     public void verification() throws InterruptedException {
         Thread.sleep(14000);
@@ -119,16 +143,16 @@ public class MobileConfig {
     }
 
     public void clickCreatPassword() throws InterruptedException {
-        Thread.sleep(30000);
-        driver.findElementById("btn_submit").click();
-        Thread.sleep(1000);
+        Thread.sleep(15000);
+        String test = driver.getPageSource();
+        System.out.println(test);
         for (int i = 0; i<2;i++){
-            driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_pin')]/child::android.widget.EditText[1]").sendKeys("1");
-            driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_pin')]/child::android.widget.EditText[2]").sendKeys("4");
-            driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_pin')]/child::android.widget.EditText[3]").sendKeys("7");
-            driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_pin')]/child::android.widget.EditText[4]").sendKeys("2");
-            driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_pin')]/child::android.widget.EditText[5]").sendKeys("5");
-            driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'giv_pin')]/child::android.widget.EditText[6]").sendKeys("8");
+            driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_pin')]/child::android.widget.LinearLayout[1]/child::android.widget.EditText").sendKeys("1");
+            driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_pin')]/child::android.widget.LinearLayout[2]/child::android.widget.EditText").sendKeys("4");
+            driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_pin')]/child::android.widget.LinearLayout[3]/child::android.widget.EditText").sendKeys("7");
+            driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_pin')]/child::android.widget.LinearLayout[4]/child::android.widget.EditText").sendKeys("2");
+            driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_pin')]/child::android.widget.LinearLayout[5]/child::android.widget.EditText").sendKeys("5");
+            driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_pin')]/child::android.widget.LinearLayout[6]/child::android.widget.EditText").sendKeys("8");
         }
         driver.findElementById("btn_submit").click();
     }
