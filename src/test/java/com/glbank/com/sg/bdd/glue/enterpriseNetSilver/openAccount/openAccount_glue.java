@@ -24,7 +24,7 @@ public class openAccount_glue {
     public static String accountName = "AutoTestAccountName" + JRandomNameTool.getStringRandom(5);
     public static String applicantName = "AutoTestApplicantName" + JRandomNameTool.getStringRandom(5);
     public static String emailName = JRandomNameTool.getStringRandom(5); //
-    public static String contactPersonNm = "AutoTestDirector" + JRandomNameTool.getStringRandom(5);
+//    public static String contactPersonNm = "AutoTestDirector" + JRandomNameTool.getStringRandom(5);
     public static String aliasNm = "AutoTestDirectorAliasNm" + JRandomNameTool.getStringRandom(5);
     public static String passportNumber = JRandomNameTool.getStringRandom(10);
     public static String mobileNumber = RandomPhoneNumber.randomPhoneNum();
@@ -205,7 +205,8 @@ public class openAccount_glue {
     }
 
     @And("^Provide Essential Information$")
-    public void provideEssentialInformation()throws AWTException {
+    public void provideEssentialInformation(DataTable payDetails)throws AWTException {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
         openAccount_step.provideEssentialInformation(applicantName,emailName,mobileNumber);
         System.out.println("---------------申请人姓名："+ applicantName + "----------------------");
         FileUtils.FileString4(""+openAccountInformation+"","申请人姓名:" + applicantName);
@@ -215,7 +216,7 @@ public class openAccount_glue {
         FileUtils.FileString4(""+openAccountInformation+"","申请人邮箱地址:" + emailName + "@MailTemp.top");
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
-        openAccount_step.inputEntityDetails();
+        openAccount_step.inputEntityDetails(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"));
     }
 
     @And("^Provide Essential Information About SubIndustry$")
@@ -235,9 +236,9 @@ public class openAccount_glue {
 
     @Then("^Enter Connected People's Details$")
     public void enterConnectedPeoplesDetails(){
-        openAccount_step.inputDirectorDetails(contactPersonNm,aliasNm,passportNumber,directorPhoneNumber,directorEmailName);
-        System.out.println("---------------董事姓名："+ contactPersonNm + "----------------------");
-        FileUtils.FileString4(""+openAccountInformation+"","董事姓名:" + contactPersonNm);
+        openAccount_step.inputDirectorDetails(aliasNm,passportNumber,directorPhoneNumber,directorEmailName);
+//        System.out.println("---------------董事姓名："+ contactPersonNm + "----------------------");
+//        FileUtils.FileString4(""+openAccountInformation+"","董事姓名:" + contactPersonNm);
         System.out.println("---------------董事别名："+ aliasNm + "----------------------");
         FileUtils.FileString4(""+openAccountInformation+"","董事别名:" + aliasNm);
         System.out.println("---------------董事护照号码："+ passportNumber + "----------------------");
@@ -279,7 +280,7 @@ public class openAccount_glue {
     @Then("^Create Company Administrators’ Profiles$")
     public void createCompanyAdministratorsProfiles()throws AWTException{
         openAccount_step.enterConnectedEntitiesDetails2();
-        openAccount_step.createCompanyAdministratorsProfiles(contactPersonNm);
+//        openAccount_step.createCompanyAdministratorsProfiles(contactPersonNm);
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
         openAccount_step.clickVerifyEmailAddress1();
@@ -296,7 +297,7 @@ public class openAccount_glue {
 
     @Then("^Create Company Administrators’ Profiles About One$")
     public void createCompanyAdministratorsProfilesAboutOne()throws AWTException{
-        openAccount_step.choseOneAdministrator(contactPersonNm);
+//        openAccount_step.choseOneAdministrator(contactPersonNm);
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
         openAccount_step.clickVerifyEmailAddress1();

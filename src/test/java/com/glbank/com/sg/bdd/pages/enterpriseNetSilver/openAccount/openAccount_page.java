@@ -32,7 +32,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[6]//div[@class=\"btn_box\"]")
     public WebElementFacade clickWhatNeed;
 
-    @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[4]//div[@class=\"btn_box\"]")
+    @FindBy(xpath = "//div[@class='ui-button primary common out-height']//div[@class='btn_box']")
     public WebElementFacade clickLetGo;
 
     @FindBy(xpath = "//input[@readonly=\"readonly\"]")
@@ -56,7 +56,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"operatePersonEmail\"]/following-sibling::div//div//input")
     public WebElementFacade inputEmailAddress;
 
-    @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[3]//div[@class=\"btn_box\"]")
+    @FindBy(xpath = "//div[@class=\"ui-button primary common out-height\"]//div[@class='btn_box']")
     public WebElementFacade clickVerifyEmailAddress;
 
     @FindBy(xpath = "//div[@class='codebox']/span[1]")
@@ -103,6 +103,9 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//ul[@class=\"el-scrollbar__view el-select-dropdown__list\"]//span[text()=\"Public Limited Co (not listed in Singapore)\"]")
     public WebElementFacade getEntityType;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]/div[1]/div[1]//span")
+    public List<WebElementFacade> getEntityType2;
 
     @FindBy(xpath = "//ul[@class=\"el-scrollbar__view el-select-dropdown__list\"]//span[text()=\"公众有限公司(未在新加坡上市)\"]")
     public WebElementFacade getEntityTypeCN;

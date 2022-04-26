@@ -20,6 +20,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import java.util.List;
 import java.util.Map;
 
+import static com.glbank.com.sg.bdd.utils.JDBCUtil.*;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class creatCustomers_glue {
@@ -306,6 +307,10 @@ public class creatCustomers_glue {
 
     @When("^Approval in the supply chain system$")
     public void approvalInTheSupplyChainSystem() {
+        int result = updateAmlResult(1,"companyData");
+        if(result > 0){
+            System.out.println("AML状态修改成功");
+        }
         customers_step.getClickCustomersMenu();
         customers_step.onboardingReview();
         customers_step.onboardingReviewTitle();

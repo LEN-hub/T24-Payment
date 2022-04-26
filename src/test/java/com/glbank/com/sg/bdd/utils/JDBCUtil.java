@@ -20,7 +20,7 @@ public class JDBCUtil {
         }
     }
 
-    private static int updateAmlResult(int amlResult, String name){
+    public static int updateAmlResult(int amlResult, String name){
         Object[] updateParams = new Object[]{amlResult, FileUtils.LastReadFileInput3(name)};
         return updateQuery("update cust_aml_info a set a.aml_result = ? where a.name = ?;", updateParams);
     }

@@ -9,16 +9,16 @@ public class testMobile {
         MobileConfig test = new MobileConfig();
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
-        test.testMobile();
-        test.transactionCode();
+        test.testSecondMobile();
         Thread.sleep(3000);
         if (MobileConfig.driver.findElementByXPath("//android.widget.TextView[ends-with(@resource-id,'permission_message')]").isDisplayed()) {
             test.clickSystemPopupWindows();
             test.clickStartButton();
-            test.logonVkeyApp("201297", "cyq2412337655@163.com", "Gl123456.");
             test.clickLetUsStart();
-            test.verification();
+            test.logonVkeyApp("201411", "17762216590@163.com", "Gl123456..");
+            test.enterOpt();
             test.clickCreatPassword();
+//            test.verification();
             test.getVcode();
         }else {
             test.getVcode();
