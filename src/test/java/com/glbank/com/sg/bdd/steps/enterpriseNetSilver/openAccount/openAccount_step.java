@@ -154,7 +154,7 @@ public class openAccount_step extends ScenarioSteps {
 //        bddUtil.sleep(2);
 //        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
 //        bddUtil.sleep(2);
-//        getDriver().switchTo().alert().accept();
+        getDriver().switchTo().alert().accept();
         otp=getLastOtp("60120003");
         System.out.println("------------otp验证码:"+otp+"-----------------");
         bddUtil.sleep(1);
@@ -278,10 +278,10 @@ public class openAccount_step extends ScenarioSteps {
     }
 
     public void inputUltimateBeneficialOwnerDetails(String ultimateBeneficialOwnerName, String ultimateBeneficialOwnerAliasName, String ultimateBeneficialOwnerPassportNumber, String ultimateBeneficialOwnerPhoneNumber, String ultimateBeneficialOwnerEmailName) {
-        openAccount_page.selectCheckBox2.click();
-        bddUtil.scrollWindowToElement(openAccount_page.goContactPersonNm);
-        openAccount_page.inputUBOName.clear();
-        openAccount_page.inputUBOName.sendKeys(ultimateBeneficialOwnerName);
+//        openAccount_page.selectCheckBox2.click();
+//        bddUtil.scrollWindowToElement(openAccount_page.goContactPersonNm);
+//        openAccount_page.inputUBOName.clear();
+//        openAccount_page.inputUBOName.sendKeys(ultimateBeneficialOwnerName);
         openAccount_page.inputUBOAliasName.sendKeys(ultimateBeneficialOwnerAliasName);
         openAccount_page.inputUBOBirthDate.sendKeys("01/01/2010");
         openAccount_page.goContactPersonNm.click();

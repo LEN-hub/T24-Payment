@@ -202,12 +202,19 @@ public class HttpUtil {
      * @param httpPost
      * @return
      */
-    private static String sendHttpPost(HttpPost httpPost) {
+    public static String sendPost(HttpPost httpPost) {
 
         CloseableHttpClient httpClient = null;
         CloseableHttpResponse response = null;
         // 响应内容
         String responseContent = null;
+        // 根据默认超时限制初始化requestConfig
+        int socketTimeout = 10000;
+        int connectTimeout = 10000;
+        int connectionRequestTimeout = 10000;
+        requestConfig = RequestConfig.custom().setConnectionRequestTimeout(
+                connectionRequestTimeout).setSocketTimeout(socketTimeout).setConnectTimeout(
+                connectTimeout).build();
         try {
             // 创建默认的httpClient实例.
             httpClient = getHttpClient();
@@ -217,27 +224,16 @@ public class HttpUtil {
             response = httpClient.execute(httpPost);
             // 得到响应实例
             HttpEntity entity = response.getEntity();
-
-            // 可以获得响应头
-            // Header[] headers = response.getHeaders(HttpHeaders.CONTENT_TYPE);
-            // for (Header header : headers) {
-            // System.out.println(header.getName());
-            // }
-
-            // 得到响应类型
-            // System.out.println(ContentType.getOrDefault(response.getEntity()).getMimeType());
-
             // 判断响应状态
-            System.out.println( EntityUtils.toString(entity, CHARSET_UTF_8));
             if (response.getStatusLine().getStatusCode() >= 300) {
                 throw new Exception(
                         "HTTP Request is not success, Response code is " + response.getStatusLine().getStatusCode());
             }
 
-           /* if (HttpStatus.SC_OK == response.getStatusLine().getStatusCode()) {
+            if (HttpStatus.SC_OK == response.getStatusLine().getStatusCode()) {
                 responseContent = EntityUtils.toString(entity, CHARSET_UTF_8);
                 EntityUtils.consume(entity);
-            }*/
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -317,17 +313,6 @@ public class HttpUtil {
 
 
 
-    /**
-     * 发送 post请求
-     *
-     * @param httpUrl
-     *            地址
-     */
-    public static String sendHttpPost(String httpUrl) {
-        // 创建httpPost
-        HttpPost httpPost = new HttpPost(httpUrl);
-        return sendHttpPost(httpPost);
-    }
 
     /**
      * 发送 get请求
