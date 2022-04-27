@@ -20,7 +20,7 @@ public class financingRequest_step extends ScenarioSteps {
     private financingRequest_page financingRequest_page;
     private BDDUtil bddUtil;
     String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\BR.jpg";
-
+    public String FinancingNo = financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content']/div[2]/section/div[1]/div[3]//tr[1]/td[2]//span")).getText();
 
     @Step
     public void openGLDBLoginPage(String envName){

@@ -144,8 +144,6 @@ public class MobileConfig {
 
     public void clickCreatPassword() throws InterruptedException {
         Thread.sleep(15000);
-        String test = driver.getPageSource();
-        System.out.println(test);
         for (int i = 0; i<2;i++){
             driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_pin')]/child::android.widget.LinearLayout[1]/child::android.widget.EditText").sendKeys("1");
             driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_pin')]/child::android.widget.LinearLayout[2]/child::android.widget.EditText").sendKeys("4");

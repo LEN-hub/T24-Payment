@@ -44,6 +44,6 @@ public class createAdminUser_glue {
 
     @When("^I should see home after login$")
     public void iShouldSeeHomeAfterLogin() {
-        bddUtil.sleep(10);
+        bddUtil.sleep(20);
     }
 }
