@@ -44,8 +44,17 @@ public class payments_page extends PageObject{
     @FindBy(xpath ="//span[@data-key='f21orqn5']//span")
     public  WebElementFacade Proceed;   //审核
 
+    @FindBy(xpath = "//span[@data-key='f3oj1ki5']//span")
+    public WebElementFacade proceedNew;
+
+    @FindBy(xpath = "//span[@data-key='f21orqn5']//span")
+    public WebElementFacade proceedNew1;
+
     @FindBy(xpath ="//label[text()='Remittance Fee Paid by']/parent::div//span/span")
     public  WebElementFacade remittanceFeePaidby;
+
+    @FindBy(xpath = "//div[@class='payment-request-component']/div[3]//tbody//td[17]//div[@class='lls-input']/input")
+    public List<WebElementFacade> AdjustAmout;
 
     @FindBy(xpath ="//span[text()='SHA']")
     public  WebElementFacade SHA;
