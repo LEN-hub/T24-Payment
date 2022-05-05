@@ -3,6 +3,7 @@ package com.glbank.com.sg.bdd.steps.supplyChains.financingRequest;
 import com.glbank.com.sg.bdd.pages.supplyChains.financingRequest.financingRequest_page;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import com.glbank.com.sg.bdd.utils.CommonUtil;
+import com.glbank.com.sg.bdd.utils.ModifyExcel;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -12,7 +13,9 @@ import org.openqa.selenium.interactions.Actions;
 
 import javax.swing.*;
 import java.util.List;
+import java.util.Map;
 
+import static com.glbank.com.sg.bdd.utils.HaveOrNo.updateAml;
 import static com.glbank.com.sg.bdd.utils.MobileConfig.driver;
 
 public class financingRequest_step extends ScenarioSteps {
@@ -20,7 +23,7 @@ public class financingRequest_step extends ScenarioSteps {
     private financingRequest_page financingRequest_page;
     private BDDUtil bddUtil;
     String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\BR.jpg";
-
+    public String FinancingNo;
 
     @Step
     public void openGLDBLoginPage(String envName){
@@ -31,10 +34,6 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.enterEmailToBox.sendKeys(email);
         financingRequest_page.enterPasswordToBox.sendKeys(password);
         financingRequest_page.enterCompanyIdToBox.sendKeys(companyId);
-
-
-
-
         financingRequest_page.enterCodeToBox.sendKeys(code);
         financingRequest_page.clickLogin.click();
     }
@@ -42,6 +41,8 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.clickRequestFinancing.click();
     }
     public void uploadRequestFinancing(){
+        ModifyExcel modifyExcel = new ModifyExcel();
+        modifyExcel.excelPOI("testAuto");
         financingRequest_page.clickUpload.click();
         getDriver().findElement(By.xpath("//div[@class='upload-widget']//input")).sendKeys("E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\excel\\testAuto.xlsx");
         bddUtil.sleep(5);
@@ -57,6 +58,7 @@ public class financingRequest_step extends ScenarioSteps {
     public void clickOperationsToL1Review(String companyName){
         financingRequest_page.clickOperations.click();
         financingRequest_page.clickFrReview.click();
+        FinancingNo = financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content']/div[1]/section/div[1]/div[3]//tr[1]/td[2]//span")).getText();
         List<WebElementFacade> requestName = financingRequest_page.requesterName;
         for(int i = 0;i< requestName.size();i++){
             if(requestName.get(i).getText().equals(companyName)){
@@ -78,6 +80,17 @@ public class financingRequest_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(financingRequest_page.getApprove).click();
         financingRequest_page.getComments.sendKeys("PASS");
         financingRequest_page.clickSubmit.click();
+        Map<String, Object> map = updateAml(FinancingNo);
+        int status = (int)map.get("status");
+        if(status == 1){
+            System.out.println("status success");
+            String responseData = (String)map.get("data");
+            System.out.println("responseData: " + responseData);
+        }else {
+            System.out.println("status error");
+            String msg = (String)map.get("msg");
+            System.out.println("msg: " + msg);
+        }
         bddUtil.sleep(3);
     }
 
@@ -96,6 +109,6 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.client.sendKeys(companyName);
         financingRequest_page.ratingTitle.click();
         bddUtil.clickByJS(financingRequest_page.find(By.xpath("//div[@data-key='f2u4lp9q']//div[@class='lowcode-table-base']//tbody//span[@data-key='f0pbd6tn']//span")));
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
     }//查看客户额度占用情况。
 }

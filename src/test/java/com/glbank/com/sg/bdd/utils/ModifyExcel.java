@@ -30,7 +30,7 @@ public class ModifyExcel {
                     }
                     XSSFCell xCell = xSheet.getRow(i).getCell(j);
                     if (xSheet.getRow(i-1).getCell(j).toString().contains("Doc Ref. No.")){
-                        xCell.setCellValue(BDDUtil.getTimeNowThroughCalendar());
+                        xCell.setCellValue(RandomPhoneNumber.randomPhoneNum());
                     }else if (xSheet.getRow(i-1).getCell(j).toString().contains("Buyer")){
                         xCell.setCellValue(FileUtils.LastReadFileInput3("buyer"));
                     }else if (xSheet.getRow(i-1).getCell(j).toString().contains("Supplier")){

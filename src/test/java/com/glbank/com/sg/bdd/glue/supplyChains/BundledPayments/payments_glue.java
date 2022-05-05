@@ -66,7 +66,7 @@ public class payments_glue {
     public void clickProceed() {
         paymentsStep.clickAssignToMeS();
         paymentsStep.Requester5();
-        paymentsStep.clickProceed();
+        paymentsStep.clickProceed2();
         paymentsStep.clickAPPROVE();
     }
 
@@ -132,5 +132,21 @@ public class payments_glue {
     @And("^I enter other parameters in the current page$")
     public void iEnterOtherParametersInTheCurrentPage() {
         paymentsStep.inputOtherParameter();
+    }
+
+
+    @And("^I enter other parameters in the current pageTwo$")
+    public void iEnterOtherParametersInTheCurrentPageTwo() {
+        paymentsStep.inputOtherParameter2();
+    }
+
+    @And("^I enter other parameters in the current pageThree$")
+    public void iEnterOtherParametersInTheCurrentPageThree() {
+        paymentsStep.inputOtherParameter3();
+    }
+
+    @When("^I input Adjustment Amout$")
+    public void iInputAdjustmentAmout() {
+        paymentsStep.inputAmout();
     }
 }

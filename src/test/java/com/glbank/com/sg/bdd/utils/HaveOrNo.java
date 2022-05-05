@@ -40,7 +40,7 @@ public class HaveOrNo {
      * @throws UnsupportedEncodingException
      */
     public static void main(String[] args){
-        Map<String, Object> map = updateAml("FIN2022042513460104809");
+        Map<String, Object> map = updateAml("FIN2022042911125904831");
         int status = (int)map.get("status");
         if(status == 1){
             System.out.println("status success");
@@ -59,7 +59,7 @@ public class HaveOrNo {
      * @param loanApplyNo
      * @return Map status == 1 success    data responseData    msg errorMSG
      */
-    private static Map<String, Object> updateAml(String loanApplyNo){
+    public static Map<String, Object> updateAml(String loanApplyNo){
         if(StringUtils.isBlank(loanApplyNo)){
             throw new NullPointerException("not null");
         }

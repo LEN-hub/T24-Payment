@@ -131,9 +131,9 @@ public class Logon_step extends ScenarioSteps {
         if (MobileConfig.driver.findElementByXPath("//android.widget.TextView[ends-with(@resource-id,'permission_message')]").isDisplayed()) {
             test.clickSystemPopupWindows();
             test.clickStartButton();
-            test.logonVkeyApp(organisationID, email, password);
             test.clickLetUsStart();
-            test.verification();
+            test.logonVkeyApp(organisationID, email, password);
+            test.enterOpt();
             test.clickCreatPassword();
             test.getVcode();
         }else {
