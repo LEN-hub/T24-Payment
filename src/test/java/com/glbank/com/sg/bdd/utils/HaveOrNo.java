@@ -59,7 +59,7 @@ public class HaveOrNo {
      * @param loanApplyNo
      * @return Map status == 1 success    data responseData    msg errorMSG
      */
-    private static Map<String, Object> updateAml(String loanApplyNo){
+    public static Map<String, Object> updateAml(String loanApplyNo){
         if(StringUtils.isBlank(loanApplyNo)){
             throw new NullPointerException("not null");
         }

@@ -71,7 +71,13 @@ public class payments_steps extends ScenarioSteps {
 
     @Step
     public void clickProceed() {
-        paymentsPage.Proceed.click();
+        paymentsPage.proceedNew.click();
+        bddUtil.sleep(3);
+    }
+
+    @Step
+    public void clickProceed2() {
+        paymentsPage.proceedNew1.click();
         bddUtil.sleep(3);
     }
 
@@ -100,7 +106,9 @@ public class payments_steps extends ScenarioSteps {
     public void clickSubmit(){paymentsPage.Submit.click();}
 
     @Step
-    public void complete(){paymentsPage.complete.click();}
+    public void complete(){
+        paymentsPage.complete.click();
+    }
 
     @Step
     public void requesterValidation(){
@@ -236,7 +244,32 @@ public class payments_steps extends ScenarioSteps {
         bddUtil.sleep(2);
         paymentsPage.repaymentAmount.click();
         paymentsPage.repaymentAmount.clear();
-        paymentsPage.repaymentAmount.sendKeys("10");
+        paymentsPage.repaymentAmount.sendKeys("3500");
+        bddUtil.sleep(1);
+        paymentsPage.repaymentData.sendKeys(bddUtil.dateFormate());
+        paymentsPage.commission.click();
+        paymentsPage.submitBtn.click();
+        bddUtil.sleep(10);
+    }
+
+    @Step
+    public void inputOtherParameter2() {
+        bddUtil.sleep(2);
+        paymentsPage.repaymentAmount.click();
+        paymentsPage.repaymentAmount.clear();
+        paymentsPage.repaymentAmount.sendKeys("5000");
+        bddUtil.sleep(1);
+        paymentsPage.repaymentData.sendKeys(bddUtil.dateFormate());
+        paymentsPage.commission.click();
+        paymentsPage.submitBtn.click();
+        bddUtil.sleep(10);
+    }
+
+    public void inputOtherParameter3() {
+        bddUtil.sleep(2);
+        paymentsPage.repaymentAmount.click();
+        paymentsPage.repaymentAmount.clear();
+        paymentsPage.repaymentAmount.sendKeys("6000");
         bddUtil.sleep(1);
         paymentsPage.repaymentData.sendKeys(bddUtil.dateFormate());
         paymentsPage.commission.click();
@@ -250,4 +283,11 @@ public class payments_steps extends ScenarioSteps {
         paymentsPage.Reset.click();
     }
 
+    @Step
+    public void inputAmout(){
+        bddUtil.sleep(1);
+        bddUtil.scrollWindowToElement(paymentsPage.AdjustAmout.get(0));
+        bddUtil.scrollWindowToElement(paymentsPage.AdjustAmout.get(0)).sendKeys("0.01");
+        bddUtil.sleep(3);
+    }
 }
