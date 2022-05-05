@@ -1,1196 +1,1172 @@
 @paymentService
 Feature: receipt and payment service
-  @paymentService123
-  #SDG->HKD
-  Scenario:I have successfully transferred from one currency to another (Singapore dollar to Hong Kong dollar)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 704   |1101 0003 836|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
 
-  #SDG->USD
-  Scenario:I have successfully transferred from Singapore currency to US dollar
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-    |rollOutAccount  |intoAccount  |amount|
-    |1101 0003 704   |1101 0003 828|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #SDG->EUR
-  Scenario:I have successfully transferred from Singapore currency to Euro
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 704   |1101 0003 844|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #SDG->SDG
-  Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 704   |1101 0003 526|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #CNY->CNY
-  Scenario:Oneself mutual turn with currency mutual turn (CNY) trade flow
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 712   |1101 0003 801|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #USD->USD
-  Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 720   |1101 0003 828|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #EUR->EUR
-  Scenario:I mutual transfer with currency mutual transfer (euro) transaction process
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 747   |1101 0003 844|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #HKD->HKD
-  Scenario:I mutual transfer with currency mutual transfer (HKD) transaction process
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 739   |1101 0003 836|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #SDG->CNY
-  Scenario:I mutual transfer not the same currency mutual transfer (Singapore dollar to RMB) transfer transaction successfully
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 704   |1101 0003 712|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-
- #HKD->SDG
-  Scenario:I have successfully changed Hong Kong dollars into Singapore dollars
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 739   |1101 0003 704|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #HKD->EUR
-  Scenario:I have successfully exchanged Hong Kong dollars for euros
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 739   |1101 0003 844|1     |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #HKD->USD
-  Scenario:I have changed Hong Kong dollars into US dollars successfully
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 739   |1101 0003 828|1     |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #HKD->CNY
-  Scenario:I have changed Hong Kong dollars into CNY successfully
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 739   |1101 0003 801|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #USD->CNY
-  Scenario:I have successfully changed dollars into CNY
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 720   |1101 0003 801|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
- #USD->EUR
-  Scenario:I have succeeded in exchanging dollars for euros
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 720   |1101 0003 844|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
- #USD->SDG
-  Scenario:I have successfully changed us dollars into Singapore dollars
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 720   |1101 0003 526|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
- #USD->HKD
-  Scenario:I have successfully changed us dollars into Hong Kong dollars
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 720   |1101 0003 836|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #EUR->CNY
-  Scenario:I have successfully converted Euro dollars into CNY
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 747   |1101 0003 801|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #EUR->HKD
-  Scenario:I have successfully changed Euro dollars into Hong Kong dollars
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 747   |1101 0003 836|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #EUR->SDG
-  Scenario:I have successfully changed Euro dollars into Singapore dollars
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 747   |1101 0003 526|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #EUR->USD
-  Scenario:I have successfully exchanged euro dollars for US dollars
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 747   |1101 0003 828|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-   #CNY->HKD
-  Scenario:I have changed RMB into Hong Kong dollars successfully
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 712   |1101 0003 836|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #CNY->USD
-  Scenario:I have successfully changed RMB into US dollars
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 712   |1101 0003 828|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #CNY->SDG
-  Scenario:I have successfully changed RMB into Singapore currency
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 712   |1101 0003 526|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-  #CNY->EUR
-  Scenario:I have successfully changed CNY into euros
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount|
-      |1101 0003 712   |1101 0003 844|0.1   |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully
-
-#境内转账-行内转账时间选择每周一(SDG->SDG)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I click next button on the domestic transfer bank page
-    Then I verify the information on the next page
-    |account name    |receiving account|transfer amount  |transfer purpose |
-    |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When If the transfer failure window pops up I will click the continue button
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-
-#时间选择每周(SDG->SDG)
-  Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I select date on the domestic transfer bank page
-      |selectDate|
-      |Weekly    |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-
-#时间选择每月(SDG->SDG)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Monthly   |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-
-
-    #选择每季度并且不写周期(SDG->SDG)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Quarterly |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-
-    #境内转账-行内转账时间选择每周一(SDG->CNY)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
-    When I click next button on the domestic transfer bank page
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When If the transfer failure window pops up I will click the continue button
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-
-    #时间选择每周(SDG->CNY)
-  Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
-    When I select date on the domestic transfer bank page
-      |selectDate|
-      |Weekly    |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-
-#时间选择每月(SDG->CNY)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Monthly   |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-
-    #选择每季度并且不写周期(SDG->CNY)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Quarterly |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-
-
-    #境内转账-行内转账时间选择每周一(SDG->USD)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
-    When I click next button on the domestic transfer bank page
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When If the transfer failure window pops up I will click the continue button
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-
-    #时间选择每周(SDG->USD)
-  Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
-    When I select date on the domestic transfer bank page
-      |selectDate|
-      |Weekly    |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-
-#时间选择每月(SDG->USD)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Monthly   |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-
-
-  #选择每季度并且不写周期(SDG->USD)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Quarterly |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-
-    #境内转账-行内转账时间选择每周一(SDG->EUR)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
-    When I click next button on the domestic transfer bank page
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When If the transfer failure window pops up I will click the continue button
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-
-    #时间选择每周(SDG->EUR)
-  Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
-    When I select date on the domestic transfer bank page
-      |selectDate|
-      |Weekly    |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-
-#时间选择每月(SDG->EUR)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Monthly   |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-
-
-  #选择每季度并且不写周期(SDG->EUR)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Quarterly |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-
-
-    #境内转账-行内转账时间选择每周一(SDG->HKD)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I click next button on the domestic transfer bank page
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When If the transfer failure window pops up I will click the continue button
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-
-    #时间选择每周(SDG->HKD)
-  Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I select date on the domestic transfer bank page
-      |selectDate|
-      |Weekly    |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-
-#时间选择每月(SDG->HKD)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Monthly   |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-
-
-  #选择每季度并且不写周期(SDG->HKD)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Quarterly |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-
-
-    #境内转账-跨行转账时间选择每周一(SDG->SDG)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I click next button on the domestic transfer bank page
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When If the transfer failure window pops up I will click the continue button
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-
-#时间选择每周(SDG->SDG)
-  Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I select date on the domestic transfer bank page
-      |selectDate|
-      |Weekly    |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-
-#时间选择每月(SDG->SDG)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Monthly   |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-
-
-    #时间选择每季度(SDG->SDG)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Quarterly |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-
-   #境内转账-跨行转账时间选择每周一(SDG->CNY)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
-    When I click next button on the domestic transfer bank page
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When If the transfer failure window pops up I will click the continue button
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-
-#时间选择每周(SDG->CNY)
-  Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
-    When I select date on the domestic transfer bank page
-      |selectDate|
-      |Weekly    |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-
-#时间选择每月(SDG->CNY)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Monthly   |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-
-
-    #时间选择每季度(SDG->CNY)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Quarterly |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
-
-  #境内转账-跨行转账时间选择每周一(SDG->USD)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
-    When I click next button on the domestic transfer bank page
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When If the transfer failure window pops up I will click the continue button
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-
-#时间选择每周(SDG->USD)
-  Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
-    When I select date on the domestic transfer bank page
-      |selectDate|
-      |Weekly    |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-
-#时间选择每月(SDG->USD)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Monthly   |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-
-
-    #时间选择每季度(SDG->USD)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Quarterly |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
-
-   #境内转账-跨行转账时间选择每周一(SDG->EUR)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
-    When I click next button on the domestic transfer bank page
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When If the transfer failure window pops up I will click the continue button
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-
-#时间选择每周(SDG->EUR)
-  Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
-    When I select date on the domestic transfer bank page
-      |selectDate|
-      |Weekly    |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-
-#时间选择每月(SDG->EUR)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Monthly   |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-
-
-    #时间选择每季度(SDG->EUR)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Quarterly |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
-
-
- #境内转账-跨行转账时间选择每周一(SDG->HKD)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I click next button on the domestic transfer bank page
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When If the transfer failure window pops up I will click the continue button
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-
-
-#时间选择每周(SDG->HKD)
-  Scenario:Positive process of intra-bank transfer in Singapore Currency (OTP verification, no authorization, core processing, monthly cycle transfer)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I select date on the domestic transfer bank page
-      |selectDate|
-      |Weekly    |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-
-
-#时间选择每月(SDG->HKD)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Monthly   |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-
-
-    #时间选择每季度(SDG->HKD)
-  Scenario:Positive process of intra-bank transfer from New currency to new currency (OTP verification, authorization)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
-    When I selected the date on the domestic transfer bank page not after twenty-nine
-      |selectDate|
-      |Quarterly |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
+#  #SDG->HKD
+#  Scenario:I have successfully transferred from one currency to another (Singapore dollar to Hong Kong dollar)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 704   |1101 0003 836|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #SDG->USD
+#  Scenario:I have successfully transferred from Singapore currency to US dollar
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#    |rollOutAccount  |intoAccount  |amount|
+#    |1101 0003 704   |1101 0003 828|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #SDG->EUR
+#  Scenario:I have successfully transferred from Singapore currency to Euro
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 704   |1101 0003 844|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #SDG->SDG
+#  Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 704   |1101 0003 526|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #CNY->CNY
+#  Scenario:Oneself mutual turn with currency mutual turn (CNY) trade flow
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 712   |1101 0003 801|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #USD->USD
+#  Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 720   |1101 0003 828|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #EUR->EUR
+#  Scenario:I mutual transfer with currency mutual transfer (euro) transaction process
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 747   |1101 0003 844|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #HKD->HKD
+#  Scenario:I mutual transfer with currency mutual transfer (HKD) transaction process
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 739   |1101 0003 836|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #SDG->CNY
+#  Scenario:I mutual transfer not the same currency mutual transfer (Singapore dollar to RMB) transfer transaction successfully
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 704   |1101 0003 712|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#
+# #HKD->SDG
+#  Scenario:I have successfully changed Hong Kong dollars into Singapore dollars
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 739   |1101 0003 704|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #HKD->EUR
+#  Scenario:I have successfully exchanged Hong Kong dollars for euros
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 739   |1101 0003 844|1     |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #HKD->USD
+#  Scenario:I have changed Hong Kong dollars into US dollars successfully
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 739   |1101 0003 828|1     |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #HKD->CNY
+#  Scenario:I have changed Hong Kong dollars into CNY successfully
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 739   |1101 0003 801|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #USD->CNY
+#  Scenario:I have successfully changed dollars into CNY
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 720   |1101 0003 801|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+# #USD->EUR
+#  Scenario:I have succeeded in exchanging dollars for euros
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 720   |1101 0003 844|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+# #USD->SDG
+#  Scenario:I have successfully changed us dollars into Singapore dollars
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 720   |1101 0003 526|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+# #USD->HKD
+#  Scenario:I have successfully changed us dollars into Hong Kong dollars
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 720   |1101 0003 836|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#  @paymentService123
+#  #EUR->CNY
+#  Scenario:I have successfully converted Euro dollars into CNY
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 747   |1101 0003 801|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #EUR->HKD
+#  Scenario:I have successfully changed Euro dollars into Hong Kong dollars
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 747   |1101 0003 836|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #EUR->SDG
+#  Scenario:I have successfully changed Euro dollars into Singapore dollars
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 747   |1101 0003 526|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #EUR->USD
+#  Scenario:I have successfully exchanged euro dollars for US dollars
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 747   |1101 0003 828|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#   #CNY->HKD
+#  Scenario:I have changed RMB into Hong Kong dollars successfully
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 712   |1101 0003 836|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #CNY->USD
+#  Scenario:I have successfully changed RMB into US dollars
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 712   |1101 0003 828|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #CNY->SDG
+#  Scenario:I have successfully changed RMB into Singapore currency
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 712   |1101 0003 526|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+#
+#  #CNY->EUR
+#  Scenario:I have successfully changed CNY into euros
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |rollOutAccount  |intoAccount  |amount|
+#      |1101 0003 712   |1101 0003 844|0.1   |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully
+
+##境内转账-行内转账时间选择每周一(SDG->SDG)
+#  Scenario:Transfer time within the line is selected every Monday (SDG->SDG)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I click next button on the domestic transfer bank page
+#    Then I verify the information on the next page
+#    |account name    |receiving account|transfer amount  |transfer purpose |
+#    |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When If the transfer failure window pops up I will click the continue button
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#
+##时间选择每周(SDG->SDG)
+#  Scenario:Intra-line transfer time is selected weekly (SDG->SDG)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate|
+#      |2025-01-01    |Weekly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#
+##时间选择每月(SDG->SDG)
+#  Scenario:Intra-line transfer time per month (SDG->SDG)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate |
+#      |2025-01-01    |Monthly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#
+#
+#    #选择每季度并且不写周期(SDG->SDG)
+#  Scenario:In-line transfer time is selected quarterly (SDG->SDG)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate   |
+#      |2025-01-01    |Quarterly    |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#
+#    #境内转账-行内转账时间选择每周一(SDG->CNY)
+#  Scenario:Transfer time within the line is selected every Monday(SDG->CNY)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
+#    When I click next button on the domestic transfer bank page
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When If the transfer failure window pops up I will click the continue button
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#
+#    #时间选择每周(SDG->CNY)
+#  Scenario:Intra-line transfer time is selected weekly (SDG->CNY)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate|
+#      |2025-01-01    |Weekly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#
+##时间选择每月(SDG->CNY)
+#  Scenario:Intra-line transfer time per month (SDG->CNY)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate |
+#      |2025-01-01    |Monthly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#
+#    #选择每季度并且不写周期(SDG->CNY)
+#  Scenario:In-line transfer time is selected quarterly (SDG->CNY)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate   |
+#      |2025-01-01    |Quarterly    |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#
+#
+#    #境内转账-行内转账时间选择每周一(SDG->USD)
+#  Scenario:Transfer time within the line is selected every Monday(SDG->USD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
+#    When I click next button on the domestic transfer bank page
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When If the transfer failure window pops up I will click the continue button
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#
+#    #时间选择每周(SDG->USD)
+#  Scenario:Intra-line transfer time is selected weekly (SDG->USD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate|
+#      |2025-01-01    |Weekly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#
+##时间选择每月(SDG->USD)
+#  Scenario:Intra-line transfer time per month (SDG->USD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate |
+#      |2025-01-01    |Monthly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#
+#
+#  #选择每季度并且不写周期(SDG->USD)
+#  Scenario:In-line transfer time is selected quarterly (SDG->USD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate   |
+#      |2025-01-01    |Quarterly    |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#
+#    #境内转账-行内转账时间选择每周一(SDG->EUR)
+#  Scenario:Transfer time within the line is selected every Monday(SDG->EUR)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
+#    When I click next button on the domestic transfer bank page
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When If the transfer failure window pops up I will click the continue button
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#
+#    #时间选择每周(SDG->EUR)
+#  Scenario:Intra-line transfer time is selected weekly (SDG->EUR)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate|
+#      |2025-01-01    |Weekly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#
+##时间选择每月(SDG->EUR)
+#  Scenario:Intra-line transfer time per month (SDG->EUR)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate |
+#      |2025-01-01    |Monthly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#
+#
+#  #选择每季度并且不写周期(SDG->EUR)
+#  Scenario:In-line transfer time is selected quarterly (SDG->EUR)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate   |
+#      |2025-01-01    |Quarterly    |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#
+#
+#    #境内转账-行内转账时间选择每周一(SDG->HKD)
+#  Scenario:Transfer time within the line is selected every Monday(SDG->HKD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I click next button on the domestic transfer bank page
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When If the transfer failure window pops up I will click the continue button
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#
+#    #时间选择每周(SDG->HKD)
+#  Scenario:Intra-line transfer time is selected weekly (SDG->HKD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate|
+#      |2025-01-01    |Weekly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#
+##时间选择每月(SDG->HKD)
+#  Scenario:Intra-line transfer time per month (SDG->HKD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate |
+#      |2025-01-01    |Monthly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#
+#
+#  #选择每季度并且不写周期(SDG->HKD)
+#  Scenario:In-line transfer time is selected quarterly (SDG->HKD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate   |
+#      |2025-01-01    |Quarterly    |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#
+#
+#    #境内转账-跨行转账时间选择每周一(SDG->SDG)
+#  Scenario:In-line transfer with in the line is selected every Monday(SDG->SDG)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I click next button on the domestic transfer bank page
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When If the transfer failure window pops up I will click the continue button
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#
+##时间选择每周(SDG->SDG)
+#  Scenario:Inter-bank transfer time is selected every week(SDG->SDG)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate|
+#      |2025-01-01    |Weekly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#
+##时间选择每月(SDG->SDG)
+#  Scenario:Inter-bank transfer time per month (SDG->SDG)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate |
+#      |2025-01-01    |Monthly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#
+#
+#    #时间选择每季度(SDG->SDG)
+#  Scenario:Inter-bank transfer time is selected quarterly(SDG->SDG)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate   |
+#      |2025-01-01    |Quarterly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+#
+#   #境内转账-跨行转账时间选择每周一(SDG->CNY)
+#  Scenario:In-line transfer time within the line is selected every Monday(SDG->CNY)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
+#    When I click next button on the domestic transfer bank page
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When If the transfer failure window pops up I will click the continue button
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#
+##时间选择每周(SDG->CNY)
+#  Scenario:Inter-bank transfer time is selected every week(SDG->CNY)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate|
+#      |2025-01-01    |Weekly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#
+##时间选择每月(SDG->CNY)
+#  Scenario:Inter-bank transfer time per month (SDG->CNY)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate |
+#      |2025-01-01    |Monthly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#
+#
+#    #时间选择每季度(SDG->CNY)
+#  Scenario:Inter-bank transfer time is selected quarterly(SDG->CNY)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356258424|11010003712      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate   |
+#      |2025-01-01    |Quarterly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356258424|11010003712      |0.10             |Business Expenses|
+#
+#  #境内转账-跨行转账时间选择每周一(SDG->USD)
+#  Scenario:In-line transfer time within the line is selected every Monday(SDG->USD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
+#    When I click next button on the domestic transfer bank page
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When If the transfer failure window pops up I will click the continue button
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#
+##时间选择每周(SDG->USD)
+#  Scenario:Inter-bank transfer time is selected every week(SDG->USD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate|
+#      |2025-01-01    |Weekly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#
+##时间选择每月(SDG->USD)
+#  Scenario:Inter-bank transfer time per month (SDG->USD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate |
+#      |2025-01-01    |Monthly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#
+#
+#    #时间选择每季度(SDG->USD)
+#  Scenario:Inter-bank transfer time is selected quarterly(SDG->USD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate   |
+#      |2025-01-01    |Quarterly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+#
+#   #境内转账-跨行转账时间选择每周一(SDG->EUR)
+#  Scenario:In-line transfer time within the line is selected every Monday(SDG->EUR)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
+#    When I click next button on the domestic transfer bank page
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When If the transfer failure window pops up I will click the continue button
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#
+##时间选择每周(SDG->EUR)
+#  Scenario:Inter-bank transfer time is selected every week(SDG->EUR)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate|
+#      |2025-01-01    |Weekly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#
+##时间选择每月(SDG->EUR)
+#  Scenario:Inter-bank transfer time per month (SDG->EUR)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate |
+#      |2025-01-01    |Monthly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#
+#
+#    #时间选择每季度(SDG->EUR)
+#  Scenario:Inter-bank transfer time is selected quarterly(SDG->EUR)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC164335629908 |11010003747      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate   |
+#      |2025-01-01    |Quarterly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#    Then I check the details on the transfer success details page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335629908 |11010003747      |0.10             |Business Expenses|
+#
+#@Manager123321
+# #境内转账-跨行转账时间选择每周一(SDG->HKD)
+#  Scenario:In-line transfer time within the line is selected every Monday(SDG->HKD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I click next button on the domestic transfer bank page
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When If the transfer failure window pops up I will click the continue button
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#
+#
+##时间选择每周(SDG->HKD)
+#  Scenario:Inter-bank transfer time is selected every week(SDG->HKD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate|
+#      |2025-01-01    |Weekly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#
+#
+##时间选择每月(SDG->HKD)
+#  Scenario:Inter-bank transfer time per month (SDG->HKD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate |
+#      |2025-01-01    |Monthly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
+#
+#
+#    #时间选择每季度(SDG->HKD)
+#  Scenario:Inter-bank transfer time is selected quarterly(SDG->HKD)
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I fill in the transfer information of overseas domestic transfer bank
+#      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+#      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0003 704      |
+#    When I select date on the domestic transfer bank page
+#      |trasferOutDate|selectDate   |
+#      |2025-01-01    |Quarterly    |
+#    When I choose Periods to fill in the information for the in-country transfer
+#      |periods|
+#      |1      |
+#    When I click next button on the domestic transfer bank page
+#    When If the transfer failure window pops up I will click the continue button
+#    Then I verify the information on the next page
+#      |account name    |receiving account|transfer amount  |transfer purpose |
+#      |TSC164335621223 |11010003739      |0.10             |Business Expenses|
+#    When I click Next to go to the verification page
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I jump to the successful transfer page
 
     #境外转账
   @overseasTransfer

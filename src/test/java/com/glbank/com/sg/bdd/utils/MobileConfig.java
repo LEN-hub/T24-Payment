@@ -97,7 +97,9 @@ public class MobileConfig {
     }
     public void enterOpt() throws InterruptedException {
         Thread.sleep(8000);
-        otp=getLastOtp("60120003");
+        otp = driver.findElementById("com.glbank.mobileapp:id/tv_message").getText();
+        driver.findElementById("com.glbank.mobileapp:id/btn_confirm").click();
+//        otp=getLastOtp("60120003");
         System.out.println(otp);
         Thread.sleep(8000);
         driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_sms_code')]/child::android.widget.LinearLayout[1]/child::android.widget.EditText").sendKeys(otp.substring(0,1));
@@ -107,7 +109,9 @@ public class MobileConfig {
         driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_sms_code')]/child::android.widget.LinearLayout[5]/child::android.widget.EditText").sendKeys(otp.substring(4,5));
         driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_sms_code')]/child::android.widget.LinearLayout[6]/child::android.widget.EditText").sendKeys(otp.substring(5,6));
         Thread.sleep(5000);
-        otp=getLastOtp("60120003");
+        otp = driver.findElementById("com.glbank.mobileapp:id/tv_message").getText();
+        driver.findElementById("com.glbank.mobileapp:id/btn_confirm").click();
+//        otp=getLastOtp("60120003");
         System.out.println(otp);
         driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_email_code')]/child::android.widget.LinearLayout[1]/child::android.widget.EditText").sendKeys(otp.substring(0,1));
         driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_email_code')]/child::android.widget.LinearLayout[2]/child::android.widget.EditText").sendKeys(otp.substring(1,2));

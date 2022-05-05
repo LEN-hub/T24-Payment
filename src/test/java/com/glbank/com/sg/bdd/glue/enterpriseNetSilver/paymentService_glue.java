@@ -71,7 +71,7 @@ public class paymentService_glue {
     @When("^I select date on the domestic transfer bank page$")
     public void iSelectDateOnTheDomesticTransferBankPage(DataTable payDetails) {
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        paymentService_step.rollOutDate(payToInfo.get(0).get("selectDate"));
+        paymentService_step.rollOutDate(payToInfo.get(0).get("selectDate"),payToInfo.get(0).get("trasferOutDate"));
     }
 
     @When("^I choose Periods to fill in the information for the in-country transfer$")

@@ -1,6 +1,6 @@
 @openAccount
 Feature: openAccount
-
+  @testcode123
     #正常开户流程——单币种账户——新币
   Scenario:openAccount Singapore enterprise
     Given open "netSilverEnv_ycjpt" enterprise net silver page
@@ -16,7 +16,7 @@ Feature: openAccount
     Then Upload Supporting Documents
     And Review Details
     Then get Organisation ID
-  @testcode123
+
     #单币种账户——新币
   Scenario:openAccount Current Account CA_SGD
     Given open "netSilverEnv_ycjpt" enterprise net silver page
