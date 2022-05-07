@@ -149,7 +149,7 @@ public class openAccount_step extends ScenarioSteps {
     }
 
     public void clickValidationCode() {
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
 //        getDriver().switchTo().alert().getText();
 //        bddUtil.sleep(2);
 //        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
@@ -187,6 +187,7 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.clickCountryOfIncorporation.click();
         bddUtil.scrollWindowToElement(openAccount_page.getCountryOfIncorporation).click();
         openAccount_page.clickNextOnProvideEssentialInformationPage.click();
+        bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(openAccount_page.goEntityType);
         bddUtil.sleep(1);
         openAccount_page.clickEntityType.click();
@@ -200,7 +201,9 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.clickEntityConsolidatedAnnualSalesTurnover.click();
         List<WebElementFacade> testSecondEntityType = openAccount_page.getEntityType2;
         for (int j =0;j <= testSecondEntityType.size();j++){
+            bddUtil.sleep(1);
             if (testSecondEntityType.get(j).getText().equals(entityConsolidated)) {
+                bddUtil.sleep(1);
                 bddUtil.scrollWindowToElement(testSecondEntityType.get(j)).click();
                 break;
             }
@@ -208,6 +211,7 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.clickIndustry.click();
         List<WebElementFacade> testThreeEntityType = openAccount_page.getEntityType2;
         for (int k =0;k <= testThreeEntityType.size();k++){
+            bddUtil.sleep(2);
             if (testThreeEntityType.get(k).getText().equals(entityIndustry)) {
                 bddUtil.scrollWindowToElement(testThreeEntityType.get(k)).click();
                 break;
@@ -303,10 +307,11 @@ public class openAccount_step extends ScenarioSteps {
     }
 
     public void inputOnlyUBODetails(String onlyUBOName, String onlyUBOAliasName, String onlyUBOPassportNumber, String onlyUBOPhoneNumber, String onlyUBOEmailName) {
-        openAccount_page.selectCheckBox3.click();
+        bddUtil.sleep(2);
+//        openAccount_page.selectCheckBox3.click();
         bddUtil.scrollWindowToElement(openAccount_page.goUBO2Name);
-        openAccount_page.inputOnlyUBOName.clear();
-        openAccount_page.inputOnlyUBOName.sendKeys(onlyUBOName);
+//        openAccount_page.inputOnlyUBOName.clear();
+//        openAccount_page.inputOnlyUBOName.sendKeys(onlyUBOName);
         openAccount_page.inputOnlyUBOAliasName.sendKeys(onlyUBOAliasName);
         openAccount_page.inputUBO2BirthDate.sendKeys("01/01/2010");
         openAccount_page.goUBO2Name.click();
@@ -330,6 +335,7 @@ public class openAccount_step extends ScenarioSteps {
     public void goOnDueDiligence() {
         String language = "* Mandatory";
         bddUtil.scrollWindowToElement(openAccount_page.goDueDiligence);
+
         if (openAccount_page.getPageLanguage.getText().equals(language)){
             openAccount_page.clickDirector1.click();
             openAccount_page.inputDirector1ResidentialAddress.sendKeys("Address");

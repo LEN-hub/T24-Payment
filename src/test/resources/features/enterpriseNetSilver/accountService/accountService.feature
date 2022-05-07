@@ -50,7 +50,7 @@ Feature: accountService
 
     @accountServices
   Scenario:Authorization Center
-    Given logon "netSilverEnvAuthorizationCenter" on enterprise net silver
+    Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When I click My Tasks button on the logon page
     Then I should direct to the Awaiting authorization page
     When I click on the first piece of data to authorize

@@ -40,7 +40,7 @@ public class HaveOrNo {
      * @throws UnsupportedEncodingException
      */
     public static void main(String[] args){
-        Map<String, Object> map = updateAml("FIN2022042911125904831");
+        Map<String, Object> map = updateAml("FIN2022050710555004855");
         int status = (int)map.get("status");
         if(status == 1){
             System.out.println("status success");
