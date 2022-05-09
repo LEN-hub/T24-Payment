@@ -132,7 +132,10 @@ public class paymentService_page extends PageObject {
     public List<WebElementFacade> rollOutDate;
 
     @FindBy(xpath = "//label[@for='appointmentDdate']/following-sibling::div//input")
-    public WebElementFacade dataInputBox;
+    public WebElementFacade dateInputBox;
+
+    @FindBy(xpath = "//div[@class='open_account_tips']//div[@class='title']")
+    public WebElementFacade textTitle;
 
     @FindBy(xpath = "//label[@class=\"el-checkbox pd0\"]//span[@class='el-checkbox__inner']")
     public WebElementFacade cycleTransferCheckBox;
