@@ -70,7 +70,16 @@ public class paymentService_step extends ScenarioSteps {
 
     @Step
     public void clickSubmitBtn(){
+        bddUtil.sleep(2);
         paymentService_page.submitBtn.click();
+        bddUtil.sleep(2);
+        if (paymentService_page.submitBtn.isVisible()){
+            paymentService_page.previousBtn.click();
+            bddUtil.sleep(2);
+            paymentService_page.clickNextBtn.click();
+            bddUtil.sleep(2);
+            paymentService_page.submitBtn.click();
+        }
     }
 
     @Step

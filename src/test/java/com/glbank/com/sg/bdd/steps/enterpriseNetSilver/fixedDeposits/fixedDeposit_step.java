@@ -42,6 +42,7 @@ public class fixedDeposit_step extends ScenarioSteps {
         }
         fixedDeposit_page.getPlacementAmount.clear();
         fixedDeposit_page.getPlacementAmount.sendKeys(amount);
+        bddUtil.sleep(2);
         fixedDeposit_page.periodDate.click();
         List<WebElementFacade> periodValue = fixedDeposit_page.selectAccountValue;
         for (int k = 0; k <= periodValue.size();k++){
@@ -52,7 +53,10 @@ public class fixedDeposit_step extends ScenarioSteps {
         }
         fixedDeposit_page.find(By.xpath("//label[@for=\"autTraSavFlag\"]/following-sibling::div//label["+transferAccountsWay+"]//span[@class='el-radio__inner']")).click();
         fixedDeposit_page.clickNext.click();
-        fixedDeposit_page.clickCheck.click();
+        bddUtil.sleep(2);
+        if (fixedDeposit_page.clickCheck.isVisible()){
+            fixedDeposit_page.clickCheck.click();
+        }
         fixedDeposit_page.clickSubmit.click();
     }
 }

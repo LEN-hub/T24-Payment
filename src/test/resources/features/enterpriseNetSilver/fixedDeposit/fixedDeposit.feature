@@ -8,8 +8,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
-    |Transfer accounts   |Into account|Amount |Period            |Transfer accounts way|
-    |1101 0001 590       |11020005351 |250000 |对公整存整取六个月存款|1                    |
+    |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+    |1101 0001 590       |11020005351 |250000 |6 Months|1                    |
 
 
   #定期存款_美元_六个月_不转存
@@ -18,8 +18,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period            |Transfer accounts way|
-      |1101 0002 198       |11010002317 |10000  |对公整存整取六个月存款|1                    |
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0002 198       |11010002317 |10000  |6 Months|1                    |
 
   #定期存款_新币_六个月_本金续存
   @fixedDeposit03
@@ -27,8 +27,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period            |Transfer accounts way|
-      |1101 0001 590       |11020005351 |250000 |对公整存整取六个月存款|2                    |
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0001 590       |11020005351 |250000 |6 Months|2                    |
 
   #定期存款_美元_六个月_本金续存
   @fixedDeposit04
@@ -36,8 +36,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period            |Transfer accounts way|
-      |1101 0002 198       |11010002317 |10000  |对公整存整取六个月存款|2                    |
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0002 198       |11010002317 |10000  |6 Months|2                    |
 
   #定期存款_新币_六个月_本息续存
   @fixedDeposit05
@@ -45,8 +45,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period            |Transfer accounts way|
-      |1101 0001 590       |11020005351 |250000 |对公整存整取六个月存款|3                    |
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0001 590       |11020005351 |250000 |6 Months|3                    |
 
   #定期存款_美元_六个月_本息续存
   @fixedDeposit06
@@ -54,8 +54,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period            |Transfer accounts way|
-      |1101 0002 198       |11010002317 |10000  |对公整存整取六个月存款|3                    |
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0002 198       |11010002317 |10000  |6 Months|3                    |
 
     #定期存款_新币_九个月_不转存
   @report
@@ -63,8 +63,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period            |Transfer accounts way|
-      |1101 0001 590       |11020005351 |250000 |对公整存整取九个月存款|1                    |
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0001 590       |11020005351 |250000 |9 Months|1                    |
 
   #定期存款_美元_九个月_不转存
   @fixedDeposit02
@@ -72,8 +72,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period            |Transfer accounts way|
-      |1101 0002 198       |11010002317 |10000  |对公整存整取九个月存款|1                    |
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0002 198       |11010002317 |10000  |9 Months|1                    |
 
   #定期存款_新币_九个月_本金续存
   @fixedDeposit03
@@ -81,8 +81,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period            |Transfer accounts way|
-      |1101 0001 590       |11020005351 |250000 |对公整存整取九个月存款|2                    |
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0001 590       |11020005351 |250000 |9 Months|2                    |
 
   #定期存款_美元_九个月_本金续存
   @fixedDeposit04
@@ -90,8 +90,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period            |Transfer accounts way|
-      |1101 0002 198       |11010002317 |10000  |对公整存整取九个月存款|2                    |
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0002 198       |11010002317 |10000  |9 Months|2                    |
 
   #定期存款_新币_九个月_本息续存
   @fixedDeposit05
@@ -99,8 +99,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period            |Transfer accounts way|
-      |1101 0001 590       |11020005351 |250000 |对公整存整取九个月存款|3                    |
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0001 590       |11020005351 |250000 |9 Months|3                    |
 
   #定期存款_美元_九个月_本息续存
   @fixedDeposit06
@@ -108,8 +108,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period            |Transfer accounts way|
-      |1101 0002 198       |11010002317 |10000  |对公整存整取九个月存款|3                    |
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0002 198       |11010002317 |10000  |9 Months|3                    |
 
   #定期存款_新币_十二个月_不转存
   @report
@@ -117,8 +117,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period             |Transfer accounts way|
-      |1101 0001 590       |11020005351 |250000 |对公整存整取十二个月存款|1                    |
+      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+      |1101 0001 590       |11020005351 |250000 |12 Months|1                    |
 
   #定期存款_美元_十二个月_不转存
   @fixedDeposit02
@@ -126,8 +126,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period             |Transfer accounts way|
-      |1101 0002 198       |11010002317 |10000  |对公整存整取十二个月存款|1                    |
+      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+      |1101 0002 198       |11010002317 |10000  |12 Months|1                    |
 
   #定期存款_新币_十二个月_本金续存
   @fixedDeposit03
@@ -135,8 +135,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period             |Transfer accounts way|
-      |1101 0001 590       |11020005351 |250000 |对公整存整取十二个月存款|2                    |
+      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+      |1101 0001 590       |11020005351 |250000 |12 Months|2                    |
 
   #定期存款_美元_十二个月_本金续存
   @fixedDeposit04
@@ -144,8 +144,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period             |Transfer accounts way|
-      |1101 0002 198       |11010002317 |10000  |对公整存整取十二个月存款|2                    |
+      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+      |1101 0002 198       |11010002317 |10000  |12 Months|2                    |
 
   #定期存款_新币_十二个月_本息续存
   @fixedDeposit05
@@ -153,8 +153,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period             |Transfer accounts way|
-      |1101 0001 590       |11020005351 |250000 |对公整存整取十二个月存款|3                    |
+      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+      |1101 0001 590       |11020005351 |250000 |12 Months|3                    |
 
   #定期存款_美元_十二个月_本息续存
   @fixedDeposit06
@@ -162,8 +162,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period             |Transfer accounts way|
-      |1101 0002 198       |11010002317 |10000  |对公整存整取十二个月存款|3                    |
+      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+      |1101 0002 198       |11010002317 |10000  |12 Months|3                    |
 
   #定期存款_新币_十八个月_不转存
   @report
@@ -171,8 +171,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period             |Transfer accounts way|
-      |1101 0001 590       |11020005351 |250000 |对公整存整取十八个月存款|1                    |
+      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+      |1101 0001 590       |11020005351 |250000 |18 Months|1                    |
 
   #定期存款_美元_十八个月_不转存
   @fixedDeposit02
@@ -180,8 +180,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period             |Transfer accounts way|
-      |1101 0002 198       |11010002317 |10000  |对公整存整取十八个月存款|1                    |
+      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+      |1101 0002 198       |11010002317 |10000  |18 Months|1                    |
 
   #定期存款_新币_十八个月_本金续存
   @fixedDeposit03
@@ -189,8 +189,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period             |Transfer accounts way|
-      |1101 0001 590       |11020005351 |250000 |对公整存整取十八个月存款|2                    |
+      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+      |1101 0001 590       |11020005351 |250000 |18 Months|2                    |
 
   #定期存款_美元_十八个月_本金续存
   @fixedDeposit04
@@ -198,8 +198,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period             |Transfer accounts way|
-      |1101 0002 198       |11010002317 |10000  |对公整存整取十八个月存款|2                    |
+      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+      |1101 0002 198       |11010002317 |10000  |18 Months|2                    |
 
   #定期存款_新币_十八个月_本息续存
   @fixedDeposit05
@@ -207,8 +207,8 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period             |Transfer accounts way|
-      |1101 0001 590       |11020005351 |250000 |对公整存整取十八个月存款|3                    |
+      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+      |1101 0001 590       |11020005351 |250000 |18 Months|3                    |
 
   #定期存款_美元_十八个月_本息续存
   @fixedDeposit06
@@ -216,5 +216,5 @@ Feature: fixedDeposit
     Given logon "netSilverEnv_ycjpt" on enterprise net silver
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period             |Transfer accounts way|
-      |1101 0002 198       |11010002317 |10000  |对公整存整取十八个月存款|3                    |
+      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+      |1101 0002 198       |11010002317 |10000  |18 Months|3                    |

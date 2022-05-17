@@ -7,13 +7,13 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import java.util.List;
 
 public class accountService_page extends PageObject {
-    @FindBy(xpath = "//span[text()='账户服务']")
+    @FindBy(xpath = "//span[text()='Accounts']")
     public WebElementFacade accountList;
 
-    @FindBy(xpath = "//span[text()='账户信息查询']")
+    @FindBy(xpath = "//span[text()='Accounts Overview']")
     public WebElementFacade accountInformationQuery;
 
-    @FindBy(xpath = "//span[text()='账户明细查询']")
+    @FindBy(xpath = "//span[text()='Transaction Histories']")
     public WebElementFacade accountDetailsQuery;
 
     @FindBy(xpath = "//div[@class='el-tooltip btn-icon']/img")
@@ -147,6 +147,9 @@ public class accountService_page extends PageObject {
 
     @FindBy(xpath = "//span[@class='more_btn']/preceding-sibling::div[1]//div[@class='btn_box']")
     public WebElementFacade queryBtn;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form/div[3]/div[2]/div[2]/div")
+    public WebElementFacade clickQueryButton;
 
     @FindBy(xpath = "//table[@class='el-table__body']/tbody//tr[1]/td[7]//span")
     public WebElementFacade querySuccess;
