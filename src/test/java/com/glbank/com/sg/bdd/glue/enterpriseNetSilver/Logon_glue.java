@@ -26,7 +26,7 @@ public class Logon_glue {
         if (!envName.isEmpty()) {
             try {
                 logon_step.open_the_first_dbb_logon_page(envName);
-                logon_step.checkLanguage();
+//                logon_step.checkLanguage();
                 logon_step.enter_OrganisationID_into_box(envName);
                 logon_step.enter_email_into_box(envName);
                 logon_step.enter_password_into_box(envName);
@@ -52,7 +52,7 @@ public class Logon_glue {
         if (!envName.isEmpty()) {
             try {
                 logon_step.open_the_first_dbb_logon_page(envName);
-                logon_step.checkLanguage();
+//                logon_step.checkLanguage();
                 logon_step.enter_OrganisationID_into_box(envName);
                 logon_step.enter_email_into_box(envName);
                 logon_step.enter_password_into_box(envName);
@@ -78,7 +78,7 @@ public class Logon_glue {
         if (!envName.isEmpty()) {
             try {
                 logon_step.open_the_first_dbb_logon_page(envName);
-                logon_step.checkLanguage();
+//                logon_step.checkLanguage();
             } finally {
                 logon_step.quitAndroidDriver();
             }
@@ -90,7 +90,7 @@ public class Logon_glue {
         envTag = envName;
         if (!envName.isEmpty()) {
                 logon_step.open_the_first_dbb_logon_page(envName);
-                logon_step.checkLanguage();
+//                logon_step.checkLanguage();
         }
     }
 }

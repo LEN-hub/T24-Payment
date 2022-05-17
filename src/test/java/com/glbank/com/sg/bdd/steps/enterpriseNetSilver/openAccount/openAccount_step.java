@@ -1,10 +1,7 @@
 package com.glbank.com.sg.bdd.steps.enterpriseNetSilver.openAccount;
 
 import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.openAccount.openAccount_page;
-import com.glbank.com.sg.bdd.utils.BDDUtil;
-import com.glbank.com.sg.bdd.utils.EnterKeys;
-import com.glbank.com.sg.bdd.utils.FileUtils;
-import com.glbank.com.sg.bdd.utils.RandomPhoneNumber;
+import com.glbank.com.sg.bdd.utils.*;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
@@ -12,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 import java.awt.*;
 import java.util.List;
+import java.util.Random;
 
 import static com.glbank.com.sg.bdd.utils.ConnectLinux.getLastOtp;
 
@@ -21,6 +19,10 @@ public class openAccount_step extends ScenarioSteps {
     private BDDUtil bddUtil;
     private static String verificationCode;
     public static String otp;
+    public static String passportNumber = JRandomNameTool.getStringRandom(10);
+    public static String mobileNumber = RandomPhoneNumber.randomPhoneNum();
+    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
+
 
     public void clickOpenAccount() {
         openAccount_page.clickOpenAccount.click();
@@ -176,18 +178,42 @@ public class openAccount_step extends ScenarioSteps {
         enterKeys.EnterKeys(otp.substring(4, 5));
         openAccount_page.sixKeysBox.click();
         enterKeys.EnterKeys(otp.substring(5, 6));
+        bddUtil.sleep(1);
     }
 
     public void inputEntityDetails(String entityType,String entityConsolidated,String entityIndustry,String date) {
         bddUtil.scrollWindowToElement(openAccount_page.goEntityDetails);
         bddUtil.sleep(1);
-        openAccount_page.inputCompanyRegistrationNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        //没有挡板，用shekk数据。
+//        openAccount_page.inputCompanyRegistrationNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        openAccount_page.inputCompanyRegistrationNumber.sendKeys("201700266Z");
         openAccount_page.inputCompanyRegisterDate.sendKeys(date);
         openAccount_page.goEntityDetails.click();
         openAccount_page.clickCountryOfIncorporation.click();
         bddUtil.scrollWindowToElement(openAccount_page.getCountryOfIncorporation).click();
         openAccount_page.clickNextOnProvideEssentialInformationPage.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(1);
+//        try {
+//            Thread.sleep(10000);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        for (int i = 0; i < 8; i++) {
+            try {
+                Thread.sleep(30000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if (bddUtil.find(By.xpath("//span[text()='Reminder']")).isVisible() ){
+                bddUtil.find(By.xpath("//div[@class='el-message-box']//button[@type='button']/span")).click();
+                bddUtil.scrollWindowToElement(openAccount_page.clickNextOnProvideEssentialInformationPage).click();//                bddUtil.scrollWindowToElement(openAccount_page.goEntityType);
+                break;
+            }else if (bddUtil.find(By.xpath("//label[text()='Postal Code']")).isVisible()){
+                bddUtil.sleep(1);
+                bddUtil.scrollWindowToElement(openAccount_page.goEntityType);
+                break;
+            }
+        }
         bddUtil.scrollWindowToElement(openAccount_page.goEntityType);
         bddUtil.sleep(1);
         openAccount_page.clickEntityType.click();
@@ -273,6 +299,16 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.inputPassportNumber.sendKeys(passportNumber);
         openAccount_page.inputDateOfExpiry.sendKeys("01/01/2030");
         openAccount_page.clickDateOfExpiry.click();
+        bddUtil.sleep(1);
+        openAccount_page.ResidentialAddress.sendKeys(passportNumber);
+        openAccount_page.cityTest.sendKeys(passportNumber);
+        bddUtil.sleep(1);
+        openAccount_page.postalCodeTest.sendKeys(directorPhoneNumber);
+        bddUtil.sleep(1);
+        openAccount_page.countryTest.sendKeys("SINGAPORE");
+        bddUtil.sleep(1);
+        openAccount_page.SINGAPORETest.click();
+        openAccount_page.clickDateOfExpiry.click();
         openAccount_page.clickIddInput.click();
         bddUtil.scrollWindowToElement(openAccount_page.getIdd).click();
         openAccount_page.inputDirectorMobilePhoneNo.sendKeys(directorPhoneNumber);
@@ -282,60 +318,71 @@ public class openAccount_step extends ScenarioSteps {
     }
 
     public void inputUltimateBeneficialOwnerDetails(String ultimateBeneficialOwnerName, String ultimateBeneficialOwnerAliasName, String ultimateBeneficialOwnerPassportNumber, String ultimateBeneficialOwnerPhoneNumber, String ultimateBeneficialOwnerEmailName) {
-//        openAccount_page.selectCheckBox2.click();
-//        bddUtil.scrollWindowToElement(openAccount_page.goContactPersonNm);
-//        openAccount_page.inputUBOName.clear();
-//        openAccount_page.inputUBOName.sendKeys(ultimateBeneficialOwnerName);
-        openAccount_page.inputUBOAliasName.sendKeys(ultimateBeneficialOwnerAliasName);
-        openAccount_page.inputUBOBirthDate.sendKeys("01/01/2010");
-        openAccount_page.goContactPersonNm.click();
-        openAccount_page.clickUBOIdentificationType.click();
-        openAccount_page.inputUBOPassportNo.sendKeys(ultimateBeneficialOwnerPassportNumber);
-        openAccount_page.inputUBOPassportDueDate.sendKeys("01/01/2030");
-        openAccount_page.goContactPersonNm.click();
-        openAccount_page.inputUBOResidentialAddress.sendKeys("ResidentialAddress");
-        openAccount_page.inputUBOCityName.sendKeys("City");
-        openAccount_page.inputUBOPostalCode.sendKeys("710000");
-        openAccount_page.clickUBOCountryCode.click();
-        bddUtil.scrollWindowToElement(openAccount_page.getUBOCountry).click();
-        bddUtil.scrollWindowToElement(openAccount_page.clickUBOIdd).click();
-        bddUtil.scrollWindowToElement(openAccount_page.getUBOIdd).click();
-        openAccount_page.inputUBOMobilePhoneNo.sendKeys(ultimateBeneficialOwnerPhoneNumber);
-        openAccount_page.inputUBOEmailAddress.sendKeys(ultimateBeneficialOwnerEmailName + "@MailTemp.top");
+////        openAccount_page.selectCheckBox2.click();
+////        bddUtil.scrollWindowToElement(openAccount_page.goContactPersonNm);
+////        openAccount_page.inputUBOName.clear();
+////        openAccount_page.inputUBOName.sendKeys(ultimateBeneficialOwnerName);
+//        openAccount_page.inputUBOAliasName.sendKeys(ultimateBeneficialOwnerAliasName);
+//        openAccount_page.inputUBOBirthDate.sendKeys("01/01/2010");
+//        openAccount_page.goContactPersonNm.click();
+//        openAccount_page.clickUBOIdentificationType.click();
+//        openAccount_page.inputUBOPassportNo.sendKeys(ultimateBeneficialOwnerPassportNumber);
+//        openAccount_page.inputUBOPassportDueDate.sendKeys("01/01/2030");
+//        openAccount_page.goContactPersonNm.click();
+//        openAccount_page.inputUBOResidentialAddress.sendKeys("ResidentialAddress");
+//        openAccount_page.inputUBOCityName.sendKeys("City");
+//        openAccount_page.inputUBOPostalCode.sendKeys("710000");
+//        openAccount_page.clickUBOCountryCode.click();
+//        bddUtil.scrollWindowToElement(openAccount_page.getUBOCountry).click();
+//        bddUtil.scrollWindowToElement(openAccount_page.clickUBOIdd).click();
+//        bddUtil.scrollWindowToElement(openAccount_page.getUBOIdd).click();
+//        openAccount_page.inputUBOMobilePhoneNo.sendKeys(ultimateBeneficialOwnerPhoneNumber);
+//        openAccount_page.inputUBOEmailAddress.sendKeys(ultimateBeneficialOwnerEmailName + "@MailTemp.top");
+//        openAccount_page.clickNextForUBO.click();
+//        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//div[@class='paddingleft16']/label/span[1]"))).click();
         openAccount_page.clickNextForUBO.click();
-        bddUtil.sleep(2);
+
     }
 
     public void inputOnlyUBODetails(String onlyUBOName, String onlyUBOAliasName, String onlyUBOPassportNumber, String onlyUBOPhoneNumber, String onlyUBOEmailName) {
         bddUtil.sleep(2);
-//        openAccount_page.selectCheckBox3.click();
-        bddUtil.scrollWindowToElement(openAccount_page.goUBO2Name);
-//        openAccount_page.inputOnlyUBOName.clear();
-//        openAccount_page.inputOnlyUBOName.sendKeys(onlyUBOName);
-        openAccount_page.inputOnlyUBOAliasName.sendKeys(onlyUBOAliasName);
-        openAccount_page.inputUBO2BirthDate.sendKeys("01/01/2010");
-        openAccount_page.goUBO2Name.click();
-        openAccount_page.clickUBO2IdentificationType.click();
-        openAccount_page.inputUBO2PassportNo.sendKeys(onlyUBOPassportNumber);
-        openAccount_page.inputUBO2PassportDueDate.sendKeys("01/01/2030");
-        openAccount_page.goUBO2Name.click();
-        openAccount_page.inputUBO2ResidentialAddress3.sendKeys("ResidentialAddress");
-        openAccount_page.inputUBO2CityName3.sendKeys("City");
-        openAccount_page.inputUBO2PostalCode3.sendKeys("710000");
-        openAccount_page.clickUBO2Country3.click();
-        bddUtil.scrollWindowToElement(openAccount_page.getUBO2Country).click();
-        bddUtil.scrollWindowToElement(openAccount_page.clickUBO2Idd).click();
-        bddUtil.scrollWindowToElement(openAccount_page.getUBO2Idd).click();
-        openAccount_page.inputUBO2MobilePhoneNo.sendKeys(onlyUBOPhoneNumber);
-        openAccount_page.inputUBO2EmailAddress.sendKeys(onlyUBOEmailName + "@MailTemp.top");
+////        openAccount_page.selectCheckBox3.click();
+//        bddUtil.scrollWindowToElement(openAccount_page.goUBO2Name);
+////        openAccount_page.inputOnlyUBOName.clear();
+////        openAccount_page.inputOnlyUBOName.sendKeys(onlyUBOName);
+//        openAccount_page.inputOnlyUBOAliasName.sendKeys(onlyUBOAliasName);
+//        openAccount_page.inputUBO2BirthDate.sendKeys("01/01/2010");
+//        openAccount_page.goUBO2Name.click();
+//        openAccount_page.clickUBO2IdentificationType.click();
+//        openAccount_page.inputUBO2PassportNo.sendKeys(onlyUBOPassportNumber);
+//        openAccount_page.inputUBO2PassportDueDate.sendKeys("01/01/2030");
+//        openAccount_page.goUBO2Name.click();
+//        openAccount_page.inputUBO2ResidentialAddress3.sendKeys("ResidentialAddress");
+//        openAccount_page.inputUBO2CityName3.sendKeys("City");
+//        openAccount_page.inputUBO2PostalCode3.sendKeys("710000");
+//        openAccount_page.clickUBO2Country3.click();
+//        bddUtil.scrollWindowToElement(openAccount_page.getUBO2Country).click();
+//        bddUtil.scrollWindowToElement(openAccount_page.clickUBO2Idd).click();
+//        bddUtil.scrollWindowToElement(openAccount_page.getUBO2Idd).click();
+//        openAccount_page.inputUBO2MobilePhoneNo.sendKeys(onlyUBOPhoneNumber);
+//        openAccount_page.inputUBO2EmailAddress.sendKeys(onlyUBOEmailName + "@MailTemp.top");
         openAccount_page.clickNextForUBO2.click();
         bddUtil.sleep(2);
     }
 
+//    第五步。
+    public void goOnDueDiligenceTest(){
+        bddUtil.sleep(1);
+        bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//span[text()='Yes']"))).click();
+       bddUtil.sleep(1);
+
+    }
+
+
     public void goOnDueDiligence() {
         String language = "* Mandatory";
         bddUtil.scrollWindowToElement(openAccount_page.goDueDiligence);
-
         if (openAccount_page.getPageLanguage.getText().equals(language)){
             openAccount_page.clickDirector1.click();
             openAccount_page.inputDirector1ResidentialAddress.sendKeys("Address");
@@ -365,12 +412,11 @@ public class openAccount_step extends ScenarioSteps {
     }
 
     public void enterConnectedEntitiesDetails(){
-        bddUtil.scrollWindowToElement(openAccount_page.inputPostalCodeConnectedCorporateEntity1);
-        openAccount_page.inputPostalCodeConnectedCorporateEntity1.sendKeys("710000");
-        openAccount_page.clickNextToConnectedCorporateEntity2.click();
-        openAccount_page.inputPostalCodeConnectedCorporateEntity2.sendKeys("710000");
-        openAccount_page.clickNextToStep5.click();
-        bddUtil.sleep(2);
+        openAccount_page.selectCompany.get(0).click();
+        bddUtil.sleep(1);
+        openAccount_page.takaoka.click();
+        bddUtil.sleep(1);
+        openAccount_page.mobileNumber.click();
     }
 
     public void enterConnectedEntitiesDetails2(){
@@ -417,13 +463,39 @@ public class openAccount_step extends ScenarioSteps {
         bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(openAccount_page.clickNextToAdministrator2).click();
         bddUtil.sleep(2);
-        bddUtil.scrollWindowToElement(openAccount_page.goChoseYESConnectedPerson2);
-        openAccount_page.clickYESConnectedPerson2.click();
-        openAccount_page.clickConnectedPersons2Name.click();
-        bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//span[text()='"+ ultimateBeneficialOwnerName +"']"))).click();
-        bddUtil.scrollWindowToElement(openAccount_page.goVerifyMobileNumber1);
+//        bddUtil.scrollWindowToElement(openAccount_page.goChoseYESConnectedPerson2);
+        bddUtil.scrollWindowToElement(openAccount_page.YesConnectedPerson2Test);
+        bddUtil.sleep(1);
+        openAccount_page.clickNOConnectedPerson2.click();
+//        openAccount_page.clickConnectedPersons2Name.get(1).click();
+//        bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//span[text()='"+ ultimateBeneficialOwnerName +"']"))).click();
+//        bddUtil.scrollWindowToElement(openAccount_page.goVerifyMobileNumber1);
+//        openAccount_page.clickVerifyMobileNumber2.click();
+//        bddUtil.sleep(2);
+        openAccount_page.selectSalutation.click();
+        openAccount_page.mr.click();
+        openAccount_page.fullName.sendKeys(ultimateBeneficialOwnerName);
+        openAccount_page.dataForBirth.sendKeys("01/01/2010");
+        bddUtil.sleep(1);
+        openAccount_page.fullName.click();
+        openAccount_page.nationalityTwo.sendKeys("SINGAPOREAN");
+        openAccount_page.SINGAPOREAN.click();
+        openAccount_page.clickIdentificationTypeTwo.click();
+        openAccount_page.passportNumberTwo.sendKeys(passportNumber);
+        openAccount_page.addressTwo.sendKeys(passportNumber);
+        openAccount_page.dataOfExpiry.sendKeys("01/02/2030");
+        openAccount_page.passportNumberTwo.click();
+        openAccount_page.cityTestTwo.sendKeys(passportNumber);
+        openAccount_page.countryTwo.sendKeys("SINGAPORE");
+        bddUtil.sleep(1);
+        openAccount_page.SingaporeCountry.click();
+        openAccount_page.iddNumber.sendKeys("+86");
+        openAccount_page.find(By.xpath("//span[text()='+86']")).click();
+        openAccount_page.mobileNumberTest.sendKeys(mobileNumber);
+        bddUtil.sleep(1);
         openAccount_page.clickVerifyMobileNumber2.click();
         bddUtil.sleep(2);
+
     }
 
     public void clickVerifyEmailAddress2(){
@@ -434,6 +506,14 @@ public class openAccount_step extends ScenarioSteps {
         else {
             openAccount_page.clickVerifyEmailAddress2CN.click();
         }
+    }
+
+    public void inputEmailTwo( String emailName){
+//        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
+        openAccount_page.emailAddressTwo.sendKeys(emailName + "@MailTemp.top");
+        bddUtil.sleep(1);
+        openAccount_page.clickVerifyEmailAddress2.click();
+        bddUtil.sleep(1);
     }
 
     public void clickNextToStep6(){
@@ -457,36 +537,24 @@ public class openAccount_step extends ScenarioSteps {
 
     public void uploadSupportingDocuments(){
         bddUtil.scrollWindowToElement(openAccount_page.goUploadFile);
-        openAccount_page.clickUpload1.click();
-        bddUtil.sleep(2);
-        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//div[@class=\"upload_container\"]//div[1]//div[2]//div[1]//div[1]//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
-        openAccount_page.clickUpload2.click();
-        bddUtil.sleep(2);
-        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//div[@class=\"upload_container\"]//div[2]//div[2]//div[1]//div[1]//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
-        openAccount_page.clickUpload3.click();
-        bddUtil.sleep(2);
-        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//div[@class=\"upload_container\"]//div[3]//div[2]//div[1]//div[1]//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
-        openAccount_page.clickUpload4.click();
-        bddUtil.sleep(2);
-        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//div[@class=\"upload_container\"]//div[4]//div[2]//div[1]//div[1]//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
-        openAccount_page.clickUpload5.click();
-        bddUtil.sleep(2);
-        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//div[@class=\"upload_container\"]//div[5]//div[2]//div[1]//div[1]//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
-        openAccount_page.clickUpload6.click();
-        bddUtil.sleep(2);
-        bddUtil.fileUpload();
+        getDriver().findElement(By.xpath("//div[@class=\"upload_container\"]//div[6]//div[2]//div[1]//div[1]//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
         openAccount_page.clickNextToStep13.click();
     }
 
     public void reviewDetails(){
         bddUtil.scrollWindowToElement(openAccount_page.clickAccepted).click();
-        openAccount_page.clickSubmitToStep14.click();
+//        openAccount_page.clickSubmitToStep14.click();
         bddUtil.sleep(5);
     }
 

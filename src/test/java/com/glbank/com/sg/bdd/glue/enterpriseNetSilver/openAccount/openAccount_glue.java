@@ -269,17 +269,20 @@ public class openAccount_glue {
         FileUtils.FileString4(""+openAccountInformation+"","最终受益者2电话:" + onlyUBOPhoneNumber);
         System.out.println("---------------最终受益者2邮箱："+ onlyUBOEmailName + "@MailTemp.top"+"----------------------");
         FileUtils.FileString4(""+openAccountInformation+"","最终受益者2邮箱:" + onlyUBOEmailName + "@MailTemp.top");
-        openAccount_step.goOnDueDiligence();
+//        openAccount_step.goOnDueDiligence();
+        openAccount_step.goOnDueDiligenceTest();
+
     }
 
     @And("^Enter Connected Entities’ Details$")
-    public void enterConnectedEntitiesDetails(){
+    public void enterConnectedEntitiesDetails()throws AWTException{
         openAccount_step.enterConnectedEntitiesDetails();
+
     }
 
     @Then("^Create Company Administrators’ Profiles$")
     public void createCompanyAdministratorsProfiles()throws AWTException{
-        openAccount_step.enterConnectedEntitiesDetails2();
+//        openAccount_step.enterConnectedEntitiesDetails2();
 //        openAccount_step.createCompanyAdministratorsProfiles(contactPersonNm);
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
@@ -290,6 +293,7 @@ public class openAccount_glue {
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
         openAccount_step.clickVerifyEmailAddress2();
+        openAccount_step.inputEmailTwo(emailName);
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
         openAccount_step.clickNextToStep6();
