@@ -21,8 +21,8 @@ Feature: accountChange
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |单币种账户|
+      |CA             |
+      |Current Account|
     And I choose the currency to open the account SGD
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -32,12 +32,12 @@ Feature: accountChange
 
   @accountOpeningUSD
     #    CA账户USD开立
-  Scenario:Enterprise management console CA account CNY opened
+  Scenario:Enterprise management console CA account USD opened
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |单币种账户|
+      |CA             |
+      |Current Account|
     And I choose the currency to open the account USD
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -51,8 +51,8 @@ Feature: accountChange
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |单币种账户|
+      |CA             |
+      |Current Account|
     And I choose the currency to open the account CNY
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -66,8 +66,8 @@ Feature: accountChange
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |单币种账户|
+      |CA             |
+      |Current Account|
     And I choose the currency to open the account HKD
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -81,8 +81,8 @@ Feature: accountChange
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |单币种账户|
+      |CA             |
+      |Current Account|
     And I choose the currency to open the account EUR
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -97,8 +97,8 @@ Feature: accountChange
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |多币种账户|
+      |CA                     |
+      |'Multi-Currency Account|
     And  I choose the currency to open CNY
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -112,8 +112,8 @@ Feature: accountChange
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |多币种账户|
+      |CA                     |
+      |'Multi-Currency Account|
     And  I choose the currency to open USD
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -128,8 +128,8 @@ Feature: accountChange
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |多币种账户|
+      |CA                     |
+      |'Multi-Currency Account|
     And  I choose the currency to open HKD
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -143,8 +143,8 @@ Feature: accountChange
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |多币种账户|
+      |CA                     |
+      |'Multi-Currency Account|
     And  I choose the currency to open EUR
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -158,8 +158,8 @@ Feature: accountChange
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |多币种账户|
+      |CA                     |
+      |'Multi-Currency Account|
     And  I choose the currency to open All
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -173,8 +173,8 @@ Feature: accountChange
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |多币种账户|
+      |CA                     |
+      |'Multi-Currency Account|
     And  I choose the currency to open SGD USD CNY
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -188,8 +188,8 @@ Feature: accountChange
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |多币种账户|
+      |CA                     |
+      |'Multi-Currency Account|
     And  I choose the currency to open SGD USD EUR
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -203,8 +203,8 @@ Feature: accountChange
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |多币种账户|
+      |CA                     |
+      |'Multi-Currency Account|
     And  I choose the currency to open SGD USD HKD
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -218,8 +218,8 @@ Feature: accountChange
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
-      |CA      |
-      |多币种账户|
+      |CA                     |
+      |'Multi-Currency Account|
     And  I choose the currency to open SGD CNY HKD
     When I select account permissions
     Then TC code is then required for Vkey authentication
@@ -271,43 +271,43 @@ Feature: accountChange
     Then I verify that the transaction is successful
 
 
-  @AuthorizationMode03
-#  无授权模式
-  Scenario:Enterprise management console in unauthorized mode
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I click on the Enterprise Administration Desk and select Account Management
-    When click authorization
-    When I choose unlicensed management mode
-    And Confirm the authorization mode and submit it
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I verify that the transaction is successful
-
-  @LinkAccount
-#    账户加挂，从注册绑定vkey开始跑头开始跑
-  Scenario:The enterprise management console account is added
-    Given logon second "netSilverEnvAccout" on enterprise net silver
-    When I click on the Enterprise Administration Desk and select Account Management
-    When I click link account
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-
-  @addCurrency
-#    新增币种,注意，此case需要双人管理模式，需要后管设置管理模式，换号授权
-  Scenario:Enterprise management desk new currency
-    Given Closing the Browser driver
-    When logon "netSilverEnv_susu" on enterprise net silver
-    When I click on the Enterprise Administration Desk and select Account Management
-    When I click add currency to fill in the information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then verify whether to wait for authorization
-    Given logon second "netSilverEnv_susu" on enterprise net silver
-    When I click My Tasks button on the logon page
-    Then I should direct to the Awaiting authorization page
-    When I click on the first piece of data to authorize
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
+#  @AuthorizationMode03
+##  无授权模式
+#  Scenario:Enterprise management console in unauthorized mode
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I click on the Enterprise Administration Desk and select Account Management
+#    When click authorization
+#    When I choose unlicensed management mode
+#    And Confirm the authorization mode and submit it
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I verify that the transaction is successful
+#
+#  @LinkAccount
+##    账户加挂，从注册绑定vkey开始跑头开始跑
+#  Scenario:The enterprise management console account is added
+#    Given logon second "netSilverEnvAccout" on enterprise net silver
+#    When I click on the Enterprise Administration Desk and select Account Management
+#    When I click link account
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#
+#  @addCurrency
+##    新增币种,注意，此case需要双人管理模式，需要后管设置管理模式，换号授权
+#  Scenario:Enterprise management desk new currency
+#    Given Closing the Browser driver
+#    When logon "netSilverEnv_susu" on enterprise net silver
+#    When I click on the Enterprise Administration Desk and select Account Management
+#    When I click add currency to fill in the information
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then verify whether to wait for authorization
+#    Given logon second "netSilverEnv_susu" on enterprise net silver
+#    When I click My Tasks button on the logon page
+#    Then I should direct to the Awaiting authorization page
+#    When I click on the first piece of data to authorize
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now

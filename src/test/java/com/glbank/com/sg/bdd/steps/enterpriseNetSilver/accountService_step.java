@@ -166,7 +166,7 @@ public class accountService_step extends ScenarioSteps {
         Actions action = new Actions(getDriver());
         action.moveToElement(accountService_page.enterpriseManagementDesk).perform();
         accountService_page.operationLogQuery.click();
-        accountService_page.queryBtn.click();
+        accountService_page.clickQueryButton.click();
     }
     @Step
     public void querySuccess(){

@@ -62,7 +62,7 @@ public class fixedDeposit_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"el-form-item el-form-item--medium\"]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNext;
 
-    @FindBy(xpath = "//span[@class=\"el-checkbox__inner\"]")
+    @FindBy(xpath = "//div[@class='detail_page-container']/following-sibling::label/span[1]")
     public WebElementFacade clickCheck;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[@class=\"ui-button primary common\"]//div[@class=\"btn_box\"]")

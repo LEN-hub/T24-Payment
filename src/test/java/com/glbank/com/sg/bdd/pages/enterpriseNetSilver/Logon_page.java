@@ -65,7 +65,7 @@ public class Logon_page extends PageObject {
     @FindBy(xpath = "//span[text()='English']")
     public WebElementFacade checkLanguage;
 
-    @FindBy(xpath = "//li[contains(text(),'简体中文')]")
+    @FindBy(xpath = "//li[contains(text(),'中文')]")
     public WebElementFacade selectChinese;
 
     public void enterOrganisationID(String userName){
