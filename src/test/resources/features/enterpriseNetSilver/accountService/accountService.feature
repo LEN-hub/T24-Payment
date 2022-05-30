@@ -8,7 +8,8 @@ Feature: accountService
   Scenario:account details page display
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When account details page display
-@text999
+
+
   Scenario:alias setting main process
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When click the Account Details menu and set alias information
@@ -26,7 +27,7 @@ Feature: accountService
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When modifying customer nicknames
     Then the customer nickname is changed successfully
-
+@text229
   Scenario:query operation logs of the personal center
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When query operation logs of the personal center

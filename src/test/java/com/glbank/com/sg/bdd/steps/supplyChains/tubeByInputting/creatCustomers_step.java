@@ -180,17 +180,17 @@ public class creatCustomers_step extends ScenarioSteps {
     public void openEmailUrl(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox\");");
-        bddUtil.switchToNewWindow();
-        errorEmailLink();
-        bddUtil.switchToWindows();
+//        bddUtil.switchToNewWindow();
+//        errorEmailLink();
+//        bddUtil.switchToWindows();
     }
     @Step
     public void openEmailUrlTest(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=44Dg64u0\");");
         bddUtil.switchToNewWindow();
-        errorEmailLink();
-        bddUtil.switchToWindows();
+//        errorEmailLink();
+//        bddUtil.switchToWindows();
     }
 
     @Step

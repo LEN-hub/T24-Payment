@@ -173,11 +173,11 @@ public class accountService_step extends ScenarioSteps {
         accountService_page.transactionType.isDisplayed();
         accountService_page.operator.isDisplayed();
         accountService_page.selectDate.isDisplayed();
-        accountService_page.querySuccess.isDisplayed();
-        List<WebElementFacade> filed = accountService_page.fieldList;
-        for (int i = 0; i < filed.size();i++){
-            filed.get(i).isDisplayed();
-        }
+//        accountService_page.querySuccess.isDisplayed();
+//        List<WebElementFacade> filed = accountService_page.fieldList;
+//        for (int i = 0; i < filed.size();i++){
+//            filed.get(i).isDisplayed();
+//        }
     }
 
     @Step
