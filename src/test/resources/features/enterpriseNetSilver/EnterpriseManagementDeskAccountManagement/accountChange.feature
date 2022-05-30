@@ -241,34 +241,34 @@ Feature: accountChange
     Then I verify that the transaction is successful
 
 
-  @AuthorizationMode01
-#  授权模式双人
-  Scenario:Enterprise management desk two-person authorization mode
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I click on the Enterprise Administration Desk and select Account Management
-    When click authorization
-    When I choose two-person authorization management mode
-    And Confirm the authorization mode and submit it
-    When secondary authorized person notification is then displayed
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I verify that the transaction is successful
+#  @AuthorizationMode01
+##  授权模式双人
+#  Scenario:Enterprise management desk two-person authorization mode
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I click on the Enterprise Administration Desk and select Account Management
+#    When click authorization
+#    When I choose two-person authorization management mode
+#    And Confirm the authorization mode and submit it
+#    When secondary authorized person notification is then displayed
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I verify that the transaction is successful
 
 
-  @AuthorizationMode02
-#  授权模式单人
-  Scenario:Enterprise management console single-person authorization mode
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I click on the Enterprise Administration Desk and select Account Management
-    When click authorization
-    When I choose single-player license management mode
-    And Confirm the authorization mode and submit it
-    When secondary authorized person notification is then displayed
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I verify that the transaction is successful
+#  @AuthorizationMode02
+##  授权模式单人
+#  Scenario:Enterprise management console single-person authorization mode
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When I click on the Enterprise Administration Desk and select Account Management
+#    When click authorization
+#    When I choose single-player license management mode
+#    And Confirm the authorization mode and submit it
+#    When secondary authorized person notification is then displayed
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I verify that the transaction is successful
 
 
 #  @AuthorizationMode03
@@ -287,7 +287,7 @@ Feature: accountChange
 #  @LinkAccount
 ##    账户加挂，从注册绑定vkey开始跑头开始跑
 #  Scenario:The enterprise management console account is added
-#    Given logon second "netSilverEnvAccout" on enterprise net silver
+#    Given logon second "netSilverEnv_Kevin" on enterprise net silver
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When I click link account
 #    Then TC code is then required for Vkey authentication

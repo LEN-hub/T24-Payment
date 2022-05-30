@@ -10,7 +10,7 @@ Feature: receipt and payment service
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
-
+@text99902
   #SDG->USD
   Scenario:I have successfully transferred from Singapore currency to US dollar
     Given logon "netSilverEnv_Kevin" on enterprise net silver
