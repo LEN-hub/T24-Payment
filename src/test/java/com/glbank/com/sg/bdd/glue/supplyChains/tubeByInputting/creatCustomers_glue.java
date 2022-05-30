@@ -307,7 +307,7 @@ public class creatCustomers_glue {
 
     @When("^Approval in the supply chain system$")
     public void approvalInTheSupplyChainSystem() {
-        int result = updateAmlResult(1,"companyData");
+        int result = updateAmlResult(1, "companyData");
         if(result > 0){
             System.out.println("AML状态修改成功");
         }

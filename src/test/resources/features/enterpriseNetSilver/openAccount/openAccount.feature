@@ -39,6 +39,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_USD
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -53,6 +55,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_EUR
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -67,6 +71,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_CNY
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -81,6 +87,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_HKD
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -95,6 +103,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles About One
@@ -109,6 +119,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -123,6 +135,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_CNY
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -137,6 +151,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD_CNY_HKD_EUR
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -151,6 +167,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -165,6 +183,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_HKD
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -179,6 +199,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_EUR
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -193,6 +215,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD_CNY
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -207,6 +231,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD_HKD
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -221,6 +247,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD_EUR
     And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -235,8 +263,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information About SubIndustry
-      | subIndustry       |
-      | Finance Companies |
+      | subIndustry       |Entity Consolidated      |
+      | Finance Companies |Turnover ≤ SGD 1 Million |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -251,8 +279,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information About SubIndustry
-      | subIndustry                               |
-      | Trust, Funds & Similar Financial Entities |
+      | subIndustry                               |Entity Consolidated      |
+      | Trust, Funds & Similar Financial Entities |Turnover ≤ SGD 1 Million |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -267,8 +295,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information About SubIndustry
-      | subIndustry                          |
-      | Insurance & Reinsurance Underwriting |
+      | subIndustry                          |Entity Consolidated      |
+      | Insurance & Reinsurance Underwriting |Turnover ≤ SGD 1 Million |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -283,8 +311,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information About SubIndustry
-      | subIndustry              |
-      | Provident & Pension Fund |
+      | subIndustry              |Entity Consolidated      |
+      | Provident & Pension Fund |Turnover ≤ SGD 1 Million |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -299,8 +327,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information About SubIndustry
-      | subIndustry                                  |
-      | Securities & Commodities Contracts Brokerage |
+      | subIndustry                                  |Entity Consolidated      |
+      | Securities & Commodities Contracts Brokerage |Turnover ≤ SGD 1 Million |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -315,12 +343,263 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information About SubIndustry
-      | subIndustry                        |
-      | Other Financial Service Activities |
+      | subIndustry                        |Entity Consolidated      |
+      | Other Financial Service Activities |Turnover ≤ SGD 1 Million |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
     And Share Account’s Risk Profile
     Then Upload Supporting Documents
+    And Review Details
+    Then get Organisation ID
+
+#    在线开户+小额透支贷款
+
+#  单币种 新币+贷款
+  Scenario: The new bank customer initiated the "new auto financing" product loan application successfully
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD and loan
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
+    And Review Details
+    Then get Organisation ID
+
+    #单币种账户——美元+贷款
+  Scenario:openAccount Current Account CA_USD and loan
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_USD and loan
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
+    And Review Details
+    Then get Organisation ID
+
+
+  #单币种账户——欧元+贷款
+  Scenario:openAccount Current Account CA_EUR and loan
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_EUR and loan
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
+    And Review Details
+    Then get Organisation ID
+
+   #单币种账户——人民币+贷款
+  Scenario:openAccount Current Account CA_CNY and loan
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_CNY and loan
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
+    And Review Details
+    Then get Organisation ID
+
+  #单币种账户——港币+贷款
+  Scenario:openAccount Current Account CA_HKD and loan
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_HKD and loan
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
+    And Review Details
+    Then get Organisation ID
+
+ #多币种开户 新币+人民币+贷款
+  Scenario:openAccount Current Account MCA_SGD_CNY and loan
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_CNY
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
+    And Review Details
+    Then get Organisation ID
+
+ #多币种账户 新币+美元+人民币+港币+欧元+贷款
+  Scenario:openAccount Current Account MCA_SGD_USD_CNY_HKD_EUR and loan
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD_CNY_HKD_EUR and loan
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
+    And Review Details
+    Then get Organisation ID
+
+        #多币种账户 新币+美元+贷款
+  Scenario:openAccount Current Account MCA_SGD_USD and loan
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD and loan
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
+    And Review Details
+    Then get Organisation ID
+
+        #多币种账户 新币+港币+贷款
+  Scenario:openAccount Current Account MCA_SGD_HKD and loan
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_HKD and loan
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
+    And Review Details
+    Then get Organisation ID
+
+         #多币种账户 新币+欧元+贷款
+  Scenario:openAccount Current Account MCA_SGD_EUR and loan
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_EUR and loan
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
+    And Review Details
+    Then get Organisation ID
+
+
+        #多币种账户 新币+美元+人民币+贷款
+  Scenario:openAccount Current Account MCA_SGD_USD_CNY and loan
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD_CNY and loan
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
+    And Review Details
+    Then get Organisation ID
+
+      #多币种账户 新币+美元+港币+贷款
+  Scenario:openAccount Current Account MCA_SGD_USD_HKD and loan
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD_HKD and loan
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
+    And Review Details
+    Then get Organisation ID
+
+      #多币种账户 新币+美元+欧元+贷款
+  Scenario:openAccount Current Account MCA_SGD_USD_EUR and loan
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD_EUR and loan
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
     And Review Details
     Then get Organisation ID

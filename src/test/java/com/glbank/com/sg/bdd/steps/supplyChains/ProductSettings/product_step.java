@@ -195,6 +195,7 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickGLB() {
+        bddUtil.sleep(5);
         productPage.GLB.click();
     }
 
@@ -419,19 +420,33 @@ public class product_step extends ScenarioSteps {
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
         System.out.println("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");
+        bddUtil.switchToNewWindow();
+        if (productPage.errorText.isVisible()){
+            productPage.advancedButton.click();
+            productPage.enterEmailLink.click();
+        }
+        productPage.firstEmail.click();
+        String password = productPage.emailPassword.getText();
+        productPage.greenLinkSystem.isVisible();
+        CommonUtil.waiting(2000);
+//        productPage.greenLinkSystem.click();
+        productPage.plainText.click();
+        bddUtil.sleep(1);
+        productPage.tokenLink.click();
     }
 
 
     @Step
     public void loginServiceAgreementWindow() {
+        bddUtil.switchToWindows();
         productPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
         productPage.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         productPage.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         productPage.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
         bddUtil.sleep(3);
-        productPage.advancedButton.click();
-        productPage.enterEmailLink.click();
+//        productPage.advancedButton.click();
+//        productPage.enterEmailLink.click();
         productPage.clickRefreshBtn.click();
         bddUtil.sleep(1);
         productPage.thirdEmail.click();

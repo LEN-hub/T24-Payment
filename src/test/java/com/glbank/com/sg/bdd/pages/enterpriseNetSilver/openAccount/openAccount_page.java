@@ -38,6 +38,9 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//input[@readonly=\"readonly\"]")
     public WebElementFacade clickSalutation;
 
+    @FindBy(xpath = "//label[@for='salutation']//following-sibling::div//input")
+    public WebElementFacade clickSalutationTest;
+
     @FindBy(xpath = "//ul[@class=\"el-scrollbar__view el-select-dropdown__list\"]//li[1]//span")
     public WebElementFacade getSalutation;
 
@@ -61,6 +64,9 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"nationality\"]/following-sibling::div//div//input")
     public WebElementFacade nationalityTwo;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[1]//label[@for=\"nationality\"]/following-sibling::div//div//input")
+    public WebElementFacade nationalityOne;
 
     @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"countryCd\"]/following-sibling::div//div//input")
     public WebElementFacade countryTwo;
@@ -161,7 +167,10 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//ul[@class=\"el-scrollbar__view el-select-dropdown__list\"]//span[text()=\"金融和保险行业\"]")
     public WebElementFacade getGetIndustryToSubCN;
 
-    @FindBy(xpath = "//label[@for=\"subIndustry\"]/following-sibling::div//div//input")
+    @FindBy(xpath = "//label[@for=\"industry\"]/following-sibling::div//div//input")
+    public WebElementFacade clickMainIndustry;
+
+    @FindBy(xpath = "//label[@for=\"subIndustry\"]//following-sibling::div//div//div")
     public WebElementFacade clickSubIndustry;
 
     @FindBy(xpath = "//label[@for=\"nonprofitFlag\"]/following-sibling::div//label[2]//span[1]//span")
@@ -178,6 +187,36 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//label[@for=\"aliasNm\"]/following-sibling::div//div//input")
     public WebElementFacade inputAliasNm;
+
+    @FindBy(xpath = "//label[@for='roleCd']")
+    public WebElementFacade checkBoxText;
+
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[1]/span[@class='el-checkbox__input is-checked']")
+    public WebElementFacade selectFirstIsCheckBox;
+
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[2]/span[@class='el-checkbox__input is-checked']")
+    public WebElementFacade selectSecondIsCheckBox;
+
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[3]/span[@class='el-checkbox__input is-checked']")
+    public WebElementFacade selectThirdIsCheckBox;
+
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[1]/span[@class='el-checkbox__input']")
+    public WebElementFacade selectFirstCheckBox;
+
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[2]/span[@class='el-checkbox__input']")
+    public WebElementFacade selectSecondCheckBox;
+
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[3]/span[@class='el-checkbox__input']")
+    public WebElementFacade selectThirdCheckBox;
+
+    @FindBy(xpath = "//label[@for='contactPersonNm']/following-sibling::div//input[@disabled=\"disabled\"]")
+    public WebElementFacade nameDisable;
+
+    @FindBy(xpath = "//label[@for='contactPersonNm']/following-sibling::div//input")
+    public WebElementFacade enterName;
+
+    @FindBy(xpath = "//label[@for='ownPercent']/following-sibling::div//input")
+    public WebElementFacade shareholdingPercentage;
 
     @FindBy(xpath = "//label[@for=\"birthDate\"]/following-sibling::div//div//input")
     public WebElementFacade inputBirthDate;
@@ -235,6 +274,12 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//label[@for='countryCd']//following-sibling::div//input")
     public WebElementFacade countryTest;
+
+    @FindBy(xpath = "//img[@class='ic_delete']")
+    public WebElementFacade deleteImg;
+
+    @FindBy(xpath = "//div[@class='el-message-box']/div[3]/button[2]/span")
+    public WebElementFacade YesDelete;
 
     @FindBy(xpath = "//label[@for=\"certfctDueDate\"]")
     public WebElementFacade clickDateOfExpiry;
@@ -449,6 +494,10 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[text()='Verify Mobile Number']")
     public WebElementFacade mobileNumber;
 
+    @FindBy(xpath = "//div[text()='Verify Email Address']")
+    public WebElementFacade emailNumber;
+
+
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextToConnectedCorporateEntity2;
 
@@ -594,6 +643,9 @@ public class openAccount_page extends PageObject {
     public WebElementFacade clickAccepted;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-22\"]//label[2]//span[@class=\"el-checkbox__inner\"]")
+    public WebElementFacade clickAcceptedApplication;
+
+    @FindBy(xpath = "//div[@class=\"el-col el-col-22\"]//label[2]//span[@class=\"el-checkbox__inner\"]")
     public WebElementFacade clickAcceptedCNY;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[3]//div[@class=\"btn_box\"]")
@@ -613,4 +665,71 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//div[@class=\"input-group-btn\"]//button[2]")
     public WebElementFacade clickRefresh;
+
+    @FindBy(xpath = "//div[@class='ui-button primary common out-height']//div[@class='btn_box']")
+    public WebElementFacade loanContinue;
+
+    @FindBy(xpath = "//div[@class='flex middle']/label/span[1]")
+    public WebElementFacade capitalLoan;
+
+    @FindBy(xpath = "//div[@class='loan_container']/div[1]//div[@class='btn_box']")
+    public WebElementFacade applyMicro;
+
+    @FindBy(xpath = "//label[@for='loanAmont']/following-sibling::div//input")
+    public WebElementFacade loanAmount;
+
+    @FindBy(xpath = "//div[@role='radiogroup']")
+    public WebElementFacade personal;
+
+//    第十步财务申报，左边的信息。
+
+    @FindBy(xpath = "//div[text()='At Least 18 Months']")
+    public WebElementFacade leastMonths;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='financialReportDate']/following-sibling::div//input")
+    public WebElementFacade reportingDateLeft;
+
+    @FindBy(xpath = "//td[@class='available today current']//span")
+    public WebElementFacade todayLeft;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='financialReportTerm']/following-sibling::div//input")
+    public WebElementFacade reportPeriodLeft;
+
+    @FindBy(xpath = "//span[text()='12 months']")
+    public List<WebElementFacade> twelveMonths;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='netSales']/following-sibling::div//input")
+    public WebElementFacade netSalesLeft;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='preTaxSales']/following-sibling::div//input")
+    public WebElementFacade preTaxSalesLeft;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='totalAssets']/following-sibling::div//input")
+    public WebElementFacade totalAssetsLeft;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='dibtAssets']/following-sibling::div//input")
+    public WebElementFacade dibtAssetsLeft;
+
+//       第十步财务申报，左边的信息。
+    @FindBy(xpath = "//div[@class='el-col el-col-10 el-col-offset-4']//label[@for='financialReportDate']/following-sibling::div//input")
+    public WebElementFacade reportingDateRight;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10 el-col-offset-4']//label[@for='financialReportTerm']/following-sibling::div//input")
+    public WebElementFacade reportPeriodRight;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10 el-col-offset-4']//label[@for='netSales']/following-sibling::div//input")
+    public WebElementFacade netSalesRight;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10 el-col-offset-4']//label[@for='preTaxSales']/following-sibling::div//input")
+    public WebElementFacade preTaxSalesRight;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10 el-col-offset-4']//label[@for='totalAssets']/following-sibling::div//input")
+    public WebElementFacade totalAssetsRight;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10 el-col-offset-4']//label[@for='dibtAssets']/following-sibling::div//input")
+    public WebElementFacade dibtAssetsRight;
+
+
+
+
 }
