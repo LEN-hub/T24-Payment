@@ -51,6 +51,7 @@ public class product_glue {
 
     @When("^enter the page information$")
     public void enterThePageInformation() {
+        bddUtil.sleep(1);
         productStep.name();
         productStep.code();
         productStep.productType();

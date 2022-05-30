@@ -152,6 +152,7 @@ public class payments_steps extends ScenarioSteps {
     @Step
     public void verifySuccess(){
         paymentsPage.completed.click();
+        bddUtil.sleep(1);
         paymentsPage.Requester12.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         paymentsPage.Reset.click();
         CommonUtil.waiting(3000);

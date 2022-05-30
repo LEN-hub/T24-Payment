@@ -231,6 +231,8 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f3d1nljn']//span")
     public WebElementFacade Confirm;
 
+    @FindBy(xpath = "//div[@id='main-message']/h1")
+    public WebElementFacade errorText;
 
     @FindBy(id = "details-button")
     public WebElementFacade advancedButton;
@@ -244,6 +246,21 @@ public class product_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='tab-pane message-body active']//h2")
     public WebElementFacade emailVerificationCode;
+
+    @FindBy(xpath = "//span[text()='Green Link Digital Bank - Invitation']")
+    public WebElementFacade firstEmail;
+
+    @FindBy(xpath = "//div[@id='body-html']//h2")
+    public WebElementFacade emailPassword;
+
+    @FindBy(xpath = "//div[@class='tab-pane message-body active']//h2/preceding-sibling::span//a")
+    public WebElementFacade greenLinkSystem;
+
+    @FindBy(xpath = "//li[@role='presentation'][2]//a")
+    public WebElementFacade plainText;
+
+    @FindBy(xpath = "//div[@class='tab-pane message-body active']/a[1]")
+    public WebElementFacade tokenLink;
 
     @FindBy(xpath = "//div[@class='lls-form-item__content']//input[@placeholder='Enter email']")
     public WebElementFacade GLDBEmailInput;

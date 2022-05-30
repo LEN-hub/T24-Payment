@@ -38,6 +38,9 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//input[@readonly=\"readonly\"]")
     public WebElementFacade clickSalutation;
 
+    @FindBy(xpath = "//label[@for='salutation']//following-sibling::div//input")
+    public WebElementFacade clickSalutationTest;
+
     @FindBy(xpath = "//ul[@class=\"el-scrollbar__view el-select-dropdown__list\"]//li[1]//span")
     public WebElementFacade getSalutation;
 
@@ -46,6 +49,39 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//div[@class=\"iddbox\"]//input")
     public WebElementFacade clickCountryCode;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for='salutation']//following-sibling::div//input")
+    public WebElementFacade selectSalutation;//第二个人信息。
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//span[text()='Mr']")
+    public WebElementFacade mr;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for='userNm']//following-sibling::div//input")
+    public WebElementFacade fullName;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"birthDate\"]/following-sibling::div//div//input")
+    public WebElementFacade dataForBirth;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"nationality\"]/following-sibling::div//div//input")
+    public WebElementFacade nationalityTwo;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[1]//label[@for=\"nationality\"]/following-sibling::div//div//input")
+    public WebElementFacade nationalityOne;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"countryCd\"]/following-sibling::div//div//input")
+    public WebElementFacade countryTwo;
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//span[text()='SINGAPORE']")
+    public WebElementFacade SingaporeCountry;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"idd\"]/following-sibling::div//div//input")
+    public WebElementFacade iddNumber;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"mobilePhoneNo\"]/following-sibling::div//div//input")
+    public WebElementFacade mobileNumberTest;
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//span[text()='SINGAPOREAN']")
+    public WebElementFacade SINGAPOREAN;
 
     @FindBy(xpath = "//ul[@class='flag_box-ul']/li/div/span[text()=\"CHINA\"]")
     public WebElementFacade getCountryCode;
@@ -80,7 +116,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"certfctNo\"]")
     public WebElementFacade goEntityDetails;
 
-    @FindBy(xpath = "//label[@for=\"certfctNo\"]/following-sibling::div//div//input")
+        @FindBy(xpath = "//label[@for=\"certfctNo\"]/following-sibling::div//div//input")
     public WebElementFacade inputCompanyRegistrationNumber;
 
     @FindBy(xpath = "//label[@for=\"companyRegisterDate\"]/following-sibling::div//div//input")
@@ -131,7 +167,10 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//ul[@class=\"el-scrollbar__view el-select-dropdown__list\"]//span[text()=\"金融和保险行业\"]")
     public WebElementFacade getGetIndustryToSubCN;
 
-    @FindBy(xpath = "//label[@for=\"subIndustry\"]/following-sibling::div//div//input")
+    @FindBy(xpath = "//label[@for=\"industry\"]/following-sibling::div//div//input")
+    public WebElementFacade clickMainIndustry;
+
+    @FindBy(xpath = "//label[@for=\"subIndustry\"]//following-sibling::div//div//div")
     public WebElementFacade clickSubIndustry;
 
     @FindBy(xpath = "//label[@for=\"nonprofitFlag\"]/following-sibling::div//label[2]//span[1]//span")
@@ -149,6 +188,36 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"aliasNm\"]/following-sibling::div//div//input")
     public WebElementFacade inputAliasNm;
 
+    @FindBy(xpath = "//label[@for='roleCd']")
+    public WebElementFacade checkBoxText;
+
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[1]/span[@class='el-checkbox__input is-checked']")
+    public WebElementFacade selectFirstIsCheckBox;
+
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[2]/span[@class='el-checkbox__input is-checked']")
+    public WebElementFacade selectSecondIsCheckBox;
+
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[3]/span[@class='el-checkbox__input is-checked']")
+    public WebElementFacade selectThirdIsCheckBox;
+
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[1]/span[@class='el-checkbox__input']")
+    public WebElementFacade selectFirstCheckBox;
+
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[2]/span[@class='el-checkbox__input']")
+    public WebElementFacade selectSecondCheckBox;
+
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[3]/span[@class='el-checkbox__input']")
+    public WebElementFacade selectThirdCheckBox;
+
+    @FindBy(xpath = "//label[@for='contactPersonNm']/following-sibling::div//input[@disabled=\"disabled\"]")
+    public WebElementFacade nameDisable;
+
+    @FindBy(xpath = "//label[@for='contactPersonNm']/following-sibling::div//input")
+    public WebElementFacade enterName;
+
+    @FindBy(xpath = "//label[@for='ownPercent']/following-sibling::div//input")
+    public WebElementFacade shareholdingPercentage;
+
     @FindBy(xpath = "//label[@for=\"birthDate\"]/following-sibling::div//div//input")
     public WebElementFacade inputBirthDate;
 
@@ -161,11 +230,56 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"certfctTypeCd\"]/following-sibling::div//label[2]//span//span")
     public WebElementFacade clickIdentificationType;
 
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"certfctTypeCd\"]/following-sibling::div//label[2]//span//span")
+    public WebElementFacade clickIdentificationTypeTwo;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"addr\"]/following-sibling::div//input")
+    public WebElementFacade addressTwo;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"certfctDueDate\"]/following-sibling::div//input")
+    public WebElementFacade dataOfExpiry;
+
     @FindBy(xpath = "//label[@for=\"certfctNo\"]/following-sibling::div//div//input")
     public WebElementFacade inputPassportNumber;
 
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"certfctNo\"]/following-sibling::div//div//input")
+    public WebElementFacade passportNumberTwo;
+
     @FindBy(xpath = "//label[@for=\"certfctDueDate\"]/following-sibling::div//div//input")
     public WebElementFacade inputDateOfExpiry;
+
+    @FindBy(xpath = "//label[@for='addr']//following-sibling::div//input")
+    public WebElementFacade ResidentialAddress;
+
+    @FindBy(xpath = "//label[@for='cityNm']//following-sibling::div//input")
+    public WebElementFacade cityTest;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"cityNm\"]/following-sibling::div//input")
+    public WebElementFacade cityTestTwo;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"emailAddr\"]/following-sibling::div//input")
+    public WebElementFacade emailAddressTwo;
+
+    @FindBy(xpath = "//span[text()='SINGAPORE']")
+    public WebElementFacade SINGAPORETest;
+
+    @FindBy(xpath = "//label[text()='Postal Code']//following-sibling::div//input")
+    public WebElementFacade postalCodeTest;
+
+    @FindBy(xpath = "//input[@readonly='readonly']")
+    public List<WebElementFacade> selectCompany;
+
+    @FindBy(xpath = "//span[text()='Hideyuki Takaoka']")
+    public WebElementFacade takaoka;
+
+    @FindBy(xpath = "//label[@for='countryCd']//following-sibling::div//input")
+    public WebElementFacade countryTest;
+
+    @FindBy(xpath = "//img[@class='ic_delete']")
+    public WebElementFacade deleteImg;
+
+    @FindBy(xpath = "//div[@class='el-message-box']/div[3]/button[2]/span")
+    public WebElementFacade YesDelete;
 
     @FindBy(xpath = "//label[@for=\"certfctDueDate\"]")
     public WebElementFacade clickDateOfExpiry;
@@ -377,6 +491,13 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"el-col el-col-8\"]//input")
     public WebElementFacade inputPostalCodeConnectedCorporateEntity1;
 
+    @FindBy(xpath = "//div[text()='Verify Mobile Number']")
+    public WebElementFacade mobileNumber;
+
+    @FindBy(xpath = "//div[text()='Verify Email Address']")
+    public WebElementFacade emailNumber;
+
+
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextToConnectedCorporateEntity2;
 
@@ -422,11 +543,17 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"isConcact\"]")
     public WebElementFacade goChoseYESConnectedPerson2;
 
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"isConcact\"]")
+    public WebElementFacade YesConnectedPerson2Test;
+
     @FindBy(xpath = "//label[@for=\"isConcact\"]/following-sibling::div//label[1]//span//span")
-    public WebElementFacade clickYESConnectedPerson2;
+    public List<WebElementFacade> clickYESConnectedPerson2;
+
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"isConcact\"]/following-sibling::div//label[2]//span//span")
+    public WebElementFacade clickNOConnectedPerson2;
 
     @FindBy(xpath = "//label[@for=\"isConcact\"]/following-sibling::div//div[@class=\"el-form-item__content\"]//input")
-    public WebElementFacade clickConnectedPersons2Name;
+    public List<WebElementFacade> clickConnectedPersons2Name;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-16\"]//div[@class=\"btn_box\"]")
     public WebElementFacade clickVerifyMobileNumber2;
@@ -476,8 +603,26 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"upload_container\"]//div[1]//div[2]//div[1]//div[1]//div[@class=\"box_left\"]")
     public WebElementFacade clickUpload1;
 
+    @FindBy(xpath = "//div[@class=\"upload_container\"]//div[1]//div[2]//div[1]//div[1]//input")
+    public WebElementFacade upLoad1;
+
     @FindBy(xpath = "//div[@class=\"upload_container\"]//div[2]//div[2]//div[1]//div[1]//div[@class=\"box_left\"]")
     public WebElementFacade clickUpload2;
+
+    @FindBy(xpath = "//div[@class=\"upload_container\"]//div[2]//div[2]//div[1]//div[1]//input")
+    public WebElementFacade upLoad2;
+
+    @FindBy(xpath = "//div[@class=\"upload_container\"]//div[3]//div[2]//div[1]//div[1]//input")
+    public WebElementFacade upLoad3;
+
+    @FindBy(xpath = "//div[@class=\"upload_container\"]//div[4]//div[2]//div[1]//div[1]//input")
+    public WebElementFacade upLoad4;
+
+    @FindBy(xpath = "//div[@class=\"upload_container\"]//div[5]//div[2]//div[1]//div[1]//input")
+    public WebElementFacade upLoad5;
+
+    @FindBy(xpath = "//div[@class=\"upload_container\"]//div[6]//div[2]//div[1]//div[1]//input")
+    public WebElementFacade upLoad6;
 
     @FindBy(xpath = "//div[@class=\"upload_container\"]//div[3]//div[2]//div[1]//div[1]//div[@class=\"box_left\"]")
     public WebElementFacade clickUpload3;
@@ -496,6 +641,9 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-22\"]//label[1]//span[@class=\"el-checkbox__inner\"]")
     public WebElementFacade clickAccepted;
+
+    @FindBy(xpath = "//div[@class=\"el-col el-col-22\"]//label[2]//span[@class=\"el-checkbox__inner\"]")
+    public WebElementFacade clickAcceptedApplication;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-22\"]//label[2]//span[@class=\"el-checkbox__inner\"]")
     public WebElementFacade clickAcceptedCNY;
@@ -517,4 +665,71 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//div[@class=\"input-group-btn\"]//button[2]")
     public WebElementFacade clickRefresh;
+
+    @FindBy(xpath = "//div[@class='ui-button primary common out-height']//div[@class='btn_box']")
+    public WebElementFacade loanContinue;
+
+    @FindBy(xpath = "//div[@class='flex middle']/label/span[1]")
+    public WebElementFacade capitalLoan;
+
+    @FindBy(xpath = "//div[@class='loan_container']/div[1]//div[@class='btn_box']")
+    public WebElementFacade applyMicro;
+
+    @FindBy(xpath = "//label[@for='loanAmont']/following-sibling::div//input")
+    public WebElementFacade loanAmount;
+
+    @FindBy(xpath = "//div[@role='radiogroup']")
+    public WebElementFacade personal;
+
+//    第十步财务申报，左边的信息。
+
+    @FindBy(xpath = "//div[text()='At Least 18 Months']")
+    public WebElementFacade leastMonths;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='financialReportDate']/following-sibling::div//input")
+    public WebElementFacade reportingDateLeft;
+
+    @FindBy(xpath = "//td[@class='available today current']//span")
+    public WebElementFacade todayLeft;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='financialReportTerm']/following-sibling::div//input")
+    public WebElementFacade reportPeriodLeft;
+
+    @FindBy(xpath = "//span[text()='12 months']")
+    public List<WebElementFacade> twelveMonths;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='netSales']/following-sibling::div//input")
+    public WebElementFacade netSalesLeft;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='preTaxSales']/following-sibling::div//input")
+    public WebElementFacade preTaxSalesLeft;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='totalAssets']/following-sibling::div//input")
+    public WebElementFacade totalAssetsLeft;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='dibtAssets']/following-sibling::div//input")
+    public WebElementFacade dibtAssetsLeft;
+
+//       第十步财务申报，左边的信息。
+    @FindBy(xpath = "//div[@class='el-col el-col-10 el-col-offset-4']//label[@for='financialReportDate']/following-sibling::div//input")
+    public WebElementFacade reportingDateRight;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10 el-col-offset-4']//label[@for='financialReportTerm']/following-sibling::div//input")
+    public WebElementFacade reportPeriodRight;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10 el-col-offset-4']//label[@for='netSales']/following-sibling::div//input")
+    public WebElementFacade netSalesRight;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10 el-col-offset-4']//label[@for='preTaxSales']/following-sibling::div//input")
+    public WebElementFacade preTaxSalesRight;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10 el-col-offset-4']//label[@for='totalAssets']/following-sibling::div//input")
+    public WebElementFacade totalAssetsRight;
+
+    @FindBy(xpath = "//div[@class='el-col el-col-10 el-col-offset-4']//label[@for='dibtAssets']/following-sibling::div//input")
+    public WebElementFacade dibtAssetsRight;
+
+
+
+
 }

@@ -60,7 +60,7 @@ public class rpa_steps extends ScenarioSteps {
     @Step
     public void jumpToSupplierPortal() {     //跳转供应商门户
         JavascriptExecutor webdriver = (JavascriptExecutor) getDriver();
-        webdriver.executeScript("window.open('http://119.8.173.195:8080')");
+        webdriver.executeScript("window.open('http://10.24.9.126:8080//')");
         bddUtil.switchToNewWindow();
         bddUtil.sleep(10);
     }

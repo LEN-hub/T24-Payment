@@ -171,7 +171,7 @@ public class creditLimit_step extends ScenarioSteps {
 
     @Step
     public void openToSupplierPortal() {     //跳转供应商门户
-        String Url = "http://119.8.173.195:8080/";
+        String Url = "http://10.24.9.126:8080//";
         creditLimit_page.openUrl(Url);
         bddUtil.switchToNewWindow();
         bddUtil.sleep(20);

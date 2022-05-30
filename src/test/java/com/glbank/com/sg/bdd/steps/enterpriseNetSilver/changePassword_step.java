@@ -125,13 +125,13 @@ public class changePassword_step extends ScenarioSteps {
 
     public void clickCodeButton() {
         changePassword_page.getCodeBtn.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(5);
         //获取页面验证码。
-//        getDriver().switchTo().alert().getText();
-//        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
-//        System.out.println(verificationCode);
-//        getDriver().switchTo().alert().accept();
-        otp = ConnectLinux.getLastOtp("60120003");
+        getDriver().switchTo().alert().getText();
+        otp = getDriver().switchTo().alert().getText().substring(7, 13);
+        System.out.println(verificationCode);
+        getDriver().switchTo().alert().accept();
+//        otp = ConnectLinux.getLastOtp("60120003");
         bddUtil.sleep(2);
     }
 
