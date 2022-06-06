@@ -22,7 +22,8 @@ public class financingRequest_step extends ScenarioSteps {
 
     private financingRequest_page financingRequest_page;
     private BDDUtil bddUtil;
-    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\BR.jpg";
+    private static String systemPath = System.getProperty("user.dir");
+    String fileAddress = systemPath + "/src/test/resources/testData/autopay/BR.jpg";
     public String FinancingNo;
 
     @Step

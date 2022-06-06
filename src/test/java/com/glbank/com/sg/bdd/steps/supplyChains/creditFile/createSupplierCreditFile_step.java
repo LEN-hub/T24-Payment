@@ -15,8 +15,8 @@ public class createSupplierCreditFile_step extends PageObject {
 
     private createSupplierCreditFile_page createSupplierCreditFile_page;
     private BDDUtil bddUtil;
-    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
-
+    private static String systemPath = System.getProperty("user.dir");
+    String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
     @Step
     public void clickSupplierCreditProfileList(){
         createSupplierCreditFile_page.clickSupplierCreditProfileList.click();

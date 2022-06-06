@@ -24,8 +24,8 @@ public class openAccount_step extends ScenarioSteps {
     public static String otp;
     public static String passportNumber = JRandomNameTool.getStringRandom(10);
     public static String mobileNumber = RandomPhoneNumber.randomPhoneNum();
-    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
-
+    private static String systemPath = System.getProperty("user.dir");
+    String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
 
     public void clickOpenAccount() {
         openAccount_page.clickOpenAccount.click();

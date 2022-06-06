@@ -21,11 +21,8 @@ public class creatCustomers_step extends ScenarioSteps {
     private creatCustomers_page customers_page;
     private BDDUtil bddUtil;
     public static String envTag;
-//    String englishName = RandomNameTool.getName(Language.en, NameType.FULL_NAME);
-//    String chineseName = RandomNameTool.getName(Language.en, NameType.FULL_NAME);
-//    String translateName = EnglishNameUtil.getTranslateName(Language.zh);
-    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
-
+    private static String systemPath = System.getProperty("user.dir");
+    String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
     @Step
     public void getClickCustomersMenu(){
         customers_page.clickCustomersMenu.isVisible();
