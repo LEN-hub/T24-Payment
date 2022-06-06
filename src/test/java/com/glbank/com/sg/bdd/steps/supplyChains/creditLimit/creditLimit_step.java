@@ -87,6 +87,14 @@ public class creditLimit_step extends ScenarioSteps {
     }
 
     @Step
+    public void updateLimit(){
+        bddUtil.find(By.xpath("//label[@for='limitType']"));
+        bddUtil.sleep(1);
+        creditLimit_page.updateLimit.clear();
+        creditLimit_page.updateLimit.sendKeys("100000");
+    }
+
+    @Step
     public void clickResultBtn(){
         creditLimit_page.result.click();
     }

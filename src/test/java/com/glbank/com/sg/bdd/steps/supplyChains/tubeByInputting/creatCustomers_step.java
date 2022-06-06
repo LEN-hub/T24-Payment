@@ -363,8 +363,9 @@ public class creatCustomers_step extends ScenarioSteps {
     public void clickSubmitBtnOnGLDB(){
         bddUtil.sleep(3);
         customers_page.clickSubmitBtnOnGLDB.click();
+        bddUtil.sleep(2);
         customers_page.clickConfirmBtnOnGLDB.click();
-        bddUtil.sleep(5);
+        bddUtil.sleep(10);
     }
 
     @Step

@@ -43,8 +43,11 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-tabs__nav-scroll']//div[@class='lls-tabs__nav is-top']//div[@aria-controls='pane-2']")
     public WebElementFacade completed;
 
-    @FindBy(xpath = "//div[@class='lls-form-item is-required']//div[@class='lls-form-item__content']//div[@class='lls-select']//div[@class='lls-input lls-input--suffix']")
+    @FindBy(xpath = "//label[@for='auditState']/following-sibling::div//input")
     public WebElementFacade result;
+
+    @FindBy(xpath = "//label[@for='creditAmountNew']/following-sibling::div/div[2]/input")
+    public WebElementFacade updateLimit;
 
     @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")
     public List<WebElementFacade> resultList;

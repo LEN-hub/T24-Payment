@@ -133,7 +133,10 @@ public class relationship_step extends ScenarioSteps {
        String textValue = FileUtils.LastReadFileInput3("companyData");
         relationship_page.createNewRelationShipBtn.click();
         relationship_page.companyNameSelectCheckBox.click();
-        bddUtil.find(By.xpath("//span[text()='"+textValue+"']")).click();
+        bddUtil.sleep(2);
+        bddUtil.clickByJS(relationship_page.find(By.xpath("//span[text()='"+textValue+"']")));
+//        bddUtil.scrollWindowToElement(bddUtil.find(By.xpath("//span[text()='\"+textValue+\"']")));
+//        bddUtil.find(By.xpath("//span[text()='"+textValue+"']")).click();
         relationship_page.confirmBtn.click();
 //        List<WebElementFacade> textValue = relationship_page.companyNameSelectList;
 //        for (int i = 0; i< textValue.size(); i++){
@@ -150,7 +153,9 @@ public class relationship_step extends ScenarioSteps {
         relationship_page.createNewRelationShipBtn.click();
         relationship_page.companyNameSelectCheckBox.click();
         String buyerName = FileUtils.LastReadFileInput3("buyer");
-        bddUtil.find(By.xpath("//span[text()='"+buyerName+"']")).click();
+        bddUtil.sleep(2);
+        bddUtil.clickByJS(relationship_page.find(By.xpath("//span[text()='"+buyerName+"']")));
+//        bddUtil.find(By.xpath("//span[text()='"+buyerName+"']")).click();
         relationship_page.confirmBtn.click();
 //        List<WebElementFacade> textValue = relationship_page.companyNameSelectList;
 //        for (int i = 0; i< textValue.size(); i++){
@@ -201,7 +206,8 @@ public class relationship_step extends ScenarioSteps {
     public void insertBuyerInformation(){
         relationship_page.inputCounterName.click();
         String buyerName = FileUtils.LastReadFileInput3("buyer");
-        bddUtil.find(By.xpath("//span[text()='"+buyerName+"']")).click();
+        bddUtil.clickByJS(relationship_page.find(By.xpath("//span[text()='"+buyerName+"']")));
+//        bddUtil.find(By.xpath("//span[text()='"+buyerName+"']")).click();
 //        List<WebElementFacade> textValue = relationship_page.companyNameSelectList;
 //        for (int i = 0; i < textValue.size(); i++) {
 //            if (FileUtils.LastReadFileInput3("buyer").equals(textValue.get(i).getText())){
@@ -221,7 +227,8 @@ public class relationship_step extends ScenarioSteps {
         relationship_page.inputCounterName.click();
 //        String rtn = FileUtils.FileInput3("companyData");
         String companyDataName = FileUtils.LastReadFileInput3("companyData");
-        bddUtil.find(By.xpath("//span[text()='"+companyDataName+"']")).click();
+        bddUtil.clickByJS(relationship_page.find(By.xpath("//span[text()='"+companyDataName+"']")));
+//        bddUtil.find(By.xpath("//span[text()='"+companyDataName+"']")).click();
 //        String [] arry = rtn.split(",");
 //        List<String> fileContent = Arrays.asList(arry);
 //        String value = fileContent.get(fileContent.size()-2);
