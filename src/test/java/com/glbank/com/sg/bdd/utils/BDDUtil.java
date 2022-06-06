@@ -685,6 +685,22 @@ public class BDDUtil extends PageObject {
         return format.format(date);
     }
 
+    public String lastDate(){
+        Calendar now = Calendar.getInstance();
+        now.add(Calendar.DAY_OF_MONTH, -365);
+        String endDate = new SimpleDateFormat("yyyy-MM-dd").format(now.getTime());
+        System.out.println(endDate);
+        return endDate;//一年以前的日期。
+    }
+
+    public String dateBirth(){
+        Calendar now = Calendar.getInstance();
+        now.add(Calendar.DAY_OF_MONTH, -7650);
+        String endDate = new SimpleDateFormat("yyyy-MM-dd").format(now.getTime());
+        System.out.println(endDate);
+        return endDate;//21年前。
+    }
+
     @Step
     public void fileUpload(){
         //实现文件上传。通过Runtime的静态方法获取Runtime对象

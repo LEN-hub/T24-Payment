@@ -180,9 +180,9 @@ public class creatCustomers_step extends ScenarioSteps {
     public void openEmailUrl(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox\");");
-//        bddUtil.switchToNewWindow();
+        bddUtil.switchToNewWindow();
 //        errorEmailLink();
-//        bddUtil.switchToWindows();
+        bddUtil.switchToWindows();
     }
     @Step
     public void openEmailUrlTest(){
@@ -308,7 +308,8 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void companyPageInformation(String value){
-        customers_page.dateInputBox.sendKeys(bddUtil.dateFormate());
+        customers_page.dateInputBox.sendKeys(bddUtil.lastDate());//公司创建日期 要小于核心日期。
+        bddUtil.sleep(2);
         customers_page.annualReturnSizeClick.click();
         customers_page.annualReturnSizeSelect.click();
         customers_page.checkBoxPublicCompanyYes.click();
@@ -321,7 +322,7 @@ public class creatCustomers_step extends ScenarioSteps {
 //        bddUtil.fileUpload();
         bddUtil.sleep(5);
         bddUtil.scrollWindowToElement(customers_page.noExpiryDateTitle);
-        customers_page.noExpiryDateInput.sendKeys("2024-9-10");
+        customers_page.noExpiryDateInput.sendKeys("2024-09-10");
 //        customers_page.memorandumAndArticlesOfAssLink.click();
         bddUtil.sleep(2);
 //        getDriver().findElement(By.xpath("//label[@for='A0010']//following-sibling::div//input")).sendKeys("C:\\workspace\\DBB_GL_AutoTesting-dev\\src\\test\\resources\\testData\\autopay\\test2.jpg");
@@ -363,6 +364,7 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.sleep(3);
         customers_page.clickSubmitBtnOnGLDB.click();
         customers_page.clickConfirmBtnOnGLDB.click();
+        bddUtil.sleep(5);
     }
 
     @Step
@@ -395,7 +397,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void enterInformationOnPeoplePage(){
-        customers_page.admin1DateOfBirth.sendKeys(bddUtil.dateFormate());
+        customers_page.admin1DateOfBirth.sendKeys(bddUtil.dateBirth());
         customers_page.admin1LegalCountry.click();
         bddUtil.scrollWindowToElement(customers_page.admin1LegalCountrySelectChina).click();
         customers_page.admin1CountryOfResidence.click();
@@ -407,7 +409,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.admin1LegalCertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.admin1TimePermanentCheckBox.click();
         bddUtil.scrollWindowToElement(customers_page.admin2TimePermanent);
-        customers_page.admin2DateOfBirth.sendKeys(bddUtil.dateFormate());
+        customers_page.admin2DateOfBirth.sendKeys(bddUtil.dateBirth());
         customers_page.admin2LegalCountry.click();
         bddUtil.scrollWindowToElement(customers_page.admin2LegalCountrySelectChina).click();
         customers_page.admin2CountryOfResidence.click();
@@ -442,7 +444,7 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(customers_page.director1PersonalId).click();
         customers_page.director1CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.director1CheckBox2.click();
-        customers_page.director1DateOfBirth.sendKeys(bddUtil.dateFormate());
+        customers_page.director1DateOfBirth.sendKeys(bddUtil.dateBirth());
         customers_page.director1Country.click();
         bddUtil.scrollWindowToElement(customers_page.director1CountrySelectChina).click();
         customers_page.director1ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
@@ -458,7 +460,7 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(customers_page.director2Passport).click();
         customers_page.director2CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.director2TimePermanentCheckBox.click();
-        customers_page.director2DateOfBirth.sendKeys(bddUtil.dateFormate());
+        customers_page.director2DateOfBirth.sendKeys(bddUtil.dateBirth());
         customers_page.director2Country.click();
         bddUtil.scrollWindowToElement(customers_page.director2CountrySelectChina).click();
         customers_page.director2ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
@@ -478,7 +480,7 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(customers_page.shareholder1CertificationTypeSelectPersonalId).click();
         customers_page.shareholder1CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.shareholder1Checkbox.click();
-        customers_page.shareholder1DateOfBirth.sendKeys(bddUtil.dateFormate());
+        customers_page.shareholder1DateOfBirth.sendKeys(bddUtil.dateBirth());
         customers_page.shareholder1Country.click();
         bddUtil.scrollWindowToElement(customers_page.shareholder1CountrySelectChina).click();
         customers_page.shareholder1CountryOfResidence.click();
@@ -495,7 +497,7 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(customers_page.shareholder2CertificationTypeSelectPassport).click();
         customers_page.shareholder2CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.shareholder2TimePermanent.click();
-        customers_page.shareholder2DateOfBirth.sendKeys(bddUtil.dateFormate());
+        customers_page.shareholder2DateOfBirth.sendKeys(bddUtil.dateBirth());
         customers_page.shareholder2Country.click();
         bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(customers_page.shareholder2CountrySelectChina).click();
@@ -526,7 +528,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.beneficial1TimePermanent.click();
         customers_page.beneficial1FundScale.sendKeys("25");
         customers_page.beneficial1Email.sendKeys(value + "@MailTemp.top");
-        customers_page.beneficial1DateOfBirth.sendKeys(bddUtil.dateFormate());
+        customers_page.beneficial1DateOfBirth.sendKeys(bddUtil.dateBirth());
         customers_page.beneficial1Country.click();
         bddUtil.scrollWindowToElement(customers_page.beneficial1CountrySelectChina).click();
         bddUtil.scrollWindowToElement(customers_page.beneficial1ResidentialAddress).click();
