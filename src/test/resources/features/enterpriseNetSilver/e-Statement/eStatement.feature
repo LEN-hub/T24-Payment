@@ -4,13 +4,13 @@ Feature: e-Statement
   @ext123
   Scenario:Download e-Statement file successfully
 #    Given Closing the Browser driver
-    Given logon "netSilverEnvTian" on enterprise net silver
+    Given logon "netTestTian" on enterprise net silver
     When I click My Downloads Btn
     When I click View eStatements Btn
 #    Then I should direct to the eStatements Overview page
     When I click select box
       |select       |
-      |11020001852  |
+      |11020004223  |
     And I click search button
     Then I should see Account List
     When I click on the first data to download
@@ -21,13 +21,13 @@ Feature: e-Statement
 
   @ext123
 Scenario:Download past e-statements successfully
-  Given logon "netSilverEnvTian" on enterprise net silver
+  Given logon "netTestTian" on enterprise net silver
   When I click My Downloads Btn
   When I click View eStatements Btn
 #    Then I should direct to the eStatements Overview page
   When I click select box
     |select       |
-    |11020001852  |
+    |11020002212  |
   And I click search button
   Then I should see Account List
   When I click on the past data to download
@@ -37,7 +37,7 @@ Scenario:Download past e-statements successfully
 
   @ext123
 Scenario:Download the electronic notice and successfully generate the download task
-  Given logon "netSilverEnvTian" on enterprise net silver
+  Given logon "netTestTian" on enterprise net silver
   When I click My Downloads Btn
   When I click View eAdvices Btn
   When I click select button on the View eAdvices page

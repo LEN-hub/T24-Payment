@@ -96,7 +96,7 @@ Feature: supply chain run
     And to Supplier Credit Profile Review Page
     Then Supplier Credit Profile L1 Review
     And change user To L2 Review
-    Given login "environments_2" on tube by inputting system
+    Given logon "environments_2" on tube by inputting system
     And use User L2 to Supplier Review
 
 #    授信限额

@@ -92,7 +92,7 @@ public class rpa_steps extends ScenarioSteps {
         bddUtil.sleep(10);
         rpaPage.Contract.click();
         assertEquals("RPA Agreement",rpaPage.find(By.xpath("//td[text()='RPA Agreement']")).getText());
-
+        bddUtil.sleep(2);
     }
 
     public void clickReport(){

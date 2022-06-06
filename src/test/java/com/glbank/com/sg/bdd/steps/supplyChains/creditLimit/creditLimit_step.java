@@ -200,8 +200,6 @@ public class creditLimit_step extends ScenarioSteps {
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
         bddUtil.sleep(3);
         bddUtil.switchToWindows();
-        creditLimit_page.advancedButton.click();
-        creditLimit_page.enterEmailLink.click();
         creditLimit_page.clickRefreshBtn.click();
         bddUtil.sleep(1);
         creditLimit_page.thirdEmail.click();

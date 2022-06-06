@@ -177,6 +177,7 @@ public class product_step extends ScenarioSteps {
     @Step
     public void clickCreateQuoto() {
         productPage.productManagerTitle.isVisible();
+        bddUtil.sleep(1);
         productPage.clickCreateQuoto.click();
     }
 
