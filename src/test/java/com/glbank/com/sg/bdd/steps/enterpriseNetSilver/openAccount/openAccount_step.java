@@ -305,12 +305,12 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         bddUtil.sleep(1);
     }
 
-    public void inputEntityDetails(String entityType,String entityConsolidated,String entityIndustry,String date) {
+    public void inputEntityDetails(String entityType,String entityConsolidated,String entityIndustry,String date,String cheek) {
         bddUtil.scrollWindowToElement(openAccount_page.goEntityDetails);
         bddUtil.sleep(1);
         //没有挡板，用shekk数据。
 //        openAccount_page.inputCompanyRegistrationNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
-        openAccount_page.inputCompanyRegistrationNumber.sendKeys("201700266Z");//199906179R    201700266Z
+        openAccount_page.inputCompanyRegistrationNumber.sendKeys(cheek);//199906179R    201700266Z
         openAccount_page.inputCompanyRegisterDate.sendKeys(date);
         openAccount_page.goEntityDetails.click();
         openAccount_page.clickCountryOfIncorporation.click();

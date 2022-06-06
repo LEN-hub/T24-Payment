@@ -130,30 +130,36 @@ public class relationship_step extends ScenarioSteps {
 
     @Step
     public void createNewSupplierRelationShip(){
+       String textValue = FileUtils.LastReadFileInput3("companyData");
         relationship_page.createNewRelationShipBtn.click();
         relationship_page.companyNameSelectCheckBox.click();
-        List<WebElementFacade> textValue = relationship_page.companyNameSelectList;
-        for (int i = 0; i< textValue.size(); i++){
-            if (FileUtils.LastReadFileInput3("companyData").equals(textValue.get(i).getText())){
-                bddUtil.scrollWindowToElement(textValue.get(i)).click();
-                relationship_page.confirmBtn.click();
-                break;
-            }
+        bddUtil.find(By.xpath("//span[text()='"+textValue+"']")).click();
+        relationship_page.confirmBtn.click();
+//        List<WebElementFacade> textValue = relationship_page.companyNameSelectList;
+//        for (int i = 0; i< textValue.size(); i++){
+//            if (FileUtils.LastReadFileInput3("companyData").equals(textValue.get(i).getText())){
+//                bddUtil.scrollWindowToElement(textValue.get(i)).click();
+//                relationship_page.confirmBtn.click();
+//                break;
+//            }
+
         }
-    }
 
     @Step
     public void createNewBuyerRelationShip(){
         relationship_page.createNewRelationShipBtn.click();
         relationship_page.companyNameSelectCheckBox.click();
-        List<WebElementFacade> textValue = relationship_page.companyNameSelectList;
-        for (int i = 0; i< textValue.size(); i++){
-            if (FileUtils.LastReadFileInput3("buyer").equals(textValue.get(i).getText())){
-                bddUtil.scrollWindowToElement(textValue.get(i)).click();
-                relationship_page.confirmBtn.click();
-                break;
-            }
-        }
+        String buyerName = FileUtils.LastReadFileInput3("buyer");
+        bddUtil.find(By.xpath("//span[text()='"+buyerName+"']")).click();
+        relationship_page.confirmBtn.click();
+//        List<WebElementFacade> textValue = relationship_page.companyNameSelectList;
+//        for (int i = 0; i< textValue.size(); i++){
+//            if (FileUtils.LastReadFileInput3("buyer").equals(textValue.get(i).getText())){
+//                bddUtil.scrollWindowToElement(textValue.get(i)).click();
+//                relationship_page.confirmBtn.click();
+//                break;
+//            }
+//        }
     }
 
     @Step
@@ -194,35 +200,43 @@ public class relationship_step extends ScenarioSteps {
     @Step
     public void insertBuyerInformation(){
         relationship_page.inputCounterName.click();
-        List<WebElementFacade> textValue = relationship_page.companyNameSelectList;
-        for (int i = 0; i < textValue.size(); i++) {
-            if (FileUtils.LastReadFileInput3("buyer").equals(textValue.get(i).getText())){
-                bddUtil.scrollWindowToElement(textValue.get(i)).click();
+        String buyerName = FileUtils.LastReadFileInput3("buyer");
+        bddUtil.find(By.xpath("//span[text()='"+buyerName+"']")).click();
+//        List<WebElementFacade> textValue = relationship_page.companyNameSelectList;
+//        for (int i = 0; i < textValue.size(); i++) {
+//            if (FileUtils.LastReadFileInput3("buyer").equals(textValue.get(i).getText())){
+//                bddUtil.scrollWindowToElement(textValue.get(i)).click();
+//                relationship_page.downstreamCompanyButton.click();
+//                relationship_page.confirmBtn.click();
+//                break;
+//            }
+//        }
                 relationship_page.downstreamCompanyButton.click();
                 relationship_page.confirmBtn.click();
-                break;
-            }
-        }
         bddUtil.sleep(5);
     }
 
     @Step
     public void insertSupplierInformation(){
         relationship_page.inputCounterName.click();
-        String rtn = FileUtils.FileInput3("companyData");
-        String [] arry = rtn.split(",");
-        List<String> fileContent = Arrays.asList(arry);
-        String value = fileContent.get(fileContent.size()-2);
-        System.out.println(value);
-        List<WebElementFacade> textValue = relationship_page.companyNameSelectList;
-        for (int i = 0; i < textValue.size(); i++) {
-            if (fileContent.get(fileContent.size()-2).equals(textValue.get(i).getText())){
-                bddUtil.scrollWindowToElement(textValue.get(i)).click();
-                relationship_page.upstreamCompanyButton.click();
-                relationship_page.confirmBtn.click();
-                break;
-            }
-        }
+//        String rtn = FileUtils.FileInput3("companyData");
+        String companyDataName = FileUtils.LastReadFileInput3("companyData");
+        bddUtil.find(By.xpath("//span[text()='"+companyDataName+"']")).click();
+//        String [] arry = rtn.split(",");
+//        List<String> fileContent = Arrays.asList(arry);
+//        String value = fileContent.get(fileContent.size()-2);
+//        System.out.println(value);
+//        List<WebElementFacade> textValue = relationship_page.companyNameSelectList;
+//        for (int i = 0; i < textValue.size(); i++) {
+//            if (fileContent.get(fileContent.size()-2).equals(textValue.get(i).getText())){
+//                bddUtil.scrollWindowToElement(textValue.get(i)).click();
+//                relationship_page.upstreamCompanyButton.click();
+//                relationship_page.confirmBtn.click();
+//                break;
+//            }
+//        }
+        relationship_page.upstreamCompanyButton.click();
+        relationship_page.confirmBtn.click();
         bddUtil.sleep(3);
     }
 
