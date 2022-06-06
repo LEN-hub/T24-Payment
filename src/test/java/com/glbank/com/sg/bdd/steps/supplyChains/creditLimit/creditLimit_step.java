@@ -18,8 +18,8 @@ public class creditLimit_step extends ScenarioSteps {
     private creditLimit_page creditLimit_page;
     private BDDUtil bddUtil;
     public static String envTag;
-    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\BR.jpg";
-
+    private static String systemPath = System.getProperty("user.dir");
+    String fileAddress = systemPath + "/src/test/resources/testData/autopay/BR.jpg";
     @Step
     public void clickUnderWritingAndApproval(){
         creditLimit_page.underWriting.click();

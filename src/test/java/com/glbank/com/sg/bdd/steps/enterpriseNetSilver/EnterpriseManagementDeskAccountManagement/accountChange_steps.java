@@ -142,7 +142,9 @@ public class accountChange_steps extends ScenarioSteps {
 
 //  CA账户开立
 
-    public void clickAccountOpening(){ accountChange_page.accountOpening.click();}
+    public void clickAccountOpening(){
+        accountChange_page.accountOpening.click();
+    }
 
     public void clickCA(String CA) {
         List<WebElementFacade> selectCA = accountChange_page.CA;

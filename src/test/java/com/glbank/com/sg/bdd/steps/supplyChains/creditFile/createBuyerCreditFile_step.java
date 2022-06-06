@@ -15,8 +15,8 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
 
     private createBuyerCreditFile_page createBuyerCreditFile_page;
     private BDDUtil bddUtil;
-    String fileAddress = "E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg";
-
+    private static String systemPath = System.getProperty("user.dir");
+    String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
     @Step
     public void clickBuyerCreditProfileList(){
         createBuyerCreditFile_page.clickBuyerCreditProfileList.click();
