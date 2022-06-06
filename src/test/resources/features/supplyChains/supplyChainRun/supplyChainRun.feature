@@ -53,6 +53,7 @@ Feature: supply chain run
     Given logon "environments_1" on tube by inputting system
     When Approval in the supply chain system
     Then Switch To the Assign To Me page and perform the corresponding operations
+    When I close driver
 
 #绑定关系
   Scenario:Supplier The operator binds the supplier to a buyer relationship that does not exist between a single system, and the binding is successful
@@ -62,6 +63,7 @@ Feature: supply chain run
     When I click the Create New Supplier Relationship button and Create a New Relationship
     When I click Create New Counter button on the page
     And I should bind a buyer information in his downstream
+    When I close driver
 
 #    产品设置
   Scenario:UAT_ Supply chain_ Inner tube_ Create product_ 003
@@ -86,6 +88,7 @@ Feature: supply chain run
     Then I click Submit product profile
     When The vendor logs in to the vendor portal to view products
     And Enter login information
+    When I close driver
 
 #创建信用档案
   Scenario:createSupplierCreditFile
@@ -98,26 +101,23 @@ Feature: supply chain run
     And change user To L2 Review
     Given logon "environments_2" on tube by inputting system
     And use User L2 to Supplier Review
+    When I close driver
 
 #    授信限额
   Scenario:1Supplier The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained
     Given logon "environments_1" on tube by inputting system
     When I click UnderWriting and UnderWriting Approval
     Then I should direct to the UnderWriting Approval page
-#    When I click Supplier Assign to Me button on UnderWriting Approval page
     When I click Supplier Test Data Assign to Me button on UnderWriting Approval page
-#  When I click buyer Assign to Me button on UnderWriting Approval page
     When I click Assign to ME title on the on UnderWriting Approval page
-#  Then I should see Proceed Button on the UnderWriting Approval page
     When I should see Supplier Proceed Button and click on the UnderWriting Approval page
+    When I update Limit for THIS Product
     When I click Result button on the UnderWriting Approval page
     And I click Approve button and click Submit button on the page
-#    When I changed Rating is BB
     When I click Completed Button on the UnderWriting Approval page
     Given logon "environments_2" on tube by inputting system
     When I click UnderWriting and UnderWriting Approval
     Then I should direct to the UnderWriting Approval page
-#    When I click Supplier Assign to Me button on UnderWriting Approval page
     When I click Supplier Test Data Assign to Me button on UnderWriting Approval page
     When I click Assign to ME title on the on UnderWriting Approval page
     When I should see Supplier Proceed Button and click on the UnderWriting Approval page
@@ -125,6 +125,7 @@ Feature: supply chain run
     And I click Approve button and click Submit button on the page
     When I the second click Completed Button on the UnderWriting Approval page
     When I click UnderWriting List button on the page
+    When I close driver
 
 
 #  BR签署
@@ -137,6 +138,8 @@ Feature: supply chain run
     And I click confirm Button
     When I login email URL
     When I to sign
+    When I close driver
+
 
 #   RPA上传
   Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_ 0001
@@ -148,6 +151,8 @@ Feature: supply chain run
       |fileAddress                                                            |
       |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
     Then Jump to the supplier portal to check the RPA
+    When I close driver
+
 
 #   融资申请
   Scenario:financingRequest1
@@ -163,6 +168,8 @@ Feature: supply chain run
     Given logon "environments_3" test code
     When I input login information
     And click Financing Status
+    When I close driver
+
 
 #   放款
   Scenario:UAT_ Supply chain_ Inner tube_ Create payments_ 0001
@@ -175,6 +182,8 @@ Feature: supply chain run
     And  click proceed
     Then Click on the submit APPROVE
     When Confirm Disbursement page
+    When I close driver
+
 
 #    还款
   Scenario:UAT_supply chain_inner management_repayment_0001UAT_supply chain_inner management_repayment_0001
@@ -188,5 +197,7 @@ Feature: supply chain run
     Then I should direct to the Repayment Detail page
     When I select Repayment Account No on the page
     And I enter other parameters in the current page
+    When I close driver
+
 
 #    mvn clean verify `-Dcucumber.options="--tags @supplyChainRun"

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class rpa_page extends PageObject {
 
-    @FindBy(xpath = "//span[text()='Customers']/parent::div/i")
+    @FindBy(xpath = "//span[text()='Customers']/parent::div/span")
     public WebElementFacade Customers;
 
     @FindBy(xpath = "//span[text()='Contracts']/parent::div/following-sibling::div/div/span")

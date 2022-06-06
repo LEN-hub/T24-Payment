@@ -161,4 +161,9 @@ public class creditLimit_glue {
     public void iToSign() {
         creditLimit_step.toSign();
     }
+
+    @When("^I update Limit for THIS Product$")
+    public void iUpdateLimitForTHISProduct() {
+        creditLimit_step.updateLimit();
+    }
 }

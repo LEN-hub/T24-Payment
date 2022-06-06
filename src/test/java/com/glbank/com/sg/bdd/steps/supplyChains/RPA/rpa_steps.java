@@ -24,7 +24,9 @@ public class rpa_steps extends ScenarioSteps {
 
 
     @Step
-    public void clickCustomers(){rpaPage.Customers.click();}
+    public void clickCustomers(){
+        rpaPage.Customers.click();
+    }
 
     @Step
     public void clickContractManagement(){rpaPage.ContractManagement.click();}
