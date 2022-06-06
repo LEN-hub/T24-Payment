@@ -36,7 +36,7 @@ Feature: accountService
   Scenario:personal center online banking transaction query screening conditions
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When personal center online banking transaction query screening conditions
-
+  @test99872
   Scenario:personal center online banking transaction query submission time selection nearly seven days
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When personal center online banking transaction query submission time selection nearly seven days
