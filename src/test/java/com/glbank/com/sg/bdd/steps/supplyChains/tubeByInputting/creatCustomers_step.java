@@ -658,6 +658,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public void clickProceedButtonOnAssignToMePage(){
         customers_page.searchCompanyInput.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         customers_page.searchCheckBox.click();
+        bddUtil.sleep(2);
         customers_page.proceedButtton.click();
     }
 
@@ -675,12 +676,14 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     public void processPageApprove(){
-        bddUtil.scrollWindowToElement(customers_page.relatedPartyCheckBox).click();
+//        bddUtil.scrollWindowToElement(customers_page.relatedPartyCheckBox);
+        bddUtil.clickByJS(customers_page.relatedPartyCheckBox);
+        bddUtil.sleep(2);
         customers_page.resultCheckBox.click();
         customers_page.selectApprove.click();
         customers_page.inputBoxComment.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.submitBtnOnAssignToMePage.click();
-        bddUtil.sleep(3);
+        bddUtil.sleep(8);
         bddUtil.quitDriver();
     }
 

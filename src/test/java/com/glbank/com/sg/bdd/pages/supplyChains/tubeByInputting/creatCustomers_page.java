@@ -763,7 +763,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//span[contains(text(),'Submit')]")
     public WebElementFacade submitBtnOnAssignToMePage;
 
-    @FindBy(xpath = "//label[@for='relatedParty']/following-sibling::div//label[1]/span[@class='lls-radio__input']")
+    @FindBy(xpath = "//label[@for='relatedParty']/following-sibling::div//label[1]/span[1]")
     public WebElementFacade relatedPartyCheckBox;
 
 

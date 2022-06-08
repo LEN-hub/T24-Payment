@@ -244,7 +244,7 @@ public class relationship_step extends ScenarioSteps {
 //        }
         relationship_page.upstreamCompanyButton.click();
         relationship_page.confirmBtn.click();
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
     }
 
 }
