@@ -5,7 +5,10 @@ import com.glbank.com.sg.bdd.utils.BDDUtil;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import static com.glbank.com.sg.bdd.utils.AssertLocal.assertEquals;
@@ -13,6 +16,8 @@ import static com.glbank.com.sg.bdd.utils.AssertLocal.assertEquals;
 public class loanApplication_step extends ScenarioSteps {
     private BDDUtil bddUtil;
     private loanApplication_page loanApplication_page;
+    private static String systemPath = System.getProperty("user.dir");
+    String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
 
     //鼠标悬浮在贷款业务上。
     public void FloatingLoanButton(){
@@ -33,21 +38,29 @@ public class loanApplication_step extends ScenarioSteps {
         loanApplication_page.loanManagement.click();
     }
 
-    public void clickSGDPrepayBtn(String data){
+    public static String getPerFirstDayOfMonth() {
+        SimpleDateFormat dft = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, 1);
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMinimum(Calendar.DAY_OF_MONTH));
+        return dft.format(calendar.getTime());
+    }
+
+    public void clickSGDPrepayBtn(){
         getDriver().findElement(By.xpath("//div[@class='el-table__fixed-right']//tr[1]//div[@class='el-tooltip btn-icon']")).click();
 //        loanApplication_page.threePointSingapore.click();
         loanApplication_page.ApplicationForPayment.click();
-        loanApplication_page.repaymentDate.sendKeys(data);
+        loanApplication_page.repaymentDate.sendKeys(getPerFirstDayOfMonth());
         loanApplication_page.repayDate.click();
         loanApplication_page.nextOnUpLoadFile.click();
         loanApplication_page.nextOnUpLoadFile.click();
     }//点击新币的按钮。
 
-    public void clickUSDPrepayBtn(String data){
+    public void clickUSDPrepayBtn(){
         getDriver().findElement(By.xpath("//div[@class='el-table__fixed-right']//tr[2]//div[@class='el-tooltip btn-icon']")).click();
 //        loanApplication_page.threePointSingapore.click();
         loanApplication_page.ApplicationForPayment.click();
-        loanApplication_page.repaymentDate.sendKeys(data);
+        loanApplication_page.repaymentDate.sendKeys(getPerFirstDayOfMonth());
         loanApplication_page.repayDate.click();
         loanApplication_page.nextOnUpLoadFile.click();
         loanApplication_page.nextOnUpLoadFile.click();
@@ -58,6 +71,19 @@ public class loanApplication_step extends ScenarioSteps {
 //        loanApplication_page.threePoint.click();
         getDriver().findElement(By.xpath("//div[@class='el-table__fixed-right']//tbody/tr[3]/td[5]//div/div")).click();
         loanApplication_page.ApplicationForPayment.click();
+    }
+
+    public void selectProductType(String productTypeName){
+        List<WebElementFacade> productType = loanApplication_page.productType;
+        List<WebElementFacade> moreInfo = loanApplication_page.moreInformation;
+        for (int i = 0; i<= productType.size();i++){
+            if (productType.get(i).getText().equals(productTypeName)){
+                Actions action = new Actions(getDriver());
+                action.moveToElement(moreInfo.get(i)).perform();
+                loanApplication_page.ApplicationForPayment.click();
+                break;
+            }
+        }
     }
 
     //在输入信息页面，输入相对应的信息。
@@ -213,7 +239,7 @@ public class loanApplication_step extends ScenarioSteps {
         bddUtil.sleep(3);
     }//填写其他财务承诺在房产抵债。
 
-    public void upLoadFile(String fileAddress){
+    public void upLoadFile(){
         getDriver().findElement(By.xpath("//div[@class='ui-container-full__body']/div/div[4]//div[@class='upload_block'][1]//input")).sendKeys(fileAddress);
         bddUtil.sleep(2);
         getDriver().findElement(By.xpath("//div[@class='ui-container-full__body']/div/div[4]//div[@class='upload_block'][2]//input")).sendKeys(fileAddress);
@@ -222,7 +248,7 @@ public class loanApplication_step extends ScenarioSteps {
         bddUtil.sleep(2);
     }
 
-    public void upLoadFileOnHouse(String fileAddress){
+    public void upLoadFileOnHouse(){
         getDriver().findElement(By.xpath("//div[@class='ui-container-full__body']/div/div[4]//div[@class='upload_block'][1]//input")).sendKeys(fileAddress);
         bddUtil.sleep(2);
         getDriver().findElement(By.xpath("//div[@class='ui-container-full__body']/div/div[4]//div[@class='upload_block'][2]//input")).sendKeys(fileAddress);
@@ -313,7 +339,7 @@ public class loanApplication_step extends ScenarioSteps {
         loanApplication_page.usDollar.click();
     }
 
-    public void inputApplyForAmount(String amount,String dayNum,String goodsDescr,String fileAddress){
+    public void inputApplyForAmount(String amount,String dayNum,String goodsDescr){
         loanApplication_page.ApplyForAmount.sendKeys(amount);
         loanApplication_page.financingDayNum.sendKeys(dayNum);
         loanApplication_page.goodsDescr.sendKeys(goodsDescr);

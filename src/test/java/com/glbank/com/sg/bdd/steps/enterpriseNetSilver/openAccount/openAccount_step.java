@@ -361,7 +361,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         openAccount_page.clickIndustry.click();
         List<WebElementFacade> testThreeEntityType = openAccount_page.getEntityType2;
         for (int k =0;k <= testThreeEntityType.size();k++){
-            bddUtil.sleep(2);
+            bddUtil.sleep(3);
             if (testThreeEntityType.get(k).getText().equals(entityIndustry)) {
                 bddUtil.scrollWindowToElement(testThreeEntityType.get(k)).click();
                 break;
@@ -472,10 +472,17 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
                 openAccount_page.nationalityOne.sendKeys("SINGAPOREAN");
                 openAccount_page.SINGAPOREAN.click();
             }
-            openAccount_page.nationalityOne.sendKeys("SINGAPOREAN");
-            openAccount_page.SINGAPOREAN.click();
+            openAccount_page.clickSelectCountryIcon.click();
+            List<WebElementFacade> selectCountry = openAccount_page.selectCountry;
+            for (int i = 0;i <selectCountry.size(); i++){
+                if (selectCountry.get(i).getText().equals("SINGAPOREAN")){
+                    bddUtil.scrollWindowToElement(selectCountry.get(i)).click();
+                    break;
+                }
+            }
             openAccount_page.inputAliasNm.sendKeys(aliasNm);
             openAccount_page.inputBirthDate.sendKeys("01/01/2010");
+            bddUtil.sleep(1);
             openAccount_page.clickRoleCd.click();
             bddUtil.scrollWindowToElement(openAccount_page.goIdentificationType);
             bddUtil.sleep(1);
@@ -490,7 +497,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
             openAccount_page.postalCodeTest.sendKeys(directorPhoneNumber);
             bddUtil.sleep(1);
             openAccount_page.countryTest.sendKeys("SINGAPORE");
-            bddUtil.sleep(1);
+            bddUtil.sleep(8);
             openAccount_page.SINGAPORETest.click();
             openAccount_page.clickDateOfExpiry.click();
             openAccount_page.clickIddInput.click();
@@ -537,8 +544,9 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
                 openAccount_page.deleteImg.click();
                 bddUtil.sleep(1);
                 openAccount_page.YesDelete.click();
+            }else if (openAccount_page.deleteAfterTitle.isVisible()){
+                break;
             }
-            break;
         }
         openAccount_page.clickNextForUBO2.click();
         bddUtil.sleep(2);
@@ -548,7 +556,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
     public void goOnDueDiligenceTest(){
         bddUtil.sleep(1);
         bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//span[text()='Yes']"))).click();
-       bddUtil.sleep(1);
+        bddUtil.sleep(1);
 
     }
 

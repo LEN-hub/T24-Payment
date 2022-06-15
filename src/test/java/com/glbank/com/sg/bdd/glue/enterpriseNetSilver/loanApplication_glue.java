@@ -69,10 +69,8 @@ public class loanApplication_glue {
     }
 
     @When("^I upload the three required documents$")
-    public void iUploadTheThreeRequiredDocuments(DataTable data) {
-        List<Map<String, String>> maps = data.asMaps(String.class, String.class);
-        loanApplication_step.upLoadFile(maps.get(0).get("fileAddress"));
-
+    public void iUploadTheThreeRequiredDocuments() {
+        loanApplication_step.upLoadFile();
     }
 
     @When("^I click next button on the upLoadFile page$")
@@ -99,9 +97,8 @@ public class loanApplication_glue {
     }
 
     @When("^I upload the five required documents$")
-    public void iUploadTheFiveRequiredDocuments(DataTable data) {
-        List<Map<String, String>> maps = data.asMaps(String.class, String.class);
-        loanApplication_step.upLoadFileOnHouse(maps.get(0).get("fileAddress"));
+    public void iUploadTheFiveRequiredDocuments() {
+        loanApplication_step.upLoadFileOnHouse();
     }
 
     @When("^I choose collection financing$")
@@ -159,7 +156,7 @@ public class loanApplication_glue {
     @When("^I have filled in the other information$")
     public void iHaveFilledInTheOtherInformation(DataTable data) {
         List<Map<String, String>> maps = data.asMaps(String.class, String.class);
-        loanApplication_step.inputApplyForAmount(maps.get(0).get("amount"),maps.get(0).get("dayNum"),maps.get(0).get("goodsDescr"),maps.get(0).get("fileAddress"));
+        loanApplication_step.inputApplyForAmount(maps.get(0).get("amount"),maps.get(0).get("dayNum"),maps.get(0).get("goodsDescr"));
     }
 
     @Then("^I should see Submitted successfully page$")
@@ -183,16 +180,20 @@ public class loanApplication_glue {
     }
 
     @When("^I click SGD Prepay button$")
-    public void iClickSGDPrepayButton(DataTable data) {
-        List<Map<String, String>> maps = data.asMaps(String.class, String.class);
-        loanApplication_step.clickSGDPrepayBtn(maps.get(0).get("data"));
+    public void iClickSGDPrepayButton() {
+        loanApplication_step.clickSGDPrepayBtn();
     }
 
 
     @When("^I click USD Prepay button$")
-    public void iClickUSDPrepayButton(DataTable data) {
-        List<Map<String, String>> maps = data.asMaps(String.class, String.class);
-        loanApplication_step.clickUSDPrepayBtn(maps.get(0).get("data"));
+    public void iClickUSDPrepayButton() {
+        loanApplication_step.clickUSDPrepayBtn();
 
+    }
+
+    @When("^I choose a product type to fill in the information$")
+    public void iChooseAProductTypeToFillInTheInformation(DataTable data) {
+        List<Map<String, String>> maps = data.asMaps(String.class, String.class);
+        loanApplication_step.selectProductType(maps.get(0).get("product type"));
     }
 }

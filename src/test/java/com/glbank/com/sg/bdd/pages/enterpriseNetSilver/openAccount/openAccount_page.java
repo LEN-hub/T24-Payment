@@ -68,6 +68,12 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class='ui-container-full__body']//form[1]//label[@for=\"nationality\"]/following-sibling::div//div//input")
     public WebElementFacade nationalityOne;
 
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//span")
+    public List<WebElementFacade> selectCountry;
+
+    @FindBy(xpath = "//label[@for='nationality']/following-sibling::div//span[@class='el-input__suffix']")
+    public WebElementFacade clickSelectCountryIcon;
+
     @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"countryCd\"]/following-sibling::div//div//input")
     public WebElementFacade countryTwo;
 
@@ -203,10 +209,10 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[1]/span[@class='el-checkbox__input']")
     public WebElementFacade selectFirstCheckBox;
 
-    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[2]/span[@class='el-checkbox__input']")
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/div[1]/label/span[@class='el-checkbox__input']")
     public WebElementFacade selectSecondCheckBox;
 
-    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[3]/span[@class='el-checkbox__input']")
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/div[2]/label/span[@class='el-checkbox__input']")
     public WebElementFacade selectThirdCheckBox;
 
     @FindBy(xpath = "//label[@for='contactPersonNm']/following-sibling::div//input[@disabled=\"disabled\"]")
@@ -269,7 +275,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//input[@readonly='readonly']")
     public List<WebElementFacade> selectCompany;
 
-    @FindBy(xpath = "//span[text()='Hideyuki Takaoka']")
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")
     public WebElementFacade takaoka;
 
     @FindBy(xpath = "//label[@for='countryCd']//following-sibling::div//input")
@@ -280,6 +286,9 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='el-message-box']/div[3]/button[2]/span")
     public WebElementFacade YesDelete;
+
+    @FindBy(xpath = "//b[contains(text(),'multiple connected corporate entities')]")
+    public WebElementFacade deleteAfterTitle;
 
     @FindBy(xpath = "//label[@for=\"certfctDueDate\"]")
     public WebElementFacade clickDateOfExpiry;

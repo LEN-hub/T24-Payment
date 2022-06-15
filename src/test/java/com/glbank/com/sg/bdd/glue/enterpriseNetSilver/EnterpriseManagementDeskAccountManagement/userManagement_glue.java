@@ -100,7 +100,7 @@ public class userManagement_glue {
 
 
 
-    @Then("^I  Verify success$")
+    @Then("^I Verify success$")
     public void iVerifySuccess() {
         userManagement_steps.authorizations();
     }

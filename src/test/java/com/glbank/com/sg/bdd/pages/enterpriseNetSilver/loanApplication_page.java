@@ -335,6 +335,12 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom']//div[@class='btn_box']")
     public WebElementFacade ApplicationForPayment;//支用申请按钮。
 
+    @FindBy(xpath = "//div[@class='table-box']/div[2]/div[3]//table[@class='el-table__body']//tr/td[1]/div")
+    public List<WebElementFacade> productType;
+
+    @FindBy(xpath = "//div[@class='el-table__fixed-body-wrapper']//table[@class='el-table__body']//tr/td//img")
+    public List<WebElementFacade> moreInformation;
+
     @FindBy(xpath = "//label[@for='disburseCurrencyTypeCd']/following-sibling::div//input")
     public WebElementFacade currency;//支用币种.
 

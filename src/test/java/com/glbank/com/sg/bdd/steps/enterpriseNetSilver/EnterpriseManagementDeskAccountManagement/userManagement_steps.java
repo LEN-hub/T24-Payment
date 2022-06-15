@@ -197,15 +197,15 @@ public class userManagement_steps extends ScenarioSteps {
 
 //页面弹框获取验证码
     public void clickValidationCode() {
-//        bddUtil.sleep(2);
-//        getDriver().switchTo().alert().getText();
-//        bddUtil.sleep(2);
-//        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
-//        bddUtil.sleep(2);
-//        getDriver().switchTo().alert().accept();
-//        bddUtil.sleep(1);
-        OTP = ConnectLinux.getLastOtp("60120003");
         bddUtil.sleep(2);
+        getDriver().switchTo().alert().getText();
+        bddUtil.sleep(2);
+        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
+        bddUtil.sleep(2);
+        getDriver().switchTo().alert().accept();
+        bddUtil.sleep(1);
+//        OTP = ConnectLinux.getLastOtp("60120003");
+//        bddUtil.sleep(2);
 }
 
     public void sendKeyBoth() throws AWTException {
@@ -213,21 +213,21 @@ public class userManagement_steps extends ScenarioSteps {
         bddUtil.sleep(2);
         userManagement_page.sendKeysBox.click();
         bddUtil.sleep(3);
-        enterKeys.EnterKeys(OTP.substring(0,1));
+        enterKeys.EnterKeys(verificationCode.substring(0,1));
         userManagement_page.secondKeysBox.click();
-        enterKeys.EnterKeys(OTP.substring(1,2));
+        enterKeys.EnterKeys(verificationCode.substring(1,2));
         userManagement_page.thirdKeysBox.click();
-        enterKeys.EnterKeys(OTP.substring(2,3));
+        enterKeys.EnterKeys(verificationCode.substring(2,3));
         userManagement_page.fourKeysBox.click();
-        enterKeys.EnterKeys(OTP.substring(3,4));
+        enterKeys.EnterKeys(verificationCode.substring(3,4));
         userManagement_page.fiveKeysBox.click();
-        enterKeys.EnterKeys(OTP.substring(4,5));
+        enterKeys.EnterKeys(verificationCode.substring(4,5));
         userManagement_page.sixKeysBox.click();
-        enterKeys.EnterKeys(OTP.substring(5,6));
+        enterKeys.EnterKeys(verificationCode.substring(5,6));
     }
 
     public void clickKeysEmail () {
-            userManagement_page.keysEmail.sendKeys(FileUtils.LastReadFileInput3("userAddEmailDataSFR"));
+            userManagement_page.keysEmail.sendKeys(RandomPhoneNumber.randomPhoneNum()+"@qq.com");
             bddUtil.sleep(3);}
 
     public void clickValidationEmail(){userManagement_page.validationEmail.click();}
@@ -242,7 +242,7 @@ public class userManagement_steps extends ScenarioSteps {
         if (userManagement_page.successful.getText().equals("交易成功")) {
             assertEquals("交易成功", userManagement_page.successful.getText());
         } else {
-            assertEquals("the transaction was successful", userManagement_page.successfulEnglish.getText());
+            assertEquals("Successful", userManagement_page.successfulEnglish.getText());
         }
         bddUtil.sleep(2);
         bddUtil.quitDriver();

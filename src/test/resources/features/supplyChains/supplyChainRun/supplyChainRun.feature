@@ -86,11 +86,12 @@ Feature: supply chain run
     And click Create ProductProfile
     When enter the second case information supplier and buyer
     Then I click Submit product profile
-    When The vendor logs in to the vendor portal to view products
+#    When The vendor logs in to the vendor portal to view products
     And Enter login information
     When I close driver
 
 #创建信用档案
+  @test00991
   Scenario:createSupplierCreditFile
     Given logon "environments_1" on tube by inputting system
     When login successfully and click the SCF link to createSupplierCreditFile
@@ -148,8 +149,6 @@ Feature: supply chain run
     And click ContractManagement
     Then Enter the name of the supplier to filter
     When Upload a file
-      |fileAddress                                                            |
-      |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
     Then Jump to the supplier portal to check the RPA
     When I close driver
 
