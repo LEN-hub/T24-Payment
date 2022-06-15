@@ -65,7 +65,7 @@ public class creatCustomers_glue {
         customers_step.getCountryOfRegistrationValue();
         customers_step.getCompanyNameLeft(JRandomNameTool.getStringRandom(10));
         customers_step.clickSubmitBtn();
-        bddUtil.sleep(2);
+        bddUtil.sleep(4);
     }
 
     @And("^I click Create Customer and fill in the supplier information in the pop-up window$")
@@ -308,10 +308,15 @@ public class creatCustomers_glue {
     @When("^Approval in the supply chain system$")
     public void approvalInTheSupplyChainSystem() {
         bddUtil.sleep(5);
-        int result = updateAmlResult(1, "companyData");
-        if(result > 0){
+        for (int i = 0; i < 4; i++) {
+            int result = updateAmlResult(1, "companyData");
+            if (result <= 0){
+                updateAmlResult(1,"companyData");
+                break;
+            }
             System.out.println("AML状态修改成功");
         }
+        bddUtil.sleep(2);
         customers_step.getClickCustomersMenu();
         customers_step.onboardingReview();
         customers_step.onboardingReviewTitle();
