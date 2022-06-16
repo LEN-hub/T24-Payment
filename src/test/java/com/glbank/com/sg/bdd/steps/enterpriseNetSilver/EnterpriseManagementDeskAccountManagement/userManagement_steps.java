@@ -44,9 +44,6 @@ public class userManagement_steps extends ScenarioSteps {
     public void selectTheMenus(String emailAddress) {
         bddUtil.sleep(5);
         List<WebElementFacade> checkEmail = userManagement_page.checkEmail;
-        List<WebElementFacade> sumNum = userManagement_page.sumNum;
-        a:for (int x = 0; x < sumNum.size(); x++){
-            sumNum.get(sumNum.size()-1).click();
             for (int i = 0; i < checkEmail.size(); i++) {
                 if (checkEmail.get(i).getText().equals(emailAddress)){
                     Actions action = new Actions(getDriver());
@@ -54,8 +51,7 @@ public class userManagement_steps extends ScenarioSteps {
                     int t = i+1;
                     System.out.println(t);
                     action.moveToElement(userManagement_page.find(By.xpath("//div[@class='el-table__body-wrapper is-scrolling-none']//tbody/tr["+t+"]/td[7]//img"))).perform();
-                    break a;
-                }
+                    break;
             }
         }
         bddUtil.sleep(5);

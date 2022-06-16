@@ -92,6 +92,12 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@class='ui-container-full__body']//div[@class='el-col el-col-24']/div[2]//div[@class='btn_box']")
     public WebElementFacade submitBtn;
 
+    @FindBy(xpath = "//div[@class='ui-container-full__body']//div[@class='el-col el-col-24']/div[@class='ui-button primary common disabled']")
+    public WebElementFacade displaySubmitBtn;
+
+    @FindBy(xpath = "//div[contains(text(),\"Exchange Rate\")]/img")
+    public WebElementFacade refreshBtn;
+
     @FindBy(xpath = "//div[@class='ui-container-full__body']//div[@class='el-col el-col-24']/div[1]//div[@class='btn_box']")
     public WebElementFacade previousBtn;
 

@@ -1,6 +1,6 @@
 @supplyChainRun
 Feature: supply chain run
-
+@testcaseReport123
 #  建档-供应商
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
     Given logon "environments_1" on tube by inputting system

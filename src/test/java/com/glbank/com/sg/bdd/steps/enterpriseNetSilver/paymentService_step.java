@@ -72,7 +72,9 @@ public class paymentService_step extends ScenarioSteps {
     public void clickSubmitBtn(){
         bddUtil.sleep(3);
         paymentService_page.submitBtn.click();
-//        if (paymentService_page.submitBtn.isVisible()){
+//        if (paymentService_page.submitBtn.isVisible()) {
+//            paymentService_page.submitBtn.click();
+//        }else if(paymentService_page.displaySubmitBtn.isVisible()){
 //            paymentService_page.previousBtn.click();
 //            bddUtil.sleep(2);
 //            paymentService_page.clickNextBtn.click();
@@ -402,10 +404,6 @@ public class paymentService_step extends ScenarioSteps {
             }
         }
 
-
-
-
-
     public void paymentAttributeCd(String selectPaymentAttributeCd){
         paymentService_page.paymentAttributeCdBox.click();
         bddUtil.sleep(3);
@@ -499,6 +497,4 @@ public class paymentService_step extends ScenarioSteps {
         }
 
     }
-
-
 }

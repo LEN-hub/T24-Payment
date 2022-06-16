@@ -85,7 +85,7 @@ Feature: e-Statement
 
     #  @ChangingMobilePhoneNumber
 #    修改手机号
-  @userManagement123
+  @userManagement123422
   Scenario:Process for modifying user information
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
@@ -104,7 +104,7 @@ Feature: e-Statement
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
-  @test1991
+  @test19912221
   #USD->CNY
   Scenario:Oneself mutual turn with currency mutual turn (CNY) trade flow
     Given logon "netSilverEnv_Kevin" on enterprise net silver
@@ -114,7 +114,7 @@ Feature: e-Statement
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
-
+  @test19912221332
     #时间选择每月(SDG->SDG)
   Scenario:Intra-line transfer time per month (SDG->SDG)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
@@ -231,7 +231,7 @@ Feature: e-Statement
       |1101 0000 179       |11020004223 |250000 |6 Months|2                    |
 
   #定期存款_美元_六个月_本金续存
-  @fixedDeposit04
+  @fixedDeposit0412312312
   Scenario:fixedDeposit_USD_SixMonth_RenewPrincipalAmountAndWithdrawInterest
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When click Fixed Deposits menu
@@ -240,7 +240,7 @@ Feature: e-Statement
       |1101 0000 047       |11020004223 |10000  |6 Months|2                    |
 
   #定期存款_新币_六个月_本息续存
-  @fixedDeposit05
+  @fixedDeposit055431321
   Scenario:fixedDeposit_SGD_SixMonth_RenewPrincipalAmountAndInterest
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When click Fixed Deposits menu
@@ -258,7 +258,7 @@ Feature: e-Statement
       |1101 0000 047       |11020004223 |10000  |6 Months|3                    |
 
         #定期存款_新币_九个月_不转存
-  @report
+  @report21321dsad
   Scenario:fixedDeposit_SGD_NineMonth_DoNotRenewOrWithdrawAutomatically
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When click Fixed Deposits menu
@@ -302,26 +302,44 @@ Feature: e-Statement
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
 
-#  修改密码
-  @forgetPassword
-  Scenario:idCard Forgot password users log in normally after resetting their passwords
-    Given open "netSilverEnv_Kevin" on enterprise net silver
-    When I click forgotPassword button
-    When I input Enterprise customer number and other information
-      |customerNumber |
-      |200032         |
-    When I click idCard button and input idCardNumber
-      |idCardNumber|
-      |T3676263H   |
-    And I Select country code and enter mobile number
-      |countryCode|iphoneNumber|
-      |+86        |13008553349 |
-    When I click get verification code button
-    When I input email address
-      |emailAddress     |
-      |617558302@qq.com |
-    When I click get verification code button
-    When I click next button on the change Password page
-    When I input new password and click confirm button
-    When The program is finished I will release the Linux SSH connection
 
+  @testcode123
+    #正常开户流程——单币种账户——新币
+  Scenario:openAccount Singapore enterprise
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+#    Then get Organisation ID
+
+##  修改密码
+#  @forgetPassword
+#  Scenario:idCard Forgot password users log in normally after resetting their passwords
+#    Given open "netSilverEnv_Kevin" on enterprise net silver
+#    When I click forgotPassword button
+#    When I input Enterprise customer number and other information
+#      |customerNumber |
+#      |200032         |
+#    When I click idCard button and input idCardNumber
+#      |idCardNumber|
+#      |T3676263H   |
+#    And I Select country code and enter mobile number
+#      |countryCode|iphoneNumber|
+#      |+86        |13008553349 |
+#    When I click get verification code button
+#    When I input email address
+#      |emailAddress     |
+#      |617558302@qq.com |
+#    When I click get verification code button
+#    When I click next button on the change Password page
+#    When I input new password and click confirm button
+#    When The program is finished I will release the Linux SSH connection
+#
