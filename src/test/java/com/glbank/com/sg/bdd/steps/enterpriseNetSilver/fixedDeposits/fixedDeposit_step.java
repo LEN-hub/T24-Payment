@@ -52,6 +52,7 @@ public class fixedDeposit_step extends ScenarioSteps {
             }
         }
         fixedDeposit_page.find(By.xpath("//label[@for=\"autTraSavFlag\"]/following-sibling::div//label["+transferAccountsWay+"]//span[@class='el-radio__inner']")).click();
+        bddUtil.scrollWindowToElement(fixedDeposit_page.clickNext);
         fixedDeposit_page.clickNext.click();
         bddUtil.sleep(2);
         if (fixedDeposit_page.clickCheck.isVisible()){
