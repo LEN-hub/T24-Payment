@@ -17,3 +17,5 @@ Leopold
 Violet
 Cosmo
 Josephine
+Lance
+Tony

@@ -47,7 +47,7 @@ Feature: openAccount
     And Share Account’s Risk Profile
     Then Upload Supporting Documents
     And Review Details
-    Then get Organisation ID
+#    Then get Organisation ID
 
     #单币种账户——欧元
   Scenario:openAccount Current Account CA_EUR
