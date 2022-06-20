@@ -203,10 +203,10 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[1]/span[@class='el-checkbox__input']")
     public WebElementFacade selectFirstCheckBox;
 
-    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[2]/span[@class='el-checkbox__input']")
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/div[1]/label/span[@class='el-checkbox__input']")
     public WebElementFacade selectSecondCheckBox;
 
-    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[3]/span[@class='el-checkbox__input']")
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/div[2]/label/span[@class='el-checkbox__input']")
     public WebElementFacade selectThirdCheckBox;
 
     @FindBy(xpath = "//label[@for='contactPersonNm']/following-sibling::div//input[@disabled=\"disabled\"]")
@@ -269,8 +269,8 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//input[@readonly='readonly']")
     public List<WebElementFacade> selectCompany;
 
-    @FindBy(xpath = "//span[text()='Hideyuki Takaoka']")
-    public WebElementFacade takaoka;
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul")
+    public WebElementFacade companyAdminName;
 
     @FindBy(xpath = "//label[@for='countryCd']//following-sibling::div//input")
     public WebElementFacade countryTest;

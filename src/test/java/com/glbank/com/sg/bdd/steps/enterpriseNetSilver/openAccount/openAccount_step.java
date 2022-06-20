@@ -269,7 +269,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         openAccount_page.selectCompany.get(0).click();
         bddUtil.sleep(1);
 //        takaoka需要改，根据不同的账户改一下。
-        openAccount_page.takaoka.click();
+        openAccount_page.companyAdminName.click();
         bddUtil.sleep(1);
 //        openAccount_page.emailNumber.click();
     }
@@ -473,7 +473,8 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
                 openAccount_page.SINGAPOREAN.click();
             }
             openAccount_page.nationalityOne.sendKeys("SINGAPOREAN");
-            openAccount_page.SINGAPOREAN.click();
+            bddUtil.sleep(1);
+//            openAccount_page.SINGAPOREAN.click();
             openAccount_page.inputAliasNm.sendKeys(aliasNm);
             openAccount_page.inputBirthDate.sendKeys("01/01/2010");
             openAccount_page.clickRoleCd.click();
@@ -588,7 +589,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         openAccount_page.selectCompany.get(0).click();
         bddUtil.sleep(1);
 //        takaoka需要改，根据不同的账户改一下。
-        openAccount_page.takaoka.click();
+        openAccount_page.companyAdminName.click();
         bddUtil.sleep(1);
         openAccount_page.mobileNumber.click();
     }
