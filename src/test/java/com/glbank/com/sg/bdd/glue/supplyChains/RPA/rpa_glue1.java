@@ -36,7 +36,7 @@ public class rpa_glue1 {
     }
 
     @When("^Upload a file$")
-    public void uploadAFile(DataTable data) {
+    public void uploadAFile() {
         rpaStep.clickUpload();
         rpaStep.clickBrowse();
 //        rpaStep.clickBrowse();
