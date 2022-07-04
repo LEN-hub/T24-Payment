@@ -10,11 +10,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/**
- * @author Tom1 p li
- * @version 1.0
- * @since 2019-08-09
- */
 public class CommonUtil {
     /**
      * Function: wait specific millisecond when running

@@ -12,6 +12,8 @@ import java.util.Calendar;
 import java.util.List;
 
 import static com.glbank.com.sg.bdd.utils.AssertLocal.assertEquals;
+import static com.glbank.com.sg.bdd.utils.ContactUtil.getEmail;
+import static com.glbank.com.sg.bdd.utils.RandomPhoneNumber.randomPhoneNum;
 
 public class loanApplication_step extends ScenarioSteps {
     private BDDUtil bddUtil;
@@ -34,7 +36,9 @@ public class loanApplication_step extends ScenarioSteps {
     }
 
     public void clickLoanManagement(){
-        loanApplication_page.loan.click();
+        bddUtil.sleep(3);
+        Actions action=new Actions(getDriver());
+        action.moveToElement( loanApplication_page.loan).perform();
         loanApplication_page.loanManagement.click();
     }
 
@@ -148,23 +152,43 @@ public class loanApplication_step extends ScenarioSteps {
         bddUtil.sleep(3);
     }//选择个人担保人和董事以及一系列值。
 
-    public void selectCorporateGuarantee(String registeredName,String RegistrationNumber,String registrationDate,String address,String city,String zipCode){
+    public void selectCorporateGuarantee(String registeredName,String RegistrationNumber,String registrationDate,String address,String city,String zipCode,String Sex){
         loanApplication_page.corporateGuarantor.click();
+        loanApplication_page.personalGuarantorRole.click();
+        loanApplication_page.salutation.click();
+        List<WebElementFacade> selectSex = loanApplication_page.selectSalutation;
+        for (int i = 0; i <= selectSex.size(); i++){
+            if (Sex.equals(selectSex.get(i).getText())){
+                selectSex.get(i).click();
+                break;
+            }
+        }
         loanApplication_page.registeredName.sendKeys(registeredName);
-        loanApplication_page.companyRegisterDate.sendKeys(registrationDate);
-        loanApplication_page.companyRegisterDate.click();
-        loanApplication_page.RegistrationNumber.sendKeys(RegistrationNumber);
-        loanApplication_page.entRegisterCountry.click();
-        loanApplication_page.RegisteredInChina.click();
-        loanApplication_page.entRegisterAddr.sendKeys(address);
-        loanApplication_page.city.sendKeys(city);
-        loanApplication_page.zipCode.sendKeys(zipCode);
-        loanApplication_page.countryBox.click();
-        loanApplication_page.RegisteredInChina.click();
-        loanApplication_page.enterpriseTypeCd.click();
-        loanApplication_page.privateLimitedCompany.click();
-        loanApplication_page.submit.click();
-        bddUtil.sleep(3);
+        loanApplication_page.dateOfBirth.sendKeys(bddUtil.dateFormate());
+        loanApplication_page.getNotionalityText.click();
+        loanApplication_page.mobileNum.sendKeys(randomPhoneNum());
+        loanApplication_page.notionalityText.sendKeys("CHINESE");
+        loanApplication_page.selectChinese.click();
+        loanApplication_page.certfctNo.sendKeys("T1234567B");
+        loanApplication_page.idd.sendKeys("+86");
+        loanApplication_page.selectChina.click();
+        loanApplication_page.inputEmail.sendKeys(getEmail(1,10));
+        loanApplication_page.inputExperience.sendKeys("1");
+        loanApplication_page.nextBtnTwo.click();
+//        loanApplication_page.companyRegisterDate.sendKeys(registrationDate);
+//        loanApplication_page.companyRegisterDate.click();
+//        loanApplication_page.RegistrationNumber.sendKeys(RegistrationNumber);
+//        loanApplication_page.entRegisterCountry.click();
+//        loanApplication_page.RegisteredInChina.click();
+//        loanApplication_page.entRegisterAddr.sendKeys(address);
+//        loanApplication_page.city.sendKeys(city);
+//        loanApplication_page.zipCode.sendKeys(zipCode);
+//        loanApplication_page.countryBox.click();
+//        loanApplication_page.RegisteredInChina.click();
+//        loanApplication_page.enterpriseTypeCd.click();
+//        loanApplication_page.privateLimitedCompany.click();
+//        loanApplication_page.submit.click();
+//        bddUtil.sleep(3);
     }//选择企业担保人以及一系列值。
 
     public void selectRealEstateMortgage(String houseAddress,String zipCode,String constructionArea){
@@ -213,17 +237,47 @@ public class loanApplication_step extends ScenarioSteps {
         bddUtil.sleep(3);
     }//填写其他财务承诺。
 
-    public void inputOtherFinancialCommitmentOnCompany(String financialInstitutionName,String loanAmt,String outstandingAmt,String monthlyInstallments,String rate){
-        loanApplication_page.yesBtnCompany.click();
-//        loanApplication_page.financialInstitutionCompanyName.sendKeys(financialInstitutionName);
-        loanApplication_page.overdraftCompany.click();
-        loanApplication_page.loanAmtCompany.sendKeys(loanAmt);
-//        loanApplication_page.outstandingAmtCompany.sendKeys(outstandingAmt);
-//        loanApplication_page.monthlyInstallmentsCompany.sendKeys(monthlyInstallments);
-        loanApplication_page.rateCompany.sendKeys(rate);
-        bddUtil.scrollWindowToElement(loanApplication_page.rateCompany);
-        loanApplication_page.nextStep.click();
-        bddUtil.sleep(3);
+    public void inputOtherFinancialCommitmentOnCompany(String financialInstitutionName,String loanAmt,String outstandingAmt,String monthlyInstallments,String rate,String months, String twoMonths){
+        loanApplication_page.firstDate.sendKeys(bddUtil.dateFormate());
+        loanApplication_page.firstReportingPeriodText.click();
+        loanApplication_page.firstReportingPeriod.click();
+        List<WebElementFacade> firstMonths = loanApplication_page.firstSelectMonths;
+        for (int i = 0; i<= firstMonths.size();i++){
+            if (months.equals(firstMonths.get(i).getText())){
+                firstMonths.get(i).click();
+                break;
+            }
+        }
+        loanApplication_page.firstNetSalesInput.sendKeys("10000");
+        loanApplication_page.firstNetProfitInput.sendKeys("10000");
+        loanApplication_page.firstTotalAssets.sendKeys("10000");
+        loanApplication_page.firstTotalLiabilities.sendKeys("10000");
+        loanApplication_page.secondDate.sendKeys(bddUtil.dateFormate());
+        loanApplication_page.secondReportingPeriodText.click();
+        loanApplication_page.secondReportingPeriod.click();
+        List<WebElementFacade> secondMonths = loanApplication_page.firstSelectMonths;
+        for (int i = 0; i<= secondMonths.size();i++){
+            if (twoMonths.equals(secondMonths.get(i).getText())){
+                secondMonths.get(i).click();
+                break;
+            }
+        }
+        loanApplication_page.secondNetSalesInput.sendKeys("10000");
+        loanApplication_page.secondNetProfitInput.sendKeys("10000");
+        loanApplication_page.secondTotalAssets.sendKeys("10000");
+        loanApplication_page.secondTotalLiabilities.sendKeys("10000");
+        loanApplication_page.checkPoint.click();
+        loanApplication_page.nextBtnTwo.click();
+//        loanApplication_page.yesBtnCompany.click();
+////        loanApplication_page.financialInstitutionCompanyName.sendKeys(financialInstitutionName);
+//        loanApplication_page.overdraftCompany.click();
+//        loanApplication_page.loanAmtCompany.sendKeys(loanAmt);
+////        loanApplication_page.outstandingAmtCompany.sendKeys(outstandingAmt);
+////        loanApplication_page.monthlyInstallmentsCompany.sendKeys(monthlyInstallments);
+//        loanApplication_page.rateCompany.sendKeys(rate);
+//        bddUtil.scrollWindowToElement(loanApplication_page.rateCompany);
+//        loanApplication_page.nextStep.click();
+//        bddUtil.sleep(3);
     }//填写其他财务承诺在公司担保界面。。
 
     public void inputOtherOnRealEstateMortgage(String financialInstitutionName,String loanAmt,String outstandingAmt,String monthlyInstallments,String rate){
@@ -260,6 +314,14 @@ public class loanApplication_step extends ScenarioSteps {
         getDriver().findElement(By.xpath("//div[@class='ui-container-full__body']/div/div[4]//div[@class='upload_block'][5]//input")).sendKeys(fileAddress);
         bddUtil.sleep(2);
     }//房产抵押上传文件。
+
+    public void nextAndSubmit(){
+        loanApplication_page.nextOnUpLoadFile.click();
+        bddUtil.sleep(2);
+        loanApplication_page.clickSubmitBtn.click();
+        bddUtil.sleep(15);
+        assertEquals("Congratulations!",loanApplication_page.checkText.getText());
+    }
 
     public void clickNextBtn(){
         loanApplication_page.nextOnUpLoadFile.click();

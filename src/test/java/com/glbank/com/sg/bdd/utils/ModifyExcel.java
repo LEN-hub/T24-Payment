@@ -24,7 +24,6 @@ public class ModifyExcel {
                     continue;
                 }
                 for (int j = 0; j <=  xSheet.getRow(i).getPhysicalNumberOfCells(); j++) {  //遍历当前行的所有列
-                    StringBuffer sb =new StringBuffer();
                     if(xSheet.getRow(i).getCell(j)==null){//为空跳出循环
                         continue;
                     }

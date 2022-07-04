@@ -77,18 +77,19 @@ Feature: loan application
     When I hover over the loan business
     When I choose fixed asset loan
       |amount |
-      |1200000|
+      |20000  |
     When I choose corporate guarantor
-      |registeredName          |RegistrationNumber |registrationDate|address|city    |zipCode|
-      |China Technology Group  |123123             |2010-02-14      |china  |beijing |713548 |
+      |registeredName          |RegistrationNumber |registrationDate|address|city    |zipCode|Sex|
+      |China Technology Group  |123123             |2010-02-14      |china  |beijing |713548 |Mr |
     When I fill out other financial commitments on company guarantee page
-      |financialInstitutionName |loanAmt |outstandingAmt |monthlyInstallments |rate|
-      |test123                  |12      |1              |0                   |1   |
-    When I enter vehicle details
-      |brand      |price |
-      |Lamborghini|1200000 |
-    When I upload the five required documents
-    When I click next button on the upLoadFile page
+      |financialInstitutionName |loanAmt |outstandingAmt |monthlyInstallments |rate|Reporting Period|second Reporting Period|
+      |test123                  |12      |1              |0                   |1   |6 months        |12 months              |
+#    When I enter vehicle details
+#      |brand      |price |
+#      |Lamborghini|20000 |
+#    When I upload the five required documents
+    When I upload the three required documents
+    When I click next button and submit button
 
 
 #    贷款支用。无授权
@@ -171,7 +172,7 @@ Feature: loan application
 #    还款。
     @loanApplication7
 Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: SGD, product term: 30 days), the repayment is successful
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
+      Given logon "netSilverEnv_Kevin" on enterprise net silver
       When I click the loan Manage ment Button
       When I click SGD Prepay button
       Then TC code is then required for Vkey authentication

@@ -1,19 +1,12 @@
 package com.glbank.com.sg.bdd.utils;
 
+import org.apache.poi.ss.formula.functions.Today;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * \* Created with IntelliJ IDEA.
- * \* User: 43864264
- * \* Date: 05/04/2020
- * \* Time: 11:49 AM
- * \* To change this template use File | Settings | File Templates.
- * \* Description:
- * \
- */
 public class GenerateDate {
 
     long millsec_day = 24*3600*1000;

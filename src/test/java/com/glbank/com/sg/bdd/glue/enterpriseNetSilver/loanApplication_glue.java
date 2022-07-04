@@ -128,13 +128,13 @@ public class loanApplication_glue {
     @When("^I choose corporate guarantor$")
     public void iChooseCorporateGuarantor(DataTable data) {
         List<Map<String, String>> maps = data.asMaps(String.class, String.class);
-        loanApplication_step.selectCorporateGuarantee(maps.get(0).get("registeredName"),maps.get(0).get("RegistrationNumber"),maps.get(0).get("registrationDate"),maps.get(0).get("address"),maps.get(0).get("city"),maps.get(0).get("zipCode"));
+        loanApplication_step.selectCorporateGuarantee(maps.get(0).get("registeredName"),maps.get(0).get("RegistrationNumber"),maps.get(0).get("registrationDate"),maps.get(0).get("address"),maps.get(0).get("city"),maps.get(0).get("zipCode"),maps.get(0).get("Sex"));
     }
 
     @When("^I fill out other financial commitments on company guarantee page$")
     public void iFillOutOtherFinancialCommitmentsOnCompanyGuaranteePage(DataTable data) {
         List<Map<String, String>> maps = data.asMaps(String.class, String.class);
-        loanApplication_step.inputOtherFinancialCommitmentOnCompany(maps.get(0).get("financialInstitutionName"),maps.get(0).get("loanAmt"),maps.get(0).get("outstandingAmt"),maps.get(0).get("monthlyInstallments"),maps.get(0).get("rate"));
+        loanApplication_step.inputOtherFinancialCommitmentOnCompany(maps.get(0).get("financialInstitutionName"),maps.get(0).get("loanAmt"),maps.get(0).get("outstandingAmt"),maps.get(0).get("monthlyInstallments"),maps.get(0).get("rate"),maps.get(0).get("Reporting Period"),maps.get(0).get("second Reporting Period"));
     }
 
     @When("^I enter vehicle details$")
@@ -195,5 +195,10 @@ public class loanApplication_glue {
     public void iChooseAProductTypeToFillInTheInformation(DataTable data) {
         List<Map<String, String>> maps = data.asMaps(String.class, String.class);
         loanApplication_step.selectProductType(maps.get(0).get("product type"));
+    }
+
+    @When("^I click next button and submit button$")
+    public void iClickNextButtonAndSubmitButton() {
+        loanApplication_step.nextAndSubmit();
     }
 }

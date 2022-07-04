@@ -47,28 +47,28 @@ Scenario:Download the electronic notice and successfully generate the download t
 
 
 
-#  修改密码
-  @forgetPassword
-  Scenario:idCard Forgot password users log in normally after resetting their passwords
-    Given open "netSilverEnv_Kevin" on enterprise net silver
-    When I click forgotPassword button
-    When I input Enterprise customer number and other information
-      |customerNumber |
-      |200032         |
-    When I click idCard button and input idCardNumber
-      |idCardNumber|
-      |T3676263H   |
-    And I Select country code and enter mobile number
-      |countryCode|iphoneNumber|
-      |+86        |13008553349 |
-    When I click get verification code button
-    When I input email address
-      |emailAddress     |
-      |617558302@qq.com |
-    When I click get verification code button
-    When I click next button on the change Password page
-    When I input new password and click confirm button
-    When The program is finished I will release the Linux SSH connection
+##  修改密码
+#  @forgetPassword
+#  Scenario:idCard Forgot password users log in normally after resetting their passwords
+#    Given open "netSilverEnv_Kevin" on enterprise net silver
+#    When I click forgotPassword button
+#    When I input Enterprise customer number and other information
+#      |customerNumber |
+#      |200032         |
+#    When I click idCard button and input idCardNumber
+#      |idCardNumber|
+#      |T3676263H   |
+#    And I Select country code and enter mobile number
+#      |countryCode|iphoneNumber|
+#      |+86        |13008553349 |
+#    When I click get verification code button
+#    When I input email address
+#      |emailAddress     |
+#      |617558302@qq.com |
+#    When I click get verification code button
+#    When I click next button on the change Password page
+#    When I input new password and click confirm button
+#    When The program is finished I will release the Linux SSH connection
 
 
 

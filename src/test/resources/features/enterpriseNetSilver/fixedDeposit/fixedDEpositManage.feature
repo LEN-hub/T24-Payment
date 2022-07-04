@@ -47,7 +47,7 @@ Feature: fixedDepositManage
     When click Fixed Deposits First menu
     Then I operate on the current page data information
       | fdAccountNumber |
-      | 16010005205     |
+      | 16010000645     |
 
   #六个月_美元_本息续存_全部支取
   @fixedDepositManage06

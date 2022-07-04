@@ -32,10 +32,6 @@ import java.util.*;
 import static org.junit.Assert.assertTrue;
 
 
-/**
- * Created on 2019/10/24
- * @author:  45073953
- */
 
 public class BDDUtil extends PageObject {
     private Set<String> handles;
