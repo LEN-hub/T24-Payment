@@ -224,7 +224,7 @@ Feature: e-Statement
 #    Then get Organisation ID
 
 #  修改密码
-  @forgetPassword
+  @157647
   Scenario:idCard Forgot password users log in normally after resetting their passwords
     Given open "netSilverEnv_Kevin" on enterprise net silver
     When I click forgotPassword button

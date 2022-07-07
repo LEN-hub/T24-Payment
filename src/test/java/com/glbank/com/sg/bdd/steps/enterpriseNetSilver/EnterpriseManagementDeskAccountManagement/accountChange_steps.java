@@ -66,7 +66,10 @@ public class accountChange_steps extends ScenarioSteps {
 
     public void clickCodeNext(){
         accountChange_page.codeNext.click();
-        bddUtil.sleep(5);}
+        bddUtil.sleep(5);
+    }
+
+
 
     public void vkeyTCCode() throws InterruptedException, MalformedURLException {
         MobileConfig test = new MobileConfig();

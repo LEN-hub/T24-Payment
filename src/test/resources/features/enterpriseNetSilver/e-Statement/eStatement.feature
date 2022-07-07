@@ -19,7 +19,7 @@ Feature: e-Statement
 
 
 
-  @ext123
+  @ext123test122
 Scenario:Download past e-statements successfully
   Given logon "netSilverEnv_Kevin" on enterprise net silver
   When I click My Downloads Btn
@@ -35,7 +35,7 @@ Scenario:Download past e-statements successfully
 #    When I see My Downloads List
 
 
-  @ext123
+  @ext123test
 Scenario:Download the electronic notice and successfully generate the download task
   Given logon "netSilverEnv_Kevin" on enterprise net silver
   When I click My Downloads Btn

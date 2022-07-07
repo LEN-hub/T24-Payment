@@ -353,6 +353,12 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//div[@class='ui-container-full__body']/div//div[@class='ui-button primary common']//div[@class='btn_box']")
     public WebElementFacade nextOnUpLoadFile;
 
+    @FindBy(xpath = "//label[@for='repayOrigAmt']/following-sibling::div//input[@disabled=\"disabled\"]")
+    public WebElementFacade prepaymentAmountDisabled;
+
+    @FindBy(xpath ="//label[@for='repayOrigAmt']/following-sibling::div//input" )
+    public WebElementFacade prepaymentAmount;
+
     @FindBy(xpath = "//div[contains(text(),'Submit')]")
     public WebElementFacade clickSubmitBtn;
 

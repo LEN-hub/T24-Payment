@@ -70,6 +70,14 @@ public class loanApplication_step extends ScenarioSteps {
         loanApplication_page.nextOnUpLoadFile.click();
     }//点击美元的按钮。
 
+    public void prepaymentAmountDisabled(){
+        if (loanApplication_page.prepaymentAmountDisabled.isVisible()){
+            System.out.println("当前元素为置灰状态，不可输入任何内容！");
+        }else if (loanApplication_page.prepaymentAmount.isVisible()){
+            loanApplication_page.prepaymentAmount.sendKeys("1000");
+        }
+    }
+
     public void clickApplicationForPayment(){
         bddUtil.sleep(2);
 //        loanApplication_page.threePoint.click();

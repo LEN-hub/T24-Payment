@@ -65,13 +65,12 @@ public class paymentService_step extends ScenarioSteps {
         if (paymentService_page.tipsTitle.isVisible()){
             paymentService_page.clickTipsContinueBtn.click();
         }
-        paymentService_page.accountTitle.isDisplayed();
     }
 
     @Step
     public void clickSubmitBtn(){
         bddUtil.sleep(3);
-        paymentService_page.submitBtn.click();
+        bddUtil.scrollWindowToElement(paymentService_page.submitBtn).click();
 //        if (paymentService_page.submitBtn.isVisible()) {
 //            paymentService_page.submitBtn.click();
 //        }else if(paymentService_page.displaySubmitBtn.isVisible()){

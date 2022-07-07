@@ -26,6 +26,12 @@ public class fixedDepositManage_glue {
         bddUtil.sleep(5);
     }
 
+    @Then("^I operate on the current page data information and click complete all data$")
+    public void ToWithdrawFDAndClickSubmitBtn() {
+        fixedDepositManage_step.clickToWithdrawFDAndClickSubmitBtn();
+        bddUtil.sleep(5);
+    }
+
     @When("^click Fixed Deposits First menu$")
     public void clickFixedDepositsFirstMenu() {
         fixedDepositManage_step.clickFixedDepositsFirstMenu();

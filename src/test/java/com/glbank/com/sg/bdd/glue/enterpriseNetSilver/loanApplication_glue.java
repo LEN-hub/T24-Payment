@@ -188,7 +188,6 @@ public class loanApplication_glue {
     @When("^I click USD Prepay button$")
     public void iClickUSDPrepayButton() {
         loanApplication_step.clickUSDPrepayBtn();
-
     }
 
     @When("^I choose a product type to fill in the information$")
