@@ -188,6 +188,9 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextToStep3;
 
+    @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[@class=\"ui-button primary common out-height\"]/div")
+    public WebElementFacade clickLetContinue;
+
     @FindBy(xpath = "//label[@for=\"contactPersonNm\"]/following-sibling::div//div//input")
     public WebElementFacade inputContactPersonNm;
 
