@@ -30,7 +30,7 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//label[@for='loanTypeCd']/following-sibling::div//label[1]")
     public WebElementFacade currentAssets;//流动资产贷款。
 
-    @FindBy(xpath = "//label[@for='loanTypeCd']/following-sibling::div//div[@class='flex'][2]/label/span[1]")
+    @FindBy(xpath = "//span[text()='Working Capital Loan']/preceding-sibling::span/span")
     public WebElementFacade fixedAssets;//固定资产贷款。
 
     @FindBy(xpath = "//form[@class='el-form el-form--label-left']/div[3]//div[@class='btn_box']")
@@ -63,8 +63,17 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-radio-group']/label[1]/span[1]")
     public WebElementFacade personalGuarantor;//个人担保人。
 
-    @FindBy(xpath = "//div[@class='el-radio-group']/label[2]/span[1]")
+    @FindBy(xpath = "//label[@for='bondsmanType']/following-sibling::div//label/span[1]")
     public WebElementFacade corporateGuarantor;//企业担保人。
+
+    @FindBy(xpath = "//label[@for='roleCd']/following-sibling::div//label[1]/span[1]")
+    public WebElementFacade personalGuarantorRole;
+
+    @FindBy(xpath = "//label[@for='salutation']/following-sibling::div//input/following-sibling::span")
+    public WebElementFacade salutation;
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul/li/span")
+    public List<WebElementFacade> selectSalutation;
 
     @FindBy(xpath = "//label[@for='guaranteeType']/following-sibling::div//label[3]/span[1]")
     public WebElementFacade property;//财产。
@@ -83,6 +92,39 @@ public class loanApplication_page extends PageObject {
 
     @FindBy(xpath = "//label[@for='companyRegisterDate']/following-sibling::div//input")
     public WebElementFacade companyRegisterDate;//企业注册日期。
+
+    @FindBy(xpath = "//label[@for='birthDay']/following-sibling::div//input")
+    public WebElementFacade dateOfBirth;
+
+    @FindBy(xpath = "//label[@for='nationality']")
+    public WebElementFacade getNotionalityText;
+
+    @FindBy(xpath = "//label[@for='mobilePhoneNo']/following-sibling::div//input")
+    public WebElementFacade mobileNum;
+
+    @FindBy(xpath = "//label[@for='nationality']/following-sibling::div//input")
+    public WebElementFacade notionalityText;
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul/li//span[text()='CHINESE']")
+    public WebElementFacade selectChinese;
+
+    @FindBy(xpath = "//label[@for='certfctNo']/following-sibling::div//input")
+    public WebElementFacade certfctNo;
+
+    @FindBy(xpath = "//label[@for='idd']/following-sibling::div//input")
+    public WebElementFacade idd;
+
+    @FindBy(xpath = "//div[@class='flag_box']/ul/li")
+    public WebElementFacade selectChina;
+
+    @FindBy(xpath = "//label[@for='experience']/following-sibling::div//input")
+    public WebElementFacade inputExperience;
+
+    @FindBy(xpath = "//label[@for='emailAddr']/following-sibling::div//input")
+    public WebElementFacade inputEmail;
+
+    @FindBy(xpath = "//div[text()='Next']")
+    public WebElementFacade nextBtnTwo;
 
     @FindBy(xpath = "//label[@for='experience']/following-sibling::div//input")
     public WebElementFacade industryExperience;//行业经验。
@@ -202,6 +244,51 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//div[@class='mandatory']/following-sibling::div[2]//label[@class='el-form-item__label']/following-sibling::div/div[@class='el-radio-group']/label[1]/span[1]")
     public WebElementFacade yesBtnCompany;//公司界面的其他财务承诺按钮。
 
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 1')]/following-sibling::div//label[@for='financialReportDate']/following-sibling::div//input")
+    public WebElementFacade firstDate;
+
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 1')]/following-sibling::div//label[@for='financialReportTerm']/following-sibling::div//span[@class='el-input__suffix']")
+    public WebElementFacade firstReportingPeriod;
+
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 1')]/following-sibling::div//label[@for='financialReportTerm']")
+    public WebElementFacade firstReportingPeriodText;
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul//span")
+    public List<WebElementFacade> firstSelectMonths;
+
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 1')]/following-sibling::div//label[@for='netSales']/following-sibling::div//input")
+    public WebElementFacade firstNetSalesInput;
+
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 1')]/following-sibling::div//label[@for='preTaxSales']/following-sibling::div//input")
+    public WebElementFacade firstNetProfitInput;
+
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 1')]/following-sibling::div//label[@for='totalAssets']/following-sibling::div//input")
+    public WebElementFacade firstTotalAssets;
+
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 1')]/following-sibling::div//label[@for='dibtAssets']/following-sibling::div//input")
+    public WebElementFacade firstTotalLiabilities;
+
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 2')]/following-sibling::div//label[@for='financialReportDate']/following-sibling::div//input")
+    public WebElementFacade secondDate;
+
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 2')]/following-sibling::div//label[@for='financialReportTerm']/following-sibling::div//span[@class='el-input__suffix']")
+    public WebElementFacade secondReportingPeriod;
+
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 2')]/following-sibling::div//label[@for='financialReportTerm']")
+    public WebElementFacade secondReportingPeriodText;
+
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 2')]/following-sibling::div//label[@for='netSales']/following-sibling::div//input")
+    public WebElementFacade secondNetSalesInput;
+
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 2')]/following-sibling::div//label[@for='preTaxSales']/following-sibling::div//input")
+    public WebElementFacade secondNetProfitInput;
+
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 2')]/following-sibling::div//label[@for='totalAssets']/following-sibling::div//input")
+    public WebElementFacade secondTotalAssets;
+
+    @FindBy(xpath = "//div[contains(text(),'Financial Report 2')]/following-sibling::div//label[@for='dibtAssets']/following-sibling::div//input")
+    public WebElementFacade secondTotalLiabilities;
+
     //其他财务承诺。
     @FindBy(xpath = "//div[@class='mandatory']/following-sibling::div[7]//form/div[1]//input")
     public WebElementFacade financialInstitutionName;//金融机构名称。
@@ -260,8 +347,23 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//div[@class='add_tips']/following-sibling::div//div[@class='ui-button primary common']/div")
     public WebElementFacade nextStep;
 
+    @FindBy(xpath = "//span[text()='No']/preceding-sibling::span")
+    public WebElementFacade checkPoint;
+
     @FindBy(xpath = "//div[@class='ui-container-full__body']/div//div[@class='ui-button primary common']//div[@class='btn_box']")
     public WebElementFacade nextOnUpLoadFile;
+
+    @FindBy(xpath = "//label[@for='repayOrigAmt']/following-sibling::div//input[@disabled=\"disabled\"]")
+    public WebElementFacade prepaymentAmountDisabled;
+
+    @FindBy(xpath ="//label[@for='repayOrigAmt']/following-sibling::div//input" )
+    public WebElementFacade prepaymentAmount;
+
+    @FindBy(xpath = "//div[contains(text(),'Submit')]")
+    public WebElementFacade clickSubmitBtn;
+
+    @FindBy(xpath = "//div[text()='Congratulations!']")
+    public WebElementFacade checkText;
 
     @FindBy(xpath = "//label[@for='houseAddr']/following-sibling::div//input")
     public WebElementFacade houseAddress;//房产地址。

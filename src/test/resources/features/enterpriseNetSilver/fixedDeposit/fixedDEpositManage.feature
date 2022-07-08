@@ -10,6 +10,13 @@ Feature: fixedDepositManage
       | fdAccountNumber |
       | 16010005140     |
 
+
+  @report444442
+  Scenario:fixedDepositWithdrawFD_SGDss_SixMonth_DoNotRenewOrWithdrawAutomatically
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
+    When click Fixed Deposits First menu
+    Then I operate on the current page data information and click complete all data
+
   #六个月_美元_不转存_全部支取
   @fixedDepositManage02
   Scenario:fixedDepositWithdrawFD_USD_SixMonth_DoNotRenewOrWithdrawAutomatically
@@ -47,7 +54,7 @@ Feature: fixedDepositManage
     When click Fixed Deposits First menu
     Then I operate on the current page data information
       | fdAccountNumber |
-      | 16010005205     |
+      | 16010000645     |
 
   #六个月_美元_本息续存_全部支取
   @fixedDepositManage06

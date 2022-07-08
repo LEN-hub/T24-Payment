@@ -1,6 +1,6 @@
 @supplyChainRun
 Feature: supply chain run
-@testcaseReport123
+
 #  建档-供应商
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
     Given logon "environments_1" on tube by inputting system
@@ -58,10 +58,6 @@ Feature: supply chain run
 #绑定关系
   Scenario:Supplier The operator binds the supplier to a buyer relationship that does not exist between a single system, and the binding is successful
     Given logon "environments_1" on tube by inputting system
-#    When Approval in the supply chain system
-#    Then Switch To the Assign To Me page and perform the corresponding operations
-#    When I close driver
-##    Given logon "environments_1" on tube by inputting system
     When I click Customers and select Customers Mapping
     Then I should direct to the Customers Mapping page
     When I click the Create New Supplier Relationship button and Create a New Relationship

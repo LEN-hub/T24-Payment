@@ -187,103 +187,6 @@ Feature: e-Statement
     Then I Verify success
     When The program is finished I will release the Linux SSH connection
 
-  Scenario:process for querying the account list
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click the Account Details menu in the account
-
-  Scenario:account details page display
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When account details page display
-
-
-  Scenario:alias setting main process
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click the Account Details menu and set alias information
-    Then alias entered and saved successfully
-
-
-  #定期存款_新币_六个月_不转存
-  @reporttest123
-  Scenario:fixedDeposit_SGD_SixMonth_DoNotRenewOrWithdrawAutomatically
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click Fixed Deposits menu
-    Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 179       |11020004223 |250000 |6 Months|1                    |
-
-
-  #定期存款_美元_六个月_不转存
-  @fixedDeposit02
-  Scenario:fixedDeposit_USD_SixMonth_DoNotRenewOrWithdrawAutomatically
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click Fixed Deposits menu
-    Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |6 Months|1                    |
-
-  #定期存款_新币_六个月_本金续存
-  @fixedDeposit03
-  Scenario:fixedDeposit_SGD_SixMonth_RenewPrincipalAmountAndWithdrawInterest
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click Fixed Deposits menu
-    Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 179       |11020004223 |250000 |6 Months|2                    |
-
-  #定期存款_美元_六个月_本金续存
-  @fixedDeposit0412312312
-  Scenario:fixedDeposit_USD_SixMonth_RenewPrincipalAmountAndWithdrawInterest
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click Fixed Deposits menu
-    Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |6 Months|2                    |
-
-  #定期存款_新币_六个月_本息续存
-  @fixedDeposit055431321
-  Scenario:fixedDeposit_SGD_SixMonth_RenewPrincipalAmountAndInterest
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click Fixed Deposits menu
-    Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 179       |11020004223 |250000 |6 Months|3                    |
-
-  #定期存款_美元_六个月_本息续存
-  @fixedDeposit06
-  Scenario:fixedDeposit_USD_SixMonth_RenewPrincipalAmountAndInterest
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click Fixed Deposits menu
-    Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |6 Months|3                    |
-
-        #定期存款_新币_九个月_不转存
-  @report21321dsad
-  Scenario:fixedDeposit_SGD_NineMonth_DoNotRenewOrWithdrawAutomatically
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click Fixed Deposits menu
-    Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 179       |11020004223 |250000 |9 Months|1                    |
-
-
-  #定期存款_新币_十二个月_本金续存
-  @fixedDeposit03
-  Scenario:fixedDeposit_SGD_TwelveMonth_RenewPrincipalAmountAndWithdrawInterest
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click Fixed Deposits menu
-    Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 179       |11020004223 |250000 |12 Months|2                    |
-
-      #定期存款_新币_十八个月_本息续存
-  @fixedDeposit05
-  Scenario:fixedDeposit_SGD_EighteenMonth_RenewPrincipalAmountAndInterest
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click Fixed Deposits menu
-    Then I fill in the information about the SGD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 179       |11020004223 |250000 |18 Months|3                    |
 
   #    贷款支用。无授权
   @loanApplication4
@@ -320,26 +223,26 @@ Feature: e-Statement
     And Review Details
 #    Then get Organisation ID
 
-##  修改密码
-#  @forgetPassword
-#  Scenario:idCard Forgot password users log in normally after resetting their passwords
-#    Given open "netSilverEnv_Kevin" on enterprise net silver
-#    When I click forgotPassword button
-#    When I input Enterprise customer number and other information
-#      |customerNumber |
-#      |200032         |
-#    When I click idCard button and input idCardNumber
-#      |idCardNumber|
-#      |T3676263H   |
-#    And I Select country code and enter mobile number
-#      |countryCode|iphoneNumber|
-#      |+86        |13008553349 |
-#    When I click get verification code button
-#    When I input email address
-#      |emailAddress     |
-#      |617558302@qq.com |
-#    When I click get verification code button
-#    When I click next button on the change Password page
-#    When I input new password and click confirm button
-#    When The program is finished I will release the Linux SSH connection
+#  修改密码
+  @157647
+  Scenario:idCard Forgot password users log in normally after resetting their passwords
+    Given open "netSilverEnv_Kevin" on enterprise net silver
+    When I click forgotPassword button
+    When I input Enterprise customer number and other information
+      |customerNumber |
+      |200032         |
+    When I click idCard button and input idCardNumber
+      |idCardNumber|
+      |T3676263H   |
+    And I Select country code and enter mobile number
+      |countryCode|iphoneNumber|
+      |+86        |13008553349 |
+    When I click get verification code button
+    When I input email address
+      |emailAddress     |
+      |617558302@qq.com |
+    When I click get verification code button
+    When I click next button on the change Password page
+    When I input new password and click confirm button
+    When The program is finished I will release the Linux SSH connection
 #

@@ -105,6 +105,7 @@ public class createSupplierCreditFile_step extends PageObject {
         createSupplierCreditFile_page.getTotalRevenue.sendKeys("0");
         createSupplierCreditFile_page.getCashAndCashEquivalents.clear();
         createSupplierCreditFile_page.getCashAndCashEquivalents.sendKeys("0");
+        bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getBookValueOfEquity);
         createSupplierCreditFile_page.getBookValueOfEquity.clear();
         createSupplierCreditFile_page.getBookValueOfEquity.sendKeys("0");
 //        createSupplierCreditFile_page.upFinancialInformationInLastYear.click();

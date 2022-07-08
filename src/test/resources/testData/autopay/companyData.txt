@@ -19,6 +19,8 @@ Cosmo
 Josephine
 Lance
 Tony
+Mary
+Frances
 Victor
 Angel
 Edward

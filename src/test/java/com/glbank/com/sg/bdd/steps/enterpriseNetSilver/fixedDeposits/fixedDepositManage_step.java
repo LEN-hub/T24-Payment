@@ -19,6 +19,24 @@ public class fixedDepositManage_step extends ScenarioSteps {
         fixedDepositManage_page.selectFirstMenu.click();
     }
 
+    public void clickToWithdrawFDAndClickSubmitBtn(){
+        fixedDepositManage_page.click11.click();
+        List<WebElementFacade> fdAccountNumberList = fixedDepositManage_page.fdAccountNumberList;
+        List<WebElementFacade> moreMenuList = fixedDepositManage_page.moreMenuList;
+//        for(int i = 0;i < fdAccountNumberList.size();i++) {
+//            if (fdAccountNumberList.size() != 0) {
+        while (fdAccountNumberList.size() != 0){
+                bddUtil.sleep(1);
+                Actions action = new Actions(getDriver());
+                action.moveToElement(moreMenuList.get(0)).perform();
+                bddUtil.sleep(2);
+                fixedDepositManage_page.clickWithdrawFD.click();
+                fixedDepositManage_page.clickSubmit.click();
+                bddUtil.sleep(8);
+                fixedDepositManage_page.clickReturnBtn.click();
+        }
+    }
+
     public void clickToWithdrawFD(String fdAccountNumber){
         fixedDepositManage_page.click11.click();
         List<WebElementFacade> fdAccountNumberList = fixedDepositManage_page.fdAccountNumberList;

@@ -13,12 +13,13 @@ import java.net.MalformedURLException;
 import java.util.List;
 
 import static com.glbank.com.sg.bdd.steps.enterpriseNetSilver.EnterpriseManagementDeskAccountManagement.accountChange_steps.tcCode;
+import static com.glbank.com.sg.bdd.utils.ContactUtil.getTel;
 import static com.glbank.com.sg.bdd.utils.RandomPhoneNumber.randomPhoneNum;
 import static org.junit.Assert.assertEquals;
 
 public class userManagement_steps extends ScenarioSteps {
     private BDDUtil bddUtil;
-    public static String code = randomPhoneNum();
+    public static String code = getTel();
     public static String content = JRandomNameTool.getStringRandom(6);
     public static String verificationCode;
     public static String OTP ;
@@ -223,14 +224,16 @@ public class userManagement_steps extends ScenarioSteps {
     }
 
     public void clickKeysEmail () {
-            userManagement_page.keysEmail.sendKeys(RandomPhoneNumber.randomPhoneNum()+"@qq.com");
+            userManagement_page.keysEmail.sendKeys(ContactUtil.getEmail(1,10));
             bddUtil.sleep(3);}
 
     public void clickValidationEmail(){userManagement_page.validationEmail.click();}
 
     public void clickPermissions(){userManagement_page.permissions.click();}
 
-    public void clickNextOne(){userManagement_page.clickNextOne.click();}
+    public void clickNextOne(){
+        userManagement_page.clickNextOne.click();
+    }
 
     public void NextBtnS(){userManagement_page.clcikNextBtns.click();}
 

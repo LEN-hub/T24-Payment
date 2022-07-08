@@ -34,4 +34,7 @@ public class fixedDepositManage_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"detail_page-container\"]/following-sibling::div//div[2]//div[@class=\"btn_box\"]")
     public WebElementFacade clickSubmit;
 
+    @FindBy(xpath = "//div[contains(text(),' Return')]")
+    public WebElementFacade clickReturnBtn;
+
 }
