@@ -70,10 +70,11 @@ public class paymentService_step extends ScenarioSteps {
 
     @Step
     public void clickSubmitBtn(){
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
         paymentService_page.submitBtn.click();
-        bddUtil.sleep(5);
-//        if (paymentService_page.submitBtn.isVisible()){
+//        if (paymentService_page.submitBtn.isVisible()) {
+//            paymentService_page.submitBtn.click();
+//        }else if(paymentService_page.displaySubmitBtn.isVisible()){
 //            paymentService_page.previousBtn.click();
 //            bddUtil.sleep(2);
 //            paymentService_page.clickNextBtn.click();
@@ -104,6 +105,7 @@ public class paymentService_step extends ScenarioSteps {
             }
         }
         paymentService_page.collectingBankPopWindows.click();
+        bddUtil.sleep(3);
         List<WebElementFacade> selectBank = paymentService_page.selectSGD;
         for (int j = 0; j< selectBank.size(); j++){
             if (bankName.equals(selectBank.get(j).getText())){
@@ -116,10 +118,11 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.transferAmount.sendKeys(transferAmount);
         bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
         paymentService_page.tradeAmountPopWindows.click();
+        bddUtil.sleep(3);
         List<WebElementFacade> selectTradeAmount = paymentService_page.tradeAmountSelectFirst;
-        for (int i = 0; i< selectTradeAmount.size(); i++){
-            if (tradeAmountSelect.equals(selectTradeAmount.get(i).getText())){
-                selectTradeAmount.get(i).click();
+        for (int k = 0; k< selectTradeAmount.size(); k++){
+            if (tradeAmountSelect.equals(selectTradeAmount.get(k).getText())){
+                selectTradeAmount.get(k).click();
                 break;
             }
         }
@@ -152,9 +155,9 @@ public class paymentService_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
         paymentService_page.tradeAmountPopWindows.click();
         List<WebElementFacade> selectTradeAmount = paymentService_page.tradeAmountSelectFirst;
-        for (int i = 0; i< selectTradeAmount.size(); i++){
-            if (tradeAmountSelect.equals(selectTradeAmount.get(i).getText())){
-                selectTradeAmount.get(i).click();
+        for (int k = 0; k< selectTradeAmount.size(); k++){
+            if (tradeAmountSelect.equals(selectTradeAmount.get(k).getText())){
+                selectTradeAmount.get(k).click();
                 break;
             }
         }
@@ -327,16 +330,16 @@ public class paymentService_step extends ScenarioSteps {
         }
         bddUtil.sleep(3);
     }
-    public void clickCurrency(String payeeCurrency){
-        paymentService_page.clickCurrencyBox.click();
-        List<WebElementFacade> payee = paymentService_page.payeeCurrency;
-        for (int i = 0; i <payee.size(); i++){
-            if (payeeCurrency.equals(payee.get(i).getText())){
-                payee.get(i).click();
-                break;
-            }
-        }
-        bddUtil.sleep(5);}
+//    public void clickCurrency(String payeeCurrency){
+//        paymentService_page.clickCurrencyBox.click();
+//        List<WebElementFacade> payee = paymentService_page.payeeCurrency;
+//        for (int i = 0; i <payee.size(); i++){
+//            if (payeeCurrency.equals(payee.get(i).getText())){
+//                payee.get(i).click();
+//                break;
+//            }
+//        }
+//        bddUtil.sleep(5);}
 
     public void enterAmount(String enterAmount){paymentService_page.enterAmount.sendKeys(enterAmount);}
 
@@ -400,10 +403,6 @@ public class paymentService_step extends ScenarioSteps {
                 }
             }
         }
-
-
-
-
 
     public void paymentAttributeCd(String selectPaymentAttributeCd){
         paymentService_page.paymentAttributeCdBox.click();
@@ -498,6 +497,4 @@ public class paymentService_step extends ScenarioSteps {
         }
 
     }
-
-
 }

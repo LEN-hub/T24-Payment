@@ -7,6 +7,7 @@ import com.lu.sn.NameType;
 import com.lu.sn.RandomNameTool;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -269,19 +270,27 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         openAccount_page.selectCompany.get(0).click();
         bddUtil.sleep(1);
 //        takaoka需要改，根据不同的账户改一下。
-        openAccount_page.companyAdminName.click();
+        openAccount_page.takaoka.click();
         bddUtil.sleep(1);
 //        openAccount_page.emailNumber.click();
     }
 
     public void clickValidationCode() {
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
 //        getDriver().switchTo().alert().getText();
 //        bddUtil.sleep(2);
 //        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
 //        bddUtil.sleep(2);
-        getDriver().switchTo().alert().accept();
-        otp=getLastOtp("60120003");
+//        判断alert弹窗是否显示。
+        try {
+            Alert alert = getDriver().switchTo().alert();
+            if (alert != null){
+                alert.accept();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        verificationCode=getLastOtp("60120003");
         System.out.println("------------otp验证码:"+otp+"-----------------");
         bddUtil.sleep(1);
     }
@@ -290,18 +299,18 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         EnterKeys enterKeys = new EnterKeys();
         bddUtil.sleep(1);
         openAccount_page.sendKeysBox.click();
-        enterKeys.EnterKeys(otp.substring(0, 1));
+        enterKeys.EnterKeys(verificationCode.substring(0, 1));
         bddUtil.sleep(1);
         openAccount_page.secondKeysBox.click();
-        enterKeys.EnterKeys(otp.substring(1, 2));
+        enterKeys.EnterKeys(verificationCode.substring(1, 2));
         openAccount_page.thirdKeysBox.click();
-        enterKeys.EnterKeys(otp.substring(2, 3));
+        enterKeys.EnterKeys(verificationCode.substring(2, 3));
         openAccount_page.fourKeysBox.click();
-        enterKeys.EnterKeys(otp.substring(3, 4));
+        enterKeys.EnterKeys(verificationCode.substring(3, 4));
         openAccount_page.fiveKeysBox.click();
-        enterKeys.EnterKeys(otp.substring(4, 5));
+        enterKeys.EnterKeys(verificationCode.substring(4, 5));
         openAccount_page.sixKeysBox.click();
-        enterKeys.EnterKeys(otp.substring(5, 6));
+        enterKeys.EnterKeys(verificationCode.substring(5, 6));
         bddUtil.sleep(1);
     }
 
@@ -361,7 +370,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         openAccount_page.clickIndustry.click();
         List<WebElementFacade> testThreeEntityType = openAccount_page.getEntityType2;
         for (int k =0;k <= testThreeEntityType.size();k++){
-            bddUtil.sleep(2);
+            bddUtil.sleep(3);
             if (testThreeEntityType.get(k).getText().equals(entityIndustry)) {
                 bddUtil.scrollWindowToElement(testThreeEntityType.get(k)).click();
                 break;
@@ -370,7 +379,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         openAccount_page.clickNonprofitFlag.click();
         openAccount_page.clickNext2OnProvideEssentialInformationPage.click();
         bddUtil.sleep(2);
-        bddUtil.scrollWindowToElement(openAccount_page.clickNextToStep3).click();
+        bddUtil.scrollWindowToElement(openAccount_page.clickLetContinue).click();
         bddUtil.sleep(2);
     }
 
@@ -472,9 +481,14 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
                 openAccount_page.nationalityOne.sendKeys("SINGAPOREAN");
                 openAccount_page.SINGAPOREAN.click();
             }
-            openAccount_page.nationalityOne.sendKeys("SINGAPOREAN");
-            bddUtil.sleep(1);
-//            openAccount_page.SINGAPOREAN.click();
+            openAccount_page.clickSelectCountryIcon.click();
+            List<WebElementFacade> selectCountry = openAccount_page.selectCountry;
+            for (int i = 0;i <selectCountry.size(); i++){
+                if (selectCountry.get(i).getText().equals("SINGAPOREAN")){
+                    bddUtil.scrollWindowToElement(selectCountry.get(i)).click();
+                    break;
+                }
+            }
             openAccount_page.inputAliasNm.sendKeys(aliasNm);
             openAccount_page.inputBirthDate.sendKeys("01/01/2010");
             openAccount_page.clickRoleCd.click();
@@ -483,6 +497,8 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
             openAccount_page.clickIdentificationType.click();
             openAccount_page.inputPassportNumber.sendKeys(passportNumber);
             openAccount_page.inputDateOfExpiry.sendKeys("01/01/2030");
+            bddUtil.sleep(2);
+            openAccount_page.inputDirectorMobilePhoneNo.click();
             openAccount_page.clickDateOfExpiry.click();
             bddUtil.sleep(1);
             openAccount_page.ResidentialAddress.sendKeys(passportNumber);
@@ -538,8 +554,9 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
                 openAccount_page.deleteImg.click();
                 bddUtil.sleep(1);
                 openAccount_page.YesDelete.click();
+            }else if (openAccount_page.deleteAfterTitle.isVisible()){
+                break;
             }
-            break;
         }
         openAccount_page.clickNextForUBO2.click();
         bddUtil.sleep(2);
@@ -549,7 +566,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
     public void goOnDueDiligenceTest(){
         bddUtil.sleep(1);
         bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//span[text()='Yes']"))).click();
-       bddUtil.sleep(1);
+        bddUtil.sleep(1);
 
     }
 
@@ -589,7 +606,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         openAccount_page.selectCompany.get(0).click();
         bddUtil.sleep(1);
 //        takaoka需要改，根据不同的账户改一下。
-        openAccount_page.companyAdminName.click();
+        openAccount_page.takaoka.click();
         bddUtil.sleep(1);
         openAccount_page.mobileNumber.click();
     }

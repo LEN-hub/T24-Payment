@@ -30,7 +30,6 @@ public class userManagement_glue {
         userManagement_steps.clickEnterpriseManagementDesk();
     }
 
-
     //修改手机号
     @When("^I click modify info menu$")
     public void iClickModifyInfoMenu(DataTable emailAddress) {
@@ -42,7 +41,6 @@ public class userManagement_glue {
         userManagement_steps.clickNext();
         userManagement_steps.clickSumbits();
     }
-
 
     @Then("^I click Next$")
     public void iClickNext() {
@@ -100,7 +98,7 @@ public class userManagement_glue {
 
 
 
-    @Then("^I  Verify success$")
+    @Then("^I Verify success$")
     public void iVerifySuccess() {
         userManagement_steps.authorizations();
     }
@@ -151,8 +149,5 @@ public class userManagement_glue {
         userManagement_steps.clickComplete();
         userManagement_steps.seeViewStart();
     }
-
-
-
 }
 

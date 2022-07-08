@@ -1,6 +1,6 @@
 @supplyChainRun
 Feature: supply chain run
-
+@testcaseReport123
 #  建档-供应商
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
     Given logon "environments_1" on tube by inputting system
@@ -58,10 +58,10 @@ Feature: supply chain run
 #绑定关系
   Scenario:Supplier The operator binds the supplier to a buyer relationship that does not exist between a single system, and the binding is successful
     Given logon "environments_1" on tube by inputting system
-    When Approval in the supply chain system
-    Then Switch To the Assign To Me page and perform the corresponding operations
-    When I close driver
-#    Given logon "environments_1" on tube by inputting system
+#    When Approval in the supply chain system
+#    Then Switch To the Assign To Me page and perform the corresponding operations
+#    When I close driver
+##    Given logon "environments_1" on tube by inputting system
     When I click Customers and select Customers Mapping
     Then I should direct to the Customers Mapping page
     When I click the Create New Supplier Relationship button and Create a New Relationship
@@ -130,40 +130,43 @@ Feature: supply chain run
     When I the second click Completed Button on the UnderWriting Approval page
     When I click UnderWriting List button on the page
     When I close driver
-#
-#
-##  BR签署
-#  Scenario:BR signed
-#    Given Open Supplier Portal URL
-#    When I input login data and click on the Login Supplier Portal URL
-#      |pass word   |Company ID|
-#      |P@ssw0rd_123|1234      |
-#    When I click Pending Signature button
-#    And I click confirm Button
-#    When I login email URL
-#    When I to sign
-#    When I close driver
-#
-#
-##   RPA上传
-#  Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_ 0001
-#    Given logon "environments_001" on tube by inputting system
-#    When I click on the first Customers
-#    And click ContractManagement
-#    Then Enter the name of the supplier to filter
-#    When Upload a file
-#      |fileAddress                                                            |
-#      |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
-#    Then Jump to the supplier portal to check the RPA
-#    When I close driver
-#
-#
+
+
+#  BR签署
+  Scenario:BR signed
+    Given Open Supplier Portal URL
+    When I input login data and click on the Login Supplier Portal URL
+      |pass word   |Company ID|
+      |P@ssw0rd_123|1234      |
+    When I click Pending Signature button
+    And I click confirm Button
+    When I login email URL
+    When I to sign
+    When I close driver
+    When I open email URL
+    When I login two email URL
+    When I close driver
+
+
+#   RPA上传
+  Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_ 0001
+    Given logon "environments_001" on tube by inputting system
+    When I click on the first Customers
+    And click ContractManagement
+    Then Enter the name of the supplier to filter
+    When Upload a file
+      |fileAddress                                                            |
+      |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
+    Then Jump to the supplier portal to check the RPA
+    When I close driver
+
+
 ##   融资申请
 #  Scenario:financingRequest1
-#    Given logon "environments_3" test code
-#    When I input login information
-#    When login successfully and click RequestFinancing
-#    Then upload RequestFinancing File
+##    Given logon "environments_3" test code
+##    When I input login information
+##    When login successfully and click RequestFinancing
+##    Then upload RequestFinancing File
 #    And  logon "environments_1" on tube by inputting system
 #    Then click Operations to Review
 #    And change user To L2 Review

@@ -412,7 +412,7 @@ public class product_step extends ScenarioSteps {
     @Step
     public void jumpToSupplierPortal() {     //跳转供应商门户
         JavascriptExecutor webdriver = (JavascriptExecutor) getDriver();
-        webdriver.executeScript("window.open('http://119.8.173.195:8080')");
+        webdriver.executeScript("window.open('http://10.24.9.126:8080/#/login')");
         bddUtil.switchToNewWindow();
         bddUtil.sleep(10);
     }
@@ -442,7 +442,7 @@ public class product_step extends ScenarioSteps {
         bddUtil.switchToWindows();
         productPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
         productPage.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
-        productPage.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        productPage.enterCompanyId.sendKeys("1234");
         productPage.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
         bddUtil.sleep(3);

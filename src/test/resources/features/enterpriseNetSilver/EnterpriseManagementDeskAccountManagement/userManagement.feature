@@ -9,7 +9,7 @@ Feature: userManagements
     When I click on the Enterprise Administration as well user administration
     When I click modify info menu
     |emailAddress         |
-    |3201913@MailTemp.top |
+    |yk13008553349@163.com|
     Then I click Next
     When I initiate captcha verification
 
@@ -28,7 +28,7 @@ Feature: userManagements
     And fill in and submit the new user information
     Then I click Next
     When I initiate captcha verification
-    Then I  Verify success
+    Then I Verify success
     When The program is finished I will release the Linux SSH connection
 
 
@@ -38,8 +38,8 @@ Feature: userManagements
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click on user deactivate confirm
-      |emailAddress         |
-      |3201913@MailTemp.top |
+      |emailAddress          |
+      |yk13008553349@163.com |
     Then I click Next
     When I initiate captcha verification
     Then End the deal
@@ -53,8 +53,8 @@ Feature: userManagements
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click launch user and click ok
-      |emailAddress         |
-      |3201913@MailTemp.top |
+      |emailAddress          |
+      |yk13008553349@163.com |
     Then I click Next
     When I initiate captcha verification
     Then End the deals
@@ -66,7 +66,7 @@ Feature: userManagements
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click the menu select User Logout
-      |emailAddress         |
-      |3201913@MailTemp.top |
+      |emailAddress          |
+      |yk13008553349@163.com |
     Then I click Next
     When I initiate captcha verification

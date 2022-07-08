@@ -307,6 +307,7 @@ public class creatCustomers_glue {
 
     @When("^Approval in the supply chain system$")
     public void approvalInTheSupplyChainSystem() {
+        updateAmlResult(1, "companyData");
         bddUtil.sleep(5);
 //        for (int i = 0; i < 3; i++) {
 //            int result = updateAmlResult(1, "companyData");
@@ -318,6 +319,11 @@ public class creatCustomers_glue {
 //        }
         int result = updateAmlResult(1, "companyData");
         if (result <= 0){
+            bddUtil.sleep(2);
+            updateAmlResult(1,"companyData");
+        }
+        for (int i = 0; i < 3; i++) {
+            bddUtil.sleep(2);
             updateAmlResult(1,"companyData");
         }
         updateAmlResult(1,"companyData");

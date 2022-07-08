@@ -13,6 +13,8 @@ import static org.junit.Assert.*;
 public class rpa_steps extends ScenarioSteps {
     private BDDUtil bddUtil;
     private rpa_page rpaPage;
+    private static String systemPath = System.getProperty("user.dir");
+    String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
 
     public static String content = JRandomNameTool.getStringRandom(6);
 
@@ -43,7 +45,7 @@ public class rpa_steps extends ScenarioSteps {
     }
 
     @Step
-    public void clickBrowse(String fileAddress) {
+    public void clickBrowse() {
 //        rpaPage.browse.click();
         bddUtil.sleep(2);
         getDriver().findElement(By.xpath("//div[@class='upload-widget']//input")).sendKeys(fileAddress);

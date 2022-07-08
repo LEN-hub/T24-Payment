@@ -91,7 +91,7 @@ public class creditLimit_step extends ScenarioSteps {
         bddUtil.find(By.xpath("//label[@for='limitType']"));
         bddUtil.sleep(1);
         creditLimit_page.updateLimit.clear();
-        creditLimit_page.updateLimit.sendKeys("3000000");
+        creditLimit_page.updateLimit.sendKeys("2500000");
     }
 
     @Step
@@ -195,7 +195,6 @@ public class creditLimit_step extends ScenarioSteps {
         //"+FileUtils.LastReadFileInput3("emailData")+");
     }
 
-
     @Step
     public void inputOtherData(String passWord,String CompanyID) {
         bddUtil.sleep(30);
@@ -247,7 +246,8 @@ public class creditLimit_step extends ScenarioSteps {
         bddUtil.switchToWindows();
         bddUtil.sleep(5);
         creditLimit_page.clickRefreshBtn.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(5);
+        creditLimit_page.clickRefreshBtn.click();
         creditLimit_page.otpToken.click();
         bddUtil.sleep(1);
         String emailToken = creditLimit_page.emailToken.getText();
@@ -265,6 +265,7 @@ public class creditLimit_step extends ScenarioSteps {
 
     @Step
     public void toSign(){
+        bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(creditLimit_page.signHere).click();
         //div[@class='upload-demo']//div//input
 //        creditLimit_page.upLoadImg.sendKeys(fileAddress);
@@ -273,6 +274,45 @@ public class creditLimit_step extends ScenarioSteps {
         getDriver().findElement(By.xpath("//span[text()='Confirm Digital Signature']")).click();
         bddUtil.sleep(5);
 
+    }
+
+    @Step
+    public void ToggleSecondEmail(){
+        String twoEmail = FileUtils.LastReadFileInput3("emailData").substring(0,8)+"2";
+        bddUtil.switchToWindows();
+        bddUtil.find(By.xpath("//input[@name='name']")).sendKeys(twoEmail);
+        bddUtil.sleep(1);
+        bddUtil.find(By.xpath("//button[@type='submit']")).click();
+        bddUtil.sleep(5);
+    }
+
+    @Step
+    public void signTheSecondBR(){
+        creditLimit_page.clickRefreshBtn.click();
+        bddUtil.sleep(4);
+        creditLimit_page.agreement.get(0).click();
+        bddUtil.sleep(1);
+        creditLimit_page.plainText.click();
+        creditLimit_page.tokenLink.click();
+        bddUtil.sleep(3);
+        bddUtil.switchToWindows();
+        bddUtil.switchToWindows();
+        bddUtil.sleep(5);
+        creditLimit_page.clickRefreshBtn.click();
+        bddUtil.sleep(5);
+        creditLimit_page.clickRefreshBtn.click();
+        creditLimit_page.otpToken.click();
+        bddUtil.sleep(1);
+        String emailToken = creditLimit_page.emailToken.getText();
+        bddUtil.sleep(1);
+//        creditLimit_page.agreement.get(0).click();
+        bddUtil.switchToWindows();
+        bddUtil.sleep(2);
+//        creditLimit_page.inputToken.sendKeys(emailToken);
+//        bddUtil.scrollWindowToElement(creditLimit_page.inputToken).sendKeys(emailToken);
+        getDriver().findElement(By.xpath("//div[@class='Verificationode_BoxChildIptChild']/div/form/input")).sendKeys(emailToken);
+//        creditLimit_page.otpToken.click();
+        bddUtil.sleep(5);
     }
 
     @Step

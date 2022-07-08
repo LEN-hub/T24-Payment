@@ -8,14 +8,14 @@ Feature: openAccount
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information
     |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
-    |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|T00DP0079D |
+    |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|200606164M |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
     And Share Account’s Risk Profile
     Then Upload Supporting Documents
     And Review Details
-    Then get Organisation ID
+#    Then get Organisation ID
 
     #单币种账户——新币
   Scenario:openAccount Current Account CA_SGD
@@ -47,7 +47,7 @@ Feature: openAccount
     And Share Account’s Risk Profile
     Then Upload Supporting Documents
     And Review Details
-    Then get Organisation ID
+#    Then get Organisation ID
 
     #单币种账户——欧元
   Scenario:openAccount Current Account CA_EUR
@@ -361,8 +361,8 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD and loan
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
-      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199906179R |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles

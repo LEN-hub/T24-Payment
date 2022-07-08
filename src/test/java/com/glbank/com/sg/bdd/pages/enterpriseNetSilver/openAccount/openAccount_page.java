@@ -68,6 +68,12 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class='ui-container-full__body']//form[1]//label[@for=\"nationality\"]/following-sibling::div//div//input")
     public WebElementFacade nationalityOne;
 
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//span")
+    public List<WebElementFacade> selectCountry;
+
+    @FindBy(xpath = "//label[@for='nationality']/following-sibling::div//span[@class='el-input__suffix']")
+    public WebElementFacade clickSelectCountryIcon;
+
     @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for=\"countryCd\"]/following-sibling::div//div//input")
     public WebElementFacade countryTwo;
 
@@ -182,6 +188,9 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextToStep3;
 
+    @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[@class=\"ui-button primary common out-height\"]/div")
+    public WebElementFacade clickLetContinue;
+
     @FindBy(xpath = "//label[@for=\"contactPersonNm\"]/following-sibling::div//div//input")
     public WebElementFacade inputContactPersonNm;
 
@@ -269,8 +278,8 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//input[@readonly='readonly']")
     public List<WebElementFacade> selectCompany;
 
-    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul")
-    public WebElementFacade companyAdminName;
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")
+    public WebElementFacade takaoka;
 
     @FindBy(xpath = "//label[@for='countryCd']//following-sibling::div//input")
     public WebElementFacade countryTest;
@@ -280,6 +289,9 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='el-message-box']/div[3]/button[2]/span")
     public WebElementFacade YesDelete;
+
+    @FindBy(xpath = "//b[contains(text(),'multiple connected corporate entities')]")
+    public WebElementFacade deleteAfterTitle;
 
     @FindBy(xpath = "//label[@for=\"certfctDueDate\"]")
     public WebElementFacade clickDateOfExpiry;

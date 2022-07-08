@@ -88,11 +88,8 @@ public class userManagement_page extends PageObject {
     @FindBy(xpath = "//div[@class='step-box']/div[4]//div[@class='btn_box']")
     public WebElementFacade authenticateNowBtn;
 
-
-//需要验证
-
-
-//新增用户
+    //需要验证
+    //新增用户
     @FindBy(xpath = "//div[@class='ui-container-full__body']/div/div[2]/div/div")
     public WebElementFacade addUsers;
 
@@ -183,8 +180,8 @@ public class userManagement_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='trade-status']//div[2]")
     public WebElementFacade successfulEnglish;
-//停用此用户
 
+    //停用此用户
    @FindBy(xpath = "//div[@role='tooltip']/div/div[4]//div[@class='btn_box']")
     public WebElementFacade stopUser; //停用用户
 
@@ -200,9 +197,7 @@ public class userManagement_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-table__body-wrapper is-scrolling-none']//tr[3]/td[5]/div")
     public WebElementFacade JudgeEnglish;
 
-
-
-//启用此用户
+    //启用此用户
    @FindBy(xpath = "//div[@role='tooltip']/div/div[3]//div[@class='btn_box']")
    public WebElementFacade startUser; //启动用户
 
@@ -212,10 +207,7 @@ public class userManagement_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-table__body-wrapper is-scrolling-none']//tr[3]/td[5]/div")
     public WebElementFacade JudgesEnglish;
 
-
-
-//用户注销
-
+    //用户注销
     @FindBy(xpath = "//div[@x-placement='bottom' or @x-placement='top']/div/div[5]//div[@class='btn_box']")  //点击注销
     public WebElementFacade logOut;
 
