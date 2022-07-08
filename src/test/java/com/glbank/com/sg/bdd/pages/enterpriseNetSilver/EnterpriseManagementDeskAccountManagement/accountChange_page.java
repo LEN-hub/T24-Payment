@@ -140,6 +140,9 @@ public class accountChange_page extends PageObject {
     @FindBy(xpath = "//div[@class='row p15']//span[@class='el-checkbox__inner']")
     public WebElementFacade agree;
 
+    @FindBy(xpath = "//div[@class='row']//span[@class='el-checkbox__inner']")
+    public WebElementFacade getAgree;
+
     @FindBy(xpath = "//div[@class='detail_page-container']/following-sibling::div[3]/div[2]/div/div")
     public WebElementFacade nextSubmit;
 

@@ -179,6 +179,9 @@ public class accountChange_steps extends ScenarioSteps {
         bddUtil.sleep(3);}
 
     public void clickAgree(){
+        if (accountChange_page.getAgree.isVisible()){
+            accountChange_page.getAgree.click();
+        }
         accountChange_page.agree.click();
         bddUtil.sleep(3);}
 
