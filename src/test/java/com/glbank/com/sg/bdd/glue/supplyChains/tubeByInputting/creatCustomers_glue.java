@@ -307,15 +307,26 @@ public class creatCustomers_glue {
 
     @When("^Approval in the supply chain system$")
     public void approvalInTheSupplyChainSystem() {
+        updateAmlResult(1, "companyData");
         bddUtil.sleep(5);
-        for (int i = 0; i < 4; i++) {
-            int result = updateAmlResult(1, "companyData");
-            if (result <= 0){
-                updateAmlResult(1,"companyData");
-                break;
-            }
-            System.out.println("AML状态修改成功");
+//        for (int i = 0; i < 3; i++) {
+//            int result = updateAmlResult(1, "companyData");
+//            if (result <= 0){
+//                updateAmlResult(1,"companyData");
+//                break;
+//            }
+//            System.out.println("AML状态修改成功");
+//        }
+        int result = updateAmlResult(1, "companyData");
+        if (result <= 0){
+            bddUtil.sleep(2);
+            updateAmlResult(1,"companyData");
         }
+        for (int i = 0; i < 3; i++) {
+            bddUtil.sleep(2);
+            updateAmlResult(1,"companyData");
+        }
+        updateAmlResult(1,"companyData");
         bddUtil.sleep(2);
         customers_step.getClickCustomersMenu();
         customers_step.onboardingReview();

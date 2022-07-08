@@ -166,4 +166,16 @@ public class creditLimit_glue {
     public void iUpdateLimitForTHISProduct() {
         creditLimit_step.updateLimit();
     }
+
+    @When("^I login two email URL$")
+    public void iLoginTwoEmailURL() {
+        creditLimit_step.ToggleSecondEmail();
+        creditLimit_step.signTheSecondBR();
+        creditLimit_step.toSign();
+    }
+
+    @When("^I open email URL$")
+    public void iOpenEmailURL() {
+        creditLimit_step.loginEmailUrlTest();
+    }
 }

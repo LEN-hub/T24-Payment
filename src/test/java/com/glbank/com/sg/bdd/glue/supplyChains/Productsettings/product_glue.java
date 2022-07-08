@@ -66,7 +66,7 @@ public class product_glue {
         productStep.clickDiscount();
         productStep.clickRepayment();
         productStep.clickFull();
-        productStep.sendkeysRatio("80");
+        productStep.sendkeysRatio("100");
         productStep.clickTerm();
         productStep.clickWithout();
         productStep.clickIPU();

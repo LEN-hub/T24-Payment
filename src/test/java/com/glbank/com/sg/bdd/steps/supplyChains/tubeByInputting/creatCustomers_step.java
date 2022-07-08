@@ -215,6 +215,9 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.switchToNewWindow();
         bddUtil.sleep(5);
         customers_page.clickRefreshBtn.click();
+        bddUtil.sleep(2);
+        customers_page.clickRefreshBtn.click();
+        bddUtil.sleep(2);
         customers_page.firstEmail.click();
     }
 
@@ -462,7 +465,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.director2Country.click();
         bddUtil.scrollWindowToElement(customers_page.director2CountrySelectChina).click();
         customers_page.director2ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-        customers_page.director2Email.sendKeys(value + "@MailTemp.top");
+        customers_page.director2Email.sendKeys(value + "2@MailTemp.top");
         customers_page.director2CountryOfResidence.click();
         bddUtil.scrollWindowToElement(customers_page.director2CountryOfResidenceSelectChina).click();
         customers_page.director2Phone.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -502,7 +505,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.shareholder2CountryOfResidence.click();
         bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(customers_page.shareholder2CountryOfResidenceSelectChina).click();
-        customers_page.shareholder2Email.sendKeys(value + "@MailTemp.top");
+        customers_page.shareholder2Email.sendKeys(value + "2@MailTemp.top");
         customers_page.shareholder2Phone.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.shareholder2ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.shareholder2FundScale.sendKeys("25");
