@@ -2,21 +2,13 @@
 Feature: openAccount
   @testcode123
     #正常开户流程——单币种账户——新币
-    @94813131384
   Scenario:openAccount Singapore enterprise
     Given open "netSilverEnv_ycjpt" enterprise net silver page
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information
-    |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
-    |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|200202500K |
-#    Given logon "environments_5" on tube by inputting system online bank
-#    When I enter the post pipe supplementary information
-#      |cheek      |
-#      |200202500K |
-#    Given logon "environments_6" on tube by inputting system online bank
-#    When I switch to another account for authorization
-#新流程 变化了。
+    |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
+    |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|200606164M |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -29,14 +21,10 @@ Feature: openAccount
   Scenario:openAccount Current Account CA_SGD
     Given open "netSilverEnv_ycjpt" enterprise net silver page
     When click open Account page
-#      Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD NEW
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
-#    And Provide Essential Information New
-#      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
-#      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -51,7 +39,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_USD
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -67,7 +55,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_EUR
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -83,7 +71,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_CNY
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -99,7 +87,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_HKD
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -115,7 +103,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -131,7 +119,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -147,7 +135,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_CNY
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -163,7 +151,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD_CNY_HKD_EUR
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -373,7 +361,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD and loan
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199906179R |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details

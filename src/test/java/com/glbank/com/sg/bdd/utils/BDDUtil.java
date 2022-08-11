@@ -171,14 +171,6 @@ public class BDDUtil extends PageObject {
         enter(password).into(passwordForEcare);
         logInForEcare.click();
     }
-    @Step
-    public void logonRPQ(String env){
-        getConfigForOtherEnv(env,"RPQ");
-        openUrl(url);
-        enter(username).into(userNameForEcare);
-        enter(password).into(passwordForEcare);
-        logInForEcare.click();
-    }
 
     public boolean isContainsText(String text,int time){
         boolean flage = false;
@@ -597,17 +589,6 @@ public class BDDUtil extends PageObject {
         evaluateJavascript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
-    public void selectFile(String profile) {
-        if (profile.contains("suprofile")) {
-            sleep(5);
-            selectSufile();
-        } else if (profile.contains("puprofile")) {
-            sleep(5);
-            selectPufile();
-        } else {
-            throw new RuntimeException("Failed to select profile");
-        }
-    }
 
     public void switchToSecondWindows(){
         //获取当前窗口句柄
@@ -648,13 +629,31 @@ public class BDDUtil extends PageObject {
         getDriver().switchTo().window(homeWindow);
     }
 
+    public void closeWindow() {
+        try {
+            String winHandleBefore = getDriver().getWindowHandle();//关闭当前窗口前，获取当前窗口句柄
+            Set<String> winHandles = getDriver().getWindowHandles();//使用set集合获取所有窗口句柄
+            getDriver().close();//关闭窗口
+            Iterator<String> it = winHandles.iterator();//创建迭代器，迭代winHandles里的句柄
+            while (it.hasNext()) {//用it.hasNext()判断时候有下一个窗口,如果有就切换到下一个窗口
+                String win = it.next();//获取集合中的元素
+                if (!win.equals(winHandleBefore)) { //如果此窗口不是关闭前的窗口
+                    getDriver().switchTo().window(win);//切换到新窗口
+                    System.out.println("Switch Window From " + winHandleBefore + " to " + win);
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void switchToNewWindow(){
         String handle = getDriver().getWindowHandle();
         for (String temhandle : getDriver().getWindowHandles()) {
             if (!temhandle.equals(handle))
                 getDriver().switchTo().window(temhandle);
         }
-
     }
     public static String getTimeNowThroughCalendar(){
         //使用默认时区和语言环境获得一个日历。
@@ -704,17 +703,6 @@ public class BDDUtil extends PageObject {
         //通过Runtime对象调用exe方法
         try {
             runtime.exec("src/test/resources/testData/autopay/chromUpload.exe");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void requestFinancingFileUpload(){
-        //实现文件上传。通过Runtime的静态方法获取Runtime对象
-        Runtime runtime = Runtime.getRuntime();
-        //通过Runtime对象调用exe方法
-        try {
-            runtime.exec("src/test/resources/testData/autopay/ChromRequestFinancingFileUpload.exe");
         } catch (IOException e) {
             e.printStackTrace();
         }

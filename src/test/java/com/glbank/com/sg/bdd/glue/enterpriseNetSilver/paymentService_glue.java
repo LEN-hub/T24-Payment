@@ -34,7 +34,7 @@ public class paymentService_glue {
     }
 
     @Then("^My account has been transferred successfully$")
-    public void myAccountHasBeenTransferredSuccessfully() {
+    public void myAccountHasBeenTransferredSuccessfully() throws Exception {
         paymentService_step.successTitle();
     }
 
@@ -234,5 +234,15 @@ public class paymentService_glue {
         paymentService_step.enterAmount(payToInfoU.get(0).get("enterAmount"));
         List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
         paymentService_step.expense(payToI.get(0).get("expense"), payToI.get(0).get("expenseEnglish"));
+    }
+
+    @When("^Vkey authorization for Payment transactions in the SIT environment$")
+    public void vkeyAuthorizationForPaymentTransactionsInTheSITEnvironment() {
+        paymentService_step.vkeyAuthorizationSIT();
+    }
+
+    @Then("^I will compare all the data$")
+    public void iWillCompareAllTheData() throws Exception {
+        paymentService_step.getFxPaymentDataOnPage();
     }
 }

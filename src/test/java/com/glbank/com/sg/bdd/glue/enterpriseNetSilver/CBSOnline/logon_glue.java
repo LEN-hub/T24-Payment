@@ -24,12 +24,6 @@ public class logon_glue {
 
     }
 
-
-
-
-
-
-
     @Given("^logon \"([^\"]*)\" GLbank page$")
     public void logon_custom_portal(String envName) {
         envTag = envName;

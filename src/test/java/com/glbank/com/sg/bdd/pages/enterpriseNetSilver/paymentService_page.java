@@ -92,6 +92,78 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@class='ui-container-full__body']//div[@class='el-col el-col-24']/div[2]//div[@class='btn_box']")
     public WebElementFacade submitBtn;
 
+    @FindBy(xpath = "//div[@class='num']")
+    public WebElementFacade referenceID;
+
+    @FindBy(xpath = "//img[@class='refresh']")
+    public WebElementFacade clickRefreshBtn;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][1]//div[contains(text(),'Account Name')]/following-sibling::div")
+    public WebElementFacade debitAccountName;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][1]//div[contains(text(),'Account Currency')]/following-sibling::div")
+    public WebElementFacade debitAccountCurrency;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][1]//div[contains(text(),'Account Number')]/following-sibling::div")
+    public WebElementFacade debitAccountNumber;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][1]//div[contains(text(),'Company Name')]/following-sibling::div")
+    public WebElementFacade debitCompanyName;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][2]//div[contains(text(),'Account Name')]/following-sibling::div")
+    public WebElementFacade creditAccountName;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][2]//div[contains(text(),'Account Currency')]/following-sibling::div")
+    public WebElementFacade creditAccountCurrency;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][2]//div[contains(text(),'Account Number')]/following-sibling::div")
+    public WebElementFacade creditAccountNumber;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][2]//div[contains(text(),'Company Name')]/following-sibling::div")
+    public WebElementFacade creditCompanyName;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][3]//div[contains(text(),'Transaction Amount')]/following-sibling::div")
+    public WebElementFacade transactionAmount;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][3]//div[contains(text(),'Purpose of Transfer')]/following-sibling::div")
+    public WebElementFacade purposeOfTransfer;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][1]//div[contains(text(),'Bank Name')]/following-sibling::div")
+    public WebElementFacade fxDetailBankName;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][2]//div[contains(text(),\"Payee's Name\")]/following-sibling::div")
+    public WebElementFacade fxDetailPayeeName;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][2]//div[contains(text(),\"Account Currency\")]/following-sibling::div")
+    public WebElementFacade fxDetailAccountCurrency;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][2]//div[contains(text(),\"Payee's Account Number\")]/following-sibling::div")
+    public WebElementFacade fxDetailPayeeAccountNum;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][3]//div[contains(text(),\"Exchange Rate\")]/following-sibling::div")
+    public WebElementFacade fxDetailExchangeRate;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][3]//div[contains(text(),'Transaction Amount')]/following-sibling::div")
+    public WebElementFacade fxDetailTransactionAmount;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][3]//div[contains(text(),\"Beneficiary Bank's BIC\")]/following-sibling::div")
+    public WebElementFacade fxDetailBeneficiaryBankBIC;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][3]//div[contains(text(),\"Payee's Address\")]/following-sibling::div")
+    public WebElementFacade fxDetailPayeeAddress;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][3]//div[contains(text(),\"Payee's Country\")]/following-sibling::div")
+    public WebElementFacade fxDetailPayeeCountry;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][3]//div[contains(text(),\"Estimated Processing Fee\")]/following-sibling::div")
+    public WebElementFacade fxDetailEstimatedProcessingFee;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][3]//div[contains(text(),\"Payment Mode for Charges\")]/following-sibling::div")
+    public WebElementFacade fxDetailPaymentModeForCharges;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='detail_page-block'][3]//div[contains(text(),\"Purpose of Transfer\")]/following-sibling::div")
+    public WebElementFacade fxDetailPurposeOfTransfer;
+
     @FindBy(xpath = "//div[@class='ui-container-full__body']//div[@class='el-col el-col-24']/div[@class='ui-button primary common disabled']")
     public WebElementFacade displaySubmitBtn;
 
@@ -110,7 +182,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@class='status']")
     public WebElementFacade statusSuccess;
 
-    @FindBy(xpath = "//div[@class='el-col el-col-17']/div[2]/div")
+    @FindBy(xpath = "//div[text()='View Details']")
     public WebElementFacade checkDetails;
 
     @FindBy(xpath = "//div[@class='body']/parent::div/preceding-sibling::div/span")
@@ -256,6 +328,18 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul//li")
     public List<WebElementFacade> selectPaymentAttributeCd;  //选择付汇性质
+
+    @FindBy(xpath = "//div[text()='Next']")
+    public WebElementFacade clickNextButton;
+
+    @FindBy(xpath = "//div[text()='Send verification code']")
+    public WebElementFacade clickSendVerificationBtn;
+
+    @FindBy(xpath = "//div[contains(text(),'Please enter SMS verification code')]/following-sibling::div[1]/input")
+    public WebElementFacade inputVerificationCode;
+
+    @FindBy(xpath = "//div[contains(text(),'Please enter SMS verification code')]/following-sibling::div[4]//div[text()='OK']")
+    public WebElementFacade clickOkBtn;
 
     @FindBy(xpath = "//div[@class='el-col el-col-18']/div[3]/div/div")
     public  WebElementFacade clickNextBox;  //下一步

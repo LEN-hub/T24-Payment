@@ -103,23 +103,72 @@ public class FileUtils {
         }
     }
 
-    public static void main(String[] args) {
+    public static Map<String, String> getMap(String path){
+        Map<String, String> map = new HashMap<>();
+
+        try {
+            String encoding="GBK";
+            path = systemPath + "/src/test/resources/testData/autopay/" + path + ".txt";
+            File file=new File(path);
+            if(file.isFile() && file.exists()){ //判断文件是否存在
+                InputStreamReader read = new InputStreamReader(
+                        new FileInputStream(file),encoding);//考虑到编码格式
+                BufferedReader bufferedReader = new BufferedReader(read);
+                String lineTxt = null;
+                while((lineTxt = bufferedReader.readLine()) != null){
+                    String[] s = lineTxt.split(":");
+                    map.put(s[0],s[1]);
+                }
+                read.close();
+            }else{
+                System.out.println("找不到指定的文件");
+            }
+        } catch (Exception e) {
+            System.out.println("读取文件内容出错");
+            e.printStackTrace();
+        }
+        return map;
+    }
+
+    public static void writeFile(String path) throws Exception{
+        String allPath = systemPath + "/src/test/resources/testData/autopay/" + path + ".txt";
+        File f = new File (allPath);
+        FileWriter fw = new FileWriter (f);
+        fw.write("");
+        fw.flush();
+        fw.close();
+        System.out.println(path+".txt 文件内容清除成功！");
+    }
+    public static CharSequence readtxtFile(String path,String filed) {
+        Map<String, String> map = getMap(path);
+        for (Map.Entry<String, String> m : map.entrySet()) {
+            if (m.getKey().equals(filed)) {
+                return m.getValue();
+            }
+        }
+        return null;
+    }
+
+
+    public static void main(String[] args) throws Exception {
+        System.out.println(readtxtFile("t24","ChannelReferenceID"));
+//        writeFile("t24");
 //        //String filePath = "C:/workspace/DBB_GL_AutoTesting-dev/src/test/resources/testData/autopay/test.txt";
 //        String filePath = "test";
 //        FileUtils.FileString4(filePath,"datatest2022");
 //        System.out.println(FileUtils.LastReadFileInput3("test"));
-        String rtn = FileInput3("test");
-        String[] arry = rtn.split(",");
-        List<String> fileContent = Arrays.asList(arry);
-        String lastLine = fileContent.get(fileContent.size() - 1);
-        System.out.println(lastLine);
-        for(int i = 0; i < fileContent.size(); i++){
-            //通过get方法传递索引获取集合元素
-            System.out.println(fileContent.get(i));
-//        String filePath = "C:/workspace/DBB_GL_AutoTesting-dev/src/test/resources/testData/autopay/test.txt";
-        String filePath = "emailData";
-        String filePath1 = "userAddEmailData";
-        FileUtils.FileString4(filePath,"datatest2022");
+//        String rtn = FileInput3("test");
+//        String[] arry = rtn.split(",");
+//        List<String> fileContent = Arrays.asList(arry);
+//        String lastLine = fileContent.get(fileContent.size() - 1);
+//        System.out.println(lastLine);
+//        for(int i = 0; i < fileContent.size(); i++){
+//            //通过get方法传递索引获取集合元素
+//            System.out.println(fileContent.get(i));
+////        String filePath = "C:/workspace/DBB_GL_AutoTesting-dev/src/test/resources/testData/autopay/test.txt";
+//        String filePath = "emailData";
+//        String filePath1 = "userAddEmailData";
+//        FileUtils.FileString4(filePath,"datatest2022");
 //        System.out.println(FileUtils.LastReadFileInput3("test"));
 //        String rtn = FileInput3(filePath);
 //        String[] arry = rtn.split(",");
@@ -133,6 +182,4 @@ public class FileUtils {
 //            System.out.println(fileContent.get(i-1));
 //        }
         }
-        }
-
 }

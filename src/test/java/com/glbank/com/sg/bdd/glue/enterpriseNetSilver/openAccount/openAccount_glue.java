@@ -83,8 +83,8 @@ public class openAccount_glue {
     public void fillInInformationOnGettingStartedPageAboutCA_SGDNEW(String envName){
         accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_CurrentAccount-Only");
         currencyType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_SGD");
-        openAccount_step.NewfillInInformationOnGettingStartedPage();
-        openAccount_step.newfillInInformationOnGettingStartedPage2(accountType,accountName,currencyType);
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2(accountType,accountName,currencyType);
         System.out.println("---------------账户名称："+ accountName + "----------------------");
         FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
     }
@@ -230,13 +230,13 @@ public class openAccount_glue {
         FileUtils.FileString4(""+openAccountInformation+"","申请人邮箱地址:" + emailName + "@MailTemp.top");
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
-        openAccount_step.inputEntityDetails(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"),payToInfo.get(0).get("cheek"));
+        openAccount_step.inputEntityDetails(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"),payToInfo.get(0).get("chekk"));
     }
 
     @And("^Provide Essential Information New$")
     public void provideEssentialInformationNew(DataTable payDetails)throws AWTException {
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        openAccount_step.newProvideEssentialInformation(applicantName,emailName,mobileNumber);
+        openAccount_step.ProvideEssentialInformation(applicantName,emailName,mobileNumber);
         System.out.println("---------------申请人姓名："+ applicantName + "----------------------");
         FileUtils.FileString4(""+openAccountInformation+"","申请人姓名:" + applicantName);
         System.out.println("---------------申请人电话号码："+ mobileNumber + "----------------------");

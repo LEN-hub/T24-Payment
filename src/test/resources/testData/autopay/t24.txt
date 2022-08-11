@@ -1,0 +1,78 @@
+2022-8-11 14:0:30:458
+ChannelReferenceID:220810000000098
+ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
+ChannelDebitAccountCurrency:SGD
+ChannelDebitAccountNumber:11010000438
+fxDetailBankName:Green Link Digital Bank Pte. Ltd
+fxDetailPayeeName:lucky
+fxDetailAccountCurrency:USD
+fxDetailPayeeAccountNum:11010000489
+fxDetailExchangeRate:USD 1 ≈ SGD 1.37418
+fxDetailTransactionAmount:87.09
+fxDetailBeneficiaryBankBIC:GLDTSGS0XXX
+fxDetailPayeeAddress:countries
+fxDetailEstimatedProcessingFee:0.00
+fxDetailPaymentModeForCharges:The expenses shall be borne by each party
+fxDetailPurposeOfTransfer:Commission
+2022-8-11 15:3:28:309
+ID:220810000000098
+TransactionReference:PI222230W8NDV3BT
+t24FtNumber:SGL22223DHKGHGCH
+getTransactionReferenceNum:SGL22223DHKGHGCH
+getSenderReferenceNum:PI222230W8NDV3BT
+getTransactionCurrency:USD
+getInstructedCurrency:SGD
+getTransactionAmount:63.38
+getInstructedAmount:87.09
+getChargeOption:SHA
+getDebitAccountNum:11010000438
+getCreditAccountNum:11010000489
+getDebitAccountCurrency:SGD
+getCreditAccountCurrency:USD
+getDebitAmount:87.09
+getCreditAmount:63.38
+getDebitCustomerRate:1.37418
+getDebitTreasuryRate:1.37318
+getOrderingAccount:11010000438
+getBeneficiaryAccount:11010000489
+getOrderingName:WATERHOUSE INVESTMENT PTE. LTD.
+getBeneficiaryName:lucky
+getOrderingAddress:SINGAPORE
+getBeneficiaryAddress:countries
+getOrderingTown:SG
+2022-8-11 15:8:33:752
+ID:220810000000098
+TransactionReference:PI222230W8NDV3BT
+t24FtNumber:SGL22223DHKGHGCH
+getTransactionReferenceNum:SGL22223DHKGHGCH
+getSenderReferenceNum:PI222230W8NDV3BT
+getTransactionCurrency:USD
+getInstructedCurrency:SGD
+getTransactionAmount:63.38
+getInstructedAmount:87.09
+getChargeOption:SHA
+getDebitAccountNum:11010000438
+getCreditAccountNum:11010000489
+getDebitAccountCurrency:SGD
+getCreditAccountCurrency:USD
+getDebitAmount:87.09
+getCreditAmount:63.38
+getDebitCustomerRate:1.37418
+getDebitTreasuryRate:1.37318
+getOrderingAccount:11010000438
+getBeneficiaryAccount:11010000489
+getOrderingName:WATERHOUSE INVESTMENT PTE. LTD.
+getBeneficiaryName:lucky
+getOrderingAddress:SINGAPORE
+getBeneficiaryAddress:countries
+getOrderingTown:SG
+currencyBought:USD
+amountBought:63.38
+currencySold:SGD
+amountSold:87.03
+spotRate:1.37318
+spotLcyAmount:87.03
+ourAccountRec:15000000242
+ourAccountPay:15000000153
+treasuryRate:1.37318
+lTranRef:SGL22223JBGCGDF0
