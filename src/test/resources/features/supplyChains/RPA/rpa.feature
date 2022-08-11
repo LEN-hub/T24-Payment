@@ -25,6 +25,3 @@ Feature:Bundled RPA test case
       |first_new_password|second_new_password|
       |P@ssw0rd_123      |P@ssw0rd_123       |
       Then I jump to the login page
-
-
-

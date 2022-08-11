@@ -24,7 +24,7 @@ public class loanApplication_step extends ScenarioSteps {
     //鼠标悬浮在贷款业务上。
     public void FloatingLoanButton(){
 //        Actions actions = new Actions(getDriver());
-//        actions.moveToElement(loanApplication_page.loan).perform();
+//        actions.moveToElement(loanApplication_page.loan).build().perform();
         loanApplication_page.loan.click();
         loanApplication_page.loanApplicationBtn.click();
         bddUtil.sleep(1);
@@ -43,7 +43,7 @@ public class loanApplication_step extends ScenarioSteps {
     }
 
     public static String getPerFirstDayOfMonth() {
-        SimpleDateFormat dft = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dft = new SimpleDateFormat("dd-MM-yyyy");
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, 1);
         calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMinimum(Calendar.DAY_OF_MONTH));
@@ -55,19 +55,32 @@ public class loanApplication_step extends ScenarioSteps {
 //        loanApplication_page.threePointSingapore.click();
         loanApplication_page.ApplicationForPayment.click();
         loanApplication_page.repaymentDate.sendKeys(getPerFirstDayOfMonth());
+//        在页面点击下一个月，选择 下个月的日期。
+        getDriver().findElement(By.xpath("//button[@aria-label='Next Month']")).click();
+//        选择次月的中旬日期。
+        getDriver().findElement(By.xpath("//table[@class='el-date-table']//tr[4]/td[3]")).click();
         loanApplication_page.repayDate.click();
         loanApplication_page.nextOnUpLoadFile.click();
+        bddUtil.sleep(2);
         loanApplication_page.nextOnUpLoadFile.click();
+        bddUtil.sleep(3);
     }//点击新币的按钮。
 
     public void clickUSDPrepayBtn(){
         getDriver().findElement(By.xpath("//div[@class='el-table__fixed-right']//tr[2]//div[@class='el-tooltip btn-icon']")).click();
 //        loanApplication_page.threePointSingapore.click();
         loanApplication_page.ApplicationForPayment.click();
+        loanApplication_page.proAmount.sendKeys("2000");
         loanApplication_page.repaymentDate.sendKeys(getPerFirstDayOfMonth());
+//        在页面点击下一个月，选择 下个月的日期。
+        getDriver().findElement(By.xpath("//button[@aria-label='Next Month']")).click();
+//        选择次月的中旬日期。
+        getDriver().findElement(By.xpath("//table[@class='el-date-table']//tr[4]/td[3]")).click();
         loanApplication_page.repayDate.click();
         loanApplication_page.nextOnUpLoadFile.click();
+        bddUtil.sleep(2);
         loanApplication_page.nextOnUpLoadFile.click();
+        bddUtil.sleep(3);
     }//点击美元的按钮。
 
     public void prepaymentAmountDisabled(){

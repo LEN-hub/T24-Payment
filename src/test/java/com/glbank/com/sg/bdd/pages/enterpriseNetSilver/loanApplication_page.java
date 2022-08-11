@@ -24,7 +24,7 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//span[text()='Turnover ≤ SGD 1 Million']")
     public WebElementFacade lessThanOneMillion;//选择小于一百万的综合销售额。
 
-    @FindBy(xpath = "//span[text()='SGD 1 Million < Turnover ≤ SGD 20 Million']")
+    @FindBy(xpath = "//span[text()='Turnover SGD 1 Million to ≤ SGD 20 Million']")
     public WebElementFacade oneToTwoMillion;//选择一百万到200W。
 
     @FindBy(xpath = "//label[@for='loanTypeCd']/following-sibling::div//label[1]")
@@ -430,6 +430,9 @@ public class loanApplication_page extends PageObject {
 
     @FindBy(xpath = "//label[@for='repayDate']/following-sibling::div//input")
     public WebElementFacade repaymentDate;
+
+    @FindBy(xpath = "//label[@for='repayOrigAmt']/following-sibling::div//input")
+    public WebElementFacade proAmount;
 
     @FindBy(xpath = "//label[@for='repayDate']")
     public WebElementFacade repayDate;

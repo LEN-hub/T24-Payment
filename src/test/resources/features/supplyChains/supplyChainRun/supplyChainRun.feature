@@ -54,6 +54,11 @@ Feature: supply chain run
     When Approval in the supply chain system
     Then Switch To the Assign To Me page and perform the corresponding operations
     When I close driver
+    Given logon "environments_2" on tube by inputting system
+    When Approval in the supply chain system
+    Then Switch To the Assign To Me page and perform the corresponding operations
+    When I close driver
+
 
 #绑定关系
   Scenario:Supplier The operator binds the supplier to a buyer relationship that does not exist between a single system, and the binding is successful
@@ -86,7 +91,6 @@ Feature: supply chain run
     And click Create ProductProfile
     When enter the second case information supplier and buyer
     Then I click Submit product profile
-    When The vendor logs in to the vendor portal to view products
     And Enter login information
     When I close driver
 
@@ -159,10 +163,10 @@ Feature: supply chain run
 
 ##   融资申请
 #  Scenario:financingRequest1
-##    Given logon "environments_3" test code
-##    When I input login information
-##    When login successfully and click RequestFinancing
-##    Then upload RequestFinancing File
+#    Given logon "environments_3" test code
+#    When I input login information
+#    When login successfully and click RequestFinancing
+#    Then upload RequestFinancing File
 #    And  logon "environments_1" on tube by inputting system
 #    Then click Operations to Review
 #    And change user To L2 Review
