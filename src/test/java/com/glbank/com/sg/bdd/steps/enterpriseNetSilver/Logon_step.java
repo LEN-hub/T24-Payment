@@ -18,6 +18,7 @@ public class Logon_step extends ScenarioSteps {
     public static String organisationID;
     public static String deviceName;
     public static String newPassword;
+    public static String loginOtp;
 
     @Step
     public void open_the_first_dbb_logon_page(String envName) {
@@ -69,6 +70,17 @@ public class Logon_step extends ScenarioSteps {
     @Step
     public void clickLogonBtn(){
         logonPage.logonBtn.click();
+    }
+
+    @Step
+    public void clickSitEnvOtpBtn(){
+        logonPage.clickSitEnvOtpBtn.click();
+        bddUtil.sleep(2);
+        loginOtp = getDriver().switchTo().alert().getText().substring(7, 13);
+        System.out.println(loginOtp);
+        getDriver().switchTo().alert().accept();
+        logonPage.enterSitEnvOtp.sendKeys(loginOtp);
+        logonPage.clickOkBtn.click();
     }
 
     @Step

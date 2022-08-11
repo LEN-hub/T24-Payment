@@ -14,6 +14,9 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"status-container\"]//div[1]//div[@class=\"ui-button-inner\"]")
     public WebElementFacade clickNewUser;
 
+    @FindBy(xpath = "//div[@class='container-component']//div[@class='ui-button text common'][2]//div[@class='btn_box']")
+    public WebElementFacade secondTitle;
+
     @FindBy(xpath = "//form[@class=\"el-form out_form el-form--label-left\"]//div[@class=\"el-col el-col-24\"]//div[1]//div[@class=\"el-form-item__content\"]//label[3]//span[@class=\"el-radio__inner\"]")
     public WebElementFacade clickBusinessEntityType;
 
@@ -133,6 +136,9 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//div[@class=\"el-picker-panel el-date-picker el-popper\"]/following-sibling::div//ul//span[text()=\"SINGAPORE\"]")
     public WebElementFacade getCountryOfIncorporation;
+
+    @FindBy(xpath = "//div[@role='radiogroup']/label[@role='radio'][1]//span[@class='el-radio__inner']")
+    public WebElementFacade selectSameAsCountry;
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextOnProvideEssentialInformationPage;
@@ -367,6 +373,18 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextForUBO;
+
+    @FindBy(xpath = "//div[contains(text(),'Connected Person 2')]")
+    public WebElementFacade connectedPerson2;
+
+    @FindBy(xpath = "//img[@class='ic_delete']")
+    public WebElementFacade deleteBtn;
+
+    @FindBy(xpath = "//span[contains(text(),'Yes')]")
+    public WebElementFacade clickYesBtn;
+
+    @FindBy(xpath = "//label[@class='el-checkbox']/span[@class='el-checkbox__input']")
+    public WebElementFacade clickCheckBox;
 
     @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[3]//label[@for='contactPersonNm']")
     public WebElementFacade goUBO2Name;

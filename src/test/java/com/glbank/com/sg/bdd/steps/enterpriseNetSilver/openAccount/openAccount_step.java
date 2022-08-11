@@ -32,6 +32,7 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.clickOpenAccount.click();
         openAccount_page.clickNewUser.click();
         bddUtil.sleep(2);
+        openAccount_page.secondTitle.click();
     }
 
 
@@ -285,12 +286,14 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         try {
             Alert alert = getDriver().switchTo().alert();
             if (alert != null){
+                otp = alert.getText();
                 alert.accept();
             }
         }catch (Exception e){
             e.printStackTrace();
         }
-        verificationCode=getLastOtp("60120003");
+//        verificationCode=getLastOtp("60120003");
+        verificationCode= otp.substring(7,13);
         System.out.println("------------otp验证码:"+otp+"-----------------");
         bddUtil.sleep(1);
     }
@@ -324,6 +327,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         openAccount_page.goEntityDetails.click();
         openAccount_page.clickCountryOfIncorporation.click();
         bddUtil.scrollWindowToElement(openAccount_page.getCountryOfIncorporation).click();
+        openAccount_page.selectSameAsCountry.click();
         openAccount_page.clickNextOnProvideEssentialInformationPage.click();
         bddUtil.sleep(1);
 //        try {
@@ -541,7 +545,22 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
 //        openAccount_page.inputUBOEmailAddress.sendKeys(ultimateBeneficialOwnerEmailName + "@MailTemp.top");
 //        openAccount_page.clickNextForUBO.click();
 //        bddUtil.sleep(2);
-        bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//div[@class='paddingleft16']/label/span[1]"))).click();
+        for (int i = 0; i<20; i++){
+            if (openAccount_page.connectedPerson2.isVisible()){
+                openAccount_page.deleteBtn.click();
+                bddUtil.sleep(1);
+                openAccount_page.clickYesBtn.click();
+            }else {
+                break;
+            }
+        }
+        bddUtil.scrollWindowToElement(openAccount_page.clickNextOnEnterConnectedPeoplesDetails);
+        openAccount_page.clickNextOnEnterConnectedPeoplesDetails.click();
+        bddUtil.sleep(2);
+        if (openAccount_page.clickCheckBox.isVisible()){
+            openAccount_page.clickCheckBox.click();
+        }
+//        bddUtil.scrollWindowToElement(openAccount_page.find(By.xpath("//div[@class='paddingleft16']/label/span[1]"))).click();
         openAccount_page.clickNextForUBO.click();
 
     }

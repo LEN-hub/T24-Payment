@@ -7,7 +7,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information
-    |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+    |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
     |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|200606164M |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -23,7 +23,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -39,7 +39,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_USD
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -55,7 +55,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_EUR
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -71,7 +71,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_CNY
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -87,7 +87,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_HKD
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -103,7 +103,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -119,7 +119,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -135,7 +135,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_CNY
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -151,7 +151,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD_CNY_HKD_EUR
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
@@ -361,7 +361,7 @@ Feature: openAccount
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD and loan
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |cheek      |
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
       |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199906179R |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details

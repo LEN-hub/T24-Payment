@@ -20,6 +20,15 @@ public class Logon_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-row']/following-sibling::div//div[@class='btn_box']")
     public WebElementFacade logonBtn;
 
+    @FindBy(xpath = "//div[text()='Send verification code']")
+    public WebElementFacade clickSitEnvOtpBtn;
+
+    @FindBy(xpath = "//div[contains(text(),'Please enter SMS')]/following-sibling::div[1]/input")
+    public WebElementFacade enterSitEnvOtp;
+
+    @FindBy(xpath = "//div[text()='OK']")
+    public WebElementFacade clickOkBtn;
+
     @FindBy(xpath = "//div[contains(text(), '使用OTP进行身份验证')]")
     public WebElementFacade vcodeTitle;
 

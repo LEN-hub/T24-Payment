@@ -220,7 +220,7 @@ public class openAccount_glue {
         FileUtils.FileString4(""+openAccountInformation+"","申请人邮箱地址:" + emailName + "@MailTemp.top");
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
-        openAccount_step.inputEntityDetails(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"),payToInfo.get(0).get("cheek"));
+        openAccount_step.inputEntityDetails(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"),payToInfo.get(0).get("chekk"));
     }
 
     @And("^Provide Essential Information About SubIndustry$")
