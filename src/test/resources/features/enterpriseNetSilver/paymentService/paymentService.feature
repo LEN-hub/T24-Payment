@@ -2,7 +2,7 @@
 Feature: receipt and payment service
 
   Background:
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon second "netSilverEnv_Kevin" on enterprise net silver
 
 #本人互转
    #USD->SGD

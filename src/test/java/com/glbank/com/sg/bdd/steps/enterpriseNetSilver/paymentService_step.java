@@ -418,7 +418,7 @@ public class paymentService_step extends ScenarioSteps {
         List<WebElementFacade> bank = paymentService_page.collectingBank;
         for (int i = 0; i < bank.size(); i++) {
             if (collectingBank.equals(bank.get(i).getText())) {
-                bank.get(i).click();
+                bank.get(i+1).click();
                 break;
             }
         }
