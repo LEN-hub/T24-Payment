@@ -11,14 +11,38 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"header-top-right\"]//span[2]")
     public WebElementFacade clickOpenAccount;
 
-    @FindBy(xpath = "//div[@class=\"status-container\"]//div[1]//div[@class=\"ui-button-inner\"]")
+    @FindBy(xpath = "//div[@class='login_tips']/following-sibling::div[1]/div")
     public WebElementFacade clickNewUser;
 
-    @FindBy(xpath = "//div[@class='container-component']//div[@class='ui-button text common'][2]//div[@class='btn_box']")
+    @FindBy(xpath = "//div[@class='link-btn']")
     public WebElementFacade secondTitle;
+
+    @FindBy(xpath = "//div[@class='link-btn mb']")
+    public WebElementFacade firstTitle;
 
     @FindBy(xpath = "//form[@class=\"el-form out_form el-form--label-left\"]//div[@class=\"el-col el-col-24\"]//div[1]//div[@class=\"el-form-item__content\"]//label[3]//span[@class=\"el-radio__inner\"]")
     public WebElementFacade clickBusinessEntityType;
+
+    @FindBy(xpath = "//span[text()='Current Account']")
+    public WebElementFacade currentAccount;
+
+    @FindBy(xpath = "//div[@role='radiogroup']/label[1]")
+    public WebElementFacade SGDCurrent;
+
+    @FindBy(xpath = "//label[@class='el-checkbox']/span[1]")
+    public WebElementFacade AccountName;
+
+    @FindBy(xpath = "//input[@maxlength='35']")
+    public WebElementFacade InputAccountNameNew;
+
+    @FindBy(xpath = "//input[@readonly='readonly']")
+    public List<WebElementFacade> accountTypeList;
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//li[4]")
+    public WebElementFacade oneMillion;
+
+    @FindBy(xpath = "//span[text()='Mr']")
+    public WebElementFacade mrBtn;
 
     @FindBy(xpath = "//form[@class=\"el-form out_form el-form--label-left\"]//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"el-form-item__content\"]//label[2]//span[@class=\"el-radio__inner\"]")
     public WebElementFacade clickNeedThisAccount;
@@ -98,6 +122,12 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"operatePersonMobilePhoneNo\"]/following-sibling::div//div//input")
     public WebElementFacade inputMobileNumber;
 
+    @FindBy(xpath = "//input[@maxlength='21']")
+    public WebElementFacade inputContactNumber;
+
+    @FindBy(xpath = "//div[text()='Verify Email']")
+    public WebElementFacade verifyEmailNew;
+
     @FindBy(xpath = "//label[@for=\"operatePersonEmail\"]/following-sibling::div//div//input")
     public WebElementFacade inputEmailAddress;
 
@@ -125,7 +155,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"certfctNo\"]")
     public WebElementFacade goEntityDetails;
 
-        @FindBy(xpath = "//label[@for=\"certfctNo\"]/following-sibling::div//div//input")
+    @FindBy(xpath = "//label[@for=\"certfctNo\"]/following-sibling::div//div//input")
     public WebElementFacade inputCompanyRegistrationNumber;
 
     @FindBy(xpath = "//label[@for=\"companyRegisterDate\"]/following-sibling::div//div//input")
@@ -140,10 +170,25 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@role='radiogroup']/label[@role='radio'][1]//span[@class='el-radio__inner']")
     public WebElementFacade selectSameAsCountry;
 
+    @FindBy(xpath = "//div[@role='radiogroup']/label[@role='radio'][1]//span[@class='el-radio__inner']")
+    public List<WebElementFacade> selectYesNew;
+
+    @FindBy(xpath = "//label[@for='fundAcctType']/following-sibling::div/div/label[1]")
+    public WebElementFacade BusinessOperations;
+
+    @FindBy(xpath = "//label[@for='monthAmont']/following-sibling::div//input")
+    public WebElementFacade monthAmontNew;
+
+    @FindBy(xpath = "//label[@for='monthTrsCount']/following-sibling::div//input")
+    public WebElementFacade monthTrsCount;
+
     @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextOnProvideEssentialInformationPage;
 
-    @FindBy(xpath = "//label[@for=\"entityType\"]")
+    @FindBy(xpath = "//div[text()='Next']")
+    public WebElementFacade nextButtonNew;
+
+    @FindBy(xpath = "//label[text()='Postal Code']")
     public WebElementFacade goEntityType;
 
     @FindBy(xpath = "//label[@for=\"entityType\"]/following-sibling::div//div//input")

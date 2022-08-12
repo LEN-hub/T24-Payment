@@ -43,7 +43,7 @@ Feature: loan application
 #      |test123                  |12      |1              |0                   |1   |
 #    When I upload the five required documents
 #    When I click next button on the upLoadFile page
-#
+
 #  @loanApplication2
 #  Scenario:Select “>1,000,000 and ≤20,000,000” for “Corporate Turnover (SGD)”, select “Current Asset Loan” for the loan type, select the collateral: real estate, select the guarantor: personal guarantee - two directors, input the loan amount: 200,000; 30-Day Accounts Receivable Financing Product Loan Application Successful (Loan Currency Selection: USD)
 ##     收账融资
@@ -213,7 +213,7 @@ Feature: loan application
 #  Scenario:successfully downloaded batch new domestic payee template
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When succeeded in downloading the batch added domestic payee template
-#
+##
 #  Scenario:personal information management Basic information management, modify customer nicknames
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When modifying customer nicknames
@@ -241,6 +241,8 @@ Feature: loan application
 #    When click the Account details query and click the query button to query
 #
 #
+
+##  电子通知
 #  @ext123
 #  Scenario:Download e-Statement file successfully
 ##    Given Closing the Browser driver
@@ -254,11 +256,9 @@ Feature: loan application
 #    And I click search button
 #    Then I should see Account List
 #    When I click on the first data to download
-##    When I click My Downloads Btn
-##    When I see My Downloads List
-#
-#
-#
+
+
+##       电子通知
 #  @ext123test122
 #  Scenario:Download past e-statements successfully
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
@@ -271,10 +271,9 @@ Feature: loan application
 #    And I click search button
 #    Then I should see Account List
 #    When I click on the past data to download
-##    When I click My Downloads Btn
-##    When I see My Downloads List
-#
-#
+
+
+##   电子通知
 #  @ext123test
 #  Scenario:Download the electronic notice and successfully generate the download task
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
@@ -282,20 +281,20 @@ Feature: loan application
 #    When I click View eAdvices Btn
 #    When I click select button on the View eAdvices page
 #    When I click first data to download on the view eAdvices page
-#
+
 #
 ##      转存方式1代表不转存，2代表本金续存，3代表本息续存
 ##
 ##  定期存款_新币_六个月_不转存
-#  @reporttest123
+##  @reporttest123
 #  Scenario:fixedDeposit_SGD_SixMonth_DoNotRenewOrWithdrawAutomatically
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When click Fixed Deposits menu
 #    Then I fill in the information about the SGD transfer on the time deposit page
 #      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
 #      |1101 0000 179       |11020004223 |250000 |6 Months|1                    |
-#
-#
+##
+##
 #  #定期存款_美元_六个月_不转存
 #  @fixedDeposit02
 #  Scenario:fixedDeposit_USD_SixMonth_DoNotRenewOrWithdrawAutomatically
@@ -421,16 +420,16 @@ Feature: loan application
 #    Then I fill in the information about the SGD transfer on the time deposit page
 #      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
 #      |1101 0000 179       |11020004223 |250000 |12 Months|2                    |
-
-  #定期存款_美元_十二个月_本金续存
-  @fixedDeposit04
-  Scenario:fixedDeposit_USD_TwelveMonth_RenewPrincipalAmountAndWithdrawInterest
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click Fixed Deposits menu
-    Then I fill in the information about the USD transfer on the time deposit page
-      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |12 Months|2                    |
-
+#
+#  #定期存款_美元_十二个月_本金续存
+#  @fixedDeposit04
+#  Scenario:fixedDeposit_USD_TwelveMonth_RenewPrincipalAmountAndWithdrawInterest
+#    Given logon "netSilverEnv_Kevin" on enterprise net silver
+#    When click Fixed Deposits menu
+#    Then I fill in the information about the USD transfer on the time deposit page
+#      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+#      |1101 0000 047       |11020004223 |10000  |12 Months|2                    |
+#
 #  #定期存款_新币_十二个月_本息续存
 #  @fixedDeposit05
 #  Scenario:fixedDeposit_SGD_TwelveMonth_RenewPrincipalAmountAndInterest
@@ -504,7 +503,62 @@ Feature: loan application
 #      |1101 0000 047       |11020004223 |10000  |18 Months|3                    |
 
 
+#  修改密码
+  @forgotPassWordIDCard123
+  Scenario:idCard Forgot password users log in normally after resetting their passwords
+    Given open "netSilverEnvTian" on enterprise net silver
+    When I click forgotPassword button
+    When I input Enterprise customer number and other information
+      |customerNumber |
+      |200032         |
+    When I click idCard button and input idCardNumber
+      |idCardNumber|
+      |S9421475A   |
+    And I Select country code and enter mobile number
+      |countryCode|iphoneNumber|
+      |+86        |13094575647 |
+    When I click get verification code button
+    When I input email address
+      |emailAddress        |
+      |2022022@MailTemp.top|
+    When I click get verification code button
+    When I click next button on the change Password page
+    When I input new password and click confirm button
+    When The program is finished I will release the Linux SSH connection
+    When I close driver
 
 
+    #正常开户流程——单币种账户——新币
+  Scenario:openAccount Singapore enterprise
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|200606164M |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+    When I close driver
 
+
+     #多币种账户 新币+美元
+  Scenario:openAccount Current Account MCA_SGD_USD
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+#    Then get Organisation ID
+    When I close driver
 

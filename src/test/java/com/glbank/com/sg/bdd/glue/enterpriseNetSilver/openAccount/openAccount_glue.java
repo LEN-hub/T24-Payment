@@ -59,6 +59,11 @@ public class openAccount_glue {
         openAccount_step.clickOpenAccount();
     }
 
+    @When("^click open Account New page$")
+    public void clickOpenAccountNewPage() {
+        openAccount_step.clickOpenNewAccount();
+    }
+
     @Then("^Fill in information \"([^\"]*)\" on Getting Started page$")
     public void fillInInformationOnGettingStartedPage(String envName){
         accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_CurrentAccount-Only");
@@ -68,6 +73,17 @@ public class openAccount_glue {
         System.out.println("---------------账户名称："+ accountName + "----------------------");
         FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
     }
+
+    @Then("^New Fill in information \"([^\"]*)\" on Getting Started page$")
+    public void newFillInInformationOnGettingStartedPage(String envName) {
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_CurrentAccount-Only");
+        currencyType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_SGD");
+        openAccount_step.newFillInInformationOnGettingStartedPage();
+        openAccount_step.newFillInInformationOnGettingStartedPage2(accountName);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
 
     @Then("^Fill in information \"([^\"]*)\" on Getting Started page about CA_SGD$")
     public void fillInInformationOnGettingStartedPageAboutCA_SGD(String envName){
@@ -236,7 +252,7 @@ public class openAccount_glue {
     @And("^Provide Essential Information New$")
     public void provideEssentialInformationNew(DataTable payDetails)throws AWTException {
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        openAccount_step.ProvideEssentialInformation(applicantName,emailName,mobileNumber);
+        openAccount_step.newProvideEssentialInformation(applicantName,emailName,mobileNumber);
         System.out.println("---------------申请人姓名："+ applicantName + "----------------------");
         FileUtils.FileString4(""+openAccountInformation+"","申请人姓名:" + applicantName);
         System.out.println("---------------申请人电话号码："+ mobileNumber + "----------------------");
@@ -245,7 +261,7 @@ public class openAccount_glue {
         FileUtils.FileString4(""+openAccountInformation+"","申请人邮箱地址:" + emailName + "@MailTemp.top");
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
-        openAccount_step.inputEntityDetails(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"),payToInfo.get(0).get("cheek"));
+        openAccount_step.inputEntityDetailsNew(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"),payToInfo.get(0).get("chekk"));
     }
 
     @And("^Provide Essential Information About SubIndustry$")
@@ -514,17 +530,6 @@ public class openAccount_glue {
         openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_USD_EURAndLoan(accountType,accountName,currencyTypeUSD,currencyTypeEUR);
         System.out.println("---------------账户名称："+ accountName + "----------------------");
         FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
-    }
-
-    @When("^I enter the post pipe supplementary information$")
-    public void iEnterThePostPipeSupplementaryInformation(DataTable table) {
-        List<Map<String, String>> maps = table.asMaps(String.class, String.class);
-        openAccount_step.intoTheRearTube(maps.get(0).get("cheek"));
-    }
-
-    @When("^I switch to another account for authorization$")
-    public void iSwitchToAnotherAccountForAuthorization() {
-        openAccount_step.SwitchAccountForAuthorization();
     }
 
 }

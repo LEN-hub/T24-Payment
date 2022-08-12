@@ -36,12 +36,26 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.secondTitle.click();
     }
 
+    public void clickOpenNewAccount() {
+        openAccount_page.clickOpenAccount.click();
+        openAccount_page.clickNewUser.click();
+        bddUtil.sleep(2);
+        openAccount_page.firstTitle.click();
+    }
 
     public void fillInInformationOnGettingStartedPage() {
         openAccount_page.clickBusinessEntityType.click();
         openAccount_page.clickNeedThisAccount.click();
         openAccount_page.clickNextOnGettingStartedPage.click();
         bddUtil.sleep(3);
+    }
+
+//    在线开户新流程。
+    public void newFillInInformationOnGettingStartedPage() {
+        openAccount_page.accountTypeList.get(0).click();
+        openAccount_page.currentAccount.click();
+        openAccount_page.SGDCurrent.click();
+        bddUtil.sleep(1);
     }
 
     public void fillInInformationOnGettingStartedPage2(String accountType, String accountName, String currencyType) {
@@ -56,6 +70,14 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.clickWhatNeed.click();
         openAccount_page.clickLetGo.click();
         bddUtil.sleep(3);
+    }
+
+//    在线开户新流程。
+    public void newFillInInformationOnGettingStartedPage2(String accountName) {
+        openAccount_page.AccountName.click();
+        openAccount_page.InputAccountNameNew.sendKeys(accountName);
+        openAccount_page.accountTypeList.get(1).click();
+        openAccount_page.mrBtn.click();
     }
 
 //    在线开户+贷款。
@@ -260,6 +282,18 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         bddUtil.sleep(1);
     }
 
+//    在线开户 新流程。
+    public void newProvideEssentialInformation(String applicantName, String emailName, String mobileNumber) {
+        bddUtil.sleep(1);
+        openAccount_page.inputFullName.sendKeys(applicantName);
+        openAccount_page.clickCountryCode.click();
+        bddUtil.scrollWindowToElement(openAccount_page.getCountryCode).click();
+        openAccount_page.inputContactNumber.sendKeys(mobileNumber);
+        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
+        openAccount_page.verifyEmailNew.click();
+        bddUtil.sleep(1);
+    }
+
     public void selectOneAdministrators(){
         bddUtil.scrollWindowToElement(bddUtil.find(By.xpath("//label[text()='How many company administrators’ profiles do you need to create?']")));
         if (bddUtil.find(By.xpath("//label[text()='How many company administrators’ profiles do you need to create?']/following-sibling::div//label[2]/span[1]")).getAttribute("class").equals("el-radio__input is-checked")){
@@ -278,24 +312,25 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
     }
 
     public void clickValidationCode() {
-        bddUtil.sleep(5);
-//        getDriver().switchTo().alert().getText();
-//        bddUtil.sleep(2);
-//        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
-//        bddUtil.sleep(2);
+        bddUtil.sleep(7);
+        getDriver().switchTo().alert().getText();
+        bddUtil.sleep(2);
+        verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
+        getDriver().switchTo().alert().accept();
+        bddUtil.sleep(2);
 //        判断alert弹窗是否显示。
-        try {
-            Alert alert = getDriver().switchTo().alert();
-            if (alert != null){
-                otp = alert.getText();
-                alert.accept();
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-//        verificationCode=getLastOtp("60120003");
-        verificationCode= otp.substring(7,13);
-        System.out.println("------------otp验证码:"+otp+"-----------------");
+//        try {
+//            Alert alert = getDriver().switchTo().alert();
+//            if (alert != null){
+//                otp = alert.getText();
+//                alert.accept();
+//            }
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+////        verificationCode=getLastOtp("60120003");
+//        verificationCode= otp.substring(7,13);
+//        System.out.println("------------otp验证码:"+otp+"-----------------");
         bddUtil.sleep(1);
     }
 
@@ -318,17 +353,18 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         bddUtil.sleep(1);
     }
 
-    public void inputEntityDetails(String entityType,String entityConsolidated,String entityIndustry,String date,String cheek) {
+    public void inputEntityDetails(String entityType,String entityConsolidated,String entityIndustry,String date,String chekk) {
         bddUtil.scrollWindowToElement(openAccount_page.goEntityDetails);
         bddUtil.sleep(1);
         //没有挡板，用shekk数据。
 //        openAccount_page.inputCompanyRegistrationNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
-        openAccount_page.inputCompanyRegistrationNumber.sendKeys(cheek);//199906179R    201700266Z
+        openAccount_page.inputCompanyRegistrationNumber.sendKeys(chekk);//199906179R    201700266Z
         openAccount_page.inputCompanyRegisterDate.sendKeys(date);
         openAccount_page.goEntityDetails.click();
         openAccount_page.clickCountryOfIncorporation.click();
         bddUtil.scrollWindowToElement(openAccount_page.getCountryOfIncorporation).click();
         openAccount_page.selectSameAsCountry.click();
+        bddUtil.sleep(3);
         openAccount_page.clickNextOnProvideEssentialInformationPage.click();
         bddUtil.sleep(1);
 //        try {
@@ -354,14 +390,15 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         }
         bddUtil.scrollWindowToElement(openAccount_page.goEntityType);
         bddUtil.sleep(1);
-        openAccount_page.clickEntityType.click();
-        List<WebElementFacade> testEntityType = openAccount_page.getEntityType2;
-        for (int i =0;i <= testEntityType.size();i++){
-            if (testEntityType.get(i).getText().equals(entityType)) {
-                bddUtil.scrollWindowToElement(testEntityType.get(i)).click();
-                break;
-            }
-        }
+//        goEntityType字段去掉了。
+//        openAccount_page.clickEntityType.click();
+//        List<WebElementFacade> testEntityType = openAccount_page.getEntityType2;
+//        for (int i =0;i <= testEntityType.size();i++){
+//            if (testEntityType.get(i).getText().equals(entityType)) {
+//                bddUtil.scrollWindowToElement(testEntityType.get(i)).click();
+//                break;
+//            }
+//        }
         openAccount_page.clickEntityConsolidatedAnnualSalesTurnover.click();
         List<WebElementFacade> testSecondEntityType = openAccount_page.getEntityType2;
         for (int j =0;j <= testSecondEntityType.size();j++){
@@ -387,6 +424,84 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         bddUtil.scrollWindowToElement(openAccount_page.clickLetContinue).click();
         bddUtil.sleep(2);
     }
+
+//    在线开户新流程
+public void inputEntityDetailsNew(String entityType,String entityConsolidated,String entityIndustry,String date,String chekk) {
+    bddUtil.scrollWindowToElement(openAccount_page.goEntityDetails);
+    bddUtil.sleep(1);
+    //没有挡板，用shekk数据。
+//        openAccount_page.inputCompanyRegistrationNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
+    openAccount_page.inputCompanyRegistrationNumber.sendKeys(chekk);//199906179R    201700266Z
+    openAccount_page.clickCountryOfIncorporation.sendKeys("SINGAPORE");
+    getDriver().findElements(By.xpath("//span[text()='SINGAPORE']")).get(0).click();
+    openAccount_page.BusinessOperations.click();
+    openAccount_page.selectYesNew.get(1).click();
+    openAccount_page.selectYesNew.get(2).click();
+    openAccount_page.selectYesNew.get(3).click();
+    openAccount_page.monthAmontNew.click();
+    getDriver().findElement(By.xpath("//span[text()='SGD 500,001 - SGD 1 Million']")).click();
+    openAccount_page.monthTrsCount.click();
+    getDriver().findElement(By.xpath("//span[text()='1 to 20']")).click();
+    openAccount_page.nextButtonNew.click();
+    bddUtil.sleep(1);
+//        try {
+//            Thread.sleep(10000);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+    for (int i = 0; i < 8; i++) {
+        try {
+            Thread.sleep(30000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if (bddUtil.find(By.xpath("//span[text()='Reminder']")).isVisible() ){
+            bddUtil.find(By.xpath("//div[@class='el-message-box']//button[@type='button']/span")).click();
+            bddUtil.scrollWindowToElement(openAccount_page.clickNextOnProvideEssentialInformationPage).click();//                bddUtil.scrollWindowToElement(openAccount_page.goEntityType);
+            break;
+        }else if (bddUtil.find(By.xpath("//label[text()='Postal Code']")).isVisible()){
+            bddUtil.sleep(1);
+            bddUtil.scrollWindowToElement(openAccount_page.goEntityType);
+            break;
+        }
+    }
+    bddUtil.scrollWindowToElement(openAccount_page.goEntityType);
+    bddUtil.sleep(1);
+//        goEntityType字段去掉了。
+//        openAccount_page.clickEntityType.click();
+//        List<WebElementFacade> testEntityType = openAccount_page.getEntityType2;
+//        for (int i =0;i <= testEntityType.size();i++){
+//            if (testEntityType.get(i).getText().equals(entityType)) {
+//                bddUtil.scrollWindowToElement(testEntityType.get(i)).click();
+//                break;
+//            }
+//        }
+    openAccount_page.clickEntityConsolidatedAnnualSalesTurnover.click();
+    List<WebElementFacade> testSecondEntityType = openAccount_page.getEntityType2;
+    for (int j =0;j <= testSecondEntityType.size();j++){
+        bddUtil.sleep(1);
+        if (testSecondEntityType.get(j).getText().equals(entityConsolidated)) {
+            bddUtil.sleep(1);
+            bddUtil.scrollWindowToElement(testSecondEntityType.get(j)).click();
+            break;
+        }
+    }
+    openAccount_page.clickIndustry.click();
+    List<WebElementFacade> testThreeEntityType = openAccount_page.getEntityType2;
+    for (int k =0;k <= testThreeEntityType.size();k++){
+        bddUtil.sleep(3);
+        if (testThreeEntityType.get(k).getText().equals(entityIndustry)) {
+            bddUtil.scrollWindowToElement(testThreeEntityType.get(k)).click();
+            break;
+        }
+    }
+    openAccount_page.clickNonprofitFlag.click();
+    openAccount_page.clickNext2OnProvideEssentialInformationPage.click();
+    bddUtil.sleep(2);
+    bddUtil.scrollWindowToElement(openAccount_page.clickLetContinue).click();
+    bddUtil.sleep(2);
+}
+
 
     public void inputEntityDetails1(String subIndustry,String entityConsolidated) {
         String entityType = "Public Listed Company (Not Listed in Singapore)";
@@ -838,9 +953,10 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
     }
 
     public void reviewDetails(){
+        bddUtil.sleep(10);
         bddUtil.scrollWindowToElement(openAccount_page.clickAccepted).click();
 //        openAccount_page.clickSubmitToStep14.click();
-        bddUtil.sleep(5);
+        bddUtil.sleep(10);
     }
 
     public void reviewDetailsOnLoan(){

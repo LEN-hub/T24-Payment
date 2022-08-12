@@ -26,17 +26,17 @@ Feature: changePassword
     When I click forgotPassword button
     When I input Enterprise customer number and other information
       |customerNumber |
-      |201741         |
+      |200032         |
     When I click idCard button and input idCardNumber
       |idCardNumber|
-      |S4589632C   |
+      |S9421475A   |
     And I Select country code and enter mobile number
       |countryCode|iphoneNumber|
-      |+86        |15229856144 |
+      |+86        |13094575647 |
     When I click get verification code button
     When I input email address
-      |emailAddress     |
-      |986735326@qq.com |
+      |emailAddress        |
+      |2022022@MailTemp.top|
     When I click get verification code button
     When I click next button on the change Password page
     When I input new password and click confirm button
