@@ -144,7 +144,72 @@ public class t24_Payments_step extends ScenarioSteps {
         logonPage.clickViewIcon.click();
     }
     @Step
-    public void poCheckData(){
+    public void channelAndT24DataFieldMappingSameCurrency(){
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        getTransactionReferenceNum = logonPage.getTransactionReferenceNum.getText();
+        FileUtils.FileString4("t24","getTransactionReferenceNum:" + getTransactionReferenceNum);
+        getSenderReferenceNum = logonPage.getSenderReferenceNum.getText();
+        FileUtils.FileString4("t24","getSenderReferenceNum:" + getSenderReferenceNum);
+        getTransactionCurrency = logonPage.getTransactionCurrency.getText();
+        FileUtils.FileString4("t24","getTransactionCurrency:" + getTransactionCurrency);
+        getTransactionCurrency = logonPage.getTransactionCurrency.getText();
+        FileUtils.FileString4("t24","getTransactionCurrency:" + getTransactionCurrency);
+        getTransactionAmount = logonPage.getTransactionAmount.getText();
+        FileUtils.FileString4("t24","getTransactionAmount:" + getTransactionAmount);
+        getChargeOption = logonPage.getChargeOption.getText();
+        FileUtils.FileString4("t24","getChargeOption:" + getChargeOption);
+        getDebitAccountNum = logonPage.getDebitAccountNum.getText();
+        FileUtils.FileString4("t24","getDebitAccountNum:" + getDebitAccountNum);
+        getDebitAccountCurrency = logonPage.getDebitAccountCurrency.getText();
+        FileUtils.FileString4("t24","getDebitAccountCurrency:" + getDebitAccountCurrency);
+        getDebitAmount = logonPage.getDebitAmount.getText();
+        FileUtils.FileString4("t24","getDebitAmount:" + getDebitAmount);
+        getOrderingAccount = logonPage.getOrderingAccount.getText();
+        FileUtils.FileString4("t24","getOrderingAccount:" + getOrderingAccount);
+        getOrderingName = logonPage.getOrderingName.getText();
+        FileUtils.FileString4("t24","getOrderingName:" + getOrderingName);
+        getOrderingAddress = logonPage.getOrderingAddress.getText();
+        FileUtils.FileString4("t24","getOrderingAddress:" + getOrderingAddress);
+        getOrderingTown = logonPage.getOrderingTown.getText();
+        FileUtils.FileString4("t24","getOrderingTown:" + getOrderingTown);
+        getCreditAccountNum = logonPage.getCreditAccountNum.getText();
+        FileUtils.FileString4("t24","getCreditAccountNum:" + getCreditAccountNum);
+        getCreditAccountCurrency = logonPage.getCreditAccountCurrency.getText();
+        FileUtils.FileString4("t24","getCreditAccountCurrency:" + getCreditAccountCurrency);
+        getCreditAmount = logonPage.getCreditAmount.getText();
+        FileUtils.FileString4("t24","getCreditAmount:" + getCreditAmount);
+        getBeneficiaryAccount = logonPage.getBeneficiaryAccount.getText();
+        FileUtils.FileString4("t24","getBeneficiaryAccount:" + getBeneficiaryAccount);
+        getBeneficiaryName = logonPage.getBeneficiaryName.getText();
+        FileUtils.FileString4("t24","getBeneficiaryName:" + getBeneficiaryName);
+        getBeneficiaryAddress = logonPage.getBeneficiaryAddress.getText();
+        FileUtils.FileString4("t24","getBeneficiaryAddress:" + getBeneficiaryAddress);
+        Assert.assertEquals(getTransactionCurrency, readtxtFile("t24","fxDetailAccountCurrency"));
+        if (getChargeOption.equals("SHA") && Objects.equals(readtxtFile("t24", "fxDetailPaymentModeForCharges"), "The expenses shall be borne by each party")){
+            FileUtils.FileString4("t24","数据对比结果：Charge Option为SHA，字段对比成功");
+        }else if (getChargeOption.equals("OUR") && Objects.equals(readtxtFile("t24", "fxDetailPaymentModeForCharges"), "All expenses shall be borne by the remitter")){
+            FileUtils.FileString4("t24","数据对比结果：Charge Option为OUR，字段对比成功");
+        }else if (getChargeOption.equals("BEN") && Objects.equals(readtxtFile("t24", "fxDetailPaymentModeForCharges"), "All expenses shall be borne by the payee")){
+            FileUtils.FileString4("t24","数据对比结果：Charge Option为BEN，字段对比成功");
+        }
+        Assert.assertEquals(getDebitAccountNum, readtxtFile("t24","ChannelDebitAccountNumber"));
+        Assert.assertEquals(getCreditAccountNum, readtxtFile("t24","fxDetailPayeeAccountNum"));
+        Assert.assertEquals(getDebitAccountCurrency, readtxtFile("t24","ChannelDebitAccountCurrency"));
+        Assert.assertEquals(getCreditAccountCurrency, readtxtFile("t24","fxDetailAccountCurrency"));
+        Assert.assertEquals(getDebitAmount, readtxtFile("t24","fxDetailTransactionAmount"));
+        Assert.assertEquals(getOrderingAccount, readtxtFile("t24","ChannelDebitAccountNumber"));
+        Assert.assertEquals(getOrderingName, readtxtFile("t24","ChannelDebitAccountName"));
+        Assert.assertEquals(getBeneficiaryName, readtxtFile("t24","fxDetailPayeeName"));
+        logonPage.getClickChargeInformation.click();
+        logonPage.getRoutingInformation.click();
+        bddUtil.closeWindow();
+        bddUtil.switchToNewWindow();
+        switchToDefaultContent();
+        switchToFirstFrame();
+    }
+    @Step
+    public void channelAndT24DataFieldMappingFxPayment(){
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
         getTransactionReferenceNum = logonPage.getTransactionReferenceNum.getText();
@@ -195,18 +260,23 @@ public class t24_Payments_step extends ScenarioSteps {
         Assert.assertEquals(getInstructedCurrency, readtxtFile("t24","ChannelDebitAccountCurrency"));
         Assert.assertEquals(getInstructedAmount, readtxtFile("t24","fxDetailTransactionAmount"));
         if (getChargeOption.equals("SHA") && Objects.equals(readtxtFile("t24", "fxDetailPaymentModeForCharges"), "The expenses shall be borne by each party")){
-            System.out.println("Charge Option字段对比成功");
+            FileUtils.FileString4("t24","数据对比结果：Charge Option为SHA，字段对比成功");
         }else if (getChargeOption.equals("OUR") && Objects.equals(readtxtFile("t24", "fxDetailPaymentModeForCharges"), "All expenses shall be borne by the remitter")){
-            System.out.println("Charge Option字段对比成功");
+            FileUtils.FileString4("t24","数据对比结果：Charge Option为OUR，字段对比成功");
         }else if (getChargeOption.equals("BEN") && Objects.equals(readtxtFile("t24", "fxDetailPaymentModeForCharges"), "All expenses shall be borne by the payee")){
-            System.out.println("Charge Option字段对比成功");
+            FileUtils.FileString4("t24","数据对比结果：Charge Option为BEN，字段对比成功");
         }
         Assert.assertEquals(getDebitAccountNum, readtxtFile("t24","ChannelDebitAccountNumber"));
         Assert.assertEquals(getCreditAccountNum, readtxtFile("t24","fxDetailPayeeAccountNum"));
         Assert.assertEquals(getDebitAccountCurrency, readtxtFile("t24","ChannelDebitAccountCurrency"));
         Assert.assertEquals(getCreditAccountCurrency, readtxtFile("t24","fxDetailAccountCurrency"));
         Assert.assertEquals(getDebitAmount, readtxtFile("t24","fxDetailTransactionAmount"));
-        Assert.assertEquals(getDebitCustomerRate,readtxtFile("t24", "fxDetailExchangeRate").toString().substring(13));
+        bddUtil.scrollWindowToElement(logonPage.getDebitCustomerRate);
+        if (getDebitCustomerRate.equals(readtxtFile("t24", "fxDetailExchangeRate").toString().substring(13))){
+            Assert.assertEquals(getDebitCustomerRate,readtxtFile("t24", "fxDetailExchangeRate").toString().substring(13));
+        }else if(!getDebitCustomerRate.equals(readtxtFile("t24", "fxDetailExchangeRate").toString().substring(13))){
+            FileUtils.FileString4("t24","数据对比失败："+getDebitCustomerRate+"---------->"+readtxtFile("t24", "fxDetailExchangeRate").toString().substring(13));
+        }
         Assert.assertEquals(getOrderingAccount, readtxtFile("t24","ChannelDebitAccountNumber"));
         Assert.assertEquals(getOrderingName, readtxtFile("t24","ChannelDebitAccountName"));
         Assert.assertEquals(getBeneficiaryName, readtxtFile("t24","fxDetailPayeeName"));

@@ -182,7 +182,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@class='status']")
     public WebElementFacade statusSuccess;
 
-    @FindBy(xpath = "//div[text()='View Details']")
+    @FindBy(xpath = "//div[contains(text(),'View Details')]")
     public WebElementFacade checkDetails;
 
     @FindBy(xpath = "//div[@class='body']/parent::div/preceding-sibling::div/span")

@@ -415,7 +415,6 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     public void collectingBankBox(String collectingBank) {
-
         List<WebElementFacade> bank = paymentService_page.collectingBank;
         for (int i = 0; i < bank.size(); i++) {
             if (collectingBank.equals(bank.get(i).getText())) {
@@ -491,7 +490,7 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.clickOkBtn.click();
     }
     @Step
-    public void getFxPaymentDataOnPage() throws Exception {
+    public void getFxPaymentDataOnChannelPage() throws Exception {
         FileUtils.writeFile("t24");
         referenceID = paymentService_page.referenceID.getText().replace(" ","");
         FileUtils.FileString4("t24",nowDate+"\n"+"ChannelReferenceID:"+referenceID);
@@ -511,8 +510,10 @@ public class paymentService_step extends ScenarioSteps {
         FileUtils.FileString4("t24","fxDetailAccountCurrency:" + fxDetailAccountCurrency);
         fxDetailPayeeAccountNum = paymentService_page.fxDetailPayeeAccountNum.getText();
         FileUtils.FileString4("t24","fxDetailPayeeAccountNum:" + fxDetailPayeeAccountNum);
-        fxDetailExchangeRate = paymentService_page.fxDetailExchangeRate.getText();
-        FileUtils.FileString4("t24","fxDetailExchangeRate:" + fxDetailExchangeRate);
+        if (paymentService_page.fxDetailExchangeRate.isVisible()){
+            fxDetailExchangeRate = paymentService_page.fxDetailExchangeRate.getText();
+            FileUtils.FileString4("t24","fxDetailExchangeRate:" + fxDetailExchangeRate);
+        }
         fxDetailTransactionAmount = paymentService_page.fxDetailTransactionAmount.getText();
         FileUtils.FileString4("t24","fxDetailTransactionAmount:" + fxDetailTransactionAmount);
         fxDetailBeneficiaryBankBIC = paymentService_page.fxDetailBeneficiaryBankBIC.getText();
