@@ -172,7 +172,7 @@ Feature: receipt and payment service
       |Commission              |
     When I choose to submit the transfer information
     When Vkey authorization for Payment transactions in the SIT environment
-    Then I will compare all the data
+    Then I will compare all the data on FX Payment
 #    Then TC code is then required for Vkey authentication
 #    When I get the TC code and click Next
 #    When I typed TC Code and click Authenticate Now

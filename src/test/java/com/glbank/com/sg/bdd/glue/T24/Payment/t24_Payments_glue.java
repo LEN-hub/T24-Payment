@@ -55,7 +55,6 @@ public class t24_Payments_glue {
         logon_steps.switchToFirstFrame();
         logon_steps.findFileSendersReference();
         logon_steps.getFtNumber();
-        logon_steps.poCheckData();
     }
 
     @When("^I compare the amount is normal$")
@@ -90,5 +89,15 @@ public class t24_Payments_glue {
     @Then("^I will map the page data$")
     public void iWillMapThePageData() {
         logon_steps.iWillMapThePageData();
+    }
+
+    @Then("^I do field mapping for Channel and T24 in FX Payment$")
+    public void iDoFieldMappingForChannelAndT() {
+        logon_steps.channelAndT24DataFieldMappingFxPayment();
+    }
+
+    @Then("^I do field mapping for Channel and T24 in same currency$")
+    public void iDoFieldMappingForChannelAndTInSameCurrency() {
+        logon_steps.channelAndT24DataFieldMappingSameCurrency();
     }
 }

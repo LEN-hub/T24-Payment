@@ -241,8 +241,8 @@ public class paymentService_glue {
         paymentService_step.vkeyAuthorizationSIT();
     }
 
-    @Then("^I will compare all the data$")
+    @Then("^I will compare all the data on FX Payment$")
     public void iWillCompareAllTheData() throws Exception {
-        paymentService_step.getFxPaymentDataOnPage();
+        paymentService_step.getFxPaymentDataOnChannelPage();
     }
 }
