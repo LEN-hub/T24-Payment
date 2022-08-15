@@ -95,6 +95,9 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@class='num']")
     public WebElementFacade referenceID;
 
+    @FindBy(xpath = "//div[@class='ui-button primary common disabled']")
+    public WebElementFacade disabledSubmitBtn;
+
     @FindBy(xpath = "//img[@class='refresh']")
     public WebElementFacade clickRefreshBtn;
 

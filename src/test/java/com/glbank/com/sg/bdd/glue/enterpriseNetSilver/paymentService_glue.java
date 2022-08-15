@@ -245,4 +245,9 @@ public class paymentService_glue {
     public void iWillCompareAllTheData() throws Exception {
         paymentService_step.getFxPaymentDataOnChannelPage();
     }
+
+    @Then("^I will compare all the data on same Currency Payment$")
+    public void iWillCompareAllTheDataOnSameCurrencyPayment() throws Exception {
+        paymentService_step.getInnerPaymentDataOnChannelPage();
+    }
 }

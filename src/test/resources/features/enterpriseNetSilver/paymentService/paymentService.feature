@@ -143,9 +143,10 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Then I checked the details on the successful overseas transfer details page
-      |selectAccount|sendPaymentAccount|
-      |11020006552  |11020009098       |
+    Then I will compare all the data on FX Payment
+#    Then I checked the details on the successful overseas transfer details page
+#      |selectAccount|sendPaymentAccount|
+#      |11020006552  |11020009098       |
 
       #境外转账
   @overseasTransfer
@@ -171,11 +172,12 @@ Feature: receipt and payment service
       |selectPaymentAttributeCd|
       |Commission              |
     When I choose to submit the transfer information
-    When Vkey authorization for Payment transactions in the SIT environment
+#    When Vkey authorization for Payment transactions in the SIT environment
+#    Then I will compare all the data on FX Payment
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment
-#    Then TC code is then required for Vkey authentication
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
 #    Then I checked the details on the successful overseas transfer details page
 #      |selectAccount|sendPaymentAccount|
 #      |11020006552  |11020009098       |
@@ -232,9 +234,7 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Then I checked the details on the successful overseas transfer details page
-      |selectAccount|sendPaymentAccount|
-      |11020006552  |110200083204      |
+    Then I will compare all the data on FX Payment
 
 #@test00021
 #  #SGD->HKD
