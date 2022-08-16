@@ -100,4 +100,9 @@ public class t24_Payments_glue {
     public void iDoFieldMappingForChannelAndTInSameCurrency() {
         logon_steps.channelAndT24DataFieldMappingSameCurrency();
     }
+
+    @Then("^I do field mapping for Channel and T24 in Own FX Payment$")
+    public void iDoFieldMappingForChannelAndTInOwnFXPayment() {
+        logon_steps.channelAndT24DataFieldMappingOwnPayment();
+    }
 }
