@@ -532,4 +532,9 @@ public class openAccount_glue {
         FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
     }
 
+    @When("^I into the rear tube Supplementary account opening information$")
+    public void iIntoTheRearTube(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        openAccount_step.AdditionalInformation(maps.get(0).get("chekk"));
+    }
 }
