@@ -142,13 +142,13 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@id='message-content']/p")
     public WebElementFacade emailPageContent;
 
-    @FindBy(xpath = "//div[@id='body-html']//h2")
+    @FindBy(xpath = "//div[@id='body-html']//p[text()='     Password: ']/span[1]")
     public WebElementFacade emailPassword;
 
     @FindBy(xpath = "//div[@class='tab-pane message-body active']//h2")
     public WebElementFacade emailVerificationCode;
 
-    @FindBy(xpath = "//div[@class='tab-pane message-body active']//h2/preceding-sibling::span//a")
+    @FindBy(xpath = "//div[@class='tab-pane message-body active']//a[text()=' SCF portal ']")
     public WebElementFacade greenLinkSystem;
 
     @FindBy(xpath = "//div[@class='lls-form-item__content']//input[@placeholder='Enter email']")
@@ -478,6 +478,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()=' Director 2 ']/parent::div/following-sibling::div//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__input']")
     public WebElementFacade director2TimePermanentCheckBox;
 
+    @FindBy(xpath = "//div[text()=' Director 1 ']/parent::div/following-sibling::div//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__input']")
+    public WebElementFacade director1TimePermanrntCheckBox;
+
     @FindBy(xpath = "//div[@class='title']")
     public WebElementFacade shareholderOfTheInformation;
 
@@ -592,8 +595,11 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()=' Beneficial Owner 1 ']/parent::div/following-sibling::div//label[@for='certificationNo']/following-sibling::div//input")
     public WebElementFacade beneficial1CertificationNo;
 
-    @FindBy(xpath = " //div[text()=' Beneficial Owner 1 ']/parent::div/following-sibling::div//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__input']")
+    @FindBy(xpath = "//div[text()=' Beneficial Owner 1 ']/parent::div/following-sibling::div//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__input']")
     public WebElementFacade beneficial1TimePermanent;
+
+    @FindBy(xpath = "//div[text()=' Beneficial Owner 1 ']/parent::div/following-sibling::div/div/span[1]")
+    public WebElementFacade performOwner;
 
     @FindBy(xpath = "//div[text()=' Beneficial Owner 1 ']/parent::div/following-sibling::div//label[@for='fundScale']/following-sibling::div//input")
     public WebElementFacade beneficial1FundScale;

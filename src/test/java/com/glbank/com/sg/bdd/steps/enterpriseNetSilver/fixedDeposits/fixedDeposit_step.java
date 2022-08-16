@@ -34,6 +34,7 @@ public class fixedDeposit_step extends ScenarioSteps {
         }
         fixedDeposit_page.intoAccountPopwindows.click();
         List<WebElementFacade> selectIntoAccount = fixedDeposit_page.selectAccountValue;
+        bddUtil.sleep(1);
         for (int j = 0; j <= selectIntoAccount.size();j++){
             if (intoAccount.equals(selectIntoAccount.get(j).getText().substring(0,11))){
                 selectIntoAccount.get(j).click();
@@ -52,6 +53,7 @@ public class fixedDeposit_step extends ScenarioSteps {
             }
         }
         fixedDeposit_page.find(By.xpath("//label[@for=\"autTraSavFlag\"]/following-sibling::div//label["+transferAccountsWay+"]//span[@class='el-radio__inner']")).click();
+        bddUtil.sleep(2);
         bddUtil.scrollWindowToElement(fixedDeposit_page.clickNext);
         fixedDeposit_page.clickNext.click();
         bddUtil.sleep(2);
@@ -59,5 +61,6 @@ public class fixedDeposit_step extends ScenarioSteps {
             fixedDeposit_page.clickCheck.click();
         }
         fixedDeposit_page.clickSubmit.click();
+        bddUtil.sleep(3);
     }
 }

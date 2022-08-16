@@ -36,15 +36,17 @@ Feature: receipt and payment service
 
     #USD->USD
   Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow
+    Given logon second "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |rollOutAccount  |intoAccount  |amount |
-      |1101 0000 489   |1101 0000 608|77.12  |
+      |1101 0001 345   |1101 0000 187|77.12  |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
 
     #境内转账-行内转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
+    Given logon second "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
       |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0000 179      |

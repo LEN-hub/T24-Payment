@@ -175,6 +175,7 @@ public class product_glue {
 
     @When("^The vendor logs in to the vendor portal to view products$")
     public void theVendorLogsInToTheVendorPortalToViewProducts() {
+        bddUtil.quitDriver();
         productStep.jumpToSupplierPortal();
     }
 

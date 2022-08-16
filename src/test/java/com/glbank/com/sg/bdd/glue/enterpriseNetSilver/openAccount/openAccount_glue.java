@@ -59,6 +59,11 @@ public class openAccount_glue {
         openAccount_step.clickOpenAccount();
     }
 
+    @When("^click open Account New page$")
+    public void clickOpenAccountNewPage() {
+        openAccount_step.clickOpenNewAccount();
+    }
+
     @Then("^Fill in information \"([^\"]*)\" on Getting Started page$")
     public void fillInInformationOnGettingStartedPage(String envName){
         accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_CurrentAccount-Only");
@@ -69,8 +74,29 @@ public class openAccount_glue {
         FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
     }
 
+    @Then("^New Fill in information \"([^\"]*)\" on Getting Started page$")
+    public void newFillInInformationOnGettingStartedPage(String envName) {
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_CurrentAccount-Only");
+        currencyType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_SGD");
+        openAccount_step.newFillInInformationOnGettingStartedPage();
+        openAccount_step.newFillInInformationOnGettingStartedPage2(accountName);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+
     @Then("^Fill in information \"([^\"]*)\" on Getting Started page about CA_SGD$")
     public void fillInInformationOnGettingStartedPageAboutCA_SGD(String envName){
+        accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_CurrentAccount-Only");
+        currencyType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_SGD");
+        openAccount_step.fillInInformationOnGettingStartedPage();
+        openAccount_step.fillInInformationOnGettingStartedPage2(accountType,accountName,currencyType);
+        System.out.println("---------------账户名称："+ accountName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @Then("^Fill in information \"([^\"]*)\" on Getting Started page about CA_SGD NEW$")
+    public void fillInInformationOnGettingStartedPageAboutCA_SGDNEW(String envName){
         accountType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".accountType_CurrentAccount-Only");
         currencyType = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".CurrencyType_SGD");
         openAccount_step.fillInInformationOnGettingStartedPage();
@@ -221,6 +247,21 @@ public class openAccount_glue {
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
         openAccount_step.inputEntityDetails(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"),payToInfo.get(0).get("chekk"));
+    }
+
+    @And("^Provide Essential Information New$")
+    public void provideEssentialInformationNew(DataTable payDetails)throws AWTException {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
+        openAccount_step.newProvideEssentialInformation(applicantName,emailName,mobileNumber);
+        System.out.println("---------------申请人姓名："+ applicantName + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"","申请人姓名:" + applicantName);
+        System.out.println("---------------申请人电话号码："+ mobileNumber + "----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"","申请人电话号码:" + mobileNumber);
+        System.out.println("---------------申请人邮箱地址："+ emailName + "@MailTemp.top"+"----------------------");
+        FileUtils.FileString4(""+openAccountInformation+"","申请人邮箱地址:" + emailName + "@MailTemp.top");
+        openAccount_step.clickValidationCode();
+        openAccount_step.inputValidationCode();
+        openAccount_step.inputEntityDetailsNew(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"),payToInfo.get(0).get("chekk"));
     }
 
     @And("^Provide Essential Information About SubIndustry$")
@@ -489,5 +530,11 @@ public class openAccount_glue {
         openAccount_step.fillInInformationOnGettingStartedPage2MCA_SGD_USD_EURAndLoan(accountType,accountName,currencyTypeUSD,currencyTypeEUR);
         System.out.println("---------------账户名称："+ accountName + "----------------------");
         FileUtils.FileString4(""+openAccountInformation+"",nowDate+"\n"+"账户名称:" + accountName);
+    }
+
+    @When("^I into the rear tube Supplementary account opening information$")
+    public void iIntoTheRearTube(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        openAccount_step.AdditionalInformation(maps.get(0).get("chekk"));
     }
 }

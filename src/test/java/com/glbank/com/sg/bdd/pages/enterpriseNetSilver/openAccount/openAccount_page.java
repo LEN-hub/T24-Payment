@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import javax.security.auth.x500.X500Principal;
 import java.util.List;
 
 public class openAccount_page extends PageObject {
@@ -11,14 +12,38 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"header-top-right\"]//span[2]")
     public WebElementFacade clickOpenAccount;
 
-    @FindBy(xpath = "//div[@class=\"status-container\"]//div[1]//div[@class=\"ui-button-inner\"]")
+    @FindBy(xpath = "//div[@class='login_tips']/following-sibling::div[1]/div")
     public WebElementFacade clickNewUser;
 
-    @FindBy(xpath = "//div[@class='container-component']//div[@class='ui-button text common'][2]//div[@class='btn_box']")
+    @FindBy(xpath = "//div[@class='link-btn']")
     public WebElementFacade secondTitle;
+
+    @FindBy(xpath = "//div[@class='link-btn mb']")
+    public WebElementFacade firstTitle;
 
     @FindBy(xpath = "//form[@class=\"el-form out_form el-form--label-left\"]//div[@class=\"el-col el-col-24\"]//div[1]//div[@class=\"el-form-item__content\"]//label[3]//span[@class=\"el-radio__inner\"]")
     public WebElementFacade clickBusinessEntityType;
+
+    @FindBy(xpath = "//span[text()='Current Account']")
+    public WebElementFacade currentAccount;
+
+    @FindBy(xpath = "//div[@role='radiogroup']/label[1]")
+    public WebElementFacade SGDCurrent;
+
+    @FindBy(xpath = "//label[@class='el-checkbox']/span[1]")
+    public WebElementFacade AccountName;
+
+    @FindBy(xpath = "//input[@maxlength='35']")
+    public WebElementFacade InputAccountNameNew;
+
+    @FindBy(xpath = "//input[@readonly='readonly']")
+    public List<WebElementFacade> accountTypeList;
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//li[4]")
+    public WebElementFacade oneMillion;
+
+    @FindBy(xpath = "//span[text()='Mr']")
+    public WebElementFacade mrBtn;
 
     @FindBy(xpath = "//form[@class=\"el-form out_form el-form--label-left\"]//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"el-form-item__content\"]//label[2]//span[@class=\"el-radio__inner\"]")
     public WebElementFacade clickNeedThisAccount;
@@ -98,6 +123,12 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"operatePersonMobilePhoneNo\"]/following-sibling::div//div//input")
     public WebElementFacade inputMobileNumber;
 
+    @FindBy(xpath = "//input[@maxlength='21']")
+    public WebElementFacade inputContactNumber;
+
+    @FindBy(xpath = "//div[text()='Verify Email']")
+    public WebElementFacade verifyEmailNew;
+
     @FindBy(xpath = "//label[@for=\"operatePersonEmail\"]/following-sibling::div//div//input")
     public WebElementFacade inputEmailAddress;
 
@@ -125,7 +156,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"certfctNo\"]")
     public WebElementFacade goEntityDetails;
 
-        @FindBy(xpath = "//label[@for=\"certfctNo\"]/following-sibling::div//div//input")
+    @FindBy(xpath = "//label[@for=\"certfctNo\"]/following-sibling::div//div//input")
     public WebElementFacade inputCompanyRegistrationNumber;
 
     @FindBy(xpath = "//label[@for=\"companyRegisterDate\"]/following-sibling::div//div//input")
@@ -140,10 +171,91 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@role='radiogroup']/label[@role='radio'][1]//span[@class='el-radio__inner']")
     public WebElementFacade selectSameAsCountry;
 
+    @FindBy(xpath = "//div[@role='radiogroup']/label[@role='radio'][1]//span[@class='el-radio__inner']")
+    public List<WebElementFacade> selectYesNew;
+
+    @FindBy(xpath = "//label[@for='fundAcctType']/following-sibling::div/div/label[1]")
+    public WebElementFacade BusinessOperations;
+
+    @FindBy(xpath = "//label[@for='monthAmont']/following-sibling::div//input")
+    public WebElementFacade monthAmontNew;
+
+    @FindBy(xpath = "//label[@for='monthTrsCount']/following-sibling::div//input")
+    public WebElementFacade monthTrsCount;
+
     @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextOnProvideEssentialInformationPage;
 
-    @FindBy(xpath = "//label[@for=\"entityType\"]")
+    @FindBy(xpath = "//div[text()='Next']")
+    public WebElementFacade nextButtonNew;
+
+    @FindBy(xpath = "//div[text()='Confirm']")
+    public WebElementFacade confirmNew;
+
+    @FindBy(xpath = "//span[text()='Online account opening information supplement']")
+    public WebElementFacade informationSupplement;
+
+    @FindBy(xpath = "//div[text()='Query']")
+    public WebElementFacade queryBtn;
+
+    @FindBy(xpath = "//span[text()='Business entity type']/following-sibling::span//input")
+    public WebElementFacade businessEntity;
+
+    @FindBy(xpath = "//span[text()='Business turnover']/following-sibling::span//input")
+    public WebElementFacade businessTurnover;
+
+    @FindBy(xpath = "//span[text()='Country of operation']/following-sibling::span//input")
+    public WebElementFacade countryOfOperation;
+
+    @FindBy(xpath = "//span[text()='Turnover SGD 1 Million to ≤ SGD 20 Million']")
+    public WebElementFacade thanOneMillion;
+
+    @FindBy(xpath = "//span[text()='Public Limited Co (not listed in Singapore)']")
+    public WebElementFacade noListed;
+
+    @FindBy(xpath = "//span[text()='Is non-profit organization']/following-sibling::span//div[@role='radiogroup']//label[1]/span[1]")
+    public WebElementFacade yesBtn;
+
+    @FindBy(xpath = "//div[@class='detail-title'][6]/following-sibling::div[1]//div[@class='el-table__fixed-body-wrapper']//tr[1]/td[8]//span[text()='Delete']")
+    public WebElementFacade deletePerson;
+
+    @FindBy(xpath = "//span[text()='New related person']")
+    public WebElementFacade relatedPerson;
+
+    @FindBy(xpath = "//span[text()='Name']/following-sibling::span//input")
+    public WebElementFacade relatedName;
+
+    @FindBy(xpath = "//span[text()='Alias']/following-sibling::span//input")
+    public WebElementFacade relatedAlias;
+
+    @FindBy(xpath = "//span[text()='Nationality']/following-sibling::span//input")
+    public WebElementFacade relatedNationality;
+
+    @FindBy(xpath = "//span[text()='Date of Birth']/following-sibling::span//input")
+    public WebElementFacade dateOfBirth;
+
+    @FindBy(xpath = "//span[text()='Document type']/following-sibling::span//input")
+    public WebElementFacade documentType;
+
+    @FindBy(xpath = "//span[text()='I.d.']/following-sibling::span//input")
+    public WebElementFacade nric;
+
+    @FindBy(xpath = "//span[text()=' Country of residence ']/following-sibling::span//input")
+    public WebElementFacade countryOfResidence;
+
+    @FindBy(xpath = "//span[text()=' Address ']/following-sibling::span//input")
+    public WebElementFacade adressNew;
+
+    @FindBy(xpath = "//span[text()='City']/following-sibling::span//input")
+    public WebElementFacade cityNew;
+
+    @FindBy(xpath = "//span[text()='Email']/following-sibling::span//input")
+    public WebElementFacade emailNew;
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul")
+    public WebElementFacade selectNationality;
+
+    @FindBy(xpath = "//label[text()='Postal Code']")
     public WebElementFacade goEntityType;
 
     @FindBy(xpath = "//label[@for=\"entityType\"]/following-sibling::div//div//input")
@@ -209,10 +321,10 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[1]/span[@class='el-checkbox__input is-checked']")
     public WebElementFacade selectFirstIsCheckBox;
 
-    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[2]/span[@class='el-checkbox__input is-checked']")
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/div[1]//span[@class='el-checkbox__input is-checked']")
     public WebElementFacade selectSecondIsCheckBox;
 
-    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[3]/span[@class='el-checkbox__input is-checked']")
+    @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/div[2]//span[@class='el-checkbox__input is-checked']")
     public WebElementFacade selectThirdIsCheckBox;
 
     @FindBy(xpath = "//div[@aria-label=\"checkbox-group\"]/label[1]/span[@class='el-checkbox__input']")

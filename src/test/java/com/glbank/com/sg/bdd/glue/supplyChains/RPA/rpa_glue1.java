@@ -36,9 +36,10 @@ public class rpa_glue1 {
     }
 
     @When("^Upload a file$")
-    public void uploadAFile() {
+    public void uploadAFile(DataTable dataTable) {
         rpaStep.clickUpload();
-        rpaStep.clickBrowse();
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        rpaStep.clickBrowse(maps.get(0).get("fileAddress"));
 //        rpaStep.clickBrowse();
         rpaStep.clickData();
         rpaStep.clickConfirms();

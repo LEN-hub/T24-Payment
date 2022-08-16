@@ -407,6 +407,7 @@ public class product_step extends ScenarioSteps {
     @Step
     public void clickConfirm() {
         productPage.Confirm.click();
+        bddUtil.sleep(2);
     }
 
     @Step

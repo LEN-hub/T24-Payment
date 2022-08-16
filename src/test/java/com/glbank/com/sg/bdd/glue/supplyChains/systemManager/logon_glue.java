@@ -31,6 +31,18 @@ public class logon_glue {
         }
     }
 
+    @Given("^logon \"([^\"]*)\" on tube by inputting system online bank$")
+    public void logon_onboarding_custom_portalOnlineBank(String envName) {
+        envTag = envName;
+        if (!envName.isEmpty()) {
+            login_uso_step.open_the_first_dbb_logon_page(envName);
+            login_uso_step.enter_username_into_box(envName);
+            login_uso_step.enter_password_into_box(envName);
+            login_uso_step.click_login_btn();
+            login_uso_step.clickOnlineBank();
+            bddUtil.switchToNewWindow();
+        }
+    }
 
     @When("^I close driver$")
     public void iCloseDriver() {

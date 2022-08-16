@@ -35,6 +35,7 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     public void getClickOnboardingListMenu(){
+        bddUtil.sleep(1);
         customers_page.clickOnboardingListMenu.click();
     }
 
@@ -444,8 +445,9 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.director1CertificationType.click();
         bddUtil.scrollWindowToElement(customers_page.director1PersonalId).click();
         customers_page.director1CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
-        customers_page.director1CheckBox2.click();
+        customers_page.director1CheckBox.click();
         customers_page.director1DateOfBirth.sendKeys(bddUtil.dateBirth());
+        customers_page.director1TimePermanrntCheckBox.click();
         customers_page.director1Country.click();
         bddUtil.scrollWindowToElement(customers_page.director1CountrySelectChina).click();
         customers_page.director1ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
@@ -454,7 +456,7 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(customers_page.director1CountryOfResidenceSelectChina).click();
         customers_page.director1Phone.sendKeys(RandomPhoneNumber.randomPhoneNum());
         bddUtil.scrollWindowToElement(customers_page.director2TimePermanent);
-        customers_page.director2CheckBox.click();
+//        customers_page.director2CheckBox.click();
         customers_page.director2FirstName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.director2LastName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.director2CertificationType.click();
@@ -527,6 +529,7 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(customers_page.beneficial1CertificationTypeSelectPersonalId).click();
         customers_page.beneficial1CertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.beneficial1TimePermanent.click();
+        customers_page.performOwner.click();
         customers_page.beneficial1FundScale.sendKeys("25");
         customers_page.beneficial1Email.sendKeys(value + "@MailTemp.top");
         customers_page.beneficial1DateOfBirth.sendKeys(bddUtil.dateBirth());
@@ -557,6 +560,10 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(customers_page.find(By.xpath("//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='"+value+"']"))).click();
         customers_page.tellUsAboutAccoutPageTitle.click();
 //        customers_page.SaveBtnIndustry.click();
+        if (getDriver().findElement(By.xpath("//span[text()='Delete']")).isDisplayed()){
+            getDriver().findElement(By.xpath("//span[text()='Delete']")).click();
+        }
+        bddUtil.sleep(2);
         customers_page.nextBtnIndustry.click();
     }
 

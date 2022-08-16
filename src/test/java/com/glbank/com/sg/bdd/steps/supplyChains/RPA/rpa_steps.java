@@ -37,7 +37,9 @@ public class rpa_steps extends ScenarioSteps {
     public void clickCompanyName(){rpaPage.CompanyName.sendKeys(FileUtils.LastReadFileInput3("companyData"));}
 
     @Step
-    public void clickCompanyNameClickReset(){rpaPage.CompanyNameClickReset.click();}
+    public void clickCompanyNameClickReset(){
+        rpaPage.CompanyNameClickReset.click();
+    }
 
     @Step
     public void clickUpload(){
@@ -45,7 +47,7 @@ public class rpa_steps extends ScenarioSteps {
     }
 
     @Step
-    public void clickBrowse() {
+    public void clickBrowse(String fileAddress) {
 //        rpaPage.browse.click();
         bddUtil.sleep(2);
         getDriver().findElement(By.xpath("//div[@class='upload-widget']//input")).sendKeys(fileAddress);
@@ -127,6 +129,8 @@ public class rpa_steps extends ScenarioSteps {
             rpaPage.advancedButton.click();
             rpaPage.enterEmailLink.click();
         }
+        bddUtil.sleep(3);
+        rpaPage.clickRefreshBtn.click();
         bddUtil.sleep(3);
         rpaPage.clickRefreshBtn.click();
         bddUtil.sleep(3);
