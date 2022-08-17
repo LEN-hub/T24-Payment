@@ -127,8 +127,10 @@ public class paymentService_step extends ScenarioSteps {
         FileUtils.FileString4("t24","ChannelCreditAccountNumber:" + creditAccountNumber);
         creditCompanyName = paymentService_page.creditCompanyName.getText();
         FileUtils.FileString4("t24","ChannelCreditCompanyName:" + creditCompanyName);
-        fxDetailExchangeRate = paymentService_page.fxDetailExchangeRate.getText();
-        FileUtils.FileString4("t24","ChannelDetailExchangeRate:" + fxDetailExchangeRate);
+        if (paymentService_page.fxDetailExchangeRate.isVisible()){
+            fxDetailExchangeRate = paymentService_page.fxDetailExchangeRate.getText();
+            FileUtils.FileString4("t24","ChannelDetailExchangeRate:" + fxDetailExchangeRate);
+        }
         transactionAmount = paymentService_page.transactionAmount.getText();
         FileUtils.FileString4("t24","ChannelTransactionAmount:" + transactionAmount);
         purposeOfTransfer = paymentService_page.purposeOfTransfer.getText();
@@ -411,7 +413,7 @@ public class paymentService_step extends ScenarioSteps {
         List<WebElementFacade> bank = paymentService_page.collectingBank;
         for (int i = 0; i < bank.size(); i++) {
             if (collectingBank.equals(bank.get(i).getText())) {
-                bank.get(i+1).click();
+                bank.get(i).click();
                 break;
             }
         }

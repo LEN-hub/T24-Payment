@@ -18,7 +18,7 @@ Feature: T24 Payment transaction
     When I click on the receiving bank drop down box
     When I choose the receiving bank
       |collectingBank|
-      |GL            |
+      |DBS SINGAPORE |
     When I choose the recipient country
       |payeeAdd |payeeCountries|remittancePostscriptContent|
       |countries|UNITED STATES |ok                         |
@@ -65,7 +65,7 @@ Feature: T24 Payment transaction
     When I click on the receiving bank drop down box
     When I choose the receiving bank
       |collectingBank|
-      |GL            |
+      |DBS SINGAPORE |
     When I choose the recipient country
       |payeeAdd |payeeCountries|remittancePostscriptContent|
       |countries|UNITED STATES |ok                         |
@@ -112,7 +112,7 @@ Feature: T24 Payment transaction
     When I click on the receiving bank drop down box
     When I choose the receiving bank
       |collectingBank|
-      |GL            |
+      |DBS SINGAPORE |
     When I choose the recipient country
       |payeeAdd |payeeCountries|remittancePostscriptContent|
       |countries|UNITED STATES |ok                         |
@@ -154,7 +154,7 @@ Feature: T24 Payment transaction
     When I click on the receiving bank drop down box
     When I choose the receiving bank
       |collectingBank|
-      |GL            |
+      |DBS SINGAPORE |
     When I choose the recipient country
       |payeeAdd |payeeCountries|remittancePostscriptContent|
       |countries|UNITED STATES |ok                         |
@@ -219,13 +219,13 @@ Feature: T24 Payment transaction
 
   @localPaymentUSDToSGD
   Scenario:Local Payment Data Mapping FX Payment (USD->SGD)
-#    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
-#    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount  |
-#      |1101 0000 489   |1101 0000 438|18.41   |
-#    Then I check to see if the page jumps
-#    When I verify the page information and click the Next button
-#    Then My account has been transferred successfully
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I will complete the inter-bank transfer on the page
+      |rollOutAccount  |intoAccount  |amount  |
+      |1101 0000 489   |1101 0000 438|18.41   |
+    Then I check to see if the page jumps
+    When I verify the page information and click the Next button
+    Then My account has been transferred successfully
     Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
     When I type in the content and click the search button
       |search content           |windows Title        |

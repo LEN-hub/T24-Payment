@@ -110,6 +110,7 @@ public class t24_Payments_step extends ScenarioSteps {
     }
     @Step
     public void clickPaymentsMenu(){
+        bddUtil.sleep(2);
         logonPage.clickPayments.click();
     }
     @Step
@@ -187,11 +188,11 @@ public class t24_Payments_step extends ScenarioSteps {
         FileUtils.FileString4("t24","getBeneficiaryAddress:" + getBeneficiaryAddress);
         Assert.assertEquals(getTransactionCurrency, readtxtFile("t24","ChannelDetailAccountCurrency"));
         if (getChargeOption.equals("SHA") && Objects.equals(readtxtFile("t24", "ChannelDetailPaymentModeForCharges"), "The expenses shall be borne by each party")){
-            FileUtils.FileString4("t24","数据对比结果：Charge Option为SHA，字段对比成功");
+            System.out.println("数据对比结果：Charge Option为SHA，字段对比成功");
         }else if (getChargeOption.equals("OUR") && Objects.equals(readtxtFile("t24", "ChannelDetailPaymentModeForCharges"), "All expenses shall be borne by the remitter")){
-            FileUtils.FileString4("t24","数据对比结果：Charge Option为OUR，字段对比成功");
+            System.out.println("数据对比结果：Charge Option为OUR，字段对比成功");
         }else if (getChargeOption.equals("BEN") && Objects.equals(readtxtFile("t24", "ChannelDetailPaymentModeForCharges"), "All expenses shall be borne by the payee")){
-            FileUtils.FileString4("t24","数据对比结果：Charge Option为BEN，字段对比成功");
+            System.out.println("数据对比结果：Charge Option为BEN，字段对比成功");
         }
         Assert.assertEquals(getDebitAccountNum, readtxtFile("t24","ChannelDebitAccountNumber"));
         Assert.assertEquals(getCreditAccountNum, readtxtFile("t24","ChannelDetailPayeeAccountNum"));
@@ -263,8 +264,8 @@ public class t24_Payments_step extends ScenarioSteps {
         if (getDebitCustomerRate.equals(readtxtFile("t24", "ChannelDetailExchangeRate").toString().substring(13))){
             Assert.assertEquals(getDebitCustomerRate,readtxtFile("t24", "ChannelDetailExchangeRate").toString().substring(13));
         }else if(!getDebitCustomerRate.equals(readtxtFile("t24", "ChannelDetailExchangeRate").toString().substring(13))){
-            FileUtils.FileString4("t24","数据对比失败："+getDebitCustomerRate+"---------->"+readtxtFile("t24", "ChannelDetailExchangeRate").toString().substring(13));
-        }
+            System.out.println("数据对比失败！");
+             }
         Assert.assertEquals(getInstructedAmount, readtxtFile("t24","ChannelTransactionAmount"));
         bddUtil.closeWindow();
         bddUtil.switchToNewWindow();
@@ -323,11 +324,11 @@ public class t24_Payments_step extends ScenarioSteps {
         Assert.assertEquals(getInstructedCurrency, readtxtFile("t24","ChannelDebitAccountCurrency"));
         Assert.assertEquals(getInstructedAmount, readtxtFile("t24","ChannelDetailTransactionAmount"));
         if (getChargeOption.equals("SHA") && Objects.equals(readtxtFile("t24", "ChannelDetailPaymentModeForCharges"), "The expenses shall be borne by each party")){
-            FileUtils.FileString4("t24","数据对比结果：Charge Option为SHA，字段对比成功");
+            System.out.println("数据对比结果：Charge Option为SHA，字段对比成功");
         }else if (getChargeOption.equals("OUR") && Objects.equals(readtxtFile("t24", "ChannelDetailPaymentModeForCharges"), "All expenses shall be borne by the remitter")){
-            FileUtils.FileString4("t24","数据对比结果：Charge Option为OUR，字段对比成功");
+            System.out.println("数据对比结果：Charge Option为OUR，字段对比成功");
         }else if (getChargeOption.equals("BEN") && Objects.equals(readtxtFile("t24", "ChannelDetailPaymentModeForCharges"), "All expenses shall be borne by the payee")){
-            FileUtils.FileString4("t24","数据对比结果：Charge Option为BEN，字段对比成功");
+            System.out.println("数据对比结果：Charge Option为BEN，字段对比成功");
         }
         Assert.assertEquals(getDebitAccountNum, readtxtFile("t24","ChannelDebitAccountNumber"));
         Assert.assertEquals(getCreditAccountNum, readtxtFile("t24","ChannelDetailPayeeAccountNum"));
@@ -338,7 +339,7 @@ public class t24_Payments_step extends ScenarioSteps {
         if (getDebitCustomerRate.equals(readtxtFile("t24", "ChannelDetailExchangeRate").toString().substring(13))){
             Assert.assertEquals(getDebitCustomerRate,readtxtFile("t24", "ChannelDetailExchangeRate").toString().substring(13));
         }else if(!getDebitCustomerRate.equals(readtxtFile("t24", "ChannelDetailExchangeRate").toString().substring(13))){
-            FileUtils.FileString4("t24","数据对比失败："+getDebitCustomerRate+"---------->"+readtxtFile("t24", "ChannelDetailExchangeRate").toString().substring(13));
+            System.out.println("数据对比失败！");
         }
         Assert.assertEquals(getOrderingAccount, readtxtFile("t24","ChannelDebitAccountNumber"));
         Assert.assertEquals(getOrderingName, readtxtFile("t24","ChannelDebitAccountName"));
