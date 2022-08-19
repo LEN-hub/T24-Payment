@@ -92,7 +92,8 @@ public class userManagement_glue {
     public void fillInAndSubmitTheNewUserInformation() {
         userManagement_steps.clickPermissions();
         userManagement_steps.clickNextOne();
-        userManagement_steps.clickNextOne();
+        bddUtil.sleep(3);
+        userManagement_steps.clickSubmitBtn();
         userManagement_steps.NextBtnS();
     }
 

@@ -431,6 +431,9 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//label[@for='repayDate']/following-sibling::div//input")
     public WebElementFacade repaymentDate;
 
+    @FindBy(xpath = "//table[@class='el-date-table']//td[@class='available']")
+    public List<WebElementFacade> selectDate;
+
     @FindBy(xpath = "//label[@for='repayOrigAmt']/following-sibling::div//input")
     public WebElementFacade proAmount;
 

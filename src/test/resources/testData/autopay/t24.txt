@@ -1,21 +1,12 @@
-2022-8-17 10:12:20:754
-ChannelReferenceID:220817000000002
-ChannelDebitAccountName:testCpsThree
+2022-8-19 12:35:22:45
+ChannelReferenceID:220818000000163
+ChannelDebitAccountName:EMBASSY OF ITALY
 ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11010000438
+ChannelDebitAccountNumber:11010000179
 ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:WATERHOUSE INVESTMENT PTE. LTD.
+ChannelCreditAccountName:EMBASSY OF ITALY
 ChannelCreditAccountCurrency:SGD
-ChannelCreditAccountNumber:11010000470
+ChannelCreditAccountNumber:11010000330
 ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelTransactionAmount:18.41
+ChannelTransactionAmount:10.10
 ChannelPurposeOfTransfer:Business Expenses
-2022-8-17 10:14:21:622
-ID:220817000000002
-TransactionReference:FT22229H4R0Y
-fundsTransferDebitAccountNum:11010000438
-fundsTransferDebitCurrency:SGD
-fundsTransferCreditCurrency:SGD
-fundTransferCreditAccNo:11010000470
-fundsTransferAmountDebited:SGD18.41
-fundsTransferAmoyntCredited:SGD18.41

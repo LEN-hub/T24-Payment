@@ -299,6 +299,21 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='payeeNm']/following-sibling::div//input")
     public WebElementFacade NamePayee;  //收款人名称 输入
 
+    @FindBy(xpath = "//label[@for='payeeBank']/following-sibling::div//input")
+    public WebElementFacade selectBank;
+
+    @FindBy(xpath = "//p[@class=\"searchBox\"]//input")
+    public WebElementFacade searchBox;
+
+    @FindBy(xpath = "//p[@class=\"searchBox\"]//div[@class='btn_box']")
+    public WebElementFacade serachButton;
+
+    @FindBy(xpath = "//label[@class=\"el-radio\"]")
+    public WebElementFacade radioSelect;
+
+    @FindBy(xpath = "//div[text()='Confirm']")
+    public WebElementFacade getConfirmBtn;
+
     @FindBy(xpath = "//label[@for='payeeBank']/following-sibling::div//i")
     public WebElementFacade collectingBankBox;  //收款银行下拉框
 

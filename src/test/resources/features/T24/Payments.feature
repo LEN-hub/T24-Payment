@@ -15,7 +15,7 @@ Feature: T24 Payment transaction
     When I enter the payee information
       |sendPaymentAccount|namePayee|
       |11010000489       |lucky    |
-    When I click on the receiving bank drop down box
+#    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |collectingBank|
       |DBS SINGAPORE |

@@ -55,6 +55,7 @@ public class paymentService_step extends ScenarioSteps {
             paymentService_page.popWindowsOk.click();
         }
         Actions action=new Actions(getDriver());
+        bddUtil.sleep(1);
         action.moveToElement(paymentService_page.transferAndRemittanceMenu).perform();
     }
 
@@ -410,13 +411,18 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     public void collectingBankBox(String collectingBank) {
-        List<WebElementFacade> bank = paymentService_page.collectingBank;
-        for (int i = 0; i < bank.size(); i++) {
-            if (collectingBank.equals(bank.get(i).getText())) {
-                bank.get(i).click();
-                break;
-            }
-        }
+        paymentService_page.selectBank.click();
+        paymentService_page.searchBox.sendKeys(collectingBank);
+        paymentService_page.serachButton.click();
+        paymentService_page.radioSelect.click();
+        paymentService_page.getConfirmBtn.click();
+//        List<WebElementFacade> bank = paymentService_page.collectingBank;
+//        for (int i = 0; i < bank.size(); i++) {
+//            if (collectingBank.equals(bank.get(i).getText())) {
+//                bank.get(i).click();
+//                break;
+//            }
+//        }
     }
 
     public void payeeAdd(String payeeAdd){

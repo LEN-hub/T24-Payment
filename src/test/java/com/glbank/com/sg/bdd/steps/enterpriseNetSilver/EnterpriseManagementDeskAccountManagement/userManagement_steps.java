@@ -235,6 +235,10 @@ public class userManagement_steps extends ScenarioSteps {
         userManagement_page.clickNextOne.click();
     }
 
+    public void clickSubmitBtn(){
+        userManagement_page.clickSubmitBtn.click();
+    }
+
     public void NextBtnS(){userManagement_page.clcikNextBtns.click();}
 
     public void authorizations() {
