@@ -42,14 +42,14 @@ public class paymentService_glue {
     public void iWillConvertSingaporeDollarsToUSDollarsOnThePage(DataTable payDetails) {
         paymentService_step.transferAndRemittanceMenu();
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        paymentService_step.sdgTransferToUsd(payToInfo.get(0).get("rollOutAccount"), payToInfo.get(0).get("intoAccount"), payToInfo.get(0).get("amount"));
+        paymentService_step.sdgTransferToUsd(payToInfo.get(0).get("From Account"), payToInfo.get(0).get("To Account"), payToInfo.get(0).get("amount"));
     }
 
     @When("^I fill in the transfer information of domestic transfer bank$")
     public void iFillInTheTransferInformationOfDomesticTransferBank(DataTable payDetails) {
         paymentService_step.transferAndRemittanceMenu();
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        paymentService_step.domesticTransfer(payToInfo.get(0).get("bank name"), payToInfo.get(0).get("account name"), payToInfo.get(0).get("receiving account"), payToInfo.get(0).get("transfer amount"), payToInfo.get(0).get("transfer purpose"), payToInfo.get(0).get("payment information"));
+        paymentService_step.domesticTransfer(payToInfo.get(0).get("Payee's Bank"), payToInfo.get(0).get("Payee's Name"), payToInfo.get(0).get("Payee's Account Number"), payToInfo.get(0).get("Purpose of Transfer"), payToInfo.get(0).get("From Account"));
     }
 
     @Then("^I verify the information on the next page$")
@@ -122,27 +122,27 @@ public class paymentService_glue {
     @When("^I select the payment account, enter the payment currency and the payment amount and the cost commitment$")
     public void iSelectThePaymentAccountEnterThePaymentCurrencyAndThePaymentAmountAndTheCostCommitment(DataTable payDetail) {
         List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
-        paymentService_step.selectPaymentAccount(payToInfo.get(0).get("selectAccount"));
+        paymentService_step.selectPaymentAccount(payToInfo.get(0).get("Account Number"));
 //        List<Map<String, String>> payToInfoN = payDetail.asMaps(String.class, String.class);
 //        paymentService_step.clickCurrency(payToInfoN.get(0).get("payeeCurrency"));
         List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
-        paymentService_step.enterAmount(payToInfoU.get(0).get("enterAmount"));
+        paymentService_step.enterAmount();
         List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
-        paymentService_step.expense(payToI.get(0).get("expense"), payToI.get(0).get("expenseEnglish"));
+        paymentService_step.expense(payToI.get(0).get("Payment Mode for Charges"), payToI.get(0).get("expenseEnglish"));
     }
 
     @And("^I choose the payment currency$")
     public void iChooseThePaymentCurrency(DataTable payDetail) {
         List<Map<String, String>> payToInfoE = payDetail.asMaps(String.class, String.class);
-        paymentService_step.selectAccBth(payToInfoE.get(0).get("selectAccBth"));
+        paymentService_step.selectAccBth(payToInfoE.get(0).get("Currency"));
     }
 
     @When("^I enter the payee information$")
     public void iEnterThePayeeInformation(DataTable payDetail) {
         List<Map<String, String>> payToInfos = payDetail.asMaps(String.class, String.class);
-        paymentService_step.sendPaymentAccount(payToInfos.get(0).get("sendPaymentAccount"));
+        paymentService_step.sendPaymentAccount(payToInfos.get(0).get("Payee's Account Number"));
         List<Map<String, String>> payToInf = payDetail.asMaps(String.class, String.class);
-        paymentService_step.namePayee(payToInf.get(0).get("namePayee"));}
+        paymentService_step.namePayee(payToInf.get(0).get("Payee's Name"));}
 
     @When("^I click on the receiving bank drop down box$")
     public void iClickOnTheReceivingBankDropDownBox() {
@@ -153,24 +153,24 @@ public class paymentService_glue {
     @When("^I choose the receiving bank$")
     public void iChooseTheReceivingBank(DataTable payDetail) {
         List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
-        paymentService_step.collectingBankBox(payToInfo.get(0).get("collectingBank"));
+        paymentService_step.collectingBankBox(payToInfo.get(0).get("Beneficiary Bank"));
 
 
         }
         @When("^I choose the recipient country$")
         public void iChooseTheRecipientCountry(DataTable payDetail) {
         List<Map<String, String>> payToIn = payDetail.asMaps(String.class, String.class);
-        paymentService_step.payeeAdd(payToIn.get(0).get("payeeAdd"));
+        paymentService_step.payeeAdd(payToIn.get(0).get("Payee's Address"));
         List<Map<String, String>> payToInq = payDetail.asMaps(String.class, String.class);
-        paymentService_step.payeeCountriesEnCd(payToInq.get(0).get("payeeCountries"));
+        paymentService_step.payeeCountriesEnCd(payToInq.get(0).get("Payee's Country"));
         List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
-        paymentService_step.remittancePostscriptContent(payToI.get(0).get("remittancePostscriptContent"));
+        paymentService_step.remittancePostscriptContent(payToI.get(0).get("Comments For Payee"));
     }
 
     @When("^I choose the nature of payment$")
     public void iChooseTheNatureOfPayment(DataTable payDetail) {
         List<Map<String, String>> payToIN = payDetail.asMaps(String.class, String.class);
-        paymentService_step.paymentAttributeCd(payToIN.get(0).get("selectPaymentAttributeCd"));
+        paymentService_step.paymentAttributeCd(payToIN.get(0).get("Purpose of Transfer"));
     }
 
     @When("^I choose to submit the transfer information$")
@@ -231,7 +231,7 @@ public class paymentService_glue {
         List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
         paymentService_step.selectPaymentAccount(payToInfo.get(0).get("selectAccount"));
         List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
-        paymentService_step.enterAmount(payToInfoU.get(0).get("enterAmount"));
+        paymentService_step.enterAmount();
         List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
         paymentService_step.expense(payToI.get(0).get("expense"), payToI.get(0).get("expenseEnglish"));
     }

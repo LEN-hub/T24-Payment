@@ -1,9 +1,7 @@
 package com.glbank.com.sg.bdd.steps.enterpriseNetSilver;
 
 import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.paymentService_page;
-import com.glbank.com.sg.bdd.utils.BDDUtil;
-import com.glbank.com.sg.bdd.utils.CommonUtil;
-import com.glbank.com.sg.bdd.utils.FileUtils;
+import com.glbank.com.sg.bdd.utils.*;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -16,6 +14,7 @@ import java.util.Date;
 
 
 import java.util.List;
+import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
 
@@ -23,6 +22,7 @@ public class paymentService_step extends ScenarioSteps {
     private BDDUtil bddUtil;
     private paymentService_page paymentService_page;
     private String selectAccBth;
+    public static String date = GenerateDate.todayDate();
     public String debitAccountName;
     public String debitAccountCurrency;
     public String debitAccountNumber;
@@ -82,7 +82,7 @@ public class paymentService_step extends ScenarioSteps {
         }
 //        paymentService_page.secondCurrencySelectUSD.click();
         bddUtil.scrollWindowToElement(paymentService_page.clickNextBtn);
-        paymentService_page.enterMoney.sendKeys(amount);
+        paymentService_page.enterMoney.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         paymentService_page.transferPurpose.click();
         paymentService_page.selectTransferPurpose.click();
         paymentService_page.clickNextBtn.click();
@@ -112,6 +112,9 @@ public class paymentService_step extends ScenarioSteps {
         FileUtils.FileString4("t24",nowDate+"\n"+"ChannelReferenceID:"+referenceID);
         paymentService_page.checkDetails.click();
         bddUtil.sleep(2);
+        FileUtils.deleteFile("screenShots");
+        bddUtil.screenShort();
+        WordUtils.photoStorageToLocalPayment();
         debitAccountName = paymentService_page.debitAccountName.getText();
         FileUtils.FileString4("t24","ChannelDebitAccountName:" + debitAccountName);
         debitAccountCurrency = paymentService_page.debitAccountCurrency.getText();
@@ -139,7 +142,7 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     @Step
-    public void domesticTransfer(String bankName, String accountName, String paymentAccount, String transferAmount, String tradeAmountSelect,String paymentInformation){
+    public void domesticTransfer(String bankName, String accountName, String paymentAccount,  String tradeAmountSelect,String paymentInformation){
         paymentService_page.domesticTransfer.click();
         CommonUtil.waiting(2000);
         paymentService_page.clickPopupbtn.click();
@@ -161,7 +164,7 @@ public class paymentService_step extends ScenarioSteps {
         }
         paymentService_page.accountName.sendKeys(accountName);
         paymentService_page.paymentAccount.sendKeys(paymentAccount);
-        paymentService_page.transferAmount.sendKeys(transferAmount);
+        paymentService_page.transferAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
         paymentService_page.tradeAmountPopWindows.click();
         bddUtil.sleep(3);
@@ -349,7 +352,7 @@ public class paymentService_step extends ScenarioSteps {
     public void checkAccountDetails(String accountName,String paymentAccount,String transferAmount,String tradeAmountSelect){
         Assert.assertEquals(accountName,paymentService_page.getAccountName.getText());
         Assert.assertEquals(paymentAccount,paymentService_page.getAccountNumber.getText());
-        Assert.assertEquals(transferAmount,paymentService_page.getAccountMount.getText());
+//        Assert.assertEquals(transferAmount,paymentService_page.getAccountMount.getText());
         Assert.assertEquals(tradeAmountSelect,paymentService_page.getAccountUse.getText());
     }
 
@@ -387,7 +390,17 @@ public class paymentService_step extends ScenarioSteps {
 //        }
 //        bddUtil.sleep(5);}
 
-    public void enterAmount(String enterAmount){paymentService_page.enterAmount.sendKeys(enterAmount);}
+    public String randomTwoNum(){
+        Random random = new Random();
+        int num = random.nextInt(99);
+        String Amount = String.format("%02d",num);
+        return Amount;
+    }
+
+
+    public void enterAmount(){
+        paymentService_page.enterAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
+    }
 
     public void selectAccBth(String selectAccBth){
             paymentService_page.currencyBox.click();
@@ -499,6 +512,8 @@ public class paymentService_step extends ScenarioSteps {
         FileUtils.FileString4("t24", nowDate + "\n" + "ChannelReferenceID:" + referenceID);
         paymentService_page.checkDetails.click();
         bddUtil.sleep(2);
+        bddUtil.screenShort();
+        WordUtils.photoStorageToLocalPayment();
         debitAccountName = paymentService_page.debitAccountName.getText();
         FileUtils.FileString4("t24", "ChannelDebitAccountName:" + debitAccountName);
         debitAccountCurrency = paymentService_page.debitAccountCurrency.getText();
@@ -527,6 +542,9 @@ public class paymentService_step extends ScenarioSteps {
         FileUtils.FileString4("t24",nowDate+"\n"+"ChannelReferenceID:"+referenceID);
         paymentService_page.checkDetails.click();
         bddUtil.sleep(2);
+        FileUtils.deleteFile("screenShots");
+        bddUtil.screenShort();
+        WordUtils.photoStorageToFxPayment();
         debitAccountName = paymentService_page.debitAccountName.getText();
         FileUtils.FileString4("t24","ChannelDebitAccountName:" + debitAccountName);
         debitAccountCurrency = paymentService_page.debitAccountCurrency.getText();
@@ -547,6 +565,9 @@ public class paymentService_step extends ScenarioSteps {
         }
         fxDetailTransactionAmount = paymentService_page.fxDetailTransactionAmount.getText();
         FileUtils.FileString4("t24","ChannelDetailTransactionAmount:" + fxDetailTransactionAmount);
+        bddUtil.scrollWindowToElement(paymentService_page.fxDetailBeneficiaryBankBIC);
+        bddUtil.screenShort();
+        WordUtils.photoStorageToFxPayment();
         fxDetailBeneficiaryBankBIC = paymentService_page.fxDetailBeneficiaryBankBIC.getText();
         FileUtils.FileString4("t24","ChannelDetailBeneficiaryBankBIC:" + fxDetailBeneficiaryBankBIC);
         fxDetailPayeeAddress = paymentService_page.fxDetailPayeeAddress.getText();

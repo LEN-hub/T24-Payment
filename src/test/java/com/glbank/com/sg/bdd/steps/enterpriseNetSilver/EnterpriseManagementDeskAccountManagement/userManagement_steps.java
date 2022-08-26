@@ -224,8 +224,9 @@ public class userManagement_steps extends ScenarioSteps {
     }
 
     public void clickKeysEmail () {
-            userManagement_page.keysEmail.sendKeys(ContactUtil.getEmail(1,10));
-            bddUtil.sleep(3);}
+      userManagement_page.keysEmail.sendKeys(ContactUtil.getEmail(1,10));
+      bddUtil.sleep(3);
+    }
 
     public void clickValidationEmail(){userManagement_page.validationEmail.click();}
 
@@ -236,6 +237,7 @@ public class userManagement_steps extends ScenarioSteps {
     }
 
     public void clickSubmitBtn(){
+        bddUtil.sleep(2);
         userManagement_page.clickSubmitBtn.click();
     }
 

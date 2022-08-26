@@ -78,6 +78,30 @@ public class FileUtils {
         return null;
     }
 
+    /**
+     * 删除指定文件夹下的全部内容
+     * @param file
+     */
+    public static void remove(File file) {
+        File[] files = file.listFiles();//将file子目录及子文件放进文件数组
+        if (files != null) {//如果包含文件进行删除操作
+            for (int i = 0; i < files.length; i++) {
+                if (files[i].isFile()) {//删除子文件
+                    files[i].delete();
+                } else if (files[i].isDirectory()) {//通过递归方法删除子目录的文件
+                    remove(files[i]);
+                    System.out.println(file + "文件删除成功！");
+                }
+//                files[i].delete();//删除子目录
+            }
+        }
+    }
+    public static void deleteFile(String path){
+        path = systemPath + "/src/test/resources/testData/" + path;
+        File basefile = new File(path);   //path为给定的文件夹地址
+        remove(basefile);
+    }
+
 
     /**
      * 追加写入到txt
@@ -89,6 +113,10 @@ public class FileUtils {
     public static void FileString4(String path, String data) {
         try {
             String allPath = systemPath + "/src/test/resources/testData/autopay/" + path + ".txt";
+            File file=new File(allPath);
+            if(!file.isFile() && !file.exists()){ //判断文件是否存在
+                file.createNewFile();
+            }
             FileOutputStream outputStream = new FileOutputStream(allPath, true);// 追加写入
             String content = FileInput3(path);
             data = content != null && !content.equals("") ? "\r\n" + data : "" + data;
@@ -105,24 +133,22 @@ public class FileUtils {
 
     public static Map<String, String> getMap(String path){
         Map<String, String> map = new HashMap<>();
-
         try {
             String encoding="GBK";
             path = systemPath + "/src/test/resources/testData/autopay/" + path + ".txt";
             File file=new File(path);
-            if(file.isFile() && file.exists()){ //判断文件是否存在
-                InputStreamReader read = new InputStreamReader(
-                        new FileInputStream(file),encoding);//考虑到编码格式
-                BufferedReader bufferedReader = new BufferedReader(read);
-                String lineTxt = null;
-                while((lineTxt = bufferedReader.readLine()) != null){
-                    String[] s = lineTxt.split(":");
-                    map.put(s[0],s[1]);
-                }
-                read.close();
-            }else{
-                System.out.println("找不到指定的文件");
+            if(!file.isFile() && !file.exists()){ //判断文件是否存在
+                file.createNewFile();
             }
+            InputStreamReader read = new InputStreamReader(
+                    new FileInputStream(file),encoding);//考虑到编码格式
+            BufferedReader bufferedReader = new BufferedReader(read);
+            String lineTxt = null;
+            while((lineTxt = bufferedReader.readLine()) != null){
+                String[] s = lineTxt.split(":");
+                map.put(s[0],s[1]);
+            }
+            read.close();
         } catch (Exception e) {
             System.out.println("读取文件内容出错");
             e.printStackTrace();
@@ -151,7 +177,8 @@ public class FileUtils {
 
 
     public static void main(String[] args) throws Exception {
-        System.out.println(readtxtFile("t24","ChannelReferenceID"));
+        deleteFile("screenShots");
+//        System.out.println(readtxtFile("t24","ChannelReferenceID"));
 //        writeFile("t24");
 //        //String filePath = "C:/workspace/DBB_GL_AutoTesting-dev/src/test/resources/testData/autopay/test.txt";
 //        String filePath = "test";
@@ -182,4 +209,5 @@ public class FileUtils {
 //            System.out.println(fileContent.get(i-1));
 //        }
         }
+
 }

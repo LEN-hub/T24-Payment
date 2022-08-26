@@ -137,6 +137,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//span[text()='Routing Information']")
     public WebElementFacade getRoutingInformation;
 
+    @FindBy(xpath = "//span[text()='Additional Information']")
+    public WebElementFacade getAdditionalInformation;
+
     @FindBy(xpath = "//img[@title='ViewinDetail']")
     public WebElementFacade getClickViewDetail;
 
@@ -197,6 +200,39 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//td[contains(text(),'71A')]")
     public WebElementFacade check71AField;
 
+    @FindBy(xpath = "//table[@id='datadisplay']//tr[@id='r1']/td[1]")
+    public WebElementFacade companyId;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//tr[@id='r1']/td[2]")
+    public WebElementFacade getGetFtNumber;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//tr[@id='r1']/td[3]")
+    public WebElementFacade sendRef;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//tr[@id='r1']/td[4]")
+    public WebElementFacade sendDateTime;
+
+    @FindBy(xpath = "//td[text()='MT103STP']")
+    public WebElementFacade mtMsgType;
+
+    @FindBy(xpath = "//td[text()='pacs.008']")
+    public WebElementFacade msgType;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//tr[@id='r1']/td[6]")
+    public WebElementFacade msgContent;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//tr[@id='r35']/td[6]")
+    public WebElementFacade msgContent35;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//tr[@id='r70']/td[6]")
+    public WebElementFacade msgContent70;
+
+    @FindBy(xpath = "//img[@title='Next Page']")
+    public WebElementFacade clickNextPage;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//tr")
+    public List<WebElementFacade> trList;
+
     @FindBy(xpath = "//img[@title='Selection Criteria']")
     public WebElementFacade forexSearchBtn;
 
@@ -226,6 +262,9 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//table[@id='datadisplay']//tr/td[1]//img")
     public List<WebElementFacade> detailInformation;
+
+    @FindBy(xpath = "//a[@title='Next Page']/img")
+    public WebElementFacade getClickNextPage;
 
     @FindBy(xpath = "//img[@title='Amend']")
     public List<WebElementFacade> amendBtn;

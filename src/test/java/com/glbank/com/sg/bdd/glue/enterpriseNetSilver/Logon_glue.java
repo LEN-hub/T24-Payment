@@ -97,6 +97,7 @@ public class Logon_glue {
 
     @Given("^logon \"([^\"]*)\" in SIT environment and bypass Vkey$")
     public void logonInSITEnvironmentAndBypassVkey(String envName) {
+        bddUtil.getDriver().quit();
         envTag = envName;
         bddUtil.sleep(10);
         if (!envName.isEmpty()) {
