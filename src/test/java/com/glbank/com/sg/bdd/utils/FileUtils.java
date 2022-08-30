@@ -101,6 +101,65 @@ public class FileUtils {
         File basefile = new File(path);   //path为给定的文件夹地址
         remove(basefile);
     }
+    /**
+     * 追加写入到txt
+     *
+     * @param path
+     * @param data
+     */
+    @SuppressWarnings("resource")
+    public static void FileString(String path, String data) {
+        try {
+            String allPath = systemPath + "/src/test/resources/testData/caseMessage/" + path + ".txt";
+            File file=new File(allPath);
+            if(!file.isFile() && !file.exists()){ //判断文件是否存在
+                file.createNewFile();
+            }
+            FileOutputStream outputStream = new FileOutputStream(allPath, true);// 追加写入
+            String content = FileInput4(path);
+            data = content != null && !content.equals("") ? "\r\n" + data : "" + data;
+            outputStream.write(data.getBytes());
+            outputStream.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 高效读取指定编码格式的文件
+     * @param path
+     * @return
+     */
+    @SuppressWarnings("resource")
+    public static String FileInput4(String path) {
+        path = systemPath + "/src/test/resources/testData/caseMessage/" + path + ".txt";
+        StringBuffer buffer = new StringBuffer();
+        try {
+            BufferedReader bufferedReader = new BufferedReader(
+                    new InputStreamReader(new FileInputStream(path), "UTF-8"));
+            String data = null;
+            while ((data = bufferedReader.readLine()) != null) {
+                //buffer.append(data+"\r\n");
+                buffer.append(data+",");
+            }
+            bufferedReader.close();
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        String rtn = buffer.toString();
+        return rtn != null && !rtn.equals("") ? rtn.substring(0, rtn.length() - 1) : null;
+    }
 
 
     /**

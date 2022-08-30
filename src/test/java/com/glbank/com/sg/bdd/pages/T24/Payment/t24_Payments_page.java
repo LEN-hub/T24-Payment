@@ -284,6 +284,12 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//img[@title='Authorises a deal']")
     public WebElementFacade clickAuthorisesADeal;
 
+    @FindBy(xpath = "//table[@id='datadisplay']//tr//img")
+    public WebElementFacade searchIcon;
+
+    @FindBy(xpath = "//a[text()='Dept Code']")
+    public WebElementFacade deptCode;
+
     @FindBy(xpath = "//a[text()='Currency Bought']/parent::label/parent::td/following-sibling::td[2]/span")
     public WebElementFacade currencyBought;
 

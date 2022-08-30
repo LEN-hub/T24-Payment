@@ -38,6 +38,11 @@ public class paymentService_glue {
         paymentService_step.successTitle();
     }
 
+    @Then("^My account has been transferred successfully To Local Payment$")
+    public void myAccountHasBeenTransferredSuccessfullyToLocalPayment() throws Exception {
+        paymentService_step.successTitleToFXLocalPayment();
+    }
+
     @When("^I will complete the inter-bank transfer on the page$")
     public void iWillConvertSingaporeDollarsToUSDollarsOnThePage(DataTable payDetails) {
         paymentService_step.transferAndRemittanceMenu();
@@ -244,6 +249,11 @@ public class paymentService_glue {
     @Then("^I will compare all the data on FX Payment$")
     public void iWillCompareAllTheData() throws Exception {
         paymentService_step.getFxPaymentDataOnChannelPage();
+    }
+
+    @Then("^I will compare all the data on FX Payment MX Message$")
+    public void iWillCompareAllTheDataOnFXPaymentMxMessage() throws Exception {
+        paymentService_step.getFxPaymentMXDataOnChannelPage();
     }
 
     @Then("^I will compare all the data on same Currency Payment$")
