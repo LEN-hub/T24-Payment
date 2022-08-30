@@ -50,10 +50,10 @@ public class eStatement_page extends PageObject {
     @FindBy(xpath = "//li[@class='el-dropdown-menu__item'][text()='My Downloads']")
     public WebElementFacade seeMyDownloads;
 
-    @FindBy(xpath = "//div[@class='el-table__fixed-right']//tbody/tr[7]/td[5]//img")
+    @FindBy(xpath = "//div[@class='el-table__fixed-right']//tbody/tr[1]/td[5]//img")
     public WebElementFacade pastThreePoint;
 
-    @FindBy(xpath = "//div[@class='el-tooltip__popper is-light']//div[@class='btn_box']")
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom']//div[@class='btn_box']")
     public WebElementFacade pastDownloads;
 
     @FindBy(xpath = "//li[@class='el-dropdown-menu__item'][text()='View eAdvices']")

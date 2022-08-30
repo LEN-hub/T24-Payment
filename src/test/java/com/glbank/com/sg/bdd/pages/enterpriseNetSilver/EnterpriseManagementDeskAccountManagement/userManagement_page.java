@@ -171,6 +171,8 @@ public class userManagement_page extends PageObject {
     @FindBy(xpath = "//div[@class='tree-box']/following-sibling::div/div[2]//div[@class='btn_box']")
     public WebElementFacade clickNextOne;  //下一步和提交都能调用//调两遍
 
+    @FindBy(xpath = "//div[contains(text(),'Submit')]")
+    public WebElementFacade clickSubmitBtn;
 
     @FindBy(xpath = "//div[@class='demo-tips']/div[4]//div[@class='btn_box']")
     public WebElementFacade clcikNextBtns;  //获取TC码后点击下一步***

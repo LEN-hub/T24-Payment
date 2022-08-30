@@ -58,7 +58,14 @@ public class loanApplication_step extends ScenarioSteps {
 //        在页面点击下一个月，选择 下个月的日期。
         getDriver().findElement(By.xpath("//button[@aria-label='Next Month']")).click();
 //        选择次月的中旬日期。
-        getDriver().findElement(By.xpath("//table[@class='el-date-table']//tr[4]/td[3]")).click();
+//        getDriver().findElement(By.xpath("//table[@class='el-date-table']//tr[4]/td[3]")).click();
+        List<WebElementFacade> selectDate = loanApplication_page.selectDate;
+        for (int i = selectDate.size(); true; i++){
+            if (selectDate.get(i-1).isVisible()){
+                selectDate.get(i-1).click();
+                break;
+            }
+        }
         loanApplication_page.repayDate.click();
         loanApplication_page.nextOnUpLoadFile.click();
         bddUtil.sleep(2);
@@ -75,7 +82,14 @@ public class loanApplication_step extends ScenarioSteps {
 //        在页面点击下一个月，选择 下个月的日期。
         getDriver().findElement(By.xpath("//button[@aria-label='Next Month']")).click();
 //        选择次月的中旬日期。
-        getDriver().findElement(By.xpath("//table[@class='el-date-table']//tr[4]/td[3]")).click();
+        List<WebElementFacade> selectDate = loanApplication_page.selectDate;
+        for (int i = selectDate.size(); true; i++){
+            if (selectDate.get(i-1).isVisible()){
+                selectDate.get(i-1).click();
+                break;
+            }
+        }
+//        getDriver().findElement(By.xpath("//table[@class='el-date-table']//tr[4]/td[3]")).click();
         loanApplication_page.repayDate.click();
         loanApplication_page.nextOnUpLoadFile.click();
         bddUtil.sleep(2);

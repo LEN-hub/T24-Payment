@@ -5,19 +5,15 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.util.EnvironmentVariables;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
@@ -37,6 +33,10 @@ public class BDDUtil extends PageObject {
     private Set<String> handles;
     private String homeWindow;
     private String thirdWindow;
+    private static String systemPath = System.getProperty("user.dir");
+    public static List<String> date = new ArrayList<>();
+    public static int size = 0;
+    public static Map<String, Object> params = new HashMap<String, Object>();
 
     @FindBy(id = "userName")
     private WebElementFacade userNameInputBox;
@@ -340,6 +340,20 @@ public class BDDUtil extends PageObject {
         find(By.xpath("//div[@translate='confirm']")).click();
     }
 
+
+    public String screenShort(){
+        File srcfile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+        try {
+            String path = systemPath + "/src/test/resources/testData/screenShots/";
+            String fileName = getCurrentTimestamp();
+            date.add(fileName);
+            FileUtils.copyFile(srcfile, new File(path + fileName + ".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public void sleep(int seconds){
         try {
             Thread.sleep(seconds * 1000);
@@ -485,7 +499,7 @@ public class BDDUtil extends PageObject {
         return stringBuffer.toString();
     }
 
-    public String getCurrentTimestamp(){
+    public static String getCurrentTimestamp(){
         Date dNow = new Date();
         SimpleDateFormat ft = new SimpleDateFormat ("yyyyMMddhhmmss");
         return ft.format(dNow);

@@ -1,5 +1,8 @@
 .idea/*
 target/
+word/
+screenShots/
+caseMessage/
 *.iml
 DebugRunner.java
 debug.log

@@ -3,7 +3,7 @@ Feature: receipt and payment service
 
   Background:
     Given logon second "netSilverEnv_Kevin" on enterprise net silver
-
+  @text99901
 #本人互转
    #USD->SGD
   Scenario:I have successfully changed us dollars into Singapore dollars

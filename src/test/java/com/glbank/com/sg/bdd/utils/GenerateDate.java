@@ -11,15 +11,19 @@ public class GenerateDate {
 
     long millsec_day = 24*3600*1000;
 
-    Calendar cal_currently = Calendar.getInstance(); // get currently calendar
-    Date date = cal_currently.getTime();
-    DateFormat df = new SimpleDateFormat("dd MMM yyyy"); // set date format
+    static Calendar cal_currently = Calendar.getInstance(); // get currently calendar
+    static Date date = cal_currently.getTime();
+    static DateFormat de = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+    static DateFormat df = new SimpleDateFormat("Mdd"); // set date format
 
     /**
      * 获取今天
      * @return
      */
-    public String today() {
+    public static String todayDate() {
+        return de.format(date);
+    }
+    public static String today() {
         return df.format(date);
     }
 

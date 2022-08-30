@@ -56,41 +56,12 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>3.16</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>3.16</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/commons-collections/commons-collections -->
         <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
             <version>3.2.2</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
-        <dependency>
-            <groupId>org.apache.xmlbeans</groupId>
-            <artifactId>xmlbeans</artifactId>
-            <version>2.6.0</version>
-        </dependency>
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.poi</groupId>-->
-<!--            <artifactId>poi-ooxml</artifactId>-->
-<!--            <version>4.1.2</version>-->
-<!--        </dependency>-->
-
-
 
         <dependency>
             <groupId>org.assertj</groupId>
@@ -112,11 +83,7 @@
             <artifactId>xdocreport</artifactId>
             <version>2.0.1</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.xmlbeans</groupId>
-            <artifactId>xmlbeans</artifactId>
-            <version>5.0.1</version>
-        </dependency>
+
         <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>xmlgraphics-commons</artifactId>
@@ -124,35 +91,22 @@
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
+            <artifactId>poi-scratchpad</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>3.9</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.xmlbeans</groupId>
-                    <artifactId>xmlbeans</artifactId>
-                </exclusion>
-            </exclusions>
+            <version>3.14</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>3.9</version>
+            <version>3.14</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-examples</artifactId>
-            <version>3.9</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-excelant</artifactId>
-            <version>3.9</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-scratchpad</artifactId>
-            <version>3.9</version>
-        </dependency>
+
+
         <dependency>
             <groupId>com.github.cloudecho</groupId>
             <artifactId>xmlbean</artifactId>

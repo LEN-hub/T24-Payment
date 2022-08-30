@@ -366,7 +366,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         bddUtil.sleep(1);
         //没有挡板，用shekk数据。
 //        openAccount_page.inputCompanyRegistrationNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
-        openAccount_page.inputCompanyRegistrationNumber.sendKeys(chekk);//202108407W
+        openAccount_page.inputCompanyRegistrationNumber.sendKeys(chekk);
         openAccount_page.inputCompanyRegisterDate.sendKeys(date);
         openAccount_page.goEntityDetails.click();
         openAccount_page.clickCountryOfIncorporation.click();
