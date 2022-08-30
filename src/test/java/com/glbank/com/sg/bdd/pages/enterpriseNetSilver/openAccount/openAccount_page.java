@@ -219,6 +219,9 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class='detail-title'][6]/following-sibling::div[1]//div[@class='el-table__fixed-body-wrapper']//tr[1]/td[8]//span[text()='Delete']")
     public WebElementFacade deletePerson;
 
+    @FindBy(xpath = "//div[text()='Related enterprise information ']/following-sibling::div//div[@class='el-table__fixed-body-wrapper']//span[text()='Delete']")
+    public WebElementFacade deleteCompany;
+
     @FindBy(xpath = "//span[text()='New related person']")
     public WebElementFacade relatedPerson;
 
@@ -251,6 +254,48 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//span[text()='Email']/following-sibling::span//input")
     public WebElementFacade emailNew;
+
+    @FindBy(xpath = "//div[text()='Determine']")
+    public WebElementFacade determine;
+
+    @FindBy(xpath = "//div[text()='Related person information ']/following-sibling::div[1]/div[3]//td[2]//label/span")
+    public WebElementFacade directorNew;
+
+    @FindBy(xpath = "//div[text()='Related person information ']/following-sibling::div[1]/div[3]//td[3]//label/span")
+    public WebElementFacade shareholderNew;
+
+    @FindBy(xpath = "//div[text()='Related person information ']/following-sibling::div[1]/div[3]//td[5]//input")
+    public WebElementFacade percentageNew;
+
+    @FindBy(xpath = "//div[text()='Submit']")
+    public WebElementFacade submitNew;
+
+    @FindBy(xpath = "//form[@class='navbar-form navbar-right']//input[@class='form-control']")
+    public WebElementFacade inputEmail;
+
+    @FindBy(xpath = "//button[text()='View']")
+    public WebElementFacade viewBtn;
+
+    @FindBy(xpath = "//div[@class='input-group-btn']//button[2]")
+    public WebElementFacade refreshBtn;
+
+    @FindBy(xpath = "//div[@id='message-list']/button[1]")
+    public WebElementFacade firstEmail;
+
+    @FindBy(xpath = "//label[@for='isConcact']/following-sibling::div//input")
+    public WebElementFacade chooseAdmin;
+
+    @FindBy(xpath = "//li[@class='el-select-dropdown__item hover']")
+    public WebElementFacade selectAdmin;
+
+    @FindBy(xpath = "//div[text()='Verify Email Address']")
+    public WebElementFacade verifyEmailAddNew;
+
+    @FindBy(xpath = "//div[text()='Verify Mobile Number']")
+    public WebElementFacade verifyMobileNumberNew;
+
+    @FindBy(xpath = "//div[text()='Next']")
+    public WebElementFacade nextAdminNew;
 
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul")
     public WebElementFacade selectNationality;

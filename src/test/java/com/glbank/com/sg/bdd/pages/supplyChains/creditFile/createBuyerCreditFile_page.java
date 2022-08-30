@@ -13,13 +13,13 @@ public class createBuyerCreditFile_page extends PageObject {
     @FindBy(xpath = "//div[@data-key=\"f0o20nrp\"]//span")
     public WebElementFacade clickCreateNewUnderwriting;
 
-    @FindBy(xpath = "//label[text()=\"Customer Name\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[contains(text(),'Customer Name')]/parent::label/following-sibling::div//input")
     public WebElementFacade clickToGetCustomerName;
 
     @FindBy(xpath = "//span[text()=\"AutoTestBuyer_chen\"]")
     public WebElementFacade getBuyerName;
 
-    @FindBy(xpath = "//label[text()=\"Underwriting Mode\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[contains(text(),'Underwriting Mode')]/parent::label/following-sibling::div//input")
     public WebElementFacade clickToGetUnderwritingMode;
 
     @FindBy(xpath = "//span[text()=\"on Buyer Entity\"]")

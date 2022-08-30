@@ -253,12 +253,13 @@ public class openAccount_glue {
     public void provideEssentialInformationNew(DataTable payDetails)throws AWTException {
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
         openAccount_step.newProvideEssentialInformation(applicantName,emailName,mobileNumber);
+        FileUtils.FileString4(""+"openAccountNew"+"",nowDate);
         System.out.println("---------------申请人姓名："+ applicantName + "----------------------");
-        FileUtils.FileString4(""+openAccountInformation+"","申请人姓名:" + applicantName);
+        FileUtils.FileString4(""+"openAccountNew"+"","申请人姓名:" + applicantName);
         System.out.println("---------------申请人电话号码："+ mobileNumber + "----------------------");
-        FileUtils.FileString4(""+openAccountInformation+"","申请人电话号码:" + mobileNumber);
+        FileUtils.FileString4(""+"openAccountNew"+"","申请人电话号码:" + mobileNumber);
         System.out.println("---------------申请人邮箱地址："+ emailName + "@MailTemp.top"+"----------------------");
-        FileUtils.FileString4(""+openAccountInformation+"","申请人邮箱地址:" + emailName + "@MailTemp.top");
+        FileUtils.FileString4(""+"openAccountNew"+"","申请人邮箱地址:" + emailName + "@MailTemp.top");
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
         openAccount_step.inputEntityDetailsNew(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"),payToInfo.get(0).get("chekk"));
@@ -536,5 +537,24 @@ public class openAccount_glue {
     public void iIntoTheRearTube(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         openAccount_step.AdditionalInformation(maps.get(0).get("chekk"));
+    }
+
+    @When("^I enter the mailbox$")
+    public void iEnterTheMailbox() throws AWTException {
+        openAccount_step.enterMailbox();
+        openAccount_step.clickValidationCode();
+        openAccount_step.inputValidationCode();
+        openAccount_step.ConfirmInformation();
+        openAccount_step.clickValidationCode();
+        openAccount_step.inputValidationCode();
+        openAccount_step.verifyMobileNumberNew();
+        openAccount_step.clickValidationCode();
+        openAccount_step.inputValidationCode();
+        openAccount_step.confirmAdmin();
+    }
+
+    @When("^I enter the back tube for authorization$")
+    public void iEnterTheBackTubeForAuthorization() {
+        openAccount_step.Authorize();
     }
 }

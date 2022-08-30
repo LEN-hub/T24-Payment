@@ -8,7 +8,7 @@ Feature: openAccount
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information
     |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
-    |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|200606164M |
+    |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|201825594C |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles

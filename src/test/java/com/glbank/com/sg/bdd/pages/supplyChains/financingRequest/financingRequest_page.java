@@ -24,7 +24,7 @@ public class financingRequest_page extends PageObject {
     @FindBy(xpath = "//button//span[text()=\"Login\"]")
     public WebElementFacade clickLogin;
 
-    @FindBy(xpath = "//span[text()=\"Request Financing\"]")
+    @FindBy(xpath = "//span[text()='Apply']")
     public WebElementFacade clickRequestFinancing;
 
     @FindBy(xpath = "//div[@data-key=\"f23gdh29\"]//button//span")
@@ -33,7 +33,7 @@ public class financingRequest_page extends PageObject {
     @FindBy(xpath = "//div[@data-key=\"f13i7oou\"]//span[text()=\"Browse\"]")
     public WebElementFacade clickOfUploadFile;
 
-    @FindBy(xpath = "//div[@data-key=\"f08kpqqr\"]//span")
+    @FindBy(xpath = "//div[@data-key=\"f39ktefg\"]//span")
     public WebElementFacade clickConfirmOfUpload;
 
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr//div[@class='lls-cb-indot lls-cb-indot-act2']")
@@ -48,7 +48,7 @@ public class financingRequest_page extends PageObject {
     @FindBy(xpath = "//span[text()=\"FR Review\"]")
     public WebElementFacade clickFrReview;
 
-    @FindBy(xpath = "//td[@class=\"lls-table_9_column_27 is-left  \"]//div[@class=\"cell lls-tooltip\"]//span")
+    @FindBy(xpath = "//td[@class=\"lls-table_9_column_28 is-left  \"]//div[@class=\"cell lls-tooltip\"]//span")
     public List<WebElementFacade> requesterName;
 
     @FindBy(xpath = "//div[@class='finance']//div[@class='lls-tabs__content'][1]//div[@class='lls-tab-pane'][1]//section[@class='query-table'][1]/div[1]/div[3]//span[contains(text(),'Assign to Me')]")
@@ -57,7 +57,7 @@ public class financingRequest_page extends PageObject {
     @FindBy(xpath = "//div[text()=\"Assigned to Me\"]")
     public WebElementFacade clickAssignedToMe;
 
-    @FindBy(xpath = "//td[@class=\"lls-table_10_column_41 is-left  \"]//span")
+    @FindBy(xpath = "//td[@class=\"lls-table_10_column_45 is-left  \"]//span")
     public List<WebElementFacade> getRequesterName;
 
     @FindBy(xpath = "//td[@class=\"lls-table_9_column_38 is-left   is-hidden\"]//span[text()=\"Proceed\"]")

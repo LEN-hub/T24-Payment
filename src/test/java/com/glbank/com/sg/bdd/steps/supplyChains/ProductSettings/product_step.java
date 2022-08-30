@@ -71,6 +71,7 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickDocs() {
+        productPage.code.click();
         productPage.Docs.click();
     }
 
@@ -107,6 +108,11 @@ public class product_step extends ScenarioSteps {
     @Step
     public void clickFull() {
         productPage.FULL.click();
+    }
+
+    @Step
+    public void clickPartial(){
+        productPage.partial.click();
     }
 
     @Step
@@ -156,6 +162,10 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickSubmit() {
+//        两个新增字段
+        productPage.pool.click();
+        getDriver().findElements(By.xpath("//span[text()='N']")).get(2).click();
+        productPage.financingTenor.sendKeys("500");
         productPage.submit.click();
         bddUtil.sleep(5);
 
@@ -353,8 +363,8 @@ public class product_step extends ScenarioSteps {
 
     @Step             //选择供应商对应的名字（也就是创建产品的名称）
     public void SendKeyProductName() {
-        productPage.ProductNAME.click();
-        bddUtil.scrollWindowToElement(productPage.find(By.xpath("//div[@x-placement='bottom-start']//li/span[text()='" + content + "']"))).click();
+//        productPage.ProductNAME.click();
+        bddUtil.scrollWindowToElement(productPage.find(By.xpath("//div[@x-placement='top-start' or @x-placement='bottom-start']//li/span[text()='" + content + "']"))).click();
     }
 
 
@@ -391,6 +401,7 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickRefundInterestN() {
+        bddUtil.sleep(2);
         productPage.RefundInterestN.click();
     }
 
@@ -402,6 +413,7 @@ public class product_step extends ScenarioSteps {
     @Step
     public void clickGracePeriod(String value) {
         productPage.GracePeriod.sendKeys(value);
+        productPage.setUpFee.sendKeys("5");
     }
 
     @Step
@@ -428,9 +440,9 @@ public class product_step extends ScenarioSteps {
             productPage.enterEmailLink.click();
         }
         productPage.firstEmail.click();
-        String password = productPage.emailPassword.getText();
+//        String password = productPage.emailPassword.getText();
         productPage.greenLinkSystem.isVisible();
-        CommonUtil.waiting(2000);
+        bddUtil.sleep(2);
 //        productPage.greenLinkSystem.click();
         productPage.plainText.click();
         bddUtil.sleep(1);
