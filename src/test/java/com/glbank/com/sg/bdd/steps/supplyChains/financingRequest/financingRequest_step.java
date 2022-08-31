@@ -59,7 +59,8 @@ public class financingRequest_step extends ScenarioSteps {
     public void clickOperationsToL1Review(String companyName){
         financingRequest_page.clickOperations.click();
         financingRequest_page.clickFrReview.click();
-        FinancingNo = financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content']/div[1]/section/div[1]/div[3]//tr[1]/td[2]//span")).getText();
+        FinancingNo = financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content']/div[1]/section/div[1]/div[3]//tr[1]/td[3]//span")).getText();
+        Map<String, Object> map1 = updateAml(FinancingNo);
         List<WebElementFacade> requestName = financingRequest_page.requesterName;
         for(int i = 0;i< requestName.size();i++){
             if(requestName.get(i).getText().equals(companyName)){
@@ -73,7 +74,9 @@ public class financingRequest_step extends ScenarioSteps {
         for(int i = 0;i< getRequesterName.size();i++){
             if(companyName.equals(getRequesterName.get(i).getText())){
                 int j = i + 1;
+                bddUtil.scrollWindowToElement(financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content'][1]//div[@class='lls-tab-pane'][2]//section[@class='query-table'][1]/div[1]/div[3]//tr["+j+"]//span[contains(text(),'Proceed')]")));
                 bddUtil.clickByJS(financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content'][1]//div[@class='lls-tab-pane'][2]//section[@class='query-table'][1]/div[1]/div[3]//tr["+j+"]//span[contains(text(),'Proceed')]")));
+                bddUtil.sleep(1);
                 break;
             }
         }
@@ -92,7 +95,7 @@ public class financingRequest_step extends ScenarioSteps {
             String msg = (String)map.get("msg");
             System.out.println("msg: " + msg);
         }
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
     }
 
     public void clickFinancingStatus(){

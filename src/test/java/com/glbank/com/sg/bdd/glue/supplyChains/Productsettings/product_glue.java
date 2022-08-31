@@ -163,7 +163,7 @@ public class product_glue {
         productStep.clickFinancingModeManual();
         productStep.clickRefundInterest();
         productStep.clickRefundInterestN();
-        productStep.clickEstimatedFinancingTenor("10");
+//        productStep.clickEstimatedFinancingTenor("10");
         productStep.clickGracePeriod("20");
     }
 
@@ -186,6 +186,33 @@ public class product_glue {
     }
 
 
+    @When("^Enter page information to select partial repayment$")
+    public void enterPageInformationToSelectPartialRepayment() {
+        bddUtil.sleep(1);
+        productStep.name();
+        productStep.code();
+        productStep.productType();
+        productStep.clickPostACC();
+        productStep.sendkeysStart("2022-03-01");
+        productStep.sendkeysEnd("2028-03-10");
+        productStep.clickDocs();
+        productStep.clickAccepted();
+        productStep.clickPaid();
+        productStep.clickSeller();
+        productStep.clickCOLLETCD();
+        productStep.clickDiscount();
+        productStep.clickRepayment();
+        productStep.clickPartial();
+        productStep.sendkeysRatio("100");
+        productStep.clickTerm();
+        productStep.clickWithout();
+        productStep.clickIPU();
+        productStep.clickoneN();
+        productStep.clickMOU();
+        productStep.clicktwoN();
+        productStep.clickLimit();
+        productStep.clickBoth();
+    }
 }
 
 

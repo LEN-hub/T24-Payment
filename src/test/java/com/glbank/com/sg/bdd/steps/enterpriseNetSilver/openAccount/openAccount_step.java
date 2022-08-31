@@ -7,6 +7,7 @@ import com.lu.sn.NameType;
 import com.lu.sn.RandomNameTool;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.Random;
 
 import static com.glbank.com.sg.bdd.glue.enterpriseNetSilver.openAccount.openAccount_glue.accountName;
+import static com.glbank.com.sg.bdd.glue.enterpriseNetSilver.openAccount.openAccount_glue.emailName;
 import static com.glbank.com.sg.bdd.utils.ConnectLinux.getLastOtp;
 
 
@@ -29,6 +31,8 @@ public class openAccount_step extends ScenarioSteps {
     public static String address = "AutoTest" + JRandomNameTool.getStringRandom(3);
     public static String emailNew = JRandomNameTool.getStringRandom(4);
     public static int idCard = (int)((Math.random()*9+1)*1000000);
+    public String ApplicantEmail;
+    public String customerId;
     public static String mobileNumber = RandomPhoneNumber.randomPhoneNum();
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
@@ -316,7 +320,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
     }
 
     public void clickValidationCode() {
-        bddUtil.sleep(7);
+        bddUtil.sleep(10);
         getDriver().switchTo().alert().getText();
         bddUtil.sleep(2);
         verificationCode = getDriver().switchTo().alert().getText().substring(7, 13);
@@ -454,16 +458,22 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
             bddUtil.sleep(2);
     }
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(0).sendKeys(fileAddress);
+        bddUtil.sleep(1);
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(1).sendKeys(fileAddress);
+        bddUtil.sleep(1);
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(2).sendKeys(fileAddress);
+        bddUtil.sleep(1);
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(3).sendKeys(fileAddress);
+        bddUtil.sleep(1);
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(4).sendKeys(fileAddress);
+        bddUtil.sleep(1);
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(5).sendKeys(fileAddress);
         bddUtil.sleep(3);
         openAccount_page.confirmNew.click();
         bddUtil.sleep(5);
 }
 
+//进入后管补充信息。
     public void AdditionalInformation(String chekk){
         bddUtil.sleep(3);
         getDriver().findElements(By.xpath("//span[text()='Trading Center']")).get(0).click();
@@ -472,10 +482,13 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.queryBtn.click();
         bddUtil.sleep(2);
         getDriver().findElements(By.xpath("//span[text()='Supplement']")).get(1).click();
+        bddUtil.sleep(7);
         openAccount_page.businessEntity.click();
+        bddUtil.sleep(1);
         openAccount_page.noListed.click();
         openAccount_page.businessTurnover.click();
         openAccount_page.thanOneMillion.click();
+        openAccount_page.countryOfOperation.clear();
         openAccount_page.countryOfOperation.sendKeys("SINGAPORE");
         openAccount_page.selectNationality.click();
         openAccount_page.yesBtn.click();
@@ -504,12 +517,109 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.adressNew.sendKeys(address);
         openAccount_page.cityNew.sendKeys(address.toString().substring(2,5));
         openAccount_page.emailNew.sendKeys(emailNew+"@MailTemp.top");
-        FileUtils.FileString4(""+"openAccountNew"+"","其他人员邮箱：" + emailNew+"@MailTemp.top");
+        FileUtils.FileString4(""+"openAccountNew"+"","关联人邮箱：" + emailNew+"@MailTemp.top");
+        bddUtil.sleep(1);
+        openAccount_page.determine.click();
+        openAccount_page.directorNew.click();
+        openAccount_page.shareholderNew.click();
+        openAccount_page.percentageNew.sendKeys("26");
+        bddUtil.sleep(1);
+        bddUtil.scrollWindowToElement(openAccount_page.deletePerson);
+        for (int i = 0; i < 5; i++) {
+            if (openAccount_page.deleteCompany.isVisible()){
+                getDriver().findElements(By.xpath("//div[text()='Related enterprise information ']/following-sibling::div//div[@class='el-table__fixed-body-wrapper']//span[text()='Delete']")).get(0).click();
+            }else {
+                break;
+            }
 
+        }
+        bddUtil.sleep(3);
+        openAccount_page.submitNew.click();
+        bddUtil.sleep(3);
+    }
 
+//    进行授权
+    public void Authorize(){
+        bddUtil.sleep(3);
+        getDriver().findElement(By.xpath("//div[@class='welHandleCon']//span[text()='Trading Center']")).click();
+        bddUtil.sleep(3);
+        getDriver().findElements(By.xpath("//div[@class='el-table__fixed-right']//span[text()='Authorization']")).get(0).click();
+//        将申请人邮箱再次确认。
+        ApplicantEmail = getDriver().findElement(By.xpath("//span[text()='Email']/following-sibling::span")).getText();
+        customerId = getDriver().findElement(By.xpath("//span[text()='Corporate Customer Number']/following-sibling::span")).getText();
+        FileUtils.FileString4(""+"openAccountNew"+"","企业客户编号:" + customerId);
+        FileUtils.FileString4(""+"customerId"+"",BDDUtil.getTimeNowThroughCalendar());
+        FileUtils.FileString4(""+"customerId"+"","企业客户编号是:");
+        FileUtils.FileString4(""+"customerId"+"", customerId);
+        bddUtil.sleep(3);
+        bddUtil.scrollWindowToElement(getDriver().findElement(By.xpath("//div[text()='Submit']")));
+        getDriver().findElement(By.xpath("//div[text()='Submit']")).click();
 
     }
 
+    public void enterMailbox(){
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox\");");
+        bddUtil.sleep(3);
+        bddUtil.switchToNewWindow();
+//        openAccount_page.inputEmail.sendKeys(ApplicantEmail);
+        openAccount_page.inputEmail.sendKeys("y5yX6@MailTemp.top");
+        bddUtil.sleep(5);
+        openAccount_page.viewBtn.click();
+        bddUtil.sleep(3);
+        openAccount_page.refreshBtn.click();
+        bddUtil.sleep(3);
+        openAccount_page.firstEmail.click();
+        bddUtil.sleep(1);
+        getDriver().findElement(By.xpath("//a[text()='Plain Text']")).click();
+        bddUtil.sleep(2);
+        getDriver().findElement(By.xpath("//div[@id='body-text']/a")).click();
+        bddUtil.sleep(20);
+        bddUtil.switchToNewWindow();
+        getDriver().findElement(By.xpath("//div[text()='Get OTP']")).click();
+        bddUtil.sleep(3);
+    }
+//    新开户流程 在前端页面确定信息。
+    public void ConfirmInformation(){
+        bddUtil.scrollWindowToElement(getDriver().findElement(By.xpath("//div[@class='el-collapse-item__content']/form/div[6]//input")));
+        String DirectorMailbox = getDriver().findElement(By.xpath("//div[@class='el-collapse-item__content']/form/div[6]//input")).getText();
+        bddUtil.sleep(1);
+        FileUtils.FileString4(""+"openAccountNew"+"","董事邮箱:" + DirectorMailbox);
+        getDriver().findElement(By.xpath("//div[text()='Next']")).click();
+        bddUtil.sleep(1);
+        getDriver().findElement(By.xpath("//input[@placeholder='Select']")).sendKeys("+86");
+        getDriver().findElement(By.xpath("//span[text()='CHINA']")).click();
+        getDriver().findElement(By.xpath("//div[@class='paddingleft16']/div//form/div[2]//div[@class='el-row']/div[2]//input")).sendKeys(mobileNumber);
+        getDriver().findElement(By.xpath("//div[text()='Next']")).click();
+        bddUtil.sleep(3);
+        getDriver().findElement(By.xpath("//span[text()='One Administrator']")).click();
+        openAccount_page.chooseAdmin.click();
+        openAccount_page.selectAdmin.click();
+        openAccount_page.verifyEmailAddNew.click();
+        bddUtil.sleep(5);
+    }
+//提交 admin 开户新流程
+    public void verifyMobileNumberNew(){
+        bddUtil.sleep(3);
+        openAccount_page.verifyMobileNumberNew.click();
+        bddUtil.sleep(5);
+    }
+// 提交admin
+    public void confirmAdmin(){
+        bddUtil.sleep(3);
+        openAccount_page.nextAdminNew.click();
+        bddUtil.sleep(5);
+        bddUtil.scrollWindowToElement(getDriver().findElement(By.xpath("//label[@for='emailAddr']/following-sibling::div/div")));
+        String adminEmail = getDriver().findElement(By.xpath("//label[@for='emailAddr']/following-sibling::div/div")).getText();
+        FileUtils.FileString4(""+"openAccountNew"+"","admin邮箱:" + adminEmail);
+//        勾选两个协议。
+        getDriver().findElements(By.xpath("//label[@class='el-checkbox']")).get(0).click();
+        bddUtil.sleep(1);
+        getDriver().findElements(By.xpath("//label[@class='el-checkbox']")).get(1).click();
+        bddUtil.sleep(1);
+        getDriver().findElement(By.xpath("//div[text()='Submit']")).click();
+        bddUtil.sleep(3);
+    }
 
     public void inputEntityDetails1(String subIndustry,String entityConsolidated) {
         String entityType = "Public Listed Company (Not Listed in Singapore)";

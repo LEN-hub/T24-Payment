@@ -125,12 +125,15 @@ public class creditLimit_step extends ScenarioSteps {
 
     @Step
     public void clickProceedBtn(){
+        bddUtil.sleep(2);
         List<WebElementFacade> roles = creditLimit_page.roleList;
         List<WebElementFacade> actions = creditLimit_page.actionList;
         for (int i = 0; i <roles.size() ; i++) {
-            if (roles.get(i).getText().equals("Buyer")){
-                bddUtil.clickByJS(actions.get(i));
+            if (roles.get(i).getText().equals(FileUtils.LastReadFileInput3("buyer"))){
+                getDriver().findElements(By.xpath("//table[@class='fixed-right-table']//td[@data-key='f31h3cr2']//span[contains(text(),'Proceed')]")).get(i).click();
+//                bddUtil.clickByJS(actions.get(i));
 //                actions.get(i).click();
+                bddUtil.sleep(2);
                 break;
             }
         }
@@ -166,11 +169,14 @@ public class creditLimit_step extends ScenarioSteps {
 
     @Step
     public void clickSupplierProceedBtn(){
+        bddUtil.sleep(3);
         List<WebElementFacade> roles = creditLimit_page.roleList;
         List<WebElementFacade> actions = creditLimit_page.actionList;
         for (int i = 0; i <roles.size() ; i++) {
-            if (roles.get(i).getText().equals("Supplier")){
-                bddUtil.clickByJS(actions.get(i));
+            if (roles.get(i).getText().equals(FileUtils.LastReadFileInput3("companyData"))){
+                getDriver().findElements(By.xpath("//div[@class='lowcode-table-fixed-right table-shadow']//span[@data-key='f3cahm5l']")).get(i).click();
+//                bddUtil.clickByJS(actions.get(i));
+                bddUtil.sleep(2);
                 break;
             }
         }
@@ -179,10 +185,10 @@ public class creditLimit_step extends ScenarioSteps {
 
     @Step
     public void openToSupplierPortal() {     //跳转供应商门户
-        String Url = "http://10.24.9.126:8080//";
+        String Url = "http://10.24.9.126:8080/";
         creditLimit_page.openUrl(Url);
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(20);
+        bddUtil.sleep(8);
     }
 
 
@@ -207,6 +213,12 @@ public class creditLimit_step extends ScenarioSteps {
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
         bddUtil.sleep(3);
         bddUtil.switchToWindows();
+//        一次性邮箱需要验证。
+        if (creditLimit_page.find(By.xpath("//div[@id='main-message']/h1")).isVisible()){
+            getDriver().findElement(By.xpath("//div[@class='nav-wrapper']/button[3]")).click();
+            bddUtil.sleep(1);
+            getDriver().findElement(By.xpath("//p[@id='final-paragraph']/a")).click();
+        }
         creditLimit_page.clickRefreshBtn.click();
         bddUtil.sleep(1);
         creditLimit_page.thirdEmail.click();
@@ -280,6 +292,12 @@ public class creditLimit_step extends ScenarioSteps {
     public void ToggleSecondEmail(){
         String twoEmail = FileUtils.LastReadFileInput3("emailData").substring(0,8)+"2";
         bddUtil.switchToWindows();
+        //        一次性邮箱需要验证。
+        if (creditLimit_page.find(By.xpath("//div[@id='main-message']/h1")).isVisible()){
+            getDriver().findElement(By.xpath("//div[@class='nav-wrapper']/button[3]")).click();
+            bddUtil.sleep(1);
+            getDriver().findElement(By.xpath("//p[@id='final-paragraph']/a")).click();
+        }
         bddUtil.find(By.xpath("//input[@name='name']")).sendKeys(twoEmail);
         bddUtil.sleep(1);
         bddUtil.find(By.xpath("//button[@type='submit']")).click();

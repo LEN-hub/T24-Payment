@@ -23,7 +23,7 @@ public class createBuyerCreditFileReview_page extends PageObject{
     @FindBy(xpath = "//td[@data-key=\"f2vfll17\"]")
     public List<WebElementFacade> assignToMePageCompanyNameList;
 
-    @FindBy(xpath = "//td[@data-key=\"f3po7mnv\"]//span[@data-key=\"f0ig1sre\"]//button")
+    @FindBy(xpath = "//td[@data-key=\"f3po7mnv\"]//span[@data-key=\"f2s3gqp7\"]//button")
     public List<WebElementFacade> proceedList;
 
     @FindBy(xpath = "//label[text()=\"Result\"]/following-sibling::div//input")
