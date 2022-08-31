@@ -26,6 +26,9 @@ public class payments_page extends PageObject{
    @FindBy(xpath = "//div[@data-key='f0en9ob2']//input")
    public WebElementFacade requestTian;
 
+    @FindBy(xpath = "//div[@data-key='f224avg9']//input")
+    public WebElementFacade requestParTian;
+
     @FindBy(xpath ="//label[text()='Requester']")  //空白处
     public WebElementFacade Reset;
 
@@ -41,13 +44,16 @@ public class payments_page extends PageObject{
    @FindBy(xpath = "//div[@data-key='f0rtkmfs']//input")
     public WebElementFacade repaymentRequest;
 
+    @FindBy(xpath = "//div[@data-key='f2i00scg']//input")
+    public WebElementFacade parRepaymentRequest;
+
     @FindBy(xpath ="//span[@data-key='f21orqn5']//span")
     public  WebElementFacade Proceed;   //审核
 
-    @FindBy(xpath = "//span[@data-key='f3oj1ki5']//span")
+    @FindBy(xpath = "//span[@data-key='f2se0b39']//span")
     public WebElementFacade proceedNew;
 
-    @FindBy(xpath = "//span[@data-key='f21orqn5']//span")
+    @FindBy(xpath = "//span[@data-key='f2bv6j95']//span")
     public WebElementFacade proceedNew1;
 
     @FindBy(xpath ="//label[text()='Remittance Fee Paid by']/parent::div//span/span")
@@ -118,6 +124,9 @@ public class payments_page extends PageObject{
     @FindBy(xpath = "//span[text()='Batch Repayment']")
     public WebElementFacade batchRepaymentBtn;
 
+    @FindBy(xpath = "//span[text()='Partial Repayment Management']")
+    public WebElementFacade parRepayMent;
+
     @FindBy(xpath = "//span[text()='Repayment Management']")
     public WebElementFacade repaymentTitle;
 
@@ -126,6 +135,9 @@ public class payments_page extends PageObject{
 
     @FindBy(xpath = "//span[@data-key='f2uklkic']/button/span")
     public List<WebElementFacade> assignToMeList;
+
+    @FindBy(xpath = "//span[@data-key='f1s5m0bn']/button/span")
+    public List<WebElementFacade> parAssignToMeList;
 
     @FindBy(xpath = "//td[@data-key='f07v6rpo']")
     public List<WebElementFacade> RequestList;
@@ -139,7 +151,7 @@ public class payments_page extends PageObject{
     @FindBy(xpath = "//div[@class='lls-input lls-input--suffix']//input[@class='lls-input__inner']")
     public WebElementFacade selectLabel;
 
-    @FindBy(xpath = "//div[@class='lls-form-item is-required']//div[@class='lls-select-dropdown lls-popper is-pasted']/div[@class='lls-scrollbar']")
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//span")
     public WebElementFacade accountLabel;
 
     @FindBy(xpath = "//label[@for='actualRepayAmount']//following-sibling::div//input")

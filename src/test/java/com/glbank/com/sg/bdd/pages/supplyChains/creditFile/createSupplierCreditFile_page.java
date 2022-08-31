@@ -14,25 +14,25 @@ public class createSupplierCreditFile_page extends PageObject {
     @FindBy(xpath = "//div[@data-key=\"f228nvqh\"]//button//span")
     public WebElementFacade clickCreateNewUnderwriting;
 
-    @FindBy(xpath = "//label[text()=\"Customer Name\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[contains(text(),\"Customer Name\")]/parent::label/following-sibling::div//input")
     public WebElementFacade clickToGetCustomerName;
 
     @FindBy(xpath = "//span[text()=\"AutoTestSupplier_chen\"]")
     public WebElementFacade getSupplierName;
 
-    @FindBy(xpath = "//label[text()=\"Buyer\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[contains(text(),\"Buyer\")]/parent::label/following-sibling::div//input")
     public WebElementFacade clickToGetBuyer;
 
     @FindBy(xpath = "//span[text()=\"AutoTestBuyer_chen\"]")
     public WebElementFacade getBuyerName;
 
-    @FindBy(xpath = "//label[text()=\"Product Type\"]/following-sibling::div//input[@placeholder=\"\"]")
+    @FindBy(xpath = "//div[contains(text(),\"Product Type\")]/parent::label/following-sibling::div//input")
     public WebElementFacade clickToGetProductType;
 
     @FindBy(xpath = "//div[@class=\"lls-dialog__wrapper\"]/following-sibling::div//span[text()=\"Post Acceptance\"]")
     public WebElementFacade getProductType;
 
-    @FindBy(xpath = "//label[text()=\"Input by\"]/following-sibling::div//input")
+    @FindBy(xpath = "//div[contains(text(),\"Input by\")]/parent::label/following-sibling::div//input")
     public WebElementFacade clickToGetInputBy;
 
     @FindBy(xpath = "//span[text()=\"Operator\"]")

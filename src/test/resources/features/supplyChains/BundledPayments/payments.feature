@@ -98,3 +98,19 @@ Scenario:Due account balance is sufficient, overpayment, resulting in a differen
   And I enter other parameters in the current pageThree
   When I click more button
   And I should see Quota occupancy
+
+
+  #部分还款
+  @partialRepayment
+  Scenario:Due account balance is sufficient, overpayment, resulting in a difference in partial repayment
+    Given logon "environments_1" on tube by inputting system
+    When I click Operations button
+    When I click ParRepayMent button
+    Then I should dirent to the ParRePayMent page
+    When I click Assign to ME title on the on ParRePayMent Management page
+    When I click Proceed Button on the ParRepayment Management Page
+    Then I should direct to the ParRepayment Detail page
+    When I select Repayment Account No on the page
+    And I enter other parRemeters in the current pageThree
+    When I click more button
+    And I should see Quota occupancy

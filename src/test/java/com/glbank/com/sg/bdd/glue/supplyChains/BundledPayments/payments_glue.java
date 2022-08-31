@@ -28,8 +28,9 @@ public class payments_glue {
     @And("^click Request for Disbursement$")
     public void clickRequestForDisbursement() {
         paymentsStep.clickRequestDisbursement();
-        paymentsStep.clickEditGroup();
-        paymentsStep.clickConfirm();
+//        捆绑组非必须流程。
+//        paymentsStep.clickEditGroup();
+//        paymentsStep.clickConfirm();
         paymentsStep.clickRequesterOne();
         paymentsStep.clickAssignToMe();
 
@@ -41,9 +42,8 @@ public class payments_glue {
         paymentsStep.clickRequesterTwo();
         paymentsStep.clickProceed();
         paymentsStep.clickRemittanceFeePaidBy();
-        paymentsStep.clickSupplierBank();
-        paymentsStep.clickAccountNo();
-
+//        paymentsStep.clickSupplierBank();         //SCF新流程 变化，SupplierBank字段默认有值且不能更改。
+//        paymentsStep.clickAccountNo();
     }
 
     @Then("^I click Submit$")
@@ -68,6 +68,7 @@ public class payments_glue {
         paymentsStep.Requester5();
         paymentsStep.clickProceed2();
         paymentsStep.clickAPPROVE();
+        bddUtil.sleep(10);
     }
 
     @Then("^Click on the submit APPROVE$")
@@ -148,5 +149,37 @@ public class payments_glue {
     @When("^I input Adjustment Amout$")
     public void iInputAdjustmentAmout() {
         paymentsStep.inputAmout();
+    }
+
+    @When("^I click ParRepayMent button$")
+    public void iClickParRepayMentButton() {
+        paymentsStep.clickparRepayMent();
+    }
+
+    @Then("^I should dirent to the ParRePayMent page$")
+    public void iShouldDirentToTheParRePayMentPage() {
+        paymentsStep.onTheParRePayMentPage();
+    }
+
+    @When("^I click Assign to ME title on the on ParRePayMent Management page$")
+    public void iClickAssignToMETitleOnTheOnParRePayMentManagementPage() {
+        paymentsStep.clickAssToMeParPay();
+        paymentsStep.parClickAssignToMeS();
+        bddUtil.sleep(2);
+    }
+
+    @When("^I click Proceed Button on the ParRepayment Management Page$")
+    public void iClickProceedButtonOnTheParRepaymentManagementPage() {
+        paymentsStep.clickParProceedBtn();
+    }
+
+    @Then("^I should direct to the ParRepayment Detail page$")
+    public void iShouldDirectToTheParRepaymentDetailPage() {
+        paymentsStep.seeParRepaymentDetail();
+    }
+
+    @And("^I enter other parRemeters in the current pageThree$")
+    public void iEnterOtherParRemetersInTheCurrentPageThree() {
+        paymentsStep.inputOtherParameter4();
     }
 }

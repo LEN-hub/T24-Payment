@@ -161,6 +161,11 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void emailOperation(String value){
+//        if (getDriver().findElement(By.xpath("//div[@id='icon']")).isDisplayed()){
+//            getDriver().findElement(By.xpath("//div[@class='nav-wrapper']/button[3]")).click();
+//            bddUtil.sleep(1);
+//            getDriver().findElement(By.xpath("//p[@id='final-paragraph']/a")).click();
+//        }
         customers_page.sendEmail.clear();
         customers_page.sendEmail.sendKeys(value);
         customers_page.createEmailButton.click();
@@ -693,7 +698,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.selectApprove.click();
         customers_page.inputBoxComment.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.submitBtnOnAssignToMePage.click();
-        bddUtil.sleep(8);
+        bddUtil.sleep(13);
         bddUtil.quitDriver();
     }
 

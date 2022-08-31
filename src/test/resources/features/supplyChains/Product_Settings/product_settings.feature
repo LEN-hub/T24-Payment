@@ -57,3 +57,26 @@ Feature: Product Settings test case
     And Enter login information
 
 
+#    产品设置部分还款。
+  Scenario:UAT_ Supply chain_ Inner tube_ Create product_ 003 partial repayment
+    Given logon "environments_001" on tube by inputting system
+    When I click product
+    When I click on Product List
+    And  click Create Product
+    When Enter page information to select partial repayment
+    Then click Submit to submit a new product
+    Then Refresh check whether the data is added successfully
+    When I click product
+    When I click on Quote List
+    And  click Create Quote
+    When enter the second case information supplier with buyer
+      |selectCurr|
+      |SGD       |
+    Then I click Submit to submit a new product
+    When I click product
+    When I click ProductProfile
+    And click Create ProductProfile
+    When enter the second case information supplier and buyer
+    Then I click Submit product profile
+    When The vendor logs in to the vendor portal to view products
+    And Enter login information

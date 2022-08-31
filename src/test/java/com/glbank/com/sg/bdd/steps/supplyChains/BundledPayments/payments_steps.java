@@ -51,7 +51,14 @@ public class payments_steps extends ScenarioSteps {
     public void clickAssignToMe() {paymentsPage.assignToMe.click();}
 
     @Step
-    public void clickAssignToMeS() {paymentsPage.AssignToMeS.click();}
+    public void clickAssignToMeS() {
+        paymentsPage.AssignToMeS.click();
+    }
+
+    @Step
+    public void parClickAssignToMeS() {
+        paymentsPage.AssignToMeS.click();
+    }
 
     @Step
     public void clickAssToMe(){
@@ -60,6 +67,16 @@ public class payments_steps extends ScenarioSteps {
         paymentsPage.Reset.click();
         bddUtil.sleep(3);
         paymentsPage.assignToMeList.get(1).click();
+        bddUtil.sleep(1);
+    }
+
+    @Step
+    public void clickAssToMeParPay(){
+        paymentsPage.parRepaymentRequest.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        bddUtil.sleep(3);
+        paymentsPage.Reset.click();
+        bddUtil.sleep(3);
+        paymentsPage.parAssignToMeList.get(0).click();
         bddUtil.sleep(1);
     }
 
@@ -165,11 +182,23 @@ public class payments_steps extends ScenarioSteps {
 }
     @Step
     public void clickBatchRepaymentBtn(){
-        paymentsPage.batchRepaymentBtn.click();}
+        paymentsPage.batchRepaymentBtn.click();
+    }
+
+    @Step
+    public void clickparRepayMent(){
+        paymentsPage.parRepayMent.click();
+    }
 
     @Step
     public void onTheBatchRepaymentPage(){
         assertEquals("Repayment Management",paymentsPage.repaymentTitle.getText());
+        bddUtil.sleep(2);
+    }
+
+    @Step
+    public void onTheParRePayMentPage(){
+        assertEquals("Partial Repayment Management",getDriver().findElement(By.xpath("//div[@data-key='f0qi979f']//span[text()='Partial Repayment Management']")).getText());
         bddUtil.sleep(2);
     }
 
@@ -226,13 +255,28 @@ public class payments_steps extends ScenarioSteps {
         paymentsPage.requestTian.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         paymentsPage.Reset.click();
         bddUtil.sleep(2);
-        bddUtil.scrollWindowToElement(bddUtil.find(By.xpath("//td[1]//div[@class='lls-design-table-btn-wrapper']//span[@data-key='f3tpnu1h']//span"))).click();
+        bddUtil.scrollWindowToElement(bddUtil.find(By.xpath("//td[1]//div[@class='lls-design-table-btn-wrapper']//span[@data-key='f2l5n356']//span"))).click();
+        bddUtil.sleep(2);
+    }
+
+    @Step
+    public void clickParProceedBtn(){
+        paymentsPage.requestParTian.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        paymentsPage.Reset.click();
+        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(bddUtil.find(By.xpath("//span[@data-key='f0dcq5ne']//span"))).click();
         bddUtil.sleep(2);
     }
 
     @Step
     public void seeRepaymentDetail(){
         assertEquals("Repayment Detail",paymentsPage.repaymentDetail.getText());
+        bddUtil.sleep(1);
+    }
+
+    @Step
+    public void seeParRepaymentDetail(){
+        assertEquals("Repayment Confirmation",paymentsPage.repaymentDetail.getText());
         bddUtil.sleep(1);
     }
 
@@ -278,6 +322,24 @@ public class payments_steps extends ScenarioSteps {
         paymentsPage.repaymentData.sendKeys(bddUtil.dateFormate());
         paymentsPage.commission.click();
         paymentsPage.submitBtn.click();
+        bddUtil.sleep(10);
+    }
+
+    public void inputOtherParameter4() {
+        bddUtil.sleep(2);
+        paymentsPage.repaymentAmount.click();
+        paymentsPage.repaymentAmount.clear();
+        paymentsPage.repaymentAmount.sendKeys("200");
+        bddUtil.sleep(1);
+        paymentsPage.repaymentData.sendKeys(bddUtil.dateFormate());
+        //部分还款无佣金。
+//        paymentsPage.commission.click();
+        paymentsPage.submitBtn.click();
+        bddUtil.sleep(3);
+        if (paymentsPage.submitBtn.isDisabled()){
+            bddUtil.sleep(2);
+            paymentsPage.submitBtn.click();
+        }
         bddUtil.sleep(10);
     }
 

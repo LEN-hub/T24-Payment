@@ -97,7 +97,7 @@ public class rpa_steps extends ScenarioSteps {
         rpaPage.GLDBEmailLoginBtn.click();
         bddUtil.sleep(10);
         rpaPage.Contract.click();
-        assertEquals("RPA Agreement",rpaPage.find(By.xpath("//td[text()='RPA Agreement']")).getText());
+        assertEquals("RPA Limited Recourse",rpaPage.find(By.xpath("//td[text()='RPA Limited Recourse']")).getText());
         bddUtil.sleep(2);
     }
 

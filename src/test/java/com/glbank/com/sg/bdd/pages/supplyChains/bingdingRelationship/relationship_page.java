@@ -35,7 +35,7 @@ public class relationship_page extends PageObject {
     @FindBy(xpath = "//span[@class='text-node-f2paac1o']")
     public WebElementFacade counterWindows;
 
-    @FindBy(xpath = "//label[text()='Company Name']/following-sibling::div//input")
+    @FindBy(xpath = "//div[contains(text(),'Company Name')]/parent::label/following-sibling::div//input")
     public WebElementFacade inputCounterName;
 
     @FindBy(xpath = "//label[@class='lls-radio'][2]/span[@class='lls-radio__input']/span")
@@ -77,7 +77,7 @@ public class relationship_page extends PageObject {
     @FindBy(xpath = "//span[contains(text(),'Create New Relationship')]")
     public WebElementFacade createNewRelationShipBtn;
 
-    @FindBy(xpath = "//span[@class='single-line-text lls-container-row is-empty']/following-sibling::div//span[@class='lls-input__suffix']")
+    @FindBy(xpath = "//label[@class='lls-form-item__label']/following-sibling::div//input")
     public WebElementFacade companyNameSelectCheckBox;
 
     @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")

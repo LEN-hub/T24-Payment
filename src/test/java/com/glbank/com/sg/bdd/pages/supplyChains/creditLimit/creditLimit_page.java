@@ -19,7 +19,7 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-menu-item']/span[text()='Underwriting Approval']")
     public WebElementFacade underWritingApproval;
 
-    @FindBy(xpath = "//span[@class='single-line-text is-empty']")
+    @FindBy(xpath = "//span[@class='text-node-f2klo2he']")
     public WebElementFacade underWritingApprovalText;
 
     @FindBy(xpath = "//span[@data-key='f2imibvb']//span")
@@ -31,7 +31,7 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//tr/td[@class='lls-design-cloumn'][@data-key='f3o19io2']")
     public List<WebElementFacade> role;
 
-    @FindBy(xpath = "//tr/td[@class='lls-design-cloumn'][@data-key='f1fohrfl']")
+    @FindBy(xpath = "//tr/td[@class='lls-design-cloumn cust-f1fohrfl'][@data-key='f1fohrfl']")
     public List<WebElementFacade> applicant;
 
     @FindBy(xpath = "//div[@class='lls-tabs__nav is-top']//div[@aria-controls='pane-1']")
@@ -58,10 +58,10 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-submenu__content']//span[text()='Underwriting List']")
     public WebElementFacade underwritingListBtn;
 
-    @FindBy(xpath = "//td[@class='lls-design-cloumn'][@data-key='f08pkuoi']")
+    @FindBy(xpath = "//td[@class='lls-design-cloumn cust-f1vhst4e'][@data-key='f1vhst4e']")
     public List<WebElementFacade> roleList;
 
-    @FindBy(xpath = "//div[@class='lowcode-table-base']//span[@data-key='f2gbnt8g']//span[contains(text(),'Proceed')]")
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//span[@data-key='f3cahm5l']")
     public List<WebElementFacade> actionList;
 
     @FindBy(css = ".lls-button lls-button--primary lls-button--mini is-plain")
