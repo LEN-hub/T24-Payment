@@ -28,7 +28,7 @@ Feature: T24 Payment transaction
     When I choose to submit the transfer information
     When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on FX Payment
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
+    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
     When I type in the content and click the search button
     |search content           |windows Title        |
     |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
@@ -73,7 +73,7 @@ Feature: T24 Payment transaction
     When I choose to submit the transfer information
     When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on FX Payment
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
+    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
     When I type in the content and click the search button
       |search content           |windows Title        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
@@ -91,36 +91,36 @@ Feature: T24 Payment transaction
     When I type FOREX in the search box use to authorize the operation
       |search content|user Authorize                 |
       |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth|
-#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 SIT environment
+#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
   @FxPaymentSGDToSGD
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(SGD->SGD)
-#    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
-#    When I click on overseas transfer payment and select the account
-#    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-#      |Account Number|Payment Mode for Charges                 |
-#      |1101 0000 438 |The expenses shall be borne by each party|
-#    And I choose the payment currency
-#      |Currency|
-#      |SGD     |
-#    When I enter the payee information
-#      |Payee's Account Number|Payee's Name|
-#      |667812798             |lucky       |
-##    When I click on the receiving bank drop down box
-#    When I choose the receiving bank
-#      |Beneficiary Bank|
-#      |DBS SINGAPORE   |
-#    When I choose the recipient country
-#      |Payee's Address |Payee's Country|Comments For Payee|
-#      |countries       |UNITED STATES  |ok                |
-#    When I choose the nature of payment
-#      |Purpose of Transfer|
-#      |Commission         |
-#    When I choose to submit the transfer information
-#    When Vkey authorization for Payment transactions in the SIT environment
-#    Then I will compare all the data on FX Payment MX Message
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I click on overseas transfer payment and select the account
+    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+      |Account Number|Payment Mode for Charges                 |
+      |1101 0000 438 |The expenses shall be borne by each party|
+    And I choose the payment currency
+      |Currency|
+      |SGD     |
+    When I enter the payee information
+      |Payee's Account Number|Payee's Name|
+      |667812798             |lucky       |
+#    When I click on the receiving bank drop down box
+    When I choose the receiving bank
+      |Beneficiary Bank|
+      |DBS SINGAPORE   |
+    When I choose the recipient country
+      |Payee's Address |Payee's Country|Comments For Payee|
+      |countries       |UNITED STATES  |ok                |
+    When I choose the nature of payment
+      |Purpose of Transfer|
+      |Commission         |
+    When I choose to submit the transfer information
+    When Vkey authorization for Payment transactions in the SIT environment
+    Then I will compare all the data on FX Payment MX Message
+    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
@@ -162,7 +162,7 @@ Feature: T24 Payment transaction
     When I choose to submit the transfer information
     When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on FX Payment MX Message
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
+    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
@@ -204,7 +204,7 @@ Feature: T24 Payment transaction
     When I choose to submit the transfer information
     When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on FX Payment
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
+    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
     When I type in the content and click the search button
       |search content           |windows Title        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
@@ -222,7 +222,7 @@ Feature: T24 Payment transaction
     When I type FOREX in the search box use to authorize the operation
       |search content|user Authorize                 |
       |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth|
-#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 SIT environment
+#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
   @FxPaymentUSDToSGDBicIsUOB
@@ -251,7 +251,7 @@ Feature: T24 Payment transaction
     When I choose to submit the transfer information
     When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on FX Payment MX Message
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
+    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
@@ -269,7 +269,7 @@ Feature: T24 Payment transaction
 #    When I type FOREX in the search box use to authorize the operation
 #      |search content|user Authorize                 |
 #      |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth|
-#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 SIT environment
+#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
   @FxPaymentSGDToSGDBicIsUOB
@@ -298,7 +298,7 @@ Feature: T24 Payment transaction
     When I choose to submit the transfer information
     When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on FX Payment MX Message
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
+    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
@@ -340,7 +340,7 @@ Feature: T24 Payment transaction
     When I choose to submit the transfer information
     When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on FX Payment MX Message
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
+    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
@@ -366,7 +366,7 @@ Feature: T24 Payment transaction
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
+    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
@@ -384,7 +384,7 @@ Feature: T24 Payment transaction
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
+    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
@@ -402,7 +402,7 @@ Feature: T24 Payment transaction
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully To Local Payment
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
+    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
@@ -420,7 +420,7 @@ Feature: T24 Payment transaction
     When I type FOREX in the search box use to authorize the operationToLocalPayment
       |search content|user Authorize                 |
       |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth|
-#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 SIT environment
+#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
   @localPaymentSGDToUSD
@@ -432,7 +432,7 @@ Feature: T24 Payment transaction
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully To Local Payment
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
+    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
@@ -450,7 +450,7 @@ Feature: T24 Payment transaction
     When I type FOREX in the search box use to authorize the operationToLocalPayment
       |search content|user Authorize                 |
       |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth|
-#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 SIT environment
+#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
 @LocalPaymentTestSGDToSGD
@@ -462,20 +462,25 @@ Feature: T24 Payment transaction
       |UOB          |TSC1643346550706|678321687312          |Business Expenses   |1101 0000 438 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010000470      |61.24            |Business Expenses|
     When I click Next to go to the verification page
     When If the transfer failure window pops up I will click the continue button
     When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on same Currency Payment
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
-    When I type in the content and click the search button To Local Payment
+    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
-    When I jump to the home page and enter FUNDS.TRANSFER for data mapping
-      |search content|
-      |FUNDS.TRANSFER|
-    Then I will map the page data
+    When I expand the User Menu menu on the page
+    When I expand the User Payments menu on the page
+    When I expand the Payment Hub menu on the page
+    When I expand the Payment Inquiries and Exceptions menu on the page
+    When I expand the Payments Enquiry Transaction wise menu on the page
+    When I jump to a newly opened page on Mx Message
+      |windows Title                            |
+      |Pending and Processed Payments - SIT GLDB|
+    Then I do field mapping for Channel and T24 in same currency
+    When I compare the amount is normal on Mx Message
+    When I compare the data generated by Outgoing Message is correct
 
 
 #@LocalPaymentTestSGDToUSD
@@ -487,13 +492,11 @@ Feature: T24 Payment transaction
 #      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010000489           |Business Expenses   |1101 0000 438 |
 #    When I click next button on the domestic transfer bank page
 #    Then I verify the information on the next page
-#      |account name    |receiving account|transfer amount  |transfer purpose |
-#      |TSC1643346550706|11010000438      |55.55            |Business Expenses|
 #    When I click Next to go to the verification page
 #    When If the transfer failure window pops up I will click the continue button
 #    When Vkey authorization for Payment transactions in the SIT environment
 #    Then I will compare all the data on same Currency Payment
-#    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 SIT environment
+#    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
 #    When I type in the content and click the search button
 #      |search content           |windows Title        |
 #      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|

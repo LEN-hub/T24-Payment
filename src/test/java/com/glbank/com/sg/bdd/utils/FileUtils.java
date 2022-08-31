@@ -236,7 +236,7 @@ public class FileUtils {
 
 
     public static void main(String[] args) throws Exception {
-        deleteFile("screenShots");
+        FileString("12345","321321312");
 //        System.out.println(readtxtFile("t24","ChannelReferenceID"));
 //        writeFile("t24");
 //        //String filePath = "C:/workspace/DBB_GL_AutoTesting-dev/src/test/resources/testData/autopay/test.txt";

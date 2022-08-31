@@ -60,7 +60,7 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     @Step
-    public void sdgTransferToUsd(String rollOutAccount,String intoAccount,String amount){
+    public void sdgTransferToUsd(String rollOutAccount,String intoAccount){
         paymentService_page.transferMoney.click();
         paymentService_page.rollOutCurrencySelectWindows.click();
         List<WebElementFacade> currency = paymentService_page.rollOutAccountSGD;
@@ -339,7 +339,7 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     @Step
-    public void checkCollectionName(String accountName,String paymentAccount,String transferAmount,String tradeAmountSelect){
+    public void checkCollectionName(){
         if (paymentService_page.popwindowsTitleTransferInformation.isVisible()){
             paymentService_page.continueButtonClick.click();
         }
@@ -551,7 +551,7 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.checkDetails.click();
         bddUtil.sleep(2);
         bddUtil.screenShort();
-        WordUtils.photoStorageToLocalPayment();
+        WordUtils.photoStorageToFXPaymentMX();
         debitAccountName = paymentService_page.debitAccountName.getText();
         FileUtils.FileString4("t24", "ChannelDebitAccountName:" + debitAccountName);
         debitAccountCurrency = paymentService_page.debitAccountCurrency.getText();

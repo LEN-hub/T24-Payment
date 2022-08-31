@@ -309,6 +309,9 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[@class=\"ui-button primary common out-height\"]/div")
     public WebElementFacade clickLetContinue;
 
+    @FindBy(xpath = "//label[@for='acraModelConsFlag']/following-sibling::div//span[text()='Yes']")
+    public WebElementFacade clickModelConstitution;
+
     @FindBy(xpath = "//label[@for=\"contactPersonNm\"]/following-sibling::div//div//input")
     public WebElementFacade inputContactPersonNm;
 
