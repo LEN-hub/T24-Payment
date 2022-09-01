@@ -572,6 +572,9 @@ public class paymentService_step extends ScenarioSteps {
         FileUtils.FileString4("t24","ChannelTransactionAmount:" + transactionAmount);
         purposeOfTransfer = paymentService_page.purposeOfTransfer.getText();
         FileUtils.FileString4("t24","ChannelPurposeOfTransfer:" + purposeOfTransfer);
+        bddUtil.scrollWindowToElement(paymentService_page.purposeOfTransfer);
+        bddUtil.screenShort();
+        WordUtils.photoStorageToFXPaymentMX();
     }
     @Step
     public void getFxPaymentDataOnChannelPage() throws Exception {

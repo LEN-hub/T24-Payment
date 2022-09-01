@@ -585,7 +585,7 @@ public class t24_Payments_step extends ScenarioSteps {
                 t24_payments_page.clickNextPage.click();
                 bddUtil.sleep(2);
                 bddUtil.screenShort();
-                WordUtils.photoStorageToFXPaymentMX();
+                WordUtils.photoStorageToFxPaymentMT();
                 List<WebElementFacade> trList2 = t24_payments_page.trList;
                 for (int i = 1; i <= trList2.size()-2; i++){
                     FileUtils.FileString(WordUtils.date+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
@@ -725,7 +725,7 @@ public class t24_Payments_step extends ScenarioSteps {
             WordUtils.photoStorageToFXPaymentMX();
             List<WebElementFacade> trList2 = t24_payments_page.trList;
             for (int i = 1; i <= trList2.size()-2; i++){
-                FileUtils.FileString(t24TransactionReference+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
+                FileUtils.FileString(WordUtils.date+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
                 if (i == trList2.size()-2){
                     break;
                 }
