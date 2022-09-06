@@ -7,6 +7,13 @@ import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import com.spire.doc.Document;
+import com.spire.doc.FileFormat;
+import com.spire.doc.Section;
+import com.spire.doc.documents.OleObjectType;
+import com.spire.doc.documents.Paragraph;
+import com.spire.doc.fields.DocOleObject;
+import com.spire.doc.fields.DocPicture;
 
 /**
  * @Description: Word替换字符和插入图片工具类
@@ -15,19 +22,25 @@ import java.util.regex.Pattern;
 public class WordUtils {
     public static String date = BDDUtil.getCurrentTimestamp();
     private static String systemPath = System.getProperty("user.dir");
+    public static String path3;
+
+    public static void insertWord(String path,String txtPath){
+        String testPath = systemPath + "/src/test/resources/testData/";
+        Document doc = new Document();
+        doc.loadFromFile(path);
+        Section section = doc.getLastSection();
+        Paragraph par = section.addParagraph();
+        DocPicture pdfIcon = new DocPicture(doc);
+        pdfIcon.loadImage(testPath+"autopay/test.jpg");
+        //Insert a PDF file to the Word document as an OLE object
+        par.appendOleObject(testPath+"caseMessage/"+txtPath+".txt", pdfIcon, OleObjectType.Adobe_Acrobat_Document);
+    }
 
     /**
      * 根据模板生成word
      * @param path     模板的路径
      * @param params   需要替换的参数
      * @param fileName 生成word文件的文件名
-     * @tips 此处为了方便而将文件生成在了本地，
-     * 你也可以直接将文件放入response 响应头中，调用浏览器的下载器直接下载到本地，
-     * 这样更符合业务逻辑，即：数据库或者页面输入数据到word模板中，自动生成word并下载；
-     * 也可使用插入图片，替换需要在业务中插入的电子签名，或者盖章的word文档。
-     * 当然了，此处的传参就需要多加一个 HttpServletResponse response
-     * 文件名写中文会有乱码，具体如何调用浏览器下载和解决乱码问题可参考我的另一篇
-     * [简便的Excel导出功能](https://blog.csdn.net/weixin_43238452/article/details/108790379)的解决办法。
      */
     public void getWord(String path, Map<String, Object> params,String fileName) throws Exception {
         File file = new File(path);
@@ -203,7 +216,7 @@ public class WordUtils {
         WordUtils wordUtil = new WordUtils();
         String path = systemPath + "/src/test/resources/testData/";
         Map<String,Object> jepg = new HashMap<String, Object>(){{
-            put("width", 648);put("height", 389);put("type", "jpg");
+            put("width", 648);put("height", 389);put("type", "png");
         }};
         try{
             Map<String, Object> data = SerializationUtils.clone((HashMap<String, Object>) jepg);
@@ -214,7 +227,7 @@ public class WordUtils {
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Internal Transfer Same Currency.docx";
-            String path3 = path + "word/"+date+"Internal Transfer Same Currency.docx";
+            path3 = path + "word/"+date+"Internal Transfer Same Currency.docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);
@@ -228,7 +241,7 @@ public class WordUtils {
         WordUtils wordUtil = new WordUtils();
         String path = systemPath + "/src/test/resources/testData/";
         Map<String,Object> jepg = new HashMap<String, Object>(){{
-            put("width", 648);put("height", 389);put("type", "jpg");
+            put("width", 648);put("height", 389);put("type", "png");
         }};
         try{
             Map<String, Object> data = SerializationUtils.clone((HashMap<String, Object>) jepg);
@@ -239,7 +252,7 @@ public class WordUtils {
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Internal Transfer Different Currency.docx";
-            String path3 = path + "word/"+date+"Internal Transfer Different Currency.docx";
+            path3 = path + "word/"+date+"Internal Transfer Different Currency.docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);
@@ -253,7 +266,7 @@ public class WordUtils {
         WordUtils wordUtil = new WordUtils();
         String path = systemPath + "/src/test/resources/testData/";
         Map<String,Object> jepg = new HashMap<String, Object>(){{
-            put("width", 692);put("height", 389);put("type", "jpg");
+            put("width", 692);put("height", 389);put("type", "png");
         }};
         try{
             Map<String, Object> data = SerializationUtils.clone((HashMap<String, Object>) jepg);
@@ -264,7 +277,7 @@ public class WordUtils {
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Oversea Payment Same Currency.docx";
-            String path3 = path + "word/"+date+"Oversea Payment Same Currency.docx";
+            path3 = path + "word/"+date+"Oversea Payment Same Currency.docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);
@@ -278,7 +291,7 @@ public class WordUtils {
         WordUtils wordUtil = new WordUtils();
         String path = systemPath + "/src/test/resources/testData/";
         Map<String,Object> jepg = new HashMap<String, Object>(){{
-            put("width", 692);put("height", 389);put("type", "jpg");
+            put("width", 692);put("height", 389);put("type", "png");
         }};
         try{
             Map<String, Object> data = SerializationUtils.clone((HashMap<String, Object>) jepg);
@@ -289,7 +302,7 @@ public class WordUtils {
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Oversea Payment Different Currency.docx";
-            String path3 = path + "word/"+date+"Oversea Payment Different Currency.docx";
+            path3 = path + "word/"+date+"Oversea Payment Different Currency.docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);

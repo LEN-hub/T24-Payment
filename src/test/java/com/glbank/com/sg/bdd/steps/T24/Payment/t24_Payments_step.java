@@ -663,6 +663,7 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.switchToNewWindow();
         bddUtil.closeWindow();
     }
+
     @Step
     public void checkOutgoingMessageOnMxMessage(){
         t24_payments_page.clickInBox.click();
@@ -690,6 +691,7 @@ public class t24_Payments_step extends ScenarioSteps {
                     break;
                 }
             }
+            WordUtils.insertWord(WordUtils.path3,WordUtils.date+"MT Message");
             Assert.assertEquals(getTransactionReferenceNum,t24_payments_page.check20Field.getText().substring(4));
             Assert.assertEquals(getTransactionCurrency+getTransactionAmount.replace('.',','),t24_payments_page.check32AField.getText().substring(11));
 //            Assert.assertEquals(getInstructedCurrency+getInstructedAmount.replace('.',','),t24_payments_page.check33BField.getText().substring(5));
@@ -730,6 +732,7 @@ public class t24_Payments_step extends ScenarioSteps {
                     break;
                 }
             }
+            WordUtils.insertWord(WordUtils.path3,WordUtils.date+"MX Message");
         }
         switchToDefaultContent();
         bddUtil.closeWindow();
@@ -773,26 +776,22 @@ public class t24_Payments_step extends ScenarioSteps {
             getDriver().manage().window().maximize();
             List<WebElementFacade> amount = t24_payments_page.AmountBought;
             List<WebElementFacade> detailsInformation = t24_payments_page.detailInformation;
-            while (true){
-                for (int i = 0; i < amount.size(); i++){
-                    try {
-                        if (amount.get(i).getText().equals(getTransactionAmount)){
-                            detailsInformation.get(i).click();
-                            return;
-                        }
-                    }catch (Exception e){
+            List<WebElementFacade> sumPage = t24_payments_page.sumPage;
+            if (sumPage.size()==0){
+                for (int i = 0; i < amount.size(); i++) {
+                    if (amount.get(i).getText().equals(getTransactionAmount)) {
+                        detailsInformation.get(i).click();
                         break;
                     }
                 }
+            }else {
                 t24_payments_page.getClickNextPage.click();
-                bddUtil.sleep(2);
-                for(int j = 0;j <amount.size();j++){
-                    if (amount.get(j).getText().equals(getTransactionAmount)){
+                for (int j = 0; j < amount.size(); j++) {
+                    if (amount.get(j).getText().equals(getTransactionAmount)) {
                         detailsInformation.get(j).click();
                         break;
                     }
                 }
-                break;
             }
             switchToDefaultContent();
             switchToSecondFrame();
@@ -828,6 +827,12 @@ public class t24_Payments_step extends ScenarioSteps {
             selectUnauthorizedForexDealsMenu(forex);
         }else {
             t24_payments_page.clickForexDefaultListIcon.click();
+            getDriver().manage().window().maximize();
+            bddUtil.screenShort();
+            WordUtils.photoStorageToLocalPaymentFXMessage();
+            bddUtil.scrollWindowToElement(t24_payments_page.deptCode);
+            bddUtil.screenShort();
+            WordUtils.photoStorageToLocalPaymentFXMessage();
         }
     }
     @Step
@@ -852,26 +857,22 @@ public class t24_Payments_step extends ScenarioSteps {
             getDriver().manage().window().maximize();
             List<WebElementFacade> amount = t24_payments_page.AmountBought;
             List<WebElementFacade> detailsInformation = t24_payments_page.detailInformation;
-            while (true){
-                for (int i = 0; i < amount.size(); i++){
-                    try {
-                        if (amount.get(i).getText().equals(getTransactionAmount)){
-                            detailsInformation.get(i).click();
-                            return;
-                        }
-                    }catch (Exception e){
+            List<WebElementFacade> sumPage = t24_payments_page.sumPage;
+            if (sumPage.size()==0){
+                for (int i = 0; i < amount.size(); i++) {
+                    if (amount.get(i).getText().equals(getTransactionAmount)) {
+                        detailsInformation.get(i).click();
                         break;
                     }
                 }
+            }else {
                 t24_payments_page.getClickNextPage.click();
-                bddUtil.sleep(2);
-                for(int j = 0;j <amount.size();j++){
-                    if (amount.get(j).getText().equals(getTransactionAmount)){
+                for (int j = 0; j < amount.size(); j++) {
+                    if (amount.get(j).getText().equals(getTransactionAmount)) {
                         detailsInformation.get(j).click();
                         break;
                     }
                 }
-                break;
             }
             switchToDefaultContent();
             switchToSecondFrame();
@@ -888,8 +889,16 @@ public class t24_Payments_step extends ScenarioSteps {
             switchToDefaultContent();
             switchToSecondFrame();
             t24_payments_page.validateDeal.click();
+            if (t24_payments_page.clickErrorMessage.isVisible()){
+                t24_payments_page.clickErrorMessage.click();
+                bddUtil.sleep(5);
+                t24_payments_page.clickDownBox.click();
+                t24_payments_page.selectData.click();
+            }
             t24_payments_page.commitTheDeal.click();
-            t24_payments_page.clickAcceptOverrides.click();
+            if (t24_payments_page.clickAcceptOverrides.isVisible()){
+                t24_payments_page.clickAcceptOverrides.click();
+            }
             switchToDefaultContent();
             switchToFirstFrame();
             List<WebElementFacade> authoriseBtn = t24_payments_page.authoriseBtn;
@@ -907,6 +916,12 @@ public class t24_Payments_step extends ScenarioSteps {
             selectUnauthorizedForexDealsMenuToLocalPayment(forex);
         }else {
             t24_payments_page.clickForexDefaultListIcon.click();
+            getDriver().manage().window().maximize();
+            bddUtil.screenShort();
+            WordUtils.photoStorageToLocalPaymentFXMessage();
+            bddUtil.scrollWindowToElement(t24_payments_page.deptCode);
+            bddUtil.screenShort();
+            WordUtils.photoStorageToLocalPaymentFXMessage();
         }
     }
     @Step
@@ -921,8 +936,8 @@ public class t24_Payments_step extends ScenarioSteps {
         FileUtils.FileString4("t24","amountSold:" + amountSold);
         spotRate = t24_payments_page.spotRate.getText();
         FileUtils.FileString4("t24","spotRate:" + spotRate);
-        spotLcyAmount = t24_payments_page.spotLcyAmount.getText();
-        FileUtils.FileString4("t24","spotLcyAmount:" + spotLcyAmount);
+//        spotLcyAmount = t24_payments_page.spotLcyAmount.getText();
+//        FileUtils.FileString4("t24","spotLcyAmount:" + spotLcyAmount);
         ourAccountRec = t24_payments_page.ourAccountRec.getText();
         FileUtils.FileString4("t24","ourAccountRec:" + ourAccountRec);
         ourAccountPay = t24_payments_page.ourAccountPay.getText();
@@ -989,27 +1004,22 @@ public class t24_Payments_step extends ScenarioSteps {
 //        switchToDefaultContent();
 //        switchToFirstFrame();
         List<WebElementFacade> authoriseBtn = t24_payments_page.authoriseBtn;
-        while (true){
-            for (int i = 0; i <amount.size();i++){
-                try {
-                    if (amount.get(i).getText().equals(getTransactionAmount)){
-                        authoriseBtn.get(i).click();
-                        return;
-                    }
-                }catch (Exception e){
+        List<WebElementFacade> sumPage = t24_payments_page.sumPage;
+        if (sumPage.size()==0){
+            for (int i = 0; i < amount.size(); i++) {
+                if (amount.get(i).getText().equals(getTransactionAmount)) {
+                    authoriseBtn.get(i).click();
                     break;
                 }
-        }
+            }
+        }else {
             t24_payments_page.getClickNextPage.click();
-            bddUtil.sleep(2);
-            for (int j = 0; j < amount.size(); j++){
-                if (amount.get(j).getText().equals(getTransactionAmount)){
+            for (int j = 0; j < amount.size(); j++) {
+                if (amount.get(j).getText().equals(getTransactionAmount)) {
                     authoriseBtn.get(j).click();
                     break;
                 }
             }
-            break;
-
         }
         switchToDefaultContent();
         switchToSecondFrame();
@@ -1036,57 +1046,23 @@ public class t24_Payments_step extends ScenarioSteps {
         switchToFirstFrame();
         getDriver().manage().window().maximize();
         List<WebElementFacade> amount = t24_payments_page.AmountBought;
-//        List<WebElementFacade> amend = t24_payments_page.amendBtn;
-//        while (true){
-//            for (int i = 0; i <amount.size();i++){
-//                try {
-//                    if (amount.get(i).getText().equals(getTransactionAmount)){
-//                        amend.get(i).click();
-//                        return;
-//                    }
-//                }catch (Exception e){
-//                    break;
-//                }
-//            }
-//            t24_payments_page.getClickNextPage.click();
-//            bddUtil.sleep(2);
-//            for (int j = 0; j <amount.size();j++){
-//                if (amount.get(j).getText().equals(getTransactionAmount)){
-//                    amend.get(j).click();
-//                    break;
-//                }
-//            }
-//            break;
-//        }
-//        switchToDefaultContent();
-//        switchToSecondFrame();
-//        t24_payments_page.validateDeal.click();
-//        t24_payments_page.commitTheDeal.click();
-//        t24_payments_page.clickAcceptOverrides.click();
-//        switchToDefaultContent();
-//        switchToFirstFrame();
         List<WebElementFacade> authoriseBtn = t24_payments_page.authoriseBtn;
-        while (true){
-            for (int i = 0; i <amount.size();i++){
-                try {
-                    if (amount.get(i).getText().equals(getTransactionAmount)){
-                        authoriseBtn.get(i).click();
-                        return;
-                    }
-                }catch (Exception e){
+        List<WebElementFacade> sumPage = t24_payments_page.sumPage;
+        if (sumPage.size()==0){
+            for (int i = 0; i < amount.size(); i++) {
+                if (amount.get(i).getText().equals(getTransactionAmount)) {
+                    authoriseBtn.get(i).click();
                     break;
                 }
             }
+        }else {
             t24_payments_page.getClickNextPage.click();
-            bddUtil.sleep(2);
-            for (int j = 0; j < amount.size(); j++){
-                if (amount.get(j).getText().equals(getTransactionAmount)){
+            for (int j = 0; j < amount.size(); j++) {
+                if (amount.get(j).getText().equals(getTransactionAmount)) {
                     authoriseBtn.get(j).click();
                     break;
                 }
             }
-            break;
-
         }
         switchToDefaultContent();
         switchToSecondFrame();

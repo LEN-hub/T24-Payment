@@ -8,7 +8,7 @@ Feature: receipt and payment service
    #USD->SGD
   Scenario:I have successfully changed us dollars into Singapore dollars
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |
+      |From Account  |To Account  |
       |1101 0000 489   |1101 0000 438|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
@@ -19,7 +19,7 @@ Feature: receipt and payment service
   #SGD->USD
   Scenario:I have successfully transferred from Singapore currency to US dollar
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |
+      |From Account  |To Account  |
       |1101 0000 438   |1101 0000 489|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
@@ -29,7 +29,7 @@ Feature: receipt and payment service
       #SGD->SGD
   Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |
+      |From Account  |To Account  |
       |1101 0000 438   |1101 0000 470|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
@@ -41,7 +41,7 @@ Feature: receipt and payment service
   Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow
     Given logon second "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |
+      |From Account  |To Account  |
       |1101 0001 345   |1101 0000 187|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
@@ -224,7 +224,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully transferred from one currency to another (Singapore dollar to Hong Kong dollar)
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 179   |1101 0000 055|10.0   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -235,7 +235,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully transferred from Singapore currency to Euro
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 179   |1101 0000 063|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -247,7 +247,7 @@ Feature: receipt and payment service
 #  Scenario:Oneself mutual turn with currency mutual turn (CNY) trade flow
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 039   |1101 0000 195|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -257,7 +257,7 @@ Feature: receipt and payment service
 #  Scenario:I mutual transfer with currency mutual transfer (euro) transaction process
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |    |1101 0000 063|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -267,7 +267,7 @@ Feature: receipt and payment service
 #  Scenario:I mutual transfer with currency mutual transfer (HKD) transaction process
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 209   |1101 0000 055|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -277,7 +277,7 @@ Feature: receipt and payment service
 #  Scenario:I mutual transfer not the same currency mutual transfer (Singapore dollar to RMB) transfer transaction successfully
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 179   |1101 0000 039|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -288,7 +288,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed Hong Kong dollars into Singapore dollars
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 209   |1101 0000 179|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -298,7 +298,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully exchanged Hong Kong dollars for euros
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount   |
+#      |From Account  |To Account  |amount   |
 #      |1101 0000 209   |1101 0000 063|10.1     |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -308,7 +308,7 @@ Feature: receipt and payment service
 #  Scenario:I have changed Hong Kong dollars into US dollars successfully
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount   |
+#      |From Account  |To Account  |amount   |
 #      |1101 0000 209   |1101 0000 187|10.1     |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -318,7 +318,7 @@ Feature: receipt and payment service
 #  Scenario:I have changed Hong Kong dollars into CNY successfully
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 209   |1101 0000 195|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -328,7 +328,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed dollars into CNY
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 047   |1101 0000 195|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -338,7 +338,7 @@ Feature: receipt and payment service
 #  Scenario:I have succeeded in exchanging dollars for euros
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 047   |1101 0000 063|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -348,7 +348,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed us dollars into Hong Kong dollars
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 047   |1101 0000 055|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -358,7 +358,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully converted Euro dollars into CNY
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 217   |1101 0000 195|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -368,7 +368,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed Euro dollars into Hong Kong dollars
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 217   |1101 0000 055|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -378,7 +378,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed Euro dollars into Singapore dollars
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 217   |1101 0000 322|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -388,7 +388,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully exchanged euro dollars for US dollars
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 217   |1101 0000 187|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -398,7 +398,7 @@ Feature: receipt and payment service
 #  Scenario:I have changed RMB into Hong Kong dollars successfully
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 039   |1101 0000 055|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -408,7 +408,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed RMB into US dollars
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 039   |1101 0000 187|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -418,7 +418,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed RMB into Singapore currency
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 039   |1101 0000 322|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -428,7 +428,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed CNY into euros
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 039   |1101 0000 063|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button

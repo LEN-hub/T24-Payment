@@ -1,34 +1,42 @@
-2022-9-1 11:11:5:921
-ChannelReferenceID:220901000000034
-ChannelDebitAccountName:testCpsThree
+2022-9-6 15:14:40:156
+ChannelReferenceID:220906000000006
+ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
 ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11010000438
+ChannelDebitAccountNumber:11010001256
 ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
-ChannelDetailPayeeName:TSC1643346550706
-ChannelDetailAccountCurrency:SGD
-ChannelCreditAccountCurrency:SGD
-ChannelCreditAccountNumber:678321687312
-ChannelTransactionAmount:901.88
-ChannelPurposeOfTransfer:Business Expenses
-2022-9-1 11:13:47:985
-ID:220901000000034
-TransactionReference:PI222440KSB3H4HR
-t24FtNumber:SGL22244LMKDKBKF
-getTransactionReferenceNum:SGL22244LMKDKBKF
-getSenderReferenceNum:PI222440KSB3H4HR
-getTransactionCurrency:SGD
-getTransactionCurrency:SGD
-getTransactionAmount:901.88
+ChannelDetailPayeeName:lucky
+ChannelDetailAccountCurrency:USD
+ChannelDetailPayeeAccountNum:667812798
+ChannelDetailExchangeRate:USD 1 ≈ SGD 1.4175
+ChannelDetailTransactionAmount:906.19
+ChannelDetailBeneficiaryBankBIC:DBSSSGS0VEC
+ChannelDetailPayeeAddress:countries
+ChannelDetailEstimatedProcessingFee:0.00
+ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
+ChannelDetailPurposeOfTransfer:Commission
+2022-9-6 15:18:19:625
+ID:220906000000006
+TransactionReference:PI2224910CD92916
+t24FtNumber:SGL22249GLGHFKK0
+getTransactionReferenceNum:SGL22249GLGHFKK0
+getSenderReferenceNum:PI2224910CD92916
+getTransactionCurrency:USD
+getInstructedCurrency:SGD
+getTransactionAmount:639.29
+getInstructedAmount:906.19
 getChargeOption:SHA
-getDebitAccountNum:11010000438
+getDebitAccountNum:11010001256
+getCreditAccountNum:15000000242
 getDebitAccountCurrency:SGD
-getDebitAmount:901.88
-getOrderingAccount:11010000438
-getOrderingName:WATERHOUSE INVESTMENT PTE. LTD.
-getOrderingAddress:SINGAPORE
+getCreditAccountCurrency:USD
+getDebitAmount:906.19
+getCreditAmount:639.29
+getDebitCustomerRate:1.4175
+getDebitTreasuryRate:1.4165
+getOrderingAccount:11010001256
+getBeneficiaryAccount:667812798
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getBeneficiaryName:lucky
+getOrderingAddress:XIAN
+getBeneficiaryAddress:countries
 getOrderingTown:SG
-getCreditAccountNum:15000000153
-getCreditAccountCurrency:SGD
-getCreditAmount:901.88
-getBeneficiaryAccount:678321687312
-getBeneficiaryName:TSC1643346550706

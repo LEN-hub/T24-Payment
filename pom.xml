@@ -15,12 +15,24 @@
         <logback.version>1.2.3</logback.version>
         <assertj.version>3.14.0</assertj.version>
     </properties>
+    <repositories>
+        <repository>
+            <id>com.e-iceblue</id>
+            <name>e-iceblue</name>
+            <url>https://repo.e-iceblue.cn/repository/maven-public/</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-core</artifactId>
             <version>${serenity.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId> e-iceblue </groupId>
+            <artifactId>spire.doc</artifactId>
+            <version>5.4.2</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -105,7 +117,6 @@
             <artifactId>poi-ooxml</artifactId>
             <version>3.14</version>
         </dependency>
-
 
         <dependency>
             <groupId>com.github.cloudecho</groupId>

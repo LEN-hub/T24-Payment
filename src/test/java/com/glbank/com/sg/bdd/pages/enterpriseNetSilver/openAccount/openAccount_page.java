@@ -15,6 +15,12 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class='login_tips']/following-sibling::div[1]/div")
     public WebElementFacade clickNewUser;
 
+    @FindBy(xpath = "//div[contains(text(),'Start a new application')]")
+    public WebElementFacade clickStartANewApplication;
+
+    @FindBy(xpath = "//div[contains(text(),'information myself')]")
+    public WebElementFacade clickInformationMyself;
+
     @FindBy(xpath = "//div[@class='link-btn']")
     public WebElementFacade secondTitle;
 

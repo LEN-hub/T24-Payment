@@ -332,24 +332,6 @@ Feature: loan application
     When The program is finished I will release the Linux SSH connection
     When I close driver
 
-
-
-    #正常开户流程——单币种账户——新币
-  Scenario:openAccount Singapore enterprise
-    Given open "netSilverEnv_Kevin" enterprise net silver page
-    When click open Account page
-    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
-    And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
-      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|202120268C |
-    Then Enter Connected People's Details
-    And Enter Connected Entities’ Details
-    Then Create Company Administrators’ Profiles
-    And Share Account’s Risk Profile
-    Then Upload Supporting Documents
-    And Review Details
-    When I close driver
-
       #多币种账户 新币+美元
   Scenario:openAccount Current Account MCA_SGD_USD
     Given open "netSilverEnv_ycjpt" enterprise net silver page
@@ -357,7 +339,7 @@ Feature: loan application
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD
     And Provide Essential Information
       |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
-      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199400107H |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|202144852M |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles

@@ -44,6 +44,11 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.secondTitle.click();
     }
 
+    public void joinOpenAccount(){
+        openAccount_page.clickStartANewApplication.click();
+        openAccount_page.clickInformationMyself.click();
+    }
+
     public void clickOpenNewAccount() {
         openAccount_page.clickOpenAccount.click();
         openAccount_page.clickNewUser.click();
