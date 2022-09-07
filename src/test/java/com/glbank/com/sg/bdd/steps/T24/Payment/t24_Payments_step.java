@@ -808,8 +808,16 @@ public class t24_Payments_step extends ScenarioSteps {
             switchToDefaultContent();
             switchToSecondFrame();
             t24_payments_page.validateDeal.click();
+            if (t24_payments_page.clickErrorMessage.isVisible()){
+                t24_payments_page.clickErrorMessage.click();
+                bddUtil.sleep(5);
+                t24_payments_page.clickDownBox.click();
+                t24_payments_page.selectData.click();
+            }
             t24_payments_page.commitTheDeal.click();
-            t24_payments_page.clickAcceptOverrides.click();
+            if (t24_payments_page.clickAcceptOverrides.isVisible()){
+                t24_payments_page.clickAcceptOverrides.click();
+            }
             switchToDefaultContent();
             switchToFirstFrame();
             List<WebElementFacade> authoriseBtn = t24_payments_page.authoriseBtn;
@@ -829,10 +837,10 @@ public class t24_Payments_step extends ScenarioSteps {
             t24_payments_page.clickForexDefaultListIcon.click();
             getDriver().manage().window().maximize();
             bddUtil.screenShort();
-            WordUtils.photoStorageToLocalPaymentFXMessage();
+            WordUtils.photoStorageToFxPaymentMT();
             bddUtil.scrollWindowToElement(t24_payments_page.deptCode);
             bddUtil.screenShort();
-            WordUtils.photoStorageToLocalPaymentFXMessage();
+            WordUtils.photoStorageToFxPaymentMT();
         }
     }
     @Step
