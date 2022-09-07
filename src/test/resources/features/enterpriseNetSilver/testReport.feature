@@ -1,6 +1,6 @@
 @testReport
 Feature: e-Statement
-
+@testCaseFor
      #多币种账户 新币+美元
   Scenario:openAccount Current Account MCA_SGD_USD
     Given open "netSilverEnv_ycjpt" enterprise net silver page
@@ -41,3 +41,49 @@ Feature: e-Statement
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer purpose |
       |TSC1643346550706|11010000039      |Business Expenses|
+
+  @overseasTransfer013
+  Scenario:Positive process of overseas transfer(USD--SGD)
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
+    When I click on overseas transfer payment and select the account
+    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+      |Account Number|Payment Mode for Charges                 |
+      |1101 0000 187 |The expenses shall be borne by each party|
+    And I choose the payment currency
+      |Currency|
+      |SGD     |
+    When I enter the payee information
+      |Payee's Account Number|Payee's Name|
+      |432412321231          |lucky       |
+#    When I click on the receiving bank drop down box
+    When I choose the receiving bank
+      |Beneficiary Bank|
+      |DBSSSGS0VEC     |
+    When I choose the recipient country
+      |Payee's Address |Payee's Country|Comments For Payee|
+      |countries       |UNITED STATES  |ok                |
+    When I choose the nature of payment
+      |Purpose of Transfer|
+      |Commission         |
+    When I choose to submit the transfer information
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+
+
+          #多币种账户 新币+美元
+  Scenario:openAccount Current Account MCA_SGD_USD
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|202144852M |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+#    Then get Organisation ID
+    When I close driver
