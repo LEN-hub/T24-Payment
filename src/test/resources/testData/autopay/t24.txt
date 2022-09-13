@@ -1,42 +1,37 @@
-2022-9-7 15:4:5:105
-ChannelReferenceID:220907000000027
-ChannelDebitAccountName:FASSLER GOURMET PTE LTD
+2022-9-13 15:40:37:563
+ChannelReferenceID:220913000000011
+ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
 ChannelDebitAccountCurrency:USD
-ChannelDebitAccountNumber:11010000403
+ChannelDebitAccountNumber:11010001434
 ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
 ChannelDetailPayeeName:lucky
-ChannelDetailAccountCurrency:SGD
+ChannelDetailAccountCurrency:USD
 ChannelDetailPayeeAccountNum:667812798
-ChannelDetailExchangeRate:USD 1 ≈ SGD 1.3595
-ChannelDetailTransactionAmount:907.79
-ChannelDetailBeneficiaryBankBIC:UOVBSGS0XXX
+ChannelDetailTransactionAmount:913.15
+ChannelDetailBeneficiaryBankBIC:BKCHSGS0CUS
 ChannelDetailPayeeAddress:countries
-ChannelDetailEstimatedProcessingFee:5.00
+ChannelDetailEstimatedProcessingFee:0.00
 ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
 ChannelDetailPurposeOfTransfer:Commission
-2022-9-7 15:7:29:25
-ID:220907000000027
-TransactionReference:PI222500RV1RCTQ2
-t24FtNumber:SGL22250KFCGBJLD
-getTransactionReferenceNum:SGL22250KFCGBJLD
-getSenderReferenceNum:PI222500RV1RCTQ2
-getTransactionCurrency:SGD
-getInstructedCurrency:USD
-getTransactionAmount:1,234.14
-getInstructedAmount:907.79
+2022-9-13 15:44:49:400
+ID:220913000000011
+TransactionReference:PI2225606NMX33MK
+t24FtNumber:SGL22256HGB0KKFB
+getTransactionReferenceNum:SGL22256HGB0KKFB
+getSenderReferenceNum:PI2225606NMX33MK
+getTransactionCurrency:USD
+getTransactionCurrency:USD
+getTransactionAmount:913.15
 getChargeOption:SHA
-getDebitAccountNum:11010000403
-getCreditAccountNum:15000000153
+getDebitAccountNum:11010001434
 getDebitAccountCurrency:USD
-getCreditAccountCurrency:SGD
-getDebitAmount:907.79
-getCreditAmount:1,234.14
-getDebitCustomerRate:1.3595
-getDebitTreasuryRate:1.3605
-getOrderingAccount:11010000403
-getBeneficiaryAccount:667812798
-getOrderingName:FASSLER GOURMET PTE LTD
-getBeneficiaryName:lucky
-getOrderingAddress:Singpore
-getBeneficiaryAddress:countries
+getDebitAmount:913.15
+getOrderingAccount:11010001434
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getOrderingAddress:XIAN
 getOrderingTown:SG
+getCreditAccountNum:15000000242
+getCreditAccountCurrency:USD
+getCreditAmount:913.15
+getBeneficiaryAccount:667812798
+getBeneficiaryName:lucky

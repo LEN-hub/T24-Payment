@@ -964,12 +964,6 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void forexAuthorize(String forex,String userAuth){
         searchForex(forex);
-//        if (t24_payments_page.forexPageNoData.isVisible()){
-//            System.out.println("Forex未生成数据！");
-//            bddUtil.screenShort();
-//            WordUtils.photoStorageToFxPayment();
-//            bddUtil.quitDriver();
-//        }
         if (t24_payments_page.forexPageNoData.isVisible()){
             bddUtil.closeWindow();
             bddUtil.switchToNewWindow();
@@ -1040,6 +1034,7 @@ public class t24_Payments_step extends ScenarioSteps {
             getDriver().quit();
             useToLogInToTSITEnvironment(userAuth);
             selectUnauthorizedForexDealsMenu(forex);
+            bddUtil.quitDriver();
         }else {
             t24_payments_page.clickForexDefaultListIcon.click();
             getDriver().manage().window().maximize();
@@ -1048,17 +1043,12 @@ public class t24_Payments_step extends ScenarioSteps {
             bddUtil.scrollWindowToElement(t24_payments_page.deptCode);
             bddUtil.screenShort();
             WordUtils.photoStorageToFxPaymentMT();
+            bddUtil.quitDriver();
         }
     }
     @Step
     public void forexAuthorizeDifferentCurrency(String forex,String userAuth){
         searchForex(forex);
-//        if (t24_payments_page.forexPageNoData.isVisible()){
-//            System.out.println("Forex未生成数据！");
-//            bddUtil.screenShort();
-//            WordUtils.photoStorageToFxPayment();
-//            bddUtil.quitDriver();
-//        }
         if (t24_payments_page.forexPageNoData.isVisible()){
             bddUtil.closeWindow();
             bddUtil.switchToNewWindow();
@@ -1129,6 +1119,7 @@ public class t24_Payments_step extends ScenarioSteps {
             getDriver().quit();
             useToLogInToTSITEnvironment(userAuth);
             selectUnauthorizedForexDealsMenuDifferentCurrency(forex);
+            bddUtil.quitDriver();
         }else {
             t24_payments_page.clickForexDefaultListIcon.click();
             getDriver().manage().window().maximize();
@@ -1137,17 +1128,12 @@ public class t24_Payments_step extends ScenarioSteps {
             bddUtil.scrollWindowToElement(t24_payments_page.deptCode);
             bddUtil.screenShort();
             WordUtils.photoStorageToFxPaymentDifferentCurrencyMX();
+            bddUtil.quitDriver();
         }
     }
     @Step
     public void forexAuthorizeToLocalPayment(String forex,String userAuth){
         searchForex(forex);
-//        if (t24_payments_page.forexPageNoData.isVisible()){
-//            System.out.println("Forex未生成数据！");
-//            bddUtil.screenShort();
-//            WordUtils.photoStorageToFxPayment();
-//            bddUtil.quitDriver();
-//        }
         if (t24_payments_page.forexPageNoData.isVisible()){
             bddUtil.closeWindow();
             bddUtil.switchToNewWindow();
