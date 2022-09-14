@@ -898,7 +898,6 @@ public class t24_Payments_step extends ScenarioSteps {
                     break;
                 }
             }
-            WordUtils.insertWord(WordUtils.path3,WordUtils.date+"MT Message");
             Assert.assertEquals(getTransactionReferenceNum,t24_payments_page.check20Field.getText().substring(4));
             Assert.assertEquals(getTransactionCurrency+getTransactionAmount.replace('.',','),t24_payments_page.check32AField.getText().substring(11));
 //            Assert.assertEquals(getInstructedCurrency+getInstructedAmount.replace('.',','),t24_payments_page.check33BField.getText().substring(5));
@@ -939,7 +938,6 @@ public class t24_Payments_step extends ScenarioSteps {
                     break;
                 }
             }
-            WordUtils.insertWord(WordUtils.path3,WordUtils.date+"MX Message");
         }
         switchToDefaultContent();
         bddUtil.closeWindow();

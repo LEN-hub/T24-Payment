@@ -7,13 +7,6 @@ import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import com.spire.doc.Document;
-import com.spire.doc.FileFormat;
-import com.spire.doc.Section;
-import com.spire.doc.documents.OleObjectType;
-import com.spire.doc.documents.Paragraph;
-import com.spire.doc.fields.DocOleObject;
-import com.spire.doc.fields.DocPicture;
 
 /**
  * @Description: Word替换字符和插入图片工具类
@@ -24,17 +17,6 @@ public class WordUtils {
     private static String systemPath = System.getProperty("user.dir");
     public static String path3;
 
-    public static void insertWord(String path,String txtPath){
-        String testPath = systemPath + "/src/test/resources/testData/";
-        Document doc = new Document();
-        doc.loadFromFile(path);
-        Section section = doc.getLastSection();
-        Paragraph par = section.addParagraph();
-        DocPicture pdfIcon = new DocPicture(doc);
-        pdfIcon.loadImage(testPath+"autopay/test.jpg");
-        //Insert a PDF file to the Word document as an OLE object
-        par.appendOleObject(testPath+"caseMessage/"+txtPath+".txt", pdfIcon, OleObjectType.Adobe_Acrobat_Document);
-    }
 
     /**
      * 根据模板生成word
