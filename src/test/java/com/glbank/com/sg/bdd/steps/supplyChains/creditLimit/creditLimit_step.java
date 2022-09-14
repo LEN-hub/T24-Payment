@@ -211,7 +211,7 @@ public class creditLimit_step extends ScenarioSteps {
 //        bddUtil.switchToNewWindow();
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
         bddUtil.switchToWindows();
 //        一次性邮箱需要验证。
         if (creditLimit_page.find(By.xpath("//div[@id='main-message']/h1")).isVisible()){

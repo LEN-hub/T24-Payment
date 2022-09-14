@@ -221,9 +221,9 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.switchToNewWindow();
         bddUtil.sleep(5);
         customers_page.clickRefreshBtn.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(5);
         customers_page.clickRefreshBtn.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(5);
         customers_page.firstEmail.click();
     }
 
