@@ -354,7 +354,7 @@ Feature: openAccount
     Then get Organisation ID
 
 #    在线开户+小额透支贷款
-
+@testLoan0291
 #  单币种 新币+贷款
   Scenario: The new bank customer initiated the "new auto financing" product loan application successfully
     Given open "netSilverEnv_ycjpt" enterprise net silver page
@@ -362,7 +362,7 @@ Feature: openAccount
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD and loan
     And Provide Essential Information
       |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
-      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|199906179R |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|200808897E |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
