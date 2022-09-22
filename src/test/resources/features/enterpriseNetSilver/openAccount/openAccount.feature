@@ -372,7 +372,7 @@ Feature: openAccount
       |100000      |
     Then Upload Supporting Documents on loan page
     And Review Details
-    Then get Organisation ID
+#    Then get Organisation ID
 
     #单币种账户——美元+贷款
   Scenario:openAccount Current Account CA_USD and loan
