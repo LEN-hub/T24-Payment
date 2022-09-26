@@ -35,7 +35,7 @@ public class MobileConfig {
         //添加操作系统配置
         cap.setCapability("platformName", "Android");
         //添加操作系统版本设置adb devices
-        cap.setCapability("platformVersion", "11");
+        cap.setCapability("platformVersion", "12");
         //指定想要测试应用的包名
         cap.setCapability("appPackage", "com.glbank.mobileapp");
         //指定想要测试应用的入口activity
@@ -54,7 +54,7 @@ public class MobileConfig {
         //添加操作系统配置
         cap.setCapability("platformName", "Android");
         //添加操作系统版本设置adb devices
-        cap.setCapability("platformVersion", "11");
+        cap.setCapability("platformVersion", "12");
         //指定想要测试应用的包名
         cap.setCapability("appPackage", "com.glbank.mobileapp");
         //指定想要测试应用的入口activity
@@ -97,10 +97,10 @@ public class MobileConfig {
     }
     public void enterOpt() throws InterruptedException {
         Thread.sleep(8000);
-//        otp = driver.findElementById("com.glbank.mobileapp:id/tv_message").getText();
-//        driver.findElementById("com.glbank.mobileapp:id/btn_confirm").click();
-        otp=getLastOtp("60120003");
-        releaseConnect();
+        otp = driver.findElementById("com.glbank.mobileapp:id/tv_message").getText();
+        driver.findElementById("com.glbank.mobileapp:id/btn_confirm").click();
+//        otp=getLastOtp("60120003");
+//        releaseConnect();
         System.out.println(otp);
         Thread.sleep(8000);
         driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_sms_code')]/child::android.widget.LinearLayout[1]/child::android.widget.EditText").sendKeys(otp.substring(0,1));

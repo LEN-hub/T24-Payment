@@ -8,8 +8,8 @@ Feature: receipt and payment service
    #USD->SGD
   Scenario:I have successfully changed us dollars into Singapore dollars
     When I will complete the inter-bank transfer on the page
-      |From Account  |To Account  |
-      |1101 0000 489   |1101 0000 438|
+      |From Account    |To Account   |
+      |1101 0000 187   |1101 0000 179|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully To Local Payment
@@ -19,38 +19,36 @@ Feature: receipt and payment service
   #SGD->USD
   Scenario:I have successfully transferred from Singapore currency to US dollar
     When I will complete the inter-bank transfer on the page
-      |From Account  |To Account  |
-      |1101 0000 438   |1101 0000 489|
+      |From Account    |To Account   |
+      |1101 0000 179   |1101 0000 187|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully To Local Payment
 
-
+@paymentService03
       #SGD->SGD
   Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process
     When I will complete the inter-bank transfer on the page
-      |From Account  |To Account  |
-      |1101 0000 438   |1101 0000 470|
+      |From Account    |To Account   |
+      |1101 0000 179   |1101 0001 620|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
 
 
-
+  @paymentService04
     #USD->USD
   Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow
-    Given logon second "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |From Account  |To Account  |
-      |1101 0001 345   |1101 0000 187|
+      |From Account    |To Account   |
+      |1101 0000 187   |1101 0001 345|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
 
-
+@paymentService05
     #境内转账-行内转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
-    Given logon second "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |Payee's Bank |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
       |UOB          |TSC1643346550706|11010003437           |Business Expenses   |1101 0000 179 |
@@ -113,7 +111,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1102 0006 552 |The expenses shall be borne by each party|
+      |1101 0000 187 |The expenses shall be borne by each party|
     And I choose the payment currency
       |Currency   |
       |USD        |
@@ -142,7 +140,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1101 0000 438 |The expenses shall be borne by each party|
+      |1101 0000 179 |The expenses shall be borne by each party|
     And I choose the payment currency
       |Currency|
       |USD     |
@@ -171,7 +169,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1102 0006 552 |The expenses shall be borne by each party|
+      |1101 0000 187 |The expenses shall be borne by each party|
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -198,7 +196,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1102 0006 552 |The expenses shall be borne by each party|
+      |1101 0000 187 |The expenses shall be borne by each party|
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -1290,7 +1288,7 @@ Feature: receipt and payment service
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
 #      |selectAccount|payeeCurrency|enterAmount|expense  |
-#      |1102 0006 552|CNY          |50         |The expenses shall be borne by each party|
+#      |1101 0000 187|CNY          |50         |The expenses shall be borne by each party|
 #    And I choose the payment currency
 #      |selectAccBth|
 #      |SGD         |
@@ -1384,7 +1382,7 @@ Feature: receipt and payment service
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
 #      |selectAccount|payeeCurrency|enterAmount|expense  |
-#      |1102 0006 552|CNY          |50         |The expenses shall be borne by each party|
+#      |1101 0000 187|CNY          |50         |The expenses shall be borne by each party|
 #    And I choose the payment currency
 #      |selectAccBth|
 #      |CNY         |
@@ -1481,7 +1479,7 @@ Feature: receipt and payment service
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
 #      |selectAccount|payeeCurrency|enterAmount|expense         |
-#      |1102 0006 552|USD          |50         |所有费用由汇款人承担|
+#      |1101 0000 187|USD          |50         |所有费用由汇款人承担|
 #    And I choose the payment currency
 #      |selectAccBth|
 #      |SGD         |
@@ -1516,7 +1514,7 @@ Feature: receipt and payment service
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
 #      |selectAccount|payeeCurrency|enterAmount|expense                                  |
-#      |1102 0006 552|SGD          |60         |The expenses shall be borne by each party|
+#      |1101 0000 187|SGD          |60         |The expenses shall be borne by each party|
 #
 #    And I choose the payment currency
 #      |selectAccBth|
@@ -1551,7 +1549,7 @@ Feature: receipt and payment service
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
 #      |selectAccount|payeeCurrency|enterAmount|expense                                  |
-#      |1102 0006 552|CNY          |50         |The expenses shall be borne by each party|
+#      |1101 0000 187|CNY          |50         |The expenses shall be borne by each party|
 #
 #    And I choose the payment currency
 #      |selectAccBth|
@@ -1584,7 +1582,7 @@ Feature: receipt and payment service
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
 #      |selectAccount|payeeCurrency|enterAmount|expense                                  |
-#      |1102 0006 552|USD          |50         |The expenses shall be borne by each party|
+#      |1101 0000 187|USD          |50         |The expenses shall be borne by each party|
 #
 #    And I choose the payment currency
 #      |selectAccBth|
@@ -1616,7 +1614,7 @@ Feature: receipt and payment service
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
 #      |selectAccount|payeeCurrency|enterAmount|expense                                  |
-#      |1102 0006 552|SGD          |50         |The expenses shall be borne by each party|
+#      |1101 0000 187|SGD          |50         |The expenses shall be borne by each party|
 #
 #    And I choose the payment currency
 #      |selectAccBth|
@@ -1713,7 +1711,7 @@ Feature: receipt and payment service
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
 #      |selectAccount|payeeCurrency|enterAmount|expense                                  |
-#      |1102 0006 552|USD          |50         |The expenses shall be borne by each party|
+#      |1101 0000 187|USD          |50         |The expenses shall be borne by each party|
 #
 #    And I choose the payment currency
 #      |selectAccBth|
@@ -1902,7 +1900,7 @@ Feature: receipt and payment service
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
 #      |selectAccount|payeeCurrency|enterAmount|expense                                  |
-#      |1102 0006 552|CNY          |50         |The expenses shall be borne by each party|
+#      |1101 0000 187|CNY          |50         |The expenses shall be borne by each party|
 #    And I choose the payment currency
 #      |selectAccBth|
 #      |EUR        |
@@ -1933,7 +1931,7 @@ Feature: receipt and payment service
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
 #      |selectAccount|payeeCurrency|enterAmount|expense                                  |
-#      |1102 0006 552|USD          |50         |The expenses shall be borne by each party|
+#      |1101 0000 187|USD          |50         |The expenses shall be borne by each party|
 #    And I choose the payment currency
 #      |selectAccBth|
 #      |EUR        |
@@ -1964,7 +1962,7 @@ Feature: receipt and payment service
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
 #      |selectAccount|payeeCurrency|enterAmount|expense                                  |
-#      |1102 0006 552|SGD          |50         |The expenses shall be borne by each party|
+#      |1101 0000 187|SGD          |50         |The expenses shall be borne by each party|
 #    And I choose the payment currency
 #      |selectAccBth|
 #      |HKD         |
@@ -1996,7 +1994,7 @@ Feature: receipt and payment service
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
 #      |selectAccount|payeeCurrency|enterAmount|expense                                  |
-#      |1102 0006 552|SGD          |50         |The expenses shall be borne by each party|
+#      |1101 0000 187|SGD          |50         |The expenses shall be borne by each party|
 #    And I choose the payment currency
 #      |selectAccBth|
 #      |EUR        |

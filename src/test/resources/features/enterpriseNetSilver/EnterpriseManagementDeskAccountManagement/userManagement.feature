@@ -32,7 +32,7 @@ Feature: userManagements
     When The program is finished I will release the Linux SSH connection
 
 
-#  @stopUser
+  @stopUser
 #    停止用户
   Scenario:Stop the user operation flow
     Given logon "netSilverEnv_Kevin" on enterprise net silver

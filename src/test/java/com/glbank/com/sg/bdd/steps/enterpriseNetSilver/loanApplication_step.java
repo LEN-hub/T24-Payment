@@ -130,6 +130,7 @@ public class loanApplication_step extends ScenarioSteps {
 //        loanApplication_page.microDemandOverdraft.click();
 //        bddUtil.scrollWindowToElement(loanApplication_page.inputLoanAmount).sendKeys(amount);
 //        bddUtil.scrollWindowToElement(loanApplication_page.submitBtn).click();
+        bddUtil.sleep(2);
         loanApplication_page.lessThanOneMillion.click();
         loanApplication_page.currentAssets.click();
         loanApplication_page.nextBtn.click();

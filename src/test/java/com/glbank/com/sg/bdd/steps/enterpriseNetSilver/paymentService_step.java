@@ -62,6 +62,7 @@ public class paymentService_step extends ScenarioSteps {
     @Step
     public void sdgTransferToUsd(String rollOutAccount,String intoAccount){
         paymentService_page.transferMoney.click();
+        bddUtil.sleep(3);
         paymentService_page.rollOutCurrencySelectWindows.click();
         List<WebElementFacade> currency = paymentService_page.rollOutAccountSGD;
         for (int i = 0; i< currency.size();i++){
@@ -70,6 +71,7 @@ public class paymentService_step extends ScenarioSteps {
                 break;
             }
         }
+        paymentService_page.clickToAccount.click();
 //        bddUtil.scrollWindowToElement(paymentService_page.rollOutAccountSGD).click();
         paymentService_page.secondPopWindows.click();
         bddUtil.sleep(3);
@@ -84,6 +86,7 @@ public class paymentService_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(paymentService_page.clickNextBtn);
         paymentService_page.enterMoney.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         paymentService_page.transferPurpose.click();
+        bddUtil.sleep(1);
         paymentService_page.selectTransferPurpose.click();
         paymentService_page.clickNextBtn.click();
     }

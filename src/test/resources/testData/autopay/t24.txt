@@ -1,37 +1,39 @@
-2022-9-16 11:45:38:462
-ChannelReferenceID:220915000000044
+2022-9-23 12:7:45:997
+ChannelReferenceID:220922000000189
 ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
 ChannelDebitAccountCurrency:SGD
 ChannelDebitAccountNumber:11010001256
-ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
-ChannelDetailPayeeName:lucky
-ChannelDetailAccountCurrency:SGD
-ChannelDetailPayeeAccountNum:667812798
-ChannelDetailTransactionAmount:916.23
-ChannelDetailBeneficiaryBankBIC:BKCHSGS0CUS
-ChannelDetailPayeeAddress:countries
-ChannelDetailEstimatedProcessingFee:0.00
-ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
-ChannelDetailPurposeOfTransfer:Commission
-2022-9-16 11:49:39:558
-ID:220915000000044
-TransactionReference:PI222580ZNJM4SQV
-t24FtNumber:SGL22258LHFK0DLC
-getTransactionReferenceNum:SGL22258LHFK0DLC
-getSenderReferenceNum:PI222580ZNJM4SQV
-getTransactionCurrency:SGD
-getTransactionCurrency:SGD
-getTransactionAmount:916.23
+ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
+ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelCreditAccountCurrency:USD
+ChannelCreditAccountNumber:11010001434
+ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
+ChannelDetailExchangeRate:USD 1 ≈ SGD 1.4236
+ChannelTransactionAmount:923.76
+ChannelPurposeOfTransfer:Business Expenses
+2022-9-23 12:9:16:722
+ID:220922000000189
+TransactionReference:PI2226607NCCZYV7
+t24FtNumber:SGL22266LDDBDHDG
+getTransactionReferenceNum:SGL22266LDDBDHDG
+getSenderReferenceNum:PI2226607NCCZYV7
+getTransactionCurrency:USD
+getInstructedCurrency:SGD
+getTransactionAmount:648.89
+getInstructedAmount:923.76
 getChargeOption:SHA
 getDebitAccountNum:11010001256
+getCreditAccountNum:11010001434
 getDebitAccountCurrency:SGD
-getDebitAmount:916.23
+getCreditAccountCurrency:USD
+getDebitAmount:923.76
+getCreditAmount:648.89
+getDebitCustomerRate:1.4236
+getDebitTreasuryRate:1.4226
 getOrderingAccount:11010001256
+getBeneficiaryAccount:11010001434
 getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getBeneficiaryName:COMPUTERCITY SINGAPORE PTE. LTD.
 getOrderingAddress:XIAN
+getBeneficiaryAddress:YISHUN STREET 71
 getOrderingTown:SG
-getCreditAccountNum:15000000153
-getCreditAccountCurrency:SGD
-getCreditAmount:916.23
-getBeneficiaryAccount:667812798
-getBeneficiaryName:lucky

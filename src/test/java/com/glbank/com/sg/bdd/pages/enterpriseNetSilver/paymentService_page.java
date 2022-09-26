@@ -65,6 +65,9 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//form[@class='el-form el-form--label-left']/div[2]//span[@class='el-input__suffix-inner']")
     public WebElementFacade secondPopWindows;
 
+    @FindBy(xpath = "//label[text()='To Account']")
+    public WebElementFacade clickToAccount;
+
     @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//li/span")
     public List<WebElementFacade> secondCurrencySelectSGD;
 
