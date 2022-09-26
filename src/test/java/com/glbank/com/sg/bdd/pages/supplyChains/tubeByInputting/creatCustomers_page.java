@@ -49,6 +49,15 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='custName']/following-sibling::div//input")
     public WebElementFacade companyNameLeft;
 
+    @FindBy(xpath = "//label[@for='kycMode']/following-sibling::div//span[@class=\"lls-input__suffix-inner\"]")
+    public WebElementFacade kycMode;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span")
+    public List<WebElementFacade> kycModeTitleList;
+
+    @FindBy(xpath = "//label[@for='autoCustBuild']/following-sibling::div//input")
+    public WebElementFacade inputBy;
+
     @FindBy(xpath = "//div[@class='form_btn_bottom']//span[contains(text(), 'Next')]")
     public WebElementFacade nextBtn;
 
@@ -64,17 +73,26 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"lowcode-table-fixed-right\"]//table[1]/tbody/tr[1]//div[@class='lls-design-table-btn-wrapper']/span[1]//button")
     public WebElementFacade viewButton;
 
-    @FindBy(xpath = "//label[@for='authorOne.firstName']/following-sibling::div//input")
+    @FindBy(xpath = "//label[@for='authorOne.legalName']/following-sibling::div//input")
     public WebElementFacade firstNameInput;
 
     @FindBy(xpath = "//label[@for='authorOne.email']/following-sibling::div//input")
     public WebElementFacade emailInput;
 
-    @FindBy(xpath = "//label[@for='authorOne.lastName']/following-sibling::div//input")
+    @FindBy(xpath = "//label[@for='authorTwo.legalName']/following-sibling::div//input")
     public WebElementFacade lastNameInput;
 
-    @FindBy(xpath = "//label[@for='authorOne.mobile']/following-sibling::div//input")
-    public WebElementFacade mobileInput;
+    @FindBy(xpath = "//label[@for='authorOne.mobileWrap']/following-sibling::div/div[1]//input")
+    public WebElementFacade mobileAreaCode;
+
+    @FindBy(xpath = "//label[@for='authorOne.mobileWrap']/following-sibling::div/div[2]//input")
+    public WebElementFacade mobileNumber;
+
+    @FindBy(xpath = "//label[@for='authorTwo.mobileWrap']/following-sibling::div/div[1]//input")
+    public WebElementFacade twoMobileAreaCodeInput;
+
+    @FindBy(xpath = "//label[@for='authorTwo.mobileWrap']/following-sibling::div/div[2]//input")
+    public WebElementFacade twomobileNumberInput;
 
     @FindBy(xpath = "//label[@for='authorTwo.firstName']/following-sibling::div//input")
     public WebElementFacade firstNameSecondInput;
@@ -105,6 +123,18 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//form[@class='form-inline']//input")
     public WebElementFacade sendEmail;
+
+    @FindBy(xpath = "//input[@id='userName']")
+    public WebElementFacade chageSendEmail;
+
+    @FindBy(xpath = "//input[@id='domainName2']")
+    public WebElementFacade emailAddress;
+
+    @FindBy(xpath = "//div[@class='e7m loadingww arcircl center']")
+    public WebElementFacade clickRefresh;
+
+    @FindBy(xpath = "//div[@id= 'message']")
+    public WebElementFacade emailMessage;
 
     @FindBy(xpath = "//form[@class='form-inline']//button")
     public WebElementFacade createEmailButton;
