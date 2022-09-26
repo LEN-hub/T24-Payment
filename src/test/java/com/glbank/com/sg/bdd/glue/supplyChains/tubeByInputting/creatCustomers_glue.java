@@ -97,13 +97,13 @@ public class creatCustomers_glue {
         bddUtil.switchToNewWindow();
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
-        customers_step.getEmailInput(mailName + "@cardkurd.com");
-        FileUtils.FileString4("emailData",mailName + "@cardkurd.com");
-        System.out.println("---------------第一个邮箱地址："+ mailName + "@cardkurd.com"+"----------------------");
+        customers_step.getEmailInput(mailName + "@chacuo.net");
+        FileUtils.FileString4("emailData",mailName + "@chacuo.net");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@chacuo.net"+"----------------------");
         customers_step.phoneNumberFirst();
         customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getEmailSecondInput(mailName1  + "@cardkurd.com");
-        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@cardkurd.com"+"----------------------");
+        customers_step.getEmailSecondInput(mailName1  + "@chacuo.net");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@chacuo.net"+"----------------------");
         customers_step.getMobileInput();
 //        customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
 //
@@ -120,13 +120,13 @@ public class creatCustomers_glue {
         bddUtil.switchToNewWindow();
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
-        customers_step.getEmailInput(mailName + "@cardkurd.com");
-        System.out.println("---------------第一个邮箱地址："+ mailName + "@cardkurd.com"+"----------------------");
+        customers_step.getEmailInput(mailName + "@chacuo.net");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@chacuo.net"+"----------------------");
         customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         customers_step.getMobileInput();
         customers_step.getFirstNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getEmailSecondInput(mailName1  + "@cardkurd.com");
-        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@cardkurd.com"+"----------------------");
+        customers_step.getEmailSecondInput(mailName1  + "@chacuo.net");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@chacuo.net"+"----------------------");
         customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
         customers_step.clickSubmitBtn();
@@ -164,7 +164,7 @@ public class creatCustomers_glue {
 
     @When("^I get the verification code in the email and click to jump to the GLDB page to fill in the information and generate the verification code$")
     public void iGetTheVerificationCodeInTheEmailAndClickToJumpToTheGLDBPageToFillInTheInformationAndGenerateTheVerificationCode() {
-        customers_step.selectFirstEmailAndTakeVCode(mailName);
+        customers_step.selectFirstEmailAndTakeVCode();
     }
 
     @And("^I went back to the email page to get the verification code$")

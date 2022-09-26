@@ -200,10 +200,7 @@ public class creatCustomers_step extends ScenarioSteps {
 //        }
         customers_page.chageSendEmail.clear();
         customers_page.chageSendEmail.sendKeys(value);
-        customers_page.emailAddress.clear();
-        Actions action = new Actions(getDriver());
-        action.doubleClick(customers_page.emailAddress).perform();
-        customers_page.emailAddress.sendKeys("cardkurd.com");
+        customers_page.emailAddress.click();
     }
 
     @Step
@@ -217,7 +214,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void openEmailUrl(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://zh.emailfake.com/channel7/\");");
+        webdriver.executeScript("window.open(\"http://24mail.chacuo.net/\");");
         bddUtil.switchToNewWindow();
 //        errorEmailLink();
         bddUtil.switchToWindows();
@@ -257,22 +254,17 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.switchToNewWindow();
         bddUtil.sleep(5);
         customers_page.clickRefresh.click();
-        bddUtil.sleep(2);
-        customers_page.clickRefresh.click();
-        bddUtil.sleep(2);
-        if (customers_page.emailMessage.isVisible()){
-            customers_page.firstEmail.click();
-        }
+        customers_page.clickFirstEmail.click();
     }
 
     @Step
-    public void selectFirstEmailAndTakeVCode(String value){
-        customers_page.firstEmail.click();
-        String password = customers_page.emailPassword.getText();
+    public void selectFirstEmailAndTakeVCode(){
+        String username = customers_page.userName.getText();
+        String password = customers_page.passWord.getText();
         customers_page.greenLinkSystem.isVisible();
         CommonUtil.waiting(2000);
-        customers_page.greenLinkSystem.click();
-        customers_page.GLDBEmailInput.sendKeys(value + "@MailTemp.top");
+        customers_page.scfLink.click();
+        customers_page.GLDBEmailInput.sendKeys(username);
         customers_page.GLDBEmailPassword.sendKeys(password);
         customers_page.sendCodeBtn.click();
     }

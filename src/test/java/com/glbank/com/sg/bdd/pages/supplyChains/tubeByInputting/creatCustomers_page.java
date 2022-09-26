@@ -124,14 +124,17 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//form[@class='form-inline']//input")
     public WebElementFacade sendEmail;
 
-    @FindBy(xpath = "//input[@id='userName']")
+    @FindBy(xpath = "//input[@id='converts']")
     public WebElementFacade chageSendEmail;
 
-    @FindBy(xpath = "//input[@id='domainName2']")
+    @FindBy(xpath = "//button[text()=' 设邮箱']")
     public WebElementFacade emailAddress;
 
-    @FindBy(xpath = "//div[@class='e7m loadingww arcircl center']")
+    @FindBy(xpath = "//button[text()='手动刷新']")
     public WebElementFacade clickRefresh;
+
+    @FindBy(xpath = "//tbody[@id='convertd']/tr[1]")
+    public WebElementFacade clickFirstEmail;
 
     @FindBy(xpath = "//div[@id= 'message']")
     public WebElementFacade emailMessage;
@@ -157,8 +160,17 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-message-box__wrapper']//span[contains(text(), 'Confirm')]")
     public WebElementFacade confirmBtn;
 
-    @FindBy(xpath = "//span[text()='Green Link Digital Bank - Invitation']")
+    @FindBy(xpath = "//td[@id=\"mailview_subject\"]")
     public WebElementFacade firstEmail;
+
+    @FindBy(xpath = "//a[text()=' SCF portal ']")
+    public WebElementFacade scfLink;
+
+    @FindBy(xpath = "//div[@class='login-info']/p[1]/span")
+    public WebElementFacade userName;
+
+    @FindBy(xpath = "//div[@class='login-info']/p[2]/span[1]")
+    public WebElementFacade passWord;
 
     @FindBy(xpath = "//span[text()='Green Link Digital Bank - Verify Identity']")
     public WebElementFacade secondEmail;
