@@ -200,6 +200,8 @@ public class creatCustomers_step extends ScenarioSteps {
 //        }
         customers_page.chageSendEmail.clear();
         customers_page.chageSendEmail.sendKeys(value);
+        customers_page.selectEmailDropDown.click();
+        customers_page.selectC0c.click();
     }
 
     @Step
@@ -245,7 +247,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void checkSendEmailSuccess(){
-        assertEquals("Green Link Digital Bank - Invitation",customers_page.firstEmail.getText());
+        assertEquals("GreenLinkDigitalBank-Invitation",customers_page.firstEmail.getText());
     }
 
     @Step
@@ -260,7 +262,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public void selectFirstEmailAndTakeVCode(){
         String username = customers_page.userName.getText();
         String password = customers_page.passWord.getText();
-        customers_page.greenLinkSystem.isVisible();
+        customers_page.scfLink.isVisible();
         CommonUtil.waiting(2000);
         customers_page.scfLink.click();
         customers_page.GLDBEmailInput.sendKeys(username);
@@ -270,10 +272,16 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void thirdEmail(){
-        customers_page.emailPageContent.isVisible();
         bddUtil.sleep(3);
-        customers_page.clickRefreshBtn.click();
+        customers_page.clickRefresh.click();
         bddUtil.sleep(1);
+        List<WebElementFacade> selectEmail = customers_page.emailSubject;
+        List<WebElementFacade> clickViewBtn = customers_page.clickViewBtn;
+        for (int i = 0; i < selectEmail.size(); i++) {
+            if (selectEmail.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
+                clickViewBtn.get(i).click();
+            }
+        }
         customers_page.thirdEmail.click();
         String verificationCode = customers_page.emailVerificationCode.getText();
         bddUtil.switchToWindows();

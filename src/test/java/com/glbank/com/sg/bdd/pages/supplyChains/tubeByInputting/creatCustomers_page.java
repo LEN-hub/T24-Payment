@@ -136,6 +136,12 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//span[text()='查看']")
     public WebElementFacade clickFirstEmail;
 
+    @FindBy(xpath = "//table[@class='el-table__body']/tbody/tr/td[3]/div")
+    public List<WebElementFacade> emailSubject;
+
+    @FindBy(xpath = "//table[@class='el-table__body']/tbody/tr//span[text()='查看']")
+    public List<WebElementFacade> clickViewBtn;
+
     @FindBy(xpath = "//div[@id= 'message']")
     public WebElementFacade emailMessage;
 
@@ -183,6 +189,12 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//div[@id='message-content']/p")
     public WebElementFacade emailPageContent;
+
+    @FindBy(xpath = "//span[@class='el-input__suffix']/span")
+    public WebElementFacade selectEmailDropDown;
+
+    @FindBy(xpath = "//span[text()='@c0c.fun']")
+    public WebElementFacade selectC0c;
 
     @FindBy(xpath = "//div[@id='body-html']//p[text()='     Password: ']/span[1]")
     public WebElementFacade emailPassword;

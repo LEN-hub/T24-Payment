@@ -46,7 +46,7 @@ public class JRandomNameTool {
                 val += String.valueOf(random.nextInt(10));
             }
         }
-        return val;
+        return val.toLowerCase();
     }
 
 }
