@@ -39,7 +39,7 @@ public class creatCustomers_glue {
 //    String translateName = EnglishNameUtil.getTranslateName(Language.zh);
     public String mailName = JRandomNameTool.getStringRandom(8);
     public String mailName1 = JRandomNameTool.getStringRandom(8);
-    public String CompanyName = RandomNameTool.getName(Language.en, NameType.FULL_NAME);
+    public String CompanyName = RandomNameTool.getName(Language.en, NameType.FULL_NAME)+JRandomNameTool.getStringRandom(4);
 
     @When("^login successfully and click the SCF link$")
     public void loginSuccessfullyAndClickTheSCFLink() {
@@ -69,7 +69,8 @@ public class creatCustomers_glue {
     }
 
     @And("^I click Create Customer and fill in the supplier information in the pop-up window$")
-    public void iClickCreateCustomerAndFillInTheSupplierInformationInThePopUpWindow() {
+    public void iClickCreateCustomerAndFillInTheSupplierInformationInThePopUpWindow(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         customers_step.getClickCreateCustomerBtn();
         customers_step.getSelectCustomerType();
         customers_step.getCustomerTypeSupplier();
@@ -80,6 +81,8 @@ public class creatCustomers_glue {
         customers_step.getSelectCountryOfRegistration();
         customers_step.getCountryOfRegistrationValue();
         customers_step.getCompanyNameLeft(JRandomNameTool.getStringRandom(10));
+        customers_step.kycMode(maps.get(0).get("KYC Mode"));
+        customers_step.inputBy(maps.get(0).get("Input by"));
         customers_step.getCLickNextBtn();
     }
 
@@ -94,17 +97,19 @@ public class creatCustomers_glue {
         bddUtil.switchToNewWindow();
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
-        customers_step.getEmailInput(mailName + "@MailTemp.top");
-        FileUtils.FileString4("emailData",mailName + "@MailTemp.top");
-        System.out.println("---------------第一个邮箱地址："+ mailName + "@MailTemp.top"+"----------------------");
-        customers_step.getLastName(JRandomNameTool.getStringRandom(4));
-        customers_step.getMobileInput(RandomPhoneNumber.randomPhoneNum());
-        customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
-        customers_step.getEmailSecondInput(mailName1  + "@MailTemp.top");
-        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@MailTemp.top"+"----------------------");
-        customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
-        customers_step.clickInputBySelectBox();
+        customers_step.getEmailInput(mailName + "@cardkurd.com");
+        FileUtils.FileString4("emailData",mailName + "@cardkurd.com");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@cardkurd.com"+"----------------------");
+        customers_step.phoneNumberFirst();
+        customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+        customers_step.getEmailSecondInput(mailName1  + "@cardkurd.com");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@cardkurd.com"+"----------------------");
+        customers_step.getMobileInput();
+//        customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
+//
+//        customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+//        customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
+//        customers_step.clickInputBySelectBox();
         customers_step.clickSubmitBtn();
         bddUtil.sleep(3);
     }
@@ -115,13 +120,13 @@ public class creatCustomers_glue {
         bddUtil.switchToNewWindow();
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
-        customers_step.getEmailInput(mailName + "@MailTemp.top");
-        System.out.println("---------------第一个邮箱地址："+ mailName + "@MailTemp.top"+"----------------------");
+        customers_step.getEmailInput(mailName + "@cardkurd.com");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@cardkurd.com"+"----------------------");
         customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getMobileInput(RandomPhoneNumber.randomPhoneNum());
+        customers_step.getMobileInput();
         customers_step.getFirstNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getEmailSecondInput(mailName1  + "@MailTemp.top");
-        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@MailTemp.top"+"----------------------");
+        customers_step.getEmailSecondInput(mailName1  + "@cardkurd.com");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@cardkurd.com"+"----------------------");
         customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
         customers_step.clickSubmitBtn();

@@ -11,6 +11,7 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
@@ -97,6 +98,30 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void kycMode(String kycMode){
+        customers_page.kycMode.click();
+        List<WebElementFacade> kyc = customers_page.kycModeTitleList;
+        for (int i = 0; i < kyc.size(); i++){
+            if (kyc.get(i).getText().equals(kycMode)){
+                kyc.get(i).click();
+                break;
+            }
+        }
+    }
+
+    @Step
+    public void inputBy(String inputBy){
+        customers_page.inputBy.click();
+        List<WebElementFacade> inputby = customers_page.kycModeTitleList;
+        for (int i = 0; i < inputby.size(); i++){
+            if (inputby.get(i).getText().equals(inputBy)){
+                inputby.get(i).click();
+                break;
+            }
+        }
+    }
+
+    @Step
     public void getCLickNextBtn(){
         customers_page.nextBtn.click();
     }
@@ -130,8 +155,15 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
-    public void getMobileInput(String value){
-        customers_page.mobileInput.sendKeys(value);
+    public void phoneNumberFirst(){
+        customers_page.mobileAreaCode.sendKeys("+86");
+        customers_page.mobileNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
+    }
+
+    @Step
+    public void getMobileInput(){
+        customers_page.twoMobileAreaCodeInput.sendKeys("+86");
+        customers_page.twomobileNumberInput.sendKeys(RandomPhoneNumber.randomPhoneNum());
     }
 
     @Step
@@ -166,9 +198,12 @@ public class creatCustomers_step extends ScenarioSteps {
 //            bddUtil.sleep(1);
 //            getDriver().findElement(By.xpath("//p[@id='final-paragraph']/a")).click();
 //        }
-        customers_page.sendEmail.clear();
-        customers_page.sendEmail.sendKeys(value);
-        customers_page.createEmailButton.click();
+        customers_page.chageSendEmail.clear();
+        customers_page.chageSendEmail.sendKeys(value);
+        customers_page.emailAddress.clear();
+        Actions action = new Actions(getDriver());
+        action.doubleClick(customers_page.emailAddress).perform();
+        customers_page.emailAddress.sendKeys("cardkurd.com");
     }
 
     @Step
@@ -182,7 +217,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void openEmailUrl(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox\");");
+        webdriver.executeScript("window.open(\"https://zh.emailfake.com/channel7/\");");
         bddUtil.switchToNewWindow();
 //        errorEmailLink();
         bddUtil.switchToWindows();
@@ -209,6 +244,7 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.sleep(1);
         customers_page.emailIcon.click();
         customers_page.confirmBtn.click();
+        bddUtil.sleep(5);
     }
 
     @Step
@@ -220,11 +256,13 @@ public class creatCustomers_step extends ScenarioSteps {
     public void viewEmail(){
         bddUtil.switchToNewWindow();
         bddUtil.sleep(5);
-        customers_page.clickRefreshBtn.click();
+        customers_page.clickRefresh.click();
         bddUtil.sleep(2);
-        customers_page.clickRefreshBtn.click();
+        customers_page.clickRefresh.click();
         bddUtil.sleep(2);
-        customers_page.firstEmail.click();
+        if (customers_page.emailMessage.isVisible()){
+            customers_page.firstEmail.click();
+        }
     }
 
     @Step
