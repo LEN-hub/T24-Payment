@@ -124,16 +124,16 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//form[@class='form-inline']//input")
     public WebElementFacade sendEmail;
 
-    @FindBy(xpath = "//input[@id='converts']")
+    @FindBy(xpath = "//input[@placeholder=\"请输入邮箱账号\"]")
     public WebElementFacade chageSendEmail;
 
     @FindBy(xpath = "//button[text()=' 设邮箱']")
     public WebElementFacade emailAddress;
 
-    @FindBy(xpath = "//button[text()='手动刷新']")
+    @FindBy(xpath = "//span[text()=' 刷新 ']")
     public WebElementFacade clickRefresh;
 
-    @FindBy(xpath = "//tbody[@id='convertd']/tr[1]")
+    @FindBy(xpath = "//span[text()='查看']")
     public WebElementFacade clickFirstEmail;
 
     @FindBy(xpath = "//div[@id= 'message']")
@@ -160,7 +160,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-message-box__wrapper']//span[contains(text(), 'Confirm')]")
     public WebElementFacade confirmBtn;
 
-    @FindBy(xpath = "//td[@id=\"mailview_subject\"]")
+    @FindBy(xpath = "//div[@class=\"el-descriptions\"]/div[1]/div[1]")
     public WebElementFacade firstEmail;
 
     @FindBy(xpath = "//a[text()=' SCF portal ']")

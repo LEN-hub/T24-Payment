@@ -97,13 +97,13 @@ public class creatCustomers_glue {
         bddUtil.switchToNewWindow();
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
-        customers_step.getEmailInput(mailName + "@chacuo.net");
-        FileUtils.FileString4("emailData",mailName + "@chacuo.net");
-        System.out.println("---------------第一个邮箱地址："+ mailName + "@chacuo.net"+"----------------------");
+        customers_step.getEmailInput(mailName + "@mail.itcp.site");
+        FileUtils.FileString4("emailData",mailName + "@mail.itcp.site");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@mail.itcp.site"+"----------------------");
         customers_step.phoneNumberFirst();
         customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getEmailSecondInput(mailName1  + "@chacuo.net");
-        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@chacuo.net"+"----------------------");
+        customers_step.getEmailSecondInput(mailName1  + "@mail.itcp.site");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@mail.itcp.site"+"----------------------");
         customers_step.getMobileInput();
 //        customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
 //
@@ -120,13 +120,13 @@ public class creatCustomers_glue {
         bddUtil.switchToNewWindow();
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
-        customers_step.getEmailInput(mailName + "@chacuo.net");
-        System.out.println("---------------第一个邮箱地址："+ mailName + "@chacuo.net"+"----------------------");
+        customers_step.getEmailInput(mailName + "@mail.itcp.site");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@mail.itcp.site"+"----------------------");
         customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         customers_step.getMobileInput();
         customers_step.getFirstNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getEmailSecondInput(mailName1  + "@chacuo.net");
-        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@chacuo.net"+"----------------------");
+        customers_step.getEmailSecondInput(mailName1  + "@mail.itcp.site");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@mail.itcp.site"+"----------------------");
         customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
         customers_step.clickSubmitBtn();

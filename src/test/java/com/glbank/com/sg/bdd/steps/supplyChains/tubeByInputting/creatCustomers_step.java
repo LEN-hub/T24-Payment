@@ -200,7 +200,6 @@ public class creatCustomers_step extends ScenarioSteps {
 //        }
         customers_page.chageSendEmail.clear();
         customers_page.chageSendEmail.sendKeys(value);
-        customers_page.emailAddress.click();
     }
 
     @Step
@@ -214,7 +213,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void openEmailUrl(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"http://24mail.chacuo.net/\");");
+        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
         bddUtil.switchToNewWindow();
 //        errorEmailLink();
         bddUtil.switchToWindows();
