@@ -190,7 +190,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@id='message-content']/p")
     public WebElementFacade emailPageContent;
 
-    @FindBy(xpath = "//span[@class='el-input__suffix']/span")
+    @FindBy(xpath = "//span[@class='el-input__suffix']/span/i")
     public WebElementFacade selectEmailDropDown;
 
     @FindBy(xpath = "//span[text()='@c0c.fun']")
@@ -199,7 +199,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@id='body-html']//p[text()='     Password: ']/span[1]")
     public WebElementFacade emailPassword;
 
-    @FindBy(xpath = "//div[@class='tab-pane message-body active']//h2")
+    @FindBy(xpath = "//div[@class='container content']//h2")
     public WebElementFacade emailVerificationCode;
 
     @FindBy(xpath = "//div[@class='tab-pane message-body active']//a[text()=' SCF portal ']")
@@ -213,6 +213,9 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='lls-input-group__append']/button")
     public WebElementFacade sendCodeBtn;
+
+    @FindBy(xpath = "//button[@aria-label=\"close drawer\"]/i")
+    public WebElementFacade clickCloseEmailBtn;
 
     @FindBy(xpath = "//div[@id='message-list']/button[1]//span[text()='Green Link Digital Bank - Verification Code']")
     public WebElementFacade thirdEmail;

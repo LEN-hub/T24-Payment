@@ -198,10 +198,10 @@ public class creatCustomers_step extends ScenarioSteps {
 //            bddUtil.sleep(1);
 //            getDriver().findElement(By.xpath("//p[@id='final-paragraph']/a")).click();
 //        }
-        customers_page.chageSendEmail.clear();
-        customers_page.chageSendEmail.sendKeys(value);
         customers_page.selectEmailDropDown.click();
         customers_page.selectC0c.click();
+        customers_page.chageSendEmail.clear();
+        customers_page.chageSendEmail.sendKeys(value);
     }
 
     @Step
@@ -223,8 +223,12 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void openEmailUrlTest(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name=44Dg64u0\");");
+        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
         bddUtil.switchToNewWindow();
+        customers_page.selectEmailDropDown.click();
+        customers_page.selectC0c.click();
+        customers_page.chageSendEmail.clear();
+        customers_page.chageSendEmail.sendKeys("z6i6t815");
 //        errorEmailLink();
 //        bddUtil.switchToWindows();
     }
@@ -280,9 +284,9 @@ public class creatCustomers_step extends ScenarioSteps {
         for (int i = 0; i < selectEmail.size(); i++) {
             if (selectEmail.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
                 clickViewBtn.get(i).click();
+                break;
             }
         }
-        customers_page.thirdEmail.click();
         String verificationCode = customers_page.emailVerificationCode.getText();
         bddUtil.switchToWindows();
         customers_page.inputSendCode.sendKeys(verificationCode);
@@ -307,16 +311,23 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void enterLoginInformationAgain(String value,String password){
-        customers_page.GLDBEmailInput.sendKeys(value + "@MailTemp.top");
+        customers_page.GLDBEmailInput.sendKeys(value + "@c0c.fun");
         customers_page.GLDBEmailPassword.sendKeys(password);
         customers_page.enterCompanyId.clear();
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
         bddUtil.sleep(5);
-        customers_page.clickRefreshBtn.click();
-        bddUtil.sleep(1);
-        customers_page.thirdEmail.click();
+        customers_page.clickCloseEmailBtn.click();
+        customers_page.clickRefresh.click();
+        List<WebElementFacade> selectEmail = customers_page.emailSubject;
+        List<WebElementFacade> clickViewBtn = customers_page.clickViewBtn;
+        for (int i = 0; i < selectEmail.size(); i++) {
+            if (selectEmail.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
+                clickViewBtn.get(i).click();
+                break;
+            }
+        }
         bddUtil.sleep(1);
 //        customers_page.find(By.xpath("//div[@id='message-list']/button[1]")).click();
         String Vcode = customers_page.emailVerificationCode.getText();
@@ -418,7 +429,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void iLoginServiceAgreementWindow(){
-        customers_page.GLDBEmailInput.sendKeys("44Dg64u0@MailTemp.top");
+        customers_page.GLDBEmailInput.sendKeys("z6i6t815@c0c.fun");
         customers_page.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();
