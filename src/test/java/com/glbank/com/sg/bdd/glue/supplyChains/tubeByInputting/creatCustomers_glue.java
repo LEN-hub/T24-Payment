@@ -241,7 +241,7 @@ public class creatCustomers_glue {
 
     @When("^Fill in the administrator information on the People page and click Next to go to the Next page$")
     public void fillInTheAdministratorInformationOnThePeoplePageAndClickNextToGoToTheNextPage() {
-        customers_step.enterInformationOnPeoplePage();
+        customers_step.enterInformationOnPeoplePage(mailName);
     }
 
     @Then("^Verify whether the director page is displayed$")
@@ -260,8 +260,9 @@ public class creatCustomers_glue {
     }
 
     @When("^Fill in the user information on the Shareholder page$")
-    public void fillInTheUserInformationOnTheShareholderPage() {
-        customers_step.fillInTheInformationOnTheShareholderPage(mailName);
+    public void fillInTheUserInformationOnTheShareholderPage(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class,String.class);
+        customers_step.fillInTheInformationOnTheShareholderPage(payToInfo.get(0).get("allocation"),mailName);
     }
 
     @Then("^Verify whether the Beneficial page is displayed$")
@@ -270,8 +271,9 @@ public class creatCustomers_glue {
     }
 
     @When("^Fill in the information on the Beneficial page$")
-    public void fillInTheInformationOnTheBeneficialPage() {
-        customers_step.fillInTheInformationOnTheBeneficialPage(mailName);
+    public void fillInTheInformationOnTheBeneficialPage(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class,String.class);
+        customers_step.fillInTheInformationOnTheBeneficialPage(payToInfo.get(0).get("allocation"),mailName);
     }
 
     @Then("^Verify whether the Account page is displayed$")

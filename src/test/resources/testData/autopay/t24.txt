@@ -1,0 +1,42 @@
+2022-9-30 15:26:26:557
+ChannelReferenceID:220930000000075
+ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelDebitAccountCurrency:USD
+ChannelDebitAccountNumber:11010001434
+ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
+ChannelDetailPayeeName:lucky
+ChannelDetailAccountCurrency:SGD
+ChannelDetailPayeeAccountNum:667812798
+ChannelDetailExchangeRate:USD 1 ≈ SGD 1.3595
+ChannelDetailTransactionAmount:930.31
+ChannelDetailBeneficiaryBankBIC:BKCHSGS0CUS
+ChannelDetailPayeeAddress:countries
+ChannelDetailEstimatedProcessingFee:0.00
+ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
+ChannelDetailPurposeOfTransfer:Commission
+2022-9-30 15:30:7:260
+ID:220930000000075
+TransactionReference:PI222730JKC1CMMP
+t24FtNumber:SGL22273BGCDHF0G
+getTransactionReferenceNum:SGL22273BGCDHF0G
+getSenderReferenceNum:PI222730JKC1CMMP
+getTransactionCurrency:SGD
+getInstructedCurrency:USD
+getTransactionAmount:1,264.76
+getInstructedAmount:930.31
+getChargeOption:SHA
+getDebitAccountNum:11010001434
+getCreditAccountNum:15000000153
+getDebitAccountCurrency:USD
+getCreditAccountCurrency:SGD
+getDebitAmount:930.31
+getCreditAmount:1,264.76
+getDebitCustomerRate:1.3595
+getDebitTreasuryRate:1.3605
+getOrderingAccount:11010001434
+getBeneficiaryAccount:667812798
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getBeneficiaryName:lucky
+getOrderingAddress:XIAN
+getBeneficiaryAddress:countries
+getOrderingTown:SG
