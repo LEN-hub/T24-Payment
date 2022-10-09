@@ -773,6 +773,21 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()=' Tell Us About Your Bank Account(s) ']")
     public WebElementFacade tellUsAboutAccoutPageTitle;
 
+    @FindBy(xpath = "//div[text()='Account 1']/parent::div/parent::div/following-sibling::div//label[@for='currency']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade account1Currency;
+
+    @FindBy(xpath = "//div[text()='Account 2']/parent::div/parent::div/following-sibling::div//label[@for='currency']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade account2Currency;
+
+    @FindBy(xpath = "//div[text()='Account 1']/parent::div/parent::div/following-sibling::div//label[@for='accountName']")
+    public WebElementFacade clickFirstAccountName;
+
+    @FindBy(xpath = "//div[text()='Account 2']/parent::div/parent::div/following-sibling::div//label[@for='accountName']")
+    public WebElementFacade clickSecondAccountName;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span")
+    public List<WebElementFacade> selectCurrency;
+
     @FindBy(xpath = "//span[text()='Current Account']/parent::div/following-sibling::div[2]//label[@for='currency']/following-sibling::div//span[@class='lls-input__suffix']")
     public WebElementFacade accountCurrency;
 
@@ -787,6 +802,30 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//div[text()=' Questionnaire ']")
     public WebElementFacade questionnaireTitle;
+
+    @FindBy(xpath = "//label[@for='question1']/following-sibling::div//label[1]/span[@class='lls-checkbox__input']")
+    public WebElementFacade clickFirstCheckBox;
+
+    @FindBy(xpath = "//label[@for='question1']/following-sibling::div//label[2]/span[@class='lls-checkbox__input']")
+    public WebElementFacade clickSecondCheckBox;
+
+    @FindBy(xpath = "//label[@for='question1']/following-sibling::div//label[3]/span[@class='lls-checkbox__input']")
+    public WebElementFacade clickThirdCheckBox;
+
+    @FindBy(xpath = "//label[@for='question2']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickSecondQuestionDownDrop;
+
+    @FindBy(xpath = "//label[@for='question3']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickThirdQuestionDownDrop;
+
+    @FindBy(xpath = "//label[@for='question4']/following-sibling::div//label[1]/span[@class='lls-radio__input']")
+    public WebElementFacade clickFourQuestionCheckBox;
+
+    @FindBy(xpath = "//label[@for='question5']/following-sibling::div//label[1]/span[@class='lls-radio__input']")
+    public WebElementFacade clickFiveQuestionCheckBox;
+
+    @FindBy(xpath = "//span[text()='Browse']/parent::div/parent::div/following-sibling::input")
+    public WebElementFacade inputFile;
 
     @FindBy(xpath = "//label[@for='FUNDING_ACCOUNT_WAY']/following-sibling::div//label[1]")
     public WebElementFacade questionFirstCheckBox;
