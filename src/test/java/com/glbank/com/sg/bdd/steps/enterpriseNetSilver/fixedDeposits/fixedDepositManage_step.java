@@ -57,7 +57,7 @@ public class fixedDepositManage_step extends ScenarioSteps {
     }
 
     public void clickSubmit(){
-        bddUtil.sleep(5);
+        bddUtil.sleep(30);
         fixedDepositManage_page.clickSubmit.click();
     }
 }

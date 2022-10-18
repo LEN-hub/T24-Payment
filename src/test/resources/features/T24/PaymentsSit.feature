@@ -152,7 +152,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBS SINGAPORE   |
+      |DBSSSGS0API     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -194,7 +194,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |UOB             |
+      |INNOMY40XXX     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -241,7 +241,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |UOB             |
+      |INNOMY40XXX     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -272,7 +272,7 @@ Feature: T24 Payment transaction
 #    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
-  @FxPaymentSGDToSGDBicIsUOB
+  @FxPaymentUSDToSGDBicIsUOB
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is UOB(SGD->SGD)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
@@ -288,7 +288,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |UOB             |
+      |INNOMY40XXX     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -330,7 +330,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |UOB             |
+      |INNOMY40XXX     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
