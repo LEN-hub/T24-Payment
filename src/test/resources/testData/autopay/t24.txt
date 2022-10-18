@@ -1,39 +1,39 @@
-2022-10-9 17:49:59:889
-ChannelReferenceID:221009000000725
-ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
-ChannelDebitAccountCurrency:USD
-ChannelDebitAccountNumber:11010000489
+2022-10-18 14:36:23:206
+ChannelReferenceID:221018000000023
+ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelDebitAccountCurrency:SGD
+ChannelDebitAccountNumber:11010001256
 ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:testCpsThree
-ChannelCreditAccountCurrency:SGD
-ChannelCreditAccountNumber:11010000438
+ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelCreditAccountCurrency:USD
+ChannelCreditAccountNumber:11010001434
 ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelDetailExchangeRate:USD 1 â‰ˆ SGD 1.3595
-ChannelTransactionAmount:1,009.33
+ChannelDetailExchangeRate:USD 1 ¡Ö SGD 1.42121
+ChannelTransactionAmount:1,018.61
 ChannelPurposeOfTransfer:Business Expenses
-2022-10-9 17:51:24:215
-ID:221009000000725
-TransactionReference:PI222820WP32KYDN
-t24FtNumber:SGL22282GDFGMDJJ
-getTransactionReferenceNum:SGL22282GDFGMDJJ
-getSenderReferenceNum:PI222820WP32KYDN
-getTransactionCurrency:SGD
-getInstructedCurrency:USD
-getTransactionAmount:1,372.18
-getInstructedAmount:1,009.33
+2022-10-18 14:37:51:315
+ID:221018000000023
+TransactionReference:PI2229105YCBGHZ7
+t24FtNumber:SGL22291MKKGMGCL
+getTransactionReferenceNum:SGL22291MKKGMGCL
+getSenderReferenceNum:PI2229105YCBGHZ7
+getTransactionCurrency:USD
+getInstructedCurrency:SGD
+getTransactionAmount:716.72
+getInstructedAmount:1,018.61
 getChargeOption:SHA
-getDebitAccountNum:11010000489
-getCreditAccountNum:11010000438
-getDebitAccountCurrency:USD
-getCreditAccountCurrency:SGD
-getDebitAmount:1,009.33
-getCreditAmount:1,372.18
-getDebitCustomerRate:1.3595
-getDebitTreasuryRate:1.3605
-getOrderingAccount:11010000489
-getBeneficiaryAccount:11010000438
-getOrderingName:WATERHOUSE INVESTMENT PTE. LTD.
-getBeneficiaryName:WATERHOUSE INVESTMENT PTE. LTD.
-getOrderingAddress:SINGAPORE
-getBeneficiaryAddress:CECIL COURT 138 CECIL STREET 17-01
+getDebitAccountNum:11010001256
+getCreditAccountNum:11010001434
+getDebitAccountCurrency:SGD
+getCreditAccountCurrency:USD
+getDebitAmount:1,018.61
+getCreditAmount:716.72
+getDebitCustomerRate:1.42121
+getDebitTreasuryRate:1.42021
+getOrderingAccount:11010001256
+getBeneficiaryAccount:11010001434
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getBeneficiaryName:COMPUTERCITY SINGAPORE PTE. LTD.
+getOrderingAddress:XIAN
+getBeneficiaryAddress:YISHUN STREET 71
 getOrderingTown:SG

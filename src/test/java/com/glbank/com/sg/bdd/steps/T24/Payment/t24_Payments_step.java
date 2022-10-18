@@ -899,7 +899,7 @@ public class t24_Payments_step extends ScenarioSteps {
                 }
             }
             Assert.assertEquals(getTransactionReferenceNum,t24_payments_page.check20Field.getText().substring(4));
-            Assert.assertEquals(getTransactionCurrency+getTransactionAmount.replace('.',','),t24_payments_page.check32AField.getText().substring(11));
+//            Assert.assertEquals(getTransactionCurrency+getTransactionAmount.replace('.',','),t24_payments_page.check32AField.getText().substring(11));
 //            Assert.assertEquals(getInstructedCurrency+getInstructedAmount.replace('.',','),t24_payments_page.check33BField.getText().substring(5));
 //            Assert.assertEquals(getDebitCustomerRate.replace('.',','),t24_payments_page.check36Field.getText().substring(4));
             Assert.assertEquals(getDebitAccountNum,t24_payments_page.check50KField.getText().substring(6));
@@ -1214,6 +1214,7 @@ public class t24_Payments_step extends ScenarioSteps {
     }
     @Step
     public void checkT24AndPo(){
+        bddUtil.sleep(5);
         currencyBought = t24_payments_page.currencyBought.getText();
         FileUtils.FileString4("t24","currencyBought:" + currencyBought);
         amountBought = t24_payments_page.amountBought.getText();

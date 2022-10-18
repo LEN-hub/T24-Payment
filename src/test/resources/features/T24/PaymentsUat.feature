@@ -1,10 +1,10 @@
-@PaymentUat
+@PaymentUatEnv
 Feature: receipt and payment service
 
 #本人互转
   @PaymentUat01
    #USD->SGD
-  Scenario:I have successfully changed us dollars into Singapore dollars
+  Scenario:I have successfully changed us dollars into Singapore dollars and T24
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |

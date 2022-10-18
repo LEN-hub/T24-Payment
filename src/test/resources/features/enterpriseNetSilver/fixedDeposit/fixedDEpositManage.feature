@@ -8,7 +8,7 @@ Feature: fixedDepositManage
     When click Fixed Deposits First menu
     Then I operate on the current page data information
       | fdAccountNumber |
-      | 16010005140     |
+      | 16010002192     |
 
 
   @report444442
