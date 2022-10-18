@@ -347,8 +347,8 @@ public class creatCustomers_step extends ScenarioSteps {
 //            customers_page.clickCheckBox.click();
             if (customers_page.selectFirstCheckBox.isVisible()){
                 customers_page.selectFirstCheckBox.click();
-            }else {
-                customers_page.selectFirstCheckBox.click();
+            }
+            if (customers_page.selectSecondCheckBox1.isVisible()){
                 customers_page.selectSecondCheckBox1.click();
                 customers_page.selectThirdCheckBox.click();
                 customers_page.selectFourCheckBox.click();
@@ -461,6 +461,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void enterInformationOnPeoplePage(String value){
+        bddUtil.sleep(3);
         customers_page.enterFullName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.applicantPhoneNumFirst.sendKeys("+86");
         customers_page.applicantPhoneNumSecond.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -652,19 +653,24 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void enterTheAccountInformation(String value){
-        customers_page.accountCurrency.click();
-        bddUtil.sleep(2);
-        bddUtil.scrollWindowToElement(customers_page.find(By.xpath("//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='"+value+"']"))).click();
-        customers_page.tellUsAboutAccoutPageTitle.click();
-        customers_page.collectionAccountCurrency.click();
-        bddUtil.sleep(2);
-        bddUtil.scrollWindowToElement(customers_page.find(By.xpath("//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='"+value+"']"))).click();
-        customers_page.tellUsAboutAccoutPageTitle.click();
-//        customers_page.SaveBtnIndustry.click();
-        if (getDriver().findElement(By.xpath("//span[text()='Delete']")).isDisplayed()){
-            getDriver().findElement(By.xpath("//span[text()='Delete']")).click();
+        customers_page.account1Currency.click();
+        List<WebElementFacade> selectCurrency = customers_page.selectCurrency;
+        for (int i = 0; i < selectCurrency.size(); i++) {
+            if (selectCurrency.get(i).getText().equals(value)){
+                selectCurrency.get(i).click();
+                break;
+            }
         }
-        bddUtil.sleep(2);
+        customers_page.clickFirstAccountName.click();
+        customers_page.account2Currency.click();
+        List<WebElementFacade> select2Currency = customers_page.selectCurrency;
+        for (int i = 0; i < select2Currency.size(); i++) {
+            if (select2Currency.get(i).getText().equals(value)){
+                select2Currency.get(i).click();
+                break;
+            }
+        }
+        customers_page.clickSecondAccountName.click();
         customers_page.nextBtnIndustry.click();
     }
 
@@ -691,30 +697,29 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void questionFirstCheckBox(String currency,String num){
-        customers_page.questionFirstCheckBox.click();
-        customers_page.questionSecondCheckBox.click();
-        customers_page.selectCheckBox.click();
-        List<WebElementFacade> selectData = customers_page.selectData;
-        for (int i = 0; i < selectData.size(); i++){
-            if (currency.equals(selectData.get(i).getText())){
-                selectData.get(i).click();
+        customers_page.clickFirstCheckBox.click();
+        customers_page.clickSecondCheckBox.click();
+        customers_page.clickThirdCheckBox.click();
+        customers_page.clickSecondQuestionDownDrop.click();
+        List<WebElementFacade> selectSecondQuestion = customers_page.selectCurrency;
+        for (int i = 0; i < selectSecondQuestion.size(); i++) {
+            if (selectSecondQuestion.get(i).getText().equals(currency)){
+                selectSecondQuestion.get(i).click();
                 break;
             }
         }
-        bddUtil.scrollWindowToElement(customers_page.clickThirdYes);
-        customers_page.selectSecondCheckBox.click();
-        bddUtil.sleep(2);
-        for (int j = 0; j < selectData.size(); j++){
-            if (num.equals(selectData.get(j).getText())){
-                selectData.get(j).click();
+        customers_page.clickThirdQuestionDownDrop.click();
+        List<WebElementFacade> selectThirdQuestion = customers_page.selectCurrency;
+        for (int i = 0; i < selectThirdQuestion.size(); i++) {
+            if (selectThirdQuestion.get(i).getText().equals(num)){
+                selectThirdQuestion.get(i).click();
                 break;
             }
         }
-        bddUtil.scrollWindowToElement(customers_page.clickThirdYes);
-        customers_page.clickFirstYes.click();
-        customers_page.clickSecondYes.click();
-        customers_page.clickThirdYes.click();
-        customers_page.clickNextBtn.click();
+        customers_page.clickFourQuestionCheckBox.click();
+        customers_page.clickFiveQuestionCheckBox.click();
+        getDriver().findElement(By.xpath("//span[text()='Browse']/parent::div/parent::div/following-sibling::input")).sendKeys(fileAddress);
+        customers_page.nextBtnIndustry.click();
     }
 
     @Step

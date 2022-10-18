@@ -2,6 +2,9 @@ package com.glbank.com.sg.bdd.steps.enterpriseNetSilver;
 
 import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.paymentService_page;
 import com.glbank.com.sg.bdd.utils.*;
+import com.lu.sn.Language;
+import com.lu.sn.NameType;
+import com.lu.sn.RandomNameTool;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -194,17 +197,29 @@ public class paymentService_step extends ScenarioSteps {
                 break;
             }
         }
-        paymentService_page.collectingBankPopWindows.click();
-        bddUtil.sleep(3);
-        List<WebElementFacade> selectBank = paymentService_page.selectSGD;
-        for (int j = 0; j< selectBank.size(); j++){
-            if (bankName.equals(selectBank.get(j).getText())){
-                bddUtil.scrollWindowToElement(selectBank.get(j)).click();
+
+//        paymentService_page.collectingBankPopWindows.click();
+//        bddUtil.sleep(3);
+//        List<WebElementFacade> selectBank = paymentService_page.selectSGD;
+//        for (int j = 0; j< selectBank.size(); j++){
+//            if (bankName.equals(selectBank.get(j).getText())){
+//                bddUtil.scrollWindowToElement(selectBank.get(j)).click();
+//                break;
+//            }
+//        }
+//        paymentService_page.accountName.sendKeys(accountName);
+//        paymentService_page.paymentAccount.sendKeys(paymentAccount);
+        paymentService_page.selectPaymentTypeMEPS.click();
+        paymentService_page.payeeBankSelect.click();
+        List<WebElementFacade> payeeBank = paymentService_page.selectPayeeBankText;
+        for (int i = 0; i < payeeBank.size(); i++) {
+            if (payeeBank.get(i).getText().equals("BANK OF CHINA LIMITED")){
+                payeeBank.get(i).click();
                 break;
             }
         }
-        paymentService_page.accountName.sendKeys(accountName);
-        paymentService_page.paymentAccount.sendKeys(paymentAccount);
+        paymentService_page.payeeNameInput.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        paymentService_page.payeeAccountNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
         paymentService_page.transferAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
         paymentService_page.tradeAmountPopWindows.click();
