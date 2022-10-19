@@ -1,89 +1,127 @@
 @testReport
 Feature: e-Statement
-@testCaseFor
-     #多币种账户 新币+美元
-  Scenario:openAccount Current Account MCA_SGD_USD
-    Given open "netSilverEnv_ycjpt" enterprise net silver page
-    When click open Account page
-    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD
-    And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
-      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|202144852M |
-    Then Enter Connected People's Details
-    And Enter Connected Entities’ Details
-    Then Create Company Administrators’ Profiles
-    And Share Account’s Risk Profile
-    Then Upload Supporting Documents
-    And Review Details
+
+
+  @loanApplication2
+  Scenario:Select “>1,000,000 and ≤20,000,000” for “Corporate Turnover (SGD)”, select “Current Asset Loan” for the loan type, select the collateral: real estate, select the guarantor: personal guarantee - two directors, input the loan amount: 200,000; 30-Day Accounts Receivable Financing Product Loan Application Successful (Loan Currency Selection: USD)
+#     收账融资
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
+    When I hover over the loan business
+    When I choose collection financing
+      |amount|
+      |200000|
+    When I select real estate mortgage
+      |houseAddress|zipCode|constructionArea|
+      |test123     |123456 |140             |
+    When I select personal guarantor
+      |name   |birthday  |idCard   |phoneNum   |email           |experience|
+      |WANG WU|1988-02-02|S1472581A|13087544979|126161178@qq.com|4         |
+    When I fill out other financial commitments on real estate mortgage
+      |financialInstitutionName |loanAmt |outstandingAmt |monthlyInstallments |rate|
+      |test123                  |12      |1              |0                   |1   |
+    When I provide primary buyer information
+      |name   |RelationshipYears  |annualSales  |creditPeriod |
+      |WANG WU|3                  |12           |12           |
+    When I provide primary supplier information
+      |name   |RelationshipYears  |annualSales  |creditPeriod |
+      |WANG WU|3                  |12           |12           |
+    When I upload the five required documents
+    When I click next button on the upLoadFile page
+
+
+#    #    在线开户+小额透支贷款
+#  @testLoan0291
+##  单币种 新币+贷款
+#  Scenario: The new bank customer initiated the "new auto financing" product loan application successfully
+#    Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
+#    When click open Account page
+#    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD and loan
+#    And Provide Essential Information
+#      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
+#      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|200808897E |
+#    Then Enter Connected People's Details
+#    And Enter Connected Entities’ Details
+#    Then Create Company Administrators’ Profiles
+#    And Share Account’s Risk Profile
+#    When I click the continue button to go to the loan page
+#      |loan Amount |
+#      |100000      |
+#    Then Upload Supporting Documents on loan page
+#    And Review Details
+##    Then get Organisation ID
+#
+#  @openAccountUSD
+#    #单币种账户——美元+贷款
+#  Scenario:openAccount Current Account CA_USD and loan
+#    Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
+#    When click open Account page
+#    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_USD and loan
+#    And Provide Essential Information
+#      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |
+#      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|
+#    Then Enter Connected People's Details
+#    And Enter Connected Entities’ Details
+#    Then Create Company Administrators’ Profiles
+#    And Share Account’s Risk Profile
+#    When I click the continue button to go to the loan page
+#      |loan Amount |
+#      |100000      |
+#    Then Upload Supporting Documents on loan page
+#    And Review Details
 #    Then get Organisation ID
-    When I close driver
 
-  @test19912221332312
-    #时间选择每月(SGD->SGD)
-  Scenario:Intra-line transfer time per month (SDG->SDG)
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I fill in the transfer information of domestic transfer bank
-      |Payee's Bank                    |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
-      |BANK OF CHINA LIMITED           |TSC1643346550706|11010000039           |Business Expenses   |1101 0000 179 |
-    When I select date on the domestic transfer bank page
-      |trasferOutDate|selectDate |
-      |2025-01-01    |Monthly    |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
-    When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
-    Then I verify the information on the next page
-    When I click Next to go to the verification page
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer purpose |
-      |TSC1643346550706|11010000039      |Business Expenses|
 
-  @overseasTransfer013
-  Scenario:Positive process of overseas transfer(USD--SGD)
+    #    贷款支用。无授权
+  @loanApplication4
+  Scenario:Accounts Payable Financing Loan Draw Application Process
     Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I click on overseas transfer payment and select the account
-    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |
-      |1101 0000 187 |The expenses shall be borne by each party|
-    And I choose the payment currency
-      |Currency|
-      |SGD     |
-    When I enter the payee information
-      |Payee's Account Number|Payee's Name|
-      |432412321231          |lucky       |
-#    When I click on the receiving bank drop down box
-    When I choose the receiving bank
-      |Beneficiary Bank|
-      |DBSSSGS0VEC     |
-    When I choose the recipient country
-      |Payee's Address |Payee's Country|Comments For Payee|
-      |countries       |UNITED STATES  |ok                |
-    When I choose the nature of payment
-      |Purpose of Transfer|
-      |Commission         |
-    When I choose to submit the transfer information
+    When I click the loan draw button
+    When I choose a product type to fill in the information
+      |product type         |
+      |Receivable Financing |
+#    When I choose to apply for disbursement of financing receivables
+    When I choose Singapore Dollar
+    When I have filled in the other information
+      |amount|dayNum|goodsDescr|
+      |100   |30    |testAnd12 |
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
+#    Then I should see Submitted successfully page
 
 
-          #多币种账户 新币+美元
-  Scenario:openAccount Current Account MCA_SGD_USD
-    Given open "netSilverEnv_ycjpt" enterprise net silver page
-    When click open Account page
-    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD
-    And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
-      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|202144852M |
-    Then Enter Connected People's Details
-    And Enter Connected Entities’ Details
-    Then Create Company Administrators’ Profiles
-    And Share Account’s Risk Profile
-    Then Upload Supporting Documents
-    And Review Details
-#    Then get Organisation ID
-    When I close driver
+  @loanApplication5
+  Scenario:2Accounts Payable Financing Loan Disbursement Application Process (The payment currency is USD, no review is required)
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
+    When I click the loan draw button
+    When I choose a product type to fill in the information
+      |product type         |
+      |Receivable Financing |
+#    When I choose to apply for disbursement of financing receivables
+    When I choose US Dollar
+    When I have filled in the other information
+      |amount|dayNum|goodsDescr|
+      |100   |30    |testAnd12 |
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    Then I should see Submitted successfully page
+
+
+     #定期存款_新币_六个月_不转存
+  @reporttest123
+  Scenario:fixedDeposit_SGD_SixMonth_DoNotRenewOrWithdrawAutomatically
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
+    When click Fixed Deposits menu
+    Then I fill in the information about the SGD transfer on the time deposit page
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0000 179       |11020004223 |250000 |6 Months|1                    |
+
+      #六个月_新币_不转存_全部支取
+  @report444
+  Scenario:fixedDepositWithdrawFD_SGD_SixMonth_DoNotRenewOrWithdrawAutomatically
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
+    When click Fixed Deposits First menu
+    Then I operate on the current page data information
+      | fdAccountNumber |
+      | 16010002192     |

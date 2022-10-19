@@ -19,7 +19,7 @@ Feature: fixedDeposit
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |6 Months|1                    |
+      |1101 0000 187       |11020004223 |10000  |6 Months|1                    |
 
   #定期存款_新币_六个月_本金续存
   @fixedDeposit03
@@ -37,7 +37,7 @@ Feature: fixedDeposit
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |6 Months|2                    |
+      |1101 0000 187       |11020004223 |10000  |6 Months|2                    |
 
   #定期存款_新币_六个月_本息续存
   @fixedDeposit05
@@ -55,7 +55,7 @@ Feature: fixedDeposit
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |6 Months|3                    |
+      |1101 0000 187       |11020004223 |10000  |6 Months|3                    |
 
     #定期存款_新币_九个月_不转存
   @report
@@ -73,7 +73,7 @@ Feature: fixedDeposit
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |9 Months|1                    |
+      |1101 0000 187       |11020004223 |10000  |9 Months|1                    |
 
   #定期存款_新币_九个月_本金续存
   @fixedDeposit03
@@ -91,7 +91,7 @@ Feature: fixedDeposit
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |9 Months|2                    |
+      |1101 0000 187       |11020004223 |10000  |9 Months|2                    |
 
   #定期存款_新币_九个月_本息续存
   @fixedDeposit05
@@ -109,7 +109,7 @@ Feature: fixedDeposit
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |9 Months|3                    |
+      |1101 0000 187       |11020004223 |10000  |9 Months|3                    |
 
   #定期存款_新币_十二个月_不转存
   @report
@@ -127,7 +127,7 @@ Feature: fixedDeposit
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |12 Months|1                    |
+      |1101 0000 187       |11020004223 |10000  |12 Months|1                    |
 
   #定期存款_新币_十二个月_本金续存
   @fixedDeposit03
@@ -145,7 +145,7 @@ Feature: fixedDeposit
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |12 Months|2                    |
+      |1101 0000 187       |11020004223 |10000  |12 Months|2                    |
 
   #定期存款_新币_十二个月_本息续存
   @fixedDeposit05
@@ -163,7 +163,7 @@ Feature: fixedDeposit
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |12 Months|3                    |
+      |1101 0000 187       |11020004223 |10000  |12 Months|3                    |
 
   #定期存款_新币_十八个月_不转存
   @report
@@ -181,7 +181,7 @@ Feature: fixedDeposit
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |18 Months|1                    |
+      |1101 0000 187       |11020004223 |10000  |18 Months|1                    |
 
   #定期存款_新币_十八个月_本金续存
   @fixedDeposit03
@@ -199,7 +199,7 @@ Feature: fixedDeposit
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |18 Months|2                    |
+      |1101 0000 187       |11020004223 |10000  |18 Months|2                    |
 
   #定期存款_新币_十八个月_本息续存
   @fixedDeposit05
@@ -217,4 +217,4 @@ Feature: fixedDeposit
     When click Fixed Deposits menu
     Then I fill in the information about the USD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 047       |11020004223 |10000  |18 Months|3                    |
+      |1101 0000 187       |11020004223 |10000  |18 Months|3                    |

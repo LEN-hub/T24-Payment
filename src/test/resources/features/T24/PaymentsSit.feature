@@ -8,7 +8,7 @@ Feature: T24 Payment transaction
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1101 0000 373 |The expenses shall be borne by each party|
+      |1101 0000 438 |The expenses shall be borne by each party|
     And I choose the payment currency
       |Currency|
       |USD     |
@@ -18,7 +18,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBS SINGAPORE   |
+      |DBSSSGS0API     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -53,7 +53,7 @@ Feature: T24 Payment transaction
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1101 0000 403 |The expenses shall be borne by each party|
+      |1101 0000 489 |The expenses shall be borne by each party|
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -63,7 +63,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBS SINGAPORE   |
+      |DBSSSGS0API     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -100,7 +100,7 @@ Feature: T24 Payment transaction
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1101 0000 373 |The expenses shall be borne by each party|
+      |1101 0000 438 |The expenses shall be borne by each party|
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -110,7 +110,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBS SINGAPORE   |
+      |DBSSSGS0API     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -142,7 +142,7 @@ Feature: T24 Payment transaction
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1101 0000 403 |The expenses shall be borne by each party|
+      |1101 0000 489 |The expenses shall be borne by each party|
     And I choose the payment currency
       |Currency|
       |USD     |
@@ -152,7 +152,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBS SINGAPORE   |
+      |DBSSSGS0API     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -184,7 +184,7 @@ Feature: T24 Payment transaction
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1101 0000 373 |The expenses shall be borne by each party|
+      |1101 0000 438 |The expenses shall be borne by each party|
     And I choose the payment currency
       |Currency|
       |USD     |
@@ -194,7 +194,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |UOB             |
+      |INNOMY40XXX     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -231,7 +231,7 @@ Feature: T24 Payment transaction
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1101 0000 403 |The expenses shall be borne by each party|
+      |1101 0000 489 |The expenses shall be borne by each party|
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -241,7 +241,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |UOB             |
+      |INNOMY40XXX     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -272,13 +272,13 @@ Feature: T24 Payment transaction
 #    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
-  @FxPaymentSGDToSGDBicIsUOB
+  @FxPaymentUSDToSGDBicIsUOB
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is UOB(SGD->SGD)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1101 0000 373 |The expenses shall be borne by each party|
+      |1101 0000 438 |The expenses shall be borne by each party|
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -288,7 +288,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |UOB             |
+      |INNOMY40XXX     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -320,7 +320,7 @@ Feature: T24 Payment transaction
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1101 0000 403 |The expenses shall be borne by each party|
+      |1101 0000 489 |The expenses shall be borne by each party|
     And I choose the payment currency
       |Currency|
       |USD     |
@@ -330,7 +330,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |UOB             |
+      |INNOMY40XXX     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -362,7 +362,7 @@ Feature: T24 Payment transaction
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
-      |1101 0000 373   |1101 0000 632|
+      |1101 0000 438   |1101 0000 470|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -380,7 +380,7 @@ Feature: T24 Payment transaction
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
-      |1101 0000 403   |1101 0000 411|
+      |1101 0000 489   |1101 0000 608|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -398,7 +398,7 @@ Feature: T24 Payment transaction
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
-      |1101 0000 403   |1101 0000 373|
+      |1101 0000 489   |1101 0000 438|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully To Local Payment
@@ -428,7 +428,7 @@ Feature: T24 Payment transaction
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
-      |1101 0000 373   |1101 0000 403|
+      |1101 0000 438   |1101 0000 489|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully To Local Payment
@@ -459,7 +459,7 @@ Feature: T24 Payment transaction
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I fill in the transfer information of domestic transfer bank
       |Payee's Bank |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
-      |UOB          |TSC1643346550706|678321687312          |Business Expenses   |1101 0000 373 |
+      |UOB          |TSC1643346550706|678321687312          |Business Expenses   |1101 0000 438 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
     When I click Next to go to the verification page
@@ -489,7 +489,7 @@ Feature: T24 Payment transaction
 #    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
 #    When I fill in the transfer information of domestic transfer bank
 #      |Payee's Bank                    |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
-#      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010000489           |Business Expenses   |1101 0000 373 |
+#      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010000489           |Business Expenses   |1101 0000 438 |
 #    When I click next button on the domestic transfer bank page
 #    Then I verify the information on the next page
 #    When I click Next to go to the verification page

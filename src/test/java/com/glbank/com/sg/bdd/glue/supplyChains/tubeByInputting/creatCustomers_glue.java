@@ -39,7 +39,7 @@ public class creatCustomers_glue {
 //    String translateName = EnglishNameUtil.getTranslateName(Language.zh);
     public String mailName = JRandomNameTool.getStringRandom(8);
     public String mailName1 = JRandomNameTool.getStringRandom(8);
-    public String CompanyName = RandomNameTool.getName(Language.en, NameType.FULL_NAME);
+    public String CompanyName = RandomNameTool.getName(Language.en, NameType.FULL_NAME)+JRandomNameTool.getStringRandom(4);
 
     @When("^login successfully and click the SCF link$")
     public void loginSuccessfullyAndClickTheSCFLink() {
@@ -69,7 +69,8 @@ public class creatCustomers_glue {
     }
 
     @And("^I click Create Customer and fill in the supplier information in the pop-up window$")
-    public void iClickCreateCustomerAndFillInTheSupplierInformationInThePopUpWindow() {
+    public void iClickCreateCustomerAndFillInTheSupplierInformationInThePopUpWindow(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         customers_step.getClickCreateCustomerBtn();
         customers_step.getSelectCustomerType();
         customers_step.getCustomerTypeSupplier();
@@ -80,6 +81,8 @@ public class creatCustomers_glue {
         customers_step.getSelectCountryOfRegistration();
         customers_step.getCountryOfRegistrationValue();
         customers_step.getCompanyNameLeft(JRandomNameTool.getStringRandom(10));
+        customers_step.kycMode(maps.get(0).get("KYC Mode"));
+        customers_step.inputBy(maps.get(0).get("Input by"));
         customers_step.getCLickNextBtn();
     }
 
@@ -94,17 +97,19 @@ public class creatCustomers_glue {
         bddUtil.switchToNewWindow();
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
-        customers_step.getEmailInput(mailName + "@MailTemp.top");
-        FileUtils.FileString4("emailData",mailName + "@MailTemp.top");
-        System.out.println("---------------第一个邮箱地址："+ mailName + "@MailTemp.top"+"----------------------");
-        customers_step.getLastName(JRandomNameTool.getStringRandom(4));
-        customers_step.getMobileInput(RandomPhoneNumber.randomPhoneNum());
-        customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
-        customers_step.getEmailSecondInput(mailName1  + "@MailTemp.top");
-        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@MailTemp.top"+"----------------------");
-        customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
-        customers_step.clickInputBySelectBox();
+        customers_step.getEmailInput(mailName + "@c0c.fun");
+        FileUtils.FileString4("emailData",mailName + "@c0c.fun");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@c0c.fun"+"----------------------");
+        customers_step.phoneNumberFirst();
+        customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+        customers_step.getEmailSecondInput(mailName1  + "@c0c.fun");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@c0c.fun"+"----------------------");
+        customers_step.getMobileInput();
+//        customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
+//
+//        customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+//        customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
+//        customers_step.clickInputBySelectBox();
         customers_step.clickSubmitBtn();
         bddUtil.sleep(3);
     }
@@ -115,13 +120,13 @@ public class creatCustomers_glue {
         bddUtil.switchToNewWindow();
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
-        customers_step.getEmailInput(mailName + "@MailTemp.top");
-        System.out.println("---------------第一个邮箱地址："+ mailName + "@MailTemp.top"+"----------------------");
+        customers_step.getEmailInput(mailName + "@c0c.fun");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@c0c.fun"+"----------------------");
         customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getMobileInput(RandomPhoneNumber.randomPhoneNum());
+        customers_step.getMobileInput();
         customers_step.getFirstNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getEmailSecondInput(mailName1  + "@MailTemp.top");
-        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@MailTemp.top"+"----------------------");
+        customers_step.getEmailSecondInput(mailName1  + "@c0c.fun");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@c0c.fun"+"----------------------");
         customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
         customers_step.clickSubmitBtn();
@@ -159,14 +164,15 @@ public class creatCustomers_glue {
 
     @When("^I get the verification code in the email and click to jump to the GLDB page to fill in the information and generate the verification code$")
     public void iGetTheVerificationCodeInTheEmailAndClickToJumpToTheGLDBPageToFillInTheInformationAndGenerateTheVerificationCode() {
-        customers_step.selectFirstEmailAndTakeVCode(mailName);
+        customers_step.selectFirstEmailAndTakeVCode();
     }
 
     @And("^I went back to the email page to get the verification code$")
     public void iWentBackToTheEmailPageToGetTheVerificationCode() {
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+mailName+"\");");
+        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
         bddUtil.switchToNewWindow();
+        customers_step.emailOperation(mailName);
         customers_step.thirdEmail();
     }
 
@@ -235,7 +241,7 @@ public class creatCustomers_glue {
 
     @When("^Fill in the administrator information on the People page and click Next to go to the Next page$")
     public void fillInTheAdministratorInformationOnThePeoplePageAndClickNextToGoToTheNextPage() {
-        customers_step.enterInformationOnPeoplePage();
+        customers_step.enterInformationOnPeoplePage(mailName);
     }
 
     @Then("^Verify whether the director page is displayed$")
@@ -254,8 +260,9 @@ public class creatCustomers_glue {
     }
 
     @When("^Fill in the user information on the Shareholder page$")
-    public void fillInTheUserInformationOnTheShareholderPage() {
-        customers_step.fillInTheInformationOnTheShareholderPage(mailName);
+    public void fillInTheUserInformationOnTheShareholderPage(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class,String.class);
+        customers_step.fillInTheInformationOnTheShareholderPage(payToInfo.get(0).get("allocation"),mailName);
     }
 
     @Then("^Verify whether the Beneficial page is displayed$")
@@ -264,8 +271,9 @@ public class creatCustomers_glue {
     }
 
     @When("^Fill in the information on the Beneficial page$")
-    public void fillInTheInformationOnTheBeneficialPage() {
-        customers_step.fillInTheInformationOnTheBeneficialPage(mailName);
+    public void fillInTheInformationOnTheBeneficialPage(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class,String.class);
+        customers_step.fillInTheInformationOnTheBeneficialPage(payToInfo.get(0).get("allocation"),mailName);
     }
 
     @Then("^Verify whether the Account page is displayed$")

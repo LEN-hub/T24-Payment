@@ -29,6 +29,21 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@class='list']/div[1]/p[3]")
     public WebElementFacade domesticTransfer;
 
+    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[2]//span[@class='el-radio__input']")
+    public WebElementFacade selectPaymentTypeMEPS;
+
+    @FindBy(xpath = "//label[@for='transferMethod']/parent::div/following-sibling::div[1]//span[@class='el-input__suffix-inner']")
+    public WebElementFacade payeeBankSelect;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span")
+    public List<WebElementFacade> selectPayeeBankText;
+
+    @FindBy(xpath = "//label[@for='transferMethod']/parent::div/following-sibling::div[2]//input")
+    public WebElementFacade payeeNameInput;
+
+    @FindBy(xpath = "//label[@for='payeeAcctNo']/following-sibling::div//input")
+    public WebElementFacade payeeAccountNum;
+
     @FindBy(xpath = "//div[@class='mandatory']/following-sibling::form/child::div[2]/child::div[2]/child::div[1]//span[@class='el-input__suffix-inner']")
     public WebElementFacade collectingBankPopWindows;
 
@@ -64,6 +79,9 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//form[@class='el-form el-form--label-left']/div[2]//span[@class='el-input__suffix-inner']")
     public WebElementFacade secondPopWindows;
+
+    @FindBy(xpath = "//label[text()='To Account']")
+    public WebElementFacade clickToAccount;
 
     @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//li/span")
     public List<WebElementFacade> secondCurrencySelectSGD;

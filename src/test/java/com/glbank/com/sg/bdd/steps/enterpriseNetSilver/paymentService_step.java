@@ -2,6 +2,9 @@ package com.glbank.com.sg.bdd.steps.enterpriseNetSilver;
 
 import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.paymentService_page;
 import com.glbank.com.sg.bdd.utils.*;
+import com.lu.sn.Language;
+import com.lu.sn.NameType;
+import com.lu.sn.RandomNameTool;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -62,6 +65,7 @@ public class paymentService_step extends ScenarioSteps {
     @Step
     public void sdgTransferToUsd(String rollOutAccount,String intoAccount){
         paymentService_page.transferMoney.click();
+        bddUtil.sleep(3);
         paymentService_page.rollOutCurrencySelectWindows.click();
         List<WebElementFacade> currency = paymentService_page.rollOutAccountSGD;
         for (int i = 0; i< currency.size();i++){
@@ -70,6 +74,7 @@ public class paymentService_step extends ScenarioSteps {
                 break;
             }
         }
+        paymentService_page.clickToAccount.click();
 //        bddUtil.scrollWindowToElement(paymentService_page.rollOutAccountSGD).click();
         paymentService_page.secondPopWindows.click();
         bddUtil.sleep(3);
@@ -84,6 +89,7 @@ public class paymentService_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(paymentService_page.clickNextBtn);
         paymentService_page.enterMoney.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         paymentService_page.transferPurpose.click();
+        bddUtil.sleep(1);
         paymentService_page.selectTransferPurpose.click();
         paymentService_page.clickNextBtn.click();
     }
@@ -191,6 +197,7 @@ public class paymentService_step extends ScenarioSteps {
                 break;
             }
         }
+//正常测试流程
         paymentService_page.collectingBankPopWindows.click();
         bddUtil.sleep(3);
         List<WebElementFacade> selectBank = paymentService_page.selectSGD;
@@ -202,6 +209,18 @@ public class paymentService_step extends ScenarioSteps {
         }
         paymentService_page.accountName.sendKeys(accountName);
         paymentService_page.paymentAccount.sendKeys(paymentAccount);
+        //paynow
+//        paymentService_page.selectPaymentTypeMEPS.click();
+//        paymentService_page.payeeBankSelect.click();
+//        List<WebElementFacade> payeeBank = paymentService_page.selectPayeeBankText;
+//        for (int i = 0; i < payeeBank.size(); i++) {
+//            if (payeeBank.get(i).getText().equals("BANK OF CHINA LIMITED")){
+//                payeeBank.get(i).click();
+//                break;
+//            }
+//        }
+//        paymentService_page.payeeNameInput.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+//        paymentService_page.payeeAccountNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
         paymentService_page.transferAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
         paymentService_page.tradeAmountPopWindows.click();

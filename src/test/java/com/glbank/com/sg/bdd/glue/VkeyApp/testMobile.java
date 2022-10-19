@@ -15,7 +15,7 @@ public class testMobile {
             test.clickSystemPopupWindows();
             test.clickStartButton();
             test.clickLetUsStart();
-            test.logonVkeyApp("200032", "cyq2412337655@163.com", "Zx123456.");
+            test.logonVkeyApp("200032", "13008553349@163.com", "Gl123456+-.12");
             test.enterOpt();
             test.clickCreatPassword();
 //            test.verification();

@@ -334,7 +334,7 @@ Feature: loan application
 
       #多币种账户 新币+美元
   Scenario:openAccount Current Account MCA_SGD_USD
-    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD
     And Provide Essential Information
@@ -474,7 +474,7 @@ Feature: loan application
 
       #正常开户流程——单币种账户——新币
   Scenario:openAccount Singapore enterprise
-    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information

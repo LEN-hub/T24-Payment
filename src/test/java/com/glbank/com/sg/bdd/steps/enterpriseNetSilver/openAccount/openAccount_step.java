@@ -719,11 +719,11 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
             if (openAccount_page.shareholdingPercentage.isVisible()){
                 openAccount_page.shareholdingPercentage.clear();
                 openAccount_page.shareholdingPercentage.sendKeys("30");
-                openAccount_page.clickSalutationTest.click();
-                openAccount_page.mr.click();
                 openAccount_page.nationalityOne.sendKeys("SINGAPOREAN");
                 openAccount_page.SINGAPOREAN.click();
             }
+            openAccount_page.clickSalutationTest.click();
+            openAccount_page.mr.click();
             openAccount_page.clickSelectCountryIcon.click();
             List<WebElementFacade> selectCountry = openAccount_page.selectCountry;
             for (int i = 0;i <selectCountry.size(); i++){
@@ -1006,13 +1006,55 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
 
     // 在线开户的贷款步骤，第十步。
     public void declareFinancials(){
-//        左边信息输入。
+        if (openAccount_page.connectedPersonIsNo.isVisible()){
+            openAccount_page.connectedPersonIsNo.click();
+            openAccount_page.clickNextButton.click();
+            if (openAccount_page.selectFirstIsCheckBox.isVisible()) {
+                System.out.println("Director选项已勾选！");
+            }else{
+                openAccount_page.selectFirstCheckBox.click();
+            }
+            if (openAccount_page.selectSecondIsCheckBox.isVisible()){
+                System.out.println("Shareholder选项已勾选！");
+            }else {
+                openAccount_page.clickShareholder.click();
+            }
+            openAccount_page.inputShareholdingPercentage.sendKeys("22");
+            openAccount_page.clickDownBox.click();
+            openAccount_page.selectMr.click();
+            openAccount_page.enterFullName.sendKeys("testFullName");
+            openAccount_page.enterBirthDay.sendKeys("01/01/2010");
+            openAccount_page.clickSelectCountryIcon.click();
+            bddUtil.sleep(2);
+            List<WebElementFacade> selectCountry = openAccount_page.selectCountry;
+            for (int i = 0;i <selectCountry.size(); i++){
+                if (selectCountry.get(i).getText().equals("SINGAPOREAN")){
+                    bddUtil.scrollWindowToElement(selectCountry.get(i)).click();
+                    break;
+                }
+            }
+            openAccount_page.idNumber.sendKeys("S6829123T");
+            openAccount_page.countryCode.click();
+            openAccount_page.selectSingapore.click();
+            openAccount_page.inputDirectorMobilePhoneNo.sendKeys("13008227162");
+            openAccount_page.inputDirectorEmailAddress.sendKeys("123321@MailTemp.top");
+            openAccount_page.enterIndustryExperience.sendKeys("5");
+            openAccount_page.clickNextOnEnterConnectedPeoplesDetails.click();
+        }
+        //        左边信息输入。
+        bddUtil.sleep(4);
         openAccount_page.reportingDateLeft.clear();
         openAccount_page.reportingDateLeft.sendKeys("26/05/2023");
-        openAccount_page.leastMonths.click();
+        openAccount_page.reportingPeriodTitle.click();
 //        openAccount_page.todayLeft.click();//选择今天。
         openAccount_page.reportPeriodLeft.click();
-        openAccount_page.twelveMonths.get(1).click();//选择12月。
+        List<WebElementFacade> selectMonths = openAccount_page.twelveMonths;
+        for (int i = 0; i < selectMonths.size(); i++){
+            if (selectMonths.get(i).getText().equals("12 months")){
+                selectMonths.get(i).click();
+                break;
+            }
+        }//选择12月。
         openAccount_page.netSalesLeft.sendKeys("9");
         openAccount_page.preTaxSalesLeft.sendKeys("9");
         openAccount_page.totalAssetsLeft.sendKeys("8");
@@ -1020,9 +1062,15 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
 //      右边信息输入。
         openAccount_page.reportingDateRight.clear();
         openAccount_page.reportingDateRight.sendKeys("26/05/2023");
-        openAccount_page.leastMonths.click();
+        openAccount_page.reportingPeriodTitle.click();
         openAccount_page.reportPeriodRight.click();
-        openAccount_page.twelveMonths.get(1).click();//选择12月。
+        List<WebElementFacade> selectMonths2 = openAccount_page.twelveMonths;
+        for (int i = 0; i < selectMonths2.size(); i++){
+            if (selectMonths2.get(i).getText().equals("12 months")){
+                selectMonths2.get(i).click();
+                break;
+            }
+        }//选择12月。
         openAccount_page.netSalesRight.sendKeys("9");
         openAccount_page.preTaxSalesRight.sendKeys("9");
         openAccount_page.totalAssetsRight.sendKeys("8");
@@ -1031,7 +1079,6 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         bddUtil.find(By.xpath("//label[text()='Do you have any other financial commitments?']/following-sibling::div/div/label[2]/span[1]")).click();
         bddUtil.sleep(1);
         openAccount_page.loanContinue.click();
-
     }
 
 
@@ -1084,7 +1131,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
 
     public void reviewDetailsOnLoan(){
         bddUtil.scrollWindowToElement(openAccount_page.clickAccepted).click();
-        bddUtil.scrollWindowToElement(openAccount_page.clickAcceptedApplication).click();
+//        bddUtil.scrollWindowToElement(openAccount_page.clickAcceptedApplication).click();
 //        openAccount_page.clickSubmitToStep14.click();
         bddUtil.sleep(5);
     }

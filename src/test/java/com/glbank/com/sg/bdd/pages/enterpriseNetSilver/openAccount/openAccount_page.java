@@ -483,6 +483,9 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"el-col el-col-24\"]//div[3]//div[@class=\"btn_box\"]")
     public WebElementFacade clickNextOnEnterConnectedPeoplesDetails;
 
+    @FindBy(xpath = "//label[@for='experience']/following-sibling::div//input")
+    public WebElementFacade enterIndustryExperience;
+
     @FindBy(xpath = "//div[@class='el-collapse out_collapse']/div[2]//label[@for='contactPersonNm']")
     public WebElementFacade goContactPersonNm;
 
@@ -882,8 +885,50 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[text()='At Least 18 Months']")
     public WebElementFacade leastMonths;
 
+    @FindBy(xpath = "//div[contains(text(),\"Financial Report 1\")]/following-sibling::form//label[@for='financialReportTerm']")
+    public WebElementFacade reportingPeriodTitle;
+
     @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='financialReportDate']/following-sibling::div//input")
     public WebElementFacade reportingDateLeft;
+
+    @FindBy(xpath = "//label[@for='isConnect']/following-sibling::div//span[contains(text(),'No')]")
+    public WebElementFacade connectedPersonIsNo;
+
+    @FindBy(xpath = "//div[contains(text(),'Next')]")
+    public WebElementFacade clickNextButton;
+
+    @FindBy(xpath = "//span[contains(text(),'Director')]")
+    public WebElementFacade selectDirector;
+
+    @FindBy(xpath = "//span[contains(text(),'Director')]")
+    public WebElementFacade selectShareholder;
+
+    @FindBy(xpath = "//label[@for=\"ownPercent\"]//following-sibling::div//input")
+    public WebElementFacade inputShareholdingPercentage;
+
+    @FindBy(xpath = "//label[@for=\"salutation\"]//following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade clickDownBox;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start' ]//li[1]")
+    public WebElementFacade selectMr;
+
+    @FindBy(xpath = "//label[@for=\"bondsmanName\"]//following-sibling::div//input")
+    public WebElementFacade enterFullName;
+
+    @FindBy(xpath = "//label[@for=\"certfctNo\"]/following-sibling::div//input")
+    public WebElementFacade idNumber;
+
+    @FindBy(xpath = "//label[@for=\"idd\"]/following-sibling::div//input")
+    public WebElementFacade countryCode;
+
+    @FindBy(xpath = "//span[text()='SINGAPORE']")
+    public WebElementFacade selectSingapore;
+
+    @FindBy(xpath = "//label[@for='birthDay']/following-sibling::div//input")
+    public WebElementFacade enterBirthDay;
+
+    @FindBy(xpath = "//label[@for='roleCd']/following-sibling::div//span[contains(text(),'Shareholder')]")
+    public WebElementFacade clickShareholder;
 
     @FindBy(xpath = "//td[@class='available today current']//span")
     public WebElementFacade todayLeft;
@@ -891,7 +936,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='financialReportTerm']/following-sibling::div//input")
     public WebElementFacade reportPeriodLeft;
 
-    @FindBy(xpath = "//span[text()='12 months']")
+    @FindBy(xpath = "//div[@x-placement=\"top-start\" or @x-placement=\"bottom-start\"]//span")
     public List<WebElementFacade> twelveMonths;
 
     @FindBy(xpath = "//div[@class='el-col el-col-10']//label[@for='netSales']/following-sibling::div//input")
