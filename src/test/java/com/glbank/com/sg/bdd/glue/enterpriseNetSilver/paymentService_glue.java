@@ -47,7 +47,7 @@ public class paymentService_glue {
     public void iWillConvertSingaporeDollarsToUSDollarsOnThePage(DataTable payDetails) {
         paymentService_step.transferAndRemittanceMenu();
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        paymentService_step.sdgTransferToUsd(payToInfo.get(0).get("From Account"), payToInfo.get(0).get("To Account"), payToInfo.get(0).get("amount"));
+        paymentService_step.sdgTransferToUsd(payToInfo.get(0).get("From Account"), payToInfo.get(0).get("To Account"));
     }
 
     @When("^I fill in the transfer information of domestic transfer bank$")
@@ -58,9 +58,8 @@ public class paymentService_glue {
     }
 
     @Then("^I verify the information on the next page$")
-    public void iVerifyTheInformationOnTheNextPage(DataTable payDetails) {
-        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        paymentService_step.checkCollectionName(payToInfo.get(0).get("account name"), payToInfo.get(0).get("receiving account"), payToInfo.get(0).get("transfer amount"), payToInfo.get(0).get("transfer purpose"));
+    public void iVerifyTheInformationOnTheNextPage() {
+        paymentService_step.checkCollectionName();
     }
 
     @When("^I click Next to go to the verification page$")
@@ -259,5 +258,10 @@ public class paymentService_glue {
     @Then("^I will compare all the data on same Currency Payment$")
     public void iWillCompareAllTheDataOnSameCurrencyPayment() throws Exception {
         paymentService_step.getInnerPaymentDataOnChannelPage();
+    }
+
+    @Then("^I will compare all the data on FX Payment Different Currency MX Message$")
+    public void iWillCompareAllTheDataOnFXPaymentDifferentCurrencyMXMessage() throws Exception {
+        paymentService_step.getFxPaymentDataOnChannelPageDifferentCurrency();
     }
 }

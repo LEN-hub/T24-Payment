@@ -1,40 +1,25 @@
 @testReport
 Feature: e-Statement
-
- #       电子通知
-  @ext123test122
-  Scenario:Download past e-statements successfully
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I click My Downloads Btn
-    When I click View eStatements Btn
-#    Then I should direct to the eStatements Overview page
-    When I click select box
-      |select       |
-      |11010000020  |
-    And I click search button
-    Then I should see Account List
-    When I click on the past data to download
-
-  @newUsers1
-#    新增用户
-  Scenario:Add the user operation flow
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When I click on the Enterprise Administration as well user administration
-    When I click on Add user
-      |TimeLimit |birthday  |countries|
-      |2026-08-18|1998-05-20|+86      |
-    When I get the OTP verification code from the server
-    When fill in my email
-    When I get the OTP verification code from the server
-    And fill in and submit the new user information
-    Then I click Next
-    When I initiate captcha verification
-    Then I Verify success
-    When The program is finished I will release the Linux SSH connection
-
+@testCaseFor
+     #多币种账户 新币+美元
+  Scenario:openAccount Current Account MCA_SGD_USD
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|202144852M |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+#    Then get Organisation ID
+    When I close driver
 
   @test19912221332312
-    #时间选择每月(SDG->SDG)
+    #时间选择每月(SGD->SGD)
   Scenario:Intra-line transfer time per month (SDG->SDG)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
@@ -49,8 +34,6 @@ Feature: e-Statement
     When I click next button on the domestic transfer bank page
     When If the transfer failure window pops up I will click the continue button
     Then I verify the information on the next page
-      |account name    |receiving account|transfer purpose |
-      |TSC1643346550706|11010000039      |Business Expenses|
     When I click Next to go to the verification page
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
@@ -58,3 +41,49 @@ Feature: e-Statement
     Then I check the details on the transfer success details page
       |account name    |receiving account|transfer purpose |
       |TSC1643346550706|11010000039      |Business Expenses|
+
+  @overseasTransfer013
+  Scenario:Positive process of overseas transfer(USD--SGD)
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
+    When I click on overseas transfer payment and select the account
+    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+      |Account Number|Payment Mode for Charges                 |
+      |1101 0000 187 |The expenses shall be borne by each party|
+    And I choose the payment currency
+      |Currency|
+      |SGD     |
+    When I enter the payee information
+      |Payee's Account Number|Payee's Name|
+      |432412321231          |lucky       |
+#    When I click on the receiving bank drop down box
+    When I choose the receiving bank
+      |Beneficiary Bank|
+      |DBSSSGS0VEC     |
+    When I choose the recipient country
+      |Payee's Address |Payee's Country|Comments For Payee|
+      |countries       |UNITED STATES  |ok                |
+    When I choose the nature of payment
+      |Purpose of Transfer|
+      |Commission         |
+    When I choose to submit the transfer information
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+
+
+          #多币种账户 新币+美元
+  Scenario:openAccount Current Account MCA_SGD_USD
+    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|202144852M |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+#    Then get Organisation ID
+    When I close driver

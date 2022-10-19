@@ -1,12 +1,42 @@
-2022-8-30 16:20:56:500
-ChannelReferenceID:220830000000026
-ChannelDebitAccountName:EMBASSY OF ITALY
+2022-9-14 14:12:40:769
+ChannelReferenceID:220914000000028
+ChannelDebitAccountName:FASSLER GOURMET PTE LTD
 ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11010000179
-ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:EMBASSY OF ITALY
-ChannelCreditAccountCurrency:SGD
-ChannelCreditAccountNumber:11010000330
-ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelTransactionAmount:830.37
-ChannelPurposeOfTransfer:Business Expenses
+ChannelDebitAccountNumber:11010000373
+ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
+ChannelDetailPayeeName:lucky
+ChannelDetailAccountCurrency:USD
+ChannelDetailPayeeAccountNum:667812798
+ChannelDetailExchangeRate:USD 1 ≈ SGD 1.3627
+ChannelDetailTransactionAmount:914.52
+ChannelDetailBeneficiaryBankBIC:DBSSSGS0XXX
+ChannelDetailPayeeAddress:countries
+ChannelDetailEstimatedProcessingFee:15.00
+ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
+ChannelDetailPurposeOfTransfer:Commission
+2022-9-14 14:15:43:640
+ID:220914000000028
+TransactionReference:PI2225703K2FHKYG
+t24FtNumber:SGL22257KCKKJCKC
+getTransactionReferenceNum:SGL22257KCKKJCKC
+getSenderReferenceNum:PI2225703K2FHKYG
+getTransactionCurrency:USD
+getInstructedCurrency:SGD
+getTransactionAmount:671.11
+getInstructedAmount:914.52
+getChargeOption:SHA
+getDebitAccountNum:11010000373
+getCreditAccountNum:15000000242
+getDebitAccountCurrency:SGD
+getCreditAccountCurrency:USD
+getDebitAmount:914.52
+getCreditAmount:671.11
+getDebitCustomerRate:1.3627
+getDebitTreasuryRate:1.3617
+getOrderingAccount:11010000373
+getBeneficiaryAccount:667812798
+getOrderingName:FASSLER GOURMET PTE LTD
+getBeneficiaryName:lucky
+getOrderingAddress:Singpore
+getBeneficiaryAddress:countries
+getOrderingTown:SG

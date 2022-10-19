@@ -12,8 +12,14 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"header-top-right\"]//span[2]")
     public WebElementFacade clickOpenAccount;
 
-    @FindBy(xpath = "//div[@class='login_tips']/following-sibling::div[1]/div")
+    @FindBy(xpath = "//div[contains(text(),'Start from Scratch')]")
     public WebElementFacade clickNewUser;
+
+    @FindBy(xpath = "//div[contains(text(),'Start a new application')]")
+    public WebElementFacade clickStartANewApplication;
+
+    @FindBy(xpath = "//div[contains(text(),'information myself')]")
+    public WebElementFacade clickInformationMyself;
 
     @FindBy(xpath = "//div[@class='link-btn']")
     public WebElementFacade secondTitle;
@@ -353,6 +359,9 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//div[@class=\"el-col el-col-12\"]//div[@class=\"ui-button primary common out-height\"]/div")
     public WebElementFacade clickLetContinue;
+
+    @FindBy(xpath = "//label[@for='acraModelConsFlag']/following-sibling::div//span[text()='Yes']")
+    public WebElementFacade clickModelConstitution;
 
     @FindBy(xpath = "//label[@for=\"contactPersonNm\"]/following-sibling::div//div//input")
     public WebElementFacade inputContactPersonNm;

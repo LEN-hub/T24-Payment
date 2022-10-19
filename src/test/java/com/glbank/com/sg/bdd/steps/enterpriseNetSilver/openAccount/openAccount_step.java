@@ -44,6 +44,11 @@ public class openAccount_step extends ScenarioSteps {
         openAccount_page.secondTitle.click();
     }
 
+    public void joinOpenAccount(){
+        openAccount_page.clickStartANewApplication.click();
+        openAccount_page.clickInformationMyself.click();
+    }
+
     public void clickOpenNewAccount() {
         openAccount_page.clickOpenAccount.click();
         openAccount_page.clickNewUser.click();
@@ -429,8 +434,10 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         openAccount_page.clickNonprofitFlag.click();
         openAccount_page.clickNext2OnProvideEssentialInformationPage.click();
         bddUtil.sleep(2);
+        openAccount_page.clickModelConstitution.click();
         bddUtil.scrollWindowToElement(openAccount_page.clickLetContinue).click();
         bddUtil.sleep(2);
+        openAccount_page.clickLetContinue.click();
     }
 
 //    在线开户新流程

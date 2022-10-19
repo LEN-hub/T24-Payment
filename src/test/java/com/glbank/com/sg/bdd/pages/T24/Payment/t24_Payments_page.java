@@ -263,6 +263,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//table[@id='datadisplay']//tr/td[1]//img")
     public List<WebElementFacade> detailInformation;
 
+    @FindBy(xpath = "//table[@class='enqfooter']/following-sibling::div//tr//span/following-sibling::span")
+    public List<WebElementFacade> sumPage;
+
     @FindBy(xpath = "//a[@title='Next Page']/img")
     public WebElementFacade getClickNextPage;
 
@@ -277,6 +280,15 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//img[@title='Commit the deal']")
     public WebElementFacade commitTheDeal;
+
+    @FindBy(xpath = "//span[text()=\"Counterparty's SSI.1\"]")
+    public WebElementFacade clickErrorMessage;
+
+    @FindBy(xpath = "//label[@for=\"fieldName:CPARTY.CORR.NO:1\"]/parent::td/following-sibling::td[2]/a[1]/img")
+    public WebElementFacade clickDownBox;
+
+    @FindBy(xpath = "//tr[@id='rowHeader']/following-sibling::tr[1]")
+    public WebElementFacade selectData;
 
     @FindBy(xpath = "//a[text()='Accept Overrides']")
     public WebElementFacade clickAcceptOverrides;

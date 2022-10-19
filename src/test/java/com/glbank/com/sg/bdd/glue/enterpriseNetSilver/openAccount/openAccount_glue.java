@@ -56,7 +56,7 @@ public class openAccount_glue {
 
     @When("^click open Account page$")
     public void clickOpenAccountPage(){
-        openAccount_step.clickOpenAccount();
+        openAccount_step.joinOpenAccount();
     }
 
     @When("^click open Account New page$")

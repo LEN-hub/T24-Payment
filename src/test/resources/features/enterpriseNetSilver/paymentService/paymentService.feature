@@ -2,120 +2,109 @@
 Feature: receipt and payment service
 
   Background:
-    Given logon second "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
   @text99901
 #本人互转
    #USD->SGD
   Scenario:I have successfully changed us dollars into Singapore dollars
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount  |
-      |1101 0000 489   |1101 0000 438|88.12   |
+      |From Account  |To Account  |
+      |1101 0000 489   |1101 0000 438|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
-    Then My account has been transferred successfully
+    Then My account has been transferred successfully To Local Payment
+
 
   @text99902
   #SGD->USD
   Scenario:I have successfully transferred from Singapore currency to US dollar
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount  |
-      |1101 0000 438   |1101 0000 489|92.71   |
+      |From Account  |To Account  |
+      |1101 0000 438   |1101 0000 489|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
-    Then My account has been transferred successfully
+    Then My account has been transferred successfully To Local Payment
+
 
       #SGD->SGD
   Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount  |
-      |1101 0000 438   |1101 0000 470|18.41   |
+      |From Account  |To Account  |
+      |1101 0000 438   |1101 0000 470|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
+
 
 
     #USD->USD
   Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow
     Given logon second "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
-      |rollOutAccount  |intoAccount  |amount |
-      |1101 0001 345   |1101 0000 187|77.12  |
+      |From Account  |To Account  |
+      |1101 0001 345   |1101 0000 187|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
+
 
     #境内转账-行内转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
     Given logon second "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0000 179      |
+      |Payee's Bank |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
+      |UOB          |TSC1643346550706|11010003437           |Business Expenses   |1101 0000 179 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
     When I click Next to go to the verification page
     When If the transfer failure window pops up I will click the continue button
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
     Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+    Then I will compare all the data on same Currency Payment
+
 
         #境内转账-行内转账时间选择每周一(SGD->USD)
   Scenario:Transfer time within the line is selected every Monday(SGD->USD)
     When I fill in the transfer information of domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0000 179      |
+      |Payee's Bank |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
+      |DBS          |TSC1643356259982|11010003720           |Business Expenses   |1101 0000 179 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
     When I click Next to go to the verification page
     When If the transfer failure window pops up I will click the continue button
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
     Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+    Then I will compare all the data on same Currency Payment
 
       #境内转账-跨行转账时间选择每周一(SGD->SGD)
   Scenario:In-line transfer with in the line is selected every Monday(SGD->SGD)
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0000 179      |
+      |Payee's Bank |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
+      |DBS          |TSC1643346550706|11010003437           |Business Expenses   |1101 0000 179 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
     When I click Next to go to the verification page
     When If the transfer failure window pops up I will click the continue button
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
     Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+    Then I will compare all the data on same Currency Payment
 
       #境内转账-跨行转账时间选择每周一(SGD->USD)
   Scenario:In-line transfer time within the line is selected every Monday(SGD->USD)
     When I fill in the transfer information of overseas domestic transfer bank
-      |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-      |Green Link Digital Bank Pte. Ltd|TSC1643356259982|11010003720      |0.1              |Business Expenses|1101 0000 179      |
+      |Payee's Bank |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
+      |UOB          |TSC1643356259982|11010003720           |Business Expenses   |1101 0000 179 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
     When I click Next to go to the verification page
     When If the transfer failure window pops up I will click the continue button
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
     Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer amount  |transfer purpose |
-      |TSC1643356259982|11010003720      |0.10             |Business Expenses|
+    Then I will compare all the data on same Currency Payment
 
 
 #境外转账
@@ -123,127 +112,119 @@ Feature: receipt and payment service
   Scenario:Positive process of overseas transfer(USD--USD)
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |selectAccount|payeeCurrency|enterAmount|expense                                  |
-      |1102 0006 552|USD          |50         |The expenses shall be borne by each party|
+      |Account Number|Payment Mode for Charges                 |
+      |1102 0006 552 |The expenses shall be borne by each party|
     And I choose the payment currency
-      |selectAccBth|
+      |Currency   |
       |USD        |
     When I enter the payee information
-      |sendPaymentAccount|namePayee|
-      |11020009098       |lucky    |
-    When I click on the receiving bank drop down box
+      |Payee's Account Number|Payee's Name|
+      |667812798             |lucky       |
+#    When I click on the receiving bank drop down box
     When I choose the receiving bank
-      |collectingBank|
-      |CITIBANK USA  |
+      |Beneficiary Bank|
+      |DBS SINGAPORE   |
     When I choose the recipient country
-      |payeeAdd |payeeCountries|remittancePostscriptContent|
-      |countries|UNITED STATES |ok                         |
+      |Payee's Address |Payee's Country|Comments For Payee|
+      |countries       |UNITED STATES  |ok                |
     When I choose the nature of payment
-      |selectPaymentAttributeCd|
-      |Commission              |
+      |Purpose of Transfer|
+      |Commission         |
     When I choose to submit the transfer information
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Then I will compare all the data on FX Payment
-#    Then I checked the details on the successful overseas transfer details page
-#      |selectAccount|sendPaymentAccount|
-#      |11020006552  |11020009098       |
+    Then I will compare all the data on FX Payment MX Message
 
       #境外转账
   @overseasTransfer
   Scenario:Positive process of overseas transfer(SGD--USD)
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |selectAccount|payeeCurrency|enterAmount|expense                                  |
-      |1101 0000 438|SGD          |87.09         |The expenses shall be borne by each party|
+      |Account Number|Payment Mode for Charges                 |
+      |1101 0000 438 |The expenses shall be borne by each party|
     And I choose the payment currency
-      |selectAccBth|
-      |USD         |
+      |Currency|
+      |USD     |
     When I enter the payee information
-      |sendPaymentAccount|namePayee|
-      |11010000489       |lucky    |
-    When I click on the receiving bank drop down box
+      |Payee's Account Number|Payee's Name|
+      |667812798             |lucky       |
+#    When I click on the receiving bank drop down box
     When I choose the receiving bank
-      |collectingBank|
-      |GL            |
+      |Beneficiary Bank|
+      |DBS SINGAPORE   |
     When I choose the recipient country
-      |payeeAdd |payeeCountries|remittancePostscriptContent|
-      |countries|UNITED STATES |ok                         |
+      |Payee's Address |Payee's Country|Comments For Payee|
+      |countries       |UNITED STATES  |ok                |
     When I choose the nature of payment
-      |selectPaymentAttributeCd|
-      |Commission              |
+      |Purpose of Transfer|
+      |Commission         |
     When I choose to submit the transfer information
-#    When Vkey authorization for Payment transactions in the SIT environment
-#    Then I will compare all the data on FX Payment
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment
-#    Then I checked the details on the successful overseas transfer details page
-#      |selectAccount|sendPaymentAccount|
-#      |11020006552  |11020009098       |
+
 
   @overseasTransfer01
   Scenario:Positive process of overseas transfer(USD--SGD)
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |selectAccount|payeeCurrency|enterAmount|expense                                  |
-      |1102 0006 552|USD          |60         |The expenses shall be borne by each party|
+      |Account Number|Payment Mode for Charges                 |
+      |1102 0006 552 |The expenses shall be borne by each party|
     And I choose the payment currency
-      |selectAccBth|
-      |SGD         |
+      |Currency|
+      |SGD     |
     When I enter the payee information
-      |sendPaymentAccount|namePayee|
-      |110200083204      |luckys   |
-    When I click on the receiving bank drop down box
-    When I click the recipient bank is Singapore
+      |Payee's Account Number|Payee's Name|
+      |667812798             |lucky       |
+    When I choose the receiving bank
+      |Beneficiary Bank|
+      |DBS SINGAPORE   |
     When I choose the recipient country
-      |payeeAdd |payeeCountries|remittancePostscriptContent|
-      |countries|UNITED STATES |ok                         |
+      |Payee's Address |Payee's Country|Comments For Payee|
+      |countries       |UNITED STATES  |ok                |
     When I choose the nature of payment
-      |selectPaymentAttributeCd|
-      |Commission              |
-    When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I checked the details on the successful overseas transfer details page
-      |selectAccount|sendPaymentAccount|
-      |11020006552  |110200083204      |
-
-  @overseasTransfer05
-  Scenario:Positive process of overseas transfer(SGD--SGD)
-    When I click on overseas transfer payment and select the account
-    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |selectAccount|payeeCurrency|enterAmount|expense  |
-      |1102 0006 552|SGD         |50         |The expenses shall be borne by each party|
-    And I choose the payment currency
-      |selectAccBth|
-      |SGD         |
-    When I enter the payee information
-      |sendPaymentAccount|namePayee|
-      |110200083204      |luckys   |
-    When I click on the receiving bank drop down box
-    When I click the recipient bank is Singapore
-    When I choose the recipient country
-      |payeeAdd |payeeCountries|remittancePostscriptContent|
-      |countries|UNITED STATES |ok                         |
-    When I choose the nature of payment
-      |selectPaymentAttributeCd|
-      |Commission              |
+      |Purpose of Transfer|
+      |Commission         |
     When I choose to submit the transfer information
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment
 
+  @overseasTransfer05
+  Scenario:Positive process of overseas transfer(SGD--SGD)
+    When I click on overseas transfer payment and select the account
+    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+      |Account Number|Payment Mode for Charges                 |
+      |1102 0006 552 |The expenses shall be borne by each party|
+    And I choose the payment currency
+      |Currency|
+      |SGD     |
+    When I enter the payee information
+      |Payee's Account Number|Payee's Name|
+      |667812798             |lucky       |
+    When I choose the receiving bank
+      |Beneficiary Bank|
+      |DBS SINGAPORE   |
+    When I choose the recipient country
+      |Payee's Address |Payee's Country|Comments For Payee|
+      |countries       |UNITED STATES  |ok                |
+    When I choose the nature of payment
+      |Purpose of Transfer|
+      |Commission         |
+    When I choose to submit the transfer information
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    Then I will compare all the data on FX Payment MX Message
 #@test00021
 #  #SGD->HKD
 #  Scenario:I have successfully transferred from one currency to another (Singapore dollar to Hong Kong dollar)
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 179   |1101 0000 055|10.0   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -254,7 +235,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully transferred from Singapore currency to Euro
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 179   |1101 0000 063|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -266,7 +247,7 @@ Feature: receipt and payment service
 #  Scenario:Oneself mutual turn with currency mutual turn (CNY) trade flow
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 039   |1101 0000 195|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -276,7 +257,7 @@ Feature: receipt and payment service
 #  Scenario:I mutual transfer with currency mutual transfer (euro) transaction process
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |    |1101 0000 063|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -286,7 +267,7 @@ Feature: receipt and payment service
 #  Scenario:I mutual transfer with currency mutual transfer (HKD) transaction process
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 209   |1101 0000 055|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -296,7 +277,7 @@ Feature: receipt and payment service
 #  Scenario:I mutual transfer not the same currency mutual transfer (Singapore dollar to RMB) transfer transaction successfully
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 179   |1101 0000 039|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -307,7 +288,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed Hong Kong dollars into Singapore dollars
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 209   |1101 0000 179|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -317,7 +298,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully exchanged Hong Kong dollars for euros
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount   |
+#      |From Account  |To Account  |amount   |
 #      |1101 0000 209   |1101 0000 063|10.1     |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -327,7 +308,7 @@ Feature: receipt and payment service
 #  Scenario:I have changed Hong Kong dollars into US dollars successfully
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount   |
+#      |From Account  |To Account  |amount   |
 #      |1101 0000 209   |1101 0000 187|10.1     |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -337,7 +318,7 @@ Feature: receipt and payment service
 #  Scenario:I have changed Hong Kong dollars into CNY successfully
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 209   |1101 0000 195|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -347,7 +328,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed dollars into CNY
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 047   |1101 0000 195|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -357,7 +338,7 @@ Feature: receipt and payment service
 #  Scenario:I have succeeded in exchanging dollars for euros
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 047   |1101 0000 063|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -367,7 +348,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed us dollars into Hong Kong dollars
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 047   |1101 0000 055|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -377,7 +358,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully converted Euro dollars into CNY
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount |
+#      |From Account  |To Account  |amount |
 #      |1101 0000 217   |1101 0000 195|10.1   |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -387,7 +368,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed Euro dollars into Hong Kong dollars
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 217   |1101 0000 055|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -397,7 +378,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed Euro dollars into Singapore dollars
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 217   |1101 0000 322|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -407,7 +388,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully exchanged euro dollars for US dollars
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 217   |1101 0000 187|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -417,7 +398,7 @@ Feature: receipt and payment service
 #  Scenario:I have changed RMB into Hong Kong dollars successfully
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 039   |1101 0000 055|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -427,7 +408,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed RMB into US dollars
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 039   |1101 0000 187|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -437,7 +418,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed RMB into Singapore currency
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 039   |1101 0000 322|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
@@ -447,7 +428,7 @@ Feature: receipt and payment service
 #  Scenario:I have successfully changed CNY into euros
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I will complete the inter-bank transfer on the page
-#      |rollOutAccount  |intoAccount  |amount|
+#      |From Account  |To Account  |amount|
 #      |1101 0000 039   |1101 0000 063|10.1  |
 #    Then I check to see if the page jumps
 #    When I verify the page information and click the Next button
