@@ -369,6 +369,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void companyPageInformation(String value){
+        bddUtil.sleep(3);
         customers_page.dateInputBox.sendKeys(bddUtil.lastDate());//公司创建日期 要小于核心日期。
         bddUtil.sleep(2);
         customers_page.annualReturnSizeClick.click();
@@ -560,8 +561,8 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.shareholder1EnterEmail.sendKeys(value + "@c0c.fun");
         customers_page.shareholder1CEnterCity.sendKeys("beijing");
         customers_page.shareholder1EnterPostalCode.sendKeys("010");
-        customers_page.shareholder1ShareTypeDrowBox.click();
-        bddUtil.scrollWindowToElement(customers_page.shareholder1SelectShareType).click();
+//        customers_page.shareholder1ShareTypeDrowBox.click();
+//        bddUtil.scrollWindowToElement(customers_page.shareholder1SelectShareType).click();
         customers_page.shareholder1AllocationDropDown.click();
         List<WebElementFacade> allocation = customers_page.shareholder1AllocationCurrency;
         for (int i = 0; i < allocation.size(); i++) {
@@ -591,8 +592,8 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.shareholder2EnterEmail.sendKeys(value + "@c0c.fun");
         customers_page.shareholder2CEnterCity.sendKeys("beijing");
         customers_page.shareholder2EnterPostalCode.sendKeys("010");
-        customers_page.shareholder2ShareTypeDrowBox.click();
-        bddUtil.scrollWindowToElement(customers_page.shareholder2SelectShareType).click();
+//        customers_page.shareholder2ShareTypeDrowBox.click();
+//        bddUtil.scrollWindowToElement(customers_page.shareholder2SelectShareType).click();
         customers_page.shareholder2AllocationDropDown.click();
         List<WebElementFacade> allocation2 = customers_page.shareholder1AllocationCurrency;
         for (int i = 0; i < allocation2.size(); i++) {
@@ -622,16 +623,17 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.beneficialCertificationNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.beneficialTimePermanent.click();
         customers_page.beneficialDateBirth.sendKeys("2024-09-10");
-        customers_page.beneficialShareType.click();
-        customers_page.shareholder2SelectShareType.click();
+//        customers_page.beneficialShareType.click();
+//        customers_page.shareholder2SelectShareType.click();
         customers_page.beneficialAllocation.click();
-        List<WebElementFacade> allocation = customers_page.shareholder1AllocationCurrency;
-        for (int i = 0; i < allocation.size(); i++) {
-            if (allocation.get(i).getText().equals(currency)){
-                allocation.get(i).click();
-                break;
-            }
-        }
+        bddUtil.getDriver().findElement(By.xpath("//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span[text()='"+currency+"']")).click();
+//        List<WebElementFacade> allocation = customers_page.shareholder1AllocationCurrency;
+//        for (int i = 0; i < allocation.size(); i++) {
+//            if (allocation.get(i).getText().equals(currency)){
+//                allocation.get(i).click();
+//                break;
+//            }
+//        }
         customers_page.beneficialFundScale.sendKeys("20");
         customers_page.beneficialCountry.sendKeys("China");
         customers_page.selectChina.click();

@@ -78,9 +78,9 @@ Feature: tube By Inputting
 #      Then Verify whether the Confirm page is displayed
       When Click the Submit button on the Confirm page
       When End the current browser process
-      Given logon "environments_1" on tube by inputting system
-      When Approval in the supply chain system
-      Then Switch To the Assign To Me page and perform the corresponding operations
+#      Given logon "environments_1" on tube by inputting system
+#      When Approval in the supply chain system
+#      Then Switch To the Assign To Me page and perform the corresponding operations
 
 
   @text123456
@@ -138,6 +138,6 @@ Feature: tube By Inputting
     Then Verify whether the Confirm page is displayed
     When Click the Submit button on the Confirm page
     When End the current browser process
-    Given logon "environments_1" on tube by inputting system
-    When Approval in the supply chain system
-    Then Switch To the Assign To Me page and perform the corresponding operations
+#    Given logon "environments_1" on tube by inputting system
+#    When Approval in the supply chain system
+#    Then Switch To the Assign To Me page and perform the corresponding operations
