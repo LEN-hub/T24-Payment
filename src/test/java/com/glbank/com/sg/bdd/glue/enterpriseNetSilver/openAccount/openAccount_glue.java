@@ -557,4 +557,19 @@ public class openAccount_glue {
     public void iEnterTheBackTubeForAuthorization() {
         openAccount_step.Authorize();
     }
+
+    @When("^I enter the myinfo page and complete Step 1 information input$")
+    public void iEnterTheMyinfoPageAndCompleteStepInformationInput() {
+        openAccount_step.trackMyinfoStep1();
+    }
+
+    @When("^I open the myinfo Mock and get the bezel information$")
+    public void iOpenTheMyinfoMockAndGetTheBezelInformation() {
+        openAccount_step.openMyinfoDataUrl();
+    }
+
+    @When("^I enter information in Step 3 and jump to the next step$")
+    public void iEnterInformationInStepAndJumpToTheNextStep() {
+        openAccount_step.step3Information();
+    }
 }
