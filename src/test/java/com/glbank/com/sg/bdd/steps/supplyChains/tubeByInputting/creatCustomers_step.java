@@ -111,10 +111,13 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void inputBy(String inputBy){
+        bddUtil.sleep(2);
         customers_page.inputBy.click();
         List<WebElementFacade> inputby = customers_page.kycModeTitleList;
         for (int i = 0; i < inputby.size(); i++){
+            bddUtil.sleep(1);
             if (inputby.get(i).getText().equals(inputBy)){
+                bddUtil.sleep(1);
                 inputby.get(i).click();
                 break;
             }
@@ -243,7 +246,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void clickSendEmailBtn(){
-//        bddUtil.sleep(5);
+        bddUtil.sleep(3);
         customers_page.emailIcon.isVisible();
         bddUtil.sleep(1);
         customers_page.emailIcon.click();
@@ -342,6 +345,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void getClickCheckBox(){
+        bddUtil.sleep(3);
         if (customers_page.serviceAgreementTitle.isVisible()){
 //            bddUtil.scrollWindowToElement(customers_page.clickCheckBox);
 //            customers_page.clickCheckBox.click();
@@ -353,8 +357,11 @@ public class creatCustomers_step extends ScenarioSteps {
                 customers_page.selectThirdCheckBox.click();
                 customers_page.selectFourCheckBox.click();
             }
+            bddUtil.sleep(4);
             customers_page.clickAgreeBtn.click();
         }
+        bddUtil.sleep(6);
+        customers_page.inputManually.click();
     }
 
     @Step
@@ -393,19 +400,21 @@ public class creatCustomers_step extends ScenarioSteps {
         getDriver().findElement(By.xpath("//label[@for='A0010']//following-sibling::div//input")).sendKeys(fileAddress);
 //        bddUtil.fileUpload();
         bddUtil.sleep(5);
-        customers_page.countryOfTaxation.sendKeys("China");
-        customers_page.selectChina.click();
+        customers_page.countryOfTaxation.sendKeys("singapore");
+        bddUtil.sleep(1);
+        customers_page.selectCountry.click();
 //        bddUtil.scrollWindowToElement(customers_page.registeredAddressTitle);
         customers_page.registeredAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         bddUtil.scrollWindowToElement(customers_page.sectorTitle);
-        customers_page.businessCountry.sendKeys("China");
-        customers_page.selectChina.click();
+        customers_page.businessCountry.sendKeys("singapore");
+        customers_page.selectCountry.click();
         customers_page.businessAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.industry.click();
         bddUtil.scrollWindowToElement(customers_page.selectIndustry).click();
         customers_page.legalStructure.click();
         bddUtil.scrollWindowToElement(customers_page.selectLegalStructure).click();
         customers_page.isNonProfitYes.click();
+        bddUtil.sleep(3);
         customers_page.nextBtnIndustry.click();
     }
 
@@ -475,10 +484,12 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.enterIdNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.adminIDExpiryDate.click();
         customers_page.dateOfBirth.sendKeys("2024-09-10");
-        customers_page.enterNationality.sendKeys("China");
-        customers_page.selectChina.click();
-        customers_page.countryOfResidence.sendKeys("China");
-        customers_page.selectChina.click();
+        customers_page.enterNationality.sendKeys("singapore");
+        bddUtil.sleep(1);
+        customers_page.selectCountry.click();
+        customers_page.countryOfResidence.sendKeys("singapore");
+        bddUtil.sleep(1);
+        customers_page.selectCountry.click();
         customers_page.enterCity.sendKeys("beijing");
         customers_page.enterPostalCode.sendKeys("010");
         customers_page.selectDirector.click();
@@ -492,10 +503,11 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.enterIdNo2.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.adminIDExpiryDate2.click();
         customers_page.dateOfBirth2.sendKeys("2024-09-10");
-        customers_page.enterNationality2.sendKeys("China");
-        customers_page.selectChina.click();
-        customers_page.countryOfResidence2.sendKeys("China");
-        customers_page.selectChina.click();
+        customers_page.enterNationality2.sendKeys("singapore");
+        customers_page.selectCountry.click();
+        customers_page.countryOfResidence2.sendKeys("singapore");
+        bddUtil.sleep(1);
+        customers_page.selectCountry.click();
         customers_page.enterCity2.sendKeys("beijing");
         customers_page.enterPostalCode2.sendKeys("010");
         customers_page.selectDirector2.click();
@@ -524,13 +536,13 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.director1IdNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.director1IdExpiryDate.click();
         customers_page.director1DateOfBirth.sendKeys("2024-09-10");
-        customers_page.director1NationalityDrop.sendKeys("China");
-        customers_page.selectChina.click();
+        customers_page.director1NationalityDrop.sendKeys("singapore");
+        customers_page.selectCountry.click();
         customers_page.director1City.sendKeys("beijing");
         customers_page.director1PostalCode.sendKeys("010");
         customers_page.director1ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-        customers_page.director1CountryOfResidence.sendKeys("China");
-        customers_page.selectChina.click();
+        customers_page.director1CountryOfResidence.sendKeys("singapore");
+        customers_page.selectCountry.click();
         customers_page.director1FirstPhoneNum.sendKeys("+86");
         customers_page.director1SecondPhoneNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.director1EmailAddress.sendKeys(value + "@c0c.fun");
@@ -550,11 +562,11 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.shareholder1IdNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.shareholder1NoExpiry.click();
         customers_page.shareholder1DateOfBirth.sendKeys("2024-09-10");
-        customers_page.shareholder1Nationality.sendKeys("China");
-        customers_page.selectChina.click();
+        customers_page.shareholder1Nationality.sendKeys("singapore");
+        customers_page.selectCountry.click();
         customers_page.shareholder1ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-        customers_page.shareholder1CountryOfResidence.sendKeys("China");
-        customers_page.selectChina.click();
+        customers_page.shareholder1CountryOfResidence.sendKeys("singapore");
+        customers_page.selectCountry.click();
         customers_page.shareholder1NoExpiry.click();
         customers_page.shareholder1FirstPhoneNum.sendKeys("+86");
         customers_page.shareholder1SecondPhoneNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -572,7 +584,7 @@ public class creatCustomers_step extends ScenarioSteps {
             }
         }
         customers_page.shareholder1AllocationSecondEnter.sendKeys("10000");
-        customers_page.shareholder1Shareholding.sendKeys("20");
+        customers_page.shareholder1Shareholding.sendKeys("26");
         customers_page.shareholder2FullName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.shareholder2PinyinName.sendKeys("zhangsan");
         customers_page.shareholder2Alias.sendKeys("China");
@@ -582,14 +594,14 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.shareholder2IdNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.shareholder2IDExpiryDate.click();
         customers_page.shareholder2DateOfBirth.sendKeys("2024-09-10");
-        customers_page.shareholder2Nationality.sendKeys("China");
-        customers_page.selectChina.click();
+        customers_page.shareholder2Nationality.sendKeys("singapore");
+        customers_page.selectCountry.click();
         customers_page.shareholder2ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-        customers_page.shareholder2CountryOfResidence.sendKeys("China");
-        customers_page.selectChina.click();
+        customers_page.shareholder2CountryOfResidence.sendKeys("singapore");
+        customers_page.selectCountry.click();
         customers_page.shareholder2FirstPhoneNum.sendKeys("+86");
         customers_page.shareholder2SecondPhoneNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
-        customers_page.shareholder2EnterEmail.sendKeys(value + "@c0c.fun");
+        customers_page.shareholder2EnterEmail.sendKeys(value +"2"+ "@c0c.fun");
         customers_page.shareholder2CEnterCity.sendKeys("beijing");
         customers_page.shareholder2EnterPostalCode.sendKeys("010");
 //        customers_page.shareholder2ShareTypeDrowBox.click();
@@ -603,7 +615,7 @@ public class creatCustomers_step extends ScenarioSteps {
             }
         }
         customers_page.shareholder2AllocationSecondEnter.sendKeys("10000");
-        customers_page.shareholder2Shareholding.sendKeys("20");
+        customers_page.shareholder2Shareholding.sendKeys("26");
         customers_page.nextBtnIndustry.click();
     }
 
@@ -615,7 +627,8 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void fillInTheInformationOnTheBeneficialPage(String currency, String value){
         customers_page.beneficialFullName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-        customers_page.beneficialPinYinName.sendKeys("lisi");
+//        因为股份大于25，所以最终受益人信息不用填写。
+      /*  customers_page.beneficialPinYinName.sendKeys("lisi");
         customers_page.beneficialAlias.sendKeys("China");
         customers_page.beneficialPinYinAliasName.sendKeys("zhongguo");
         customers_page.beneficialCertificationType.click();
@@ -634,17 +647,17 @@ public class creatCustomers_step extends ScenarioSteps {
 //                break;
 //            }
 //        }
-        customers_page.beneficialFundScale.sendKeys("20");
-        customers_page.beneficialCountry.sendKeys("China");
-        customers_page.selectChina.click();
+        customers_page.beneficialFundScale.sendKeys("26");
+        customers_page.beneficialCountry.sendKeys("singapore");
+        customers_page.selectCountry.click();
         customers_page.beneficialCity.sendKeys("beijing");
-        customers_page.beneficialCountryOfResidence.sendKeys("China");
-        customers_page.selectChina.click();
+        customers_page.beneficialCountryOfResidence.sendKeys("singapore");
+        customers_page.selectCountry.click();
         customers_page.beneficialPostalCode.sendKeys("010");
         customers_page.beneficialResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.beneficialFirstPhoneNum.sendKeys("+86");
         customers_page.beneficialSecondPhoneNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
-        customers_page.beneficialEmail.sendKeys(value + "@c0c.fun");
+        customers_page.beneficialEmail.sendKeys(value + "@c0c.fun");*/
         customers_page.nextBtnIndustry.click();
     }
 
@@ -655,6 +668,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void enterTheAccountInformation(String value){
+        bddUtil.sleep(3);
         customers_page.account1Currency.click();
         List<WebElementFacade> selectCurrency = customers_page.selectCurrency;
         for (int i = 0; i < selectCurrency.size(); i++) {
@@ -666,6 +680,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickFirstAccountName.click();
         customers_page.account2Currency.click();
         List<WebElementFacade> select2Currency = customers_page.selectCurrency;
+        bddUtil.sleep(1);
         for (int i = 0; i < select2Currency.size(); i++) {
             if (select2Currency.get(i).getText().equals(value)){
                 select2Currency.get(i).click();
@@ -750,7 +765,9 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void assignToMePage(){
         customers_page.searchCompanyInput.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        bddUtil.sleep(1);
         customers_page.searchCheckBox.click();
+        bddUtil.sleep(3);
         bddUtil.clickByJS(customers_page.assignToMeButton);
     }
 

@@ -95,7 +95,7 @@ public class financingRequest_step extends ScenarioSteps {
             String msg = (String)map.get("msg");
             System.out.println("msg: " + msg);
         }
-        bddUtil.sleep(5);
+        bddUtil.sleep(10);
     }
 
     public void clickFinancingStatus(){

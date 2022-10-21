@@ -196,21 +196,24 @@ public class creditLimit_step extends ScenarioSteps {
     @Step
     public void loginEmailUrlTest(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
-        System.out.println("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");
+//        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
+        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
+//        System.out.println("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");
         //"+FileUtils.LastReadFileInput3("emailData")+");
     }
 
     @Step
     public void inputOtherData(String passWord,String CompanyID) {
-        bddUtil.sleep(30);
+        bddUtil.sleep(20);
         creditLimit_page.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
         creditLimit_page.GLDBEmailPassword.sendKeys(passWord);
         creditLimit_page.enterCompanyId.sendKeys(CompanyID);
         creditLimit_page.sendCodeBtn.click();
 //        bddUtil.switchToNewWindow();
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
+
+      /* 一次性邮箱地址换了。
+      webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
         bddUtil.sleep(5);
         bddUtil.switchToWindows();
 //        一次性邮箱需要验证。
@@ -222,9 +225,30 @@ public class creditLimit_step extends ScenarioSteps {
         creditLimit_page.clickRefreshBtn.click();
         bddUtil.sleep(1);
         creditLimit_page.thirdEmail.click();
+        String Vcode = creditLimit_page.emailVerificationCode.getText();*/
+
+//      新邮箱地址
+        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
+        bddUtil.switchToNewWindow();
+        creditLimit_page.selectEmailDropDown.click();
+        creditLimit_page.selectC0c.click();
+        creditLimit_page.changeSendEmail.clear();
+        creditLimit_page.changeSendEmail.sendKeys(FileUtils.LastReadFileInput3("emailData").substring(0,8));
+        creditLimit_page.clickRefresh.click();
+        List<WebElementFacade> selectEmail = creditLimit_page.emailSubject;
+        List<WebElementFacade> clickViewBtn = creditLimit_page.clickViewBtn;
+        for (int i = 0; i < selectEmail.size(); i++) {
+            if (selectEmail.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
+                clickViewBtn.get(i).click();
+                break;
+            }
+        }
+        bddUtil.sleep(1);
         String Vcode = creditLimit_page.emailVerificationCode.getText();
+        bddUtil.sleep(2);
         bddUtil.switchToWindows();
         creditLimit_page.inputSendCode.sendKeys(Vcode);
+        bddUtil.sleep(1);
         creditLimit_page.GLDBEmailLoginBtn.click();
 //        creditLimit_page.clickRefreshBtn.click();
 //        bddUtil.sleep(1);
@@ -247,9 +271,9 @@ public class creditLimit_step extends ScenarioSteps {
     public void clickEmail(){
         bddUtil.switchToNewWindow();
         bddUtil.sleep(40);//应该留40S
-        creditLimit_page.clickRefreshBtn.click();
+        creditLimit_page.clickRefresh.click();
         bddUtil.sleep(4);
-        creditLimit_page.agreement.get(0).click();
+        /*creditLimit_page.agreement.get(0).click();
         bddUtil.sleep(1);
         creditLimit_page.plainText.click();
         creditLimit_page.tokenLink.click();
@@ -271,13 +295,52 @@ public class creditLimit_step extends ScenarioSteps {
 //        bddUtil.scrollWindowToElement(creditLimit_page.inputToken).sendKeys(emailToken);
         getDriver().findElement(By.xpath("//div[@class='Verificationode_BoxChildIptChild']/div/form/input")).sendKeys(emailToken);
 //        creditLimit_page.otpToken.click();
-        bddUtil.sleep(5);
+        bddUtil.sleep(5);*/
+//        新邮箱
+        creditLimit_page.clickRefresh.click();
+        List<WebElementFacade> selectEmail = creditLimit_page.emailSubject;
+        List<WebElementFacade> clickViewBtn = creditLimit_page.clickViewBtn;
+        for (int i = 0; i < selectEmail.size(); i++) {
+            if (selectEmail.get(i).getText().equals("[GreenLinkDigitalBank]AccountOpening-DigitalSignCertifiedExtractofBoardResolution")){
+                clickViewBtn.get(i).click();
+                break;
+            }
+        }
+        creditLimit_page.DigitalSign.click();
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
+        bddUtil.switchToNewWindow();
+        creditLimit_page.selectEmailDropDown.click();
+        creditLimit_page.selectC0c.click();
+        creditLimit_page.changeSendEmail.clear();
+        creditLimit_page.changeSendEmail.sendKeys(FileUtils.LastReadFileInput3("emailData").substring(0,8));
+        bddUtil.sleep(2);
+        creditLimit_page.clickRefresh.click();
+        bddUtil.sleep(3);
+        creditLimit_page.clickRefresh.click();
+//        List<WebElementFacade> selectEmail1 = creditLimit_page.emailSubject;
+//        List<WebElementFacade> clickViewBtn1 = creditLimit_page.clickViewBtn;
+//        for (int i = 0; i < selectEmail1.size(); i++) {
+//            if (selectEmail1.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
+//                clickViewBtn1.get(i).click();
+//                break;
+//            }
+//        }
+        bddUtil.sleep(3);
+        creditLimit_page.clickViewBtn.get(0).click();
+        bddUtil.sleep(3);
+//        String emailToken = creditLimit_page.emailVerificationCode.getText();
+        String emailToken = getDriver().findElements(By.xpath("//div[@class='box_botweenTitleLeft']//h5//b")).get(2).getText();
+        bddUtil.sleep(2);
+        bddUtil.switchToWindows();
+        creditLimit_page.inputToken.sendKeys(emailToken);
+        bddUtil.sleep(4);
 
     }
 
     @Step
     public void toSign(){
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
         bddUtil.scrollWindowToElement(creditLimit_page.signHere).click();
         //div[@class='upload-demo']//div//input
 //        creditLimit_page.upLoadImg.sendKeys(fileAddress);
@@ -292,21 +355,25 @@ public class creditLimit_step extends ScenarioSteps {
     public void ToggleSecondEmail(){
         String twoEmail = FileUtils.LastReadFileInput3("emailData").substring(0,8)+"2";
         bddUtil.switchToWindows();
-        //        一次性邮箱需要验证。
+       /* //        一次性邮箱需要验证。
         if (creditLimit_page.find(By.xpath("//div[@id='main-message']/h1")).isVisible()){
             getDriver().findElement(By.xpath("//div[@class='nav-wrapper']/button[3]")).click();
             bddUtil.sleep(1);
             getDriver().findElement(By.xpath("//p[@id='final-paragraph']/a")).click();
-        }
-        bddUtil.find(By.xpath("//input[@name='name']")).sendKeys(twoEmail);
+        }*/
+        bddUtil.sleep(2);
+        creditLimit_page.selectEmailDropDown.click();
+        creditLimit_page.selectC0c.click();
+        creditLimit_page.changeSendEmail.clear();
+        bddUtil.find(By.xpath("//input[@placeholder=\"请输入邮箱账号\"]")).sendKeys(twoEmail);
         bddUtil.sleep(1);
-        bddUtil.find(By.xpath("//button[@type='submit']")).click();
+        creditLimit_page.clickRefresh.click();
         bddUtil.sleep(5);
     }
 
     @Step
     public void signTheSecondBR(){
-        creditLimit_page.clickRefreshBtn.click();
+       /* creditLimit_page.clickRefreshBtn.click();
         bddUtil.sleep(4);
         creditLimit_page.agreement.get(0).click();
         bddUtil.sleep(1);
@@ -330,7 +397,48 @@ public class creditLimit_step extends ScenarioSteps {
 //        bddUtil.scrollWindowToElement(creditLimit_page.inputToken).sendKeys(emailToken);
         getDriver().findElement(By.xpath("//div[@class='Verificationode_BoxChildIptChild']/div/form/input")).sendKeys(emailToken);
 //        creditLimit_page.otpToken.click();
-        bddUtil.sleep(5);
+        bddUtil.sleep(5);*/
+        creditLimit_page.clickRefresh.click();
+        List<WebElementFacade> selectEmail = creditLimit_page.emailSubject;
+        List<WebElementFacade> clickViewBtn = creditLimit_page.clickViewBtn;
+        for (int i = 0; i < selectEmail.size(); i++) {
+            if (selectEmail.get(i).getText().equals("[GreenLinkDigitalBank]AccountOpening-DigitalSignCertifiedExtractofBoardResolution")){
+                clickViewBtn.get(i).click();
+                break;
+            }
+        }
+        creditLimit_page.DigitalSign.click();
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
+        bddUtil.switchToNewWindow();
+        creditLimit_page.selectEmailDropDown.click();
+        creditLimit_page.selectC0c.click();
+        creditLimit_page.changeSendEmail.clear();
+        creditLimit_page.changeSendEmail.sendKeys(FileUtils.LastReadFileInput3("emailData").substring(0,8)+"2");
+        bddUtil.sleep(2);
+        creditLimit_page.clickRefresh.click();
+//        List<WebElementFacade> selectEmail1 = creditLimit_page.emailSubject;
+//        List<WebElementFacade> clickViewBtn1 = creditLimit_page.clickViewBtn;
+//        for (int i = 0; i < selectEmail1.size(); i++) {
+//            if (selectEmail1.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
+//                clickViewBtn1.get(i).click();
+//                break;
+//            }
+//        }
+        bddUtil.sleep(3);
+        creditLimit_page.clickViewBtn.get(0).click();
+        bddUtil.sleep(3);
+//        String emailToken = creditLimit_page.emailVerificationCode.getText();
+        String emailToken = getDriver().findElements(By.xpath("//div[@class='box_botweenTitleLeft']//h5//b")).get(2).getText();
+        bddUtil.sleep(2);
+        bddUtil.switchToWindows();
+        creditLimit_page.inputToken.sendKeys(emailToken);
+        bddUtil.sleep(4);
+//        bddUtil.scrollWindowToElement(creditLimit_page.inputToken).sendKeys(emailToken);
+//        bddUtil.sleep(1);
+//        getDriver().findElement(By.xpath("//div[@class='Verificationode_BoxChildIptChild']/div/form/input")).sendKeys(emailToken);
+//        creditLimit_page.otpToken.click();
+//        bddUtil.sleep(5);
     }
 
     @Step

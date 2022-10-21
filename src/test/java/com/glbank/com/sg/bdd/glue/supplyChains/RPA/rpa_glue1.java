@@ -49,7 +49,7 @@ public class rpa_glue1 {
     public void jumpToTheSupplierPortalToCheckTheRPA() {
         rpaStep.jumpToSupplierPortal();
         rpaStep.openEmailUrlTest();
-        rpaStep.errorEmailLink();
+//        rpaStep.errorEmailLink();
         bddUtil.switchToWindows();
         rpaStep.loginServiceAgreementWindow();
     }
