@@ -1,5 +1,5 @@
 @openAccount
-Feature: openAccount
+Feature: openAccount_track2
   @testcode123
     #正常开户流程——单币种账户——新币
   Scenario:openAccount Singapore enterprise
