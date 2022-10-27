@@ -199,7 +199,7 @@ public class MobileConfig {
 
     public String transactionCode() throws InterruptedException {
         driver.findElementById("btn_tc").click();
-        Thread.sleep(3000);
+        bddUtil.sleep(5);
         driver.findElementByXPath("//android.widget.LinearLayout[starts-with(@resource-id,'com.glbank.mobileapp:id/giv_vkey_pin')]/child::android.widget.LinearLayout[1]/child::android.widget.EditText").sendKeys("1");
         driver.findElementByXPath("//android.widget.LinearLayout[starts-with(@resource-id,'com.glbank.mobileapp:id/giv_vkey_pin')]/child::android.widget.LinearLayout[2]/child::android.widget.EditText").sendKeys("4");
         driver.findElementByXPath("//android.widget.LinearLayout[starts-with(@resource-id,'com.glbank.mobileapp:id/giv_vkey_pin')]/child::android.widget.LinearLayout[3]/child::android.widget.EditText").sendKeys("7");

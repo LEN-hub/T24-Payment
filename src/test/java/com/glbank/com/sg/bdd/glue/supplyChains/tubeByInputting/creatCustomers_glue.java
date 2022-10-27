@@ -365,7 +365,7 @@ public class creatCustomers_glue {
     }
 
 //    @After
-//    public void testCase(){
+//    public void testCase.feature(){
 //        System.out.println("--------------------testcase--------------------");
 //    }
 }

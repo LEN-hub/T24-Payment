@@ -77,6 +77,9 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//li/span")
     public List<WebElementFacade> rollOutAccountSGD;
 
+    @FindBy(xpath = "//label[@for='payerCurrencyTypeCd']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade getClickCurrencyBox;
+
     @FindBy(xpath = "//form[@class='el-form el-form--label-left']/div[2]//span[@class='el-input__suffix-inner']")
     public WebElementFacade secondPopWindows;
 
