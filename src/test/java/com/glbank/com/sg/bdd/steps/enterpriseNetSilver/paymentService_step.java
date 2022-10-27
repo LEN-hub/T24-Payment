@@ -63,7 +63,7 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     @Step
-    public void sdgTransferToUsd(String rollOutAccount,String intoAccount){
+    public void sdgTransferToUsd(String rollOutAccount,String intoAccount,String current){
         paymentService_page.transferMoney.click();
         bddUtil.sleep(3);
         paymentService_page.rollOutCurrencySelectWindows.click();
@@ -72,6 +72,16 @@ public class paymentService_step extends ScenarioSteps {
             if (rollOutAccount.contains(currency.get(i).getText().substring(0,currency.get(i).getText().indexOf("/")).trim())){
                 currency.get(i).click();
                 break;
+            }
+        }
+        if (rollOutAccount.substring(0,4).toString().equals("1102")){
+            paymentService_page.getClickCurrencyBox.click();
+            bddUtil.sleep(2);
+            List<WebElementFacade> current1 = paymentService_page.selectAccount;
+            for (int i = 0; i < current1.size(); i++) {
+                if (current1.get(i).getText().equals(current)){
+                    current1.get(i).click();
+                }
             }
         }
         paymentService_page.clickToAccount.click();
@@ -198,29 +208,29 @@ public class paymentService_step extends ScenarioSteps {
             }
         }
 //正常测试流程
-        paymentService_page.collectingBankPopWindows.click();
-        bddUtil.sleep(3);
-        List<WebElementFacade> selectBank = paymentService_page.selectSGD;
-        for (int j = 0; j< selectBank.size(); j++){
-            if (bankName.equals(selectBank.get(j).getText())){
-                bddUtil.scrollWindowToElement(selectBank.get(j)).click();
-                break;
-            }
-        }
-        paymentService_page.accountName.sendKeys(accountName);
-        paymentService_page.paymentAccount.sendKeys(paymentAccount);
-        //paynow
-//        paymentService_page.selectPaymentTypeMEPS.click();
-//        paymentService_page.payeeBankSelect.click();
-//        List<WebElementFacade> payeeBank = paymentService_page.selectPayeeBankText;
-//        for (int i = 0; i < payeeBank.size(); i++) {
-//            if (payeeBank.get(i).getText().equals("BANK OF CHINA LIMITED")){
-//                payeeBank.get(i).click();
+//        paymentService_page.collectingBankPopWindows.click();
+//        bddUtil.sleep(3);
+//        List<WebElementFacade> selectBank = paymentService_page.selectSGD;
+//        for (int j = 0; j< selectBank.size(); j++){
+//            if (bankName.equals(selectBank.get(j).getText())){
+//                bddUtil.scrollWindowToElement(selectBank.get(j)).click();
 //                break;
 //            }
 //        }
-//        paymentService_page.payeeNameInput.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-//        paymentService_page.payeeAccountNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
+//        paymentService_page.accountName.sendKeys(accountName);
+//        paymentService_page.paymentAccount.sendKeys(paymentAccount);
+        //paynow
+        paymentService_page.selectPaymentTypeMEPS.click();
+        paymentService_page.payeeBankSelect.click();
+        List<WebElementFacade> payeeBank = paymentService_page.selectPayeeBankText;
+        for (int i = 0; i < payeeBank.size(); i++) {
+            if (payeeBank.get(i).getText().equals("BANK OF CHINA LIMITED")){
+                payeeBank.get(i).click();
+                break;
+            }
+        }
+        paymentService_page.payeeNameInput.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        paymentService_page.payeeAccountNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
         paymentService_page.transferAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
         paymentService_page.tradeAmountPopWindows.click();
