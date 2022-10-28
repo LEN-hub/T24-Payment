@@ -80,6 +80,9 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='payerCurrencyTypeCd']/following-sibling::div//span[@class='el-input__suffix-inner']")
     public WebElementFacade getClickCurrencyBox;
 
+    @FindBy(xpath = "//label[@for='currencyTypeCd']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade overseasClickCurrencyBox;
+
     @FindBy(xpath = "//form[@class='el-form el-form--label-left']/div[2]//span[@class='el-input__suffix-inner']")
     public WebElementFacade secondPopWindows;
 

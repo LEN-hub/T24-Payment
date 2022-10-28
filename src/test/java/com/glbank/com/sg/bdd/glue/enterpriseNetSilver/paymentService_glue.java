@@ -126,7 +126,7 @@ public class paymentService_glue {
     @When("^I select the payment account, enter the payment currency and the payment amount and the cost commitment$")
     public void iSelectThePaymentAccountEnterThePaymentCurrencyAndThePaymentAmountAndTheCostCommitment(DataTable payDetail) {
         List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
-        paymentService_step.selectPaymentAccount(payToInfo.get(0).get("Account Number"));
+        paymentService_step.selectPaymentAccount(payToInfo.get(0).get("Account Number"),payToInfo.get(0).get("Currency"));
 //        List<Map<String, String>> payToInfoN = payDetail.asMaps(String.class, String.class);
 //        paymentService_step.clickCurrency(payToInfoN.get(0).get("payeeCurrency"));
         List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
@@ -233,7 +233,7 @@ public class paymentService_glue {
     @When("^I select the payment account, enter the payment amount and the cost commitment$")
     public void iSelectThePaymentAccountEnterThePaymentAmountAndTheCostCommitment(DataTable payDetail) {
         List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
-        paymentService_step.selectPaymentAccount(payToInfo.get(0).get("selectAccount"));
+        paymentService_step.selectPaymentAccount(payToInfo.get(0).get("selectAccount"),payToInfo.get(0).get("Currency"));
         List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
         paymentService_step.enterAmount();
         List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);

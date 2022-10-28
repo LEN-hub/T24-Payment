@@ -199,7 +199,7 @@ public class MobileConfig {
 
     public String transactionCode() throws InterruptedException {
         driver.findElementById("btn_tc").click();
-        bddUtil.sleep(5);
+        Thread.sleep(5000);
         driver.findElementByXPath("//android.widget.LinearLayout[starts-with(@resource-id,'com.glbank.mobileapp:id/giv_vkey_pin')]/child::android.widget.LinearLayout[1]/child::android.widget.EditText").sendKeys("1");
         driver.findElementByXPath("//android.widget.LinearLayout[starts-with(@resource-id,'com.glbank.mobileapp:id/giv_vkey_pin')]/child::android.widget.LinearLayout[2]/child::android.widget.EditText").sendKeys("4");
         driver.findElementByXPath("//android.widget.LinearLayout[starts-with(@resource-id,'com.glbank.mobileapp:id/giv_vkey_pin')]/child::android.widget.LinearLayout[3]/child::android.widget.EditText").sendKeys("7");
@@ -214,6 +214,7 @@ public class MobileConfig {
         driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_tc_sign')]/child::android.widget.LinearLayout[6]/child::android.widget.EditText").sendKeys(accountChange_steps.tcCode.substring(5,6));
         driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_tc_sign')]/child::android.widget.LinearLayout[7]/child::android.widget.EditText").sendKeys(accountChange_steps.tcCode.substring(6,7));
         driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_tc_sign')]/child::android.widget.LinearLayout[8]/child::android.widget.EditText").sendKeys(accountChange_steps.tcCode.substring(7,8));
+        Thread.sleep(2000);
         String vxcode1 = driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[1]").getText();
         String vxcode2 = driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[2]").getText();
         String vxcode3 = driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'gtv_tc')]/child::android.widget.TextView[3]").getText();

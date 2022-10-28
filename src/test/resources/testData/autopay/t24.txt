@@ -1,21 +1,21 @@
-2022-10-26 16:27:35:570
-ChannelReferenceID:221026000000059
-ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD
-ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11020571063
+2022-10-28 9:27:43:226
+ChannelReferenceID:221027000000070
+ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelDebitAccountCurrency:USD
+ChannelDebitAccountNumber:11010001434
 ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD
-ChannelCreditAccountCurrency:SGD
-ChannelCreditAccountNumber:11010001426
+ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelCreditAccountCurrency:USD
+ChannelCreditAccountNumber:11010001442
 ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelTransactionAmount:1,026.81
+ChannelTransactionAmount:1,028.41
 ChannelPurposeOfTransfer:Business Expenses
-2022-10-26 16:29:47:580
-ID:221026000000059
-TransactionReference:FT2229981GLD
-fundsTransferDebitAccountNum:11020571071
-fundsTransferDebitCurrency:SGD
-fundsTransferCreditCurrency:SGD
-fundTransferCreditAccNo:11010001426
-fundsTransferAmountDebited:SGD1026.81
-fundsTransferAmoyntCredited:SGD1026.81
+2022-10-28 9:29:42:856
+ID:221027000000070
+TransactionReference:FT22301DQYDW
+fundsTransferDebitAccountNum:11010001434
+fundsTransferDebitCurrency:USD
+fundsTransferCreditCurrency:USD
+fundTransferCreditAccNo:11010001442
+fundsTransferAmountDebited:USD1028.41
+fundsTransferAmoyntCredited:USD1028.41

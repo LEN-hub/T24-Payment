@@ -434,7 +434,7 @@ public class paymentService_step extends ScenarioSteps {
 
     public void overseasTransfer(){paymentService_page.overseasTransfer.click();}
 
-    public void selectPaymentAccount(String selectAccount){
+    public void selectPaymentAccount(String selectAccount,String Currency){
         paymentService_page.accountBox.click();
         bddUtil.sleep(3);
         List<WebElementFacade> Acc = paymentService_page.selectAccount;
@@ -442,6 +442,16 @@ public class paymentService_step extends ScenarioSteps {
             if (selectAccount.equals(Acc.get(i).getText())){
                 Acc.get(i).click();
                 break;
+            }
+        }
+        if (selectAccount.substring(0,4).toString().equals("1102")){
+            paymentService_page.overseasClickCurrencyBox.click();
+            bddUtil.sleep(2);
+            List<WebElementFacade> current1 = paymentService_page.selectAccount;
+            for (int i = 0; i < current1.size(); i++) {
+                if (current1.get(i).getText().equals(Currency)){
+                    current1.get(i).click();
+                }
             }
         }
         bddUtil.sleep(3);
