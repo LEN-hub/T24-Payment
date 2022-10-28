@@ -1,21 +1,37 @@
-2022-10-26 16:27:35:570
-ChannelReferenceID:221026000000059
-ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD
+2022-10-28 11:48:31:441
+ChannelReferenceID:221028000000084
+ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
 ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11020571063
-ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD
-ChannelCreditAccountCurrency:SGD
-ChannelCreditAccountNumber:11010001426
-ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelTransactionAmount:1,026.81
-ChannelPurposeOfTransfer:Business Expenses
-2022-10-26 16:29:47:580
-ID:221026000000059
-TransactionReference:FT2229981GLD
-fundsTransferDebitAccountNum:11020571071
-fundsTransferDebitCurrency:SGD
-fundsTransferCreditCurrency:SGD
-fundTransferCreditAccNo:11010001426
-fundsTransferAmountDebited:SGD1026.81
-fundsTransferAmoyntCredited:SGD1026.81
+ChannelDebitAccountNumber:11010001256
+ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
+ChannelDetailPayeeName:lucky
+ChannelDetailAccountCurrency:SGD
+ChannelDetailPayeeAccountNum:667812798
+ChannelDetailTransactionAmount:1,028.69
+ChannelDetailBeneficiaryBankBIC:BKCHSGS0CUS
+ChannelDetailPayeeAddress:countries
+ChannelDetailEstimatedProcessingFee:0.00
+ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
+ChannelDetailPurposeOfTransfer:Commission
+2022-10-28 11:52:50:495
+ID:221028000000084
+TransactionReference:PI223010R6D615FT
+t24FtNumber:SGL223010LF0FGFH
+getTransactionReferenceNum:SGL223010LF0FGFH
+getSenderReferenceNum:PI223010R6D615FT
+getTransactionCurrency:SGD
+getTransactionCurrency:SGD
+getTransactionAmount:1,028.69
+getChargeOption:SHA
+getDebitAccountNum:11010001256
+getDebitAccountCurrency:SGD
+getDebitAmount:1,028.69
+getOrderingAccount:11010001256
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getOrderingAddress:XIAN
+getOrderingTown:SG
+getCreditAccountNum:15000000153
+getCreditAccountCurrency:SGD
+getCreditAmount:1,028.69
+getBeneficiaryAccount:667812798
+getBeneficiaryName:lucky

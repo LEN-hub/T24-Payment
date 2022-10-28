@@ -67,7 +67,7 @@ public class MobileConfig {
     public void clickSystemPopupWindows(){
         By seletor=new By.ByXPath("//android.widget.TextView[ends-with(@resource-id,'permission_message')]");
         if (checkElement.check(driver,seletor)){
-            for (int i =0;i<3;i++){
+            for (int i =0;i<4;i++){
                 driver.switchTo().alert().accept();
             }
         }
@@ -149,7 +149,7 @@ public class MobileConfig {
     }
 
     public void clickCreatPassword() throws InterruptedException {
-        Thread.sleep(15000);
+        Thread.sleep(25000);
         for (int i = 0; i<2;i++){
             driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_pin')]/child::android.widget.LinearLayout[1]/child::android.widget.EditText").sendKeys("1");
             driver.findElementByXPath("//android.widget.LinearLayout[ends-with(@resource-id,'com.glbank.mobileapp:id/giv_pin')]/child::android.widget.LinearLayout[2]/child::android.widget.EditText").sendKeys("4");
@@ -199,7 +199,7 @@ public class MobileConfig {
 
     public String transactionCode() throws InterruptedException {
         driver.findElementById("btn_tc").click();
-        bddUtil.sleep(5);
+        Thread.sleep(5000);
         driver.findElementByXPath("//android.widget.LinearLayout[starts-with(@resource-id,'com.glbank.mobileapp:id/giv_vkey_pin')]/child::android.widget.LinearLayout[1]/child::android.widget.EditText").sendKeys("1");
         driver.findElementByXPath("//android.widget.LinearLayout[starts-with(@resource-id,'com.glbank.mobileapp:id/giv_vkey_pin')]/child::android.widget.LinearLayout[2]/child::android.widget.EditText").sendKeys("4");
         driver.findElementByXPath("//android.widget.LinearLayout[starts-with(@resource-id,'com.glbank.mobileapp:id/giv_vkey_pin')]/child::android.widget.LinearLayout[3]/child::android.widget.EditText").sendKeys("7");
