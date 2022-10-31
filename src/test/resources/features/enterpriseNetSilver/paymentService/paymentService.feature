@@ -3,7 +3,7 @@ Feature: receipt and payment service
 
   Background:
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
-  @text99901
+  @paymentService01
 #本人互转
    #USD->SGD
   Scenario:I have successfully changed us dollars into Singapore dollars
@@ -15,7 +15,7 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
 
 
-  @text99902
+  @paymentService02
   #SGD->USD
   Scenario:I have successfully transferred from Singapore currency to US dollar
     When I will complete the inter-bank transfer on the page
@@ -61,7 +61,7 @@ Feature: receipt and payment service
     Then I jump to the successful transfer page
     Then I will compare all the data on same Currency Payment
 
-
+@paymentService06
         #境内转账-行内转账时间选择每周一(SGD->USD)
   Scenario:Transfer time within the line is selected every Monday(SGD->USD)
     When I fill in the transfer information of domestic transfer bank
@@ -76,6 +76,7 @@ Feature: receipt and payment service
     Then I jump to the successful transfer page
     Then I will compare all the data on same Currency Payment
 
+  @paymentService06
       #境内转账-跨行转账时间选择每周一(SGD->SGD)
   Scenario:In-line transfer with in the line is selected every Monday(SGD->SGD)
     When I fill in the transfer information of overseas domestic transfer bank
@@ -90,6 +91,7 @@ Feature: receipt and payment service
     Then I jump to the successful transfer page
     Then I will compare all the data on same Currency Payment
 
+    @paymentService07
       #境内转账-跨行转账时间选择每周一(SGD->USD)
   Scenario:In-line transfer time within the line is selected every Monday(SGD->USD)
     When I fill in the transfer information of overseas domestic transfer bank
@@ -135,7 +137,7 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
 
       #境外转账
-  @overseasTransfer
+  @overseasTransfer10
   Scenario:Positive process of overseas transfer(SGD--USD)
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
@@ -164,7 +166,7 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment
 
 
-  @overseasTransfer01
+  @overseasTransfer11
   Scenario:Positive process of overseas transfer(USD--SGD)
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
@@ -191,7 +193,7 @@ Feature: receipt and payment service
     When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment
 
-  @overseasTransfer05
+  @overseasTransfer12
   Scenario:Positive process of overseas transfer(SGD--SGD)
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
