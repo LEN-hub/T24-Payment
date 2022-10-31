@@ -2,6 +2,7 @@ package com.glbank.com.sg.bdd.glue.T24.Payment;
 
 import com.glbank.com.sg.bdd.steps.T24.Logon.T24_Logon_step;
 import com.glbank.com.sg.bdd.steps.T24.Payment.t24_Payments_step;
+import com.glbank.com.sg.bdd.utils.BDDUtil;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;

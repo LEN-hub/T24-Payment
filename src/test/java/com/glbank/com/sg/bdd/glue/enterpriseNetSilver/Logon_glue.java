@@ -66,9 +66,12 @@ public class Logon_glue {
                 logon_step.enterVcode();
                 logon_step.getAuthenticateNowBtn();
                 logon_step.resetPassword();
-            } finally {
-                Logon_step.quitAndroidDriver();
+            }catch (Exception e){
+                e.printStackTrace();
             }
+//            } finally {
+//                Logon_step.quitAndroidDriver();
+//            }
         }
     }
 
