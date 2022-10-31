@@ -1,21 +1,37 @@
-2022-10-28 9:27:43:226
-ChannelReferenceID:221027000000070
+2022-10-31 12:18:11:567
+ChannelReferenceID:221031000000094
 ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
-ChannelDebitAccountCurrency:USD
-ChannelDebitAccountNumber:11010001434
-ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
-ChannelCreditAccountCurrency:USD
-ChannelCreditAccountNumber:11010001442
-ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelTransactionAmount:1,028.41
-ChannelPurposeOfTransfer:Business Expenses
-2022-10-28 9:29:42:856
-ID:221027000000070
-TransactionReference:FT22301DQYDW
-fundsTransferDebitAccountNum:11010001434
-fundsTransferDebitCurrency:USD
-fundsTransferCreditCurrency:USD
-fundTransferCreditAccNo:11010001442
-fundsTransferAmountDebited:USD1028.41
-fundsTransferAmoyntCredited:USD1028.41
+ChannelDebitAccountCurrency:SGD
+ChannelDebitAccountNumber:11010001256
+ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
+ChannelDetailPayeeName:lucky
+ChannelDetailAccountCurrency:SGD
+ChannelDetailPayeeAccountNum:667812798
+ChannelDetailTransactionAmount:1,031.20
+ChannelDetailBeneficiaryBankBIC:BKCHSGS0CUS
+ChannelDetailPayeeAddress:countries
+ChannelDetailEstimatedProcessingFee:0.00
+ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
+ChannelDetailPurposeOfTransfer:Commission
+2022-10-31 12:22:24:780
+ID:221031000000094
+TransactionReference:PI22304106Q97Z6B
+t24FtNumber:SGL22304LKKGML0H
+getTransactionReferenceNum:SGL22304LKKGML0H
+getSenderReferenceNum:PI22304106Q97Z6B
+getTransactionCurrency:SGD
+getTransactionCurrency:SGD
+getTransactionAmount:1,031.20
+getChargeOption:SHA
+getDebitAccountNum:11010001256
+getDebitAccountCurrency:SGD
+getDebitAmount:1,031.20
+getOrderingAccount:11010001256
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getOrderingAddress:XIAN
+getOrderingTown:SG
+getCreditAccountNum:15000000153
+getCreditAccountCurrency:SGD
+getCreditAmount:1,031.20
+getBeneficiaryAccount:667812798
+getBeneficiaryName:lucky

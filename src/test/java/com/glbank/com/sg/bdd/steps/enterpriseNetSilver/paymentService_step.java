@@ -284,15 +284,15 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.dateInputBox.clear();
         paymentService_page.dateInputBox.sendKeys(trasferOutDate);
         paymentService_page.textTitle.click();
-        paymentService_page.cycleTransferCheckBox.click();
-        paymentService_page.popWindowsSelect.click();
-        List<WebElementFacade> selectdate = paymentService_page.selectDate;
-        for (int i = 0; i < selectdate.size(); i++){
-            if (selectDate.equals(selectdate.get(i).getText())){
-                selectdate.get(i).click();
-                break;
-            }
-        }
+//        paymentService_page.cycleTransferCheckBox.click();
+//        paymentService_page.popWindowsSelect.click();
+//        List<WebElementFacade> selectdate = paymentService_page.selectDate;
+//        for (int i = 0; i < selectdate.size(); i++){
+//            if (selectDate.equals(selectdate.get(i).getText())){
+//                selectdate.get(i).click();
+//                break;
+//            }
+//        }
 //        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //        List<WebElementFacade> rollOutDate = paymentService_page.rollOutDate;
 //        a:for (int j = 0; j < rollOutDate.size(); j++){
