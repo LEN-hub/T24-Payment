@@ -51,7 +51,7 @@ Feature: receipt and payment service
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
     When I fill in the transfer information of domestic transfer bank
       |Payee's Bank           |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
-      |BANK OF CHINA LIMITED  |TSC1643346550706|11010001426           |Business Expenses   |1101 0001 256 |
+      |BANK OF CHINA LIMITED  |TSC1643346550706|11010001426           |Business Expenses   |1101 0000 179 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
     When I click Next to go to the verification page
