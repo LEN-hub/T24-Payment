@@ -201,13 +201,6 @@ Feature: loan application
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When personal center online banking transaction query submission time selection nearly seven days
 
-  Scenario:Transaction details list query process
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click account Details to query and verify the presence of elements
-
-  Scenario:Transaction query page flow
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click the Account details query and click the query button to query
 
 #  电子通知
   @ext123
@@ -398,29 +391,20 @@ Feature: loan application
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
 
-  @test19912221332312
-    #时间选择每月(SGD->SGD)
-  Scenario:Intra-line transfer time per month (SDG->SDG)
+  @PaymentUat123
+    #境内转账-行内转账时间选择每周一(SGD->SGD)
+  Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |Payee's Bank                    |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
-      |BANK OF CHINA LIMITED           |TSC1643346550706|11010000039           |Business Expenses   |1101 0000 179 |
-    When I select date on the domestic transfer bank page
-      |trasferOutDate|selectDate |
-      |2025-01-01    |Monthly    |
-    When I choose Periods to fill in the information for the in-country transfer
-      |periods|
-      |1      |
+      |Payee's Bank |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
+      |DBS          |TSC1643346550706|11010003437           |Business Expenses   |1101 0001 256 |
     When I click next button on the domestic transfer bank page
-    When If the transfer failure window pops up I will click the continue button
     Then I verify the information on the next page
     When I click Next to go to the verification page
+    When If the transfer failure window pops up I will click the continue button
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Then I jump to the successful transfer page
-    Then I check the details on the transfer success details page
-      |account name    |receiving account|transfer purpose |
-      |TSC1643346550706|11010000039      |Business Expenses|
+    Then I will compare all the data on same Currency Payment
 
 
   @overseasTransfer013

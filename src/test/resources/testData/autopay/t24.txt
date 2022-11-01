@@ -1,12 +1,15 @@
-2022-10-21 14:0:41:71
-ChannelReferenceID:221021000000065
-ChannelDebitAccountName:EMBASSY OF ITALY
-ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11010000179
+2022-11-1 14:33:35:925
+ChannelReferenceID:221101000000034
+ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelDebitAccountCurrency:USD
+ChannelDebitAccountNumber:11010001434
 ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:EMBASSY OF ITALY
-ChannelCreditAccountCurrency:SGD
-ChannelCreditAccountNumber:11010001639
+ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelCreditAccountCurrency:USD
+ChannelCreditAccountNumber:11010001442
 ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelTransactionAmount:1,021.57
+ChannelTransactionAmount:1,101.28
 ChannelPurposeOfTransfer:Business Expenses
+2022-11-1 14:35:32:811
+ID:221101000000034
+TransactionReference:FT22305CHJGK

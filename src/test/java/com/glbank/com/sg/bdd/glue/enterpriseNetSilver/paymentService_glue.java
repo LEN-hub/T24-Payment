@@ -10,6 +10,7 @@ import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 import java.util.Map;
 
@@ -34,20 +35,22 @@ public class paymentService_glue {
     }
 
     @Then("^My account has been transferred successfully$")
-    public void myAccountHasBeenTransferredSuccessfully() throws Exception {
-        paymentService_step.successTitle();
+    public void myAccountHasBeenTransferredSuccessfully(DataTable payDetails) throws Exception {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
+        paymentService_step.successTitleToFXLocalPayment(payToInfo.get(0).get("WordPath"));
     }
 
     @Then("^My account has been transferred successfully To Local Payment$")
-    public void myAccountHasBeenTransferredSuccessfullyToLocalPayment() throws Exception {
-        paymentService_step.successTitleToFXLocalPayment();
+    public void myAccountHasBeenTransferredSuccessfullyToLocalPayment(DataTable payDetails) throws Exception {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
+        paymentService_step.successTitleToFXLocalPayment(payToInfo.get(0).get("WordPath"));
     }
 
     @When("^I will complete the inter-bank transfer on the page$")
     public void iWillConvertSingaporeDollarsToUSDollarsOnThePage(DataTable payDetails) {
         paymentService_step.transferAndRemittanceMenu();
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        paymentService_step.sdgTransferToUsd(payToInfo.get(0).get("From Account"), payToInfo.get(0).get("To Account"));
+        paymentService_step.sdgTransferToUsd(payToInfo.get(0).get("From Account"), payToInfo.get(0).get("To Account"),payToInfo.get(0).get("currency"));
     }
 
     @When("^I fill in the transfer information of domestic transfer bank$")
@@ -126,7 +129,7 @@ public class paymentService_glue {
     @When("^I select the payment account, enter the payment currency and the payment amount and the cost commitment$")
     public void iSelectThePaymentAccountEnterThePaymentCurrencyAndThePaymentAmountAndTheCostCommitment(DataTable payDetail) {
         List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
-        paymentService_step.selectPaymentAccount(payToInfo.get(0).get("Account Number"));
+        paymentService_step.selectPaymentAccount(payToInfo.get(0).get("Account Number"),payToInfo.get(0).get("Currency"));
 //        List<Map<String, String>> payToInfoN = payDetail.asMaps(String.class, String.class);
 //        paymentService_step.clickCurrency(payToInfoN.get(0).get("payeeCurrency"));
         List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
@@ -233,7 +236,7 @@ public class paymentService_glue {
     @When("^I select the payment account, enter the payment amount and the cost commitment$")
     public void iSelectThePaymentAccountEnterThePaymentAmountAndTheCostCommitment(DataTable payDetail) {
         List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
-        paymentService_step.selectPaymentAccount(payToInfo.get(0).get("selectAccount"));
+        paymentService_step.selectPaymentAccount(payToInfo.get(0).get("selectAccount"),payToInfo.get(0).get("Currency"));
         List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
         paymentService_step.enterAmount();
         List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
@@ -246,22 +249,26 @@ public class paymentService_glue {
     }
 
     @Then("^I will compare all the data on FX Payment$")
-    public void iWillCompareAllTheData() throws Exception {
-        paymentService_step.getFxPaymentDataOnChannelPage();
+    public void iWillCompareAllTheData(DataTable data) throws Exception {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.getFxPaymentDataOnChannelPage(payToInfo.get(0).get("WordPath"));
     }
 
     @Then("^I will compare all the data on FX Payment MX Message$")
-    public void iWillCompareAllTheDataOnFXPaymentMxMessage() throws Exception {
-        paymentService_step.getFxPaymentMXDataOnChannelPage();
+    public void iWillCompareAllTheDataOnFXPaymentMxMessage(DataTable data) throws Exception {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.getFxPaymentMXDataOnChannelPage(payToInfo.get(0).get("WordPath"));
     }
 
     @Then("^I will compare all the data on same Currency Payment$")
-    public void iWillCompareAllTheDataOnSameCurrencyPayment() throws Exception {
-        paymentService_step.getInnerPaymentDataOnChannelPage();
+    public void iWillCompareAllTheDataOnSameCurrencyPayment(DataTable payDetail) throws Exception {
+        List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
+        paymentService_step.getInnerPaymentDataOnChannelPage(payToInfo.get(0).get("WordPath"));
     }
 
     @Then("^I will compare all the data on FX Payment Different Currency MX Message$")
-    public void iWillCompareAllTheDataOnFXPaymentDifferentCurrencyMXMessage() throws Exception {
-        paymentService_step.getFxPaymentDataOnChannelPageDifferentCurrency();
+    public void iWillCompareAllTheDataOnFXPaymentDifferentCurrencyMXMessage(DataTable data) throws Exception {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.getFxPaymentDataOnChannelPageDifferentCurrency(payToInfo.get(0).get("WordPath"));
     }
 }

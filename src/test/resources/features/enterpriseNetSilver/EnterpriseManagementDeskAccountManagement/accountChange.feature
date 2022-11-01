@@ -109,7 +109,7 @@ Feature: accountChange
   @accountOpeningMCAUSD
 #  MCA账户,默认选择SGD，SGD+USD开立
   Scenario:Enterprise management console MCA account USD opened
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                     |
