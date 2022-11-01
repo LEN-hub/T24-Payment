@@ -6,6 +6,7 @@ import com.lu.sn.Language;
 import com.lu.sn.NameType;
 import com.lu.sn.RandomNameTool;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
@@ -27,6 +28,7 @@ public class openAccount_step extends ScenarioSteps {
     private BDDUtil bddUtil;
     private static String verificationCode;
     public static String otp;
+    private static String mockDataResponse;
     public static String passportNumber = JRandomNameTool.getStringRandom(10);
     public static String address = "AutoTest" + JRandomNameTool.getStringRandom(3);
     public static String emailNew = JRandomNameTool.getStringRandom(4);
@@ -1172,6 +1174,371 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
                 bddUtil.sleep(5);
                 openAccount_page.clickRefresh.click();
             }
+        }
+    }
+    //Track1Myinfo
+    public void trackMyinfoStep1(){
+        openAccount_page.clickOpenAccountBtn.click();
+        openAccount_page.clickTrack1SatrtFromScratchBtn.click();
+        openAccount_page.clickSingaporeAllIndividuals.click();
+        openAccount_page.clickCurrentAccount.click();
+        openAccount_page.selectSGD.click();
+        openAccount_page.clickTrack1NextBtn.click();
+        bddUtil.scrollWindowToElement(openAccount_page.getClickLetGo);
+        openAccount_page.getClickLetGo.click();
+    }
+    private static String MockData ="{\n"+
+            "\"person\": {\n" +
+                "\"name\": {\n" +
+                    "\"lastupdated\": \"2022-07-16\",\n"+
+                    "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\",\n"+
+                    "\"value\": \"WATTNANARANARM TIWARAT\"\n"+
+            "    },\n" +
+        "\"hanyupinyinname\": {\n"+
+            "\"lastupdated\": \"2022-07-14\",\n"+
+                    "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\",\n"+
+                    "\"value\": \"\"\n"+
+            "    },\n" +
+        "\"hanyupinyinaliasname\": {\n"+
+            "\"lastupdated\": \"2022-07-14\",\n"+
+                    "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\",\n"+
+                    "\"value\": \"MYINFOALIAS C\"\n"+
+                    "    },\n" +
+        "\"sex\": {\n"+
+            "\"lastupdated\": \"2022-07-14\",\n"+
+                    "\"code\": \"F\",\n"+
+                    "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\",\n"+
+                    "\"desc\": \"FEMALE\""+
+                    "    },\n" +
+        "\"email\": {\n"+
+            "\"lastupdated\": \"2022-07-14\",\n"+
+                    "\"source\": \"4\",\n"+
+                    "\"classification\": \"C\",\n"+
+                    "\"value\": \"617558302@qq.com\""+
+                    "    },\n" +
+        "\"mobileno\": {\n"+
+            "\"lastupdated\": \"2022-07-14\",\n"+
+                    "\"source\": \"4\",\n"+
+                    "\"classification\": \"C\",\n"+
+                    "\"areacode\": {\n"+
+                    "\"value\": \"86\""+
+                    "    },\n" +
+            "\"prefix\": {\n"+
+                "\"value\": \"+\"\n"+
+                    "    },\n" +
+            "\"nbr\": {\n"+
+                "\"value\": \"13008553349\"\n"+
+            "}\n"+
+                    "    },\n" +
+        "\"uinfin\": {\n"+
+            "\"lastupdated\": \"2022-07-14\",\n"+
+                    "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\",\n"+
+                    "\"value\": \"S6005052Z\"\n"+
+                    "    },\n" +
+        "\"aliasname\": {\n"+
+            "\"lastupdated\": \"2022-07-14\",\n"+
+                    "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\",\n"+
+                    "\"value\": \"\"\n"+
+                    "    },\n" +
+        "\"dob\": {\n"+
+            "\"lastupdated\": \"2022-07-14\",\n"+
+                    "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\",\n"+
+                    "\"value\": \"1967-11-13\"\n"+
+        "},\n"+
+        "\"nationality\": {\n"+
+            "\"lastupdated\": \"2022-07-14\",\n"+
+                    "\"code\": \"SG\",\n"+
+                    "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\",\n"+
+                    "\"desc\": \"SINGAPORE CITIZEN\"\n"+
+        "},\n"+
+        "\"regadd\": {\n"+
+            "\"country\": {\n"+
+                "\"code\": \"SG\",\n"+
+                        "\"desc\": \"SINGAPORE\"\n"+
+            "},\n"+
+            "\"unit\": {\n"+
+                "\"value\": \"4\"\n"+
+            "},\n"+
+            "\"street\": {\n"+
+                "\"value\": \"HAVELOCK ROAD\"\n"+
+            "},\n"+
+            "\"lastupdated\": \"2022-07-14\",\n"+
+                    "\"block\": {\n"+
+                "\"value\": \"18\"\n"+
+            "},\n"+
+            "\"source\": \"1\",\n"+
+                    "\"postal\": {\n"+
+                "\"value\": \"596740\"\n"+
+            "},\n"+
+            "\"classification\": \"C\",\n"+
+                    "\"floor\": {\n"+
+                "\"value\": \"12\"\n"+
+            "},\n"+
+            "\"type\": \"SG\",\n"+
+                    "\"building\": {\n"+
+                "\"value\": \"SINGAPORE ADDRESS\"\n"+
+           " }\n"+
+                    " }\n"+
+                    " },\n"+
+            "\"headResponseStatus\": \"OK\",\n"+
+            "\"entity\": {\n"+
+        "\"basic-profile\": {\n"+
+            "\"uen\": {\n"+
+                "\"value\": \""+RandomPhoneNumber.randomPhoneNum()+"R\"\n"+
+            "},\n"+
+            "\"entity-name\": {\n"+
+                "\"value\": \"Ignite Company\"\n"+
+            "},\n"+
+            "\"entity-type\": {\n"+
+                "\"code\": \"LC\",\n"+
+                        "\"desc\": \"Local Company\"\n"+
+            "},\n"+
+            "\"entity-status\": {\n"+
+                "\"value\": \"LIVE\"\n"+
+           " },\n"+
+            "\"primary-activity\": {\n"+
+                "\"code\": \"10401\",\n"+
+                        "\"desc\": \"REPAIR AND MAINTENANCE (INCLUDING INSPECTION) OF VEHICLES\"\n"+
+            "},\n"+
+            "\"secondary-activity\": {\n"+
+                "\"code\": \"36000\",\n"+
+                        "\"desc\": \"Collection, purification and distribution of water (including desalination of water)\"\n"+
+            "},\n"+
+            "\"registration-date\": {\n"+
+                "\"value\": \"1982-02-01\"\n"+
+            "},\n"+
+            "\"company-type\": {\n"+
+                "\"code\": \"A3\",\n"+
+                        "\"desc\": \"Public Company Limited by Guarantee\"\n"+
+            "},\n"+
+            "\"ownership\": {\n"+
+                "\"code\": \"1\",\n"+
+                        "\"desc\": \"Individual Shareholders only\"\n"+
+            "},\n"+
+            "\"country-of-incorporation\": {\n"+
+                "\"code\": \"SG\",\n"+
+                        "\"desc\": \"SINGAPORE\"\n"+
+            "}\n"+
+        "},\n"+
+        "\"previous-names\": {\n"+
+            "\"lastupdated\": \"2020-12-22\",\n"+
+                    "\"previous-names-list\": [],\n"+
+            "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\"\n"+
+        "},\n"+
+        "\"previous-uens\": {\n"+
+            "\"lastupdated\": \"2020-12-22\",\n"+
+                    "\"previous-uens-list\": [],\n"+
+            "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\"\n"+
+        "},\n"+
+        "\"addresses\": {\n"+
+            "\"lastupdated\": \"2020-12-22\",\n"+
+                    "\"addresses-list\": [{\n"+
+                "\"standard\": {\n"+
+                    "\"code\": \"D\",\n"+
+                            "\"desc\": \"Singapore Government Enterprise Architecture (SGEA) Data Reference Model (DRM) Standard\"\n"+
+                "},\n"+
+                "\"country\": {\n"+
+                    "\"code\": \"SG\",\n"+
+                            "\"desc\": \"SINGAPORE\"\n"+
+                "},\n"+
+                "\"unit\": {\n"+
+                    "\"value\": \"6\"\n"+
+                "},\n"+
+                "\"street\": {\n"+
+                    "\"value\": \"Kaki Bukit Avenue 1\"\n"+
+                "},\n"+
+                "\"block\": {\n"+
+                    "\"value\": \"2\"\n"+
+                "},\n"+
+                "\"postal\": {\n"+
+                    "\"value\": \"417938\"\n"+
+                "},\n"+
+                "\"floor\": {\n"+
+                    "\"value\": \"3\"\n"+
+                "},\n"+
+                "\"type\": \"SG\",\n"+
+                        "\"building\": {\n"+
+                    "\"value\": \"\"\n"+
+                "}\n"+
+            "}],\n"+
+            "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\"\n"+
+        "},\n"+
+        "\"capitals\": {\n"+
+            "\"capitals-list\": [{\n"+
+                "\"paid-up-capital-amount\": {\n"+
+                    "\"value\": 10000\n"+
+                "},\n"+
+                "\"capital-type\": {\n"+
+                    "\"code\": \"1\",\n"+
+                            "\"desc\": \"Ordinary Capital\"\n"+
+                "},\n"+
+                "\"issued-capital-amount\": {\n"+
+                    "\"value\": 10000\n"+
+                "},\n"+
+                "\"currency\": {\n"+
+                    "\"code\": \"SGD\",\n"+
+                            "\"desc\": \"SINGAPORE, DOLLARS\"\n"+
+                "},\n"+
+                "\"share-allotted-amount\": {\n"+
+                    "\"value\": 10000\n"+
+                "}\n"+
+            "}],\n"+
+            "\"lastupdated\": \"2020-12-22\",\n"+
+                    "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\"\n"+
+       " },\n"+
+        "\"appointments\": {\n"+
+            "\"appointments-list\": [{\n"+
+                "\"person-reference\": {\n"+
+                    "\"nationality\": {\n"+
+                        "\"code\": \"SG\",\n"+
+                                "\"desc\": \"SINGAPORE CITIZEN\"\n"+
+                    "},\n"+
+                    "\"idno\": {\n"+
+                        "\"value\": \"S9812380F\"\n"+
+                    "},\n"+
+                    "\"person-name\": {\n"+
+                        "\"value\": \"WONG WAI MUN\"\n"+
+                    "}\n"+
+                "},\n"+
+                "\"appointment-date\": {\n"+
+                    "\"value\": \"1982-02-01\"\n"+
+                "},\n"+
+                "\"position\": {\n"+
+                    "\"code\": \"7\",\n"+
+                            "\"desc\": \"Director\"\n"+
+                "},\n"+
+                "\"category\": {\n"+
+                    "\"code\": \"1\",\n"+
+                            "\"desc\": \"Individual\"\n"+
+                "}\n"+
+            "}, {\n"+
+                "\"person-reference\": {\n"+
+                    "\"nationality\": {\n"+
+                        "\"code\": \"SG\",\n"+
+                                "\"desc\": \"SINGAPORE CITIZEN\"\n"+
+                   " },\n"+
+                    "\"idno\": {\n"+
+                        "\"value\": \"S9912366D\"\n"+
+                    "},\n"+
+                    "\"person-name\": {\n"+
+                        "\"value\": \"FATIMAH\"\n"+
+                   " }\n"+
+                "},\n"+
+                "\"appointment-date\": {\n"+
+                    "\"value\": \"1982-02-01\"\n"+
+                "},\n"+
+                "\"position\": {\n"+
+                    "\"code\": \"7\",\n"+
+                            "\"desc\": \"Director\"\n"+
+                "},\n"+
+                "\"category\": {\n"+
+                    "\"code\": \"1\",\n"+
+                            "\"desc\": \"Individual\"\n"+
+               "}\n"+
+            "}],\n"+
+            "\"lastupdated\": \"2020-12-22\",\n"+
+                    "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\"\n"+
+        "},\n"+
+        "\"shareholders\": {\n"+
+            "\"lastupdated\": \"2020-12-22\",\n"+
+                    "\"source\": \"1\",\n"+
+                    "\"classification\": \"C\",\n"+
+                    "\"shareholders-list\": [{\n"+
+                "\"allocation\": {\n"+
+                    "\"value\": 9000\n"+
+               " },\n"+
+                "\"person-reference\": {\n"+
+                    "\"nationality\": {\n"+
+                        "\"code\": \"SG\",\n"+
+                                "\"desc\": \"SINGAPORE CITIZEN\"\n"+
+                    "},\n"+
+                    "\"idno\": {\n"+
+                        "\"value\": \"S9812380F\"\n"+
+                   "},\n"+
+                    "\"person-name\": {\n"+
+                        "\"value\": \"WONG WAI MUN\"\n"+
+                    "}\n"+
+                "},\n"+
+                "\"currency\": {\n"+
+                    "\"code\": \"SGD\",\n"+
+                            "\"desc\": \"SINGAPORE, DOLLARS\"\n"+
+                "},\n"+
+                "\"category\": {\n"+
+                    "\"code\": \"1\",\n"+
+                            "\"desc\": \"Individual\"\n"+
+                "},\n"+
+                "\"share-type\": {\n"+
+                    "\"code\": \"1\",\n"+
+                            "\"desc\": \"Ordinary Capital\"\n"+
+                "}\n"+
+            "}, {\n"+
+                "\"allocation\": {\n"+
+                    "\"value\": 1000\n"+
+                "},\n"+
+                "\"person-reference\": {\n"+
+                    "\"nationality\": {\n"+
+                        "\"code\": \"SG\",\n"+
+                                "\"desc\": \"SINGAPORE PR\"\n"+
+                    "},\n"+
+                    "\"idno\": {\n"+
+                        "\"value\": \"S9812379B\"\n"+
+                   " },\n"+
+                    "\"person-name\": {\n"+
+                        "\"value\": \"LIM YONG XIANG\"\n"+
+                    "}\n"+
+                "},\n"+
+                "\"currency\": {\n"+
+                    "\"code\": \"SGD\",\n"+
+                            "\"desc\": \"SINGAPORE, DOLLARS\"\n"+
+                "},\n"+
+                "\"category\": {\n"+
+                    "\"code\": \"1\",\n"+
+                            "\"desc\": \"Individual\"\n"+
+                "},\n"+
+                "\"share-type\": {\n"+
+                    "\"code\": \"1\",\n"+
+                            "\"desc\": \"Ordinary Capital\"\n"+
+                "}\n"+
+            "}]\n"+
+        "}\n"+
+    "}\n"+
+    "}";
+
+    @Step
+    public void openMyinfoDataUrl(){
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"http://10.24.9.119:60008/direct/test_pc_ent.html\");");
+        bddUtil.switchToNewWindow();
+        openAccount_page.inputMockInformation.sendKeys("myinfoMockData");
+        openAccount_page.inputMockGetInformation.click();
+        openAccount_page.inputAuthUrlType.sendKeys("E");
+        openAccount_page.inputMockData.sendKeys(MockData);
+        openAccount_page.clickTestBtn.click();
+        mockDataResponse = openAccount_page.getResponseStatus.getText().substring(openAccount_page.getResponseStatus.getText().indexOf("state")+9).substring(0,36);
+        webdriver.executeScript("window.open(\"https://ib-uat.glbank.com/#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
+        bddUtil.switchToNewWindow();
+    }
+
+    @Step()
+    public void step3Information(){
+        openAccount_page.clickSalutationDrop.click();
+        openAccount_page.selectMrOnPage.click();
+        openAccount_page.clickNextBtn.click();
+        if (openAccount_page.getWindows.isVisible()){
+            openAccount_page.clickSubmitBtn.click();
         }
     }
 }

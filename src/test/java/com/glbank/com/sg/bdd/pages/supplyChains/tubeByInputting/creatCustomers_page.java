@@ -34,6 +34,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//span[text()='Supplier']")
     public WebElementFacade customerTypeSupplier;
 
+    @FindBy(xpath = "//span[text()='Buyer']")
+    public WebElementFacade getCustomerTypeBuyer;
+
     @FindBy(xpath = "//label[@for='custEnglishName']/following-sibling::div//input")
     public WebElementFacade companyName;
 

@@ -67,6 +67,11 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void getCustomerTypeBuyer(){
+        customers_page.getCustomerTypeBuyer.click();
+    }
+
+    @Step
     public void checkSuccessPageTitle(){
         assertEquals("Customer Profiles",customers_page.checkSuccessPageTitle.getText());
     }
@@ -326,6 +331,9 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.sleep(5);
         customers_page.clickCloseEmailBtn.click();
         customers_page.clickRefresh.click();
+        bddUtil.sleep(2);
+        customers_page.clickRefresh.click();
+        bddUtil.sleep(2);
         List<WebElementFacade> selectEmail = customers_page.emailSubject;
         List<WebElementFacade> clickViewBtn = customers_page.clickViewBtn;
         for (int i = 0; i < selectEmail.size(); i++) {
@@ -726,8 +734,10 @@ public class creatCustomers_step extends ScenarioSteps {
             }
         }
         customers_page.clickThirdQuestionDownDrop.click();
+        bddUtil.sleep(2);
         List<WebElementFacade> selectThirdQuestion = customers_page.selectCurrency;
         for (int i = 0; i < selectThirdQuestion.size(); i++) {
+            bddUtil.sleep(2);
             if (selectThirdQuestion.get(i).getText().equals(num)){
                 selectThirdQuestion.get(i).click();
                 break;
@@ -772,6 +782,15 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void assignToMePageBuyer(){
+        customers_page.searchCompanyInput.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+        bddUtil.sleep(1);
+        customers_page.searchCheckBox.click();
+        bddUtil.sleep(3);
+        bddUtil.clickByJS(customers_page.assignToMeButton);
+    }
+
+    @Step
     public void assignToMeBtn(String value){
         List<WebElementFacade> assignToMe = customers_page.assignToMeBtn;
         List<WebElementFacade> companyName = customers_page.companyNameList;
@@ -792,6 +811,14 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void clickProceedButtonOnAssignToMePage(){
         customers_page.searchCompanyInput.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        customers_page.searchCheckBox.click();
+        bddUtil.sleep(2);
+        customers_page.proceedButtton.click();
+    }
+
+    @Step
+    public void clickProceedButtonOnAssignToMePageBuyer(){
+        customers_page.searchCompanyInput.sendKeys(FileUtils.LastReadFileInput3("buyer"));
         customers_page.searchCheckBox.click();
         bddUtil.sleep(2);
         customers_page.proceedButtton.click();

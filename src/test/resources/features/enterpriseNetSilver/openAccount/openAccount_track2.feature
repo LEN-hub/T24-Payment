@@ -1,14 +1,14 @@
 @openAccount
-Feature: openAccount
+Feature: openAccount_track2
   @testcode123
     #正常开户流程——单币种账户——新币
   Scenario:openAccount Singapore enterprise
-    Given open "netSilverEnv_ycjpt" enterprise net silver page
+    Given open "netSilverEnv_ycjpt_sit" enterprise net silver page
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information
     |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
-    |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|201825594C |
+    |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|198103248W |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles

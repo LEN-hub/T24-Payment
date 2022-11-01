@@ -90,7 +90,7 @@ public class rpa_steps extends ScenarioSteps {
         rpaPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
         rpaPage.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         rpaPage.enterCompanyId.sendKeys("1234");
-//        rpaPage.sendCodeBtn.click();
+        rpaPage.sendCodeBtn.click();
 //        bddUtil.switchToNewWindow();
 //        bddUtil.sleep(3);
 //        rpaPage.clickRefreshBtn.click();

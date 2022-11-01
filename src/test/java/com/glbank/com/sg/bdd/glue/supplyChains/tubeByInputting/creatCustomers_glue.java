@@ -86,6 +86,24 @@ public class creatCustomers_glue {
         customers_step.getCLickNextBtn();
     }
 
+    @And("^I click Create Customer and fill in the supplier information in the pop-up window buyer$")
+    public void iClickCreateCustomerAndFillInTheSupplierInformationInThePopUpWindowBuyer(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        customers_step.getClickCreateCustomerBtn();
+        customers_step.getSelectCustomerType();
+        customers_step.getCustomerTypeBuyer();
+        customers_step.getCompanyName(CompanyName);
+        FileUtils.FileString4("buyer",CompanyName);
+        FileUtils.FileString4("emailData",CompanyName);
+        customers_step.getCompanyID(RandomPhoneNumber.randomPhoneNum());
+        customers_step.getSelectCountryOfRegistration();
+        customers_step.getCountryOfRegistrationValue();
+        customers_step.getCompanyNameLeft(JRandomNameTool.getStringRandom(10));
+        customers_step.kycMode(maps.get(0).get("KYC Mode"));
+        customers_step.inputBy(maps.get(0).get("Input by"));
+        customers_step.getCLickNextBtn();
+    }
+
     @Then("^I Check to see if you jump to the Authorized Person page$")
     public void checkToSeeIfYouJumpToTheAuthorizedPersonPage() {
         customers_step.getCheckNextPage();
@@ -341,6 +359,26 @@ public class creatCustomers_glue {
         customers_step.onboardingReviewTitle();
     }
 
+    @When("^Approval in the buyer chain system$")
+    public void approvalInTheBuyerChainSystem() {
+        updateAmlResult(1, "buyer");
+        bddUtil.sleep(5);
+        int result = updateAmlResult(1, "buyer");
+        if (result <= 0){
+            bddUtil.sleep(2);
+            updateAmlResult(1,"buyer");
+        }
+        for (int i = 0; i < 3; i++) {
+            bddUtil.sleep(2);
+            updateAmlResult(1,"buyer");
+        }
+        updateAmlResult(1,"buyer");
+        bddUtil.sleep(2);
+        customers_step.getClickCustomersMenu();
+        customers_step.onboardingReview();
+        customers_step.onboardingReviewTitle();
+    }
+
     @When("^End the current browser process$")
     public void endTheCurrentBrowserProcess() {
         bddUtil.quitDriver();
@@ -354,6 +392,14 @@ public class creatCustomers_glue {
         customers_step.processPageApprove();
     }
 
+    @Then("^Switch To the Assign To Me page and perform the corresponding operations buyer$")
+    public void switchToTheAssignToMePageAndPerformTheCorrespondingOperationsBuyer() {
+        customers_step.assignToMePageBuyer();
+        customers_step.clickAssignToMeTitle();
+        customers_step.clickProceedButtonOnAssignToMePageBuyer();
+        customers_step.processPageApprove();
+    }
+
     @When("^Closing the Browser driver$")
     public void closingTheBrowserDriver() {
         bddUtil.quitDriver();
@@ -364,8 +410,10 @@ public class creatCustomers_glue {
         customers_step.checkApprovedText();
     }
 
+
+
 //    @After
-//    public void testCase(){
+//    public void testCase.feature(){
 //        System.out.println("--------------------testcase--------------------");
 //    }
 }

@@ -970,7 +970,58 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-col el-col-10 el-col-offset-4']//label[@for='dibtAssets']/following-sibling::div//input")
     public WebElementFacade dibtAssetsRight;
 
+    //openAccountTrack1
+    @FindBy(xpath = "//span[text()='Open Account / Apply Loan']")
+    public WebElementFacade clickOpenAccountBtn;
 
+    @FindBy(xpath = "//div[contains(text(),'Start from Scratch')]")
+    public WebElementFacade clickTrack1SatrtFromScratchBtn;
 
+    @FindBy(xpath = "//div[contains(text(),'Singapore, All Individuals')]")
+    public WebElementFacade clickSingaporeAllIndividuals;
 
+    @FindBy(xpath = "//label[@for='accountTypeCd']/following-sibling::div//div[@class='el-radio-group']/label[1]//span[@class='el-radio__inner']")
+    public WebElementFacade clickCurrentAccount;
+
+    @FindBy(xpath = "//span[text()='SGD - Singapore dollars']")
+    public WebElementFacade selectSGD;
+
+    @FindBy(xpath = "//div[text()='Next']")
+    public WebElementFacade clickTrack1NextBtn;
+
+    @FindBy(xpath = "//div[text()='OK, Let’s Go']")
+    public WebElementFacade getClickLetGo;
+
+    @FindBy(id = "transCode")
+    public WebElementFacade inputMockInformation;
+
+    @FindBy(xpath = "//input[@value='获取交易信息']")
+    public WebElementFacade inputMockGetInformation;
+
+    @FindBy(name = "authUrlType")
+    public WebElementFacade inputAuthUrlType;
+
+    @FindBy(name = "mockData")
+    public WebElementFacade inputMockData;
+
+    @FindBy(xpath = "//input[@value='测试']")
+    public WebElementFacade clickTestBtn;
+
+    @FindBy(id = "TTT")
+    public WebElementFacade getResponseStatus;
+
+    @FindBy(xpath = "//label[@for='operatePersonSalutation']/following-sibling::div//span[@class=\"el-input__suffix\"]")
+    public WebElementFacade clickSalutationDrop;
+
+    @FindBy(xpath = "//div[@x-placement=\"top-start\" or @x-placement=\"bottom-start\"]//span[text()='Mr']")
+    public WebElementFacade selectMrOnPage;
+
+    @FindBy(xpath = "//div[text()='Next']")
+    public WebElementFacade clickNextBtn;
+
+    @FindBy(xpath = "//span[text()='Ensure that the mobile number is accurate']")
+    public WebElementFacade getWindows;
+
+    @FindBy(xpath = "//div[text()='Yes, This is Accurate']")
+    public WebElementFacade clickSubmitBtn;
 }

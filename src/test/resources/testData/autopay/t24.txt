@@ -1,39 +1,12 @@
-2022-10-18 14:36:23:206
-ChannelReferenceID:221018000000023
-ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+2022-10-21 14:0:41:71
+ChannelReferenceID:221021000000065
+ChannelDebitAccountName:EMBASSY OF ITALY
 ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11010001256
+ChannelDebitAccountNumber:11010000179
 ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
-ChannelCreditAccountCurrency:USD
-ChannelCreditAccountNumber:11010001434
+ChannelCreditAccountName:EMBASSY OF ITALY
+ChannelCreditAccountCurrency:SGD
+ChannelCreditAccountNumber:11010001639
 ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelDetailExchangeRate:USD 1 ¡Ö SGD 1.42121
-ChannelTransactionAmount:1,018.61
+ChannelTransactionAmount:1,021.57
 ChannelPurposeOfTransfer:Business Expenses
-2022-10-18 14:37:51:315
-ID:221018000000023
-TransactionReference:PI2229105YCBGHZ7
-t24FtNumber:SGL22291MKKGMGCL
-getTransactionReferenceNum:SGL22291MKKGMGCL
-getSenderReferenceNum:PI2229105YCBGHZ7
-getTransactionCurrency:USD
-getInstructedCurrency:SGD
-getTransactionAmount:716.72
-getInstructedAmount:1,018.61
-getChargeOption:SHA
-getDebitAccountNum:11010001256
-getCreditAccountNum:11010001434
-getDebitAccountCurrency:SGD
-getCreditAccountCurrency:USD
-getDebitAmount:1,018.61
-getCreditAmount:716.72
-getDebitCustomerRate:1.42121
-getDebitTreasuryRate:1.42021
-getOrderingAccount:11010001256
-getBeneficiaryAccount:11010001434
-getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
-getBeneficiaryName:COMPUTERCITY SINGAPORE PTE. LTD.
-getOrderingAddress:XIAN
-getBeneficiaryAddress:YISHUN STREET 71
-getOrderingTown:SG

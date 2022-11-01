@@ -339,7 +339,7 @@ Feature: loan application
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD
     And Provide Essential Information
       |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
-      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|202144852M |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|201831184D |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -361,7 +361,7 @@ Feature: loan application
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningSGD
+  @accountOpeningSGD123
 #    CA账户SGD开立
   Scenario:Enterprise management console CA account SGD opened
     Given logon "netSilverEnv_Kevin" on enterprise net silver
@@ -479,7 +479,7 @@ Feature: loan application
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information
       |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
-      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|202120268C |
+      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|201831184D |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles

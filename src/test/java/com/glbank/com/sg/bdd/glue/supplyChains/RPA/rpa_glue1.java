@@ -48,7 +48,7 @@ public class rpa_glue1 {
     @Then("^Jump to the supplier portal to check the RPA$")
     public void jumpToTheSupplierPortalToCheckTheRPA() {
         rpaStep.jumpToSupplierPortal();
-        rpaStep.openEmailUrlTest();
+//        rpaStep.openEmailUrlTest();
 //        rpaStep.errorEmailLink();
         bddUtil.switchToWindows();
         rpaStep.loginServiceAgreementWindow();
