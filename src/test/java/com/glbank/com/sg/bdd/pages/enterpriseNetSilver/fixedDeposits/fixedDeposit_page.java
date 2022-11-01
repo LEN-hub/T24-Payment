@@ -70,4 +70,23 @@ public class fixedDeposit_page extends PageObject {
 
     @FindBy(xpath = "//div[@class=\"el-row\"]//div[@class=\"ui-button secondary common\"]//div[@class=\"btn_box\"]")
     public WebElementFacade clickDetails;
+
+    //授权
+    @FindBy(xpath = "//div[text()='My Tasks']")
+    public WebElementFacade clickMyTaskMenu;
+
+    @FindBy(xpath = "//div[contains(text(),'Fixed Deposits')]")
+    public WebElementFacade clickFixedDeposits;
+
+    @FindBy(xpath = "//div[@class='el-table__fixed-body-wrapper']//tr[1]//div[text()='Authorize']")
+    public WebElementFacade clickAuthorizeBtn;
+
+    @FindBy(xpath = "//span[text()='Approve']/preceding-sibling::span/span")
+    public WebElementFacade cickApproveBtn;
+
+    @FindBy(xpath = "//div[text()='Submit']")
+    public WebElementFacade clickSubmitBtn;
+
+    @FindBy(xpath = "//div[text()='Finish']")
+    public WebElementFacade clickFinishBtn;
 }

@@ -2,6 +2,7 @@ package com.glbank.com.sg.bdd.glue.T24.Payment;
 
 import com.glbank.com.sg.bdd.steps.T24.Logon.T24_Logon_step;
 import com.glbank.com.sg.bdd.steps.T24.Payment.t24_Payments_step;
+import com.glbank.com.sg.bdd.utils.BDDUtil;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
@@ -31,7 +32,7 @@ public class t24_Payments_glue {
         List<Map<String, String>> content = data.asMaps(String.class, String.class);
         t24_payments_step.inputBox(content.get(0).get("search content"));
         t24_payments_step.jumpNewWindows(content.get(0).get("windows Title"));
-        t24_payments_step.serialNumberQueryingInformation();
+        t24_payments_step.serialNumberQueryingInformation(content.get(0).get("WordPath"));
         t24_payments_step.switchToDefaultContent();
     }
     @When("^I type in the content and click the search button on Local Payment$")
@@ -40,7 +41,7 @@ public class t24_Payments_glue {
         List<Map<String, String>> content = data.asMaps(String.class, String.class);
         t24_payments_step.inputBox(content.get(0).get("search content"));
         t24_payments_step.jumpNewWindows(content.get(0).get("windows Title"));
-        t24_payments_step.serialNumberQueryingInformationOnLocalPayment();
+        t24_payments_step.serialNumberQueryingInformationOnLocalPayment(content.get(0).get("WordPath"));
         t24_payments_step.switchToDefaultContent();
     }
 
@@ -50,7 +51,7 @@ public class t24_Payments_glue {
         List<Map<String, String>> content = data.asMaps(String.class, String.class);
         t24_payments_step.inputBox(content.get(0).get("search content"));
         t24_payments_step.jumpNewWindows(content.get(0).get("windows Title"));
-        t24_payments_step.serialNumberQueryingInformationMxMessage();
+        t24_payments_step.serialNumberQueryingInformationMxMessage(content.get(0).get("WordPath"));
         t24_payments_step.switchToDefaultContent();
     }
     @When("^I type in the content and click the search button To Local Payment$")
@@ -59,7 +60,7 @@ public class t24_Payments_glue {
         List<Map<String, String>> content = data.asMaps(String.class, String.class);
         t24_payments_step.inputBox(content.get(0).get("search content"));
         t24_payments_step.jumpNewWindows(content.get(0).get("windows Title"));
-        t24_payments_step.serialNumberQueryingInformationToLocalPayment();
+        t24_payments_step.serialNumberQueryingInformationToLocalPayment(content.get(0).get("WordPath"));
         t24_payments_step.switchToDefaultContent();
     }
 
@@ -85,7 +86,7 @@ public class t24_Payments_glue {
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
         t24_payments_step.switchToFirstFrame();
         t24_payments_step.findFileSendersReference();
-        t24_payments_step.getFtNumber();
+        t24_payments_step.getFtNumber(title.get(0).get("WordPath"));
     }
 
     @When("^I jump to a newly opened page On Local Payment$")
@@ -95,7 +96,7 @@ public class t24_Payments_glue {
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
         t24_payments_step.switchToFirstFrame();
         t24_payments_step.findFileSendersReference();
-        t24_payments_step.getFtNumberOnLocalPayment();
+        t24_payments_step.getFtNumberOnLocalPayment(title.get(0).get("WordPath"));
     }
 
     @When("^I jump to a newly opened page on Mx Message$")
@@ -105,26 +106,30 @@ public class t24_Payments_glue {
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
         t24_payments_step.switchToFirstFrame();
         t24_payments_step.findFileSendersReference();
-        t24_payments_step.getFtNumberOnMxMessage();
+        t24_payments_step.getFtNumberOnMxMessage(title.get(0).get("WordPath"));
     }
 
     @When("^I compare the amount is normal$")
-    public void iCompareTheAmountIsNormal() {
-        t24_payments_step.checkAccountingEntries();
+    public void iCompareTheAmountIsNormal(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkAccountingEntries(title.get(0).get("WordPath"));
     }
     @When("^I compare the amount is normal To Local Payment$")
-    public void iCompareTheAmountIsNormalToLocalPayment() {
-        t24_payments_step.checkAccountingEntriesToLocalPayment();
+    public void iCompareTheAmountIsNormalToLocalPayment(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkAccountingEntriesToLocalPayment(title.get(0).get("WordPath"));
     }
 
     @When("^I compare the amount is normal on Mx Message$")
-    public void iCompareTheAmountIsNormalOnMxMessage() {
-        t24_payments_step.checkAccountingEntriesOnMxMessage();
+    public void iCompareTheAmountIsNormalOnMxMessage(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkAccountingEntriesOnMxMessage(title.get(0).get("WordPath"));
     }
 
     @When("^I compare the data generated by Outgoing Message is correct$")
-    public void iCompareTheDataGeneratedByOutgoingMessageIsCorrect() {
-        t24_payments_step.checkOutgoingMessage();
+    public void iCompareTheDataGeneratedByOutgoingMessageIsCorrect(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkOutgoingMessage(title.get(0).get("WordPath"));
     }
 
     @When("^I compare the data generated by Outgoing Message is correct On Local Payment$")
@@ -133,45 +138,50 @@ public class t24_Payments_glue {
     }
 
     @When("^I compare the data generated by Outgoing Message MX Message is correct$")
-    public void iCompareTheDataGeneratedByOutgoingMessageMXMessageIsCorrect() {
-        t24_payments_step.checkOutgoingMessageOnMxMessage();
+    public void iCompareTheDataGeneratedByOutgoingMessageMXMessageIsCorrect(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkOutgoingMessageOnMxMessage(title.get(0).get("WordPath"));
     }
 
     @When("^I type FOREX in the search box use to authorize the operation$")
     public void iTypeFOREXInTheSearchBox(DataTable data) {
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
-        t24_payments_step.forexAuthorize(title.get(0).get("search content"),title.get(0).get("user Authorize"));
+        t24_payments_step.forexAuthorize(title.get(0).get("search content"),title.get(0).get("user Authorize"),title.get(0).get("WordPath"));
     }
     @When("^I type FOREX in the search box use to authorize the operationToLocalPayment$")
     public void iTypeFOREXInTheSearchBoxToLocalPayment(DataTable data) {
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
-        t24_payments_step.forexAuthorizeToLocalPayment(title.get(0).get("search content"),title.get(0).get("user Authorize"));
+        t24_payments_step.forexAuthorizeToLocalPayment(title.get(0).get("search content"),title.get(0).get("user Authorize"),title.get(0).get("WordPath"));
     }
     @When("^I jump to the home page and enter FUNDS\\.TRANSFER for data mapping$")
     public void iJumpToTheHomePageAndEnterFUNDSTRANSFERForDataMapping(DataTable data) {
         t24_payments_step.switchToFirstFrame();
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
-        t24_payments_step.fundsTransfer(title.get(0).get("search content"));
+        t24_payments_step.fundsTransfer(title.get(0).get("search content"),title.get(0).get("WordPath"));
     }
 
     @Then("^I will map the page data$")
-    public void iWillMapThePageData() {
-        t24_payments_step.iWillMapThePageData();
+    public void iWillMapThePageData(DataTable data) {
+        List<Map<String, String>> content = data.asMaps(String.class, String.class);
+        t24_payments_step.iWillMapThePageData(content.get(0).get("WordPath"));
     }
 
     @Then("^I do field mapping for Channel and T24 in FX Payment$")
-    public void iDoFieldMappingForChannelAndT() {
-        t24_payments_step.channelAndT24DataFieldMappingFxPayment();
+    public void iDoFieldMappingForChannelAndT(DataTable data) {
+        List<Map<String, String>> content = data.asMaps(String.class, String.class);
+        t24_payments_step.channelAndT24DataFieldMappingFxPayment(content.get(0).get("WordPath"));
     }
 
     @Then("^I do field mapping for Channel and T24 in same currency$")
-    public void iDoFieldMappingForChannelAndTInSameCurrency() {
-        t24_payments_step.channelAndT24DataFieldMappingSameCurrency();
+    public void iDoFieldMappingForChannelAndTInSameCurrency(DataTable data) {
+        List<Map<String, String>> content = data.asMaps(String.class, String.class);
+        t24_payments_step.channelAndT24DataFieldMappingSameCurrency(content.get(0).get("WordPath"));
     }
 
     @Then("^I do field mapping for Channel and T24 in Own FX Payment$")
-    public void iDoFieldMappingForChannelAndTInOwnFXPayment() {
-        t24_payments_step.channelAndT24DataFieldMappingOwnPayment();
+    public void iDoFieldMappingForChannelAndTInOwnFXPayment(DataTable data) {
+        List<Map<String, String>> content = data.asMaps(String.class, String.class);
+        t24_payments_step.channelAndT24DataFieldMappingOwnPayment(content.get(0).get("WordPath"));
     }
 
     @When("^I type in the content and click the search button on Different Currency$")
@@ -180,7 +190,7 @@ public class t24_Payments_glue {
         List<Map<String, String>> content = data.asMaps(String.class, String.class);
         t24_payments_step.inputBox(content.get(0).get("search content"));
         t24_payments_step.jumpNewWindows(content.get(0).get("windows Title"));
-        t24_payments_step.serialNumberQueryingInformationDifferentCurrency();
+        t24_payments_step.serialNumberQueryingInformationDifferentCurrency(content.get(0).get("WordPath"));
         t24_payments_step.switchToDefaultContent();
     }
 
@@ -191,28 +201,32 @@ public class t24_Payments_glue {
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
         t24_payments_step.switchToFirstFrame();
         t24_payments_step.findFileSendersReference();
-        t24_payments_step.getFtNumberDifferentCurrency();
+        t24_payments_step.getFtNumberDifferentCurrency(title.get(0).get("WordPath"));
     }
 
     @Then("^I do field mapping for Channel and T24 in FX Payment for Different Currency$")
-    public void iDoFieldMappingForChannelAndTInFXPaymentForDifferentCurrency() {
-        t24_payments_step.channelAndT24DataFieldMappingFxPaymentDifferentCurrency();
+    public void iDoFieldMappingForChannelAndTInFXPaymentForDifferentCurrency(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.channelAndT24DataFieldMappingFxPaymentDifferentCurrency(title.get(0).get("WordPath"));
     }
 
     @When("^I compare the amount is normal for Different Currency$")
-    public void iCompareTheAmountIsNormalForDifferentCurrency() {
-        t24_payments_step.checkAccountingEntriesDifferentCurrency();
+    public void iCompareTheAmountIsNormalForDifferentCurrency(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkAccountingEntriesDifferentCurrency(title.get(0).get("WordPath"));
     }
 
     @When("^I compare the data generated by Outgoing Message is correct for Different Currency$")
-    public void iCompareTheDataGeneratedByOutgoingMessageIsCorrectForDifferentCurrency() {
-        t24_payments_step.checkOutgoingMessageDifferentCurrency();
+    public void iCompareTheDataGeneratedByOutgoingMessageIsCorrectForDifferentCurrency(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkOutgoingMessageDifferentCurrency(title.get(0).get("WordPath"));
+
     }
 
     @When("^I type FOREX in the search box use to authorize the operation for Different Currency$")
     public void iTypeFOREXInTheSearchBoxUseToAuthorizeTheOperationForDifferentCurrency(DataTable data) {
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
-        t24_payments_step.forexAuthorizeDifferentCurrency(title.get(0).get("search content"),title.get(0).get("user Authorize"));
+        t24_payments_step.forexAuthorizeDifferentCurrency(title.get(0).get("search content"),title.get(0).get("user Authorize"),title.get(0).get("WordPath"));
     }
 
 }

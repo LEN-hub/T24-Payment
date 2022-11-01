@@ -66,9 +66,12 @@ public class Logon_glue {
                 logon_step.enterVcode();
                 logon_step.getAuthenticateNowBtn();
                 logon_step.resetPassword();
-            } finally {
-                Logon_step.quitAndroidDriver();
+            }catch (Exception e){
+                e.printStackTrace();
             }
+//            } finally {
+//                Logon_step.quitAndroidDriver();
+//            }
         }
     }
 
@@ -106,8 +109,8 @@ public class Logon_glue {
             logon_step.enter_email_into_box(envName);
             logon_step.enter_password_into_box(envName);
             logon_step.clickLogonBtn();
-            logon_step.clickNextBtn();
-            logon_step.clickSitEnvOtpBtn();
+//            logon_step.clickNextBtn();
+//            logon_step.clickSitEnvOtpBtn();
         }
     }
 }

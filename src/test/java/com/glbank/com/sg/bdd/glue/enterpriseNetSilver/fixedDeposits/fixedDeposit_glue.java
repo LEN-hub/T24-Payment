@@ -34,4 +34,9 @@ public class fixedDeposit_glue {
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
         fixedDeposit_step.createFixedDeposit(payToInfo.get(0).get("Transfer accounts"),payToInfo.get(0).get("Into account"),payToInfo.get(0).get("Amount"),payToInfo.get(0).get("Period"),payToInfo.get(0).get("Transfer accounts way"));
     }
+
+    @When("^Click My Task to find data for authorization$")
+    public void clickMyTaskToFindDataForAuthorization() {
+        fixedDeposit_step.fixedDepositAuthorize();
+    }
 }
