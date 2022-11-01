@@ -18,7 +18,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBSSSGS0API     |
+      |DBSSAEA0XXX     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -63,7 +63,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBSSSGS0API     |
+      |DBSSAEA0XXX     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -110,7 +110,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBSSSGS0API     |
+      |DBSSAEA0XXX     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -152,7 +152,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBSSSGS0API     |
+      |DBSSAEA0XXX     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |

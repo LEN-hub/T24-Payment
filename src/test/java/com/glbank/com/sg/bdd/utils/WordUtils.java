@@ -192,7 +192,7 @@ public class WordUtils {
             }
         }
     }
-    public static void photoStorageToLocalPaymentFXMessage(){
+    public static void photoStorageToLocalPaymentFXMessage(String WordPath){
         BDDUtil.size = BDDUtil.size + 1;
         int size = BDDUtil.size;
         WordUtils wordUtil = new WordUtils();
@@ -209,7 +209,7 @@ public class WordUtils {
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Internal Transfer Same Currency.docx";
-            path3 = path + "word/"+date+"Internal Transfer Same Currency.docx";
+            path3 = path + "word/Internal Transfer "+WordPath+".docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);
@@ -217,7 +217,7 @@ public class WordUtils {
             e.printStackTrace();
         }
     }
-    public static void photoStorageToLocalPayment(){
+    public static void photoStorageToLocalPayment(String WordPath){
         BDDUtil.size = BDDUtil.size + 1;
         int size = BDDUtil.size;
         WordUtils wordUtil = new WordUtils();
@@ -234,7 +234,7 @@ public class WordUtils {
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Internal Transfer Different Currency.docx";
-            path3 = path + "word/"+date+"Internal Transfer Different Currency.docx";
+            path3 = path + "word/Internal Transfer "+WordPath+".docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);
@@ -242,7 +242,7 @@ public class WordUtils {
             e.printStackTrace();
         }
     }
-    public static void photoStorageToFXPaymentMX(){
+    public static void photoStorageToFXPaymentMX(String WordPath){
         BDDUtil.size = BDDUtil.size + 1;
         int size = BDDUtil.size;
         WordUtils wordUtil = new WordUtils();
@@ -259,7 +259,7 @@ public class WordUtils {
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Oversea Payment Same Currency.docx";
-            path3 = path + "word/"+date+"Oversea Payment Same Currency.docx";
+            path3 = path + "word/Oversea Payment "+WordPath+".docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);
@@ -267,7 +267,7 @@ public class WordUtils {
             e.printStackTrace();
         }
     }
-    public static void photoStorageToFxPaymentDifferentCurrencyMX(){
+    public static void photoStorageToFxPaymentDifferentCurrencyMX(String WordPath){
         BDDUtil.size = BDDUtil.size + 1;
         int size = BDDUtil.size;
         WordUtils wordUtil = new WordUtils();
@@ -284,7 +284,7 @@ public class WordUtils {
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Oversea Payment Different Currency MX.docx";
-            path3 = path + "word/"+date+"Oversea Payment Different Currency MX.docx";
+            path3 = path + "word/Oversea Payment "+WordPath+".docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);
@@ -292,7 +292,7 @@ public class WordUtils {
             e.printStackTrace();
         }
     }
-    public static void photoStorageToFxPaymentMT(){
+    public static void photoStorageToFxPaymentMT(String WordPath){
         BDDUtil.size = BDDUtil.size + 1;
         int size = BDDUtil.size;
         WordUtils wordUtil = new WordUtils();
@@ -309,7 +309,7 @@ public class WordUtils {
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Oversea Payment Different Currency MT.docx";
-            path3 = path + "word/"+date+"Oversea Payment Different Currency MT.docx";
+            path3 = path + "word/Oversea Payment "+WordPath+".docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);

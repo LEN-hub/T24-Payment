@@ -1,39 +1,15 @@
-2022-10-31 13:4:54:662
-ChannelReferenceID:221031000000101
+2022-11-1 14:33:35:925
+ChannelReferenceID:221101000000034
 ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
 ChannelDebitAccountCurrency:USD
 ChannelDebitAccountNumber:11010001434
 ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
 ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
-ChannelCreditAccountCurrency:SGD
-ChannelCreditAccountNumber:11010001256
+ChannelCreditAccountCurrency:USD
+ChannelCreditAccountNumber:11010001442
 ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelDetailExchangeRate:USD 1 ≈ SGD 1.3595
-ChannelTransactionAmount:1,031.19
+ChannelTransactionAmount:1,101.28
 ChannelPurposeOfTransfer:Business Expenses
-2022-10-31 13:6:26:621
-ID:221031000000101
-TransactionReference:PI22304106Q9JY1D
-t24FtNumber:SGL22304GBBFMDCF
-getTransactionReferenceNum:SGL22304GBBFMDCF
-getSenderReferenceNum:PI22304106Q9JY1D
-getTransactionCurrency:SGD
-getInstructedCurrency:USD
-getTransactionAmount:1,401.90
-getInstructedAmount:1,031.19
-getChargeOption:SHA
-getDebitAccountNum:11010001434
-getCreditAccountNum:11010001256
-getDebitAccountCurrency:USD
-getCreditAccountCurrency:SGD
-getDebitAmount:1,031.19
-getCreditAmount:1,401.90
-getDebitCustomerRate:1.3595
-getDebitTreasuryRate:1.3605
-getOrderingAccount:11010001434
-getBeneficiaryAccount:11010001256
-getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
-getBeneficiaryName:COMPUTERCITY SINGAPORE PTE. LTD.
-getOrderingAddress:XIAN
-getBeneficiaryAddress:YISHUN STREET 71
-getOrderingTown:SG
+2022-11-1 14:35:32:811
+ID:221101000000034
+TransactionReference:FT22305CHJGK
