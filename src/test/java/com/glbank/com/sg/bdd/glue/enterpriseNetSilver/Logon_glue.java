@@ -27,8 +27,7 @@ public class Logon_glue {
     private BDDUtil bddUtil;
 
     @Given("^logon \"([^\"]*)\" on enterprise net silver$")
-    public void logonOnEnterpriseNetSilver(String envName, DataTable data) throws MalformedURLException, InterruptedException, AWTException {
-        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+    public void logonOnEnterpriseNetSilver(String envName) throws MalformedURLException, InterruptedException, AWTException {
         bddUtil.quitDriver();
         envTag = envName;
         if (!envName.isEmpty()) {

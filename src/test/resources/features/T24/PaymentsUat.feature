@@ -6,8 +6,6 @@ Feature: receipt and payment service
    #USD->SGD
   Scenario:I have successfully changed us dollars into Singapore dollars and T24
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
-      |name|
-      |12345|
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
       |1101 0001 434   |1101 0001 256|
@@ -43,8 +41,6 @@ Feature: receipt and payment service
   #SGD->USD
   Scenario:I have successfully transferred from Singapore currency to US dollar
     Given logon "netSilverEnv_Kevin" on enterprise net silver
-      |name|
-      |123456|
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
       |1101 0001 256   |1101 0001 434|
