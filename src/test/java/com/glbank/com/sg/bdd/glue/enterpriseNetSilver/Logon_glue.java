@@ -36,28 +36,19 @@ public class Logon_glue {
                 logon_step.open_the_first_dbb_logon_page(envName);
 //                logon_step.checkLanguage();
                 logon_step.enter_OrganisationID_into_box(envName);
-                FileUtils.deleteFile("screenShots");
-                bddUtil.screenShort();
-                WordUtils.photoStorageToLocalPaymentFXMessage(payToInfo.get(0).get("name"));
-                bddUtil.screenShort();
-                WordUtils.photoStorageToLocalPaymentFXMessage(payToInfo.get(0).get("name"));
-                bddUtil.screenShort();
-                WordUtils.photoStorageToLocalPaymentFXMessage(payToInfo.get(0).get("name"));
-//                logon_step.enter_email_into_box(envName);
-//                logon_step.enter_password_into_box(envName);
-//                logon_step.getDeviceName(envName);
-//                logon_step.get_New_password(envName);
-//                logon_step.clickLogonBtn();
-//                logon_step.getVcodeTitle();
-//                logon_step.clickNextBtn();
-//                Logon_step.vkeyAppVcode();
-//                logon_step.enterVcode();
-//                logon_step.getAuthenticateNowBtn();
-//                logon_step.resetPassword();
-//            } finally {
-//                Logon_step.quitAndroidDriver();
-            }catch (Exception e){
-                e.printStackTrace();
+                logon_step.enter_email_into_box(envName);
+                logon_step.enter_password_into_box(envName);
+                logon_step.getDeviceName(envName);
+                logon_step.get_New_password(envName);
+                logon_step.clickLogonBtn();
+                logon_step.getVcodeTitle();
+                logon_step.clickNextBtn();
+                Logon_step.vkeyAppVcode();
+                logon_step.enterVcode();
+                logon_step.getAuthenticateNowBtn();
+                logon_step.resetPassword();
+            } finally {
+                Logon_step.quitAndroidDriver();
             }
         }
     }
