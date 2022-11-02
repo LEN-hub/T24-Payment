@@ -1185,6 +1185,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.selectSGD.click();
         openAccount_page.clickTrack1NextBtn.click();
         bddUtil.scrollWindowToElement(openAccount_page.getClickLetGo);
+        bddUtil.sleep(4);
         openAccount_page.getClickLetGo.click();
     }
     private static String MockData ="{\n"+
