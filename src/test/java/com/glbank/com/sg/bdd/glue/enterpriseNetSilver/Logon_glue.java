@@ -115,8 +115,8 @@ public class Logon_glue {
             logon_step.enter_email_into_box(envName);
             logon_step.enter_password_into_box(envName);
             logon_step.clickLogonBtn();
-            logon_step.clickNextBtn();
-            logon_step.clickSitEnvOtpBtn();
+//            logon_step.clickNextBtn();
+//            logon_step.clickSitEnvOtpBtn();
         }
     }
 }

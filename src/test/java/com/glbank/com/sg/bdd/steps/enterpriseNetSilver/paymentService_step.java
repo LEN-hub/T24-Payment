@@ -220,7 +220,8 @@ public class paymentService_step extends ScenarioSteps {
 //        paymentService_page.accountName.sendKeys(accountName);
 //        paymentService_page.paymentAccount.sendKeys(paymentAccount);
         //paynow
-        paymentService_page.selectPaymentTypeMEPS.click();
+//        paymentService_page.selectPaymentTypeMEPS.click();
+        paymentService_page.clickPaymentTypeMEPS.click();
         paymentService_page.payeeBankSelect.click();
         List<WebElementFacade> payeeBank = paymentService_page.selectPayeeBankText;
         for (int i = 0; i < payeeBank.size(); i++) {

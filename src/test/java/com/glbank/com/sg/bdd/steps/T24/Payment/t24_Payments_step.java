@@ -656,7 +656,7 @@ public class t24_Payments_step extends ScenarioSteps {
     }
     //获取Outgoing Message
     @Step
-    public void checkOutgoingMessageDifferentCurrency(String WordPath){
+    public void checkOutgoingMessageDifferentCurrency(String WordPath,String name){
         t24_payments_page.clickInBox.click();
         t24_payments_page.selectOutgoingMessage.click();
         t24_payments_page.clickSelectDrilldown.click();
@@ -669,15 +669,15 @@ public class t24_Payments_step extends ScenarioSteps {
         }else if (t24_payments_page.mtMsgType.isVisible()){
             bddUtil.screenShort();
             WordUtils.photoStorageToFxPaymentDifferentCurrencyMX(WordPath);
-            FileUtils.FileString(WordUtils.date+"MT Message","company ID:"+t24_payments_page.companyId.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","Send Ref:"+t24_payments_page.sendRef.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","message Type:"+t24_payments_page.mtMsgType.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","message Content:"+t24_payments_page.msgContent.getText());
+            FileUtils.FileString(name+"MT Message","company ID:"+t24_payments_page.companyId.getText());
+            FileUtils.FileString(name+"MT Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
+            FileUtils.FileString(name+"MT Message","Send Ref:"+t24_payments_page.sendRef.getText());
+            FileUtils.FileString(name+"MT Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
+            FileUtils.FileString(name+"MT Message","message Type:"+t24_payments_page.mtMsgType.getText());
+            FileUtils.FileString(name+"MT Message","message Content:"+t24_payments_page.msgContent.getText());
             List<WebElementFacade> trList = t24_payments_page.trList;
             for (int i = 2; i<trList.size()-2; i++){
-                FileUtils.FileString(WordUtils.date+"MT Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
+                FileUtils.FileString(name+"MT Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
                 if (i == trList.size()-2){
                     break;
                 }
@@ -692,15 +692,15 @@ public class t24_Payments_step extends ScenarioSteps {
         }else if (t24_payments_page.msgType.isVisible()){
             bddUtil.screenShort();
             WordUtils.photoStorageToFxPaymentDifferentCurrencyMX(WordPath);
-            FileUtils.FileString(WordUtils.date+"MX Message","company ID:"+t24_payments_page.companyId.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","Send Ref:"+t24_payments_page.sendRef.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","message Type:"+t24_payments_page.msgType.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","message Content:"+t24_payments_page.msgContent.getText());
+            FileUtils.FileString(name+"MX Message","company ID:"+t24_payments_page.companyId.getText());
+            FileUtils.FileString(name+"MX Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
+            FileUtils.FileString(name+"MX Message","Send Ref:"+t24_payments_page.sendRef.getText());
+            FileUtils.FileString(name+"MX Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
+            FileUtils.FileString(name+"MX Message","message Type:"+t24_payments_page.msgType.getText());
+            FileUtils.FileString(name+"MX Message","message Content:"+t24_payments_page.msgContent.getText());
             List<WebElementFacade> trList = t24_payments_page.trList;
             for (int i = 2; i<trList.size()-2; i++){
-                FileUtils.FileString(WordUtils.date+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
+                FileUtils.FileString(name+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
                 if (i == trList.size()-2){
                     break;
                 }
@@ -718,7 +718,7 @@ public class t24_Payments_step extends ScenarioSteps {
                 WordUtils.photoStorageToFxPaymentDifferentCurrencyMX(WordPath);
                 List<WebElementFacade> trList2 = t24_payments_page.trList;
                 for (int i = 1; i <= trList2.size()-2; i++){
-                    FileUtils.FileString(WordUtils.date+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
+                    FileUtils.FileString(name+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
                     if (i == trList2.size()-2){
                         break;
                     }
@@ -733,7 +733,7 @@ public class t24_Payments_step extends ScenarioSteps {
     }
     //获取Outgoing Message
     @Step
-    public void checkOutgoingMessage(String WordPath){
+    public void checkOutgoingMessage(String WordPath,String name){
         t24_payments_page.clickInBox.click();
         t24_payments_page.selectOutgoingMessage.click();
         t24_payments_page.clickSelectDrilldown.click();
@@ -746,15 +746,15 @@ public class t24_Payments_step extends ScenarioSteps {
         }else if (t24_payments_page.mtMsgType.isVisible()){
             bddUtil.screenShort();
             WordUtils.photoStorageToFxPaymentMT(WordPath);
-            FileUtils.FileString(WordUtils.date+"MT Message","company ID:"+t24_payments_page.companyId.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","Send Ref:"+t24_payments_page.sendRef.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","message Type:"+t24_payments_page.mtMsgType.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","message Content:"+t24_payments_page.msgContent.getText());
+            FileUtils.FileString(name+"MT Message","company ID:"+t24_payments_page.companyId.getText());
+            FileUtils.FileString(name+"MT Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
+            FileUtils.FileString(name+"MT Message","Send Ref:"+t24_payments_page.sendRef.getText());
+            FileUtils.FileString(name+"MT Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
+            FileUtils.FileString(name+"MT Message","message Type:"+t24_payments_page.mtMsgType.getText());
+            FileUtils.FileString(name+"MT Message","message Content:"+t24_payments_page.msgContent.getText());
             List<WebElementFacade> trList = t24_payments_page.trList;
             for (int i = 2; i<trList.size()-2; i++){
-                FileUtils.FileString(WordUtils.date+"MT Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
+                FileUtils.FileString(name+"MT Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
                 if (i == trList.size()-2){
                     break;
                 }
@@ -769,15 +769,15 @@ public class t24_Payments_step extends ScenarioSteps {
         }else if (t24_payments_page.msgType.isVisible()){
             bddUtil.screenShort();
             WordUtils.photoStorageToFxPaymentMT(WordPath);
-            FileUtils.FileString(WordUtils.date+"MX Message","company ID:"+t24_payments_page.companyId.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","Send Ref:"+t24_payments_page.sendRef.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","message Type:"+t24_payments_page.msgType.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","message Content:"+t24_payments_page.msgContent.getText());
+            FileUtils.FileString(name+"MX Message","company ID:"+t24_payments_page.companyId.getText());
+            FileUtils.FileString(name+"MX Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
+            FileUtils.FileString(name+"MX Message","Send Ref:"+t24_payments_page.sendRef.getText());
+            FileUtils.FileString(name+"MX Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
+            FileUtils.FileString(name+"MX Message","message Type:"+t24_payments_page.msgType.getText());
+            FileUtils.FileString(name+"MX Message","message Content:"+t24_payments_page.msgContent.getText());
             List<WebElementFacade> trList = t24_payments_page.trList;
             for (int i = 2; i<trList.size()-2; i++){
-                FileUtils.FileString(WordUtils.date+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
+                FileUtils.FileString(name+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
                 if (i == trList.size()-2){
                     break;
                 }
@@ -795,7 +795,7 @@ public class t24_Payments_step extends ScenarioSteps {
                 WordUtils.photoStorageToFxPaymentMT(WordPath);
                 List<WebElementFacade> trList2 = t24_payments_page.trList;
                 for (int i = 1; i <= trList2.size()-2; i++){
-                    FileUtils.FileString(WordUtils.date+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
+                    FileUtils.FileString(name+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
                     if (i == trList2.size()-2){
                         break;
                     }
@@ -809,7 +809,7 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.closeWindow();
     }
     @Step
-    public void checkOutgoingMessageOnLocalPayment(){
+    public void checkOutgoingMessageOnLocalPayment(String name){
         t24_payments_page.clickInBox.click();
         t24_payments_page.selectOutgoingMessage.click();
         t24_payments_page.clickSelectDrilldown.click();
@@ -818,15 +818,15 @@ public class t24_Payments_step extends ScenarioSteps {
         if (t24_payments_page.notApplicableView.isVisible()){
             System.out.println("Outgoing没有生成数据！");
         }else if (t24_payments_page.mtMsgType.isVisible()){
-            FileUtils.FileString(WordUtils.date+"MT Message","company ID:"+t24_payments_page.companyId.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","Send Ref:"+t24_payments_page.sendRef.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","message Type:"+t24_payments_page.mtMsgType.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","message Content:"+t24_payments_page.msgContent.getText());
+            FileUtils.FileString(name+"MT Message","company ID:"+t24_payments_page.companyId.getText());
+            FileUtils.FileString(name+"MT Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
+            FileUtils.FileString(name+"MT Message","Send Ref:"+t24_payments_page.sendRef.getText());
+            FileUtils.FileString(name+"MT Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
+            FileUtils.FileString(name+"MT Message","message Type:"+t24_payments_page.mtMsgType.getText());
+            FileUtils.FileString(name+"MT Message","message Content:"+t24_payments_page.msgContent.getText());
             List<WebElementFacade> trList = t24_payments_page.trList;
             for (int i = 2; i<trList.size()-2; i++){
-                FileUtils.FileString(WordUtils.date+"MT Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
+                FileUtils.FileString(name+"MT Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
                 if (i == trList.size()-2){
                     break;
                 }
@@ -839,15 +839,15 @@ public class t24_Payments_step extends ScenarioSteps {
             Assert.assertEquals(getBeneficiaryAccount,t24_payments_page.check59Field.getText().substring(5));
             Assert.assertEquals(getChargeOption,t24_payments_page.check71AField.getText().substring(5));
         }else if (t24_payments_page.msgType.isVisible()){
-            FileUtils.FileString(WordUtils.date+"MX Message","company ID:"+t24_payments_page.companyId.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","Send Ref:"+t24_payments_page.sendRef.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","message Type:"+t24_payments_page.msgType.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","message Content:"+t24_payments_page.msgContent.getText());
+            FileUtils.FileString(name+"MX Message","company ID:"+t24_payments_page.companyId.getText());
+            FileUtils.FileString(name+"MX Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
+            FileUtils.FileString(name+"MX Message","Send Ref:"+t24_payments_page.sendRef.getText());
+            FileUtils.FileString(name+"MX Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
+            FileUtils.FileString(name+"MX Message","message Type:"+t24_payments_page.msgType.getText());
+            FileUtils.FileString(name+"MX Message","message Content:"+t24_payments_page.msgContent.getText());
             List<WebElementFacade> trList = t24_payments_page.trList;
             for (int i = 2; i<trList.size()-2; i++){
-                FileUtils.FileString(WordUtils.date+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
+                FileUtils.FileString(name+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
                 if (i == trList.size()-2){
                     break;
                 }
@@ -858,7 +858,7 @@ public class t24_Payments_step extends ScenarioSteps {
                 t24_payments_page.clickNextPage.click();
                 List<WebElementFacade> trList2 = t24_payments_page.trList;
                 for (int i = 1; i <= trList2.size()-2; i++){
-                    FileUtils.FileString(WordUtils.date+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
+                    FileUtils.FileString(name+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
                     if (i == trList2.size()-2){
                         break;
                     }
@@ -872,7 +872,7 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
     @Step
-    public void checkOutgoingMessageOnMxMessage(String WordPath){
+    public void checkOutgoingMessageOnMxMessage(String WordPath,String name){
         t24_payments_page.clickInBox.click();
         t24_payments_page.selectOutgoingMessage.click();
         t24_payments_page.clickSelectDrilldown.click();
@@ -885,15 +885,15 @@ public class t24_Payments_step extends ScenarioSteps {
         }else if (t24_payments_page.mtMsgType.isVisible()){
             bddUtil.screenShort();
             WordUtils.photoStorageToFXPaymentMX(WordPath);
-            FileUtils.FileString(WordUtils.date+"MT Message","company ID:"+t24_payments_page.companyId.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","Send Ref:"+t24_payments_page.sendRef.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","message Type:"+t24_payments_page.mtMsgType.getText());
-            FileUtils.FileString(WordUtils.date+"MT Message","message Content:"+t24_payments_page.msgContent.getText());
+            FileUtils.FileString(name+"MT Message","company ID:"+t24_payments_page.companyId.getText());
+            FileUtils.FileString(name+"MT Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
+            FileUtils.FileString(name+"MT Message","Send Ref:"+t24_payments_page.sendRef.getText());
+            FileUtils.FileString(name+"MT Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
+            FileUtils.FileString(name+"MT Message","message Type:"+t24_payments_page.mtMsgType.getText());
+            FileUtils.FileString(name+"MT Message","message Content:"+t24_payments_page.msgContent.getText());
             List<WebElementFacade> trList = t24_payments_page.trList;
             for (int i = 2; i<trList.size()-2; i++){
-                FileUtils.FileString(WordUtils.date+"MT Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
+                FileUtils.FileString(name+"MT Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
                 if (i == trList.size()-2){
                     break;
                 }
@@ -908,15 +908,15 @@ public class t24_Payments_step extends ScenarioSteps {
         }else if (t24_payments_page.msgType.isVisible()){
             bddUtil.screenShort();
             WordUtils.photoStorageToFXPaymentMX(WordPath);
-            FileUtils.FileString(WordUtils.date+"MX Message","company ID:"+t24_payments_page.companyId.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","Send Ref:"+t24_payments_page.sendRef.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","message Type:"+t24_payments_page.msgType.getText());
-            FileUtils.FileString(WordUtils.date+"MX Message","message Content:"+t24_payments_page.msgContent.getText());
+            FileUtils.FileString(name+"MX Message","company ID:"+t24_payments_page.companyId.getText());
+            FileUtils.FileString(name+"MX Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
+            FileUtils.FileString(name+"MX Message","Send Ref:"+t24_payments_page.sendRef.getText());
+            FileUtils.FileString(name+"MX Message","Send Date Time:"+t24_payments_page.sendDateTime.getText());
+            FileUtils.FileString(name+"MX Message","message Type:"+t24_payments_page.msgType.getText());
+            FileUtils.FileString(name+"MX Message","message Content:"+t24_payments_page.msgContent.getText());
             List<WebElementFacade> trList = t24_payments_page.trList;
             for (int i = 2; i<trList.size()-2; i++){
-                FileUtils.FileString(WordUtils.date+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
+                FileUtils.FileString(name+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
                 if (i == trList.size()-2){
                     break;
                 }
@@ -933,7 +933,7 @@ public class t24_Payments_step extends ScenarioSteps {
             WordUtils.photoStorageToFXPaymentMX(WordPath);
             List<WebElementFacade> trList2 = t24_payments_page.trList;
             for (int i = 1; i <= trList2.size()-2; i++){
-                FileUtils.FileString(WordUtils.date+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
+                FileUtils.FileString(name+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
                 if (i == trList2.size()-2){
                     break;
                 }

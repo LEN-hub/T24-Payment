@@ -10,6 +10,7 @@ import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 import java.util.Map;
 

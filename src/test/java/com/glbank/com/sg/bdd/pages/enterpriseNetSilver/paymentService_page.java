@@ -32,6 +32,9 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[2]//span[@class='el-radio__input']")
     public WebElementFacade selectPaymentTypeMEPS;
 
+    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//span[@class='el-radio__inner']")
+    public WebElementFacade clickPaymentTypeMEPS;
+
     @FindBy(xpath = "//label[@for='transferMethod']/parent::div/following-sibling::div[1]//span[@class='el-input__suffix-inner']")
     public WebElementFacade payeeBankSelect;
 
@@ -332,7 +335,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//p[@class=\"searchBox\"]//div[@class='btn_box']")
     public WebElementFacade serachButton;
 
-    @FindBy(xpath = "//label[@class=\"el-radio\"]")
+    @FindBy(xpath = "//label[@class='el-radio']//span[@class='el-radio__inner']")
     public WebElementFacade radioSelect;
 
     @FindBy(xpath = "//div[text()='Confirm']")
@@ -383,7 +386,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[contains(text(),'Please enter SMS verification code')]/following-sibling::div[4]//div[text()='OK']")
     public WebElementFacade clickOkBtn;
 
-    @FindBy(xpath = "//div[@class='el-col el-col-18']/div[3]/div/div")
+    @FindBy(xpath = "//div[text()='Next']")
     public  WebElementFacade clickNextBox;  //下一步
 
     @FindBy(xpath = "//div[@class='ui-button dialog_btn primary common is-block']//div[@class='btn_box']")
