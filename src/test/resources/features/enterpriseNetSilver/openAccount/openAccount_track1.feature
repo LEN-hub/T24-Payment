@@ -2,7 +2,7 @@
 Feature: openAccount_track1
 
   Background:
-    Given open "netSilverEnv_Kevin_Payment" enterprise net silver page
+    Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
 
   @testcodeNew
     #正常开户新流程——单币种账户——新币

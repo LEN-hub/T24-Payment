@@ -16,6 +16,7 @@ public class WordUtils {
     public static String date = BDDUtil.getCurrentTimestamp();
     private static String systemPath = System.getProperty("user.dir");
     public static String path3;
+    static final String getDate = BDDUtil.getCurrentTimestamp();
 
 
     /**
@@ -193,8 +194,14 @@ public class WordUtils {
         }
     }
     public static void photoStorageToLocalPaymentFXMessage(String WordPath){
-        BDDUtil.size = BDDUtil.size + 1;
-        int size = BDDUtil.size;
+        int size = 0;
+        for (File file : Objects.requireNonNull(new File(systemPath + "/src/test/resources/testData/screenShots").listFiles())){
+            if (file.isFile()){
+                size++;
+            }
+        }
+//        BDDUtil.size = BDDUtil.size + 1;
+//        int size = BDDUtil.size;
         WordUtils wordUtil = new WordUtils();
         String path = systemPath + "/src/test/resources/testData/";
         Map<String,Object> jepg = new HashMap<String, Object>(){{
@@ -203,13 +210,13 @@ public class WordUtils {
         try{
             Map<String, Object> data = SerializationUtils.clone((HashMap<String, Object>) jepg);
             data.put("content", WordUtils.inputStream2ByteArray(
-                    new FileInputStream(path+"screenShots/"+BDDUtil.date.get(size - 1) +".png"),
+                    new FileInputStream(path+"screenShots/"+ getDate + size +".png"),
                     true
             ));
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Internal Transfer Same Currency.docx";
-            path3 = path + "word/Internal Transfer "+WordPath+".docx";
+            path3 = path + "word/"+date+"Internal Transfer "+WordPath+".docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);
@@ -218,8 +225,14 @@ public class WordUtils {
         }
     }
     public static void photoStorageToLocalPayment(String WordPath){
-        BDDUtil.size = BDDUtil.size + 1;
-        int size = BDDUtil.size;
+        int size = 0;
+        for (File file : Objects.requireNonNull(new File(systemPath + "/src/test/resources/testData/screenShots").listFiles())){
+            if (file.isFile()){
+                size++;
+            }
+        }
+//        BDDUtil.size = BDDUtil.size + 1;
+//        int size = BDDUtil.size;
         WordUtils wordUtil = new WordUtils();
         String path = systemPath + "/src/test/resources/testData/";
         Map<String,Object> jepg = new HashMap<String, Object>(){{
@@ -228,13 +241,13 @@ public class WordUtils {
         try{
             Map<String, Object> data = SerializationUtils.clone((HashMap<String, Object>) jepg);
             data.put("content", WordUtils.inputStream2ByteArray(
-                    new FileInputStream(path+"screenShots/"+BDDUtil.date.get(size - 1) +".png"),
+                    new FileInputStream(path+"screenShots/"+ getDate + size +".png"),
                     true
             ));
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Internal Transfer Different Currency.docx";
-            path3 = path + "word/Internal Transfer "+WordPath+".docx";
+            path3 = path + "word/"+date+"Internal Transfer "+WordPath+".docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);
@@ -243,8 +256,14 @@ public class WordUtils {
         }
     }
     public static void photoStorageToFXPaymentMX(String WordPath){
-        BDDUtil.size = BDDUtil.size + 1;
-        int size = BDDUtil.size;
+        int size = 0;
+        for (File file : Objects.requireNonNull(new File(systemPath + "/src/test/resources/testData/screenShots").listFiles())){
+            if (file.isFile()){
+                size++;
+            }
+        }
+//        BDDUtil.size = BDDUtil.size + 1;
+//        int size = BDDUtil.size;
         WordUtils wordUtil = new WordUtils();
         String path = systemPath + "/src/test/resources/testData/";
         Map<String,Object> jepg = new HashMap<String, Object>(){{
@@ -253,13 +272,13 @@ public class WordUtils {
         try{
             Map<String, Object> data = SerializationUtils.clone((HashMap<String, Object>) jepg);
             data.put("content", WordUtils.inputStream2ByteArray(
-                    new FileInputStream(path+"screenShots/"+BDDUtil.date.get(size - 1) +".png"),
+                    new FileInputStream(path+"screenShots/"+ getDate + size +".png"),
                     true
             ));
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Oversea Payment Same Currency.docx";
-            path3 = path + "word/Oversea Payment "+WordPath+".docx";
+            path3 = path + "word/"+date+"Oversea Payment "+WordPath+".docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);
@@ -268,8 +287,14 @@ public class WordUtils {
         }
     }
     public static void photoStorageToFxPaymentDifferentCurrencyMX(String WordPath){
-        BDDUtil.size = BDDUtil.size + 1;
-        int size = BDDUtil.size;
+        int size = 0;
+        for (File file : Objects.requireNonNull(new File(systemPath + "/src/test/resources/testData/screenShots").listFiles())){
+            if (file.isFile()){
+                size++;
+            }
+        }
+//        BDDUtil.size = BDDUtil.size + 1;
+//        int size = BDDUtil.size;
         WordUtils wordUtil = new WordUtils();
         String path = systemPath + "/src/test/resources/testData/";
         Map<String,Object> jepg = new HashMap<String, Object>(){{
@@ -278,13 +303,13 @@ public class WordUtils {
         try{
             Map<String, Object> data = SerializationUtils.clone((HashMap<String, Object>) jepg);
             data.put("content", WordUtils.inputStream2ByteArray(
-                    new FileInputStream(path+"screenShots/"+BDDUtil.date.get(size - 1) +".png"),
+                    new FileInputStream(path+"screenShots/"+ getDate + size +".png"),
                     true
             ));
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Oversea Payment Different Currency MX.docx";
-            path3 = path + "word/Oversea Payment "+WordPath+".docx";
+            path3 = path + "word/"+date+"Oversea Payment "+WordPath+".docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);
@@ -293,8 +318,14 @@ public class WordUtils {
         }
     }
     public static void photoStorageToFxPaymentMT(String WordPath){
-        BDDUtil.size = BDDUtil.size + 1;
-        int size = BDDUtil.size;
+        int size = 0;
+        for (File file : Objects.requireNonNull(new File(systemPath + "/src/test/resources/testData/screenShots").listFiles())){
+            if (file.isFile()){
+                size++;
+            }
+        }
+//        BDDUtil.size = BDDUtil.size + 1;
+//        int size = BDDUtil.size;
         WordUtils wordUtil = new WordUtils();
         String path = systemPath + "/src/test/resources/testData/";
         Map<String,Object> jepg = new HashMap<String, Object>(){{
@@ -303,13 +334,13 @@ public class WordUtils {
         try{
             Map<String, Object> data = SerializationUtils.clone((HashMap<String, Object>) jepg);
             data.put("content", WordUtils.inputStream2ByteArray(
-                    new FileInputStream(path+"screenShots/"+BDDUtil.date.get(size - 1) +".png"),
+                    new FileInputStream(path+"screenShots/"+ getDate + size +".png"),
                     true
             ));
             BDDUtil.params.put("${picture" + size + "}", data);
             //模板文件位置
             String path2=path + "excel/Oversea Payment Different Currency MT.docx";
-            path3 = path + "word/Oversea Payment "+WordPath+".docx";
+            path3 = path + "word/"+date+"Oversea Payment "+WordPath+".docx";
             //生成文件位置
             String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
             wordUtil.getWord(path2,BDDUtil.params,fileName);

@@ -40,7 +40,7 @@ Feature: receipt and payment service
   @PaymentUat02
   #SGD->USD
   Scenario:I have successfully transferred from Singapore currency to US dollar
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
       |1101 0001 256   |1101 0001 434|
@@ -113,6 +113,8 @@ Feature: receipt and payment service
       |search content|WordPath|
       |FUNDS.TRANSFER|USD-USD |
     Then I will map the page data
+      |WordPath|
+      |USD-USD |
   @PaymentUat05
     #境内转账-行内转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
