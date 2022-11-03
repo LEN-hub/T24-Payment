@@ -1533,7 +1533,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         bddUtil.switchToNewWindow();
     }
 
-    @Step()
+    @Step
     public void step3Information(){
         openAccount_page.clickSalutationDrop.click();
         openAccount_page.selectMrOnPage.click();
@@ -1542,4 +1542,92 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
             openAccount_page.clickSubmitBtn.click();
         }
     }
+    @Step
+    public void step4Information(){
+        bddUtil.sleep(5);
+        openAccount_page.selectSingaporeTrack1.click();
+        openAccount_page.selectCountryOfOperation.sendKeys("SINGAPORE");
+        openAccount_page.clickSingapore.click();
+        openAccount_page.selectProfitNonProfitOrganisation.click();
+        openAccount_page.clickDrowDrop.click();
+        openAccount_page.selectGroupConsolidatedRevenue.click();
+        openAccount_page.selectACRAModelConstitution.click();
+        openAccount_page.selectPurposeOfAccount.click();
+        openAccount_page.selectBusinessOperations.click();
+        openAccount_page.LoansBanks.click();
+        openAccount_page.estimatedMonthlyTransactionAmount.click();
+        openAccount_page.estimatedMonthlyTransactionVolume.click();
+        openAccount_page.clickFirstRiskStatements.click();
+        openAccount_page.clickSecondRiskStatements.click();
+        openAccount_page.clickTrack1NextBtn.click();
+    }
+
+    @Step
+    public void step5Information(){
+        bddUtil.sleep(3);
+        openAccount_page.selectNRIC.click();
+        openAccount_page.inputCountryCode.sendKeys("+65");
+        openAccount_page.selectCountryCode.click();
+        openAccount_page.inputMobileNum.sendKeys("13008553349");
+        openAccount_page.inputEmailAdd.sendKeys("617558302@qq.com");
+        openAccount_page.inputReEmailAdd.sendKeys("617558302@qq.com");
+        bddUtil.sleep(3);
+        openAccount_page.selectSecondNRIC.click();
+        openAccount_page.inputSecondCountryCode.sendKeys("+65");
+        openAccount_page.selectSecondCountryCode.click();
+        openAccount_page.inputSecondMobileNum.sendKeys("13008553349");
+        openAccount_page.inputSecondEmailAdd.sendKeys("13008553349@163.com");
+        openAccount_page.inputSecondReEmailAdd.sendKeys("13008553349@163.com");
+        openAccount_page.clickTrack1NextBtn.click();
+    }
+    @Step
+    public void step6Information(){
+        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(openAccount_page.clickTrack1NextBtn);
+        openAccount_page.clickTrack1NextBtn.click();
+    }
+
+    @Step
+    public void step7Information(){
+        bddUtil.sleep(3);
+        openAccount_page.selectOneCompanyAdministrator.click();
+        openAccount_page.clickYesProceedBtn.click();
+        openAccount_page.selectAdmin1YesProceed.click();
+        openAccount_page.clickCompanyAdmin.click();
+        openAccount_page.selectCompanyAdmin.click();
+        openAccount_page.clickIdTypeNRIC.click();
+        openAccount_page.clickSalutationDownDrop.click();
+        openAccount_page.selectMr.click();
+        openAccount_page.inputCountryCodeCompanyAdmin.sendKeys("+65");
+        openAccount_page.selectSingporeCompanAdmin.click();
+        openAccount_page.inputMobileNumberAdmin.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        openAccount_page.inputFirstEmailAdmin.click();
+        if (openAccount_page.ensureThatTheMobile.isVisible()){
+            openAccount_page.clickYesAccurate.click();
+        }
+        openAccount_page.inputFirstEmailAdmin.sendKeys("13008553349@163.com");
+        openAccount_page.inputSecondEmailAdmin.sendKeys("13008553349@163.com");
+        openAccount_page.clickTrack1NextBtn.click();
+    }
+    
+    @Step
+    public void step8Information(){
+        getDriver().findElement(By.xpath("//form[@class='el-form']/div[1]//input[@class='el-upload__input']")).sendKeys(fileAddress);
+        bddUtil.sleep(5);
+        getDriver().findElement(By.xpath("//form[@class='el-form']/div[2]//input[@class='el-upload__input']")).sendKeys(fileAddress);
+        bddUtil.sleep(5);
+        getDriver().findElement(By.xpath("//form[@class='el-form']/div[3]//input[@class='el-upload__input']")).sendKeys(fileAddress);
+        openAccount_page.clickTrack1NextBtn.click();
+    }
+
+    @Step
+    public void step9Information(){
+        bddUtil.scrollWindowToElement(openAccount_page.clickFirstCheckBox);
+        openAccount_page.clickFirstCheckBox.click();
+        openAccount_page.clickSecondCheckBox.click();
+        openAccount_page.clickThirdCheckBox.click();
+        openAccount_page.submitNew.click();
+        openAccount_page.viewCongratulations.isVisible();
+    }
+
 }
