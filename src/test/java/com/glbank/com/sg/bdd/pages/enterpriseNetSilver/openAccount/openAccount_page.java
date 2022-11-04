@@ -9,10 +9,10 @@ import java.util.List;
 
 public class openAccount_page extends PageObject {
 
-    @FindBy(xpath = "//div[@class=\"header-top-right\"]//span[2]")
+    @FindBy(xpath = "//span[text()='Open Account / Apply Loan']")
     public WebElementFacade clickOpenAccount;
 
-    @FindBy(xpath = "//div[@class='login_tips']/following-sibling::div[1]/div")
+    @FindBy(xpath = "//div[contains(text(),'Start from Scratch')]")
     public WebElementFacade clickNewUser;
 
     @FindBy(xpath = "//div[contains(text(),'Start a new application')]")
@@ -21,11 +21,14 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[contains(text(),'information myself')]")
     public WebElementFacade clickInformationMyself;
 
-    @FindBy(xpath = "//div[@class='link-btn']")
+    @FindBy(xpath = "//div[contains(text(),'Singapore, All Individuals')]")
+    public WebElementFacade firstTitle;
+
+    @FindBy(xpath = "//div[contains(text(),'Singapore, Includes Companies')]")
     public WebElementFacade secondTitle;
 
-    @FindBy(xpath = "//div[@class='link-btn mb']")
-    public WebElementFacade firstTitle;
+    @FindBy(xpath = "//div[contains(text(),'All Others')]")
+    public WebElementFacade thirdTitle;
 
     @FindBy(xpath = "//form[@class=\"el-form out_form el-form--label-left\"]//div[@class=\"el-col el-col-24\"]//div[1]//div[@class=\"el-form-item__content\"]//label[3]//span[@class=\"el-radio__inner\"]")
     public WebElementFacade clickBusinessEntityType;

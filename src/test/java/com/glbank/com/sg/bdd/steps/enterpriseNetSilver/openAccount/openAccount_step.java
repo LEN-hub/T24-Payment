@@ -39,23 +39,25 @@ public class openAccount_step extends ScenarioSteps {
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
 
-    public void clickOpenAccount() {
+    public void joinOpenAccount(){
         openAccount_page.clickOpenAccount.click();
         openAccount_page.clickNewUser.click();
         bddUtil.sleep(2);
         openAccount_page.secondTitle.click();
     }
 
-    public void joinOpenAccount(){
-        openAccount_page.clickStartANewApplication.click();
-        openAccount_page.clickInformationMyself.click();
-    }
-
     public void clickOpenNewAccount() {
         openAccount_page.clickOpenAccount.click();
         openAccount_page.clickNewUser.click();
         bddUtil.sleep(2);
-        openAccount_page.firstTitle.click();
+        openAccount_page.thirdTitle.click();
+    }
+
+    public void clickOpenAccountTrack2() {
+        openAccount_page.clickOpenAccount.click();
+        openAccount_page.clickNewUser.click();
+        bddUtil.sleep(2);
+        openAccount_page.thirdTitle.click();
     }
 
     public void fillInInformationOnGettingStartedPage() {

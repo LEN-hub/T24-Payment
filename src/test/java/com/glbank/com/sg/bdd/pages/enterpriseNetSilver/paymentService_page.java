@@ -335,7 +335,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//p[@class=\"searchBox\"]//div[@class='btn_box']")
     public WebElementFacade serachButton;
 
-    @FindBy(xpath = "//label[@class='el-radio']//span[@class='el-radio__inner']")
+    @FindBy(xpath = "//tr[@class='el-table__row']//span[@class='el-radio__inner']")
     public WebElementFacade radioSelect;
 
     @FindBy(xpath = "//div[text()='Confirm']")
