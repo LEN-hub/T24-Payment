@@ -234,6 +234,7 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.payeeAccountNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
         paymentService_page.transferAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
+        //截止代码
         paymentService_page.tradeAmountPopWindows.click();
         bddUtil.sleep(3);
         List<WebElementFacade> selectTradeAmount = paymentService_page.tradeAmountSelectFirst;
@@ -505,6 +506,7 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.selectBank.click();
         paymentService_page.searchBox.sendKeys(collectingBank);
         paymentService_page.serachButton.click();
+        bddUtil.sleep(2);
         paymentService_page.radioSelect.click();
         paymentService_page.getConfirmBtn.click();
 //        List<WebElementFacade> bank = paymentService_page.collectingBank;
@@ -592,6 +594,7 @@ public class paymentService_step extends ScenarioSteps {
         FileUtils.FileString4("t24", nowDate + "\n" + "ChannelReferenceID:" + referenceID);
         paymentService_page.checkDetails.click();
         bddUtil.sleep(2);
+        FileUtils.deleteFile("screenShots");
         bddUtil.screenShort();
         WordUtils.photoStorageToFXPaymentMX(WordPath);
         debitAccountName = paymentService_page.debitAccountName.getText();

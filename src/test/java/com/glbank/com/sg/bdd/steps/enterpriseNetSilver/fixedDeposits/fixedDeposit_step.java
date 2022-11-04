@@ -28,7 +28,7 @@ public class fixedDeposit_step extends ScenarioSteps {
         List<WebElementFacade> selectTransferAccount = fixedDeposit_page.selectAccountValue;
         for (int i = 0; i <= selectTransferAccount.size();i++){
             if (transferAccount.equals(selectTransferAccount.get(i).getText().substring(0,13))){
-                selectTransferAccount.get(i).click();
+                bddUtil.scrollWindowToElement(selectTransferAccount.get(i)).click();
                 break;
             }
         }
