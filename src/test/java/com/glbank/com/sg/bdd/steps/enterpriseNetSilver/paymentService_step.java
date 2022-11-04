@@ -481,8 +481,8 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     public void selectAccBth(String selectAccBth){
-            paymentService_page.currencyBox.click();
-            bddUtil.sleep(3);
+        paymentService_page.currencyBox.click();
+        bddUtil.sleep(3);
         List<WebElementFacade> selectAcc = paymentService_page.selectAccBth;
         for (int i = 0; i < selectAcc.size(); i++){
             if (selectAccBth.equals(selectAcc.get(i).getText())){

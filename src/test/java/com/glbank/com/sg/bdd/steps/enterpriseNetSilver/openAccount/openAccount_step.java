@@ -1177,12 +1177,17 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         }
     }
     //Track1Myinfo
-    public void trackMyinfoStep1(){
+    public void trackMyinfoStep1(String currency){
         openAccount_page.clickOpenAccountBtn.click();
         openAccount_page.clickTrack1SatrtFromScratchBtn.click();
         openAccount_page.clickSingaporeAllIndividuals.click();
         openAccount_page.clickCurrentAccount.click();
-        openAccount_page.selectSGD.click();
+        if (currency.equals("SGD")){
+            openAccount_page.selectSGD.click();
+        }else if (currency.equals("USD")){
+            openAccount_page.selectUSD.click();
+        }
+
         openAccount_page.clickTrack1NextBtn.click();
         bddUtil.scrollWindowToElement(openAccount_page.getClickLetGo);
         bddUtil.sleep(4);

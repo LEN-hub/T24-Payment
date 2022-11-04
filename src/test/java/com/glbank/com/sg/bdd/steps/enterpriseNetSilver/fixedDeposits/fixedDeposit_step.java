@@ -67,7 +67,6 @@ public class fixedDeposit_step extends ScenarioSteps {
     public void fixedDepositAuthorize(){
         bddUtil.sleep(5);
         fixedDeposit_page.clickMyTaskMenu.click();
-        fixedDeposit_page.clickFixedDeposits.click();
         bddUtil.sleep(3);
         fixedDeposit_page.clickAuthorizeBtn.click();
         bddUtil.scrollWindowToElement(fixedDeposit_page.cickApproveBtn).click();
