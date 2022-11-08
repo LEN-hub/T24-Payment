@@ -559,8 +559,8 @@ public class openAccount_glue {
     }
 
     @When("^I enter the myinfo page and complete Step 1 information input$")
-    public void iEnterTheMyinfoPageAndCompleteStepInformationInput(DataTable data) {
-        List<Map<String, String>> maps = data.asMaps(String.class, String.class);
+    public void iEnterTheMyinfoPageAndCompleteStepInformationInput(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         openAccount_step.trackMyinfoStep1(maps.get(0).get("Currency"));
     }
 
