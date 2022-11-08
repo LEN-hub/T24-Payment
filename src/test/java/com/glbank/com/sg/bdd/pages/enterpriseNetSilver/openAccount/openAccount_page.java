@@ -989,6 +989,9 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//span[text()='SGD - Singapore dollars']")
     public WebElementFacade selectSGD;
 
+    @FindBy(xpath = "//span[text()='USD - United States Dollars']")
+    public WebElementFacade selectUSD;
+
     @FindBy(xpath = "//div[text()='Next']")
     public WebElementFacade clickTrack1NextBtn;
 

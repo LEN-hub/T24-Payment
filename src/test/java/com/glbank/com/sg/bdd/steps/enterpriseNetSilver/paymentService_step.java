@@ -70,7 +70,7 @@ public class paymentService_step extends ScenarioSteps {
         List<WebElementFacade> currency = paymentService_page.rollOutAccountSGD;
         for (int i = 0; i< currency.size();i++){
             if (rollOutAccount.contains(currency.get(i).getText().substring(0,currency.get(i).getText().indexOf("/")).trim())){
-                currency.get(i).click();
+                bddUtil.scrollWindowToElement(currency.get(i)).click();
                 break;
             }
         }
@@ -80,7 +80,7 @@ public class paymentService_step extends ScenarioSteps {
             List<WebElementFacade> current1 = paymentService_page.selectAccount;
             for (int i = 0; i < current1.size(); i++) {
                 if (current1.get(i).getText().equals(current)){
-                    current1.get(i).click();
+                    bddUtil.scrollWindowToElement(current1.get(i)).click();
                 }
             }
         }
@@ -91,7 +91,7 @@ public class paymentService_step extends ScenarioSteps {
         List<WebElementFacade> secondCurrency = paymentService_page.secondCurrencySelectSGD;
         for(int j = 0; j < secondCurrency.size(); j++){
             if (intoAccount.contains(secondCurrency.get(j).getText().substring(0,secondCurrency.get(j).getText().indexOf("/")).trim())){
-                secondCurrency.get(j).click();
+                bddUtil.scrollWindowToElement(secondCurrency.get(j)).click();
                 break;
             }
         }
