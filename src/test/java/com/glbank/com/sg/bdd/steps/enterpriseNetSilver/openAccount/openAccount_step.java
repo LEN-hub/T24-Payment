@@ -460,12 +460,13 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.monthAmontNew.click();
         getDriver().findElement(By.xpath("//span[text()='SGD 500,001 - SGD 1 Million']")).click();
         openAccount_page.monthTrsCount.click();
-        getDriver().findElement(By.xpath("//span[text()='1 to 20']")).click();
+        getDriver().findElement(By.xpath("//span[text()='1 - 20']")).click();
         openAccount_page.nextButtonNew.click();
         bddUtil.sleep(1);
         for (int i = 0; i < 3; i++) {
             bddUtil.sleep(2);
     }
+        bddUtil.sleep(3);
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(0).sendKeys(fileAddress);
         bddUtil.sleep(1);
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(1).sendKeys(fileAddress);
@@ -729,6 +730,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
             openAccount_page.clickSalutationTest.click();
             openAccount_page.mr.click();
             openAccount_page.clickSelectCountryIcon.click();
+            bddUtil.sleep(2);
             List<WebElementFacade> selectCountry = openAccount_page.selectCountry;
             for (int i = 0;i <selectCountry.size(); i++){
                 if (selectCountry.get(i).getText().equals("SINGAPOREAN")){
@@ -1536,7 +1538,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.inputMockData.sendKeys(MockData);
         openAccount_page.clickTestBtn.click();
         mockDataResponse = openAccount_page.getResponseStatus.getText().substring(openAccount_page.getResponseStatus.getText().indexOf("state")+9).substring(0,36);
-        webdriver.executeScript("window.open(\"https://ib-uat.glbank.com/#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
+        webdriver.executeScript("window.open(\"http://10.24.8.5:60006/#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
         bddUtil.switchToNewWindow();
     }
 

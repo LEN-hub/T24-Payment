@@ -6,7 +6,7 @@ Feature: openAccount_track1
 
   @testcodeNewTrack1
     #正常开户新流程——单币种账户——新币
-  Scenario:openAccount_track1 Singapore enterprise
+  Scenario:openAccount_track1 Singapore enterprise_SGD
     When I enter the myinfo page and complete Step 1 information input
       |currency|
       |SGD     |
@@ -21,7 +21,7 @@ Feature: openAccount_track1
 
   @testcodeNewTrack2
     #正常开户新流程——单币种账户——美元
-  Scenario:openAccount_track1 Singapore enterprise
+  Scenario:openAccount_track1 Singapore enterprise_USD
     When I enter the myinfo page and complete Step 1 information input
       |currency|
       |USD     |
