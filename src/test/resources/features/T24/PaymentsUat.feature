@@ -75,6 +75,7 @@ Feature: receipt and payment service
     When I type FOREX in the search box use to authorize the operationToLocalPayment
       |search content|user Authorize                 |WordPath|
       |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|SGD-USD |
+
   @PaymentUat03
    #SGD->SGD
   Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process
@@ -97,6 +98,7 @@ Feature: receipt and payment service
     Then I will map the page data
       |WordPath|
       |SGD-SGD |
+
   @PaymentUat04
     #USD->USD
   Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow
@@ -119,6 +121,7 @@ Feature: receipt and payment service
     Then I will map the page data
       |WordPath|
       |USD-USD |
+    
   @PaymentUat05
     #境内转账-行内转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)

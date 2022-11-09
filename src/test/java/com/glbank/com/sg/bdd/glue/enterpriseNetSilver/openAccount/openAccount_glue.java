@@ -561,12 +561,13 @@ public class openAccount_glue {
     @When("^I enter the myinfo page and complete Step 1 information input$")
     public void iEnterTheMyinfoPageAndCompleteStepInformationInput(DataTable data) {
         List<Map<String, String>> maps = data.asMaps(String.class, String.class);
-        openAccount_step.trackMyinfoStep1(maps.get(0).get("Currency"));
+        openAccount_step.trackMyinfoStep1(maps.get(0).get("currency"));
     }
 
     @When("^I open the myinfo Mock and get the bezel information$")
-    public void iOpenTheMyinfoMockAndGetTheBezelInformation() {
-        openAccount_step.openMyinfoDataUrl();
+    public void iOpenTheMyinfoMockAndGetTheBezelInformation(DataTable data) {
+        List<Map<String, String>> maps = data.asMaps(String.class, String.class);
+        openAccount_step.openMyinfoDataUrl(maps.get(0).get("url"));
     }
 
     @When("^I enter information in Step 3 and jump to the next step$")

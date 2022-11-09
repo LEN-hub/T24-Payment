@@ -1528,9 +1528,13 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
     "}";
 
     @Step
-    public void openMyinfoDataUrl(){
+    public void openMyinfoDataUrl(String url){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"http://10.24.9.119:60008/direct/test_pc_ent.html\");");
+        if (url.equals("UAT"))
+            webdriver.executeScript("window.open(\"http://10.24.9.119:60008/direct/test_pc_ent.html\");");
+        else if (url.equals("SIT")){
+            webdriver.executeScript("window.open(\"http://10.24.4.27:8080/direct/test_pc_ent.html\");");
+        }
         bddUtil.switchToNewWindow();
         openAccount_page.inputMockInformation.sendKeys("myinfoMockData");
         openAccount_page.inputMockGetInformation.click();
@@ -1538,7 +1542,12 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.inputMockData.sendKeys(MockData);
         openAccount_page.clickTestBtn.click();
         mockDataResponse = openAccount_page.getResponseStatus.getText().substring(openAccount_page.getResponseStatus.getText().indexOf("state")+9).substring(0,36);
-        webdriver.executeScript("window.open(\"http://10.24.8.5:60006/#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
+        if (url.equals("UAT")){
+            webdriver.executeScript("window.open(\"http://10.24.8.5:60006/#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
+        }else if (url.equals("SIT")){
+            webdriver.executeScript("window.open(\"http://10.24.4.123/ent_sit/direct/index.html#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
+        }
+
         bddUtil.switchToNewWindow();
     }
 
