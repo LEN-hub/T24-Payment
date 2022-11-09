@@ -84,6 +84,27 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-input-group__append']/preceding-sibling::input")
     public WebElementFacade inputSendCode;
 
+    @FindBy(xpath = "//span[@class='el-input__suffix']/span/i")
+    public WebElementFacade selectEmailDropDown;
+
+    @FindBy(xpath = "//span[text()='@c0c.fun']")
+    public WebElementFacade selectC0c;
+
+    @FindBy(xpath = "//input[@placeholder=\"请输入邮箱账号\"]")
+    public WebElementFacade changeSendEmail;
+
+    @FindBy(xpath = "//span[text()=' 刷新 ']")
+    public WebElementFacade clickRefresh;
+
+    @FindBy(xpath = "//table[@class='el-table__body']/tbody/tr/td[3]/div")
+    public List<WebElementFacade> emailSubject;
+
+    @FindBy(xpath = "//*[contains(text(),'Proceed to Digital Sign')]")
+    public WebElementFacade DigitalSign;
+
+    @FindBy(xpath = "//table[@class='el-table__body']/tbody/tr//span[text()='查看']")
+    public List<WebElementFacade> clickViewBtn;
+
     @FindBy(xpath = "//input[@placeholder='Enter Company ID']")
     public WebElementFacade enterCompanyId;
 
@@ -99,7 +120,7 @@ public class creditLimit_page extends PageObject {
     @FindBy(id = "proceed-link")
     public WebElementFacade enterEmailLink;
 
-    @FindBy(xpath = "//div[@class='tab-pane message-body active']//h2")
+    @FindBy(xpath = "//div[@class='container content']//h2")
     public WebElementFacade emailVerificationCode;
 
     @FindBy(xpath = "//div[@class='passage']")

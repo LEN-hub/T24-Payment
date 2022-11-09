@@ -34,6 +34,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//span[text()='Supplier']")
     public WebElementFacade customerTypeSupplier;
 
+    @FindBy(xpath = "//span[text()='Buyer']")
+    public WebElementFacade getCustomerTypeBuyer;
+
     @FindBy(xpath = "//label[@for='custEnglishName']/following-sibling::div//input")
     public WebElementFacade companyName;
 
@@ -43,7 +46,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='registryCountry']/following-sibling::div//input/following-sibling::span")
     public WebElementFacade selectCountryOfRegistration;
 
-    @FindBy(xpath = "//body[@class='el-popup-parent--hidden']/div[5]//ul//span[text()='Costa Rica']")
+    @FindBy(xpath = "//body[@class='el-popup-parent--hidden']/div[5]//ul//span[text()='Singapore']")
     public WebElementFacade countryOfRegistrationValue;
 
     @FindBy(xpath = "//label[@for='custName']/following-sibling::div//input")
@@ -250,6 +253,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//span[text()=' Agree ']")
     public WebElementFacade clickAgreeBtn;
 
+    @FindBy(xpath = "//span[text()='I will input manually']")
+    public WebElementFacade inputManually;
+
     @FindBy(xpath = "//div[@class='dialog-footer-top']//span[@class='lls-checkbox__input']")
     public WebElementFacade selectFirstCheckBox;
 
@@ -334,7 +340,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='industry']/following-sibling::div//span[@class='lls-input__suffix-inner']")
     public WebElementFacade industry;
 
-    @FindBy(xpath = "//span[text()='Agriculture & Fishing']")
+    @FindBy(xpath = "//span[text()='Wholesale & Retail Trade']")
     public WebElementFacade selectIndustry;
 
     @FindBy(xpath = "//label[@for='legalStructure']/following-sibling::div//span[@class='lls-input__suffix-inner']")
@@ -563,8 +569,8 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()='Shareholder 1']/parent::div/parent::div/following-sibling::div//label[@for='country']/following-sibling::div//input")
     public WebElementFacade shareholder1Nationality;
 
-    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span[text()='China']")
-    public WebElementFacade selectChina;
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span[text()='Singapore']")
+    public WebElementFacade selectCountry;
 
     @FindBy(xpath = "//div[text()='Shareholder 1']/parent::div/parent::div/following-sibling::div//label[@for='residentialAddress']/following-sibling::div//textarea")
     public WebElementFacade shareholder1ResidentialAddress;

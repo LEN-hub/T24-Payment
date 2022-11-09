@@ -133,7 +133,9 @@ public class creditLimit_glue {
 
     @When("^I login email URL$")
     public void iLoginEmailURL() {
-        creditLimit_step.clickEmail();
+//        creditLimit_step.clickEmail();
+        creditLimit_step.ToggleOneEmail();
+        creditLimit_step.signTheOneBR();
         bddUtil.sleep(3);
     }
 
