@@ -1,7 +1,7 @@
-@loanApplicationabcd
+@loanApplicatonabcd
 Feature: loan application
 
-  @loanApplication0
+  @loanAppilication0
   Scenario:Select "≤1,000,000" for "Corporate Turnover (SGD)", select "Current Assets Loan" for the loan type, select the guarantor: Director, select the duration of the financial report: six months, enter the application amount: 10,000 Singapore dollars, "Micro Current "Overdraft" product loan application successful
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I hover over the loan business
@@ -127,45 +127,6 @@ Feature: loan application
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
     Then I should see Submitted successfully page
-
-##    单人授权。需要提前更改账号的授权模式。
-#  @loanApplication6
-#  Scenario:Accounts2 Payable Financing Loan Draw Application Process
-#    Given logon "netSilverEnvLoan_Tian" on enterprise net silver
-#    When I click on the Enterprise Administration Desk and select Account Management
-#    When click authorization
-#    When I choose single-player license management mode
-#    And Confirm the authorization mode and submit it
-#    When secondary authorized person notification is then displayed
-#    Then TC code is then required for Vkey authentication
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
-#    Then I verify that the transaction is successful
-#    When I should switch to the second authorized account
-#    When logon second "netSilverEnvLoan_Tian2" on enterprise net silver
-#    When I click My Tasks button on the logon page
-#    Then I should direct to the Awaiting authorization page
-#    When I click on the first piece of data to authorize
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
-#    When I should switch to the second authorized account
-#    When  logon second "netSilverEnvLoan_Tian" on enterprise net silver
-#    When I click the loan draw button
-#    When I choose to apply for disbursement of financing receivables
-#    When I choose Singapore Dollar
-#    When I have filled in the other information
-#      |amount|dayNum|goodsDescr|fileAddress|
-#      |100   |30    |testAnd12 |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
-#    Then TC code is then required for Vkey authentication
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
-#    When I should switch to the second authorized account
-#    Given logon second "netSilverEnvLoan_Tian2" on enterprise net silver
-#    When I click My Tasks button on the logon page
-#    Then I should direct to the Awaiting authorization page
-#    When I click on the first piece of data to authorize
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
 
 
 
@@ -325,14 +286,31 @@ Feature: loan application
     When The program is finished I will release the Linux SSH connection
     When I close driver
 
+  @testcodeNewTrack1
+    #正常开户新流程——单币种账户——新币
+  Scenario:openAccount_track1 Singapore enterprise_SGD
+    Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
+    When I enter the myinfo page and complete Step 1 information input
+      |currency|
+      |SGD     |
+    When I open the myinfo Mock and get the bezel information
+    When I enter information in Step 3 and jump to the next step
+    When I enter information in Step 4 and jump to the next step
+    When I enter information in Step 5 and jump to the next step
+    When I enter information in Step 6 and jump to the next step
+    When I enter information in Step 7 and jump to the next step
+    When I enter information in Step 8 and jump to the next step
+    When I enter information in Step 9 and jump to the next step
+
+
       #多币种账户 新币+美元
   Scenario:openAccount Current Account MCA_SGD_USD
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
-      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|201831184D |
+      |Entity's Type                                  |Entity Consolidated       |Entity's Industry|date      |chekk      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover <= SGD 1 Million |Manufacturing    |01/01/2010|200911779N |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -381,7 +359,7 @@ Feature: loan application
     Then I click Next
     When I initiate captcha verification
 
-     #SDG->SDG
+    #本人互转SGD-SGD
   Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
@@ -390,14 +368,17 @@ Feature: loan application
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
+      |WordPath|
+      |SGD-SGD |
 
-  @PaymentUat123
+
+  @PaymentUat05
     #境内转账-行内转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |Payee's Bank |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
-      |DBS          |TSC1643346550706|11010003437           |Business Expenses   |1101 0001 256 |
+      |Payee's Bank           |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
+      |BANK OF CHINA LIMITED  |TSC1643346550706|11010003437           |Business Expenses   |1101 0000 179 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
     When I click Next to go to the verification page
@@ -405,6 +386,9 @@ Feature: loan application
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
     Then I will compare all the data on same Currency Payment
+      |WordPath              |
+      |Local Payment SGD-SGD |
+
 
 
   @overseasTransfer013
@@ -456,14 +440,14 @@ Feature: loan application
     When The program is finished I will release the Linux SSH connection
 
 
-      #正常开户流程——单币种账户——新币
+           #正常开户流程——单币种账户——新币
   Scenario:openAccount Singapore enterprise
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information
-      |Entity's Type                                  |Entity Consolidated      |Entity's Industry|date      |chekk      |
-      |Public Listed Company (Not Listed in Singapore)|Turnover ≤ SGD 1 Million |Manufacturing    |01/01/2010|201831184D |
+      |Entity's Type                                  |Entity Consolidated       |Entity's Industry|date      |chekk      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover <= SGD 1 Million |Manufacturing    |01/01/2010|200911779N |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -471,6 +455,7 @@ Feature: loan application
     Then Upload Supporting Documents
     And Review Details
     When I close driver
+
 
 #    #USD->USD
 #  Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow report
