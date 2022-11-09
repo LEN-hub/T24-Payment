@@ -1,4 +1,4 @@
-@openAccountNew
+@openAccountTrack1
 Feature: openAccount_track1
 
   Background:
