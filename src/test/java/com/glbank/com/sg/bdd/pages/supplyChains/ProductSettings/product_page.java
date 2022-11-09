@@ -238,7 +238,7 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f21qf3bf']//input")
     public WebElementFacade GracePeriod;
 
-    @FindBy(xpath = "//div[@data-key='f0nfhvv8']//input")
+    @FindBy(xpath = "//div[@data-key='f0vilgld']//input")
     public WebElementFacade setUpFee;
 
     @FindBy(xpath = "//div[@data-key='f0nqmgp0']//span")
