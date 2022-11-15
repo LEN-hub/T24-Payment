@@ -294,6 +294,8 @@ Feature: loan application
       |currency|
       |SGD     |
     When I open the myinfo Mock and get the bezel information
+      |url|
+      |SIT|
     When I enter information in Step 3 and jump to the next step
     When I enter information in Step 4 and jump to the next step
     When I enter information in Step 5 and jump to the next step
@@ -301,7 +303,6 @@ Feature: loan application
     When I enter information in Step 7 and jump to the next step
     When I enter information in Step 8 and jump to the next step
     When I enter information in Step 9 and jump to the next step
-
 
       #多币种账户 新币+美元
   Scenario:openAccount Current Account MCA_SGD_USD
@@ -429,7 +430,7 @@ Feature: loan application
     When I click on the Enterprise Administration as well user administration
     When I click on Add user
       |TimeLimit |birthday  |countries|
-      |2026-08-18|1998-05-20|+86      |
+      |2029-08-18|1999-05-20|+86      |
     When I get the OTP verification code from the server
     When fill in my email
     When I get the OTP verification code from the server

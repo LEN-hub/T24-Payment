@@ -1,21 +1,32 @@
-2022-11-10 14:13:25:620
-ChannelReferenceID:221110000000008
-ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD
-ChannelDebitAccountCurrency:USD
-ChannelDebitAccountNumber:11020571063
-ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
-ChannelCreditAccountCurrency:USD
-ChannelCreditAccountNumber:11010001442
-ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelTransactionAmount:1,110.75
+2022-11-15 13:29:49:633
+ChannelReferenceID:221115000000061
+ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelDebitAccountCurrency:SGD
+ChannelDebitAccountNumber:11010001256
+ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
+ChannelDetailPayeeName:Milly
+ChannelDetailAccountCurrency:SGD
+ChannelCreditAccountCurrency:SGD
+ChannelCreditAccountNumber:13442475480
+ChannelTransactionAmount:1,115.19
 ChannelPurposeOfTransfer:Business Expenses
-2022-11-10 14:20:23:345
-ID:221110000000008
-TransactionReference:FT22314DGJDK
-fundsTransferDebitAccountNum:11020571098
-fundsTransferDebitCurrency:USD
-fundsTransferCreditCurrency:USD
-fundTransferCreditAccNo:11010001442
-fundsTransferAmountDebited:USD1110.75
-fundsTransferAmoyntCredited:USD1110.75
+2022-11-15 13:32:30:221
+ID:221115000000061
+TransactionReference:PI2231902R318CRZ
+t24FtNumber:SGL22319GDJDBLD0
+getTransactionReferenceNum:SGL22319GDJDBLD0
+getSenderReferenceNum:PI2231902R318CRZ
+getTransactionCurrency:SGD
+getTransactionCurrency:SGD
+getTransactionAmount:1,115.19
+getChargeOption:SHA
+getDebitAccountNum:11010001256
+getDebitAccountCurrency:SGD
+getOrderingAccount:11010001256
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getOrderingAddress:XIAN
+getOrderingTown:SG
+getCreditAccountNum:15000000951
+getCreditAccountCurrency:SGD
+getBeneficiaryAccount:13442475480
+getBeneficiaryName:Milly

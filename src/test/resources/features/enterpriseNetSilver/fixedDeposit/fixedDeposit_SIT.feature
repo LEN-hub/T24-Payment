@@ -9,7 +9,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |1 Month |1                    |
+      |1101 0000 470       |11010000438 |250000 |1 Month |1                    |
 
 
   #定期存款_美元_一个月_不转存
@@ -28,7 +28,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |1 Month |2                    |
+      |1101 0000 470       |11010000438 |250000 |1 Month |2                    |
 
   #定期存款_美元_一个月_本金续存
   @fixedDeposit04_SIT
@@ -46,7 +46,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |1 Month |3                    |
+      |1101 0000 470       |11010000438 |250000 |1 Month |3                    |
 
   #定期存款_美元_一个月_本息续存
   @fixedDeposit06_SIT
@@ -64,7 +64,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |3 Months|1                    |
+      |1101 0000 470       |11010000438 |250000 |3 Months|1                    |
 
 
   #定期存款_美元_三个月_不转存
@@ -83,7 +83,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |3 Months|2                    |
+      |1101 0000 470       |11010000438 |250000 |3 Months|2                    |
 
   #定期存款_美元_三个月_本金续存
   @fixedDeposit10_SIT
@@ -101,7 +101,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |3 Months|3                    |
+      |1101 0000 470       |11010000438 |250000 |3 Months|3                    |
 
   #定期存款_美元_三个月_本息续存
   @fixedDeposit12_SIT
@@ -120,7 +120,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |6 Months|1                    |
+      |1101 0000 470       |11010000438 |250000 |6 Months|1                    |
 
 
   #定期存款_美元_六个月_不转存
@@ -139,7 +139,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |6 Months|2                    |
+      |1101 0000 470       |11010000438 |250000 |6 Months|2                    |
 
   #定期存款_美元_六个月_本金续存
   @fixedDeposit16_SIT
@@ -157,7 +157,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |6 Months|3                    |
+      |1101 0000 470       |11010000438 |250000 |6 Months|3                    |
 
   #定期存款_美元_六个月_本息续存
   @fixedDeposit18_SIT
@@ -175,7 +175,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |9 Months|1                    |
+      |1101 0000 470       |11010000438 |250000 |9 Months|1                    |
 
   #定期存款_美元_九个月_不转存
   @fixedDeposit20_SIT
@@ -193,7 +193,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |9 Months|2                    |
+      |1101 0000 470       |11010000438 |250000 |9 Months|2                    |
 
   #定期存款_美元_九个月_本金续存
   @fixedDeposit22_SIT
@@ -211,7 +211,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |9 Months|3                    |
+      |1101 0000 470       |11010000438 |250000 |9 Months|3                    |
 
   #定期存款_美元_九个月_本息续存
   @fixedDeposit24_SIT
@@ -229,7 +229,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |12 Months|1                    |
+      |1101 0000 470       |11010000438 |250000 |12 Months|1                    |
 
   #定期存款_美元_十二个月_不转存
   @fixedDeposit26_SIT
@@ -247,7 +247,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |12 Months|2                    |
+      |1101 0000 470       |11010000438 |250000 |12 Months|2                    |
 
   #定期存款_美元_十二个月_本金续存
   @fixedDeposit28_SIT
@@ -265,7 +265,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |12 Months|3                    |
+      |1101 0000 470       |11010000438 |250000 |12 Months|3                    |
 
   #定期存款_美元_十二个月_本息续存
   @fixedDeposit30_SIT
@@ -283,7 +283,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |18 Months|1                    |
+      |1101 0000 470       |11010000438 |250000 |18 Months|1                    |
 
   #定期存款_美元_十八个月_不转存
   @fixedDeposit32_SIT
@@ -301,7 +301,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |18 Months|2                    |
+      |1101 0000 470       |11010000438 |250000 |18 Months|2                    |
 
   #定期存款_美元_十八个月_本金续存
   @fixedDeposit34_SIT
@@ -319,7 +319,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |18 Months|3                    |
+      |1101 0000 470       |11010000438 |250000 |18 Months|3                    |
 
   #定期存款_美元_十八个月_本息续存
   @fixedDeposit36_SIT
@@ -339,7 +339,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |6 Months|1                    |
+      |1101 0000 470       |11010000438 |250000 |6 Months|1                    |
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
@@ -363,7 +363,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |6 Months|2                    |
+      |1101 0000 470       |11010000438 |250000 |6 Months|2                    |
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
@@ -387,7 +387,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |6 Months|3                    |
+      |1101 0000 470       |11010000438 |250000 |6 Months|3                    |
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
@@ -410,7 +410,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |9 Months|1                    |
+      |1101 0000 470       |11010000438 |250000 |9 Months|1                    |
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
@@ -433,7 +433,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |9 Months|2                    |
+      |1101 0000 470       |11010000438 |250000 |9 Months|2                    |
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
@@ -456,7 +456,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |9 Months|3                    |
+      |1101 0000 470       |11010000438 |250000 |9 Months|3                    |
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
@@ -479,7 +479,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |12 Months|1                    |
+      |1101 0000 470       |11010000438 |250000 |12 Months|1                    |
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
@@ -501,7 +501,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |12 Months|2                    |
+      |1101 0000 470       |11010000438 |250000 |12 Months|2                    |
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
@@ -525,7 +525,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |12 Months|3                    |
+      |1101 0000 470       |11010000438 |250000 |12 Months|3                    |
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
@@ -549,7 +549,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |18 Months|1                    |
+      |1101 0000 470       |11010000438 |250000 |18 Months|1                    |
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
@@ -571,7 +571,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |18 Months|2                    |
+      |1101 0000 470       |11010000438 |250000 |18 Months|2                    |
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
@@ -595,7 +595,7 @@ Feature: fixedDeposit_SIT
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
-      |1101 0000 969       |11010000608 |250000 |18 Months|3                    |
+      |1101 0000 470       |11010000438 |250000 |18 Months|3                    |
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 

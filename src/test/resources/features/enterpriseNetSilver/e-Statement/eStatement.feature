@@ -26,7 +26,7 @@ Scenario:Download past e-statements successfully
 #    Then I should direct to the eStatements Overview page
   When I click select box
     |select       |
-    |11020002212  |
+    |11010008414  |
   And I click search button
   Then I should see Account List
   When I click on the past data to download

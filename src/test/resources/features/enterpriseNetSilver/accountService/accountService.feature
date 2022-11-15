@@ -40,14 +40,7 @@ Feature: accountService
   Scenario:personal center online banking transaction query submission time selection nearly seven days
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When personal center online banking transaction query submission time selection nearly seven days
-  @accountService10
-  Scenario:Transaction details list query process
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click account Details to query and verify the presence of elements
-  @accountService11
-  Scenario:Transaction query page flow
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click the Account details query and click the query button to query
+
 
 #    @accountServices
 #  Scenario:Authorization Center
