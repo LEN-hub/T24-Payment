@@ -21,7 +21,6 @@ public class financingRequest_glue {
 
     @Given("^login \"([^\"]*)\" To RequestFinancing$")
     public void loginGLDBToRequestFinancing(String envName){
-
         envTag = envName;
         financingRequest_step.openGLDBLoginPage(envName);
         financingRequest_step.enterLoginDateToBox(email,password,companyId,code);

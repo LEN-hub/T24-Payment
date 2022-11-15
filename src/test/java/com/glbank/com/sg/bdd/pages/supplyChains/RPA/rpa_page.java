@@ -5,6 +5,8 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class rpa_page extends PageObject {
 
     @FindBy(xpath = "//span[text()='Customers']/parent::div/span")
@@ -39,7 +41,7 @@ public class rpa_page extends PageObject {
     @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")
     public WebElementFacade clickRefreshBtn;
 
-    @FindBy(xpath = "//div[@class='tab-pane message-body active']//h2")
+    @FindBy(xpath = "//div[@class='container content']//h2")
     public WebElementFacade emailVerificationCode;
 
     @FindBy(xpath = "//div[@class='lls-form-item__content']//input[@placeholder='Enter email']")
@@ -59,6 +61,28 @@ public class rpa_page extends PageObject {
 
     @FindBy(xpath = "//input[@placeholder='Enter Company ID']")
     public WebElementFacade enterCompanyId;
+
+    @FindBy(xpath = "//span[text()=' 刷新 ']")
+    public WebElementFacade clickRefresh;
+
+    @FindBy(xpath = "//span[@class='el-input__suffix']/span/i")
+    public WebElementFacade selectEmailDropDown;
+
+    @net.serenitybdd.core.annotations.findby.FindBy(xpath = "//span[text()='@c0c.fun']")
+    public WebElementFacade selectC0c;
+
+    @FindBy(xpath = "//input[@placeholder=\"请输入邮箱账号\"]")
+    public WebElementFacade changeSendEmail;
+
+    @FindBy(xpath = "//table[@class='el-table__body']/tbody/tr//span[text()='查看']")
+    public List<WebElementFacade> clickViewBtn;
+
+    @FindBy(xpath = "//table[@class='el-table__body']/tbody/tr/td[3]/div")
+    public List<WebElementFacade> emailSubject;
+
+    @FindBy(xpath = "//*[contains(text(),'Proceed to Digital Sign')]")
+    public WebElementFacade DigitalSign;
+
 
     @FindBy(xpath = "//span[text()='Login']")
     public WebElementFacade GLDBEmailLoginBtn;
