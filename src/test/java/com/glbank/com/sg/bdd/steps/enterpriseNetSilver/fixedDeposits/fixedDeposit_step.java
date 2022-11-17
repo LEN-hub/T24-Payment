@@ -60,8 +60,8 @@ public class fixedDeposit_step extends ScenarioSteps {
         if (fixedDeposit_page.clickCheck.isVisible()){
             fixedDeposit_page.clickCheck.click();
         }
-//        fixedDeposit_page.clickSubmit.click();
-//        bddUtil.sleep(3);
+        fixedDeposit_page.clickSubmit.click();
+        bddUtil.sleep(3);
     }
 
     public void fixedDepositAuthorize(){

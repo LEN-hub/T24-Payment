@@ -1,16 +1,16 @@
-@e-Statement
+@e-Statement_SIT
 Feature: e-Statement
 
-  @ext123
-  Scenario:Download e-Statement file successfully
+  @ext123_SIT
+  Scenario:Download e-Statement file successfully_SIT
 #    Given Closing the Browser driver
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click My Downloads Btn
     When I click View eStatements Btn
 #    Then I should direct to the eStatements Overview page
     When I click select box
       |select       |
-      |11020004223  |
+      |11010000608  |
     And I click search button
     Then I should see Account List
     When I click on the first data to download
@@ -18,29 +18,29 @@ Feature: e-Statement
 #    When I see My Downloads List
 
 
-  @ext123test122
-Scenario:Download past e-statements successfully
-  Given logon "netSilverEnv_Kevin" on enterprise net silver
-  When I click My Downloads Btn
-  When I click View eStatements Btn
+  @ext123test122_SIT
+  Scenario:Download past e-statements successfully_SIT
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I click My Downloads Btn
+    When I click View eStatements Btn
 #    Then I should direct to the eStatements Overview page
-  When I click select box
-    |select       |
-    |11010008414  |
-  And I click search button
-  Then I should see Account List
-  When I click on the past data to download
+    When I click select box
+      |select       |
+      |11010000608  |
+    And I click search button
+    Then I should see Account List
+    When I click on the past data to download
 #    When I click My Downloads Btn
 #    When I see My Downloads List
 
 
-  @ext123test
-Scenario:Download the electronic notice and successfully generate the download task
-  Given logon "netSilverEnv_Kevin" on enterprise net silver
-  When I click My Downloads Btn
-  When I click View eAdvices Btn
-  When I click select button on the View eAdvices page
-  When I click first data to download on the view eAdvices page
+  @ext123test_SIT
+  Scenario:Download the electronic notice and successfully generate the download task_SIT
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I click My Downloads Btn
+    When I click View eAdvices Btn
+    When I click select button on the View eAdvices page
+    When I click first data to download on the view eAdvices page
 #    When I click My Downloads Btn
 #    When I see My Downloads List
 

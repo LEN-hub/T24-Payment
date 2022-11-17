@@ -506,7 +506,7 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.selectBank.click();
         paymentService_page.searchBox.sendKeys(collectingBank);
         paymentService_page.serachButton.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(4);
         paymentService_page.radioSelect.click();
         paymentService_page.getConfirmBtn.click();
 //        List<WebElementFacade> bank = paymentService_page.collectingBank;
