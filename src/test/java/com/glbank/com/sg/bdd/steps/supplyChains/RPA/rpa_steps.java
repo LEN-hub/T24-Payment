@@ -45,6 +45,7 @@ public class rpa_steps extends ScenarioSteps {
 
     @Step
     public void clickUpload(){
+        bddUtil.sleep(3);
         rpaPage.upload.click();
     }
 
