@@ -18,6 +18,7 @@ Feature: e-Statement
     When I enter information in Step 8 and jump to the next step
     When I enter information in Step 9 and jump to the next step
 
+
   @newUsers1
 #    新增用户
   Scenario:Add the user operation flow
@@ -25,7 +26,7 @@ Feature: e-Statement
     When I click on the Enterprise Administration as well user administration
     When I click on Add user
       |TimeLimit |birthday  |countries|
-      |2029-05-18|1999-05-20|+86      |
+      |2029-05-21|1999-05-20|+86      |
     When I get the OTP verification code from the server
     When fill in my email
     When I get the OTP verification code from the server
@@ -34,5 +35,3 @@ Feature: e-Statement
     When I initiate captcha verification
     Then I Verify success
     When The program is finished I will release the Linux SSH connection
-
-

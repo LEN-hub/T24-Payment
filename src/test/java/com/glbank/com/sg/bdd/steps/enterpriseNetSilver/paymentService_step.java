@@ -11,6 +11,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
 
+import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -827,5 +828,30 @@ public class paymentService_step extends ScenarioSteps {
             paymentService_page.begin.click();
         }
 
+    }
+
+    @Step
+    public void managePayNowProfile() throws AWTException {
+        EnterKeys enterKeys = new EnterKeys();
+        paymentService_page.managePayNowProfile.click();
+        paymentService_page.managePayNowProfileTitle.isVisible();
+        paymentService_page.clickRegisterPayNowProfileBtn.click();
+        paymentService_page.enterNum1.click();
+        enterKeys.EnterKeys(StringUtil.getRandomNum(1));
+        paymentService_page.enterNum2.click();
+        enterKeys.EnterKeys(StringUtil.getRandomNum(1));
+        paymentService_page.enterNum3.click();
+        enterKeys.EnterKeys(StringUtil.getRandomNum(1));
+        paymentService_page.clickNextBox.click();
+        paymentService_page.clickSubmitBtn.click();
+        paymentService_page.getSuccessTitle.isVisible();
+        String reference = paymentService_page.getReferenceID.getText();
+        List<WebElementFacade> referenceId = paymentService_page.checkPayNowProxyID;
+        for (int i = 0; i < referenceId.size(); i++) {
+            if (reference.equals(referenceId.get(i).getText())){
+                System.out.println("签约成功！");
+                break;
+            }
+        }
     }
 }

@@ -119,4 +119,20 @@ public class Logon_glue {
 //            logon_step.clickSitEnvOtpBtn();
         }
     }
+
+    @Given("^logon second \"([^\"]*)\" in SIT environment and bypass Vkey$")
+    public void logonSecondInSITEnvironmentAndBypassVkey(String envName) {
+        bddUtil.getDriver().quit();
+        envTag = envName;
+        bddUtil.sleep(10);
+        if (!envName.isEmpty()) {
+            logon_step.open_the_first_dbb_logon_page(envName);
+            logon_step.enter_OrganisationID_into_box(envName);
+            logon_step.enter_email_into_box(envName);
+            logon_step.enter_password_into_box(envName);
+            logon_step.clickLogonBtn();
+//            logon_step.clickNextBtn();
+//            logon_step.clickSitEnvOtpBtn();
+        }
+    }
 }

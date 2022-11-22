@@ -460,17 +460,35 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//img[@class='status-img']")
     public WebElementFacade popTitle;
 
+    @FindBy(xpath = "//span[text()='Manage PayNow Profile']")
+    public WebElementFacade managePayNowProfile;
 
+    @FindBy(xpath = "//div[contains(text(),'Manage PayNow Profiles')]")
+    public WebElementFacade managePayNowProfileTitle;
 
+    @FindBy(xpath = "//div[text()='Register PayNow Profile']")
+    public WebElementFacade clickRegisterPayNowProfileBtn;
 
+    @FindBy(xpath = "//div[@class='data-no']/span[1]")
+    public WebElementFacade enterNum1;
 
+    @FindBy(xpath = "//div[@class='data-no']/span[2]")
+    public WebElementFacade enterNum2;
 
+    @FindBy(xpath = "//div[@class='data-no']/span[3]")
+    public WebElementFacade enterNum3;
 
+    @FindBy(xpath = "//div[text()='Submit']")
+    public WebElementFacade clickSubmitBtn;
 
+    @FindBy(xpath = "//div[text()='Congratulations!']")
+    public WebElementFacade getSuccessTitle;
 
+    @FindBy(xpath = "//div[text()='Reference ID']/following-sibling::div")
+    public WebElementFacade getReferenceID;
 
-
-
+    @FindBy(xpath = "//tr[@class='el-table__row']/td[2]/div")
+    public List<WebElementFacade> checkPayNowProxyID;
 
 
 
