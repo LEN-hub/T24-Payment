@@ -235,3 +235,156 @@ Feature: e-Statement
       |WordPath                   |Name                       |
       |Local Fund Payment SGD-SGD |Local Fund Payment SGD-SGD |
 
+          #PayNow签约
+  @Paynow01
+  Scenario:PayNow Signing Process
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I execute manage PayNow Profile transaction on the page
+    Given logon second "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
+
+    #     活期透支
+  @loanApplication1
+  Scenario:Select “>1,000,000 and ≤ 20,000,000” for “Corporate Turnover (SGD)”, “Current Asset Loan” for the loan type, select collateral: real estate, select guarantor: personal guarantee-director; input the loan amount: 200,000; "Overdraft" product loan application successful
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I hover over the loan business
+    When I choose a turnover of one million to two million
+      |amount|
+      |200000|
+    When I select real estate mortgage
+      |houseAddress|zipCode|constructionArea|
+      |test123     |123456 |140             |
+    When I select personal guarantor
+      |name   |birthday  |idCard   |phoneNum   |email           |experience|
+      |WANG WU|1988-02-02|S1472581A|13087544979|126161178@qq.com|4         |
+    When I fill out other financial commitments on real estate mortgage
+      |financialInstitutionName |loanAmt |outstandingAmt |monthlyInstallments |rate|
+      |test123                  |12      |1              |0                   |1   |
+    When I upload the five required documents
+    When I click next button on the upLoadFile page
+
+
+    #    贷款支用。无授权
+  @loanApplication4
+  Scenario:Accounts Payable Financing Loan Draw Application Process
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I click the loan draw button
+    When I choose a product type to fill in the information
+      |product type         |
+      |Receivable Financing |
+#    When I choose to apply for disbursement of financing receivables
+    When I choose Singapore Dollar
+    When I have filled in the other information
+      |amount|dayNum|goodsDescr|
+      |100   |30    |testAnd12 |
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+
+    #    还款。
+  @loanApplication7
+  Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: SGD, product term: 30 days), the repayment is successful
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I click the loan Manage ment Button
+    When I click SGD Prepay button
+
+
+    #    在线开户+小额透支贷款
+  @testLoan0291
+#  单币种 新币+贷款
+  Scenario: The new bank customer initiated the "new auto financing" product loan application successfully
+    Given open "netSilverEnv_Kevin_SIT" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD and loan
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated       |Entity's Industry|date      |chekk      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover <= SGD 1 Million |Manufacturing    |01/01/2010|200808897E |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    When I click the continue button to go to the loan page
+      |loan Amount |
+      |100000      |
+    Then Upload Supporting Documents on loan page
+    And Review Details
+
+
+  @testcodeNewTrack123
+    #正常开户新流程——单币种账户——新币
+  Scenario:openAccount_track1 Singapore enterprise_SGD
+    Given open "netSilverEnv_Kevin_SIT" enterprise net silver page
+    When I enter the myinfo page and complete Step 1 information input
+      |currency|
+      |SGD     |
+    When I open the myinfo Mock and get the bezel information
+      |url|
+      |SIT|
+    When I enter information in Step 3 and jump to the next step
+    When I enter information in Step 4 and jump to the next step
+    When I enter information in Step 5 and jump to the next step
+    When I enter information in Step 6 and jump to the next step
+    When I enter information in Step 7 and jump to the next step
+    When I enter information in Step 8 and jump to the next step
+    When I enter information in Step 9 and jump to the next step
+
+
+      #多币种账户 新币+美元
+  Scenario:openAccount Current Account MCA_SGD_USD
+    Given open "netSilverEnv_Kevin_SIT" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about MCA_SGD_USD
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated       |Entity's Industry|date      |chekk      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover <= SGD 1 Million |Manufacturing    |01/01/2010|200911779N |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+#    Then get Organisation ID
+    When I close driver
+
+  @testcodeNew
+    #正常开户新流程——单币种账户——新币
+  Scenario:openAccountNew Singapore enterprise
+    Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
+    When click open Account New page
+    Then New Fill in information "netSilverEnv_OpenAccount" on Getting Started page
+    And Provide Essential Information New
+      |Entity's Type                                  |Entity Consolidated       |Entity's Industry|date      |chekk      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover <= SGD 1 Million |Manufacturing    |01/01/2010|200911779N |
+    Given logon "environments_5" on tube by inputting system online bank
+    When I into the rear tube Supplementary account opening information
+      |chekk      |
+      |200911779N |
+    Given logon "environments_6" on tube by inputting system online bank
+    When I enter the back tube for authorization
+    When I enter the mailbox
+
+        #授权
+    #定期存款_新币_一个月_不转存
+  @fixedDeposit01_authorization_SIT
+  Scenario:fixedDeposit_SGD_OneMonth_DoNotRenewOrWithdrawAutomatically_authorization_SIT
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When click Fixed Deposits menu
+    Then I fill in the information about the SGD transfer on the time deposit page
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0000 438       |11010000438 |250000 |1 Month |1                    |
+    When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
+
+      #一个月_新币_不转存_全部支取
+  @report444
+  Scenario:fixedDepositWithdrawFD_SGD_OneMonth_DoNotRenewOrWithdrawAutomatically
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When click Fixed Deposits First menu
+    Then I operate on the current page data information
+      | fdAccountNumber |
+      | 16010002192     |
+    When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
+
+
+

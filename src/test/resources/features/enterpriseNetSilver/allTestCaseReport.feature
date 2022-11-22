@@ -295,7 +295,7 @@ Feature: loan application
       |SGD     |
     When I open the myinfo Mock and get the bezel information
       |url|
-      |SIT|
+      |UAT|
     When I enter information in Step 3 and jump to the next step
     When I enter information in Step 4 and jump to the next step
     When I enter information in Step 5 and jump to the next step
@@ -430,7 +430,7 @@ Feature: loan application
     When I click on the Enterprise Administration as well user administration
     When I click on Add user
       |TimeLimit |birthday  |countries|
-      |2029-08-18|1999-05-20|+86      |
+      |2031-08-18|1999-05-20|+86      |
     When I get the OTP verification code from the server
     When fill in my email
     When I get the OTP verification code from the server
