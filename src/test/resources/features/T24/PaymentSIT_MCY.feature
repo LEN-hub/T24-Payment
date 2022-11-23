@@ -182,9 +182,6 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment MX Message
       |WordPath              |
       |Bic is DBS USD-USD MCY|
@@ -235,9 +232,6 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment
       |WordPath              |
       |Bic is DBS SGD-USD MCY|
@@ -290,9 +284,6 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath              |
       |Bic is DBS USD-SGD MCY|
@@ -344,9 +335,6 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment MX Message
       |WordPath              |
       |Bic is DBS SGD-SGD MCY|
@@ -397,9 +385,6 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment MX Message
       |WordPath                        |
       |Bic is Bank of China USD-USD MCY|
@@ -449,9 +434,6 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment
       |WordPath                        |
       |Bic is Bank of China SGD-USD MCY|
@@ -504,9 +486,6 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath                        |
       |Bic is Bank of China USD-SGD MCY|
@@ -558,9 +537,6 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment MX Message
       |WordPath                        |
       |Bic is Bank of China SGD-SGD MCY|
