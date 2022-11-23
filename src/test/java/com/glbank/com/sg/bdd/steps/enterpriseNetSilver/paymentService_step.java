@@ -854,4 +854,57 @@ public class paymentService_step extends ScenarioSteps {
             }
         }
     }
+
+    @Step
+    public void singOff(){
+        paymentService_page.managePayNowProfile.click();
+        paymentService_page.managePayNowProfileTitle.isVisible();
+        List<WebElementFacade> singoff = paymentService_page.selectRegistered;
+        List<WebElementFacade> threepoint = paymentService_page.selectThreePoint;
+        for (int i = 0; i < singoff.size(); i++) {
+            if (singoff.get(i).getText().equals("Registered")){
+                Actions action=new Actions(getDriver());
+                bddUtil.sleep(1);
+                action.moveToElement(threepoint.get(i)).perform();
+                paymentService_page.clickDeregisterProfile.click();
+                break;
+            }
+        }
+        paymentService_page.clickSubmitBtn.click();
+    }
+
+    @Step
+    public void singModify(String accountNum){
+        paymentService_page.managePayNowProfile.click();
+        paymentService_page.managePayNowProfileTitle.isVisible();
+        List<WebElementFacade> singoff = paymentService_page.selectRegistered;
+        List<WebElementFacade> threepoint = paymentService_page.selectThreePoint;
+        for (int i = 0; i < singoff.size(); i++) {
+            if (singoff.get(i).getText().equals("Registered")){
+                Actions action=new Actions(getDriver());
+                bddUtil.sleep(1);
+                action.moveToElement(threepoint.get(i)).perform();
+                paymentService_page.clickEditProfile.click();
+                break;
+            }
+        }
+        List<WebElementFacade> accountNumTest = paymentService_page.editAccountNum;
+        for (int i = 0; i < accountNumTest.size(); i++) {
+            if (accountNumTest.get(i).getText().substring(0,13).equals(accountNum)){
+                accountNumTest.get(i).getText();
+                break;
+            }
+        }
+        paymentService_page.clickNextBox.click();
+        paymentService_page.clickSubmitBtn.click();
+        paymentService_page.getSuccessTitle.isVisible();
+        String reference = paymentService_page.getReferenceID.getText();
+        List<WebElementFacade> referenceId = paymentService_page.checkPayNowProxyID;
+        for (int i = 0; i < referenceId.size(); i++) {
+            if (reference.equals(referenceId.get(i).getText())){
+                System.out.println("签约成功！");
+                break;
+            }
+        }
+    }
 }

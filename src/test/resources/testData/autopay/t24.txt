@@ -1,35 +1,13 @@
-2022-11-22 9:56:48:704
-ChannelReferenceID:221121000000062
-ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
-ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11010001256
-ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
-ChannelDetailPayeeName:lucky
-ChannelDetailAccountCurrency:SGD
-ChannelDetailPayeeAccountNum:667812798
-ChannelDetailTransactionAmount:1,122.23
-ChannelDetailBeneficiaryBankBIC:DBSSSGS0VEC
-ChannelDetailPayeeAddress:countries
-ChannelDetailEstimatedProcessingFee:0.00
-ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
-ChannelDetailPurposeOfTransfer:Commission
-2022-11-22 10:0:52:855
-ID:221121000000062
-TransactionReference:PI223260N2T0MKDB
-t24FtNumber:SGL22326L0FLGHMJ
-getTransactionReferenceNum:SGL22326L0FLGHMJ
-getSenderReferenceNum:PI223260N2T0MKDB
-getTransactionCurrency:SGD
-getTransactionCurrency:SGD
-getTransactionAmount:1,122.23
-getChargeOption:SHA
-getDebitAccountNum:11010001256
-getDebitAccountCurrency:SGD
-getOrderingAccount:11010001256
-getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
-getOrderingAddress:XIAN
-getOrderingTown:SG
-getCreditAccountNum:15000000153
-getCreditAccountCurrency:SGD
-getBeneficiaryAccount:667812798
-getBeneficiaryName:lucky
+2022-11-23 14:7:56:398
+ChannelReferenceID:221122000000279
+ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
+ChannelDebitAccountCurrency:USD
+ChannelDebitAccountNumber:11020327162
+ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
+ChannelCreditAccountName:testCpsThree
+ChannelCreditAccountCurrency:SGD
+ChannelCreditAccountNumber:11010000438
+ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
+ChannelDetailExchangeRate:USD 1 ≈ SGD 1.3595
+ChannelTransactionAmount:1,123.78
+ChannelPurposeOfTransfer:Business Expenses

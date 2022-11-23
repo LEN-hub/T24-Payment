@@ -279,4 +279,17 @@ public class paymentService_glue {
         paymentService_step.transferAndRemittanceMenu();
         paymentService_step.managePayNowProfile();
     }
+
+    @When("^I sign and cancel the transaction on the page$")
+    public void iSignAndCancelTheTransactionOnThePage() {
+        paymentService_step.transferAndRemittanceMenu();
+        paymentService_step.singOff();
+    }
+
+    @When("^I carry out the signing and modification process on the page$")
+    public void iCarryOutTheSigningAndModificationProcessOnThePage(DataTable data) throws Exception {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.transferAndRemittanceMenu();
+        paymentService_step.singModify(payToInfo.get(0).get("AccountNum"));
+    }
 }

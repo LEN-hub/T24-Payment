@@ -490,7 +490,18 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//tr[@class='el-table__row']/td[2]/div")
     public List<WebElementFacade> checkPayNowProxyID;
 
+    @FindBy(xpath = "//table[@class='el-table__body']//div[contains(text(),'Registered')]")
+    public List<WebElementFacade> selectRegistered;
 
+    @FindBy(xpath = "//div[@class='el-tooltip btn-icon']/img")
+    public List<WebElementFacade> selectThreePoint;
 
+    @FindBy(xpath = "//[@x-placement='bottom' or @x-placement='top']//div[text()='Deregister Profile']")
+    public WebElementFacade clickDeregisterProfile;
 
+    @FindBy(xpath = "//div[@x-placement='bottom' or @x-placement='top']//div[text()='Edit Profile']")
+    public WebElementFacade clickEditProfile;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span")
+    public List<WebElementFacade> editAccountNum;
 }
