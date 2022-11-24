@@ -28,7 +28,7 @@ public class fixedDeposit_step extends ScenarioSteps {
         List<WebElementFacade> selectTransferAccount = fixedDeposit_page.selectAccountValue;
         for (int i = 0; i <= selectTransferAccount.size();i++){
             if (transferAccount.equals(selectTransferAccount.get(i).getText().substring(0,13))){
-                selectTransferAccount.get(i).click();
+                bddUtil.scrollWindowToElement(selectTransferAccount.get(i)).click();
                 break;
             }
         }
@@ -65,8 +65,9 @@ public class fixedDeposit_step extends ScenarioSteps {
     }
 
     public void fixedDepositAuthorize(){
+        bddUtil.sleep(5);
         fixedDeposit_page.clickMyTaskMenu.click();
-        fixedDeposit_page.clickFixedDeposits.click();
+        bddUtil.sleep(3);
         fixedDeposit_page.clickAuthorizeBtn.click();
         bddUtil.scrollWindowToElement(fixedDeposit_page.cickApproveBtn).click();
         fixedDeposit_page.clickSubmitBtn.click();

@@ -76,7 +76,7 @@ public class accountChange_steps extends ScenarioSteps {
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
         test.testMobile();
-        bddUtil.sleep(7);
+        bddUtil.sleep(15);
         if (MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout [ends-with(@resource-id,'btn_otp')]/child::android.widget.TextView[2]").getText().equals("一次性\n密码")) {
             test.transactionCode();
         }else {
@@ -228,9 +228,7 @@ public class accountChange_steps extends ScenarioSteps {
         bddUtil.sleep(2);}
 
     public void authorizations() {
-        if (accountChange_page.waitinAauthorization.getText().equals("交易成功")) {
-            assertEquals("交易成功", accountChange_page.waitinAauthorization.getText());
-        } else {
+        if (accountChange_page.waitinAauthorization.getText().equals("Successful")) {
             assertEquals("Successful", accountChange_page.waitinAauthorization.getText());
         }
         bddUtil.sleep(2);}

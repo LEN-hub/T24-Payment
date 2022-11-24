@@ -2,14 +2,20 @@ package com.glbank.com.sg.bdd.glue.enterpriseNetSilver;
 
 import com.glbank.com.sg.bdd.steps.enterpriseNetSilver.Logon_step;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import com.glbank.com.sg.bdd.utils.FileUtils;
+import com.glbank.com.sg.bdd.utils.WordUtils;
+import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 
+import javax.xml.crypto.Data;
 import java.awt.*;
 import java.net.MalformedURLException;
+import java.util.List;
+import java.util.Map;
 
 public class Logon_glue {
     @ManagedPages
@@ -100,6 +106,22 @@ public class Logon_glue {
 
     @Given("^logon \"([^\"]*)\" in SIT environment and bypass Vkey$")
     public void logonInSITEnvironmentAndBypassVkey(String envName) {
+        bddUtil.getDriver().quit();
+        envTag = envName;
+        bddUtil.sleep(10);
+        if (!envName.isEmpty()) {
+            logon_step.open_the_first_dbb_logon_page(envName);
+            logon_step.enter_OrganisationID_into_box(envName);
+            logon_step.enter_email_into_box(envName);
+            logon_step.enter_password_into_box(envName);
+            logon_step.clickLogonBtn();
+//            logon_step.clickNextBtn();
+//            logon_step.clickSitEnvOtpBtn();
+        }
+    }
+
+    @Given("^logon second \"([^\"]*)\" in SIT environment and bypass Vkey$")
+    public void logonSecondInSITEnvironmentAndBypassVkey(String envName) {
         bddUtil.getDriver().quit();
         envTag = envName;
         bddUtil.sleep(10);

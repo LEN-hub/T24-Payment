@@ -11,6 +11,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 
 import javax.xml.crypto.Data;
+import java.awt.*;
 import java.util.List;
 import java.util.Map;
 
@@ -186,8 +187,9 @@ public class paymentService_glue {
         paymentService_step.beginValidation();
         paymentService_step.staging();
         paymentService_step.selectSumB();
-
     }
+
+
 
     @Then("^I checked the details on the successful overseas transfer details page$")
     public void iCheckedTheDetailsOnTheSuccessfulOverseasTransferDetailsPage(DataTable payDetail) {
@@ -270,5 +272,11 @@ public class paymentService_glue {
     public void iWillCompareAllTheDataOnFXPaymentDifferentCurrencyMXMessage(DataTable data) throws Exception {
         List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
         paymentService_step.getFxPaymentDataOnChannelPageDifferentCurrency(payToInfo.get(0).get("WordPath"));
+    }
+
+    @When("^I execute manage PayNow Profile transaction on the page$")
+    public void iExecuteManagePayNowProfileTransactionOnThePage() throws AWTException {
+        paymentService_step.transferAndRemittanceMenu();
+        paymentService_step.managePayNowProfile();
     }
 }

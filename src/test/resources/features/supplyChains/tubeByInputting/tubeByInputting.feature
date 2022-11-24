@@ -25,7 +25,7 @@ Feature: tube By Inputting
 
   @supplierFullKYC
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
-      Given logon "environments_1" on tube by inputting system
+      Given logon "environments_2" on tube by inputting system
       When open the email browser page
 #      And I switch to the SCF page
       When I click Customers and select Onboarding List

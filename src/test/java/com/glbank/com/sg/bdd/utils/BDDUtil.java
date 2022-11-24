@@ -342,10 +342,16 @@ public class BDDUtil extends PageObject {
 
 
     public String screenShort(){
+        int size = 1;
+        for (File file : Objects.requireNonNull(new File(systemPath + "/src/test/resources/testData/screenShots").listFiles())){
+            if (file.isFile()){
+                size++;
+            }
+        }
         File srcfile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
         try {
             String path = systemPath + "/src/test/resources/testData/screenShots/";
-            String fileName = getCurrentTimestamp();
+            String fileName = WordUtils.getDate + size;
             date.add(fileName);
             FileUtils.copyFile(srcfile, new File(path + fileName + ".png"));
         } catch (IOException e) {

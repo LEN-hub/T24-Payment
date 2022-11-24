@@ -1,11 +1,11 @@
-@accountChange
+@accountChange_UAT
 Feature: accountChange
 
 
-  @ModifyingAccountRights
+  @ModifyingAccountRights_UAT
 #    账户修改
-  Scenario:Modify the enterprise management console account
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Modify the enterprise management console account_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I hit Permissions modify
     Then TC code is then required for Vkey authentication
@@ -15,10 +15,10 @@ Feature: accountChange
 
 
 
-  @accountOpeningSGD
+  @accountOpeningSGD_UAT
 #    CA账户SGD开立
-  Scenario:Enterprise management console CA account SGD opened
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Enterprise management console CA account SGD opened_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA             |
@@ -30,10 +30,10 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningUSD
+  @accountOpeningUSD_UAT
     #    CA账户USD开立
-  Scenario:Enterprise management console CA account USD opened
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Enterprise management console CA account USD opened_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA             |
@@ -45,10 +45,10 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningCNY
+  @accountOpeningCNY_UAT
 #    CA账户CNY开立
-  Scenario:Enterprise management console CA account CNY opened
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Enterprise management console CA account CNY opened_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA             |
@@ -60,10 +60,10 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningHKD
+  @accountOpeningHKD_UAT
 #    CA账户HKD开立
-  Scenario:Enterprise management console CA account HKD opened
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Enterprise management console CA account HKD opened_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA             |
@@ -75,10 +75,10 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningEUR
+  @accountOpeningEUR_UAT
 #    CA账户EUR开立
-  Scenario:Enterprise management console CA account EUR opened
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Enterprise management console CA account EUR opened_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA             |
@@ -91,10 +91,10 @@ Feature: accountChange
     Then I verify that the transaction is successful
 
 
-  @accountOpeningMCACNY
+  @accountOpeningMCACNY_UAT
 #  MCA账户,默认选择SGD，SGD+CNY开立
-  Scenario:Enterprise management console MCA account CNY opened
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Enterprise management console MCA account CNY opened_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                     |
@@ -106,9 +106,9 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningMCAUSD
+  @accountOpeningMCAUSD_UAT
 #  MCA账户,默认选择SGD，SGD+USD开立
-  Scenario:Enterprise management console MCA account USD opened
+  Scenario:Enterprise management console MCA account USD opened_UAT
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
@@ -122,10 +122,10 @@ Feature: accountChange
     Then I verify that the transaction is successful
 
 
-  @accountOpeningMCAHKD
+  @accountOpeningMCAHKD_UAT
 #  MCA账户,默认选择SGD，SGD+HKD开立
-  Scenario:Enterprise management console MCA account HKD opened
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Enterprise management console MCA account HKD opened_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                     |
@@ -137,10 +137,10 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningMCAEUR
+  @accountOpeningMCAEUR_UAT
 #  MCA账户,默认选择SGD，SGD+EUR开立
-  Scenario:Enterprise management console MCA account EUR opened
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Enterprise management console MCA account EUR opened_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                     |
@@ -152,10 +152,10 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningMCAAll
+  @accountOpeningMCAAll_UAT
 #  MCA账户,默认选择SGD，SGD+USD+CNY+HKD+EUR开立
-  Scenario:Enterprise management console MCA account All opened
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Enterprise management console MCA account All opened_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                     |
@@ -167,10 +167,10 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningMCA01
+  @accountOpeningMCA01_UAT
 #  MCA账户,默认选择SGD，SGD+USD+CNY开立
-  Scenario:Enterprise Management Console MCA account has CNY USD SGD enabled
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Enterprise Management Console MCA account has CNY USD SGD enabled_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                     |
@@ -182,10 +182,10 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningMCA02
+  @accountOpeningMCA02_UAT
 #  MCA账户,默认选择SGD，SGD+USD+EUR开立
-  Scenario:Enterprise Management Console MCA account has EUR USD SGD enabled
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Enterprise Management Console MCA account has EUR USD SGD enabled_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                     |
@@ -197,10 +197,10 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningMCA03
+  @accountOpeningMCA03_UAT
 #  MCA账户,默认选择SGD，SGD+USD+HKD开立
-  Scenario:Enterprise Management Console MCA account has HKD USD SGD enabled
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Enterprise Management Console MCA account has HKD USD SGD enabled_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                     |
@@ -212,10 +212,10 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningMCA04
+  @accountOpeningMCA04_UAT
 #  MCA账户,默认选择SGD，SGD+CNY+HKD开立
-  Scenario:Enterprise Management Console MCA account has CNY HKD SGD enabled
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:Enterprise Management Console MCA account has CNY HKD SGD enabled_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                     |
@@ -229,10 +229,10 @@ Feature: accountChange
 
 
 
-  @deleteCurrency
+  @deleteCurrency_UAT
 #    删除币种
-  Scenario:The enterprise management console deletes the currency
-    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+  Scenario:The enterprise management console deletes the currency_UAT
+    Given logon "netSilverEnv_Kevin2" on enterprise net silver
     When I click on the Enterprise Administration Desk and select Account Management
     When I click delete currency information
     Then TC code is then required for Vkey authentication
@@ -244,7 +244,7 @@ Feature: accountChange
 #  @AuthorizationMode01
 ##  授权模式双人
 #  Scenario:Enterprise management desk two-person authorization mode
-#    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+#    Given logon "netSilverEnv_Kevin2" on enterprise net silver
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When click authorization
 #    When I choose two-person authorization management mode
@@ -259,7 +259,7 @@ Feature: accountChange
 #  @AuthorizationMode02
 ##  授权模式单人
 #  Scenario:Enterprise management console single-person authorization mode
-#    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+#    Given logon "netSilverEnv_Kevin2" on enterprise net silver
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When click authorization
 #    When I choose single-player license management mode
@@ -274,7 +274,7 @@ Feature: accountChange
 #  @AuthorizationMode03
 ##  无授权模式
 #  Scenario:Enterprise management console in unauthorized mode
-#    Given logon "netSilverEnv_Kevin_two" on enterprise net silver
+#    Given logon "netSilverEnv_Kevin2" on enterprise net silver
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When click authorization
 #    When I choose unlicensed management mode
@@ -287,7 +287,7 @@ Feature: accountChange
 #  @LinkAccount
 ##    账户加挂，从注册绑定vkey开始跑头开始跑
 #  Scenario:The enterprise management console account is added
-#    Given logon second "netSilverEnv_Kevin_two" on enterprise net silver
+#    Given logon second "netSilverEnv_Kevin2" on enterprise net silver
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When I click link account
 #    Then TC code is then required for Vkey authentication

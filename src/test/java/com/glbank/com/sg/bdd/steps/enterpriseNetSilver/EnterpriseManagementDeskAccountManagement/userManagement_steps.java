@@ -241,7 +241,9 @@ public class userManagement_steps extends ScenarioSteps {
         userManagement_page.clickSubmitBtn.click();
     }
 
-    public void NextBtnS(){userManagement_page.clcikNextBtns.click();}
+    public void NextBtnS(){
+        userManagement_page.clcikNextBtns.click();
+    }
 
     public void authorizations() {
         if (userManagement_page.successful.getText().equals("交易成功")) {

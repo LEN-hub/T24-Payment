@@ -72,8 +72,6 @@ public class accountService_step extends ScenarioSteps {
     public void accountAndCurrency(){
         accountService_page.accountAndCurrency.isDisplayed();
         accountService_page.accountAlias.isDisplayed();
-        accountService_page.balance.isDisplayed();
-        accountService_page.balanceSecond.isDisplayed();
         Actions action=new Actions(getDriver());
         action.moveToElement(accountService_page.detailsList).perform();
         accountService_page.detailedQuery.isDisplayed();
@@ -110,6 +108,7 @@ public class accountService_step extends ScenarioSteps {
 
     @Step
     public void aliasTextCheck(){
+        bddUtil.sleep(3);
         Assert.assertEquals(aliasText,accountService_page.find(By.xpath("//span[text()='"+aliasText+"']")).getText());
     }
 
@@ -194,6 +193,7 @@ public class accountService_step extends ScenarioSteps {
             transactionFiled.get(i).isDisplayed();
         }
         accountService_page.queryBtn.click();
+        bddUtil.sleep(5);
     }
 
     @Step
@@ -206,6 +206,7 @@ public class accountService_step extends ScenarioSteps {
         accountService_page.myTransactions.click();
         accountService_page.selectSevenDay.click();
         accountService_page.queryBtn.click();
+        bddUtil.sleep(5);
     }
 
     @Step

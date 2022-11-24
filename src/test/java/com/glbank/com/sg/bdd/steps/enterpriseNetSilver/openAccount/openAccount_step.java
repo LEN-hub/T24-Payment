@@ -39,23 +39,25 @@ public class openAccount_step extends ScenarioSteps {
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
 
-    public void clickOpenAccount() {
+    public void joinOpenAccount(){
         openAccount_page.clickOpenAccount.click();
         openAccount_page.clickNewUser.click();
         bddUtil.sleep(2);
         openAccount_page.secondTitle.click();
     }
 
-    public void joinOpenAccount(){
-        openAccount_page.clickStartANewApplication.click();
-        openAccount_page.clickInformationMyself.click();
-    }
-
     public void clickOpenNewAccount() {
         openAccount_page.clickOpenAccount.click();
         openAccount_page.clickNewUser.click();
         bddUtil.sleep(2);
-        openAccount_page.firstTitle.click();
+        openAccount_page.thirdTitle.click();
+    }
+
+    public void clickOpenAccountTrack2() {
+        openAccount_page.clickOpenAccount.click();
+        openAccount_page.clickNewUser.click();
+        bddUtil.sleep(2);
+        openAccount_page.thirdTitle.click();
     }
 
     public void fillInInformationOnGettingStartedPage() {
@@ -458,12 +460,13 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.monthAmontNew.click();
         getDriver().findElement(By.xpath("//span[text()='SGD 500,001 - SGD 1 Million']")).click();
         openAccount_page.monthTrsCount.click();
-        getDriver().findElement(By.xpath("//span[text()='1 to 20']")).click();
+        getDriver().findElement(By.xpath("//span[text()='1 - 20']")).click();
         openAccount_page.nextButtonNew.click();
         bddUtil.sleep(1);
         for (int i = 0; i < 3; i++) {
             bddUtil.sleep(2);
     }
+        bddUtil.sleep(3);
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(0).sendKeys(fileAddress);
         bddUtil.sleep(1);
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(1).sendKeys(fileAddress);
@@ -727,6 +730,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
             openAccount_page.clickSalutationTest.click();
             openAccount_page.mr.click();
             openAccount_page.clickSelectCountryIcon.click();
+            bddUtil.sleep(2);
             List<WebElementFacade> selectCountry = openAccount_page.selectCountry;
             for (int i = 0;i <selectCountry.size(); i++){
                 if (selectCountry.get(i).getText().equals("SINGAPOREAN")){
@@ -1177,14 +1181,20 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         }
     }
     //Track1Myinfo
-    public void trackMyinfoStep1(){
+    public void trackMyinfoStep1(String currency){
         openAccount_page.clickOpenAccountBtn.click();
         openAccount_page.clickTrack1SatrtFromScratchBtn.click();
         openAccount_page.clickSingaporeAllIndividuals.click();
         openAccount_page.clickCurrentAccount.click();
-        openAccount_page.selectSGD.click();
+        if (currency.equals("SGD")){
+            openAccount_page.selectSGD.click();
+        }else if (currency.equals("USD")){
+            openAccount_page.selectUSD.click();
+        }
+
         openAccount_page.clickTrack1NextBtn.click();
         bddUtil.scrollWindowToElement(openAccount_page.getClickLetGo);
+        bddUtil.sleep(4);
         openAccount_page.getClickLetGo.click();
     }
     private static String MockData ="{\n"+
@@ -1518,9 +1528,13 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
     "}";
 
     @Step
-    public void openMyinfoDataUrl(){
+    public void openMyinfoDataUrl(String url){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"http://10.24.9.119:60008/direct/test_pc_ent.html\");");
+        if (url.equals("UAT"))
+            webdriver.executeScript("window.open(\"http://10.24.9.119:60008/direct/test_pc_ent.html\");");
+        else if (url.equals("SIT")){
+            webdriver.executeScript("window.open(\"http://10.24.4.27:8080/direct/test_pc_ent.html\");");
+        }
         bddUtil.switchToNewWindow();
         openAccount_page.inputMockInformation.sendKeys("myinfoMockData");
         openAccount_page.inputMockGetInformation.click();
@@ -1528,11 +1542,16 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.inputMockData.sendKeys(MockData);
         openAccount_page.clickTestBtn.click();
         mockDataResponse = openAccount_page.getResponseStatus.getText().substring(openAccount_page.getResponseStatus.getText().indexOf("state")+9).substring(0,36);
-        webdriver.executeScript("window.open(\"https://ib-uat.glbank.com/#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
+        if (url.equals("UAT")){
+            webdriver.executeScript("window.open(\"http://10.24.8.5:60006/#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
+        }else if (url.equals("SIT")){
+            webdriver.executeScript("window.open(\"http://10.24.4.123/ent_sit/direct/index.html#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
+        }
+
         bddUtil.switchToNewWindow();
     }
 
-    @Step()
+    @Step
     public void step3Information(){
         openAccount_page.clickSalutationDrop.click();
         openAccount_page.selectMrOnPage.click();
@@ -1541,4 +1560,92 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
             openAccount_page.clickSubmitBtn.click();
         }
     }
+    @Step
+    public void step4Information(){
+        bddUtil.sleep(5);
+        openAccount_page.selectSingaporeTrack1.click();
+        openAccount_page.selectCountryOfOperation.sendKeys("SINGAPORE");
+        openAccount_page.clickSingapore.click();
+        openAccount_page.selectProfitNonProfitOrganisation.click();
+        openAccount_page.clickDrowDrop.click();
+        openAccount_page.selectGroupConsolidatedRevenue.click();
+        openAccount_page.selectACRAModelConstitution.click();
+        openAccount_page.selectPurposeOfAccount.click();
+        openAccount_page.selectBusinessOperations.click();
+        openAccount_page.LoansBanks.click();
+        openAccount_page.estimatedMonthlyTransactionAmount.click();
+        openAccount_page.estimatedMonthlyTransactionVolume.click();
+        openAccount_page.clickFirstRiskStatements.click();
+        openAccount_page.clickSecondRiskStatements.click();
+        openAccount_page.clickTrack1NextBtn.click();
+    }
+
+    @Step
+    public void step5Information(){
+        bddUtil.sleep(3);
+        openAccount_page.selectNRIC.click();
+        openAccount_page.inputCountryCode.sendKeys("+65");
+        openAccount_page.selectCountryCode.click();
+        openAccount_page.inputMobileNum.sendKeys("13008553349");
+        openAccount_page.inputEmailAdd.sendKeys("617558302@qq.com");
+        openAccount_page.inputReEmailAdd.sendKeys("617558302@qq.com");
+        bddUtil.sleep(3);
+        openAccount_page.selectSecondNRIC.click();
+        openAccount_page.inputSecondCountryCode.sendKeys("+65");
+        openAccount_page.selectSecondCountryCode.click();
+        openAccount_page.inputSecondMobileNum.sendKeys("13008553349");
+        openAccount_page.inputSecondEmailAdd.sendKeys("13008553349@163.com");
+        openAccount_page.inputSecondReEmailAdd.sendKeys("13008553349@163.com");
+        openAccount_page.clickTrack1NextBtn.click();
+    }
+    @Step
+    public void step6Information(){
+        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(openAccount_page.clickTrack1NextBtn);
+        openAccount_page.clickTrack1NextBtn.click();
+    }
+
+    @Step
+    public void step7Information(){
+        bddUtil.sleep(3);
+        openAccount_page.selectOneCompanyAdministrator.click();
+        openAccount_page.clickYesProceedBtn.click();
+        openAccount_page.selectAdmin1YesProceed.click();
+        openAccount_page.clickCompanyAdmin.click();
+        openAccount_page.selectCompanyAdmin.click();
+        openAccount_page.clickIdTypeNRIC.click();
+        openAccount_page.clickSalutationDownDrop.click();
+        openAccount_page.selectMr.click();
+        openAccount_page.inputCountryCodeCompanyAdmin.sendKeys("+65");
+        openAccount_page.selectSingporeCompanAdmin.click();
+        openAccount_page.inputMobileNumberAdmin.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        openAccount_page.inputFirstEmailAdmin.click();
+        if (openAccount_page.ensureThatTheMobile.isVisible()){
+            openAccount_page.clickYesAccurate.click();
+        }
+        openAccount_page.inputFirstEmailAdmin.sendKeys("13008553349@163.com");
+        openAccount_page.inputSecondEmailAdmin.sendKeys("13008553349@163.com");
+        openAccount_page.clickTrack1NextBtn.click();
+    }
+    
+    @Step
+    public void step8Information(){
+        getDriver().findElement(By.xpath("//form[@class='el-form']/div[1]//input[@class='el-upload__input']")).sendKeys(fileAddress);
+        bddUtil.sleep(5);
+        getDriver().findElement(By.xpath("//form[@class='el-form']/div[2]//input[@class='el-upload__input']")).sendKeys(fileAddress);
+        bddUtil.sleep(5);
+        getDriver().findElement(By.xpath("//form[@class='el-form']/div[3]//input[@class='el-upload__input']")).sendKeys(fileAddress);
+        openAccount_page.clickTrack1NextBtn.click();
+    }
+
+    @Step
+    public void step9Information(){
+        bddUtil.scrollWindowToElement(openAccount_page.clickFirstCheckBox);
+        openAccount_page.clickFirstCheckBox.click();
+        openAccount_page.clickSecondCheckBox.click();
+        openAccount_page.clickThirdCheckBox.click();
+        openAccount_page.submitNew.click();
+        openAccount_page.viewCongratulations.isVisible();
+    }
+
 }

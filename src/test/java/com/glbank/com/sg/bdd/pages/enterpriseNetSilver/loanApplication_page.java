@@ -21,10 +21,10 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//div[@class='children-list']//div[@class='list']/div[1]/p[4]//span[@class='sub-menu-title']")
     public WebElementFacade loanManagement;//贷款管理。
 
-    @FindBy(xpath = "//span[text()='Turnover ≤ SGD 1 Million']")
+    @FindBy(xpath = "//span[text()='Turnover <= SGD 1 Million']")
     public WebElementFacade lessThanOneMillion;//选择小于一百万的综合销售额。
 
-    @FindBy(xpath = "//span[text()='Turnover SGD 1 Million to ≤ SGD 20 Million']")
+    @FindBy(xpath = "//span[text()='SGD 1 Million < Turnover <= SGD 20 Million']")
     public WebElementFacade oneToTwoMillion;//选择一百万到200W。
 
     @FindBy(xpath = "//label[@for='loanTypeCd']/following-sibling::div//label[1]")
