@@ -496,7 +496,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-tooltip btn-icon']/img")
     public List<WebElementFacade> selectThreePoint;
 
-    @FindBy(xpath = "//[@x-placement='bottom' or @x-placement='top']//div[text()='Deregister Profile']")
+    @FindBy(xpath = "//div[@x-placement='bottom' or @x-placement='top']//div[text()='Deregister Profile']")
     public WebElementFacade clickDeregisterProfile;
 
     @FindBy(xpath = "//div[@x-placement='bottom' or @x-placement='top']//div[text()='Edit Profile']")
@@ -504,4 +504,19 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span")
     public List<WebElementFacade> editAccountNum;
+
+    @FindBy(xpath = "//label[@for=\"appointmentDdate\"]/following-sibling::div//input")
+    public WebElementFacade clickDateInput;
+
+    @FindBy(xpath = "//label[text()='Date of Transfer']")
+    public WebElementFacade clickRecurrencePattern;
+
+    @FindBy(xpath = "//label[@for='appointmentDdate']/parent::div/following-sibling::div[1]//span[@class='el-checkbox__inner']")
+    public WebElementFacade clickMakeCheckBox;
+
+    @FindBy(xpath = "//label[@for='contractPeriodTypObj']/following-sibling::div//span[@class='el-input__suffix']")
+    public WebElementFacade clickSelectDateDropDown;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span")
+    public List<WebElementFacade> selectCycle;
 }

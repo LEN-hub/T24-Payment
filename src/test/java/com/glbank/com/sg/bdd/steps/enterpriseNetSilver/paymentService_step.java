@@ -226,13 +226,13 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.payeeBankSelect.click();
         List<WebElementFacade> payeeBank = paymentService_page.selectPayeeBankText;
         for (int i = 0; i < payeeBank.size(); i++) {
-            if (payeeBank.get(i).getText().equals("BANK OF CHINA LIMITED")){
+            if (payeeBank.get(i).getText().equals(bankName)){
                 payeeBank.get(i).click();
                 break;
             }
         }
         paymentService_page.payeeNameInput.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-        paymentService_page.payeeAccountNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        paymentService_page.payeeAccountNum.sendKeys(paymentAccount);
         paymentService_page.transferAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
         //截止代码
@@ -247,8 +247,23 @@ public class paymentService_step extends ScenarioSteps {
         }
     }
 
+    public void timeAdjustment(String date,String cycle){
+        paymentService_page.clickDateInput.clear();
+        paymentService_page.clickDateInput.sendKeys(date);
+        paymentService_page.clickRecurrencePattern.click();
+        paymentService_page.clickMakeCheckBox.click();
+        paymentService_page.clickSelectDateDropDown.click();
+        List<WebElementFacade> selectdate = paymentService_page.selectCycle;
+        for (int i = 0; i < selectdate.size(); i++) {
+            if (selectdate.get(i).getText().equals(cycle)){
+                selectdate.get(i).click();
+                break;
+            }
+        }
+    }
+
     @Step
-    public void otherDomesticTransfer(String bankName,String accountName,String paymentAccount,String transferAmount,String tradeAmountSelect,String paymentInformation){
+    public void otherDomesticTransfer(String bankName,String accountName,String paymentAccount,String tradeAmountSelect,String paymentInformation){
         paymentService_page.domesticTransfer.click();
         CommonUtil.waiting(2000);
         paymentService_page.clickPopupbtn.click();
@@ -270,7 +285,7 @@ public class paymentService_step extends ScenarioSteps {
 //        paymentService_page.overseasTrasferAccount.click();
         paymentService_page.accountName.sendKeys(accountName);
         paymentService_page.paymentAccount.sendKeys(paymentAccount);
-        paymentService_page.transferAmount.sendKeys(transferAmount);
+        paymentService_page.transferAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
         paymentService_page.tradeAmountPopWindows.click();
         List<WebElementFacade> selectTradeAmount = paymentService_page.tradeAmountSelectFirst;

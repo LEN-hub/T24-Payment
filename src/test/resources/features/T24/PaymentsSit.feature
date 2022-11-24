@@ -546,8 +546,8 @@ Feature: T24 Payment transaction
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I fill in the transfer information of domestic transfer bank
-      |Payee's Bank |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
-      |UOB          |TSC1643346550706|678321687312          |Business Expenses   |1101 0000 438 |
+      |Payee's Bank           |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
+      |BANK OF CHINA LIMITED  |TSC1643346550706|678321687312          |Business Expenses   |1101 0000 438 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
     When I click Next to go to the verification page
@@ -601,7 +601,7 @@ Feature: T24 Payment transaction
 #      |FUNDS.TRANSFER|
 #    Then I will map the page data
 
-      #PayNow签约
+  #PayNow签约
   @Paynow01
   Scenario:PayNow Signing Process
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
@@ -609,4 +609,16 @@ Feature: T24 Payment transaction
     Given logon second "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
+  #PayNow解约
+  @Paynow02
+  Scenario:PayNow Signing Off
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When I sign and cancel the transaction on the page
 
+  #PayNow修改
+  @Paynow03
+  Scenario:PayNow Signing Modify
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When I carry out the signing and modification process on the page
+      |AccountNu    |
+      |1101 0002 449|

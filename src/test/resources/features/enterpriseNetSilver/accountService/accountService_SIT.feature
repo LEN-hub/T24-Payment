@@ -40,3 +40,10 @@ Feature: accountService
   Scenario:personal center online banking transaction query submission time selection nearly seven days_SIT
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When personal center online banking transaction query submission time selection nearly seven days
+
+  @accountService_SIT10
+  Scenario:I query the transaction details list on the page_SIT
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I query the transaction details list on the page
+      |AccountNum    |
+      |1102 0327 405 |

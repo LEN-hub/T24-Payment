@@ -81,6 +81,22 @@ public class accountService_step extends ScenarioSteps {
     }
 
     @Step
+    public void clickTransationHistory(String accountNum){
+        Actions action=new Actions(getDriver());
+        action.moveToElement(accountService_page.clickAccounts).perform();
+        accountService_page.clickTransactionHistory.click();
+        accountService_page.clickDropDownBox.click();
+        List<WebElementFacade> selectAccount = accountService_page.selectAccontNum;
+        for (int i = 0; i < selectAccount.size(); i++) {
+            if (selectAccount.get(i).getText().substring(0,13).equals(accountNum)){
+                bddUtil.scrollWindowToElement(selectAccount.get(i)).click();
+                break;
+            }
+        }
+        accountService_page.clickSearch.click();
+    }
+
+    @Step
     public void accountTitle(){
         accountService_page.accountTitle.isDisplayed();
         accountService_page.currencyTitle.isDisplayed();
