@@ -213,7 +213,7 @@ Feature: loan application
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 179       |11020004223 |250000 |6 Months|1                    |
+      |1101 0000 020       |11020004223 |250000 |6 Months|1                    |
 #
 #
   #定期存款_美元_六个月_不转存
@@ -232,7 +232,7 @@ Feature: loan application
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 179       |11020004223 |250000 |6 Months|2                    |
+      |1101 0000 020       |11020004223 |250000 |6 Months|2                    |
 
   #定期存款_美元_六个月_本金续存
   @fixedDeposit04
@@ -250,7 +250,7 @@ Feature: loan application
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
-      |1101 0000 179       |11020004223 |250000 |6 Months|3                    |
+      |1101 0000 020       |11020004223 |250000 |6 Months|3                    |
 
   #定期存款_美元_六个月_本息续存
   @fixedDeposit06
@@ -365,7 +365,7 @@ Feature: loan application
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
-      |1101 0000 179   |1101 0001 639|
+      |1101 0000 020   |1101 0001 639|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -379,7 +379,7 @@ Feature: loan application
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |Payee's Bank           |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
-      |BANK OF CHINA LIMITED  |TSC1643346550706|11010003437           |Business Expenses   |1101 0000 179 |
+      |BANK OF CHINA LIMITED  |TSC1643346550706|11010003437           |Business Expenses   |1101 0000 020 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
     When I click Next to go to the verification page
@@ -430,7 +430,7 @@ Feature: loan application
     When I click on the Enterprise Administration as well user administration
     When I click on Add user
       |TimeLimit |birthday  |countries|
-      |2031-08-18|1999-05-20|+86      |
+      |2027-06-18|1999-05-20|+86      |
     When I get the OTP verification code from the server
     When fill in my email
     When I get the OTP verification code from the server

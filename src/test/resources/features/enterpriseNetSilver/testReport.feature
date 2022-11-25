@@ -315,7 +315,6 @@ Feature: e-Statement
       |24/11/2025|Weekly|
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
-    When I click Next to go to the verification page
     When If the transfer failure window pops up I will click the continue button
     Then I will compare all the data on same Currency Payment
       |WordPath                 |
