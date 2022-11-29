@@ -209,6 +209,7 @@ public class accountService_step extends ScenarioSteps {
             transactionFiled.get(i).isDisplayed();
         }
         accountService_page.queryBtn.click();
+        bddUtil.sleep(5);
     }
 
     @Step
@@ -221,6 +222,7 @@ public class accountService_step extends ScenarioSteps {
         accountService_page.myTransactions.click();
         accountService_page.selectSevenDay.click();
         accountService_page.queryBtn.click();
+        bddUtil.sleep(5);
     }
 
     @Step

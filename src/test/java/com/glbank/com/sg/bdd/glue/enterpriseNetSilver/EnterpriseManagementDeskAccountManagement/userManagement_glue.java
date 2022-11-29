@@ -80,6 +80,7 @@ public class userManagement_glue {
     public void iGetTheOTPVerificationCodeFromTheServer() throws MalformedURLException, InterruptedException, AWTException{
         userManagement_steps.clickValidationCode();
         userManagement_steps.sendKeyBoth();
+        bddUtil.sleep(3);
     }
 
     @When("^fill in my email$")

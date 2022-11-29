@@ -40,6 +40,8 @@ public class creatCustomers_glue {
     public String mailName = JRandomNameTool.getStringRandom(8);
     public String mailName1 = JRandomNameTool.getStringRandom(8);
     public String CompanyName = RandomNameTool.getName(Language.en, NameType.FULL_NAME)+JRandomNameTool.getStringRandom(4);
+//    public String CompanyName = "PUBLIC UTILITIES BOARD";
+
 
     @When("^login successfully and click the SCF link$")
     public void loginSuccessfullyAndClickTheSCFLink() {
@@ -351,9 +353,10 @@ public class creatCustomers_glue {
         for (int i = 0; i < 3; i++) {
             bddUtil.sleep(2);
             updateAmlResult(1,"companyData");
+            bddUtil.sleep(4);
         }
         updateAmlResult(1,"companyData");
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
         customers_step.getClickCustomersMenu();
         customers_step.onboardingReview();
         customers_step.onboardingReviewTitle();
@@ -371,9 +374,11 @@ public class creatCustomers_glue {
         for (int i = 0; i < 3; i++) {
             bddUtil.sleep(2);
             updateAmlResult(1,"buyer");
+            bddUtil.sleep(4);
         }
+        bddUtil.sleep(3);
         updateAmlResult(1,"buyer");
-        bddUtil.sleep(2);
+        bddUtil.sleep(4);
         customers_step.getClickCustomersMenu();
         customers_step.onboardingReview();
         customers_step.onboardingReviewTitle();

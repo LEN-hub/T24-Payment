@@ -297,7 +297,7 @@ public class payments_steps extends ScenarioSteps {
         paymentsPage.repaymentData.sendKeys(bddUtil.dateFormate());
         paymentsPage.commission.click();
         paymentsPage.submitBtn.click();
-        bddUtil.sleep(10);
+        bddUtil.sleep(15);
     }
 
     @Step
