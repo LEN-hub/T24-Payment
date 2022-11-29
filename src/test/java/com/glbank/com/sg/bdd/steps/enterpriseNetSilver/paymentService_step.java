@@ -226,13 +226,13 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.payeeBankSelect.click();
         List<WebElementFacade> payeeBank = paymentService_page.selectPayeeBankText;
         for (int i = 0; i < payeeBank.size(); i++) {
-            if (payeeBank.get(i).getText().equals("BANK OF CHINA LIMITED")){
+            if (payeeBank.get(i).getText().equals(bankName)){
                 payeeBank.get(i).click();
                 break;
             }
         }
         paymentService_page.payeeNameInput.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-        paymentService_page.payeeAccountNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        paymentService_page.payeeAccountNum.sendKeys(paymentAccount);
         paymentService_page.transferAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
         //截止代码
@@ -247,8 +247,23 @@ public class paymentService_step extends ScenarioSteps {
         }
     }
 
+    public void timeAdjustment(String date,String cycle){
+        paymentService_page.clickDateInput.clear();
+        paymentService_page.clickDateInput.sendKeys(date);
+        paymentService_page.clickRecurrencePattern.click();
+        paymentService_page.clickMakeCheckBox.click();
+        paymentService_page.clickSelectDateDropDown.click();
+        List<WebElementFacade> selectdate = paymentService_page.selectCycle;
+        for (int i = 0; i < selectdate.size(); i++) {
+            if (selectdate.get(i).getText().equals(cycle)){
+                selectdate.get(i).click();
+                break;
+            }
+        }
+    }
+
     @Step
-    public void otherDomesticTransfer(String bankName,String accountName,String paymentAccount,String transferAmount,String tradeAmountSelect,String paymentInformation){
+    public void otherDomesticTransfer(String bankName,String accountName,String paymentAccount,String tradeAmountSelect,String paymentInformation){
         paymentService_page.domesticTransfer.click();
         CommonUtil.waiting(2000);
         paymentService_page.clickPopupbtn.click();
@@ -270,7 +285,7 @@ public class paymentService_step extends ScenarioSteps {
 //        paymentService_page.overseasTrasferAccount.click();
         paymentService_page.accountName.sendKeys(accountName);
         paymentService_page.paymentAccount.sendKeys(paymentAccount);
-        paymentService_page.transferAmount.sendKeys(transferAmount);
+        paymentService_page.transferAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
         paymentService_page.tradeAmountPopWindows.click();
         List<WebElementFacade> selectTradeAmount = paymentService_page.tradeAmountSelectFirst;
@@ -842,6 +857,59 @@ public class paymentService_step extends ScenarioSteps {
         enterKeys.EnterKeys(StringUtil.getRandomNum(1));
         paymentService_page.enterNum3.click();
         enterKeys.EnterKeys(StringUtil.getRandomNum(1));
+        paymentService_page.clickNextBox.click();
+        paymentService_page.clickSubmitBtn.click();
+        paymentService_page.getSuccessTitle.isVisible();
+        String reference = paymentService_page.getReferenceID.getText();
+        List<WebElementFacade> referenceId = paymentService_page.checkPayNowProxyID;
+        for (int i = 0; i < referenceId.size(); i++) {
+            if (reference.equals(referenceId.get(i).getText())){
+                System.out.println("签约成功！");
+                break;
+            }
+        }
+    }
+
+    @Step
+    public void singOff(){
+        paymentService_page.managePayNowProfile.click();
+        paymentService_page.managePayNowProfileTitle.isVisible();
+        List<WebElementFacade> singoff = paymentService_page.selectRegistered;
+        List<WebElementFacade> threepoint = paymentService_page.selectThreePoint;
+        for (int i = 0; i < singoff.size(); i++) {
+            if (singoff.get(i).getText().equals("Registered")){
+                Actions action=new Actions(getDriver());
+                bddUtil.sleep(1);
+                action.moveToElement(threepoint.get(i)).perform();
+                paymentService_page.clickDeregisterProfile.click();
+                break;
+            }
+        }
+        paymentService_page.clickSubmitBtn.click();
+    }
+
+    @Step
+    public void singModify(String accountNum){
+        paymentService_page.managePayNowProfile.click();
+        paymentService_page.managePayNowProfileTitle.isVisible();
+        List<WebElementFacade> singoff = paymentService_page.selectRegistered;
+        List<WebElementFacade> threepoint = paymentService_page.selectThreePoint;
+        for (int i = 0; i < singoff.size(); i++) {
+            if (singoff.get(i).getText().equals("Registered")){
+                Actions action=new Actions(getDriver());
+                bddUtil.sleep(1);
+                action.moveToElement(threepoint.get(i)).perform();
+                paymentService_page.clickEditProfile.click();
+                break;
+            }
+        }
+        List<WebElementFacade> accountNumTest = paymentService_page.editAccountNum;
+        for (int i = 0; i < accountNumTest.size(); i++) {
+            if (accountNumTest.get(i).getText().substring(0,13).equals(accountNum)){
+                accountNumTest.get(i).getText();
+                break;
+            }
+        }
         paymentService_page.clickNextBox.click();
         paymentService_page.clickSubmitBtn.click();
         paymentService_page.getSuccessTitle.isVisible();

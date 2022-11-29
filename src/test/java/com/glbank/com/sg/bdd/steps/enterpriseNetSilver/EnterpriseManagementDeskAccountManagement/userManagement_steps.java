@@ -262,6 +262,8 @@ public class userManagement_steps extends ScenarioSteps {
         bddUtil.sleep(5);}
     public void clickSure(){
         userManagement_page.sure.click();
+        userManagement_page.successTitle.isVisible();
+        userManagement_page.clickComplete.click();
         bddUtil.sleep(5);}
     public void clickComplete(){
         userManagement_page.complete.click();

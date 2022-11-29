@@ -3,11 +3,15 @@ package com.glbank.com.sg.bdd.glue.enterpriseNetSilver;
 import com.glbank.com.sg.bdd.steps.enterpriseNetSilver.accountService_step;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import com.glbank.com.sg.bdd.utils.MobileConfig;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
+
+import java.util.List;
+import java.util.Map;
 
 public class accountService_glue {
 
@@ -146,5 +150,11 @@ public class accountService_glue {
         accountService_step.inputOtherInformation();
         bddUtil.sleep(5);
         accountService_step.clickNextBtn();
+    }
+
+    @When("^I query the transaction details list on the page$")
+    public void iQueryTheTransactionDetailsListOnThePage(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
+        accountService_step.clickTransationHistory(payToInfo.get(0).get("AccountNum"));
     }
 }
