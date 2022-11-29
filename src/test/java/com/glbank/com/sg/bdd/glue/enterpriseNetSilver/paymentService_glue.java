@@ -186,7 +186,7 @@ public class paymentService_glue {
     @When("^I choose to submit the transfer information$")
     public void iChooseToSubmitTheTransferInformation() {
         paymentService_step.clickNextBox();
-        paymentService_step.beginValidation();
+//        paymentService_step.beginValidation();
         paymentService_step.staging();
         paymentService_step.selectSumB();
     }
