@@ -1,7 +1,7 @@
 @supplyChainRun
 Feature: supply chain run
 
-
+##
 #  @supplierFullFYC
 #  Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully FULL KYC
 #    Given logon "environments_1" on tube by inputting system
@@ -50,10 +50,10 @@ Feature: supply chain run
 #    When Approval in the supply chain system
 #    Then Switch To the Assign To Me page and perform the corresponding operations
 #    When I close driver
-
-
-
-##    建档 供应商。
+#
+#
+#
+###    建档 供应商。
 #  @supplierFullFYCAccount
 #  Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account1
 #    Given logon "environments_1" on tube by inputting system
@@ -185,9 +185,9 @@ Feature: supply chain run
 ##    When I the second click Completed Button on the UnderWriting Approval page
 ##    When I click UnderWriting List button on the page
 ##    When I close driver
+
 #
-#
-##  BR签署
+#  BR签署
 #  Scenario:BR signed
 #    Given Open Supplier Portal URL
 #    When I input login data and click on the Login Supplier Portal URL
@@ -204,9 +204,9 @@ Feature: supply chain run
 #    When I login two email URL
 #    When I close driver
 #
-#
+
 ##   RPA上传
-#  Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_ 0001
+#  Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_ 00011
 #    Given logon "environments_2" on tube by inputting system
 #    When I click on the first Customers
 #    And click ContractManagement
@@ -214,10 +214,10 @@ Feature: supply chain run
 #    When Upload a file
 #      |fileAddress                                                            |
 #      |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
-#    Then Jump to the supplier portal to check the RPA
-#    When I close driver
+##    Then Jump to the supplier portal to check the RPA
+##    When I close driver
 
-
+#
 ##   融资申请
 #  Scenario:financingRequest1
 #    Given logon "environments_3" test code
@@ -262,11 +262,11 @@ Feature: supply chain run
 #    When I select Repayment Account No on the page
 #    And I enter other parameters in the current page
 #    When I close driver
-
-
-
-##  买方建档一系列流程
 #
+
+#
+##  买方建档一系列流程
+##
 # @BuyerFULLKYC
 #  Scenario:Create buyer customer profile select: the customer input, the customer input related information, the buyer customer created successfully FULL KYC
 #    Given logon "environments_1" on tube by inputting system
@@ -376,54 +376,54 @@ Feature: supply chain run
 #
 #
 #
-#  买方 绑定关系
-  Scenario:Buyer The operator binds a supplier relationship that does not exist between a single system for the buyer's customer, and the binding is successful
-    Given logon "environments_1" on tube by inputting system
-    When I click Customers and select Customers Mapping
-    Then I should direct to the Customers Mapping page
-    When I click the Create New Buyer Relationship button and Create a New Relationship
-    When I click Create New Counter button on the page
-    And I should bind a Supplier information in his upstream
-    When I close driver
-
-#   买方 信用档案
-  Scenario:createBuyerCreditFile
-    Given logon "environments_1" on tube by inputting system
-    When login successfully and click the SCF link to createBuyerCreditFile
-    And edit Buyer Credit Profile
-    Then submit Buyer Credit Profile
-    And  to Buyer Credit Profile Review page
-    Then buyer Credit Profile L1 Review
-    And change user To L2 Review
-    Then login "environments_2" on tube by inputting system
-    And use UserL2 to Review
-    When I close driver
-
-
-#  买方授信限额
-  Scenario:Buyer The operator initiated Buyer Entity Flow & Buyer Entity Public to grant credit to buyer customers, and the credit was successfully granted, and the limit and rating were obtained
-    Given logon "environments_1" on tube by inputting system
-    When I click UnderWriting and UnderWriting Approval
-    Then I should direct to the UnderWriting Approval page
-    When I click buyer Test Data Assign to Me button on UnderWriting Approval page
-    When I click Assign to ME title on the on UnderWriting Approval page
-    Then I should see Proceed Button on the UnderWriting Approval page
-    When I update Limit for THIS Product
-    When I click Result button on the UnderWriting Approval page
-    And I click Approve button and click Submit button on the page
-    When I click Completed Button on the UnderWriting Approval page
-#    业务变动 改为一次审批就可以了。
-#    Given logon "environments_2" on tube by inputting system
+##  买方 绑定关系
+#  Scenario:Buyer The operator binds a supplier relationship that does not exist between a single system for the buyer's customer, and the binding is successful
+#    Given logon "environments_1" on tube by inputting system
+#    When I click Customers and select Customers Mapping
+#    Then I should direct to the Customers Mapping page
+#    When I click the Create New Buyer Relationship button and Create a New Relationship
+#    When I click Create New Counter button on the page
+#    And I should bind a Supplier information in his upstream
+#    When I close driver
+#
+##   买方 信用档案
+#  Scenario:createBuyerCreditFile
+#    Given logon "environments_1" on tube by inputting system
+#    When login successfully and click the SCF link to createBuyerCreditFile
+#    And edit Buyer Credit Profile
+#    Then submit Buyer Credit Profile
+#    And  to Buyer Credit Profile Review page
+#    Then buyer Credit Profile L1 Review
+#    And change user To L2 Review
+#    Then login "environments_2" on tube by inputting system
+#    And use UserL2 to Review
+#    When I close driver
+#
+#
+##  买方授信限额
+#  Scenario:Buyer The operator initiated Buyer Entity Flow & Buyer Entity Public to grant credit to buyer customers, and the credit was successfully granted, and the limit and rating were obtained
+#    Given logon "environments_1" on tube by inputting system
 #    When I click UnderWriting and UnderWriting Approval
 #    Then I should direct to the UnderWriting Approval page
 #    When I click buyer Test Data Assign to Me button on UnderWriting Approval page
 #    When I click Assign to ME title on the on UnderWriting Approval page
 #    Then I should see Proceed Button on the UnderWriting Approval page
+#    When I update Limit for THIS Product
 #    When I click Result button on the UnderWriting Approval page
-#    And I click Approve and click Submit button on the page
-#    When I the second click Completed Button on the UnderWriting Approval page
-#    When I click UnderWriting List button on the page
-#    When I close driver
+#    And I click Approve button and click Submit button on the page
+#    When I click Completed Button on the UnderWriting Approval page
+##    业务变动 改为一次审批就可以了。
+##    Given logon "environments_2" on tube by inputting system
+##    When I click UnderWriting and UnderWriting Approval
+##    Then I should direct to the UnderWriting Approval page
+##    When I click buyer Test Data Assign to Me button on UnderWriting Approval page
+##    When I click Assign to ME title on the on UnderWriting Approval page
+##    Then I should see Proceed Button on the UnderWriting Approval page
+##    When I click Result button on the UnderWriting Approval page
+##    And I click Approve and click Submit button on the page
+##    When I the second click Completed Button on the UnderWriting Approval page
+##    When I click UnderWriting List button on the page
+##    When I close driver
 
 
 #    mvn clean verify `-Dcucumber.options="--tags @supplyChainRun"

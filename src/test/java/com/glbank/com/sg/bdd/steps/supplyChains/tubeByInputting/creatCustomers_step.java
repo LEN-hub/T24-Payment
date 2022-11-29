@@ -16,6 +16,7 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.List;
 
 import static com.glbank.com.sg.bdd.utils.AssertLocal.assertTrue;
+import static com.glbank.com.sg.bdd.utils.JDBCUtil.updateAmlResult;
 import static org.junit.Assert.assertEquals;
 
 public class creatCustomers_step extends ScenarioSteps {
@@ -79,11 +80,13 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void getCompanyName(String value){
         customers_page.companyName.sendKeys(value);
+//        customers_page.companyName.sendKeys("PUBLIC UTILITIES BOARD");
     }
 
     @Step
     public void getCompanyID(String value){
         customers_page.companyID.sendKeys(value);
+//        customers_page.companyID.sendKeys("T08GB0045L");
     }
 
     @Step
@@ -278,7 +281,12 @@ public class creatCustomers_step extends ScenarioSteps {
         String password = customers_page.passWord.getText();
         customers_page.scfLink.isVisible();
         CommonUtil.waiting(2000);
-        customers_page.scfLink.click();
+//        邮箱链接暂时失效，需要手动打开。
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"http://10.24.9.126:8080/#/login\");");
+        bddUtil.sleep(5);
+        bddUtil.switchToWindows();
+//        customers_page.scfLink.click();
         customers_page.GLDBEmailInput.sendKeys(username);
         customers_page.GLDBEmailPassword.sendKeys(password);
         customers_page.sendCodeBtn.click();
@@ -435,7 +443,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public void clickSubmitBtnOnGLDB(){
         bddUtil.sleep(3);
         customers_page.clickSubmitBtnOnGLDB.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
         customers_page.clickConfirmBtnOnGLDB.click();
         bddUtil.sleep(10);
     }
@@ -846,6 +854,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.inputBoxComment.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.submitBtnOnAssignToMePage.click();
         bddUtil.sleep(13);
+        updateAmlResult(1,"companyData");
         bddUtil.quitDriver();
     }
 

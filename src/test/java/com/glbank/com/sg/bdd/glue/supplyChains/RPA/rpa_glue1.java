@@ -43,6 +43,7 @@ public class rpa_glue1 {
 //        rpaStep.clickBrowse();
         rpaStep.clickData();
         rpaStep.clickConfirms();
+        bddUtil.sleep(7);
     }
 
     @Then("^Jump to the supplier portal to check the RPA$")
