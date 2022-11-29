@@ -188,7 +188,7 @@ Feature: supply chain run
 
 #
 #  BR签署
-  Scenario:BR signed
+#  Scenario:BR signed
 #    Given Open Supplier Portal URL
 #    When I input login data and click on the Login Supplier Portal URL
 #      |pass word   |Company ID|
