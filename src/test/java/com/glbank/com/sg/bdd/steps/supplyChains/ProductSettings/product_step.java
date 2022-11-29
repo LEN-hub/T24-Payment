@@ -229,6 +229,7 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickBuyer() {
+        bddUtil.sleep(3);
         productPage.Buyer.click();
         bddUtil.sleep(3);
     }
