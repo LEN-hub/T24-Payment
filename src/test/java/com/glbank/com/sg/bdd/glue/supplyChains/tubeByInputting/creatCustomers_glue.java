@@ -120,7 +120,7 @@ public class creatCustomers_glue {
         System.out.println("---------------第一个邮箱地址："+ mailName + "@MailTemp.top"+"----------------------");
         customers_step.phoneNumberFirst();
         customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getEmailSecondInput(mailName +"2"+ "@MailTemp.top");
+        customers_step.getEmailSecondInput(mailName1+ "@MailTemp.top");
         System.out.println("---------------第二个邮箱地址："+ mailName1 + "@MailTemp.top"+"----------------------");
         customers_step.getMobileInput();
 //        customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
