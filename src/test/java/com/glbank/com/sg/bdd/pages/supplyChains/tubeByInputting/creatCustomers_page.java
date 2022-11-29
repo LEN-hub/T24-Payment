@@ -169,7 +169,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-message-box__wrapper']//span[contains(text(), 'Confirm')]")
     public WebElementFacade confirmBtn;
 
-    @FindBy(xpath = "//div[@class=\"el-descriptions\"]/div[1]/div[1]")
+    @FindBy(xpath = "//div[@id=\"message-list-wrapper\"]//span")
     public WebElementFacade firstEmail;
 
     @FindBy(xpath = "//a[text()=' SCF portal ']")

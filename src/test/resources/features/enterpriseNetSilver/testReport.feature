@@ -175,7 +175,7 @@ Feature: e-Statement
     And I choose the currency to open the account SGD
     When I select account permissions
 
-    #本人互转
+    #本人互转单币种授权
   @localPaymentSGDToSGD
   Scenario:Local Payment Data Mapping FX Payment (SGD->SGD)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
@@ -190,29 +190,164 @@ Feature: e-Statement
 
 
   @LocalPaymentTestSGDToSGD
-    #境内转账-行内转账时间选择每周一(SGD->SGD)
+    #境内转账-行内转账单币种不授权(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I fill in the transfer information of domestic transfer bank
-      |Payee's Bank |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
-      |UOB          |TSC1643346550706|678321687312          |Business Expenses   |1101 0000 438 |
+      |Payee's Bank                     |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
+      |GREEN LINK DIGITAL BANK PTE LTD  |TSC1643346550706|11010002414           |Business Expenses   |1101 0000 438 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
-    When I click Next to go to the verification page
-    When If the transfer failure window pops up I will click the continue button
-    When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on same Currency Payment
       |WordPath                   |
       |Local Fund Payment SGD-SGD |
 
 
-          #PayNow签约
+  @SIT_MCY05
+    #境内转账多币种授权-行内转账时间选择每周一(SGD->SGD)
+  Scenario:Transfer time within the line is selected every Monday (SGD->SGD)(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I fill in the transfer information of domestic transfer bank
+      |Payee's Bank                     |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account |
+      |GREEN LINK DIGITAL BANK PTE LTD  |TSC1643346550706|11010002414           |Business Expenses   |1102 0327 162|
+    When I click next button on the domestic transfer bank page
+    Then I verify the information on the next page
+    When I click Next to go to the verification page
+    When If the transfer failure window pops up I will click the continue button
+    Then I will compare all the data on same Currency Payment
+      |WordPath                 |
+      |Local Payment SGD-SGD MCY|
+    When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
+
+  Scenario:Transfer time within the line is selected every Monday Time Selection Weekly(SGD->SGD)(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I fill in the transfer information of domestic transfer bank
+      |Payee's Bank                     |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account |
+      |GREEN LINK DIGITAL BANK PTE LTD  |TSC1643346550706|11010002414           |Business Expenses   |1102 0327 162|
+    When I select a time period on the page
+      |date      |cycle |
+      |24/11/2025|Weekly|
+    When I click next button on the domestic transfer bank page
+    Then I verify the information on the next page
+    When If the transfer failure window pops up I will click the continue button
+    Then I will compare all the data on same Currency Payment
+      |WordPath                 |
+      |Local Payment SGD-SGD MCY|
+
+  @LocalPaymentTestSGDToSGD
+    #境内转账-跨行转账单币种不授权(SGD->SGD)
+  Scenario:Transfer time within the line is selected every Monday Inter bank transfer(SGD->SGD)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I fill in the transfer information of domestic transfer bank
+      |Payee's Bank           |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
+      |BANK OF CHINA LIMITED  |TSC1643346550706|678321687312          |Business Expenses   |1101 0000 438 |
+    When I click next button on the domestic transfer bank page
+    Then I verify the information on the next page
+    Then I will compare all the data on same Currency Payment
+      |WordPath                   |
+      |Local Fund Payment SGD-SGD |
+
+
+  @SIT_MCY05
+    #境内转账多币种授权-跨行转账时间选择每周一(SGD->SGD)
+  Scenario:Transfer time within the line is selected every Monday (SGD->SGD)(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I fill in the transfer information of domestic transfer bank
+      |Payee's Bank           |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account |
+      |BANK OF CHINA LIMITED  |TSC1643346550706|11010001426           |Business Expenses   |1102 0327 162|
+    When I click next button on the domestic transfer bank page
+    Then I verify the information on the next page
+    When I click Next to go to the verification page
+    When If the transfer failure window pops up I will click the continue button
+    Then I will compare all the data on same Currency Payment
+      |WordPath                 |
+      |Local Payment SGD-SGD MCY|
+    When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
+
+
+  @FxPaymentSGDToSGD
+    #境外转账单币种授权
+  Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(SGD->SGD)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I click on overseas transfer payment and select the account
+    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+      |Account Number|Payment Mode for Charges                 |
+      |1101 0000 438 |The expenses shall be borne by each party|
+    And I choose the payment currency
+      |Currency|
+      |SGD     |
+    When I enter the payee information
+      |Payee's Account Number|Payee's Name|
+      |667812798             |lucky       |
+#    When I click on the receiving bank drop down box
+    When I choose the receiving bank
+      |Beneficiary Bank|
+      |DBSSSGS0LAO     |
+    When I choose the recipient country
+      |Payee's Address |Payee's Country|Comments For Payee|
+      |countries       |UNITED STATES  |ok                |
+    When I choose the nature of payment
+      |Purpose of Transfer|
+      |Commission         |
+    When I choose to submit the transfer information
+#    When Vkey authorization for Payment transactions in the SIT environment
+    Then I will compare all the data on FX Payment MX Message
+      |WordPath          |
+      |Bic is DBS SGD-SGD|
+    When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
+
+
+   #境外转账多币种不授权
+  @SIT_MCY10
+  Scenario:Positive process of overseas transfer Bic Is Bank of China(USD--USD)(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I click on overseas transfer payment and select the account
+    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+      |Account Number|Payment Mode for Charges                 |Currency|
+      |1102 0327 162 |The expenses shall be borne by each party|USD     |
+    And I choose the payment currency
+      |Currency   |
+      |USD        |
+    When I enter the payee information
+      |Payee's Account Number|Payee's Name|
+      |667812798             |lucky       |
+#    When I click on the receiving bank drop down box
+    When I choose the receiving bank
+      |Beneficiary Bank|
+      |BKCHSGS0CUS     |
+    When I choose the recipient country
+      |Payee's Address |Payee's Country|Comments For Payee|
+      |countries       |UNITED STATES  |ok                |
+    When I choose the nature of payment
+      |Purpose of Transfer|
+      |Commission         |
+    When I choose to submit the transfer information
+    Then I will compare all the data on FX Payment MX Message
+      |WordPath                        |
+      |Bic is Bank of China USD-USD MCY|
+
+  #PayNow签约
   @Paynow01
   Scenario:PayNow Signing Process
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I execute manage PayNow Profile transaction on the page
     Given logon second "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
+  #PayNow解约
+  @Paynow02
+  Scenario:PayNow Signing Off
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I sign and cancel the transaction on the page
+  #PayNow修改
+  @Paynow03
+  Scenario:PayNow Signing Modify
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I carry out the signing and modification process on the page
+      |AccountNu    |
+      |1101 0002 449|
 
     #     活期透支
   @loanApplication1
@@ -269,7 +404,7 @@ Feature: e-Statement
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_SGD and loan
     And Provide Essential Information
       |Entity's Type                                  |Entity Consolidated       |Entity's Industry|date      |chekk      |
-      |Public Listed Company (Not Listed in Singapore)|Turnover <= SGD 1 Million |Manufacturing    |01/01/2010|200808897E |
+      |Public Listed Company (Not Listed in Singapore)|Turnover <= SGD 1 Million |Manufacturing    |01/01/2010|200911779N |
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
@@ -357,5 +492,17 @@ Feature: e-Statement
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
+  @accountService_SIT10
+  Scenario:I query the transaction details list on the page_SIT
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I query the transaction details list on the page
+      |AccountNum    |
+      |1102 0327 405 |
 
-
+  @report
+  Scenario:fixedDepositWithdrawFD_SGD_SixMonth_DoNotRenewOrWithdrawAutomatically
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When click Fixed Deposits First menu
+    Then I operate on the current page data information
+      | fdAccountNumber |
+      | 1 Month         |

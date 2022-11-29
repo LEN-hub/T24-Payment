@@ -1336,7 +1336,7 @@ Feature: receipt and payment service
 #
 #
 
-
+#境内跨行
 ##时间选择每周(SGD->SGD)
 #  Scenario:Inter-bank transfer time is selected every week(SGD->SGD)
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver

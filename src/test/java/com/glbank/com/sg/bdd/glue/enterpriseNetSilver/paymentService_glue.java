@@ -61,6 +61,8 @@ public class paymentService_glue {
         paymentService_step.domesticTransfer(payToInfo.get(0).get("Payee's Bank"), payToInfo.get(0).get("Payee's Name"), payToInfo.get(0).get("Payee's Account Number"), payToInfo.get(0).get("Purpose of Transfer"), payToInfo.get(0).get("From Account"));
     }
 
+
+
     @Then("^I verify the information on the next page$")
     public void iVerifyTheInformationOnTheNextPage() {
         paymentService_step.checkCollectionName();
@@ -115,7 +117,7 @@ public class paymentService_glue {
     public void iFillInTheTransferInformationOfOverseasDomesticTransferBank(DataTable payDetails) {
         paymentService_step.transferAndRemittanceMenu();
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        paymentService_step.otherDomesticTransfer(payToInfo.get(0).get("bank name"),payToInfo.get(0).get("account name"), payToInfo.get(0).get("receiving account"), payToInfo.get(0).get("transfer amount"), payToInfo.get(0).get("transfer purpose"), payToInfo.get(0).get("payment information"));
+        paymentService_step.otherDomesticTransfer(payToInfo.get(0).get("bank name"),payToInfo.get(0).get("account name"), payToInfo.get(0).get("receiving account"), payToInfo.get(0).get("transfer purpose"), payToInfo.get(0).get("payment information"));
     }
 
 
@@ -278,5 +280,24 @@ public class paymentService_glue {
     public void iExecuteManagePayNowProfileTransactionOnThePage() throws AWTException {
         paymentService_step.transferAndRemittanceMenu();
         paymentService_step.managePayNowProfile();
+    }
+
+    @When("^I sign and cancel the transaction on the page$")
+    public void iSignAndCancelTheTransactionOnThePage() {
+        paymentService_step.transferAndRemittanceMenu();
+        paymentService_step.singOff();
+    }
+
+    @When("^I carry out the signing and modification process on the page$")
+    public void iCarryOutTheSigningAndModificationProcessOnThePage(DataTable data) throws Exception {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.transferAndRemittanceMenu();
+        paymentService_step.singModify(payToInfo.get(0).get("AccountNum"));
+    }
+
+    @When("^I select a time period on the page$")
+    public void iSelectATimePeriodOnThePage(DataTable data) throws Exception {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.timeAdjustment(payToInfo.get(0).get("date"),payToInfo.get(0).get("cycle"));
     }
 }

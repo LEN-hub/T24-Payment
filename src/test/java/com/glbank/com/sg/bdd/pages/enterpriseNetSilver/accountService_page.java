@@ -228,4 +228,20 @@ public class accountService_page extends PageObject {
 
     @FindBy(xpath = "//body[@class='theme-ui el-popup-parent--hidden']/div[@class='el-dialog__wrapper large-dialog superLarge-left']//div[@class='body']/div//div[@class='ui-button primary common']")
     public WebElementFacade createSaveBtn;
+
+    @FindBy(xpath = "//span[text()='Transaction History']")
+    public WebElementFacade clickTransactionHistory;
+
+    @FindBy(xpath = "//span[text()='Accounts']")
+    public WebElementFacade clickAccounts;
+
+    @FindBy(xpath = "//label[@for=\"payerAcctObj\"]/following-sibling::div//span[@class=\"el-input__suffix-inner\"]")
+    public WebElementFacade clickDropDownBox;
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//span")
+    public List<WebElementFacade> selectAccontNum;
+
+    @FindBy(xpath = "//div[text()='Search']")
+    public WebElementFacade clickSearch;
+
 }
