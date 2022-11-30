@@ -175,10 +175,10 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//a[text()=' SCF portal ']")
     public WebElementFacade scfLink;
 
-    @FindBy(xpath = "//div[@class='login-info']/p[1]/span")
+    @FindBy(xpath = "//p[contains(text(),'Username')]/span[1]")
     public WebElementFacade userName;
 
-    @FindBy(xpath = "//div[@class='login-info']/p[2]/span[1]")
+    @FindBy(xpath = "//p[contains(text(),'Password')]/span[1]")
     public WebElementFacade passWord;
 
     @FindBy(xpath = "//span[text()='Green Link Digital Bank - Verify Identity']")
