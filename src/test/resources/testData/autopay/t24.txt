@@ -1,0 +1,16 @@
+2022-11-25 18:59:30:548
+ChannelReferenceID:221125000000158
+ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelDebitAccountCurrency:SGD
+ChannelDebitAccountNumber:11010001256
+ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
+ChannelDetailPayeeName:Nina
+ChannelDetailAccountCurrency:SGD
+ChannelCreditAccountCurrency:SGD
+ChannelCreditAccountNumber:11010001426
+ChannelTransactionAmount:1,125.43
+ChannelPurposeOfTransfer:Business Expenses
+2022-11-25 19:2:21:883
+ID:221125000000158
+TransactionReference:FT22331QN9J3
+t24FtNumber:

@@ -169,16 +169,16 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-message-box__wrapper']//span[contains(text(), 'Confirm')]")
     public WebElementFacade confirmBtn;
 
-    @FindBy(xpath = "//div[@class=\"el-descriptions\"]/div[1]/div[1]")
+    @FindBy(xpath = "//div[@id=\"message-list-wrapper\"]//span")
     public WebElementFacade firstEmail;
 
     @FindBy(xpath = "//a[text()=' SCF portal ']")
     public WebElementFacade scfLink;
 
-    @FindBy(xpath = "//div[@class='login-info']/p[1]/span")
+    @FindBy(xpath = "//p[contains(text(),'Username')]/span[1]")
     public WebElementFacade userName;
 
-    @FindBy(xpath = "//div[@class='login-info']/p[2]/span[1]")
+    @FindBy(xpath = "//p[contains(text(),'Password')]/span[1]")
     public WebElementFacade passWord;
 
     @FindBy(xpath = "//span[text()='Green Link Digital Bank - Verify Identity']")

@@ -209,10 +209,9 @@ public class creatCustomers_step extends ScenarioSteps {
 //            bddUtil.sleep(1);
 //            getDriver().findElement(By.xpath("//p[@id='final-paragraph']/a")).click();
 //        }
-        customers_page.selectEmailDropDown.click();
-        customers_page.selectC0c.click();
-        customers_page.chageSendEmail.clear();
-        customers_page.chageSendEmail.sendKeys(value);
+        customers_page.sendEmail.clear();
+        customers_page.sendEmail.sendKeys(value);
+        customers_page.createEmailButton.click();
     }
 
     @Step
@@ -226,7 +225,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void openEmailUrl(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
+        webdriver.executeScript("window.open(\"https://mailtemp.top/\");");
         bddUtil.switchToNewWindow();
 //        errorEmailLink();
         bddUtil.switchToWindows();
@@ -264,15 +263,18 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void checkSendEmailSuccess(){
-        assertEquals("GreenLinkDigitalBank-Invitation",customers_page.firstEmail.getText());
+        assertEquals("Green Link Digital Bank - Invitation",customers_page.firstEmail.getText());
     }
 
     @Step
     public void viewEmail(){
         bddUtil.switchToNewWindow();
         bddUtil.sleep(5);
-        customers_page.clickRefresh.click();
-        customers_page.clickFirstEmail.click();
+        customers_page.clickRefreshBtn.click();
+        bddUtil.sleep(2);
+        customers_page.clickRefreshBtn.click();
+        bddUtil.sleep(2);
+        customers_page.firstEmail.click();
     }
 
     @Step
