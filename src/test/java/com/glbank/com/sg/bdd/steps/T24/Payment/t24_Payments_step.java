@@ -211,6 +211,7 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void findFileSendersReference(){
         bddUtil.scrollWindowToElement(t24_payments_page.findFileSendersReference);
+        t24_payments_page.inputDate.clear();
         t24_payments_page.fileSendersReferenceInput.clear();
         t24_payments_page.fileSendersReferenceInput.sendKeys(t24TransactionReference);
         t24_payments_page.getClickFindBtn.click();

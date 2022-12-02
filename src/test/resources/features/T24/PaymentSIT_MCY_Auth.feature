@@ -1,10 +1,10 @@
-@SIT_MCYEnv
+@SIT_MCY_Auth
 Feature: receipt and payment service
 
 #本人互转
-  @SIT_MCY01
+  @SIT_MCY_Auth01
    #USD->SGD
-  Scenario:I have successfully changed us dollars into Singapore dollars and T24(SIT_MCY)
+  Scenario:I have successfully changed us dollars into Singapore dollars and T24(SIT_MCY_Auth)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |currency|
@@ -14,6 +14,8 @@ Feature: receipt and payment service
     Then My account has been transferred successfully To Local Payment
       |WordPath   |
       |USD-SGD MCY|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath   |
@@ -39,9 +41,9 @@ Feature: receipt and payment service
       |search content|user Authorize                 |WordPath   |
       |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth_Auth|USD-SGD MCY|
 
-  @SIT_MCY02
+  @SIT_MCY_Auth02
   #SGD->USD
-  Scenario:I have successfully transferred from Singapore currency to US dollar(SIT_MCY)
+  Scenario:I have successfully transferred from Singapore currency to US dollar(SIT_MCY_Auth)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |currency|
@@ -51,6 +53,8 @@ Feature: receipt and payment service
     Then My account has been transferred successfully To Local Payment
       |WordPath   |
       |SGD-USD MCY|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath   |
@@ -75,9 +79,9 @@ Feature: receipt and payment service
     When I type FOREX in the search box use to authorize the operationToLocalPayment
       |search content|user Authorize                 |WordPath   |
       |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth_Auth|SGD-USD MCY|
-  @SIT_MCY03
+  @SIT_MCY_Auth03
    #SGD->SGD
-  Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process(SIT_MCY)
+  Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process(SIT_MCY_Auth)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |currency|
@@ -87,6 +91,8 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
       |WordPath   |
       |SGD-SGD MCY|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath   |
@@ -97,9 +103,9 @@ Feature: receipt and payment service
     Then I will map the page data
       |WordPath   |
       |SGD-SGD MCY|
-  @SIT_MCY04
+  @SIT_MCY_Auth04
     #USD->USD
-  Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow(SIT_MCY)
+  Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow(SIT_MCY_Auth)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |currency|
@@ -109,6 +115,8 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
       |WordPath   |
       |USD-USD MCY|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath   |
@@ -119,18 +127,24 @@ Feature: receipt and payment service
     Then I will map the page data
       |WordPath   |
       |USD-USD MCY|
-  @SIT_MCY05
-    #境内转账-跨行转账时间选择每周一(SGD->SGD)
-  Scenario:Transfer time within the line is selected every Monday (SGD->SGD)(SIT_MCY)
+  @SIT_MCY_Auth05
+    #境内转账-行内转账时间选择每周一(SGD->SGD)
+  Scenario:Transfer time within the line is selected every Monday (SGD->SGD)(SIT_MCY_Auth)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I fill in the transfer information of domestic transfer bank
-      |Payee's Bank          |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
-      |BANK OF CHINA LIMITED |TSC1643346550706|11010000438           |Business Expenses   |1102 0327 162 |
+      |Payee's Bank                    |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
+      |GREEN LINK DIGITAL BANK PTE LTD |TSC1643346550706|11010000438           |Business Expenses   |1102 0327 162 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
+    When I click Next to go to the verification page
+    When If the transfer failure window pops up I will click the continue button
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on same Currency Payment
       |WordPath                 |
       |Local Payment SGD-SGD MCY|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                 |
@@ -154,8 +168,8 @@ Feature: receipt and payment service
       |Local Payment SGD-SGD|Local Payment SGD-SGD MCY|
 
     #境外转账
-  @SIT_MCY06
-  Scenario:Positive process of overseas transfer Bic Is DBS(USD-USD)(SIT_MCY)
+  @SIT_MCY_Auth06
+  Scenario:Positive process of overseas transfer Bic Is DBS(USD--USD)(SIT_MCY_Auth)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
@@ -181,6 +195,8 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath              |
       |Bic is DBS USD-USD MCY|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath              |
@@ -204,8 +220,8 @@ Feature: receipt and payment service
       |Bic is DBS USD-USD MCY|Bic is DBS USD-USD MCY|
 
       #境外转账
-  @SIT_MCY07-
-  Scenario:Positive process of overseas transfer Bic Is DBS(SGD-USD)(SIT_MCY)
+  @SIT_MCY_Auth07
+  Scenario:Positive process of overseas transfer Bic Is DBS(SGD--USD)(SIT_MCY_Auth)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
@@ -231,6 +247,8 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment
       |WordPath              |
       |Bic is DBS SGD-USD MCY|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath              |
@@ -257,8 +275,8 @@ Feature: receipt and payment service
       |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth_Auth|Bic is DBS SGD-USD MCY|
 
 
-  @SIT_MCY08
-  Scenario:Positive process of overseas transfer Bic Is DBS(USD-SGD)(SIT_MCY)
+  @SIT_MCY_Auth08
+  Scenario:Positive process of overseas transfer Bic Is DBS(USD--SGD)(SIT_MCY_Auth)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
@@ -283,6 +301,8 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath              |
       |Bic is DBS USD-SGD MCY|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath              |
@@ -308,8 +328,8 @@ Feature: receipt and payment service
       |search content|user Authorize                 |WordPath              |
       |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth_Auth|Bic is DBS USD-SGD MCY|
 
-  @SIT_MCY09
-  Scenario:Positive process of overseas transfer Bic Is DBS(SGD-SGD)(SIT_MCY)
+  @SIT_MCY_Auth09
+  Scenario:Positive process of overseas transfer Bic Is DBS(SGD--SGD)(SIT_MCY_Auth)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
@@ -334,6 +354,8 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath              |
       |Bic is DBS SGD-SGD MCY|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath              |
@@ -357,8 +379,8 @@ Feature: receipt and payment service
       |Bic is DBS SGD-SGD MCY|Bic is DBS SGD-SGD MCY|
 
        #境外转账
-  @SIT_MCY10
-  Scenario:Positive process of overseas transfer Bic Is Bank of China(USD-USD)(SIT_MCY)
+  @SIT_MCY_Auth10
+  Scenario:Positive process of overseas transfer Bic Is Bank of China(USD--USD)(SIT_MCY_Auth)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
@@ -384,6 +406,8 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath                        |
       |Bic is Bank of China USD-USD MCY|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                        |
@@ -406,8 +430,8 @@ Feature: receipt and payment service
       |WordPath                        |Name                            |
       |Bic is Bank of China USD-USD MCY|Bic is Bank of China USD-USD MCY|
       #境外转账
-  @SIT_MCY11
-  Scenario:Positive process of overseas transfer Bic Is Bank of China(SGD-USD)(SIT_MCY)
+  @SIT_MCY_Auth11
+  Scenario:Positive process of overseas transfer Bic Is Bank of China(SGD--USD)(SIT_MCY_Auth)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
@@ -433,6 +457,8 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment
       |WordPath                        |
       |Bic is Bank of China SGD-USD MCY|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath                        |
@@ -459,8 +485,8 @@ Feature: receipt and payment service
       |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth_Auth|Bic is Bank of China SGD-USD MCY|
 
 
-  @SIT_MCY12
-  Scenario:Positive process of overseas transfer Bic Is Bank of China(USD-SGD)(SIT_MCY)
+  @SIT_MCY_Auth12
+  Scenario:Positive process of overseas transfer Bic Is Bank of China(USD--SGD)(SIT_MCY_Auth)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
@@ -485,6 +511,8 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath                        |
       |Bic is Bank of China USD-SGD MCY|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath                        |
@@ -510,8 +538,8 @@ Feature: receipt and payment service
       |search content|user Authorize                 |WordPath                        |
       |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth_Auth|Bic is Bank of China USD-SGD MCY|
 
-  @SIT_MCY13
-  Scenario:Positive process of overseas transfer Bic Is Bank of China(SGD-SGD)(SIT_MCY)
+  @SIT_MCY_Auth13
+  Scenario:Positive process of overseas transfer Bic Is Bank of China(SGD--SGD)(SIT_MCY_Auth)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
@@ -536,6 +564,8 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath                        |
       |Bic is Bank of China SGD-SGD MCY|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                        |

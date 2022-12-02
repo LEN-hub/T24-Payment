@@ -580,7 +580,7 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     public void staging() {
-        accountTitleVerify();
+//        accountTitleVerify();
         paymentService_page.staging.click();
     }
 
@@ -842,7 +842,6 @@ public class paymentService_step extends ScenarioSteps {
         if (paymentService_page.popTitle.isVisible()) {
             paymentService_page.begin.click();
         }
-
     }
 
     @Step

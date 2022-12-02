@@ -50,6 +50,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//a[contains(text(),'Party wise')]")
     public WebElementFacade clickPaymentTransactionWiseMenu;
 
+    @FindBy(xpath = "//label[text()='Processing Date']/parent::span/parent::td/following-sibling::td[2]/input[1]")
+    public WebElementFacade inputDate;
+
     @FindBy(xpath = "//label[text()='SendersReferenceIncoming']")
     public WebElementFacade findFileSendersReference;
 

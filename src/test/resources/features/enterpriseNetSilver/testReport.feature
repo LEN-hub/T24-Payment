@@ -91,11 +91,8 @@ Feature: e-Statement
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on the Enterprise Administration as well user administration
     When I click launch user and click ok
-      |emailAddress          |
-      |yk13008553349@163.com |
-    Then I click Next
-    When I initiate captcha verification
-    Then End the deals
+      |emailAddress     |
+      |sxqc6@126.com    |
 
 
   @UserCancellation_SIT
@@ -128,11 +125,8 @@ Feature: e-Statement
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on the Enterprise Administration as well user administration
     When I click on user deactivate confirm
-      |emailAddress          |
-      |yk13008553349@163.com |
-    Then I click Next
-    When I initiate captcha verification
-    Then End the deal
+      |emailAddress     |
+      |sxqc6@126.com    |
 
   @forgotPassWordIDCard123
   Scenario:idCard Forgot password users log in normally after resetting their passwords
@@ -187,6 +181,22 @@ Feature: e-Statement
     Then My account has been transferred successfully
       |WordPath                  |
       |Internal Transfer SGD-SGD |
+    When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
+
+   #本人互转多币种不授权
+  @SIT_MCY01
+   #USD->SGD
+  Scenario:I have successfully changed us dollars into Singapore dollars and T24(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    When I will complete the inter-bank transfer on the page
+      |From Account    |To Account   |currency|
+      |1102 0327 162   |1101 0000 438|USD     |
+    Then I check to see if the page jumps
+    When I verify the page information and click the Next button
+    Then My account has been transferred successfully To Local Payment
+      |WordPath   |
+      |USD-SGD MCY|
 
 
   @LocalPaymentTestSGDToSGD
@@ -212,7 +222,7 @@ Feature: e-Statement
       |GREEN LINK DIGITAL BANK PTE LTD  |TSC1643346550706|11010002414           |Business Expenses   |1102 0327 162|
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
-    When I click Next to go to the verification page
+#    When I click Next to go to the verification page
     When If the transfer failure window pops up I will click the continue button
     Then I will compare all the data on same Currency Payment
       |WordPath                 |
@@ -247,8 +257,6 @@ Feature: e-Statement
     Then I will compare all the data on same Currency Payment
       |WordPath                   |
       |Local Fund Payment SGD-SGD |
-
-
   @SIT_MCY05
     #境内转账多币种授权-跨行转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)(SIT_MCY)
@@ -258,14 +266,13 @@ Feature: e-Statement
       |BANK OF CHINA LIMITED  |TSC1643346550706|11010001426           |Business Expenses   |1102 0327 162|
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
-    When I click Next to go to the verification page
+#    When I click Next to go to the verification page
     When If the transfer failure window pops up I will click the continue button
     Then I will compare all the data on same Currency Payment
       |WordPath                 |
       |Local Payment SGD-SGD MCY|
     When logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
-
 
   @FxPaymentSGDToSGD
     #境外转账单币种授权

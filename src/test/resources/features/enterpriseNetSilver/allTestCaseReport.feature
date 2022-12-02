@@ -430,7 +430,7 @@ Feature: loan application
     When I click on the Enterprise Administration as well user administration
     When I click on Add user
       |TimeLimit |birthday  |countries|
-      |2027-06-18|1999-05-20|+86      |
+      |2027-01-18|1999-05-20|+86      |
     When I get the OTP verification code from the server
     When fill in my email
     When I get the OTP verification code from the server

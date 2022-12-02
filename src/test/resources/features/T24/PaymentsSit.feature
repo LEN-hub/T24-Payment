@@ -542,7 +542,7 @@ Feature: T24 Payment transaction
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
   @LocalPaymentTestSGDToSGD
-    #境内转账-行内转账时间选择每周一(SGD->SGD)
+    #境内转账-跨行转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I fill in the transfer information of domestic transfer bank

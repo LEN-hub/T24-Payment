@@ -123,7 +123,7 @@ Feature: receipt and payment service
       |USD-USD |
 
   @PaymentUat05
-    #境内转账-行内转账时间选择每周一(SGD->SGD)
+    #境内转账-跨行转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
@@ -230,7 +230,7 @@ Feature: receipt and payment service
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBSSSGS0VEC     |
+      |DBSSSGS0DOD     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
