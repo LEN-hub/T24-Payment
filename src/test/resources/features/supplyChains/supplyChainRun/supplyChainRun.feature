@@ -42,15 +42,15 @@ Feature: supply chain run
 #      |SGD        |
 #    When Click the Submit button on the Confirm page
 #    When End the current browser process
-#    Given logon "environments_1" on tube by inputting system
-#    When Approval in the supply chain system
-#    Then Switch To the Assign To Me page and perform the corresponding operations
-#    When I close driver
-#    Given logon "environments_2" on tube by inputting system
-#    When Approval in the supply chain system
-#    Then Switch To the Assign To Me page and perform the corresponding operations
-#    When I close driver
-#
+    Given logon "environments_1" on tube by inputting system
+    When Approval in the supply chain system
+    Then Switch To the Assign To Me page and perform the corresponding operations
+    When I close driver
+    Given logon "environments_2" on tube by inputting system
+    When Approval in the supply chain system
+    Then Switch To the Assign To Me page and perform the corresponding operations
+    When I close driver
+
 #
 #
 ###    建档 供应商。

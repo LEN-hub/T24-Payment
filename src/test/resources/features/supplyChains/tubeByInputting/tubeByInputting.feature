@@ -247,3 +247,23 @@ Feature: tube By Inputting
       When Approval in the buyer chain system
       Then Switch To the Assign To Me page and perform the corresponding operations buyer
       When I close driver
+
+  @simpleKYC
+  Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account Simple KYC
+    Given logon "environments_1" on tube by inputting system
+    When I click Customers and select Onboarding List
+    And I click Create Customer and fill in the supplier information in the pop-up window
+      |KYC Mode    |Input by|
+      |Simple KYC  |Operator|
+    Then I Check to see if you jump to the Authorized Person page
+    When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC
+    When I fill in Simple KYC customer information on the page
+      |Nature of Business   |Id Type |
+      |Agriculture & Fishing|Passport|
+    When I authorize on the Onboarding Review page
+      |Result |
+      |Approve|
+    Given logon "environments_2" on tube by inputting system
+    When I authorize on the Onboarding Review page
+      |Result |
+      |Approve|

@@ -134,6 +134,26 @@ public class creatCustomers_glue {
         bddUtil.sleep(3);
     }
 
+    @When("^Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC$")
+    public void fillInAdministratorAndAdministratorSupplierInformationOnTheAuthorizedPersonPageSimpleKYC() {
+        customers_step.getFirstNameInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+        customers_step.getEmailInput(mailName + "@MailTemp.top");
+        FileUtils.FileString4("emailData",mailName + "@MailTemp.top");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@MailTemp.top"+"----------------------");
+        customers_step.phoneNumberFirst();
+        customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+        customers_step.getEmailSecondInput(mailName1+ "@MailTemp.top");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@MailTemp.top"+"----------------------");
+        customers_step.getMobileInput();
+//        customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
+//
+//        customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+//        customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
+//        customers_step.clickInputBySelectBox();
+        customers_step.clickSubmitBtn();
+        bddUtil.sleep(3);
+    }
+
     @When("^Fill in email 1 and email 2 buyer information on the Authorized Person page$")
     public void fillInAdministratorAndAdministratorBuyerInformationOnTheAuthorizedPersonPage() {
         customers_step.getFirstNameInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
@@ -415,6 +435,21 @@ public class creatCustomers_glue {
         customers_step.checkApprovedText();
     }
 
+    @When("^I fill in Simple KYC customer information on the page$")
+    public void iFillInSimpleKYCCustomerInformationOnThePage(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class,String.class);
+        customers_step.clickEditIcon();
+        customers_step.companyInformation(payToInfo.get(0).get("Nature of Business"),payToInfo.get(0).get("Id Type"));
+    }
+
+    @When("^I authorize on the Onboarding Review page$")
+    public void iAuthorizeOnTheOnboardingReviewPage(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.getClickCustomersMenu();
+        customers_step.onboardingReview();
+        customers_step.onboardingReviewTitle();
+        customers_step.assignToMe(result.get(0).get("Result"));
+    }
 
 
 //    @After

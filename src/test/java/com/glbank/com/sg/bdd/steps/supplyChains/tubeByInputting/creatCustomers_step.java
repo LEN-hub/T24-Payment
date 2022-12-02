@@ -209,9 +209,9 @@ public class creatCustomers_step extends ScenarioSteps {
 //            bddUtil.sleep(1);
 //            getDriver().findElement(By.xpath("//p[@id='final-paragraph']/a")).click();
 //        }
-        customers_page.sendEmail.clear();
-        customers_page.sendEmail.sendKeys(value);
-        customers_page.createEmailButton.click();
+        customers_page.sendEmailContent.clear();
+        customers_page.sendEmailContent.sendKeys(value);
+        customers_page.emailAddress.click();
     }
 
     @Step
@@ -225,7 +225,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void openEmailUrl(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/\");");
+        webdriver.executeScript("window.open(\"http://24mail.chacuo.net/\");");
         bddUtil.switchToNewWindow();
 //        errorEmailLink();
         bddUtil.switchToWindows();
@@ -859,6 +859,103 @@ public class creatCustomers_step extends ScenarioSteps {
         updateAmlResult(1,"companyData");
         bddUtil.quitDriver();
     }
+    @Step
+    public void clickEditIcon(){
+        bddUtil.sleep(2);
+        customers_page.clickEditIcon.click();
+    }
 
+    @Step
+    public void companyInformation(String Industry,String selectIdType){
+        customers_page.enterRegisteredAddress.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.clickCountryOfBusiness.click();
+        customers_page.selectCountryOfBusinessText.click();
+        customers_page.enterBusinessCity.sendKeys("beijing");
+        customers_page.enterBusinessAddress.sendKeys("beijing");
+        customers_page.clickIndustryDownDrop.click();
+        List<WebElementFacade> industry = customers_page.selectIndustryText;
+        for (int i = 0; i < industry.size(); i++) {
+            if (Industry.equals(industry.get(i).getText())){
+                bddUtil.scrollWindowToElement(industry.get(i)).click();
+                break;
+            }
+        }
+        getDriver().findElement(By.xpath("//label[@for='A0030']/following-sibling::div//input")).sendKeys(fileAddress);
+        customers_page.enterPinYinName.sendKeys("zhangsan");
+        customers_page.enterAliasSimpleKYC.sendKeys("beijing");
+        customers_page.enterPinYinAliasName.sendKeys("zhangsana");
+        customers_page.clickIdTypeDownDrop.click();
+        List<WebElementFacade> selectIdTypeText = customers_page.selectIdTypeText;
+        for (int i = 0; i < selectIdTypeText.size(); i++) {
+            if (selectIdType.equals(selectIdTypeText.get(i).getText())){
+                selectIdTypeText.get(0).click();
+                break;
+            }
+        }
+        customers_page.enterIdNoSimpleKYC.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.selectNoExpirySimpleKYC.click();
+        customers_page.enterDateSimpleKYC.sendKeys("2029-12-22");
+        customers_page.clickNationalityDownDrop.click();
+        customers_page.selectNationalitySimpleKYC.click();
+        customers_page.enterResidentialAddressSimpleKYC.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.clickCountryOfResidenceSimpleKYC.click();
+        customers_page.selectCountryOfResidenceSimpleKYC.click();
+        customers_page.enterCitySimpleKYC.sendKeys("beijing");
+        customers_page.enterPinYin2Name.sendKeys("zhangsan");
+        customers_page.enterAlias2SimpleKYC.sendKeys("beijing");
+        customers_page.enterPinYin2AliasName.sendKeys("zhangsana");
+        customers_page.clickIdType2DownDrop.click();
+        List<WebElementFacade> selectIdType2Text = customers_page.selectIdType2Text;
+        for (int i = 0; i < selectIdType2Text.size(); i++) {
+            if (selectIdType.equals(selectIdType2Text.get(i).getText())){
+                selectIdType2Text.get(0).click();
+                break;
+            }
+        }
+        customers_page.enterIdNo2SimpleKYC.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.selectNoExpiry2SimpleKYC.click();
+        customers_page.enterDate2SimpleKYC.sendKeys("2029-12-22");
+        customers_page.clickNationality2DownDrop.click();
+        customers_page.selectNationality2SimpleKYC.click();
+        customers_page.enterResidentialAddress2SimpleKYC.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.clickCountryOfResidence2SimpleKYC.click();
+        customers_page.selectCountryOfResidence2SimpleKYC.click();
+        customers_page.enterCity2SimpleKYC.sendKeys("beijing");
+        customers_page.getClickSaveBtn.click();
+        bddUtil.sleep(10);
+        customers_page.clickSubmitSimpleKYC.click();
+        customers_page.clickComfirmBtnSimpleKYC.click();
+    }
 
+    @Step
+    public void assignToMe(String result){
+        List<WebElementFacade> assign = customers_page.ReviewCustomer;
+        List<WebElementFacade> assignBtn = customers_page.clickAssignBtn;
+        for (int i = 0; i < assign.size(); i++) {
+            if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
+                assignBtn.get(i).click();
+                break;
+            }
+        }
+        customers_page.assignedToMeClick.click();
+        bddUtil.sleep(8);
+        List<WebElementFacade> company = customers_page.getCompanyNameList;
+        List<WebElementFacade> proceed = customers_page.clickProceedBtn;
+        for (int j = 0; j < company.size(); j++){
+            if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
+                proceed.get(j).click();
+                break;
+            }
+        }
+        customers_page.clickResultDownDrop.click();
+        List<WebElementFacade> enterResult = customers_page.selectResult;
+        for (int k = 0; k < enterResult.size(); k++){
+            if (result.equals(enterResult.get(k).getText())){
+                enterResult.get(k).click();
+                break;
+            }
+        }
+        customers_page.enterComment.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        customers_page.clickSubmitBtn.click();
+    }
 }
