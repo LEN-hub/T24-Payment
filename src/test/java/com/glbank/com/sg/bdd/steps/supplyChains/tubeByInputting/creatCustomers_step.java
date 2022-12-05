@@ -9,6 +9,7 @@ import com.lu.sn.en.EnglishNameUtil;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
@@ -269,10 +270,10 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void viewEmail(){
         bddUtil.switchToNewWindow();
+        bddUtil.sleep(10);
+        customers_page.clickRefreshByHands.click();
         bddUtil.sleep(5);
-        customers_page.clickRefreshBtn.click();
-        bddUtil.sleep(2);
-        customers_page.clickRefreshBtn.click();
+        customers_page.clickRefreshByHands.click();
         bddUtil.sleep(2);
         customers_page.firstEmail.click();
     }
@@ -947,6 +948,7 @@ public class creatCustomers_step extends ScenarioSteps {
                 break;
             }
         }
+        bddUtil.sleep(4);
         customers_page.clickResultDownDrop.click();
         List<WebElementFacade> enterResult = customers_page.selectResult;
         for (int k = 0; k < enterResult.size(); k++){
@@ -957,5 +959,13 @@ public class creatCustomers_step extends ScenarioSteps {
         }
         customers_page.enterComment.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.clickSubmitBtn.click();
+        bddUtil.sleep(10);
+    }
+
+    public void checkRegistrationReport(){
+        customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        customers_page.clickStatusOnOnboardingList.click();
+        Assert.assertEquals("Pending Registration",customers_page.checkRegistrationtatus.getText());
+
     }
 }

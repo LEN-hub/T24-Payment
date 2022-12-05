@@ -263,7 +263,12 @@ Feature: tube By Inputting
     When I authorize on the Onboarding Review page
       |Result |
       |Approve|
+    When I close driver
     Given logon "environments_2" on tube by inputting system
     When I authorize on the Onboarding Review page
       |Result |
       |Approve|
+    When I click Customers and select Onboarding List
+    Then I compare Registration Status on the page
+    And I click the email icon to send the email
+    And I received an email from Green Union Bank on the email page

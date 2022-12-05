@@ -313,6 +313,15 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='btn']//span[contains(text(),'Submit')]")
     public WebElementFacade clickSubmitBtn;
 
+    @FindBy(xpath = "//label[text()='Company Name']/following-sibling::div//input")
+    public WebElementFacade sendKeysCompanyNameOnOnboardingList;
+
+    @FindBy(xpath = "//label[text()='Status']")
+    public WebElementFacade clickStatusOnOnboardingList;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[9]/span")
+    public WebElementFacade checkRegistrationtatus;
+
     @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role=\"tab\"]/parent::div//div[@class='form_container'][1]//label[@for='dateOfBirth']/following-sibling::div//input")
     public WebElementFacade enterPrimaryAdministrators1Date;
 
@@ -591,6 +600,9 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")
     public WebElementFacade clickRefreshBtn;
+
+    @FindBy(xpath = "//button[text()='手动刷新']")
+    public WebElementFacade clickRefreshByHands;
 
     @FindBy(xpath = "//div[@id='message-content']/p")
     public WebElementFacade emailPageContent;
