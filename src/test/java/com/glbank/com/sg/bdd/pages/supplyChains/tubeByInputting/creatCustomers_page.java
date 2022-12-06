@@ -322,6 +322,21 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[9]/span")
     public WebElementFacade checkRegistrationtatus;
 
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[7]")
+    public WebElementFacade checkEmail;
+
+    @FindBy(xpath = "//tbody[@id='convertd']/tr/td[1]")
+    public WebElementFacade checkFirstEmail;
+
+    @FindBy(xpath = "//tbody[@id='convertd']/tr[1]/td[1]")
+    public WebElementFacade firstEmailText;
+
+    @FindBy(xpath = "//strong[text()='返回']")
+    public WebElementFacade clickBackBtn;
+
+    @FindBy(xpath = "//div[@class='container content']/h2")
+    public WebElementFacade getEmailOtp;
+
     @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role=\"tab\"]/parent::div//div[@class='form_container'][1]//label[@for='dateOfBirth']/following-sibling::div//input")
     public WebElementFacade enterPrimaryAdministrators1Date;
 
@@ -580,16 +595,16 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-message-box__wrapper']//span[contains(text(), 'Confirm')]")
     public WebElementFacade confirmBtn;
 
-    @FindBy(xpath = "//div[@id=\"message-list-wrapper\"]//span")
+    @FindBy(xpath = "//tbody[@id=\"convertd\"]//td[1]")
     public WebElementFacade firstEmail;
 
     @FindBy(xpath = "//a[text()=' SCF portal ']")
     public WebElementFacade scfLink;
 
-    @FindBy(xpath = "//p[contains(text(),'Username')]/span[1]")
+    @FindBy(xpath = "//div[@class='login-info']/p[1]/span")
     public WebElementFacade userName;
 
-    @FindBy(xpath = "//p[contains(text(),'Password')]/span[1]")
+    @FindBy(xpath = "//div[@class='login-info']/p[2]/span")
     public WebElementFacade passWord;
 
     @FindBy(xpath = "//span[text()='Green Link Digital Bank - Verify Identity']")

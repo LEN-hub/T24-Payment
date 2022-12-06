@@ -24,6 +24,7 @@ public class creatCustomers_step extends ScenarioSteps {
     private creatCustomers_page customers_page;
     private BDDUtil bddUtil;
     public static String envTag;
+    public static String email;
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
     @Step
@@ -215,6 +216,10 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.emailAddress.click();
     }
 
+    public void checkEmail(){
+        emailOperation(email);
+    }
+
     @Step
     public void errorEmailLink(){
         if (customers_page.errorText.isVisible()){
@@ -270,19 +275,26 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void viewEmail(){
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(10);
+        bddUtil.sleep(30);
+        emailOperation(email);
         customers_page.clickRefreshByHands.click();
         bddUtil.sleep(5);
         customers_page.clickRefreshByHands.click();
         bddUtil.sleep(2);
-        customers_page.firstEmail.click();
+        bddUtil.switchToNewWindow();
+        clickSendEmailBtn();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(30);
+        customers_page.clickRefreshByHands.click();
+        bddUtil.sleep(5);
+        customers_page.clickRefreshByHands.click();
     }
 
     @Step
     public void selectFirstEmailAndTakeVCode(){
-        String username = customers_page.userName.getText();
-        String password = customers_page.passWord.getText();
-        customers_page.scfLink.isVisible();
+        String username = bddUtil.scrollWindowToElement(customers_page.userName).getText();
+        String password = bddUtil.scrollWindowToElement(customers_page.passWord).getText();
+//        customers_page.scfLink.isVisible();
         CommonUtil.waiting(2000);
 //        邮箱链接暂时失效，需要手动打开。
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
@@ -333,7 +345,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void enterLoginInformationAgain(String value,String password){
-        customers_page.GLDBEmailInput.sendKeys(value + "@c0c.fun");
+        customers_page.GLDBEmailInput.sendKeys(value + "@chacuo.net");
         customers_page.GLDBEmailPassword.sendKeys(password);
         customers_page.enterCompanyId.clear();
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -944,11 +956,12 @@ public class creatCustomers_step extends ScenarioSteps {
         List<WebElementFacade> proceed = customers_page.clickProceedBtn;
         for (int j = 0; j < company.size(); j++){
             if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
+                bddUtil.sleep(8);
                 proceed.get(j).click();
                 break;
             }
         }
-        bddUtil.sleep(4);
+        bddUtil.sleep(10);
         customers_page.clickResultDownDrop.click();
         List<WebElementFacade> enterResult = customers_page.selectResult;
         for (int k = 0; k < enterResult.size(); k++){
@@ -966,6 +979,46 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         customers_page.clickStatusOnOnboardingList.click();
         Assert.assertEquals("Pending Registration",customers_page.checkRegistrationtatus.getText());
+        email = customers_page.checkEmail.getText().substring(0,8);
+    }
 
+    public void enteremailOperation(){
+        if (customers_page.checkFirstEmail.isDisabled()){
+            bddUtil.sleep(30);
+        }else if (customers_page.checkFirstEmail.isVisible()){
+            customers_page.checkFirstEmail.click();
+        }
+    }
+    public void findEamilOtp(){
+        bddUtil.switchToNewWindow();
+        customers_page.clickRefreshByHands.click();
+        customers_page.clickBackBtn.click();
+        if (customers_page.firstEmailText.getText().equals("Green Link Digital Bank - Verification Code")){
+            customers_page.checkFirstEmail.click();
+        }else{
+            bddUtil.sleep(60);
+            customers_page.clickRefreshByHands.click();
+            customers_page.checkFirstEmail.click();
+        }
+        String otp = bddUtil.scrollWindowToElement(customers_page.getEmailOtp).getText();
+        bddUtil.switchToWindows();
+        customers_page.inputSendCode.sendKeys(otp);
+    }
+
+    public void enterNewPasswordAndLoginSuccess(String password){
+        customers_page.GLDBEmailInput.sendKeys(email + "@chacuo.net");
+        customers_page.GLDBEmailPassword.sendKeys(password);
+        customers_page.enterCompanyId.clear();
+        customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        customers_page.sendCodeBtn.click();
+        bddUtil.switchToNewWindow();
+        customers_page.clickRefreshByHands.click();
+        customers_page.clickBackBtn.click();
+        customers_page.checkFirstEmail.click();
+        String otp = bddUtil.scrollWindowToElement(customers_page.getEmailOtp).getText();
+        bddUtil.switchToWindows();
+        customers_page.inputSendCode.clear();
+        customers_page.inputSendCode.sendKeys(otp);
+        customers_page.GLDBEmailLoginBtn.click();
     }
 }

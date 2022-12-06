@@ -271,4 +271,16 @@ Feature: tube By Inputting
     When I click Customers and select Onboarding List
     Then I compare Registration Status on the page
     And I click the email icon to send the email
+    When open the email browser page
     And I received an email from Green Union Bank on the email page
+    When I receive mail in my mailbox
+    And I get the verification code on the email interface
+    And I enter Company ID and click Login button
+    Then Click login to jump to the Set New Password page
+    When After login Set a New Password on the Set New Password page
+      |first_new_password|second_new_password|
+      |P@ssw0rd_123      |P@ssw0rd_123       |
+    Then I jump to the login page
+    When I entered new login information and successfully logged in
+      |password    |
+      |P@ssw0rd_123|

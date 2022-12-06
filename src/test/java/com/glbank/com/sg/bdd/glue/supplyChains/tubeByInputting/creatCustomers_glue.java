@@ -138,9 +138,6 @@ public class creatCustomers_glue {
     @When("^Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC$")
     public void fillInAdministratorAndAdministratorSupplierInformationOnTheAuthorizedPersonPageSimpleKYC() {
         customers_step.getFirstNameInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        bddUtil.switchToNewWindow();
-        customers_step.emailOperation(mailName);
-        bddUtil.switchToWindows();
         customers_step.getEmailInput(mailName + "@chacuo.net");
         FileUtils.FileString4("emailData",mailName + "@chacuo.net");
         System.out.println("---------------第一个邮箱地址："+ mailName + "@chacuo.net"+"----------------------");
@@ -458,6 +455,23 @@ public class creatCustomers_glue {
     @Then("^I compare Registration Status on the page$")
     public void iCompareRegistrationStatusOnThePage() {
         customers_step.checkRegistrationReport();
+    }
+
+    @When("^I receive mail in my mailbox$")
+    public void iReceiveMailInMyMailbox() {
+        customers_step.enteremailOperation();
+        customers_step.selectFirstEmailAndTakeVCode();
+    }
+
+    @And("^I get the verification code on the email interface$")
+    public void iGetTheVerificationCodeOnTheEmailInterface() {
+        customers_step.findEamilOtp();
+    }
+
+    @When("^I entered new login information and successfully logged in$")
+    public void iEnteredNewLoginInformationAndSuccessfullyLoggedIn(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.enterNewPasswordAndLoginSuccess(result.get(0).get("password"));
     }
 
 
