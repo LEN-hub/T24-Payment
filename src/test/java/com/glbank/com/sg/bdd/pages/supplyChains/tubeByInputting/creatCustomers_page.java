@@ -172,6 +172,24 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lowcode-table default-theme']//table[@class='fixed-right-table']/tbody/tr[1]//i[@class='lls-tooltip lls-icon-edit']")
     public WebElementFacade clickEditIcon;
 
+    @FindBy(xpath = "//div[@class='lowcode-table default-theme']//table[@class='fixed-right-table']/tbody/tr[1]//i[@class='lls-tooltip lls-icon-sell']")
+    public WebElementFacade clickUpgradeKYC;
+
+    @FindBy(xpath = "//label[@for='kycMode']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickUpgradeModeDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectUpgradeMode;
+
+    @FindBy(xpath = "//label[@for='autoCustBuild']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickInputByDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectInpuByText;
+
+    @FindBy(xpath = "//span[text()='Confirm']")
+    public WebElementFacade clickConfirmBtn;
+
     @FindBy(xpath = "//label[@for='registeredAddress']/following-sibling::div//textarea")
     public WebElementFacade enterRegisteredAddress;
 
@@ -618,6 +636,15 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//button[text()='手动刷新']")
     public WebElementFacade clickRefreshByHands;
+
+    @FindBy(id = "customShortid")
+    public WebElementFacade clickEditEmailName;
+
+    @FindBy(id = "shortid")
+    public WebElementFacade sendKeysEmailName;
+
+    @FindBy(xpath = "//tbody[@id='maillist']/tr[1]/td[1]")
+    public WebElementFacade clickFirstEmailName;
 
     @FindBy(xpath = "//div[@id='message-content']/p")
     public WebElementFacade emailPageContent;
@@ -1388,6 +1415,32 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='relatedParty']/following-sibling::div//label[1]/span[1]")
     public WebElementFacade relatedPartyCheckBox;
 
+    @FindBy(xpath = "//p[text()='Confirmation Information']")
+    public WebElementFacade clickConfirmationInformation;
+
+    @FindBy(xpath = "//div[text()='Administrator 1']/following-sibling::div//label[@for='legalName']/following-sibling::div//input")
+    public WebElementFacade enterUpgradeKYCAdmin1FullName;
+
+    @FindBy(xpath = "//div[text()='Administrator 1']/following-sibling::div//label[@for='email']/following-sibling::div//input")
+    public WebElementFacade enterUpgradeKYCAdmin1Email;
+
+    @FindBy(xpath = "//div[text()='Administrator 1']/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[1]//input")
+    public WebElementFacade enterUpgradeKYCAdmin1AreaCode;
+
+    @FindBy(xpath = "//div[text()='Administrator 1']/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
+    public WebElementFacade enterUpgradeKYCAdmin1MobileNum;
+
+    @FindBy(xpath = "//div[text()='Administrator 2']/following-sibling::div//label[@for='legalName']/following-sibling::div//input")
+    public WebElementFacade enterUpgradeKYCAdmin2FullName;
+
+    @FindBy(xpath = "//div[text()='Administrator 2']/following-sibling::div//label[@for='email']/following-sibling::div//input")
+    public WebElementFacade enterUpgradeKYCAdmin2Email;
+
+    @FindBy(xpath = "//div[text()='Administrator 2']/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[1]//input")
+    public WebElementFacade enterUpgradeKYCAdmin2AreaCode;
+
+    @FindBy(xpath = "//div[text()='Administrator 2']/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
+    public WebElementFacade enterUpgradeKYCAdmin2MobileNum;
 
 
 

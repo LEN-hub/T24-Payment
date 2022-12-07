@@ -43,6 +43,8 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickOnboardingListMenu.click();
     }
 
+
+
     public void getClickCreateCustomerBtn(){
         customers_page.clickCreateCustomerBtn.click();
     }
@@ -231,7 +233,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void openEmailUrl(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"http://24mail.chacuo.net/\");");
+        webdriver.executeScript("window.open(\"https://ihotmails.com/\");");
         bddUtil.switchToNewWindow();
 //        errorEmailLink();
         bddUtil.switchToWindows();
@@ -275,19 +277,16 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void viewEmail(){
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(30);
-        emailOperation(email);
-        customers_page.clickRefreshByHands.click();
-        bddUtil.sleep(5);
-        customers_page.clickRefreshByHands.click();
-        bddUtil.sleep(2);
+        customers_page.clickEditEmailName.click();
+        customers_page.sendKeysEmailName.clear();
+        customers_page.sendKeysEmailName.sendKeys(email);
+        customers_page.clickEditEmailName.click();
+        bddUtil.sleep(20);
         bddUtil.switchToNewWindow();
         clickSendEmailBtn();
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(30);
-        customers_page.clickRefreshByHands.click();
-        bddUtil.sleep(5);
-        customers_page.clickRefreshByHands.click();
+        bddUtil.sleep(20);
+        customers_page.clickFirstEmailName.click();
     }
 
     @Step
@@ -345,7 +344,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void enterLoginInformationAgain(String value,String password){
-        customers_page.GLDBEmailInput.sendKeys(value + "@chacuo.net");
+        customers_page.GLDBEmailInput.sendKeys(value + "@ihotmails.com");
         customers_page.GLDBEmailPassword.sendKeys(password);
         customers_page.enterCompanyId.clear();
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -395,6 +394,23 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.inputManually.click();
     }
 
+    public void iClickAgreeServiceAgreementOnSimpleKYC(){
+        bddUtil.sleep(3);
+        if (customers_page.serviceAgreementTitle.isVisible()){
+//            bddUtil.scrollWindowToElement(customers_page.clickCheckBox);
+//            customers_page.clickCheckBox.click();
+            if (customers_page.selectFirstCheckBox.isVisible()){
+                customers_page.selectFirstCheckBox.click();
+            }
+            if (customers_page.selectSecondCheckBox1.isVisible()){
+                customers_page.selectSecondCheckBox1.click();
+                customers_page.selectThirdCheckBox.click();
+                customers_page.selectFourCheckBox.click();
+            }
+            bddUtil.sleep(4);
+            customers_page.clickAgreeBtn.click();
+        }
+    }
     @Step
     public void jumpLoginPage(){
         customers_page.loginPageTitle.isVisible();
@@ -939,6 +955,26 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickSubmitSimpleKYC.click();
         customers_page.clickComfirmBtnSimpleKYC.click();
     }
+    
+    public void companyInformationNoAdministrator(String Industry){
+        customers_page.enterRegisteredAddress.sendKeys(JRandomNameTool.getStringRandom(10));
+        customers_page.clickCountryOfBusiness.click();
+        customers_page.selectCountryOfBusinessText.click();
+        customers_page.enterBusinessCity.sendKeys("beijing");
+        customers_page.enterBusinessAddress.sendKeys("beijing");
+        customers_page.clickIndustryDownDrop.click();
+        List<WebElementFacade> industry = customers_page.selectIndustryText;
+        for (int i = 0; i < industry.size(); i++) {
+            if (Industry.equals(industry.get(i).getText())){
+                bddUtil.scrollWindowToElement(industry.get(i)).click();
+                break;
+            }
+        }
+        getDriver().findElement(By.xpath("//label[@for='A0030']/following-sibling::div//input")).sendKeys(fileAddress);
+        customers_page.getClickSaveBtn.click();
+        customers_page.clickSubmitSimpleKYC.click();
+        customers_page.clickComfirmBtnSimpleKYC.click();
+    }
 
     @Step
     public void assignToMe(String result){
@@ -979,46 +1015,91 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         customers_page.clickStatusOnOnboardingList.click();
         Assert.assertEquals("Pending Registration",customers_page.checkRegistrationtatus.getText());
+        bddUtil.sleep(2);
         email = customers_page.checkEmail.getText().substring(0,8);
     }
 
-    public void enteremailOperation(){
-        if (customers_page.checkFirstEmail.isDisabled()){
-            bddUtil.sleep(30);
-        }else if (customers_page.checkFirstEmail.isVisible()){
-            customers_page.checkFirstEmail.click();
-        }
+    public void checkRegistrationAndSubmit(){
+        customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        customers_page.clickStatusOnOnboardingList.click();
+        customers_page.clickSubmitSimpleKYC.click();
+        customers_page.clickComfirmBtnSimpleKYC.click();
     }
+
+    public void checkApprovedStatus(String status){
+        customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        customers_page.clickStatusOnOnboardingList.click();
+        Assert.assertEquals(status,customers_page.checkRegistrationtatus.getText());
+    }
+
     public void findEamilOtp(){
         bddUtil.switchToNewWindow();
-        customers_page.clickRefreshByHands.click();
-        customers_page.clickBackBtn.click();
-        if (customers_page.firstEmailText.getText().equals("Green Link Digital Bank - Verification Code")){
-            customers_page.checkFirstEmail.click();
-        }else{
-            bddUtil.sleep(60);
-            customers_page.clickRefreshByHands.click();
-            customers_page.checkFirstEmail.click();
-        }
+        bddUtil.sleep(20);
+        bddUtil.scrollWindowToElement(customers_page.clickFirstEmailName).click();
         String otp = bddUtil.scrollWindowToElement(customers_page.getEmailOtp).getText();
         bddUtil.switchToWindows();
         customers_page.inputSendCode.sendKeys(otp);
     }
 
     public void enterNewPasswordAndLoginSuccess(String password){
-        customers_page.GLDBEmailInput.sendKeys(email + "@chacuo.net");
+        customers_page.GLDBEmailInput.sendKeys(email + "@ihotmails.com");
         customers_page.GLDBEmailPassword.sendKeys(password);
         customers_page.enterCompanyId.clear();
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
-        customers_page.clickRefreshByHands.click();
-        customers_page.clickBackBtn.click();
-        customers_page.checkFirstEmail.click();
+        bddUtil.sleep(20);
+        bddUtil.scrollWindowToElement(customers_page.clickFirstEmailName).click();
         String otp = bddUtil.scrollWindowToElement(customers_page.getEmailOtp).getText();
         bddUtil.switchToWindows();
         customers_page.inputSendCode.clear();
         customers_page.inputSendCode.sendKeys(otp);
         customers_page.GLDBEmailLoginBtn.click();
+    }
+    public void clickConfirmationInformation(){
+        customers_page.clickConfirmationInformation.click();
+    }
+
+    @Step
+    public void clickUpgradeKYC(String UpgradeKYC,String inputBy){
+        customers_page.clickUpgradeKYC.click();
+        customers_page.clickUpgradeModeDownDrop.click();
+        List<WebElementFacade> upgrade = customers_page.selectUpgradeMode;
+        for (int i = 0; i < upgrade.size(); i++) {
+            if (UpgradeKYC.equals(upgrade.get(i).getText())){
+                upgrade.get(i).click();
+                break;
+            }
+        }
+        customers_page.clickInputByDownDrop.click();
+        List<WebElementFacade> inputby = customers_page.selectIndustryText;
+        for (int j = 0; j < inputby.size(); j++) {
+            if (inputBy.equals(inputby.get(j).getText())){
+               inputby.get(j).click();
+               break;
+            }
+        }
+       customers_page.clickConfirmBtn.click();
+    }
+    public void enterUpgradeKYCAdmin1Email(String email){
+        customers_page.enterUpgradeKYCAdmin1Email.sendKeys(email);
+    }
+    public void enterUpgradeKYCAdmin1FullName(){
+        customers_page.enterUpgradeKYCAdmin1FullName.sendKeys(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+    }
+
+    public void enterUpgradeKYCAdmin1AreaCode(){
+        customers_page.enterUpgradeKYCAdmin1AreaCode.sendKeys("+86");
+        customers_page.enterUpgradeKYCAdmin1MobileNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
+    }
+    public void enterUpgradeKYCAdmin2FullName(){
+        customers_page.enterUpgradeKYCAdmin2FullName.sendKeys(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+    }
+    public void enterUpgradeKYCAdmin2Email(String email){
+        customers_page.enterUpgradeKYCAdmin2Email.sendKeys(email);
+    }
+    public void enterUpgradeKYCAdmin2AreaCode(){
+        customers_page.enterUpgradeKYCAdmin2AreaCode.sendKeys("+86");
+        customers_page.enterUpgradeKYCAdmin2MobileNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
     }
 }
