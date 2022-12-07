@@ -524,4 +524,8 @@ public class creatCustomers_glue {
         bddUtil.sleep(3);
     }
 
+    @Then("^I compare Upgrade Status on the page$")
+    public void iCompareUpgradeStatusOnThePage() {
+        customers_step.checkRegistrationReportUpgrade();
+    }
 }

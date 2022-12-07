@@ -26,7 +26,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public static String envTag;
     public static String email;
     private static String systemPath = System.getProperty("user.dir");
-    String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
+    String fileAddress = systemPath + "/src/test/resources/testData/autopay/test2.jpg";
     @Step
     public void getClickCustomersMenu(){
         customers_page.clickCustomersMenu.isVisible();
@@ -972,6 +972,7 @@ public class creatCustomers_step extends ScenarioSteps {
         }
         getDriver().findElement(By.xpath("//label[@for='A0030']/following-sibling::div//input")).sendKeys(fileAddress);
         customers_page.getClickSaveBtn.click();
+        bddUtil.sleep(20);
         customers_page.clickSubmitSimpleKYC.click();
         customers_page.clickComfirmBtnSimpleKYC.click();
     }
@@ -1012,6 +1013,7 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     public void checkRegistrationReport(){
+        customers_page.sendKeysCompanyNameOnOnboardingList.clear();
         customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         customers_page.clickStatusOnOnboardingList.click();
         Assert.assertEquals("Pending Registration",customers_page.checkRegistrationtatus.getText());
@@ -1027,9 +1029,20 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     public void checkApprovedStatus(String status){
+        customers_page.sendKeysCompanyNameOnOnboardingList.clear();
         customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         customers_page.clickStatusOnOnboardingList.click();
+        bddUtil.sleep(3);
         Assert.assertEquals(status,customers_page.checkRegistrationtatus.getText());
+    }
+
+    public void checkRegistrationReportUpgrade(){
+        customers_page.sendKeysCompanyNameOnOnboardingList.clear();
+        customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        customers_page.clickStatusOnOnboardingList.click();
+        Assert.assertEquals("Upgrade",customers_page.checkRegistrationtatus.getText());
+        bddUtil.sleep(2);
+        email = customers_page.checkEmail.getText().substring(0,8);
     }
 
     public void findEamilOtp(){
@@ -1063,6 +1076,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void clickUpgradeKYC(String UpgradeKYC,String inputBy){
         customers_page.clickUpgradeKYC.click();
+        bddUtil.sleep(10);
         customers_page.clickUpgradeModeDownDrop.click();
         List<WebElementFacade> upgrade = customers_page.selectUpgradeMode;
         for (int i = 0; i < upgrade.size(); i++) {
@@ -1071,6 +1085,7 @@ public class creatCustomers_step extends ScenarioSteps {
                 break;
             }
         }
+        bddUtil.sleep(10);
         customers_page.clickInputByDownDrop.click();
         List<WebElementFacade> inputby = customers_page.selectIndustryText;
         for (int j = 0; j < inputby.size(); j++) {

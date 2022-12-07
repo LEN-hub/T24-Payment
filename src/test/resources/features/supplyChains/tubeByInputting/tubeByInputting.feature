@@ -271,8 +271,8 @@ Feature: tube By Inputting
       |Approve|
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status |
-      |Approve|
+      |Status  |
+      |Approved|
 
     #2.simple（核心不存在、非自主、管理员）
   @simpleKYC02
@@ -317,8 +317,8 @@ Feature: tube By Inputting
     Given logon "environments_2" on tube by inputting system
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status |
-      |Approve|
+      |Status  |
+      |Approved|
 
     #3.(1)simple（无管理员）--full（customer）
   @simpleKYC03
@@ -343,15 +343,13 @@ Feature: tube By Inputting
       |Approve|
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status |
-      |Approve|
+      |Status  |
+      |Approved|
     When I click Upgrade KYC on the page and process the corresponding information
       |Upgrade Mode|Input By|
       |Full KYC    |Customer|
     When I enter the information of Administrator 1 and Administrator 2 of Upgrade KYC respectively on the page
-    Then I compare Approved Status on the page
-      |Status |
-      |Upgrade|
+    Then I compare Upgrade Status on the page
     And I click the email icon to send the email
     When open the email browser page
     And I received an email from Green Union Bank on the email page
@@ -369,8 +367,8 @@ Feature: tube By Inputting
     When I click agree Service Agreement on simple KYC
     When I click the Confirmation Information button on the page
 
-       #2.simple（核心不存在、非自主、管理员）
-  @simpleKYC02
+ #4.(1)simple（管理员）--full（customer）
+  @simpleKYC04
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account Simple KYC
     Given logon "environments_1" on tube by inputting system
     When I click Customers and select Onboarding List
@@ -412,15 +410,13 @@ Feature: tube By Inputting
     Given logon "environments_2" on tube by inputting system
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status |
-      |Approve|
+      |Status  |
+      |Approved|
     When I click Upgrade KYC on the page and process the corresponding information
       |Upgrade Mode|Input By|
       |Full KYC    |Customer|
     When I enter the information of Administrator 1 and Administrator 2 of Upgrade KYC respectively on the page
-    Then I compare Approved Status on the page
-      |Status |
-      |Upgrade|
+    Then I compare Upgrade Status on the page
     And I click the email icon to send the email
     When open the email browser page
     And I received an email from Green Union Bank on the email page
