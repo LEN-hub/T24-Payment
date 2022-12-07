@@ -366,6 +366,17 @@ Feature: tube By Inputting
       |P@ssw0rd_123|
     When I click agree Service Agreement on simple KYC
     When I click the Confirmation Information button on the page
+    When I entered information on the Tell Us About Your Company page
+    Then Check whether to jump to the next page after filling in the content of Company page
+    When Fill in the administrator information on the People page and click Next to go to the Next page
+    Then Verify whether the director page is displayed
+    When Fill in the board information on the current page and click the Next button
+    Then Verify whether the Shareholder page is displayed
+    When Fill in the user information on the Shareholder page
+      |allocation |
+      |SGD        |
+    When I click next Button on the page
+    When Click the Submit button on the Confirm page
 
  #4.(1)simple（管理员）--full（customer）
   @simpleKYC04
@@ -433,3 +444,14 @@ Feature: tube By Inputting
       |P@ssw0rd_123|
     When I click agree Service Agreement on simple KYC
     When I click the Confirmation Information button on the page
+    When I entered information on the Tell Us About Your Company page
+    Then Check whether to jump to the next page after filling in the content of Company page
+    When Fill in the administrator information on the People page and click Next to go to the Next page
+    Then Verify whether the director page is displayed
+    When Fill in the board information on the current page and click the Next button
+    Then Verify whether the Shareholder page is displayed
+    When Fill in the user information on the Shareholder page
+      |allocation |
+      |SGD        |
+    When I click next Button on the page
+    When Click the Submit button on the Confirm page

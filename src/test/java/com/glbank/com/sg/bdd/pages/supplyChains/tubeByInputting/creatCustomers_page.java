@@ -922,59 +922,113 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='title']")
     public WebElementFacade directorOfTheInformation;
 
-    @FindBy(xpath = "//label[@for='executiveName']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='executiveName']/following-sibling::div//input")
     public WebElementFacade director1FullName;
 
-    @FindBy(xpath = "//label[@for='pinyinName']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='pinyinName']/following-sibling::div//input")
     public WebElementFacade director1EnterPinYin;
 
-    @FindBy(xpath = "//label[@for='alias']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='alias']/following-sibling::div//input")
     public WebElementFacade director1Alias;
 
-    @FindBy(xpath = "//label[@for='pinyinAliasName']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='pinyinAliasName']/following-sibling::div//input")
     public WebElementFacade director1PinyinAliasName;
 
-    @FindBy(xpath = "//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
     public WebElementFacade director1IdType;
 
-    @FindBy(xpath = "//span[text()='Passport']")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//span[text()='Passport']")
     public WebElementFacade director1SelectIdType;
 
-    @FindBy(xpath = "//label[@for='certificationNo']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='certificationNo']/following-sibling::div//input")
     public WebElementFacade director1IdNumber;
 
-    @FindBy(xpath = "//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
     public WebElementFacade director1IdExpiryDate;
 
-    @FindBy(xpath = "//label[@for='dateOfBirth']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='dateOfBirth']/following-sibling::div//input")
     public WebElementFacade director1DateOfBirth;
 
-    @FindBy(xpath = "//label[@for='country']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='country']/following-sibling::div//input")
     public WebElementFacade director1NationalityDrop;
 
-    @FindBy(xpath = "//label[@for='city']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='city']/following-sibling::div//input")
     public WebElementFacade director1City;
 
-    @FindBy(xpath = "//label[@for='postalCode']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='postalCode']/following-sibling::div//input")
     public WebElementFacade director1PostalCode;
 
-    @FindBy(xpath = "//label[@for='residentialAddress']/following-sibling::div//textarea")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='residentialAddress']/following-sibling::div//textarea")
     public WebElementFacade director1ResidentialAddress;
 
-    @FindBy(xpath = "//label[@for='countryOfResidence']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='countryOfResidence']/following-sibling::div//input")
     public WebElementFacade director1CountryOfResidence;
 
-    @FindBy(xpath = "//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[1]//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[1]//input")
     public WebElementFacade director1FirstPhoneNum;
 
-    @FindBy(xpath = "//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
     public WebElementFacade director1SecondPhoneNum;
 
-    @FindBy(xpath = "//label[@for='email']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='email']/following-sibling::div//input")
     public WebElementFacade director1EmailAddress;
 
-    @FindBy(xpath = "//label[@for='ThisDirectorIsAlsoAShareholder']/following-sibling::div//span[@class='lls-checkbox__inner']")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='ThisDirectorIsAlsoAShareholder']/following-sibling::div//span[@class='lls-checkbox__inner']")
     public WebElementFacade director1SelectCheckBox;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='executiveName']/following-sibling::div//input")
+    public WebElementFacade director2FullName;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='pinyinName']/following-sibling::div//input")
+    public WebElementFacade director2EnterPinYin;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='alias']/following-sibling::div//input")
+    public WebElementFacade director2Alias;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='pinyinAliasName']/following-sibling::div//input")
+    public WebElementFacade director2PinyinAliasName;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade director2IdType;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//span[text()='Passport']")
+    public WebElementFacade director2SelectIdType;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='certificationNo']/following-sibling::div//input")
+    public WebElementFacade director2IdNumber;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
+    public WebElementFacade director2IdExpiryDate;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='dateOfBirth']/following-sibling::div//input")
+    public WebElementFacade director2DateOfBirth;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='country']/following-sibling::div//input")
+    public WebElementFacade director2NationalityDrop;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='city']/following-sibling::div//input")
+    public WebElementFacade director2City;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='postalCode']/following-sibling::div//input")
+    public WebElementFacade director2PostalCode;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='residentialAddress']/following-sibling::div//textarea")
+    public WebElementFacade director2ResidentialAddress;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='countryOfResidence']/following-sibling::div//input")
+    public WebElementFacade director2CountryOfResidence;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[1]//input")
+    public WebElementFacade director2FirstPhoneNum;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
+    public WebElementFacade director2SecondPhoneNum;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='email']/following-sibling::div//input")
+    public WebElementFacade director2EmailAddress;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='ThisDirectorIsAlsoAShareholder']/following-sibling::div//span[@class='lls-checkbox__inner']")
+    public WebElementFacade director2SelectCheckBox;
 
     @FindBy(xpath = "//div[@class='title']")
     public WebElementFacade shareholderOfTheInformation;
@@ -1417,6 +1471,12 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//p[text()='Confirmation Information']")
     public WebElementFacade clickConfirmationInformation;
+
+    @FindBy(xpath = "//p[text()='Customer Profile']")
+    public WebElementFacade clickCustomerProfilePendingActions;
+
+    @FindBy(xpath = "//span[text()='I will input manually']")
+    public WebElementFacade clickIwillInputManuallyBtn;
 
     @FindBy(xpath = "//div[text()='Administrator 1']/following-sibling::div//label[@for='legalName']/following-sibling::div//input")
     public WebElementFacade enterUpgradeKYCAdmin1FullName;
