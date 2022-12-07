@@ -241,16 +241,12 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void openEmailUrlTest(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
+        webdriver.executeScript("window.open(\"https://ihotmails.com/\");");
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(5);
-        customers_page.selectEmailDropDown.click();
-        customers_page.selectC0c.click();
-        customers_page.chageSendEmail.clear();
-        customers_page.chageSendEmail.sendKeys("dt1amdv5");
-        bddUtil.switchToNewWindow();
-//        errorEmailLink();
-//        bddUtil.switchToWindows();
+        customers_page.clickEditEmailName.click();
+        customers_page.sendKeysEmailName.clear();
+        customers_page.sendKeysEmailName.sendKeys("6652pq42");
+        customers_page.clickEditEmailName.click();
     }
 
     @Step
@@ -486,28 +482,18 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void iLoginServiceAgreementWindow(){
-        customers_page.GLDBEmailInput.sendKeys("dt1amdv5@ihotmails.com");
+        bddUtil.switchToWindows();
+        customers_page.GLDBEmailInput.sendKeys("6652pq42@ihotmails.com");
         customers_page.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
         bddUtil.sleep(5);
-        customers_page.clickRefresh.click();
-        bddUtil.sleep(2);
-        List<WebElementFacade> selectEmail = customers_page.emailSubject;
-        List<WebElementFacade> clickViewBtn = customers_page.clickViewBtn;
-        for (int i = 0; i < selectEmail.size(); i++) {
-            if (selectEmail.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
-                clickViewBtn.get(i).click();
-                break;
-            }
-        }
-        bddUtil.sleep(1);
-//        customers_page.find(By.xpath("//div[@id='message-list']/button[1]")).click();
-        String Vcode = customers_page.emailVerificationCode.getText();
+        bddUtil.scrollWindowToElement(customers_page.clickFirstEmailName).click();
+        String otp = bddUtil.scrollWindowToElement(customers_page.getEmailOtp).getText();
         bddUtil.switchToWindows();
         customers_page.inputSendCode.clear();
-        customers_page.inputSendCode.sendKeys(Vcode);
+        customers_page.inputSendCode.sendKeys(otp);
         customers_page.GLDBEmailLoginBtn.click();
     }
 

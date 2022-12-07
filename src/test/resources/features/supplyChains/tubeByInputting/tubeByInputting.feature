@@ -323,47 +323,49 @@ Feature: tube By Inputting
     #3.(1)simple（无管理员）--full（customer）
   @simpleKYC03
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account Simple KYC No Administrator full customer
-    Given logon "environments_1" on tube by inputting system
-    When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
-      |KYC Mode    |Input by|
-      |Simple KYC  |Operator|
-    Then I Check to see if you jump to the Authorized Person page
-    When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
-    When I fill in Simple KYC customer information on the page No Administrator
-      |Nature of Business   |
-      |Agriculture & Fishing|
-    When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
-    When I close driver
-    Given logon "environments_2" on tube by inputting system
-    When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
-    When I click Customers and select Onboarding List
-    Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
-    When I click Upgrade KYC on the page and process the corresponding information
-      |Upgrade Mode|Input By|
-      |Full KYC    |Customer|
-    When I enter the information of Administrator 1 and Administrator 2 of Upgrade KYC respectively on the page
-    Then I compare Upgrade Status on the page
-    And I click the email icon to send the email
-    When open the email browser page
-    And I received an email from Green Union Bank on the email page
-    When I receive mail in my mailbox
-    And I get the verification code on the email interface
-    And I enter Company ID and click Login button
-    Then Click login to jump to the Set New Password page
-    When After login Set a New Password on the Set New Password page
-      |first_new_password|second_new_password|
-      |P@ssw0rd_123      |P@ssw0rd_123       |
-    Then I jump to the login page
-    When I entered new login information and successfully logged in
-      |password    |
-      |P@ssw0rd_123|
+#    Given logon "environments_1" on tube by inputting system
+#    When I click Customers and select Onboarding List
+#    And I click Create Customer and fill in the supplier information in the pop-up window
+#      |KYC Mode    |Input by|
+#      |Simple KYC  |Operator|
+#    Then I Check to see if you jump to the Authorized Person page
+#    When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
+#    When I fill in Simple KYC customer information on the page No Administrator
+#      |Nature of Business   |
+#      |Agriculture & Fishing|
+#    When I authorize on the Onboarding Review page
+#      |Result |
+#      |Approve|
+#    When I close driver
+#    Given logon "environments_2" on tube by inputting system
+#    When I authorize on the Onboarding Review page
+#      |Result |
+#      |Approve|
+#    When I click Customers and select Onboarding List
+#    Then I compare Approved Status on the page
+#      |Status  |
+#      |Approved|
+#    When I click Upgrade KYC on the page and process the corresponding information
+#      |Upgrade Mode|Input By|
+#      |Full KYC    |Customer|
+#    When I enter the information of Administrator 1 and Administrator 2 of Upgrade KYC respectively on the page
+#    Then I compare Upgrade Status on the page
+#    And I click the email icon to send the email
+#    When open the email browser page
+#    And I received an email from Green Union Bank on the email page
+#    When I receive mail in my mailbox
+#    And I get the verification code on the email interface
+#    And I enter Company ID and click Login button
+#    Then Click login to jump to the Set New Password page
+#    When After login Set a New Password on the Set New Password page
+#      |first_new_password|second_new_password|
+#      |P@ssw0rd_123      |P@ssw0rd_123       |
+#    Then I jump to the login page
+#    When I entered new login information and successfully logged in
+#      |password    |
+#      |P@ssw0rd_123|
+    Given logon "environments_3" test code
+    When I login service agreement window
     When I click agree Service Agreement on simple KYC
     When I click the Confirmation Information button on the page
     When I entered information on the Tell Us About Your Company page
@@ -442,6 +444,8 @@ Feature: tube By Inputting
     When I entered new login information and successfully logged in
       |password    |
       |P@ssw0rd_123|
+#    Given logon "environments_2" test code
+#    When I login service agreement window
     When I click agree Service Agreement on simple KYC
     When I click the Confirmation Information button on the page
     When I entered information on the Tell Us About Your Company page
