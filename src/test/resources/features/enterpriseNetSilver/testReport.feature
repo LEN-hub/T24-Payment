@@ -361,8 +361,11 @@ Feature: e-Statement
   Scenario:PayNow Signing Process
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I execute manage PayNow Profile transaction on the page
-    Given logon second "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
     When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
   #PayNow解约
   @Paynow02
   Scenario:PayNow Signing Off

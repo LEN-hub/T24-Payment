@@ -300,4 +300,9 @@ public class paymentService_glue {
         List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
         paymentService_step.timeAdjustment(payToInfo.get(0).get("date"),payToInfo.get(0).get("cycle"));
     }
+
+    @When("^I signed on the page successfully$")
+    public void iSignedOnThePageSuccessfully() {
+        paymentService_step.singSuccess();
+    }
 }

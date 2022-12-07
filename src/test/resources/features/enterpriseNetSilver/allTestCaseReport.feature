@@ -173,7 +173,7 @@ Feature: loan application
 #    Then I should direct to the eStatements Overview page
     When I click select box
       |select       |
-      |11020004223  |
+      |11010002449  |
     And I click search button
     Then I should see Account List
     When I click on the first data to download

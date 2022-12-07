@@ -1,13 +1,21 @@
-2022-12-5 11:55:22:632
-ChannelReferenceID:221203000000075
+2022-12-7 9:55:52:879
+ChannelReferenceID:221206000000949
 ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
-ChannelDebitAccountCurrency:USD
-ChannelDebitAccountNumber:11010001434
+ChannelDebitAccountCurrency:SGD
+ChannelDebitAccountNumber:11010001256
 ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD
 ChannelCreditAccountCurrency:SGD
-ChannelCreditAccountNumber:11010001256
+ChannelCreditAccountNumber:11010001426
 ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelDetailExchangeRate:USD 1 ¡Ö SGD 1.34253
-ChannelTransactionAmount:1,205.14
+ChannelTransactionAmount:1,207.61
 ChannelPurposeOfTransfer:Business Expenses
+2022-12-7 9:57:42:419
+ID:221206000000949
+TransactionReference:FT22341H6F87
+fundsTransferDebitAccountNum:11010001256
+fundsTransferDebitCurrency:SGD
+fundsTransferCreditCurrency:SGD
+fundTransferCreditAccNo:11010001426
+fundsTransferAmountDebited:SGD1207.61
+fundsTransferAmoyntCredited:SGD1207.61
