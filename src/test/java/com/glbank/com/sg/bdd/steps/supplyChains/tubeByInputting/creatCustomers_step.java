@@ -274,6 +274,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public void viewEmail(){
         bddUtil.switchToNewWindow();
         customers_page.clickEditEmailName.click();
+        bddUtil.sleep(3);
         customers_page.sendKeysEmailName.clear();
         customers_page.sendKeysEmailName.sendKeys(email);
         customers_page.clickEditEmailName.click();
@@ -1046,6 +1047,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.sendKeysCompanyNameOnOnboardingList.clear();
         customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         customers_page.clickStatusOnOnboardingList.click();
+        bddUtil.sleep(3);
         Assert.assertEquals("Upgrade",customers_page.checkRegistrationtatus.getText());
         bddUtil.sleep(2);
         email = customers_page.checkEmail.getText().substring(0,8);
@@ -1105,7 +1107,11 @@ public class creatCustomers_step extends ScenarioSteps {
                break;
             }
         }
-       customers_page.clickConfirmBtn.click();
+        if (customers_page.submitBtnOnAssignToMePage.isVisible()){
+            customers_page.submitBtnOnAssignToMePage.click();
+        }else {
+            customers_page.clickConfirmBtn.click();
+        }
     }
     public void enterUpgradeKYCAdmin1Email(String email){
         customers_page.enterUpgradeKYCAdmin1Email.sendKeys(email);
