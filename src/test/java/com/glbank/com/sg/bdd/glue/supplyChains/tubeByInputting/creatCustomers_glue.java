@@ -190,7 +190,7 @@ public class creatCustomers_glue {
 
     @And("^I received an email from Green Union Bank on the email page$")
     public void iReceivedAnEmailFromGreenUnionBankOnTheEmailPage() {
-        customers_step.viewEmail();
+        customers_step.viewEmail(mailName);
     }
 
     @And("^I click the email icon to send the email$")
@@ -527,5 +527,30 @@ public class creatCustomers_glue {
     @Then("^I compare Upgrade Status on the page$")
     public void iCompareUpgradeStatusOnThePage() {
         customers_step.checkRegistrationReportUpgrade();
+    }
+
+    @And("^I change the email address on the page$")
+    public void iChangeTheEmailAddressOnThePage() {
+        customers_step.iChangeTheEmailAddressOnThePage(mailName);
+    }
+
+    @When("^I find messages on the mail page$")
+    public void iFindMessagesOnTheMailPage() {
+        customers_step.getEmailInformation();
+    }
+
+    @When("^I get username and password in the email$")
+    public void iGetUsernameAndPasswordInTheEmail() {
+        customers_step.iGetUsernameAndPasswordInTheEmail();
+    }
+
+    @When("^I add Shareholding information on the page$")
+    public void iAddShareholdingInformationOnThePage() {
+        customers_step.enterShareholding();
+    }
+
+    @When("^I enter information on the administrator information page$")
+    public void iEnterInformationOnTheAdministratorInformationPage() {
+        customers_step.enterInformationAdministrator();
     }
 }

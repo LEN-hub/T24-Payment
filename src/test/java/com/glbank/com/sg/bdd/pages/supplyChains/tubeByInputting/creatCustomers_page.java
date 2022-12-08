@@ -1472,6 +1472,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//p[text()='Confirmation Information']")
     public WebElementFacade clickConfirmationInformation;
 
+    @FindBy(xpath = "//span[contains(text(),'Back')]")
+    public WebElementFacade clickBackButton;
+
     @FindBy(xpath = "//p[text()='Customer Profile']")
     public WebElementFacade clickCustomerProfilePendingActions;
 
