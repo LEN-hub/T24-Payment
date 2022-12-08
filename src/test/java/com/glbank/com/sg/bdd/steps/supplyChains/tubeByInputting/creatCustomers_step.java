@@ -1107,7 +1107,11 @@ public class creatCustomers_step extends ScenarioSteps {
                break;
             }
         }
-       customers_page.clickConfirmBtn.click();
+        if (customers_page.submitBtnOnAssignToMePage.isVisible()){
+            customers_page.submitBtnOnAssignToMePage.click();
+        }else {
+            customers_page.clickConfirmBtn.click();
+        }
     }
     public void enterUpgradeKYCAdmin1Email(String email){
         customers_page.enterUpgradeKYCAdmin1Email.sendKeys(email);

@@ -386,7 +386,7 @@ Feature: tube By Inputting
 
  #4.(1)simple（管理员）--full（customer）
   @simpleKYC04
-  Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account Simple KYC
+  Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account Simple KYC full customer administrator
     Given logon "environments_1" on tube by inputting system
     When I click Customers and select Onboarding List
     And I click Create Customer and fill in the supplier information in the pop-up window
