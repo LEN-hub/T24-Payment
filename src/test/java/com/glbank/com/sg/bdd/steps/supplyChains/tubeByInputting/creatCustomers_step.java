@@ -274,6 +274,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public void viewEmail(){
         bddUtil.switchToNewWindow();
         customers_page.clickEditEmailName.click();
+        bddUtil.sleep(3);
         customers_page.sendKeysEmailName.clear();
         customers_page.sendKeysEmailName.sendKeys(email);
         customers_page.clickEditEmailName.click();
@@ -452,8 +453,8 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.businessCountry.sendKeys("singapore");
         customers_page.selectCountry.click();
         customers_page.businessAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-        customers_page.industry.click();
-        bddUtil.scrollWindowToElement(customers_page.selectIndustry).click();
+//        customers_page.industry.click();
+//        bddUtil.scrollWindowToElement(customers_page.selectIndustry).click();
         customers_page.legalStructure.click();
         bddUtil.scrollWindowToElement(customers_page.selectLegalStructure).click();
         customers_page.isNonProfitYes.click();
@@ -1046,6 +1047,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.sendKeysCompanyNameOnOnboardingList.clear();
         customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         customers_page.clickStatusOnOnboardingList.click();
+        bddUtil.sleep(3);
         Assert.assertEquals("Upgrade",customers_page.checkRegistrationtatus.getText());
         bddUtil.sleep(2);
         email = customers_page.checkEmail.getText().substring(0,8);

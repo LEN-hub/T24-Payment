@@ -937,7 +937,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
     public WebElementFacade director1IdType;
 
-    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//span[text()='Passport']")
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\"]//span[text()='Passport']")
     public WebElementFacade director1SelectIdType;
 
     @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='certificationNo']/following-sibling::div//input")
@@ -991,7 +991,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
     public WebElementFacade director2IdType;
 
-    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//span[text()='Passport']")
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\"]//span[text()='Passport']")
     public WebElementFacade director2SelectIdType;
 
     @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='certificationNo']/following-sibling::div//input")
