@@ -452,8 +452,8 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.businessCountry.sendKeys("singapore");
         customers_page.selectCountry.click();
         customers_page.businessAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-        customers_page.industry.click();
-        bddUtil.scrollWindowToElement(customers_page.selectIndustry).click();
+//        customers_page.industry.click();
+//        bddUtil.scrollWindowToElement(customers_page.selectIndustry).click();
         customers_page.legalStructure.click();
         bddUtil.scrollWindowToElement(customers_page.selectLegalStructure).click();
         customers_page.isNonProfitYes.click();
@@ -488,7 +488,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(5);
+        bddUtil.sleep(20);
         bddUtil.scrollWindowToElement(customers_page.clickFirstEmailName).click();
         String otp = bddUtil.scrollWindowToElement(customers_page.getEmailOtp).getText();
         bddUtil.switchToWindows();
