@@ -451,6 +451,14 @@ public class creatCustomers_glue {
         customers_step.onboardingReviewTitle();
         customers_step.assignToMe(result.get(0).get("Result"));
     }
+    @When("^I authorize on the Onboarding Review page Full KYC$")
+    public void iAuthorizeOnTheOnboardingReviewPageFullKyc(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.getClickCustomersMenu();
+        customers_step.onboardingReview();
+        customers_step.onboardingReviewTitle();
+        customers_step.assignToMeFullKYC(result.get(0).get("Result"));
+    }
 
     @Then("^I compare Registration Status on the page$")
     public void iCompareRegistrationStatusOnThePage() {
@@ -508,6 +516,11 @@ public class creatCustomers_glue {
         List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
         customers_step.clickUpgradeKYC(result.get(0).get("Upgrade Mode"),result.get(0).get("Input By"));
     }
+    @When("^I click Upgrade KYC on the page and process the corresponding information Full KYC$")
+    public void iClickUpgradeKYCOnThePageAndProcessTheCorrespondingInformationFullKYC(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.clickUpgradeFullKYC(result.get(0).get("Upgrade Mode"));
+    }
 
     @When("^I enter the information of Administrator 1 and Administrator 2 of Upgrade KYC respectively on the page$")
     public void iEnterTheInformationOfAdministratorAndAdministratorOfUpgradeKYCRespectivelyOnThePage() {
@@ -552,5 +565,23 @@ public class creatCustomers_glue {
     @When("^I enter information on the administrator information page$")
     public void iEnterInformationOnTheAdministratorInformationPage() {
         customers_step.enterInformationAdministrator();
+    }
+
+    @When("^I entered information on the Tell Us About Your Company page Full KYC$")
+    public void iEnteredInformationOnTheTellUsAboutYourCompanyPageFullKYC() {
+        customers_step.companyPageInformationFullKyc(mailName);
+    }
+
+    @When("^I sign BR on the page$")
+    public void iSignBROnThePage() {
+        customers_step.getClickCustomersMenu();
+        customers_step.clickContractManagement();
+        customers_step.uploadSingBR();
+    }
+
+    @When("^I fill in Account and Questionnaire information on the page$")
+    public void iFillInAccountAndQuestionnaireInformationOnThePage(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.enterFullKYCUpdateSimpleKYCInfomation(result.get(0).get("currency"),result.get(0).get("currencyAmount"),result.get(0).get("num"));
     }
 }

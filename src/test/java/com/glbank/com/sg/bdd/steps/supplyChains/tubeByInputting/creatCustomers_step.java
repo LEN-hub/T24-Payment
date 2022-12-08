@@ -45,7 +45,20 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickOnboardingListMenu.click();
     }
 
+    public void clickContractManagement(){
+        bddUtil.sleep(1);
+        customers_page.clickContractManagement.click();
+    }
 
+    public void uploadSingBR(){
+        customers_page.uploadSingBR.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        customers_page.clickContractType.click();
+        bddUtil.sleep(5);
+        customers_page.clickUploadButton.click();
+        getDriver().findElement(By.xpath("//input[@name='file']")).sendKeys(fileAddress);
+        customers_page.dateInput.sendKeys(bddUtil.dateFormate());
+        customers_page.clickSingBRConfirmBtn.click();
+    }
 
     public void getClickCreateCustomerBtn(){
         customers_page.clickCreateCustomerBtn.click();
@@ -215,9 +228,12 @@ public class creatCustomers_step extends ScenarioSteps {
 //            bddUtil.sleep(1);
 //            getDriver().findElement(By.xpath("//p[@id='final-paragraph']/a")).click();
 //        }
-        customers_page.sendEmailContent.clear();
-        customers_page.sendEmailContent.sendKeys(value);
-        customers_page.emailAddress.click();
+        customers_page.clickEditEmailName.click();
+        bddUtil.sleep(3);
+        customers_page.sendKeysEmailName.clear();
+        customers_page.sendKeysEmailName.sendKeys(value);
+        customers_page.clickEditEmailName.click();
+        bddUtil.sleep(20);
     }
 
     @Step
@@ -486,6 +502,55 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void companyPageInformationFullKyc(String value){
+        bddUtil.sleep(3);
+        customers_page.dateInputBox.sendKeys(bddUtil.lastDate());//公司创建日期 要小于核心日期。
+        bddUtil.sleep(2);
+        customers_page.annualReturnSizeClick.click();
+        customers_page.annualReturnSizeSelect.click();
+        customers_page.checkBoxPublicCompanyYes.click();
+        customers_page.companyEmail.clear();
+        customers_page.companyEmail.sendKeys(value+ "@ihotmails.com");
+        customers_page.companyPhoneNumber.clear();
+        customers_page.companyPhoneNumber.sendKeys("+86");
+        customers_page.companyPhoneNumberTwo.clear();
+        customers_page.companyPhoneNumberTwo.sendKeys(RandomPhoneNumber.randomPhoneNum());
+//        customers_page.fileUpdate.click();
+//        getDriver().findElement(By.xpath("//label[@for='A0001']//following-sibling::div//input")).sendKeys("C:\\workspace\\DBB_GL_AutoTesting-dev\\src\\test\\resources\\testData\\autopay\\test.jpg");
+        getDriver().findElement(By.xpath("//label[@for='A0001']//following-sibling::div//input")).sendKeys(fileAddress);
+//        bddUtil.sleep(2);
+//        bddUtil.fileUpload();
+        bddUtil.sleep(5);
+        bddUtil.scrollWindowToElement(customers_page.noExpiryDateTitle);
+        customers_page.selectDate.click();
+        customers_page.noExpiryDateInput.sendKeys("2024-09-10");
+//        customers_page.memorandumAndArticlesOfAssLink.click();
+        bddUtil.sleep(2);
+//        getDriver().findElement(By.xpath("//label[@for='A0010']//following-sibling::div//input")).sendKeys("C:\\workspace\\DBB_GL_AutoTesting-dev\\src\\test\\resources\\testData\\autopay\\test2.jpg");
+        getDriver().findElement(By.xpath("//label[@for='A0010']//following-sibling::div//input")).sendKeys(fileAddress);
+//        bddUtil.fileUpload();
+        bddUtil.sleep(5);
+        customers_page.countryOfTaxation.sendKeys("singapore");
+        bddUtil.sleep(1);
+        customers_page.selectCountry.click();
+//        bddUtil.scrollWindowToElement(customers_page.registeredAddressTitle);
+        customers_page.registeredAddress.clear();
+        customers_page.registeredAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        bddUtil.scrollWindowToElement(customers_page.sectorTitle);
+        customers_page.businessCountry.sendKeys("singapore");
+        customers_page.selectCountry.click();
+        customers_page.businessAddress.clear();
+        customers_page.businessAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        customers_page.industry.click();
+        bddUtil.scrollWindowToElement(customers_page.selectIndustry).click();
+        customers_page.legalStructure.click();
+        bddUtil.scrollWindowToElement(customers_page.selectLegalStructure).click();
+        customers_page.isNonProfitYes.click();
+        bddUtil.sleep(3);
+        customers_page.nextBtnIndustry.click();
+    }
+
+    @Step
     public void testNext(){
         customers_page.nextBtnIndustry.click();
     }
@@ -694,7 +759,6 @@ public class creatCustomers_step extends ScenarioSteps {
         }
         customers_page.shareholder1AllocationSecondEnter.clear();
         customers_page.shareholder1AllocationSecondEnter.sendKeys("10000");
-        customers_page.shareholder1Shareholding.clear();
         customers_page.shareholder1Shareholding.sendKeys("26");
         customers_page.shareholder2FullName.clear();
         customers_page.shareholder2FullName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
@@ -735,7 +799,6 @@ public class creatCustomers_step extends ScenarioSteps {
         }
         customers_page.shareholder2AllocationSecondEnter.clear();
         customers_page.shareholder2AllocationSecondEnter.sendKeys("10000");
-        customers_page.shareholder2Shareholding.clear();
         customers_page.shareholder2Shareholding.sendKeys("26");
         customers_page.nextBtnIndustry.click();
     }
@@ -1093,6 +1156,43 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.sleep(10);
     }
 
+    @Step
+    public void assignToMeFullKYC(String result){
+        List<WebElementFacade> assign = customers_page.ReviewCustomer;
+        List<WebElementFacade> assignBtn = customers_page.clickAssignBtn;
+        for (int i = 0; i < assign.size(); i++) {
+            if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
+                assignBtn.get(i).click();
+                break;
+            }
+        }
+        customers_page.assignedToMeClick.click();
+        bddUtil.sleep(8);
+        List<WebElementFacade> company = customers_page.getCompanyNameList;
+        List<WebElementFacade> proceed = customers_page.clickProceedBtn;
+        for (int j = 0; j < company.size(); j++){
+            if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
+                bddUtil.sleep(8);
+                proceed.get(j).click();
+                break;
+            }
+        }
+        bddUtil.sleep(10);
+        bddUtil.scrollWindowToElement(customers_page.clickRelatedPartySelectYes).click();
+        bddUtil.sleep(10);
+        customers_page.clickResultDownDrop.click();
+        List<WebElementFacade> enterResult = customers_page.selectResult;
+        for (int k = 0; k < enterResult.size(); k++){
+            if (result.equals(enterResult.get(k).getText())){
+                enterResult.get(k).click();
+                break;
+            }
+        }
+        customers_page.enterComment.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        customers_page.clickSubmitBtn.click();
+        bddUtil.sleep(10);
+    }
+
     public void checkRegistrationReport(){
         customers_page.sendKeysCompanyNameOnOnboardingList.clear();
         customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
@@ -1153,9 +1253,29 @@ public class creatCustomers_step extends ScenarioSteps {
         if (customers_page.clickConfirmationInformation.isVisible()){
             customers_page.clickConfirmationInformation.click();
             customers_page.clickBackButton.click();
-        }else {
+        }else if(customers_page.clickCustomerProfilePendingActions.isVisible()){
             customers_page.clickCustomerProfilePendingActions.click();
             customers_page.clickIwillInputManuallyBtn.click();
+        }else {
+            customers_page.clickOpenAccountApplicationActions.click();
+        }
+    }
+    @Step
+    public void clickUpgradeFullKYC(String UpgradeKYC){
+        customers_page.clickUpgradeKYC.click();
+        bddUtil.sleep(10);
+        customers_page.clickUpgradeModeDownDrop.click();
+        List<WebElementFacade> upgrade = customers_page.selectUpgradeMode;
+        for (int i = 0; i < upgrade.size(); i++) {
+            if (UpgradeKYC.equals(upgrade.get(i).getText())){
+                upgrade.get(i).click();
+                break;
+            }
+        }
+        if (customers_page.submitBtnOnAssignToMePage.isVisible()){
+            customers_page.submitBtnOnAssignToMePage.click();
+        }else {
+            customers_page.clickConfirmBtn.click();
         }
     }
 
@@ -1216,5 +1336,52 @@ public class creatCustomers_step extends ScenarioSteps {
     public void enterInformationAdministrator(){
         customers_page.enterFullName.clear();
         customers_page.enterFullName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+    }
+
+    public void enterFullKYCUpdateSimpleKYCInfomation(String value,String currency,String num){
+        bddUtil.sleep(3);
+        customers_page.account1Currency.click();
+        List<WebElementFacade> selectCurrency = customers_page.selectCurrency;
+        for (int i = 0; i < selectCurrency.size(); i++) {
+            if (selectCurrency.get(i).getText().equals(value)){
+                selectCurrency.get(i).click();
+                break;
+            }
+        }
+        customers_page.clickFirstAccountName.click();
+        customers_page.account2Currency.click();
+        List<WebElementFacade> select2Currency = customers_page.selectCurrency;
+        bddUtil.sleep(1);
+        for (int i = 0; i < select2Currency.size(); i++) {
+            if (select2Currency.get(i).getText().equals(value)){
+                select2Currency.get(i).click();
+                break;
+            }
+        }
+        customers_page.clickSecondAccountName.click();
+        customers_page.clickFirstCheckBox.click();
+        customers_page.clickSecondCheckBox.click();
+        customers_page.clickSecondQuestionDownDrop.click();
+        List<WebElementFacade> selectSecondQuestion = customers_page.selectCurrency;
+        for (int i = 0; i < selectSecondQuestion.size(); i++) {
+            if (selectSecondQuestion.get(i).getText().equals(currency)){
+                selectSecondQuestion.get(i).click();
+                break;
+            }
+        }
+        customers_page.clickThirdQuestionDownDrop.click();
+        bddUtil.sleep(2);
+        List<WebElementFacade> selectThirdQuestion = customers_page.selectCurrency;
+        for (int i = 0; i < selectThirdQuestion.size(); i++) {
+            bddUtil.sleep(2);
+            if (selectThirdQuestion.get(i).getText().equals(num)){
+                selectThirdQuestion.get(i).click();
+                break;
+            }
+        }
+        customers_page.clickFourQuestionCheckBox.click();
+        customers_page.clickFiveQuestionCheckBox.click();
+        getDriver().findElement(By.xpath("//span[text()='Browse']/parent::div/parent::div/following-sibling::input")).sendKeys(fileAddress);
+        bddUtil.sleep(5);
     }
 }
