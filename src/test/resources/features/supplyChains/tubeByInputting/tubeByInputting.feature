@@ -714,5 +714,5 @@ Feature: tube By Inputting
     When I fill in Account and Questionnaire information on the page
       |currency |currencyAmount    |num    |
       |SGD      |SGD 0 - 10,000    |1 to 20|
-    When Click the Submit button on the Confirm page
+    When Click the Submit button on the Confirm page full KYC
     When End the current browser process
