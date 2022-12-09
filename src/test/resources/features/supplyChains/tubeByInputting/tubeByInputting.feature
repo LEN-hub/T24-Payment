@@ -380,7 +380,7 @@ Feature: tube By Inputting
     When Click the Submit button on the Confirm page
     When End the current browser process
 
- #4.(1)simple（管理员）--full（customer）
+ #4.(1)Simple（有管理员）--Full （customer）
   @simpleKYC04
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account Simple KYC full customer administrator
     Given logon "environments_1" on tube by inputting system
@@ -463,7 +463,7 @@ Feature: tube By Inputting
     When End the current browser process
 
 
-     #5.(1)simple（无管理员）--full（customer）
+     #5.(1)simple（无管理员）--full+account (customer）
   @simpleKYC05
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account Simple KYC No Administrator full KYC+Account Opening No Administrator
     Given logon "environments_1" on tube by inputting system
@@ -537,7 +537,7 @@ Feature: tube By Inputting
     When Click the Submit button on the Confirm page
     When End the current browser process
 
-    #6.(1)simple（管理员）--full（customer）
+    #6.(1)simple（有管理员）--full+account (customer）
   @simpleKYC06
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account Simple full KYC + account opening customer administrator
     Given logon "environments_1" on tube by inputting system
@@ -629,7 +629,7 @@ Feature: tube By Inputting
     When End the current browser process
 
 
-    #7.(1)simple（管理员）--full（customer）
+    #7.(1)full（自主）-full+account（cutomer）
   @simpleKYC07
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully full KYC transfer simple KYC
     Given logon "environments_1" on tube by inputting system
