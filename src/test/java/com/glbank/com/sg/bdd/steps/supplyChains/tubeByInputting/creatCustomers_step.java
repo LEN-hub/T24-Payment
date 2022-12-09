@@ -51,6 +51,7 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     public void uploadSingBR(){
+        bddUtil.sleep(5);
         customers_page.uploadSingBR.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         customers_page.clickContractType.click();
         bddUtil.sleep(5);
@@ -562,6 +563,12 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.sleep(3);
         customers_page.clickConfirmBtnOnGLDB.click();
         bddUtil.sleep(10);
+    }
+
+    public void clickSubmitButtonFullKycTransferSimpleKyc(){
+        bddUtil.sleep(3);
+        customers_page.clickSubmitBtnOnGLDB.click();
+        bddUtil.sleep(3);
     }
 
     @Step

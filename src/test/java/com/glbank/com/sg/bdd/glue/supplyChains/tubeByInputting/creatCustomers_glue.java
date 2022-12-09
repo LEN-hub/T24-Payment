@@ -584,4 +584,9 @@ public class creatCustomers_glue {
         List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
         customers_step.enterFullKYCUpdateSimpleKYCInfomation(result.get(0).get("currency"),result.get(0).get("currencyAmount"),result.get(0).get("num"));
     }
+
+    @When("^Click the Submit button on the Confirm page full KYC$")
+    public void clickTheSubmitButtonOnTheConfirmPageFullKYC() {
+        customers_step.clickSubmitButtonFullKycTransferSimpleKyc();
+    }
 }
