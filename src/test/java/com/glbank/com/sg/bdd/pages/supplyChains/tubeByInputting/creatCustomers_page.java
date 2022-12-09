@@ -22,6 +22,24 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//span[text()='Onboarding List']")
     public WebElementFacade clickOnboardingListMenu;
 
+    @FindBy(xpath = "//span[text()='Contracts']/parent::div/following-sibling::div//span")
+    public WebElementFacade clickContractManagement;
+
+    @FindBy(xpath = "//label[text()='Company Name']/following-sibling::div//input")
+    public WebElementFacade uploadSingBR;
+
+    @FindBy(xpath = "//label[text()='Contract Type']")
+    public WebElementFacade clickContractType;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//span[contains(text(),'Upload')]")
+    public WebElementFacade clickUploadButton;
+
+    @FindBy(xpath = "//div[@class='relative-input-div']//input")
+    public WebElementFacade dateInput;
+
+    @FindBy(xpath = "//div[@class='lls-dialog__body']//span[contains(text(),'Confirm')]")
+    public WebElementFacade clickSingBRConfirmBtn;
+
     @FindBy(xpath = "//div[@class='btn-container flex-end']/div/button")
     public WebElementFacade clickCreateCustomerBtn;
 
@@ -306,6 +324,9 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[3]")
     public List<WebElementFacade> ReviewCustomer;
+
+    @FindBy(xpath = "//label[@for=\"relatedParty\"]/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
+    public WebElementFacade clickRelatedPartySelectYes;
 
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[8]")
     public List<WebElementFacade> clickAssignBtn;
@@ -1477,6 +1498,12 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//p[text()='Customer Profile']")
     public WebElementFacade clickCustomerProfilePendingActions;
+
+    @FindBy(xpath = "//p[text()='Open Account Application']")
+    public WebElementFacade clickOpenAccountApplicationActions;
+
+    @FindBy(xpath = "//p[text()='Board Resolution']")
+    public WebElementFacade clickBoardResolutionActions;
 
     @FindBy(xpath = "//span[text()='I will input manually']")
     public WebElementFacade clickIwillInputManuallyBtn;
