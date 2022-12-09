@@ -1360,6 +1360,7 @@ public class creatCustomers_step extends ScenarioSteps {
         }
         customers_page.clickSecondAccountName.click();
         customers_page.clickFirstCheckBox.click();
+        bddUtil.scrollWindowToElement(customers_page.clickSecondCheckBox);
         customers_page.clickSecondCheckBox.click();
         customers_page.clickSecondQuestionDownDrop.click();
         List<WebElementFacade> selectSecondQuestion = customers_page.selectCurrency;
@@ -1379,6 +1380,7 @@ public class creatCustomers_step extends ScenarioSteps {
                 break;
             }
         }
+        bddUtil.scrollWindowToElement(customers_page.clickFourQuestionCheckBox);
         customers_page.clickFourQuestionCheckBox.click();
         customers_page.clickFiveQuestionCheckBox.click();
         getDriver().findElement(By.xpath("//span[text()='Browse']/parent::div/parent::div/following-sibling::input")).sendKeys(fileAddress);
