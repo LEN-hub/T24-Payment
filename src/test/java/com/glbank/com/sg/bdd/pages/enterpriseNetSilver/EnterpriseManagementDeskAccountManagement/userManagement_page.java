@@ -184,11 +184,17 @@ public class userManagement_page extends PageObject {
     public WebElementFacade successfulEnglish;
 
     //停用此用户
-   @FindBy(xpath = "//div[@role='tooltip']/div/div[4]//div[@class='btn_box']")
+   @FindBy(xpath = "//div[text()='Deactivate']")
     public WebElementFacade stopUser; //停用用户
 
-   @FindBy(xpath = "//div[@class='dialog-content']/span/div[1]//div[@class='btn_box']")
+   @FindBy(xpath = "//div[@class=\"dialog-content\"]//div[text()='Yes']")
    public WebElementFacade sure; //确定
+
+    @FindBy(xpath = "//div[text()='Congratulations!']")
+    public WebElementFacade successTitle;
+
+    @FindBy(xpath = "//span[text()='complete']")
+    public WebElementFacade clickComplete;
 
     @FindBy(xpath = "//div[@class='el-dialog__wrapper large-dialog middle-left']/div/div[2]/div[2]/span/button/span")
     public WebElementFacade complete; //操作成功，点击完成
@@ -200,7 +206,7 @@ public class userManagement_page extends PageObject {
     public WebElementFacade JudgeEnglish;
 
     //启用此用户
-   @FindBy(xpath = "//div[@role='tooltip']/div/div[3]//div[@class='btn_box']")
+   @FindBy(xpath = "//div[text()='Enable']")
    public WebElementFacade startUser; //启动用户
 
     @FindBy(xpath = "//div[@class='el-table__body-wrapper is-scrolling-none']//tr[3]/td[5]/div")

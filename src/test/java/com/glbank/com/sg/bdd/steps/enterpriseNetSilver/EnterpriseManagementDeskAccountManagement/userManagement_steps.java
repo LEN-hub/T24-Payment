@@ -241,7 +241,9 @@ public class userManagement_steps extends ScenarioSteps {
         userManagement_page.clickSubmitBtn.click();
     }
 
-    public void NextBtnS(){userManagement_page.clcikNextBtns.click();}
+    public void NextBtnS(){
+        userManagement_page.clcikNextBtns.click();
+    }
 
     public void authorizations() {
         if (userManagement_page.successful.getText().equals("交易成功")) {
@@ -260,6 +262,8 @@ public class userManagement_steps extends ScenarioSteps {
         bddUtil.sleep(5);}
     public void clickSure(){
         userManagement_page.sure.click();
+        userManagement_page.successTitle.isVisible();
+        userManagement_page.clickComplete.click();
         bddUtil.sleep(5);}
     public void clickComplete(){
         userManagement_page.complete.click();

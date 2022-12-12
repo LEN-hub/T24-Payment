@@ -1,20 +1,20 @@
-@MCYEnv
+@SIT_MCYEnv
 Feature: receipt and payment service
 
 #本人互转
-  @MCY01
+  @SIT_MCY01
    #USD->SGD
-  Scenario:I have successfully changed us dollars into Singapore dollars and T24(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+  Scenario:I have successfully changed us dollars into Singapore dollars and T24(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |currency|
-      |1102 0571 063   |1101 0001 256|USD     |
+      |1102 0327 162   |1101 0000 438|USD     |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully To Local Payment
       |WordPath   |
       |USD-SGD MCY|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath   |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|USD-SGD MCY|
@@ -37,21 +37,21 @@ Feature: receipt and payment service
       |Internal Transfer USD-SGD MCY|
     When I type FOREX in the search box use to authorize the operationToLocalPayment
       |search content|user Authorize                 |WordPath   |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|USD-SGD MCY|
+      |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth_Auth|USD-SGD MCY|
 
-  @MCY02
+  @SIT_MCY02
   #SGD->USD
-  Scenario:I have successfully transferred from Singapore currency to US dollar(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+  Scenario:I have successfully transferred from Singapore currency to US dollar(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |currency|
-      |1102 0571 063   |1101 0001 434|SGD     |
+      |1102 0327 162   |1101 0000 489|SGD     |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully To Local Payment
       |WordPath   |
       |SGD-USD MCY|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath   |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|SGD-USD MCY|
@@ -74,20 +74,20 @@ Feature: receipt and payment service
       |Internal Transfer SGD-USD MCY|
     When I type FOREX in the search box use to authorize the operationToLocalPayment
       |search content|user Authorize                 |WordPath   |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|SGD-USD MCY|
-  @MCY03
+      |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth_Auth|SGD-USD MCY|
+  @SIT_MCY03
    #SGD->SGD
-  Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+  Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |currency|
-      |1102 0571 063   |1101 0001 426|SGD     |
+      |1102 0327 162   |1101 0000 438|SGD     |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
       |WordPath   |
       |SGD-SGD MCY|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath   |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|SGD-SGD MCY|
@@ -97,19 +97,19 @@ Feature: receipt and payment service
     Then I will map the page data
       |WordPath   |
       |SGD-SGD MCY|
-  @MCY04
+  @SIT_MCY04
     #USD->USD
-  Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+  Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |currency|
-      |1102 0571 063   |1101 0001 442|USD     |
+      |1102 0327 162   |1101 0000 489|USD     |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
       |WordPath   |
       |USD-USD MCY|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath   |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|USD-USD MCY|
@@ -119,23 +119,19 @@ Feature: receipt and payment service
     Then I will map the page data
       |WordPath   |
       |USD-USD MCY|
-  @MCY05
-    #境内转账-行内转账时间选择每周一(SGD->SGD)
-  Scenario:Transfer time within the line is selected every Monday (SGD->SGD)(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+  @SIT_MCY05
+    #境内转账-跨行转账时间选择每周一(SGD->SGD)
+  Scenario:Transfer time within the line is selected every Monday (SGD->SGD)(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I fill in the transfer information of domestic transfer bank
-      |Payee's Bank                     |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
-      |GREEN LINK DIGITAL BANK PTE LTD  |TSC1643346550706|11010001426           |Business Expenses   |1102 0571 063 |
+      |Payee's Bank          |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
+      |BANK OF CHINA LIMITED |TSC1643346550706|11010000438           |Business Expenses   |1102 0327 162 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
-    When I click Next to go to the verification page
-    When If the transfer failure window pops up I will click the continue button
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on same Currency Payment
       |WordPath                 |
       |Local Payment SGD-SGD MCY|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                 |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Local Payment SGD-SGD MCY|
@@ -158,13 +154,13 @@ Feature: receipt and payment service
       |Local Payment SGD-SGD|Local Payment SGD-SGD MCY|
 
     #境外转账
-  @MCY06
-  Scenario:Positive process of overseas transfer Bic Is DBS(USD--USD)(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+  @SIT_MCY06
+  Scenario:Positive process of overseas transfer Bic Is DBS(USD-USD)(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|USD     |
+      |1102 0327 162 |The expenses shall be borne by each party|USD     |
     And I choose the payment currency
       |Currency   |
       |USD        |
@@ -182,13 +178,10 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment MX Message
       |WordPath              |
       |Bic is DBS USD-USD MCY|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath              |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS USD-USD MCY|
@@ -211,13 +204,13 @@ Feature: receipt and payment service
       |Bic is DBS USD-USD MCY|Bic is DBS USD-USD MCY|
 
       #境外转账
-  @MCY07
-  Scenario:Positive process of overseas transfer Bic Is DBS(SGD--USD)(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+  @SIT_MCY07-
+  Scenario:Positive process of overseas transfer Bic Is DBS(SGD-USD)(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|SGD     |
+      |1102 0327 162 |The expenses shall be borne by each party|SGD     |
     And I choose the payment currency
       |Currency|
       |USD     |
@@ -235,13 +228,10 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment
       |WordPath              |
       |Bic is DBS SGD-USD MCY|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath              |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-USD MCY|
@@ -264,16 +254,16 @@ Feature: receipt and payment service
       |Bic is DBS SGD-USD MCY|Bic is DBS SGD-USD MCY|
     When I type FOREX in the search box use to authorize the operation
       |search content|user Authorize                 |WordPath              |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|Bic is DBS SGD-USD MCY|
+      |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth_Auth|Bic is DBS SGD-USD MCY|
 
 
-  @MCY08
-  Scenario:Positive process of overseas transfer Bic Is DBS(USD--SGD)(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+  @SIT_MCY08
+  Scenario:Positive process of overseas transfer Bic Is DBS(USD-SGD)(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|USD     |
+      |1102 0327 162 |The expenses shall be borne by each party|USD     |
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -290,13 +280,10 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath              |
       |Bic is DBS USD-SGD MCY|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath              |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS USD-SGD MCY|
@@ -319,15 +306,15 @@ Feature: receipt and payment service
       |Bic is DBS USD-SGD MCY|Bic is DBS USD-SGD MCY|
     When I type FOREX in the search box use to authorize the operation for Different Currency
       |search content|user Authorize                 |WordPath              |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|Bic is DBS USD-SGD MCY|
+      |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth_Auth|Bic is DBS USD-SGD MCY|
 
-  @MCY09
-  Scenario:Positive process of overseas transfer Bic Is DBS(SGD--SGD)(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+  @SIT_MCY09
+  Scenario:Positive process of overseas transfer Bic Is DBS(SGD-SGD)(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|SGD     |
+      |1102 0327 162 |The expenses shall be borne by each party|SGD     |
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -344,13 +331,10 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment MX Message
       |WordPath              |
       |Bic is DBS SGD-SGD MCY|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath              |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-SGD MCY|
@@ -373,13 +357,13 @@ Feature: receipt and payment service
       |Bic is DBS SGD-SGD MCY|Bic is DBS SGD-SGD MCY|
 
        #境外转账
-  @MCY10
-  Scenario:Positive process of overseas transfer Bic Is Bank of China(USD--USD)(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+  @SIT_MCY10
+  Scenario:Positive process of overseas transfer Bic Is Bank of China(USD-USD)(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|USD     |
+      |1102 0327 162 |The expenses shall be borne by each party|USD     |
     And I choose the payment currency
       |Currency   |
       |USD        |
@@ -397,13 +381,10 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment MX Message
       |WordPath                        |
       |Bic is Bank of China USD-USD MCY|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is Bank of China USD-USD MCY|
@@ -425,13 +406,13 @@ Feature: receipt and payment service
       |WordPath                        |Name                            |
       |Bic is Bank of China USD-USD MCY|Bic is Bank of China USD-USD MCY|
       #境外转账
-  @MCY11
-  Scenario:Positive process of overseas transfer Bic Is Bank of China(SGD--USD)(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+  @SIT_MCY11
+  Scenario:Positive process of overseas transfer Bic Is Bank of China(SGD-USD)(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|SGD     |
+      |1102 0327 162 |The expenses shall be borne by each party|SGD     |
     And I choose the payment currency
       |Currency|
       |USD     |
@@ -449,13 +430,10 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment
       |WordPath                        |
       |Bic is Bank of China SGD-USD MCY|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath                        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is Bank of China SGD-USD MCY|
@@ -478,16 +456,16 @@ Feature: receipt and payment service
       |Bic is Bank of China SGD-USD MCY|Bic is Bank of China SGD-USD MCY|
     When I type FOREX in the search box use to authorize the operation
       |search content|user Authorize                 |WordPath                        |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|Bic is Bank of China SGD-USD MCY|
+      |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth_Auth|Bic is Bank of China SGD-USD MCY|
 
 
-  @MCY12
-  Scenario:Positive process of overseas transfer Bic Is Bank of China(USD--SGD)(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+  @SIT_MCY12
+  Scenario:Positive process of overseas transfer Bic Is Bank of China(USD-SGD)(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|USD     |
+      |1102 0327 162 |The expenses shall be borne by each party|USD     |
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -504,13 +482,10 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath                        |
       |Bic is Bank of China USD-SGD MCY|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath                        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is Bank of China USD-SGD MCY|
@@ -533,15 +508,15 @@ Feature: receipt and payment service
       |Bic is Bank of China USD-SGD MCY|Bic is Bank of China USD-SGD MCY|
     When I type FOREX in the search box use to authorize the operation for Different Currency
       |search content|user Authorize                 |WordPath                        |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|Bic is Bank of China USD-SGD MCY|
+      |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth_Auth|Bic is Bank of China USD-SGD MCY|
 
-  @MCY13
-  Scenario:Positive process of overseas transfer Bic Is Bank of China(SGD--SGD)(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+  @SIT_MCY13
+  Scenario:Positive process of overseas transfer Bic Is Bank of China(SGD-SGD)(SIT_MCY)
+    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|SGD     |
+      |1102 0327 162 |The expenses shall be borne by each party|SGD     |
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -558,13 +533,10 @@ Feature: receipt and payment service
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
     Then I will compare all the data on FX Payment MX Message
       |WordPath                        |
       |Bic is Bank of China SGD-SGD MCY|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is Bank of China SGD-SGD MCY|

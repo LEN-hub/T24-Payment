@@ -53,7 +53,7 @@ public class creditLimit_glue {
     @When("^I click Completed Button on the UnderWriting Approval page$")
     public void iClickCompletedButtonOnTheUnderWritingApprovalPage() {
         creditLimit_step.clickCompletedBtn();
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
         bddUtil.quitDriver();
     }
 
@@ -133,7 +133,9 @@ public class creditLimit_glue {
 
     @When("^I login email URL$")
     public void iLoginEmailURL() {
-        creditLimit_step.clickEmail();
+//        creditLimit_step.clickEmail();
+        creditLimit_step.ToggleOneEmail();
+        creditLimit_step.signTheOneBR();
         bddUtil.sleep(3);
     }
 

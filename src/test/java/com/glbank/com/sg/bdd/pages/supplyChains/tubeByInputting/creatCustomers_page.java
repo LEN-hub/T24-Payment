@@ -22,6 +22,24 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//span[text()='Onboarding List']")
     public WebElementFacade clickOnboardingListMenu;
 
+    @FindBy(xpath = "//span[text()='Contracts']/parent::div/following-sibling::div//span")
+    public WebElementFacade clickContractManagement;
+
+    @FindBy(xpath = "//label[text()='Company Name']/following-sibling::div//input")
+    public WebElementFacade uploadSingBR;
+
+    @FindBy(xpath = "//label[text()='Contract Type']")
+    public WebElementFacade clickContractType;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//span[contains(text(),'Upload')]")
+    public WebElementFacade clickUploadButton;
+
+    @FindBy(xpath = "//div[@class='relative-input-div']//input")
+    public WebElementFacade dateInput;
+
+    @FindBy(xpath = "//div[@class='lls-dialog__body']//span[contains(text(),'Confirm')]")
+    public WebElementFacade clickSingBRConfirmBtn;
+
     @FindBy(xpath = "//div[@class='btn-container flex-end']/div/button")
     public WebElementFacade clickCreateCustomerBtn;
 
@@ -34,6 +52,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//span[text()='Supplier']")
     public WebElementFacade customerTypeSupplier;
 
+    @FindBy(xpath = "//span[text()='Buyer']")
+    public WebElementFacade getCustomerTypeBuyer;
+
     @FindBy(xpath = "//label[@for='custEnglishName']/following-sibling::div//input")
     public WebElementFacade companyName;
 
@@ -43,7 +64,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='registryCountry']/following-sibling::div//input/following-sibling::span")
     public WebElementFacade selectCountryOfRegistration;
 
-    @FindBy(xpath = "//body[@class='el-popup-parent--hidden']/div[5]//ul//span[text()='Costa Rica']")
+    @FindBy(xpath = "//body[@class='el-popup-parent--hidden']/div[5]//ul//span[text()='Singapore']")
     public WebElementFacade countryOfRegistrationValue;
 
     @FindBy(xpath = "//label[@for='custName']/following-sibling::div//input")
@@ -124,6 +145,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//form[@class='form-inline']//input")
     public WebElementFacade sendEmail;
 
+    @FindBy(id = "converts")
+    public WebElementFacade sendEmailContent;
+
     @FindBy(xpath = "//input[@placeholder=\"请输入邮箱账号\"]")
     public WebElementFacade chageSendEmail;
 
@@ -163,10 +187,454 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lowcode-table default-theme']//table[@class='fixed-right-table']/tbody/tr[1]//i[@class='lls-tooltip lls-icon-send-mail']")
     public WebElementFacade emailIcon;
 
+    @FindBy(xpath = "//div[@class='lowcode-table default-theme']//table[@class='fixed-right-table']/tbody/tr[1]//i[@class='lls-tooltip lls-icon-edit']")
+    public WebElementFacade clickEditIcon;
+
+    @FindBy(xpath = "//div[@class='lowcode-table default-theme']//table[@class='fixed-right-table']/tbody/tr[1]//i[@class='lls-tooltip lls-icon-sell']")
+    public WebElementFacade clickUpgradeKYC;
+
+    @FindBy(xpath = "//label[@for='kycMode']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickUpgradeModeDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectUpgradeMode;
+
+    @FindBy(xpath = "//label[@for='autoCustBuild']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickInputByDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectInpuByText;
+
+    @FindBy(xpath = "//span[text()='Confirm']")
+    public WebElementFacade clickConfirmBtn;
+
+    @FindBy(xpath = "//label[@for='registeredAddress']/following-sibling::div//textarea")
+    public WebElementFacade enterRegisteredAddress;
+
+    @FindBy(xpath = "//label[@for='businessCountry']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickCountryOfBusiness;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span[text()='Andorra']")
+    public WebElementFacade selectCountryOfBusinessText;
+
+    @FindBy(xpath = "//label[@for='businessCity']/following-sibling::div//input")
+    public WebElementFacade enterBusinessCity;
+
+    @FindBy(xpath = "//label[@for='businessAddress']/following-sibling::div//textarea")
+    public WebElementFacade enterBusinessAddress;
+
+    @FindBy(xpath = "//label[@for='industry']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickIndustryDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectIndustryText;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 1')]/parent::div/following-sibling::div[1]//label[@for='pinyinName']/following-sibling::div//input")
+    public WebElementFacade enterPinYinName;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 1')]/parent::div/following-sibling::div[1]//label[@for='alias']/following-sibling::div//input")
+    public WebElementFacade enterAliasSimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 1')]/parent::div/following-sibling::div[1]//label[@for='pinyinAliasName']/following-sibling::div//input")
+    public WebElementFacade enterPinYinAliasName;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 1')]/parent::div/following-sibling::div[1]//label[@for='legalCertificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickIdTypeDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectIdTypeText;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 1')]/parent::div/following-sibling::div[1]//label[@for='legalCertificationNo']/following-sibling::div//input")
+    public WebElementFacade enterIdNoSimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 1')]/parent::div/following-sibling::div[1]//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
+    public WebElementFacade selectNoExpirySimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 1')]/parent::div/following-sibling::div[1]//label[@for='dateOfBirth']/following-sibling::div//input")
+    public WebElementFacade enterDateSimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 1')]/parent::div/following-sibling::div[1]//label[@for='legalCountry']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickNationalityDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span[text()='Andorra']")
+    public WebElementFacade selectNationalitySimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 1')]/parent::div/following-sibling::div[1]//label[@for='residentialAddress']/following-sibling::div//textarea")
+    public WebElementFacade enterResidentialAddressSimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 1')]/parent::div/following-sibling::div[1]//label[@for='countryOfResidence']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickCountryOfResidenceSimpleKYC;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span[text()='Andorra']")
+    public WebElementFacade selectCountryOfResidenceSimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 1')]/parent::div/following-sibling::div[1]//label[@for='city']/following-sibling::div//input")
+    public WebElementFacade enterCitySimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 2')]/parent::div/following-sibling::div//label[@for='pinyinName']/following-sibling::div//input")
+    public WebElementFacade enterPinYin2Name;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 2')]/parent::div/following-sibling::div//label[@for='alias']/following-sibling::div//input")
+    public WebElementFacade enterAlias2SimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 2')]/parent::div/following-sibling::div//label[@for='pinyinAliasName']/following-sibling::div//input")
+    public WebElementFacade enterPinYin2AliasName;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 2')]/parent::div/following-sibling::div//label[@for='legalCertificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickIdType2DownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectIdType2Text;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 2')]/parent::div/following-sibling::div//label[@for='legalCertificationNo']/following-sibling::div//input")
+    public WebElementFacade enterIdNo2SimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 2')]/parent::div/following-sibling::div//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
+    public WebElementFacade selectNoExpiry2SimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 2')]/parent::div/following-sibling::div//label[@for='dateOfBirth']/following-sibling::div//input")
+    public WebElementFacade enterDate2SimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 2')]/parent::div/following-sibling::div//label[@for='legalCountry']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickNationality2DownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span[text()='Andorra']")
+    public WebElementFacade selectNationality2SimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 2')]/parent::div/following-sibling::div//label[@for='residentialAddress']/following-sibling::div//textarea")
+    public WebElementFacade enterResidentialAddress2SimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 2')]/parent::div/following-sibling::div//label[@for='countryOfResidence']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickCountryOfResidence2SimpleKYC;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span[text()='Andorra']")
+    public WebElementFacade selectCountryOfResidence2SimpleKYC;
+
+    @FindBy(xpath = "//div[contains(text(),'Administrator 2')]/parent::div/following-sibling::div//label[@for='city']/following-sibling::div//input")
+    public WebElementFacade enterCity2SimpleKYC;
+
+    @FindBy(xpath = "//span[contains(text(),'Save')]")
+    public WebElementFacade getClickSaveBtn;
+
+    @FindBy(xpath = "//div[@class='lowcode-table default-theme']//table[@class='fixed-right-table']/tbody/tr[1]//i[@class='lls-tooltip lls-icon-s-check']")
+    public WebElementFacade clickSubmitSimpleKYC;
+
+    @FindBy(xpath = "//div[@class='lls-message-box']//span[contains(text(),'Confirm')]")
+    public WebElementFacade clickComfirmBtnSimpleKYC;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[3]")
+    public List<WebElementFacade> ReviewCustomer;
+
+    @FindBy(xpath = "//label[@for=\"relatedParty\"]/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
+    public WebElementFacade clickRelatedPartySelectYes;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[8]")
+    public List<WebElementFacade> clickAssignBtn;
+
+    @FindBy(xpath = "//span[contains(text(),'Assigned to Me')]")
+    public WebElementFacade assignedToMeClick;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody//td[3]")
+    public List<WebElementFacade> getCompanyNameList;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody//td[10]//span[contains(text(),'Proceed')]")
+    public List<WebElementFacade> clickProceedBtn;
+
+    @FindBy(xpath = "//label[@for='auditState']/following-sibling::div//i")
+    public WebElementFacade clickResultDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectResult;
+
+    @FindBy(xpath = "//label[@for='comment']/following-sibling::div//textarea")
+    public WebElementFacade enterComment;
+
+    @FindBy(xpath = "//div[@class='btn']//span[contains(text(),'Submit')]")
+    public WebElementFacade clickSubmitBtn;
+
+    @FindBy(xpath = "//label[text()='Company Name']/following-sibling::div//input")
+    public WebElementFacade sendKeysCompanyNameOnOnboardingList;
+
+    @FindBy(xpath = "//label[text()='Status']")
+    public WebElementFacade clickStatusOnOnboardingList;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[9]/span")
+    public WebElementFacade checkRegistrationtatus;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[7]")
+    public WebElementFacade checkEmail;
+
+    @FindBy(xpath = "//tbody[@id='convertd']/tr/td[1]")
+    public WebElementFacade checkFirstEmail;
+
+    @FindBy(xpath = "//tbody[@id='convertd']/tr[1]/td[1]")
+    public WebElementFacade firstEmailText;
+
+    @FindBy(xpath = "//strong[text()='返回']")
+    public WebElementFacade clickBackBtn;
+
+    @FindBy(xpath = "//div[@class='container content']/h2")
+    public WebElementFacade getEmailOtp;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role=\"tab\"]/parent::div//div[@class='form_container'][1]//label[@for='dateOfBirth']/following-sibling::div//input")
+    public WebElementFacade enterPrimaryAdministrators1Date;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role=\"tab\"]/parent::div//div[@class='form_container'][1]//label[@for='alias']/following-sibling::div//input")
+    public WebElementFacade enterPrimaryAdministrators1Alias;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role=\"tab\"]/parent::div//div[@class='form_container'][1]//label[@for='legalCertificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickPrimaryAdministrators1IdTypeDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectPrimaryAdministrators1IdType;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role=\"tab\"]/parent::div//div[@class='form_container'][1]//label[@for='legalCountry']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickPrimaryAdministrators1NationalityDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectPrimaryAdministrators1Nationality;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role=\"tab\"]/parent::div//div[@class='form_container'][1]//label[@for='countryOfResidence']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickPrimaryAdministrators1CountryOfResidenceDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span[text()='AD-Andorra']")
+    public WebElementFacade selectPrimaryAdministrators1CountryOfResidence;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role=\"tab\"]/parent::div//div[@class='form_container'][1]//label[@for='legalCertificationNo']/following-sibling::div//input")
+    public WebElementFacade enterPrimaryAdministrators1IdNo;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role=\"tab\"]/parent::div//div[@class='form_container'][1]//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
+    public WebElementFacade clickPrimaryAdministrators1NoExpiry;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role=\"tab\"]/parent::div//div[@class='form_container'][1]//label[@for='residentialAddress']/following-sibling::div//textarea")
+    public WebElementFacade enterPrimaryAdministrators1ResidentialAddress;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='dateOfBirth']/following-sibling::div//input")
+    public WebElementFacade enterPrimaryAdministrators2Date;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='alias']/following-sibling::div//input")
+    public WebElementFacade enterPrimaryAdministrators2Alias;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='legalCertificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickPrimaryAdministrators2IdTypeDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectPrimaryAdministrators2IdType;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='legalCountry']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickPrimaryAdministrators2NationalityDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectPrimaryAdministrators2Nationality;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='countryOfResidence']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickPrimaryAdministrators2CountryOfResidenceDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span[text()='AD-Andorra']")
+    public WebElementFacade selectPrimaryAdministrators2CountryOfResidence;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='legalCertificationNo']/following-sibling::div//input")
+    public WebElementFacade enterPrimaryAdministrators2IdNo;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='timePermanent']/following-sibling::div//label[2]//span[@class='lls-radio__inner']")
+    public WebElementFacade clickPrimaryAdministrators2NoExpiry;
+
+    @FindBy(xpath = "//div[contains(text(),'Primary Administrators')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='residentialAddress']/following-sibling::div//textarea")
+    public WebElementFacade enterPrimaryAdministrators2ResidentialAddress;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='alias']/following-sibling::div//input")
+    public WebElementFacade enterDirector1Alias;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickDirector1IdTypeDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectDirector1IdTypeText;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='certificationNo']/following-sibling::div//input")
+    public WebElementFacade inputDirector1IdNo;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
+    public WebElementFacade selectDirector1IdExpiryDate;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='dateOfBirth']/following-sibling::div//input")
+    public WebElementFacade enterDirector1Date;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='country']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickDirector1NationalityDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span[text()='AD-Andorra']")
+    public WebElementFacade selectDirector1NationalityText;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='countryOfResidence']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickDirector1CountryOfResidence;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='email']/following-sibling::div//input")
+    public WebElementFacade enterDirector1Email;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='phone']/following-sibling::div//input")
+    public WebElementFacade enterDirector1Phone;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='residentialAddress']/following-sibling::div//textarea")
+    public WebElementFacade enterDorector1ResidentialAddress;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='alias']/following-sibling::div//input")
+    public WebElementFacade enterDirector2Alias;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickDirector2IdTypeDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectDirector2IdTypeText;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='certificationNo']/following-sibling::div//input")
+    public WebElementFacade inputDirector2IdNo;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='timePermanent']/following-sibling::div//label[2]//span[@class='lls-radio__inner']")
+    public WebElementFacade selectDirector2IdExpiryDate;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='dateOfBirth']/following-sibling::div//input")
+    public WebElementFacade enterDirector2Date;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='country']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickDirector2NationalityDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span[text()='AD-Andorra']")
+    public WebElementFacade selectDirector2NationalityText;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='countryOfResidence']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickDirector2CountryOfResidence;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='email']/following-sibling::div//input")
+    public WebElementFacade enterDirector2Email;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='phone']/following-sibling::div//input")
+    public WebElementFacade enterDirector2Phone;
+
+    @FindBy(xpath = "//div[contains(text(),'Director (s) / Legal Representative')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='residentialAddress']/following-sibling::div//textarea")
+    public WebElementFacade enterDorector2ResidentialAddress;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='alias']/following-sibling::div//input")
+    public WebElementFacade enterShareholder1Alias;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickShareholder1IdTypeDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectShareholder1IdTypeText;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='certificationNo']/following-sibling::div//input")
+    public WebElementFacade inputShareholder1IdNo;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
+    public WebElementFacade selectShareholder1IdExpiryDate;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='dateOfBirth']/following-sibling::div//input")
+    public WebElementFacade enterShareholder1Date;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='country']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickShareholder1NationalityDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span[text()='AD-Andorra']")
+    public WebElementFacade selectShareholder1NationalityText;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='countryOfResidence']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickShareholder1CountryOfResidence;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='email']/following-sibling::div//input")
+    public WebElementFacade enterShareholder1Email;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='phone']/following-sibling::div//input")
+    public WebElementFacade enterShareholder1Phone;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='residentialAddress']/following-sibling::div//textarea")
+    public WebElementFacade enterShareholderResidentialAddress;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='fundScale']/following-sibling::div//input")
+    public WebElementFacade enterShareholder1Shareholding;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='alias']/following-sibling::div//input")
+    public WebElementFacade enterShareholder2Alias;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickShareholder2IdTypeDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectShareholder2IdTypeText;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='certificationNo']/following-sibling::div//input")
+    public WebElementFacade inputShareholder2IdNo;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='timePermanent']/following-sibling::div//label[2]//span[@class='lls-radio__inner']")
+    public WebElementFacade selectShareholder2IdExpiryDate;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='dateOfBirth']/following-sibling::div//input")
+    public WebElementFacade enterShareholder2Date;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='country']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickShareholder2NationalityDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span[text()='AD-Andorra']")
+    public List<WebElementFacade> selectShareholder2NationalityText;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='countryOfResidence']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickShareholder2CountryOfResidence;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='email']/following-sibling::div//input")
+    public WebElementFacade enterShareholder2Email;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='phone']/following-sibling::div//input")
+    public WebElementFacade enterShareholder2Phone;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='residentialAddress']/following-sibling::div//textarea")
+    public WebElementFacade enterShareholder2ResidentialAddress;
+
+    @FindBy(xpath = "//div[contains(text(),'Shareholder')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][2]//label[@for='fundScale']/following-sibling::div//input")
+    public WebElementFacade enterShareholder2Shareholding;
+
+    @FindBy(xpath = "//div[contains(text(),'Beneficial')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='alias']/following-sibling::div//input")
+    public WebElementFacade enterBeneficialAlias;
+
+    @FindBy(xpath = "//div[contains(text(),'Beneficial')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='fundScale']/following-sibling::div//input")
+    public WebElementFacade enterBeneficialUltimate;
+
+    @FindBy(xpath = "//div[contains(text(),'Beneficial')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickBeneficialIdTypeDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
+    public List<WebElementFacade> selectBeneficialIdTypeText;
+
+    @FindBy(xpath = "//div[contains(text(),'Beneficial')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='certificationNo']/following-sibling::div//input")
+    public WebElementFacade enterBeneficialIdNo;
+
+    @FindBy(xpath = "//div[contains(text(),'Beneficial')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
+    public WebElementFacade selectBeneficialNoExpiry;
+
+    @FindBy(xpath = "//div[contains(text(),'Beneficial')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='email']/following-sibling::div//input")
+    public WebElementFacade enterBeneficialEmail;
+
+    @FindBy(xpath = "//div[contains(text(),'Beneficial')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='dateOfBirth']/following-sibling::div//input")
+    public WebElementFacade enterBeneficialDateOfBirth;
+
+    @FindBy(xpath = "//div[contains(text(),'Beneficial')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='phone']/following-sibling::div//input")
+    public WebElementFacade enterBeneficialPhone;
+
+    @FindBy(xpath = "//div[contains(text(),'Beneficial')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='country']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade clickBeneficialCountryOfResidence;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span[text()='AD-Andorra']")
+    public List<WebElementFacade> selectBeneficialCountryOfResidence;
+
+    @FindBy(xpath = "//div[contains(text(),'Beneficial')]/ancestor::div[@role='tab']/parent::div//div[@class='form_container'][1]//label[@for='residentialAddress']/following-sibling::div//textarea")
+    public WebElementFacade enterBeneficialResidentialAddress;
+
+    @FindBy(xpath = "//span[contains(text(),'Save')]")
+    public WebElementFacade clickSaveBtn;
+
     @FindBy(xpath = "//div[@class='lls-message-box__wrapper']//span[contains(text(), 'Confirm')]")
     public WebElementFacade confirmBtn;
 
-    @FindBy(xpath = "//div[@class=\"el-descriptions\"]/div[1]/div[1]")
+    @FindBy(xpath = "//tbody[@id=\"convertd\"]//td[1]")
     public WebElementFacade firstEmail;
 
     @FindBy(xpath = "//a[text()=' SCF portal ']")
@@ -175,7 +643,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='login-info']/p[1]/span")
     public WebElementFacade userName;
 
-    @FindBy(xpath = "//div[@class='login-info']/p[2]/span[1]")
+    @FindBy(xpath = "//div[@class='login-info']/p[2]/span")
     public WebElementFacade passWord;
 
     @FindBy(xpath = "//span[text()='Green Link Digital Bank - Verify Identity']")
@@ -186,6 +654,18 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")
     public WebElementFacade clickRefreshBtn;
+
+    @FindBy(xpath = "//button[text()='手动刷新']")
+    public WebElementFacade clickRefreshByHands;
+
+    @FindBy(id = "customShortid")
+    public WebElementFacade clickEditEmailName;
+
+    @FindBy(id = "shortid")
+    public WebElementFacade sendKeysEmailName;
+
+    @FindBy(xpath = "//tbody[@id='maillist']/tr[1]/td[1]")
+    public WebElementFacade clickFirstEmailName;
 
     @FindBy(xpath = "//div[@id='message-content']/p")
     public WebElementFacade emailPageContent;
@@ -249,6 +729,9 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//span[text()=' Agree ']")
     public WebElementFacade clickAgreeBtn;
+
+    @FindBy(xpath = "//span[text()='I will input manually']")
+    public WebElementFacade inputManually;
 
     @FindBy(xpath = "//div[@class='dialog-footer-top']//span[@class='lls-checkbox__input']")
     public WebElementFacade selectFirstCheckBox;
@@ -334,7 +817,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='industry']/following-sibling::div//span[@class='lls-input__suffix-inner']")
     public WebElementFacade industry;
 
-    @FindBy(xpath = "//span[text()='Agriculture & Fishing']")
+    @FindBy(xpath = "//span[text()='Wholesale & Retail Trade']")
     public WebElementFacade selectIndustry;
 
     @FindBy(xpath = "//label[@for='legalStructure']/following-sibling::div//span[@class='lls-input__suffix-inner']")
@@ -460,59 +943,113 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='title']")
     public WebElementFacade directorOfTheInformation;
 
-    @FindBy(xpath = "//label[@for='executiveName']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='executiveName']/following-sibling::div//input")
     public WebElementFacade director1FullName;
 
-    @FindBy(xpath = "//label[@for='pinyinName']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='pinyinName']/following-sibling::div//input")
     public WebElementFacade director1EnterPinYin;
 
-    @FindBy(xpath = "//label[@for='alias']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='alias']/following-sibling::div//input")
     public WebElementFacade director1Alias;
 
-    @FindBy(xpath = "//label[@for='pinyinAliasName']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='pinyinAliasName']/following-sibling::div//input")
     public WebElementFacade director1PinyinAliasName;
 
-    @FindBy(xpath = "//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
     public WebElementFacade director1IdType;
 
-    @FindBy(xpath = "//span[text()='Passport']")
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\"]//span[text()='Passport']")
     public WebElementFacade director1SelectIdType;
 
-    @FindBy(xpath = "//label[@for='certificationNo']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='certificationNo']/following-sibling::div//input")
     public WebElementFacade director1IdNumber;
 
-    @FindBy(xpath = "//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
     public WebElementFacade director1IdExpiryDate;
 
-    @FindBy(xpath = "//label[@for='dateOfBirth']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='dateOfBirth']/following-sibling::div//input")
     public WebElementFacade director1DateOfBirth;
 
-    @FindBy(xpath = "//label[@for='country']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='country']/following-sibling::div//input")
     public WebElementFacade director1NationalityDrop;
 
-    @FindBy(xpath = "//label[@for='city']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='city']/following-sibling::div//input")
     public WebElementFacade director1City;
 
-    @FindBy(xpath = "//label[@for='postalCode']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='postalCode']/following-sibling::div//input")
     public WebElementFacade director1PostalCode;
 
-    @FindBy(xpath = "//label[@for='residentialAddress']/following-sibling::div//textarea")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='residentialAddress']/following-sibling::div//textarea")
     public WebElementFacade director1ResidentialAddress;
 
-    @FindBy(xpath = "//label[@for='countryOfResidence']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='countryOfResidence']/following-sibling::div//input")
     public WebElementFacade director1CountryOfResidence;
 
-    @FindBy(xpath = "//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[1]//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[1]//input")
     public WebElementFacade director1FirstPhoneNum;
 
-    @FindBy(xpath = "//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
     public WebElementFacade director1SecondPhoneNum;
 
-    @FindBy(xpath = "//label[@for='email']/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='email']/following-sibling::div//input")
     public WebElementFacade director1EmailAddress;
 
-    @FindBy(xpath = "//label[@for='ThisDirectorIsAlsoAShareholder']/following-sibling::div//span[@class='lls-checkbox__inner']")
+    @FindBy(xpath = "//div[text()='Director 1']/parent::div/parent::div/following-sibling::div//label[@for='ThisDirectorIsAlsoAShareholder']/following-sibling::div//span[@class='lls-checkbox__inner']")
     public WebElementFacade director1SelectCheckBox;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='executiveName']/following-sibling::div//input")
+    public WebElementFacade director2FullName;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='pinyinName']/following-sibling::div//input")
+    public WebElementFacade director2EnterPinYin;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='alias']/following-sibling::div//input")
+    public WebElementFacade director2Alias;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='pinyinAliasName']/following-sibling::div//input")
+    public WebElementFacade director2PinyinAliasName;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='certificationType']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    public WebElementFacade director2IdType;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\"]//span[text()='Passport']")
+    public WebElementFacade director2SelectIdType;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='certificationNo']/following-sibling::div//input")
+    public WebElementFacade director2IdNumber;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='timePermanent']/following-sibling::div//label[1]//span[@class='lls-radio__inner']")
+    public WebElementFacade director2IdExpiryDate;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='dateOfBirth']/following-sibling::div//input")
+    public WebElementFacade director2DateOfBirth;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='country']/following-sibling::div//input")
+    public WebElementFacade director2NationalityDrop;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='city']/following-sibling::div//input")
+    public WebElementFacade director2City;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='postalCode']/following-sibling::div//input")
+    public WebElementFacade director2PostalCode;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='residentialAddress']/following-sibling::div//textarea")
+    public WebElementFacade director2ResidentialAddress;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='countryOfResidence']/following-sibling::div//input")
+    public WebElementFacade director2CountryOfResidence;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[1]//input")
+    public WebElementFacade director2FirstPhoneNum;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
+    public WebElementFacade director2SecondPhoneNum;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='email']/following-sibling::div//input")
+    public WebElementFacade director2EmailAddress;
+
+    @FindBy(xpath = "//div[text()='Director 2']/parent::div/parent::div/following-sibling::div//label[@for='ThisDirectorIsAlsoAShareholder']/following-sibling::div//span[@class='lls-checkbox__inner']")
+    public WebElementFacade director2SelectCheckBox;
 
     @FindBy(xpath = "//div[@class='title']")
     public WebElementFacade shareholderOfTheInformation;
@@ -563,8 +1100,8 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()='Shareholder 1']/parent::div/parent::div/following-sibling::div//label[@for='country']/following-sibling::div//input")
     public WebElementFacade shareholder1Nationality;
 
-    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span[text()='China']")
-    public WebElementFacade selectChina;
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span[text()='Singapore']")
+    public WebElementFacade selectCountry;
 
     @FindBy(xpath = "//div[text()='Shareholder 1']/parent::div/parent::div/following-sibling::div//label[@for='residentialAddress']/following-sibling::div//textarea")
     public WebElementFacade shareholder1ResidentialAddress;
@@ -953,6 +1490,47 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='relatedParty']/following-sibling::div//label[1]/span[1]")
     public WebElementFacade relatedPartyCheckBox;
 
+    @FindBy(xpath = "//p[text()='Confirmation Information']")
+    public WebElementFacade clickConfirmationInformation;
+
+    @FindBy(xpath = "//span[contains(text(),'Back')]")
+    public WebElementFacade clickBackButton;
+
+    @FindBy(xpath = "//p[text()='Customer Profile']")
+    public WebElementFacade clickCustomerProfilePendingActions;
+
+    @FindBy(xpath = "//p[text()='Open Account Application']")
+    public WebElementFacade clickOpenAccountApplicationActions;
+
+    @FindBy(xpath = "//p[text()='Board Resolution']")
+    public WebElementFacade clickBoardResolutionActions;
+
+    @FindBy(xpath = "//span[text()='I will input manually']")
+    public WebElementFacade clickIwillInputManuallyBtn;
+
+    @FindBy(xpath = "//div[text()='Administrator 1']/following-sibling::div//label[@for='legalName']/following-sibling::div//input")
+    public WebElementFacade enterUpgradeKYCAdmin1FullName;
+
+    @FindBy(xpath = "//div[text()='Administrator 1']/following-sibling::div//label[@for='email']/following-sibling::div//input")
+    public WebElementFacade enterUpgradeKYCAdmin1Email;
+
+    @FindBy(xpath = "//div[text()='Administrator 1']/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[1]//input")
+    public WebElementFacade enterUpgradeKYCAdmin1AreaCode;
+
+    @FindBy(xpath = "//div[text()='Administrator 1']/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
+    public WebElementFacade enterUpgradeKYCAdmin1MobileNum;
+
+    @FindBy(xpath = "//div[text()='Administrator 2']/following-sibling::div//label[@for='legalName']/following-sibling::div//input")
+    public WebElementFacade enterUpgradeKYCAdmin2FullName;
+
+    @FindBy(xpath = "//div[text()='Administrator 2']/following-sibling::div//label[@for='email']/following-sibling::div//input")
+    public WebElementFacade enterUpgradeKYCAdmin2Email;
+
+    @FindBy(xpath = "//div[text()='Administrator 2']/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[1]//input")
+    public WebElementFacade enterUpgradeKYCAdmin2AreaCode;
+
+    @FindBy(xpath = "//div[text()='Administrator 2']/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
+    public WebElementFacade enterUpgradeKYCAdmin2MobileNum;
 
 
 

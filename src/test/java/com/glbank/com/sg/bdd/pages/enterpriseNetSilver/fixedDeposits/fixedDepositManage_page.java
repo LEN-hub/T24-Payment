@@ -19,7 +19,7 @@ public class fixedDepositManage_page extends PageObject {
     @FindBy(xpath = "//div[@class='pagination']//slot/span")
     public WebElementFacade click11;
 
-    @FindBy(xpath = "//div[@class=\"el-table__body-wrapper is-scrolling-left\"]//tr//td[1]//div")
+    @FindBy(xpath = "//div[@class=\"el-table__body-wrapper is-scrolling-left\"]//tr//td[5]//div")
     public List<WebElementFacade> fdAccountNumberList;
 
     @FindBy(xpath = "//button[@class=\"btn-next\"]//i")

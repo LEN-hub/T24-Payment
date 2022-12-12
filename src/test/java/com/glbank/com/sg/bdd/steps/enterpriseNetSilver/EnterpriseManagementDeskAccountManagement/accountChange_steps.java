@@ -228,9 +228,7 @@ public class accountChange_steps extends ScenarioSteps {
         bddUtil.sleep(2);}
 
     public void authorizations() {
-        if (accountChange_page.waitinAauthorization.getText().equals("交易成功")) {
-            assertEquals("交易成功", accountChange_page.waitinAauthorization.getText());
-        } else {
+        if (accountChange_page.waitinAauthorization.getText().equals("Successful")) {
             assertEquals("Successful", accountChange_page.waitinAauthorization.getText());
         }
         bddUtil.sleep(2);}

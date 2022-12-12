@@ -15,6 +15,7 @@ import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
+import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.List;
@@ -40,6 +41,8 @@ public class creatCustomers_glue {
     public String mailName = JRandomNameTool.getStringRandom(8);
     public String mailName1 = JRandomNameTool.getStringRandom(8);
     public String CompanyName = RandomNameTool.getName(Language.en, NameType.FULL_NAME)+JRandomNameTool.getStringRandom(4);
+//    public String CompanyName = "PUBLIC UTILITIES BOARD";
+
 
     @When("^login successfully and click the SCF link$")
     public void loginSuccessfullyAndClickTheSCFLink() {
@@ -86,6 +89,24 @@ public class creatCustomers_glue {
         customers_step.getCLickNextBtn();
     }
 
+    @And("^I click Create Customer and fill in the supplier information in the pop-up window buyer$")
+    public void iClickCreateCustomerAndFillInTheSupplierInformationInThePopUpWindowBuyer(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        customers_step.getClickCreateCustomerBtn();
+        customers_step.getSelectCustomerType();
+        customers_step.getCustomerTypeBuyer();
+        customers_step.getCompanyName(CompanyName);
+        FileUtils.FileString4("buyer",CompanyName);
+        FileUtils.FileString4("emailData",CompanyName);
+        customers_step.getCompanyID(RandomPhoneNumber.randomPhoneNum());
+        customers_step.getSelectCountryOfRegistration();
+        customers_step.getCountryOfRegistrationValue();
+        customers_step.getCompanyNameLeft(JRandomNameTool.getStringRandom(10));
+        customers_step.kycMode(maps.get(0).get("KYC Mode"));
+        customers_step.inputBy(maps.get(0).get("Input by"));
+        customers_step.getCLickNextBtn();
+    }
+
     @Then("^I Check to see if you jump to the Authorized Person page$")
     public void checkToSeeIfYouJumpToTheAuthorizedPersonPage() {
         customers_step.getCheckNextPage();
@@ -97,13 +118,33 @@ public class creatCustomers_glue {
         bddUtil.switchToNewWindow();
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
-        customers_step.getEmailInput(mailName + "@c0c.fun");
-        FileUtils.FileString4("emailData",mailName + "@c0c.fun");
-        System.out.println("---------------第一个邮箱地址："+ mailName + "@c0c.fun"+"----------------------");
+        customers_step.getEmailInput(mailName + "@ihotmails.com");
+        FileUtils.FileString4("emailData",mailName + "@ihotmails.com");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@ihotmails.com"+"----------------------");
         customers_step.phoneNumberFirst();
         customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getEmailSecondInput(mailName1  + "@c0c.fun");
-        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@c0c.fun"+"----------------------");
+        customers_step.getEmailSecondInput(mailName1+ "@ihotmails.com");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@ihotmails.com"+"----------------------");
+        customers_step.getMobileInput();
+//        customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
+//
+//        customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+//        customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
+//        customers_step.clickInputBySelectBox();
+        customers_step.clickSubmitBtn();
+        bddUtil.sleep(3);
+    }
+
+    @When("^Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC$")
+    public void fillInAdministratorAndAdministratorSupplierInformationOnTheAuthorizedPersonPageSimpleKYC() {
+        customers_step.getFirstNameInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+        customers_step.getEmailInput(mailName + "@ihotmails.com");
+        FileUtils.FileString4("emailData",mailName + "@ihotmails.com");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@ihotmails.com"+"----------------------");
+        customers_step.phoneNumberFirst();
+        customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+        customers_step.getEmailSecondInput(mailName1+ "@ihotmails.com");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@ihotmails.com"+"----------------------");
         customers_step.getMobileInput();
 //        customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
 //
@@ -120,13 +161,13 @@ public class creatCustomers_glue {
         bddUtil.switchToNewWindow();
         customers_step.emailOperation(mailName);
         bddUtil.switchToWindows();
-        customers_step.getEmailInput(mailName + "@c0c.fun");
-        System.out.println("---------------第一个邮箱地址："+ mailName + "@c0c.fun"+"----------------------");
+        customers_step.getEmailInput(mailName + "@ihotmails.com");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@ihotmails.com"+"----------------------");
         customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         customers_step.getMobileInput();
         customers_step.getFirstNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getEmailSecondInput(mailName1  + "@c0c.fun");
-        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@c0c.fun"+"----------------------");
+        customers_step.getEmailSecondInput(mailName1  + "@ihotmails.com");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@ihotmails.com"+"----------------------");
         customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
         customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
         customers_step.clickSubmitBtn();
@@ -149,7 +190,7 @@ public class creatCustomers_glue {
 
     @And("^I received an email from Green Union Bank on the email page$")
     public void iReceivedAnEmailFromGreenUnionBankOnTheEmailPage() {
-        customers_step.viewEmail();
+        customers_step.viewEmail(mailName);
     }
 
     @And("^I click the email icon to send the email$")
@@ -333,9 +374,32 @@ public class creatCustomers_glue {
         for (int i = 0; i < 3; i++) {
             bddUtil.sleep(2);
             updateAmlResult(1,"companyData");
+            bddUtil.sleep(4);
         }
         updateAmlResult(1,"companyData");
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
+        customers_step.getClickCustomersMenu();
+        customers_step.onboardingReview();
+        customers_step.onboardingReviewTitle();
+    }
+
+    @When("^Approval in the buyer chain system$")
+    public void approvalInTheBuyerChainSystem() {
+        updateAmlResult(1, "buyer");
+        bddUtil.sleep(5);
+        int result = updateAmlResult(1, "buyer");
+        if (result <= 0){
+            bddUtil.sleep(2);
+            updateAmlResult(1,"buyer");
+        }
+        for (int i = 0; i < 3; i++) {
+            bddUtil.sleep(2);
+            updateAmlResult(1,"buyer");
+            bddUtil.sleep(4);
+        }
+        bddUtil.sleep(3);
+        updateAmlResult(1,"buyer");
+        bddUtil.sleep(4);
         customers_step.getClickCustomersMenu();
         customers_step.onboardingReview();
         customers_step.onboardingReviewTitle();
@@ -354,6 +418,14 @@ public class creatCustomers_glue {
         customers_step.processPageApprove();
     }
 
+    @Then("^Switch To the Assign To Me page and perform the corresponding operations buyer$")
+    public void switchToTheAssignToMePageAndPerformTheCorrespondingOperationsBuyer() {
+        customers_step.assignToMePageBuyer();
+        customers_step.clickAssignToMeTitle();
+        customers_step.clickProceedButtonOnAssignToMePageBuyer();
+        customers_step.processPageApprove();
+    }
+
     @When("^Closing the Browser driver$")
     public void closingTheBrowserDriver() {
         bddUtil.quitDriver();
@@ -364,8 +436,157 @@ public class creatCustomers_glue {
         customers_step.checkApprovedText();
     }
 
-//    @After
-//    public void testCase.feature(){
-//        System.out.println("--------------------testcase--------------------");
-//    }
+    @When("^I fill in Simple KYC customer information on the page$")
+    public void iFillInSimpleKYCCustomerInformationOnThePage(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class,String.class);
+        customers_step.clickEditIcon();
+        customers_step.companyInformation(payToInfo.get(0).get("Nature of Business"),payToInfo.get(0).get("Id Type"));
+    }
+
+    @When("^I authorize on the Onboarding Review page$")
+    public void iAuthorizeOnTheOnboardingReviewPage(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.getClickCustomersMenu();
+        customers_step.onboardingReview();
+        customers_step.onboardingReviewTitle();
+        customers_step.assignToMe(result.get(0).get("Result"));
+    }
+    @When("^I authorize on the Onboarding Review page Full KYC$")
+    public void iAuthorizeOnTheOnboardingReviewPageFullKyc(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.getClickCustomersMenu();
+        customers_step.onboardingReview();
+        customers_step.onboardingReviewTitle();
+        customers_step.assignToMeFullKYC(result.get(0).get("Result"));
+    }
+
+    @Then("^I compare Registration Status on the page$")
+    public void iCompareRegistrationStatusOnThePage() {
+        customers_step.checkRegistrationReport();
+    }
+
+    @When("^I receive mail in my mailbox$")
+    public void iReceiveMailInMyMailbox() {
+        customers_step.selectFirstEmailAndTakeVCode();
+    }
+
+    @And("^I get the verification code on the email interface$")
+    public void iGetTheVerificationCodeOnTheEmailInterface() {
+        customers_step.findEamilOtp();
+    }
+
+    @When("^I entered new login information and successfully logged in$")
+    public void iEnteredNewLoginInformationAndSuccessfullyLoggedIn(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.enterNewPasswordAndLoginSuccess(result.get(0).get("password"));
+    }
+
+    @When("^I click the Confirmation Information button on the page$")
+    public void iClickTheConfirmationInformationButtonOnThePage() {
+        customers_step.clickConfirmationInformation();
+    }
+
+    @Then("^I compare Approved Status on the page$")
+    public void iCompareApprovedStatusOnThePage(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.checkApprovedStatus(result.get(0).get("Status"));
+    }
+
+    @When("^I click agree Service Agreement on simple KYC$")
+    public void iClickAgreeServiceAgreementOnSimpleKYC() {
+        customers_step.iClickAgreeServiceAgreementOnSimpleKYC();
+    }
+
+    @When("^Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator$")
+    public void fillInEmailAndEmailSupplierInformationOnTheAuthorizedPersonPageSimpleKYCNoAdministrator() {
+        bddUtil.sleep(3);
+        customers_step.clickSubmitBtn();
+        bddUtil.sleep(3);
+    }
+
+    @When("^I fill in Simple KYC customer information on the page No Administrator$")
+    public void iFillInSimpleKYCCustomerInformationOnThePageNoAdministrator(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.clickEditIcon();
+        customers_step.companyInformationNoAdministrator(result.get(0).get("Nature of Business"));
+    }
+
+    @When("^I click Upgrade KYC on the page and process the corresponding information$")
+    public void iClickUpgradeKYCOnThePageAndProcessTheCorrespondingInformation(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.clickUpgradeKYC(result.get(0).get("Upgrade Mode"),result.get(0).get("Input By"));
+    }
+    @When("^I click Upgrade KYC on the page and process the corresponding information Full KYC$")
+    public void iClickUpgradeKYCOnThePageAndProcessTheCorrespondingInformationFullKYC(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.clickUpgradeFullKYC(result.get(0).get("Upgrade Mode"));
+    }
+
+    @When("^I enter the information of Administrator 1 and Administrator 2 of Upgrade KYC respectively on the page$")
+    public void iEnterTheInformationOfAdministratorAndAdministratorOfUpgradeKYCRespectivelyOnThePage() {
+        customers_step.enterUpgradeKYCAdmin1FullName();
+        customers_step.enterUpgradeKYCAdmin1Email(mailName + "@ihotmails.com");
+        FileUtils.FileString4("emailData",mailName + "@ihotmails.com");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@ihotmails.com"+"----------------------");
+        customers_step.enterUpgradeKYCAdmin1AreaCode();
+        customers_step.enterUpgradeKYCAdmin2FullName();
+        customers_step.enterUpgradeKYCAdmin2Email(mailName1+ "@ihotmails.com");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@ihotmails.com"+"----------------------");
+        customers_step.enterUpgradeKYCAdmin2AreaCode();
+        customers_step.clickSubmitBtn();
+        bddUtil.sleep(3);
+    }
+
+    @Then("^I compare Upgrade Status on the page$")
+    public void iCompareUpgradeStatusOnThePage() {
+        customers_step.checkRegistrationReportUpgrade();
+    }
+
+    @And("^I change the email address on the page$")
+    public void iChangeTheEmailAddressOnThePage() {
+        customers_step.iChangeTheEmailAddressOnThePage(mailName);
+    }
+
+    @When("^I find messages on the mail page$")
+    public void iFindMessagesOnTheMailPage() {
+        customers_step.getEmailInformation();
+    }
+
+    @When("^I get username and password in the email$")
+    public void iGetUsernameAndPasswordInTheEmail() {
+        customers_step.iGetUsernameAndPasswordInTheEmail();
+    }
+
+    @When("^I add Shareholding information on the page$")
+    public void iAddShareholdingInformationOnThePage() {
+        customers_step.enterShareholding();
+    }
+
+    @When("^I enter information on the administrator information page$")
+    public void iEnterInformationOnTheAdministratorInformationPage() {
+        customers_step.enterInformationAdministrator();
+    }
+
+    @When("^I entered information on the Tell Us About Your Company page Full KYC$")
+    public void iEnteredInformationOnTheTellUsAboutYourCompanyPageFullKYC() {
+        customers_step.companyPageInformationFullKyc(mailName);
+    }
+
+    @When("^I sign BR on the page$")
+    public void iSignBROnThePage() {
+        customers_step.getClickCustomersMenu();
+        customers_step.clickContractManagement();
+        customers_step.uploadSingBR();
+    }
+
+    @When("^I fill in Account and Questionnaire information on the page$")
+    public void iFillInAccountAndQuestionnaireInformationOnThePage(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.enterFullKYCUpdateSimpleKYCInfomation(result.get(0).get("currency"),result.get(0).get("currencyAmount"),result.get(0).get("num"));
+    }
+
+    @When("^Click the Submit button on the Confirm page full KYC$")
+    public void clickTheSubmitButtonOnTheConfirmPageFullKYC() {
+        customers_step.clickSubmitButtonFullKycTransferSimpleKyc();
+    }
 }

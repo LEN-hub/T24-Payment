@@ -1,4 +1,4 @@
-@MCYEnv
+@MCYEnvAuth
 Feature: receipt and payment service
 
 #本人互转
@@ -56,6 +56,11 @@ Feature: receipt and payment service
     Then My account has been transferred successfully To Local Payment
       |WordPath   |
       |SGD-USD MCY|
+    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath   |
@@ -92,6 +97,11 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
       |WordPath   |
       |SGD-SGD MCY|
+    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath   |
@@ -114,6 +124,11 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
       |WordPath   |
       |USD-USD MCY|
+    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath   |
@@ -129,8 +144,8 @@ Feature: receipt and payment service
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)(MCY)
     Given logon second "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |Payee's Bank           |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
-      |BANK OF CHINA LIMITED  |TSC1643346550706|11010001426           |Business Expenses   |1102 0571 063 |
+      |Payee's Bank                      |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
+      |GREEN LINK DIGITAL BANK PTE LTD   |TSC1643346550706|11010001426           |Business Expenses   |1102 0571 063 |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
     When I click Next to go to the verification page
@@ -140,6 +155,11 @@ Feature: receipt and payment service
     Then I will compare all the data on same Currency Payment
       |WordPath                 |
       |Local Payment SGD-SGD MCY|
+    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                 |
@@ -193,6 +213,11 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath              |
       |Bic is DBS USD-USD MCY|
+    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath              |
@@ -246,6 +271,11 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment
       |WordPath              |
       |Bic is DBS SGD-USD MCY|
+    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath              |
@@ -301,6 +331,11 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath              |
       |Bic is DBS USD-SGD MCY|
+    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath              |
@@ -355,6 +390,11 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath              |
       |Bic is DBS SGD-SGD MCY|
+    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath              |
@@ -408,6 +448,11 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath                        |
       |Bic is Bank of China USD-USD MCY|
+    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                        |
@@ -460,6 +505,11 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment
       |WordPath                        |
       |Bic is Bank of China SGD-USD MCY|
+    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath                        |
@@ -515,6 +565,11 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath                        |
       |Bic is Bank of China USD-SGD MCY|
+    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath                        |
@@ -569,6 +624,11 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath                        |
       |Bic is Bank of China SGD-SGD MCY|
+    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                        |

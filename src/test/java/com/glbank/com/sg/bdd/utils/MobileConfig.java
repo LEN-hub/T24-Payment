@@ -96,7 +96,7 @@ public class MobileConfig {
         }
     }
     public void enterOpt() throws InterruptedException {
-        Thread.sleep(12000);
+        Thread.sleep(15000);
         otp = driver.findElementById("com.glbank.mobileapp:id/tv_message").getText();
         Thread.sleep(1000);
         driver.findElementById("com.glbank.mobileapp:id/btn_confirm").click();

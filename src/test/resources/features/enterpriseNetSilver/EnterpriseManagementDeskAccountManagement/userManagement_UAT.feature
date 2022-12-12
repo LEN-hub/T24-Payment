@@ -1,10 +1,10 @@
-@userManagement
+@userManagement_UAT
 Feature: userManagements
 
 #  @ChangingMobilePhoneNumber
 #    修改手机号
-  @userManagement123
-  Scenario:Process for modifying user information
+  @userManagement123_UAT
+  Scenario:Process for modifying user information_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click modify info menu
@@ -14,9 +14,9 @@ Feature: userManagements
     When I initiate captcha verification
 
 
-  @newUsers
+  @newUsers_UAT
 #    新增用户
-  Scenario:Add the user operation flow
+  Scenario:Add the user operation flow_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click on Add user
@@ -32,9 +32,9 @@ Feature: userManagements
     When The program is finished I will release the Linux SSH connection
 
 
-  @stopUser
+  @stopUser_UAT
 #    停止用户
-  Scenario:Stop the user operation flow
+  Scenario:Stop the user operation flow_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click on user deactivate confirm
@@ -47,9 +47,9 @@ Feature: userManagements
 
 
 
-#   @startUser
+   @startUser_UAT
 #    启动用户
-  Scenario:Start the user operation flow
+  Scenario:Start the user operation flow_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click launch user and click ok
@@ -60,9 +60,9 @@ Feature: userManagements
     Then End the deals
 
 
-#  @UserCancellation
+  @UserCancellation_UAT
 #    用户注销
-  Scenario:Process for querying the New users
+  Scenario:Process for querying the New users_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
     When I click the menu select User Logout

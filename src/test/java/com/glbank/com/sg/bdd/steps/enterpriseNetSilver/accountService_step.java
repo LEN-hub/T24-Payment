@@ -72,14 +72,28 @@ public class accountService_step extends ScenarioSteps {
     public void accountAndCurrency(){
         accountService_page.accountAndCurrency.isDisplayed();
         accountService_page.accountAlias.isDisplayed();
-        accountService_page.balance.isDisplayed();
-        accountService_page.balanceSecond.isDisplayed();
         Actions action=new Actions(getDriver());
         action.moveToElement(accountService_page.detailsList).perform();
         accountService_page.detailedQuery.isDisplayed();
         accountService_page.domesticTransfer.isDisplayed();
         accountService_page.regularBasis.isDisplayed();
         accountService_page.accountDetails.isDisplayed();
+    }
+
+    @Step
+    public void clickTransationHistory(String accountNum){
+        Actions action=new Actions(getDriver());
+        action.moveToElement(accountService_page.clickAccounts).perform();
+        accountService_page.clickTransactionHistory.click();
+        accountService_page.clickDropDownBox.click();
+        List<WebElementFacade> selectAccount = accountService_page.selectAccontNum;
+        for (int i = 0; i < selectAccount.size(); i++) {
+            if (selectAccount.get(i).getText().substring(0,13).equals(accountNum)){
+                bddUtil.scrollWindowToElement(selectAccount.get(i)).click();
+                break;
+            }
+        }
+        accountService_page.clickSearch.click();
     }
 
     @Step
@@ -110,6 +124,7 @@ public class accountService_step extends ScenarioSteps {
 
     @Step
     public void aliasTextCheck(){
+        bddUtil.sleep(3);
         Assert.assertEquals(aliasText,accountService_page.find(By.xpath("//span[text()='"+aliasText+"']")).getText());
     }
 
@@ -194,6 +209,7 @@ public class accountService_step extends ScenarioSteps {
             transactionFiled.get(i).isDisplayed();
         }
         accountService_page.queryBtn.click();
+        bddUtil.sleep(5);
     }
 
     @Step
@@ -206,6 +222,7 @@ public class accountService_step extends ScenarioSteps {
         accountService_page.myTransactions.click();
         accountService_page.selectSevenDay.click();
         accountService_page.queryBtn.click();
+        bddUtil.sleep(5);
     }
 
     @Step

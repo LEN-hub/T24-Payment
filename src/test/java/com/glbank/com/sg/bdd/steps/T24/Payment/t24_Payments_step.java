@@ -211,6 +211,7 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void findFileSendersReference(){
         bddUtil.scrollWindowToElement(t24_payments_page.findFileSendersReference);
+        t24_payments_page.inputDate.clear();
         t24_payments_page.fileSendersReferenceInput.clear();
         t24_payments_page.fileSendersReferenceInput.sendKeys(t24TransactionReference);
         t24_payments_page.getClickFindBtn.click();
@@ -290,8 +291,8 @@ public class t24_Payments_step extends ScenarioSteps {
         FileUtils.FileString4("t24","getDebitAccountNum:" + getDebitAccountNum);
         getDebitAccountCurrency = t24_payments_page.getDebitAccountCurrency.getText();
         FileUtils.FileString4("t24","getDebitAccountCurrency:" + getDebitAccountCurrency);
-        getDebitAmount = t24_payments_page.getDebitAmount.getText();
-        FileUtils.FileString4("t24","getDebitAmount:" + getDebitAmount);
+//        getDebitAmount = t24_payments_page.getDebitAmount.getText();
+//        FileUtils.FileString4("t24","getDebitAmount:" + getDebitAmount);
         getOrderingAccount = t24_payments_page.getOrderingAccount.getText();
         FileUtils.FileString4("t24","getOrderingAccount:" + getOrderingAccount);
         getOrderingName = t24_payments_page.getOrderingName.getText();
@@ -304,8 +305,8 @@ public class t24_Payments_step extends ScenarioSteps {
         FileUtils.FileString4("t24","getCreditAccountNum:" + getCreditAccountNum);
         getCreditAccountCurrency = t24_payments_page.getCreditAccountCurrency.getText();
         FileUtils.FileString4("t24","getCreditAccountCurrency:" + getCreditAccountCurrency);
-        getCreditAmount = t24_payments_page.getCreditAmount.getText();
-        FileUtils.FileString4("t24","getCreditAmount:" + getCreditAmount);
+//        getCreditAmount = t24_payments_page.getCreditAmount.getText();
+//        FileUtils.FileString4("t24","getCreditAmount:" + getCreditAmount);
         getBeneficiaryAccount = t24_payments_page.getBeneficiaryAccount.getText();
         FileUtils.FileString4("t24","getBeneficiaryAccount:" + getBeneficiaryAccount);
         getBeneficiaryName = t24_payments_page.getBeneficiaryName.getText();

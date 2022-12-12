@@ -1,53 +1,46 @@
-@accountService12345
+@accountService_UAT
 Feature: accountService
-  @accountService01
-  Scenario:process for uerying the account list
+  @accountService_UAT01
+  Scenario:process for uerying the account list_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When click the Account Details menu in the account
-  @accountService02
-  Scenario:account details page display
+  @accountService_UAT02
+  Scenario:account details page display_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When account details page display
 
-@accountService03
-  Scenario:alias setting main process
+@accountService_UAT03
+  Scenario:alias setting main process_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When click the Account Details menu and set alias information
     Then alias entered and saved successfully
-@accountService04
-  Scenario:click Download after the file is generated successfully
+@accountService_UAT04
+  Scenario:click Download after the file is generated successfully_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When click Download after the file is generated successfully
-  @accountService05
-  Scenario:successfully downloaded batch new domestic payee template
+  @accountService_UAT05
+  Scenario:successfully downloaded batch new domestic payee template_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When succeeded in downloading the batch added domestic payee template
-  @accountService06
-  Scenario:personal information management Basic information management, modify customer nicknames
+  @accountService_UAT06
+  Scenario:personal information management Basic information management, modify customer nicknames_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When modifying customer nicknames
     Then the customer nickname is changed successfully
-  @accountService07
-  Scenario:query operation logs of the personal center
+  @accountService_UAT07
+  Scenario:query operation logs of the personal center_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When query operation logs of the personal center
     Then operation logs of the personal center are successfully queried
-  @accountService08
-  Scenario:personal center online banking transaction query screening conditions
+  @accountService_UAT08
+  Scenario:personal center online banking transaction query screening conditions_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When personal center online banking transaction query screening conditions
-  @accountService09
-  Scenario:personal center online banking transaction query submission time selection nearly seven days
+  @accountService_UAT09
+  Scenario:personal center online banking transaction query submission time selection nearly seven days_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When personal center online banking transaction query submission time selection nearly seven days
-  @accountService10
-  Scenario:Transaction details list query process
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click account Details to query and verify the presence of elements
-  @accountService11
-  Scenario:Transaction query page flow
-    Given logon "netSilverEnv_Kevin" on enterprise net silver
-    When click the Account details query and click the query button to query
+
 
 #    @accountServices
 #  Scenario:Authorization Center

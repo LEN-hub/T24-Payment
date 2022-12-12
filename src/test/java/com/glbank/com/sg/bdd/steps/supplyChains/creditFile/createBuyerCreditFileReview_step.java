@@ -55,7 +55,7 @@ public class createBuyerCreditFileReview_step extends ScenarioSteps {
     }
     @Step
     public void changeUserToL2Review(){
-
+        bddUtil.sleep(10);
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"http://10.26.9.74:8080/usoserver/\");");
         bddUtil.switchToNewWindow();

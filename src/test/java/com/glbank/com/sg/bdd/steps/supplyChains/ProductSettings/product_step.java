@@ -229,6 +229,7 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickBuyer() {
+        bddUtil.sleep(3);
         productPage.Buyer.click();
         bddUtil.sleep(3);
     }
@@ -414,12 +415,13 @@ public class product_step extends ScenarioSteps {
     public void clickGracePeriod(String value) {
         productPage.GracePeriod.sendKeys(value);
         productPage.setUpFee.sendKeys("5");
+//        getDriver().findElement(By.xpath("//div[@data-key='f0vilgld']//input")).sendKeys("5");
     }
 
     @Step
     public void clickConfirm() {
         productPage.Confirm.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(4);
     }
 
     @Step

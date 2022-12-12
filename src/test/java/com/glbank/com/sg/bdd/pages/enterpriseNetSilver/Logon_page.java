@@ -56,13 +56,13 @@ public class Logon_page extends PageObject {
     @FindBy(xpath = "//div[text()='Authenticate Now']")
     public WebElementFacade authenticateNowBtn;
 
-    @FindBy(xpath = "//div[text()='Original password']/following-sibling::div//input[@type='password']")
+    @FindBy(id = "oriPassword")
     public WebElementFacade originalPassword;
 
-    @FindBy(xpath = "//form[@class='el-form']/div[2]//input")
+    @FindBy(xpath = "//label[@for='passwd']/following-sibling::div//input[@id='passwd']")
     public WebElementFacade firstEnterPassword;
 
-    @FindBy(xpath = "//form[@class='el-form']/div[4]//input")
+    @FindBy(xpath = "//label[@for='confirmPasswd']/following-sibling::div//input[@id='passwd']")
     public WebElementFacade secondEnterPassword;
 
     @FindBy(xpath = "//div[contains(text(),'Changed Password')]")

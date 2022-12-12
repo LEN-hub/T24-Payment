@@ -1,11 +1,13 @@
 package com.glbank.com.sg.bdd.steps.supplyChains.RPA;
 import com.glbank.com.sg.bdd.pages.supplyChains.RPA.rpa_page;
 import com.glbank.com.sg.bdd.utils.*;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
+import java.util.List;
 import java.util.Random;
 
 import static org.junit.Assert.*;
@@ -43,6 +45,7 @@ public class rpa_steps extends ScenarioSteps {
 
     @Step
     public void clickUpload(){
+        bddUtil.sleep(3);
         rpaPage.upload.click();
     }
 
@@ -74,27 +77,59 @@ public class rpa_steps extends ScenarioSteps {
     @Step
     public void openEmailUrlTest(){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
-        System.out.println("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");
+        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
+//        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
+//        System.out.println("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");
     }
 
 
     @Step
     public void loginServiceAgreementWindow() {
-        bddUtil.sleep(10);
+        bddUtil.sleep(7);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
         rpaPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
         rpaPage.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         rpaPage.enterCompanyId.sendKeys("1234");
         rpaPage.sendCodeBtn.click();
-        bddUtil.switchToNewWindow();
+//        bddUtil.switchToNewWindow();
+//        bddUtil.sleep(3);
+//        rpaPage.clickRefreshBtn.click();
+//        bddUtil.sleep(1);
+//        rpaPage.thirdEmail.click();
+//        String Vcode = rpaPage.emailVerificationCode.getText();
+//        bddUtil.switchToWindows();
+//        rpaPage.inputSendCode.sendKeys(Vcode);
+//        新邮箱
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
+        String twoEmail = FileUtils.LastReadFileInput3("emailData").substring(0,8);
+        bddUtil.switchToWindows();
+        bddUtil.sleep(2);
+        rpaPage.selectEmailDropDown.click();
+        rpaPage.selectC0c.click();
+        rpaPage.changeSendEmail.clear();
+        bddUtil.find(By.xpath("//input[@placeholder=\"请输入邮箱账号\"]")).sendKeys(twoEmail);
+        bddUtil.sleep(2);
+        rpaPage.clickRefresh.click();
         bddUtil.sleep(3);
-        rpaPage.clickRefreshBtn.click();
+        List<WebElementFacade> selectEmail = rpaPage.emailSubject;
+        List<WebElementFacade> clickViewBtn = rpaPage.clickViewBtn;
+        for (int i = 0; i < selectEmail.size(); i++) {
+            if (selectEmail.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
+                clickViewBtn.get(i).click();
+                break;
+            }
+        }
         bddUtil.sleep(1);
-        rpaPage.thirdEmail.click();
         String Vcode = rpaPage.emailVerificationCode.getText();
+        bddUtil.sleep(2);
         bddUtil.switchToWindows();
         rpaPage.inputSendCode.sendKeys(Vcode);
         rpaPage.GLDBEmailLoginBtn.click();
+        bddUtil.sleep(5);
+//        rpaPage.inputSendCode.sendKeys("1234");
+//        rpaPage.GLDBEmailLoginBtn.click();
         bddUtil.sleep(10);
         rpaPage.Contract.click();
         assertEquals("RPA Limited Recourse",rpaPage.find(By.xpath("//td[text()='RPA Limited Recourse']")).getText());
@@ -122,7 +157,8 @@ public class rpa_steps extends ScenarioSteps {
         rpaPage.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         rpaPage.enterCompanyId.sendKeys("1234");
         rpaPage.sendCodeBtn.click();
-        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        // 换新邮箱地址了
+        /*JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
         bddUtil.switchToNewWindow();
         if (rpaPage.errorText.isVisible()){
@@ -136,6 +172,31 @@ public class rpa_steps extends ScenarioSteps {
         bddUtil.sleep(3);
         rpaPage.thirdEmail.click();
         String Vcode = rpaPage.emailVerificationCode.getText();
+        bddUtil.switchToWindows();*/
+//        新邮箱
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
+        String twoEmail = FileUtils.LastReadFileInput3("emailData").substring(0,8);
+        bddUtil.switchToWindows();
+        bddUtil.sleep(2);
+        rpaPage.selectEmailDropDown.click();
+        rpaPage.selectC0c.click();
+        rpaPage.changeSendEmail.clear();
+        bddUtil.find(By.xpath("//input[@placeholder=\"请输入邮箱账号\"]")).sendKeys(twoEmail);
+        bddUtil.sleep(2);
+        rpaPage.clickRefresh.click();
+        bddUtil.sleep(3);
+        List<WebElementFacade> selectEmail = rpaPage.emailSubject;
+        List<WebElementFacade> clickViewBtn = rpaPage.clickViewBtn;
+        for (int i = 0; i < selectEmail.size(); i++) {
+            if (selectEmail.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
+                clickViewBtn.get(i).click();
+                break;
+            }
+        }
+        bddUtil.sleep(1);
+        String Vcode = rpaPage.emailVerificationCode.getText();
+        bddUtil.sleep(2);
         bddUtil.switchToWindows();
         rpaPage.inputSendCode.sendKeys(Vcode);
         rpaPage.GLDBEmailLoginBtn.click();
