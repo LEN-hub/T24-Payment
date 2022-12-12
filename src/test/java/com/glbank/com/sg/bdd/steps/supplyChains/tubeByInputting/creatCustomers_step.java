@@ -83,6 +83,14 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void getCustomerType(String type){
+        if (type.equals("Supplier")){
+            getCustomerTypeSupplier();
+        }else if (type.equals("Buyer")){
+            getCustomerTypeBuyer();
+        }
+    }
+    @Step
     public void getCustomerTypeSupplier(){
         customers_page.customerTypeSupplier.click();
     }
