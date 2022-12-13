@@ -706,7 +706,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//input[@placeholder='Enter Company ID']")
     public WebElementFacade enterCompanyId;
 
-    @FindBy(xpath = "//span[text()='Login']")
+    @FindBy(xpath = "//span[contains(text(),'Login')]")
     public WebElementFacade GLDBEmailLoginBtn;
 
     @FindBy(xpath = "//p[text()='Set New Password']")
