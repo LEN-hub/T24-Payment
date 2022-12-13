@@ -1,7 +1,6 @@
 @tubeByInputting
 Feature: tube By Inputting
-
-
+  
 #  Scenario:Create buyer's customer file selection: operator input, operator input buyer's basic information, no need to review, create buyer's customer successfully
 #    Given logon "environments_1" on tube by inputting system
 #    When open the email browser page
