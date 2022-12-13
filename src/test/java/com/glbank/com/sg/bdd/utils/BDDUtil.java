@@ -293,24 +293,6 @@ public class BDDUtil extends PageObject {
     /** @deprecated
      * Use skipTour() method instead
      * */
-    @Deprecated
-    public void skipQuickTour(){
-        sleep(3);
-        if(containsText("Would you like a 1 minute quick tour")){
-            findAll(By.xpath("//*[text() = 'No, please skip.']")).get(1).click();
-            sleep(1);
-        }
-
-        if(containsText("Show quick tour again next time I log on")) {
-            findAll(By.xpath("//button[@data-analytics-event-content='quick tour - step 6 - complete']")).get(1).click();
-            sleep(1);
-        }
-
-        if(containsText("Quick Tour (1 of")){
-            findAll(By.xpath("//span[@translate='page overlay close']")).get(0).click();
-            sleep(1);
-        }
-    }
 
     public void selectProfile(String profileName){
         if (isMockEnv() && currentProfile.getText().split("\n")[0].equals(profileName)){
@@ -544,22 +526,6 @@ public class BDDUtil extends PageObject {
     public static Object executeJS(String code, WebDriver driver) {
          JavascriptExecutor executor = (JavascriptExecutor) driver;
          return executor.executeScript(code);
-    }
-
-    public void selectSufile() {
-        selectProfile(suprofile);
-        skipQuickTour();
-    }
-
-    public void selectPufile() {
-        selectProfile(profile);
-        skipQuickTour();
-    }
-
-
-    public void clickHome(){
-        getDriver().findElement(By.cssSelector(".icon-home")).click();
-        sleep(1);
     }
 
     public void quitDriver(){

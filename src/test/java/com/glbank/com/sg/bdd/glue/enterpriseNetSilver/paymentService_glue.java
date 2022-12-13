@@ -58,7 +58,7 @@ public class paymentService_glue {
     public void iFillInTheTransferInformationOfDomesticTransferBank(DataTable payDetails) {
         paymentService_step.transferAndRemittanceMenu();
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        paymentService_step.domesticTransfer(payToInfo.get(0).get("Payee's Bank"), payToInfo.get(0).get("Payee's Name"), payToInfo.get(0).get("Payee's Account Number"), payToInfo.get(0).get("Purpose of Transfer"), payToInfo.get(0).get("From Account"));
+        paymentService_step.domesticTransfer(payToInfo.get(0).get("Payee's Bank"), payToInfo.get(0).get("Payee's Account Number"), payToInfo.get(0).get("Purpose of Transfer"), payToInfo.get(0).get("From Account"),payToInfo.get(0).get("Payment Type"),payToInfo.get(0).get("PayNow Type"),payToInfo.get(0).get("PayNow Content"));
     }
 
 

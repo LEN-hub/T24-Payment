@@ -270,7 +270,7 @@ Feature: tube By Inputting
     Then I compare Approved Status on the page
       |Status  |
       |Approved|
-    When End the current browser process
+    When I close driver
 
     #2.simple（核心不存在、非自主、管理员）
   @simpleKYC02
@@ -317,11 +317,12 @@ Feature: tube By Inputting
     Then I compare Approved Status on the page
       |Status  |
       |Approved|
-    When End the current browser process
+    When I close driver
+
 
     #3.(1)simple（无管理员）--full（customer）
   @simpleKYC03
-  Scenario:(1) Simple (no administrator) -- full (customer)
+  Scenario:Simple (no administrator) -- full (customer)
     Given logon "environments_1" on tube by inputting system
     When I click Customers and select Onboarding List
     And I click Create Customer and fill in the supplier information in the pop-up window
@@ -382,7 +383,7 @@ Feature: tube By Inputting
       |SGD        |
     When I click next Button on the page
     When Click the Submit button on the Confirm page
-    When End the current browser process
+    When I close driver
 
 # #4.(1)simple（管理员）--full（customer）
 #  @simpleKYC04
