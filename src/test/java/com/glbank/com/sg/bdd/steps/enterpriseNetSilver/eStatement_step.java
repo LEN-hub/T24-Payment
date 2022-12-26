@@ -50,6 +50,7 @@ public class eStatement_step extends ScenarioSteps {
     }
 
     public void clickSearchBtn(){
+        bddUtil.sleep(2);
         eStatement_page.SearchBtn.click();
         bddUtil.sleep(3);
     }

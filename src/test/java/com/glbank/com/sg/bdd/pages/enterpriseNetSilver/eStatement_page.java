@@ -26,7 +26,7 @@ public class eStatement_page extends PageObject {
     @FindBy(xpath = "//ul[@class='el-scrollbar__view el-select-dropdown__list']/li")
     public List<WebElementFacade> dataList;
 
-    @FindBy(xpath = "//div[@class='el-form-item__content']//div[@class='ui-button primary common']/div")
+    @FindBy(xpath = "//div[text()='Search']")
     public WebElementFacade SearchBtn;
 
     @FindBy(xpath = "//div[@class='el-tooltip sizes-box']")

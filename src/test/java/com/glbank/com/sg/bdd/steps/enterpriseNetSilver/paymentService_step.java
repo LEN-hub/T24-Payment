@@ -580,7 +580,7 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     public void staging() {
-        accountTitleVerify();
+//        accountTitleVerify();
         paymentService_page.staging.click();
     }
 
@@ -842,7 +842,6 @@ public class paymentService_step extends ScenarioSteps {
         if (paymentService_page.popTitle.isVisible()) {
             paymentService_page.begin.click();
         }
-
     }
 
     @Step
@@ -860,6 +859,9 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.clickNextBox.click();
         paymentService_page.clickSubmitBtn.click();
         paymentService_page.getSuccessTitle.isVisible();
+    }
+
+    public void singSuccess(){
         String reference = paymentService_page.getReferenceID.getText();
         List<WebElementFacade> referenceId = paymentService_page.checkPayNowProxyID;
         for (int i = 0; i < referenceId.size(); i++) {
@@ -913,13 +915,5 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.clickNextBox.click();
         paymentService_page.clickSubmitBtn.click();
         paymentService_page.getSuccessTitle.isVisible();
-        String reference = paymentService_page.getReferenceID.getText();
-        List<WebElementFacade> referenceId = paymentService_page.checkPayNowProxyID;
-        for (int i = 0; i < referenceId.size(); i++) {
-            if (reference.equals(referenceId.get(i).getText())){
-                System.out.println("签约成功！");
-                break;
-            }
-        }
     }
 }

@@ -173,7 +173,7 @@ Feature: loan application
 #    Then I should direct to the eStatements Overview page
     When I click select box
       |select       |
-      |11020004223  |
+      |11010002449  |
     And I click search button
     Then I should see Account List
     When I click on the first data to download
@@ -430,7 +430,7 @@ Feature: loan application
     When I click on the Enterprise Administration as well user administration
     When I click on Add user
       |TimeLimit |birthday  |countries|
-      |2027-06-18|1999-05-20|+86      |
+      |2027-01-18|1999-05-20|+86      |
     When I get the OTP verification code from the server
     When fill in my email
     When I get the OTP verification code from the server

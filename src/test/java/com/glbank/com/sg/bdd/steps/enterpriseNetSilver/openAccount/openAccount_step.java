@@ -1543,7 +1543,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.clickTestBtn.click();
         mockDataResponse = openAccount_page.getResponseStatus.getText().substring(openAccount_page.getResponseStatus.getText().indexOf("state")+9).substring(0,36);
         if (url.equals("UAT")){
-            webdriver.executeScript("window.open(\"http://10.24.8.5:60006/#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
+            webdriver.executeScript("window.open(\"https://inb-uat.intranet.glbank.com/#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
         }else if (url.equals("SIT")){
             webdriver.executeScript("window.open(\"http://10.24.4.123/ent_sit/direct/index.html#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
         }

@@ -186,7 +186,7 @@ public class paymentService_glue {
     @When("^I choose to submit the transfer information$")
     public void iChooseToSubmitTheTransferInformation() {
         paymentService_step.clickNextBox();
-        paymentService_step.beginValidation();
+//        paymentService_step.beginValidation();
         paymentService_step.staging();
         paymentService_step.selectSumB();
     }
@@ -299,5 +299,10 @@ public class paymentService_glue {
     public void iSelectATimePeriodOnThePage(DataTable data) throws Exception {
         List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
         paymentService_step.timeAdjustment(payToInfo.get(0).get("date"),payToInfo.get(0).get("cycle"));
+    }
+
+    @When("^I signed on the page successfully$")
+    public void iSignedOnThePageSuccessfully() {
+        paymentService_step.singSuccess();
     }
 }

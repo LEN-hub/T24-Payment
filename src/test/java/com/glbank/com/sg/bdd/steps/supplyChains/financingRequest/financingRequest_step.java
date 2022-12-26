@@ -24,6 +24,7 @@ public class financingRequest_step extends ScenarioSteps {
     private BDDUtil bddUtil;
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/autopay/BR.jpg";
+    String upExcel = systemPath + "/src/test/resources/testData/excel/testAuto.xlsx";
     public String FinancingNo;
 
     @Step
@@ -45,7 +46,7 @@ public class financingRequest_step extends ScenarioSteps {
         ModifyExcel modifyExcel = new ModifyExcel();
         modifyExcel.excelPOI("testAuto");
         financingRequest_page.clickUpload.click();
-        getDriver().findElement(By.xpath("//div[@class='upload-widget']//input")).sendKeys("E:\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\testData\\excel\\testAuto.xlsx");
+        getDriver().findElement(By.xpath("//div[@class='upload-widget']//input")).sendKeys(upExcel);
         bddUtil.sleep(5);
         financingRequest_page.clickConfirmOfUpload.click();
         bddUtil.sleep(3);

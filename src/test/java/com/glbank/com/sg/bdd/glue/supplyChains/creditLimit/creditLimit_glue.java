@@ -180,4 +180,19 @@ public class creditLimit_glue {
     public void iOpenEmailURL() {
         creditLimit_step.loginEmailUrlTest();
     }
+
+    @And("^I click docs List button$")
+    public void iClickDocsListButton() {
+        creditLimit_step.clickDocsListBtn();
+    }
+
+    @When("^I upload Historical Documents$")
+    public void iUploadHistoricalDocuments() {
+        creditLimit_step.uploadHistoricalDocuments();
+    }
+
+    @Then("^I should see the uploaded historical documents$")
+    public void iShouldSeeTheUploadedHistoricalDocuments() {
+        creditLimit_step.assertUploadExcel();
+    }
 }
