@@ -10,6 +10,7 @@ import cucumber.api.java.en.Given;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import javax.xml.crypto.Data;
 import java.awt.*;
@@ -115,8 +116,8 @@ public class Logon_glue {
             logon_step.enter_email_into_box(envName);
             logon_step.enter_password_into_box(envName);
             logon_step.clickLogonBtn();
-//            logon_step.clickNextBtn();
-//            logon_step.clickSitEnvOtpBtn();
+            logon_step.clickNextBtn();
+            logon_step.clickSitEnvOtpBtn();
         }
     }
 

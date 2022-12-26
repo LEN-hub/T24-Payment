@@ -197,7 +197,7 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     @Step
-    public void domesticTransfer(String bankName, String accountName, String paymentAccount,  String tradeAmountSelect,String paymentInformation){
+    public void domesticTransfer(String bankName, String paymentAccount, String tradeAmountSelect, String paymentInformation, String PaymentType, String PayNowType, String PayNowContent){
         paymentService_page.domesticTransfer.click();
         CommonUtil.waiting(2000);
         paymentService_page.clickPopupbtn.click();
@@ -222,20 +222,41 @@ public class paymentService_step extends ScenarioSteps {
 //        paymentService_page.paymentAccount.sendKeys(paymentAccount);
         //paynow
 //        paymentService_page.selectPaymentTypeMEPS.click();
-        paymentService_page.clickPaymentTypeMEPS.click();
-        paymentService_page.payeeBankSelect.click();
-        List<WebElementFacade> payeeBank = paymentService_page.selectPayeeBankText;
-        for (int i = 0; i < payeeBank.size(); i++) {
-            if (payeeBank.get(i).getText().equals(bankName)){
-                payeeBank.get(i).click();
-                break;
+        if (PaymentType.equals("FAST")){
+            paymentService_page.clickPaymentTypeFast.click();
+        }else if (PaymentType.equals("MEPS")){
+            paymentService_page.clickPaymentTypeMEPS.click();
+        }else if(PaymentType.equals("PayNow")){
+            paymentService_page.clickPaymentTypePayNow.click();
+            if (PayNowType.equals("UEN")){
+                paymentService_page.clickPayNowTypeUEN.click();
+                paymentService_page.enterPayeeAcctNo.sendKeys(PayNowContent);
+            }else if(PayNowType.equals("VPA")){
+                paymentService_page.clickPayNowTypeVPA.click();
+                paymentService_page.enterPayeeAcctNo.sendKeys(PayNowContent);
+            }else if(PayNowType.equals("NRIC")){
+                paymentService_page.clickPayNowTypeNRIC.click();
+                paymentService_page.enterPayeeAcctNo.sendKeys(PayNowContent);
+            }else if(PayNowType.equals("Mobile Number")){
+                paymentService_page.clickPayNowTypeMobileNum.click();
+                paymentService_page.enterMobileNum2.sendKeys(PayNowContent);
             }
         }
-        paymentService_page.payeeNameInput.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-        paymentService_page.payeeAccountNum.sendKeys(paymentAccount);
+        if (!PaymentType.equals("PayNow")){
+            paymentService_page.payeeBankSelect.click();
+            List<WebElementFacade> payeeBank = paymentService_page.selectPayeeBankText;
+            for (int i = 0; i < payeeBank.size(); i++) {
+                if (payeeBank.get(i).getText().equals(bankName)){
+                    payeeBank.get(i).click();
+                    break;
+                }
+            }
+            paymentService_page.payeeNameInput.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+            paymentService_page.payeeAccountNum.sendKeys(paymentAccount);
+        }
+        //截止代码
         paymentService_page.transferAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
-        //截止代码
         paymentService_page.tradeAmountPopWindows.click();
         bddUtil.sleep(3);
         List<WebElementFacade> selectTradeAmount = paymentService_page.tradeAmountSelectFirst;

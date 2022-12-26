@@ -23,6 +23,7 @@ public class logon_glue {
         envTag = envName;
         if (!envName.isEmpty()) {
             login_uso_step.open_the_first_dbb_logon_page(envName);
+            bddUtil.sleep(5);
             login_uso_step.enter_username_into_box(envName);
             login_uso_step.enter_password_into_box(envName);
             login_uso_step.click_login_btn();

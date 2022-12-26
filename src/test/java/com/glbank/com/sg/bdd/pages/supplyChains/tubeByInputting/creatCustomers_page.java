@@ -346,7 +346,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody//td[10]//span[contains(text(),'Proceed')]")
     public List<WebElementFacade> clickProceedBtn;
 
-    @FindBy(xpath = "//label[@for='auditState']/following-sibling::div//span[@class='lls-input__suffix-inner']")
+    @FindBy(xpath = "//label[@for='auditState']/following-sibling::div//i")
     public WebElementFacade clickResultDownDrop;
 
     @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//span")
@@ -712,7 +712,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//input[@placeholder='Enter Company ID']")
     public WebElementFacade enterCompanyId;
 
-    @FindBy(xpath = "//span[text()='Login']")
+    @FindBy(xpath = "//span[contains(text(),'Login')]")
     public WebElementFacade GLDBEmailLoginBtn;
 
     @FindBy(xpath = "//p[text()='Set New Password']")

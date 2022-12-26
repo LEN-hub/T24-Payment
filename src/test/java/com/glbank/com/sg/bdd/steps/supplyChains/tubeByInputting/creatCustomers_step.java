@@ -51,6 +51,7 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     public void uploadSingBR(){
+        bddUtil.sleep(5);
         customers_page.uploadSingBR.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         customers_page.clickContractType.click();
         bddUtil.sleep(5);
@@ -81,6 +82,14 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.customerTypeBuyer.click();
     }
 
+    @Step
+    public void getCustomerType(String type){
+        if (type.equals("Supplier")){
+            getCustomerTypeSupplier();
+        }else if (type.equals("Buyer")){
+            getCustomerTypeBuyer();
+        }
+    }
     @Step
     public void getCustomerTypeSupplier(){
         customers_page.customerTypeSupplier.click();
@@ -555,6 +564,12 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.sleep(3);
         customers_page.clickConfirmBtnOnGLDB.click();
         bddUtil.sleep(10);
+    }
+
+    public void clickSubmitButtonFullKycTransferSimpleKyc(){
+        bddUtil.sleep(3);
+        customers_page.clickSubmitBtnOnGLDB.click();
+        bddUtil.sleep(3);
     }
 
     @Step
@@ -1353,6 +1368,7 @@ public class creatCustomers_step extends ScenarioSteps {
         }
         customers_page.clickSecondAccountName.click();
         customers_page.clickFirstCheckBox.click();
+        bddUtil.scrollWindowToElement(customers_page.clickSecondCheckBox);
         customers_page.clickSecondCheckBox.click();
         customers_page.clickSecondQuestionDownDrop.click();
         List<WebElementFacade> selectSecondQuestion = customers_page.selectCurrency;
@@ -1372,6 +1388,7 @@ public class creatCustomers_step extends ScenarioSteps {
                 break;
             }
         }
+        bddUtil.scrollWindowToElement(customers_page.clickFourQuestionCheckBox);
         customers_page.clickFourQuestionCheckBox.click();
         customers_page.clickFiveQuestionCheckBox.click();
         getDriver().findElement(By.xpath("//span[text()='Browse']/parent::div/parent::div/following-sibling::input")).sendKeys(fileAddress);
