@@ -154,7 +154,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//button[text()=' 设邮箱']")
     public WebElementFacade emailAddress;
 
-    @FindBy(xpath = "//span[text()=' 刷新 ']")
+    @FindBy(xpath = "//i[@id='refreshShortid']")
     public WebElementFacade clickRefresh;
 
     @FindBy(xpath = "//span[text()='查看']")
@@ -165,6 +165,12 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//table[@class='el-table__body']/tbody/tr//span[text()='查看']")
     public List<WebElementFacade> clickViewBtn;
+
+    @FindBy(xpath = "//td[text()='Green Link Digital Bank - Verification Code']")
+    public WebElementFacade selectCodeEamil;
+
+    @FindBy(xpath = "//td[text()='Green Link Digital Bank - Verification Code']")
+    public List<WebElementFacade> selectFirstCode;
 
     @FindBy(xpath = "//div[@id= 'message']")
     public WebElementFacade emailMessage;
@@ -634,7 +640,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-message-box__wrapper']//span[contains(text(), 'Confirm')]")
     public WebElementFacade confirmBtn;
 
-    @FindBy(xpath = "//tbody[@id=\"convertd\"]//td[1]")
+    @FindBy(xpath = "//div[text()='Green Link Digital Bank - Invitation']")
     public WebElementFacade firstEmail;
 
     @FindBy(xpath = "//a[text()=' SCF portal ']")

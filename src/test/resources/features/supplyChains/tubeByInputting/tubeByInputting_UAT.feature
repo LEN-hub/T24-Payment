@@ -1,6 +1,6 @@
 @tubeByInputting
 Feature: tube By Inputting
-  
+
 #  Scenario:Create buyer's customer file selection: operator input, operator input buyer's basic information, no need to review, create buyer's customer successfully
 #    Given logon "environments_1" on tube by inputting system
 #    When open the email browser page
@@ -246,8 +246,8 @@ Feature: tube By Inputting
 
   #1.simple（核心不存在、非自主、无管理员）
   @simpleKYC01
-  Scenario:Simple (core does not exist, non autonomous, no administrator)
-    Given logon "environments_1" on tube by inputting system
+  Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account Simple KYC No Administrator
+    Given logon "scf_environments_1_tian" on tube by inputting system
     When I click Customers and select Onboarding List
     And I click Create Customer and fill in the supplier information in the pop-up window
       |KYC Mode    |Input by|Customer Type|
@@ -261,7 +261,7 @@ Feature: tube By Inputting
       |Result |
       |Approve|
     When I close driver
-    Given logon "environments_2" on tube by inputting system
+    Given logon "scf_environments_2_tian" on tube by inputting system
     When I authorize on the Onboarding Review page
       |Result |
       |Approve|
@@ -273,8 +273,8 @@ Feature: tube By Inputting
 
     #2.simple（核心不存在、非自主、管理员）
   @simpleKYC02
-  Scenario: Simple (non-existent core, non autonomous, administrator)
-    Given logon "environments_1" on tube by inputting system
+  Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account Simple KYC
+    Given logon "scf_environments_1_tian" on tube by inputting system
     When I click Customers and select Onboarding List
     And I click Create Customer and fill in the supplier information in the pop-up window
       |KYC Mode    |Input by|Customer Type|
@@ -288,7 +288,7 @@ Feature: tube By Inputting
       |Result |
       |Approve|
     When I close driver
-    Given logon "environments_2" on tube by inputting system
+    Given logon "scf_environments_2_tian" on tube by inputting system
     When I authorize on the Onboarding Review page
       |Result |
       |Approve|
@@ -311,7 +311,7 @@ Feature: tube By Inputting
     When I click agree Service Agreement on simple KYC
     When I click the Confirmation Information button on the page
     When I close driver
-    Given logon "environments_2" on tube by inputting system
+    Given logon "scf_environments_2_tian" on tube by inputting system
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
       |Status  |

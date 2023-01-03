@@ -332,6 +332,7 @@ public class creatCustomers_step extends ScenarioSteps {
 //        customers_page.scfLink.click();
         customers_page.GLDBEmailInput.sendKeys(username);
         customers_page.GLDBEmailPassword.sendKeys(password);
+        bddUtil.sleep(2);
         customers_page.sendCodeBtn.click();
     } @Step
     public void selectFirstEmailAndTakeVCodeOnSitEvn(){
@@ -379,14 +380,7 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.sleep(3);
         customers_page.clickRefresh.click();
         bddUtil.sleep(1);
-        List<WebElementFacade> selectEmail = customers_page.emailSubject;
-        List<WebElementFacade> clickViewBtn = customers_page.clickViewBtn;
-        for (int i = 0; i < selectEmail.size(); i++) {
-            if (selectEmail.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
-                clickViewBtn.get(i).click();
-                break;
-            }
-        }
+        bddUtil.scrollWindowToElement(customers_page.selectCodeEamil).click();
         bddUtil.sleep(2);
         String verificationCode = customers_page.emailVerificationCode.getText();
         bddUtil.switchToWindows();
@@ -416,23 +410,22 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.GLDBEmailPassword.sendKeys(password);
         customers_page.enterCompanyId.clear();
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        bddUtil.switchToNewWindow();
+        customers_page.clickEditEmailName.click();
+        bddUtil.sleep(3);
+        customers_page.sendKeysEmailName.clear();
+        customers_page.sendKeysEmailName.sendKeys(FileUtils.LastReadFileInput3("emailData").substring(0,8));
+        customers_page.clickEditEmailName.click();
+        bddUtil.sleep(5);
+        bddUtil.switchToNewWindow();
         customers_page.sendCodeBtn.click();
+        bddUtil.sleep(3);
         bddUtil.switchToNewWindow();
         bddUtil.sleep(5);
-        customers_page.clickCloseEmailBtn.click();
-        customers_page.clickRefresh.click();
-        bddUtil.sleep(2);
-        customers_page.clickRefresh.click();
-        bddUtil.sleep(2);
-        List<WebElementFacade> selectEmail = customers_page.emailSubject;
-        List<WebElementFacade> clickViewBtn = customers_page.clickViewBtn;
-        for (int i = 0; i < selectEmail.size(); i++) {
-            if (selectEmail.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
-                clickViewBtn.get(i).click();
-                break;
-            }
-        }
-        bddUtil.sleep(1);
+//        customers_page.clickRefresh.click();
+//        bddUtil.scrollWindowToElement(customers_page.selectCodeEamil).click();
+        bddUtil.scrollWindowToElement(customers_page.selectFirstCode.get(0)).click();
+        bddUtil.sleep(3);
 //        customers_page.find(By.xpath("//div[@id='message-list']/button[1]")).click();
         String Vcode = customers_page.emailVerificationCode.getText();
         bddUtil.switchToWindows();
@@ -529,8 +522,8 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.selectCountry.click();
         customers_page.businessAddress.clear();
         customers_page.businessAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-//        customers_page.industry.click();
-//        bddUtil.scrollWindowToElement(customers_page.selectIndustry).click();
+        customers_page.industry.click();
+        bddUtil.scrollWindowToElement(customers_page.selectIndustry).click();
         customers_page.legalStructure.click();
         bddUtil.scrollWindowToElement(customers_page.selectLegalStructure).click();
         customers_page.isNonProfitYes.click();
