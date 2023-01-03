@@ -20,6 +20,9 @@ public class Logon_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-row']/following-sibling::div//div[@class='btn_box']")
     public WebElementFacade logonBtn;
 
+    @FindBy(xpath = "//div[@class='ui-dialog notice-dialog']/div[2]//div[@class='el-dialog']//div[text()='Ok']")
+    public WebElementFacade clickOkBtnOnTitle;
+
     @FindBy(xpath = "//div[text()='Send verification code']")
     public WebElementFacade clickSitEnvOtpBtn;
 
@@ -34,6 +37,9 @@ public class Logon_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='ui-button primary common is-block']/div")
     public WebElementFacade nextBtn;
+
+    @FindBy(xpath = "//div[@class='risk-body']/div[2]//div[text()='Next']")
+    public WebElementFacade clickSitNextBtn;
 
     @FindBy(xpath = "//div[@class='OTP-One-Time-Passwo']/following-sibling::div/span[1]")
     public WebElementFacade vcode1;
@@ -76,6 +82,33 @@ public class Logon_page extends PageObject {
 
     @FindBy(xpath = "//li[contains(text(),'中文')]")
     public WebElementFacade selectChinese;
+
+    @FindBy(id = "userAccout")
+    public WebElementFacade enterUserName;
+
+    @FindBy(xpath = "//div[@class='lls-login-box']/div[1]//input[@type='password']")
+    public WebElementFacade enterPassword;
+
+    @FindBy(xpath = "//div[@class='lls-login-box']/div[1]//input[@placeholder='请输入验证码']")
+    public WebElementFacade enterVerificationCode;
+
+    @FindBy(xpath = "//div[@class='lls-login-box']/div[1]/div[8]")
+    public WebElementFacade clickLoginBtn;
+
+    public void scfSitEenUserName(String userName){
+        withTimeoutOf(10,SECONDS)
+                .waitFor(enterUserName)
+                .waitUntilVisible()
+                .sendKeys(userName);
+    }
+
+    public void scfSitEenPassword(String userName){
+        withTimeoutOf(10,SECONDS)
+                .waitFor(enterPassword)
+                .waitUntilVisible()
+                .sendKeys(userName);
+    }
+
 
     public void enterOrganisationID(String userName){
         withTimeoutOf(10,SECONDS)

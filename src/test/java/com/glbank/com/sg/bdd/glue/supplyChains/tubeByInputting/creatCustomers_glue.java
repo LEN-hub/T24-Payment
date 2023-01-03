@@ -590,4 +590,19 @@ public class creatCustomers_glue {
     public void clickTheSubmitButtonOnTheConfirmPageFullKYC() {
         customers_step.clickSubmitButtonFullKycTransferSimpleKyc();
     }
+
+    @When("^Open the myinfo page and process the business process$")
+    public void openTheMyinfoPageAndProcessTheBusinessProcess() {
+        customers_step.enterMyinfoInfomation();
+    }
+
+    @When("^I receive mail in my mailbox on scf sit env$")
+    public void iReceiveMailInMyMailboxOnScfSitEnv() {
+        customers_step.selectFirstEmailAndTakeVCodeOnSitEvn();
+    }
+
+    @When("^I get username and password in the email scf sit env$")
+    public void iGetUsernameAndPasswordInTheEmailScfSitEnv() {
+        customers_step.iGetUsernameAndPasswordInTheEmailScfSitEnv();
+    }
 }

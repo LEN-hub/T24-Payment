@@ -334,12 +334,40 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.GLDBEmailPassword.sendKeys(password);
         bddUtil.sleep(2);
         customers_page.sendCodeBtn.click();
+    } @Step
+    public void selectFirstEmailAndTakeVCodeOnSitEvn(){
+        username = bddUtil.scrollWindowToElement(customers_page.userName).getText();
+        password = bddUtil.scrollWindowToElement(customers_page.passWord).getText();
+//        cuString stomers_page.scfLink.isVisible();
+        CommonUtil.waiting(2000);
+//        邮箱链接暂时失效，需要手动打开。
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"http://10.24.7.8:8080/\");");
+        bddUtil.sleep(5);
+        bddUtil.switchToWindows();
+//        customers_page.scfLink.click();
+        customers_page.GLDBEmailInput.sendKeys(username);
+        customers_page.GLDBEmailPassword.sendKeys(password);
+        customers_page.sendCodeBtn.click();
     }
     public void iGetUsernameAndPasswordInTheEmail(){
         CommonUtil.waiting(2000);
 //        邮箱链接暂时失效，需要手动打开。
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"http://10.24.9.126:8080/#/login\");");
+        bddUtil.sleep(5);
+        bddUtil.switchToWindows();
+//        customers_page.scfLink.click();
+        customers_page.GLDBEmailInput.sendKeys(username);
+        customers_page.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
+        customers_page.sendCodeBtn.click();
+    }
+
+    public void iGetUsernameAndPasswordInTheEmailScfSitEnv(){
+        CommonUtil.waiting(2000);
+//        邮箱链接暂时失效，需要手动打开。
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"http://10.24.7.8:8080/\");");
         bddUtil.sleep(5);
         bddUtil.switchToWindows();
 //        customers_page.scfLink.click();
@@ -561,7 +589,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public void clickSubmitBtnOnGLDB(){
         bddUtil.sleep(3);
         customers_page.clickSubmitBtnOnGLDB.click();
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
         customers_page.clickConfirmBtnOnGLDB.click();
         bddUtil.sleep(10);
     }
@@ -1104,6 +1132,13 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.enterCity2SimpleKYC.sendKeys("beijing");
         customers_page.getClickSaveBtn.click();
         bddUtil.sleep(10);
+        if(customers_page.clickBackButton.isVisible()){
+            customers_page.clickBackButton.click();
+            customers_page.sendKeysCompanyNameOnOnboardingList.clear();
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+            customers_page.clickStatusOnOnboardingList.click();
+        }
+        bddUtil.sleep(5);
         customers_page.clickSubmitSimpleKYC.click();
         customers_page.clickComfirmBtnSimpleKYC.click();
     }
@@ -1125,6 +1160,13 @@ public class creatCustomers_step extends ScenarioSteps {
         getDriver().findElement(By.xpath("//label[@for='A0030']/following-sibling::div//input")).sendKeys(fileAddress);
         customers_page.getClickSaveBtn.click();
         bddUtil.sleep(20);
+        if(customers_page.clickBackButton.isVisible()){
+            customers_page.clickBackButton.click();
+            customers_page.sendKeysCompanyNameOnOnboardingList.clear();
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+            customers_page.clickStatusOnOnboardingList.click();
+        }
+        bddUtil.sleep(5);
         customers_page.clickSubmitSimpleKYC.click();
         customers_page.clickComfirmBtnSimpleKYC.click();
     }
@@ -1150,7 +1192,7 @@ public class creatCustomers_step extends ScenarioSteps {
                 break;
             }
         }
-        bddUtil.sleep(20);
+        bddUtil.sleep(25);
         customers_page.clickResultDownDrop.click();
         List<WebElementFacade> enterResult = customers_page.selectResult;
         for (int k = 0; k < enterResult.size(); k++){
@@ -1393,5 +1435,121 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickFiveQuestionCheckBox.click();
         getDriver().findElement(By.xpath("//span[text()='Browse']/parent::div/parent::div/following-sibling::input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
+    }
+
+    private static String MyinfoData = "{\n" +
+            " \"uinfin\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"S9812353I\"\n" +
+            " },\n" +
+            " \"name\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"SONG CHIN YONG\"\n" +
+            " },\n" +
+            " \"aliasname\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"\"\n" +
+            " },\n" +
+            " \"hanyupinyinaliasname\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"\"\n" +
+            " },\n" +
+            " \"hanyupinyinname\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"SONG ZHENYANG\"\n" +
+            " },\n" +
+            " \"sex\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"code\": \"M\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"desc\": \"MALE\"\n" +
+            " },\n" +
+            " \"regadd\": {\n" +
+            "  \"country\": {\n" +
+            "   \"code\": \"SG\",\n" +
+            "   \"desc\": \"SINGAPORE\"\n" +
+            "  },\n" +
+            "  \"unit\": {\n" +
+            "   \"value\": \"192\"\n" +
+            "  },\n" +
+            "  \"street\": {\n" +
+            "   \"value\": \"TELOK BLANGAH STREET 31\"\n" +
+            "  },\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"block\": {\n" +
+            "   \"value\": \"92b\"\n" +
+            "  },\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"postal\": {\n" +
+            "   \"value\": \"101092\"\n" +
+            "  },\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"floor\": {\n" +
+            "   \"value\": \"12\"\n" +
+            "  },\n" +
+            "  \"type\": \"SG\",\n" +
+            "  \"building\": {\n" +
+            "   \"value\": \"TELOK BLANGAH PARCVIEW\"\n" +
+            "  }\n" +
+            " },\n" +
+            " \"mobileno\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"4\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"areacode\": {\n" +
+            "   \"value\": \"65\"\n" +
+            "  },\n" +
+            "  \"prefix\": {\n" +
+            "   \"value\": \"+\"\n" +
+            "  },\n" +
+            "  \"nbr\": {\n" +
+            "   \"value\": \"97399245\"\n" +
+            "  }\n" +
+            " },\n" +
+            " \"email\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"4\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"myinfotesting@gmail.com\"\n" +
+            " },\n" +
+            " \"nationality\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"code\": \"SG\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"desc\": \"SINGAPORE CITIZEN\"\n" +
+            " },\n" +
+            " \"dob\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"1988-10-06\"\n" +
+            " }\n" +
+            "}";
+
+    public void enterMyinfoInfomation(){
+        bddUtil.switchToNewWindow();
+        bddUtil.scrollWindowToElement(customers_page.clickFirstEmailName).click();
+        bddUtil.scrollWindowToElement(customers_page.clickmyinfoInternetButton).click();
+        bddUtil.switchToWindows();
+        String url = getDriver().getCurrentUrl();
+        String url2 = url.substring(0, url.indexOf("?"));
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"http://10.24.7.8:8080/#/myInfoCallBack?"+url.substring(url2.length() + 1, url.length())+"\");");
+        bddUtil.switchToNewWindow();
+        customers_page.clickUploadJson.click();
+        customers_page.enterJsonInfomation.sendKeys(MyinfoData);
+        customers_page.getClickConfirmBtn.click();
     }
 }

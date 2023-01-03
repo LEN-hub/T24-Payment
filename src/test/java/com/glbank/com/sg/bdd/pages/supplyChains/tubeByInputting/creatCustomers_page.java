@@ -673,6 +673,18 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//tbody[@id='maillist']/tr[1]/td[1]")
     public WebElementFacade clickFirstEmailName;
 
+    @FindBy(xpath = "//button[text()='Acquire from Myinfo']")
+    public WebElementFacade clickmyinfoInternetButton;
+
+    @FindBy(xpath = "//span[contains(text(),'Upload JSON')]")
+    public WebElementFacade clickUploadJson;
+
+    @FindBy(xpath = "//div[@class='lls-textarea']/textarea")
+    public WebElementFacade enterJsonInfomation;
+
+    @FindBy(xpath = "//span[text()='Confirm']")
+    public WebElementFacade getClickConfirmBtn;
+
     @FindBy(xpath = "//div[@id='message-content']/p")
     public WebElementFacade emailPageContent;
 
