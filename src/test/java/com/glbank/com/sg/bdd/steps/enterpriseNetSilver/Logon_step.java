@@ -5,10 +5,16 @@ import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.Logon_page;
 import com.glbank.com.sg.bdd.utils.*;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import redis.clients.jedis.Jedis;
 
 import java.awt.*;
 import java.net.MalformedURLException;
+import java.util.Set;
+
+import static com.glbank.com.sg.bdd.utils.RedisUtil.cli_single;
 
 public class Logon_step extends ScenarioSteps {
     private Logon_page logonPage;
@@ -19,6 +25,9 @@ public class Logon_step extends ScenarioSteps {
     public static String deviceName;
     public static String newPassword;
     public static String loginOtp;
+    public static String scfSitPassWord;
+    public static String scfSitUserName;
+    public static String cookie;
 
     @Step
     public void open_the_first_dbb_logon_page(String envName) {
@@ -73,6 +82,11 @@ public class Logon_step extends ScenarioSteps {
     }
 
     @Step
+    public void clickOkBtnOnTitle(){
+        logonPage.clickOkBtnOnTitle.click();
+    }
+
+    @Step
     public void clickSitEnvOtpBtn(){
         logonPage.clickSitEnvOtpBtn.click();
         bddUtil.sleep(2);
@@ -91,6 +105,11 @@ public class Logon_step extends ScenarioSteps {
     @Step
     public void clickNextBtn(){
         logonPage.nextBtn.click();
+    }
+
+    @Step
+    public void clickSitNextBtn(){
+        logonPage.clickSitNextBtn.click();
     }
 
     @Step
@@ -181,6 +200,45 @@ public class Logon_step extends ScenarioSteps {
     public static void quitAndroidDriver(){
         MobileConfig test = new MobileConfig();
         test.quitAndroid();
+    }
+
+    @Step
+    public String scfSitEnvLogin(){
+        WebDriver.Options manage = getDriver().manage();
+        Set<Cookie> cookies = manage.getCookies();
+        for (Cookie c: cookies){
+            if (c.getName().equals("CAPTCHAID")) {
+                cookie = c.getValue();
+                System.out.println(c.getValue());
+            }
+        }
+        //ip地址，端口号
+        Jedis jedis = cli_single("10.28.7.48", 6379);
+        jedis.auth("Asdf1234");
+        System.out.println("redis连接成功");
+        jedis.select(80);
+        String value = jedis.get(cookie);
+        String value2 = value.replaceAll("\"","");
+        System.out.println(value2);
+        jedis.close();
+        return value2;
+    }
+    @Step
+    public String enter_scf_sit_userName_into_box(String envName) {
+        scfSitUserName = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".username");
+        logonPage.scfSitEenUserName(scfSitUserName);
+        return password;
+    }
+
+    @Step
+    public String enter_scf_sit_password_into_box(String envName) {
+        scfSitPassWord = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".password");
+        logonPage.scfSitEenPassword(scfSitPassWord);
+        return password;
+    }
+    public void getRedisCodeEnterScfSitEnvPage(){
+        logonPage.enterVerificationCode.sendKeys(scfSitEnvLogin());
+        logonPage.clickLoginBtn.click();
     }
 
 }

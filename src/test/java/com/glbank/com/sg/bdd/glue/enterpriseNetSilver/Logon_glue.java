@@ -112,11 +112,12 @@ public class Logon_glue {
         bddUtil.sleep(10);
         if (!envName.isEmpty()) {
             logon_step.open_the_first_dbb_logon_page(envName);
+            logon_step.clickOkBtnOnTitle();
             logon_step.enter_OrganisationID_into_box(envName);
             logon_step.enter_email_into_box(envName);
             logon_step.enter_password_into_box(envName);
             logon_step.clickLogonBtn();
-            logon_step.clickNextBtn();
+            logon_step.clickSitNextBtn();
             logon_step.clickSitEnvOtpBtn();
         }
     }
@@ -134,6 +135,19 @@ public class Logon_glue {
             logon_step.clickLogonBtn();
 //            logon_step.clickNextBtn();
 //            logon_step.clickSitEnvOtpBtn();
+        }
+    }
+
+    @Given("^logon \"([^\"]*)\" on sit tube by inputting system$")
+    public void logonOnSitTubeByInputtingSystem(String envName) {
+        bddUtil.getDriver().quit();
+        envTag = envName;
+        bddUtil.sleep(10);
+        if (!envName.isEmpty()) {
+            logon_step.open_the_first_dbb_logon_page(envName);
+            logon_step.enter_scf_sit_userName_into_box(envName);
+            logon_step.enter_scf_sit_password_into_box(envName);
+            logon_step.getRedisCodeEnterScfSitEnvPage();
         }
     }
 }
