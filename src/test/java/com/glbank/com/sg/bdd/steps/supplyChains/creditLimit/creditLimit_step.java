@@ -4,6 +4,7 @@ import com.glbank.com.sg.bdd.pages.supplyChains.creditLimit.creditLimit_page;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import com.glbank.com.sg.bdd.utils.FileUtils;
 import com.glbank.com.sg.bdd.utils.RandomPhoneNumber;
+import com.glbank.com.sg.bdd.utils.historyExcel;
 import net.thucydides.core.steps.ScenarioSteps;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
@@ -20,6 +21,7 @@ public class creditLimit_step extends ScenarioSteps {
     public static String envTag;
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/autopay/BR.jpg";
+    String uploadExcel = systemPath + "/src/test/resources/testData/excel/HistoricalExcel.xlsx";
     @Step
     public void clickUnderWritingAndApproval(){
         creditLimit_page.underWriting.click();
@@ -572,5 +574,30 @@ public class creditLimit_step extends ScenarioSteps {
                 break;
             }
         }
+    }
+
+    public void clickDocsListBtn(){
+        creditLimit_page.docsList.click();
+        bddUtil.sleep(2);
+    }
+
+    public void uploadHistoricalDocuments(){
+        historyExcel historyExcel = new historyExcel();
+        historyExcel.excelPOI("HistoricalExcel");
+        creditLimit_page.uploadHistorical.click();
+        bddUtil.sleep(2);
+//        creditLimit_page.uploadInput.sendKeys(uploadExcel);    //上传文件 只能用getDriver上传
+        getDriver().findElement(By.xpath("//div[@class='upload-widget']//input")).sendKeys(uploadExcel);
+        bddUtil.sleep(2);
+        creditLimit_page.cfmbtn.click();
+        bddUtil.sleep(3);
+    }
+
+    public void assertUploadExcel(){
+//        creditLimit_page.inputSupplier.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+//        bddUtil.sleep(1);
+        creditLimit_page.clickOther.click();
+        bddUtil.sleep(3);
+
     }
 }

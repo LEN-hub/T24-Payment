@@ -117,9 +117,14 @@ Scenario:The operator initiates the supplier's credit, the whole process is appr
     When I to sign
 
 
-
-
-
+#    上传历史单据
+@UploadHistoricalDocuments
+  Scenario:Upload historical documents
+    Given logon "scf_environments_1_tian" on tube by inputting system
+    When I click Operations button
+    And I click docs List button
+    When I upload Historical Documents
+    Then I should see the uploaded historical documents
 
 
 

@@ -217,14 +217,16 @@ public class product_step extends ScenarioSteps {
     @Step
     public void SupplierKey() {
         bddUtil.sleep(1);
-        List<WebElementFacade> textValue = productPage.supplierSelectList;
-        for (int i = 0; i < textValue.size(); i++) {
-            if (FileUtils.LastReadFileInput3("companyData").equals(textValue.get(i).getText())) {
-                bddUtil.scrollWindowToElement(textValue.get(i)).click();
-                break;
-            }
-        }
-
+//        List<WebElementFacade> textValue = productPage.supplierSelectList;
+//        for (int i = 0; i < textValue.size(); i++) {
+//            if (FileUtils.LastReadFileInput3("companyData").equals(textValue.get(i).getText())) {
+//                bddUtil.scrollWindowToElement(textValue.get(i)).click();
+//                break;
+//            }
+//        }
+        String supplierName = FileUtils.LastReadFileInput3("companyData");
+        bddUtil.scrollWindowToElement(productPage.find(By.xpath("//div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='"+supplierName+"']"))).click();
+        bddUtil.sleep(1);
     }
 
     @Step
@@ -237,13 +239,16 @@ public class product_step extends ScenarioSteps {
     @Step
     public void clickBuyerKey() {
         bddUtil.sleep(1);
-        List<WebElementFacade> textValue = productPage.BuyerSelectList;
-        for (int i = 0; i < textValue.size(); i++) {
-            if (FileUtils.LastReadFileInput3("buyer").equals(textValue.get(i).getText())) {
-                bddUtil.scrollWindowToElement(textValue.get(i)).click();
-                break;
-            }
-        }
+//        List<WebElementFacade> textValue = productPage.BuyerSelectList;
+//        for (int i = 0; i < textValue.size(); i++) {
+//            if (FileUtils.LastReadFileInput3("buyer").equals(textValue.get(i).getText())) {
+//                bddUtil.scrollWindowToElement(textValue.get(i)).click();
+//                break;
+//            }
+//        }
+        String buyerName = FileUtils.LastReadFileInput3("buyer");
+        bddUtil.scrollWindowToElement(productPage.find(By.xpath("//div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='"+buyerName+"']"))).click();
+        bddUtil.sleep(1);
     }
 
 

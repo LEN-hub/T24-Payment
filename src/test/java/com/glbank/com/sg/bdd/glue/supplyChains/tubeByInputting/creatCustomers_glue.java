@@ -127,8 +127,8 @@ public class creatCustomers_glue {
         System.out.println("---------------第一个邮箱地址："+ mailName + "@ihotmails.com"+"----------------------");
         customers_step.phoneNumberFirst();
         customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
-        customers_step.getEmailSecondInput(mailName1+ "@ihotmails.com");
-        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@ihotmails.com"+"----------------------");
+        customers_step.getEmailSecondInput(mailName+"2"+ "@ihotmails.com");
+        System.out.println("---------------第二个邮箱地址："+ mailName+"2" + "@ihotmails.com"+"----------------------");
         customers_step.getMobileInput();
 //        customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
 //
@@ -235,10 +235,11 @@ public class creatCustomers_glue {
 
     @And("^I went back to the email page to get the verification code$")
     public void iWentBackToTheEmailPageToGetTheVerificationCode() {
-        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
+        //换新邮箱地址。
+//        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+//        webdriver.executeScript("window.open(\"https://ihotmails.com/\");");
         bddUtil.switchToNewWindow();
-        customers_step.emailOperation(mailName);
+//        customers_step.emailOperation(mailName);
         customers_step.thirdEmail();
     }
 
