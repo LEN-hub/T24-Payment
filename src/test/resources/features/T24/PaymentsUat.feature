@@ -285,7 +285,7 @@ Feature: receipt and payment service
       |667812798             |lucky       |
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBSSSGS0VEC     |
+      |DBSSSGS0DOD     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
