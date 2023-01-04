@@ -154,6 +154,7 @@ public class relationship_step extends ScenarioSteps {
         relationship_page.companyNameSelectCheckBox.click();
         String buyerName = FileUtils.LastReadFileInput3("buyer");
         bddUtil.sleep(2);
+        relationship_page.inputCompanyName.sendKeys(buyerName);
         bddUtil.clickByJS(relationship_page.find(By.xpath("//span[text()='"+buyerName+"']")));
 //        bddUtil.find(By.xpath("//span[text()='"+buyerName+"']")).click();
         relationship_page.confirmBtn.click();
@@ -227,6 +228,7 @@ public class relationship_step extends ScenarioSteps {
         relationship_page.inputCounterName.click();
 //        String rtn = FileUtils.FileInput3("companyData");
         String companyDataName = FileUtils.LastReadFileInput3("companyData");
+        relationship_page.inputCompanyName.sendKeys(companyDataName);
         bddUtil.clickByJS(relationship_page.find(By.xpath("//span[text()='"+companyDataName+"']")));
 //        bddUtil.find(By.xpath("//span[text()='"+companyDataName+"']")).click();
 //        String [] arry = rtn.split(",");

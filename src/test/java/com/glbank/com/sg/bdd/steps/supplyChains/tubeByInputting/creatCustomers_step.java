@@ -1150,7 +1150,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickComfirmBtnSimpleKYC.click();
     }
     
-    public void companyInformationNoAdministrator(String Industry){
+    public void companyInformationNoAdministrator(String Industry,String customerType){
         customers_page.enterRegisteredAddress.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.clickCountryOfBusiness.click();
         customers_page.selectCountryOfBusinessText.click();
@@ -1170,33 +1170,55 @@ public class creatCustomers_step extends ScenarioSteps {
         if(customers_page.clickBackButton.isVisible()){
             customers_page.clickBackButton.click();
             customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+            if (customerType.equals("Buyer")){
+                customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+            }else {
+                customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+            }
             customers_page.clickStatusOnOnboardingList.click();
         }
         bddUtil.sleep(5);
         customers_page.clickSubmitSimpleKYC.click();
+        bddUtil.sleep(2);
         customers_page.clickComfirmBtnSimpleKYC.click();
     }
 
     @Step
-    public void assignToMe(String result){
+    public void assignToMe(String result,String customerType){
         List<WebElementFacade> assign = customers_page.ReviewCustomer;
         List<WebElementFacade> assignBtn = customers_page.clickAssignBtn;
         for (int i = 0; i < assign.size(); i++) {
-            if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
-                assignBtn.get(i).click();
-                break;
+            bddUtil.sleep(3);
+            if (customerType.equals("companData")){
+                if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
+                    assignBtn.get(i).click();
+                    break;
+                }
+            }else {
+                if (FileUtils.LastReadFileInput3("buyer").equals(assign.get(i).getText())) {
+                    assignBtn.get(i).click();
+                    break;
+                }
             }
+
         }
         customers_page.assignedToMeClick.click();
         bddUtil.sleep(8);
         List<WebElementFacade> company = customers_page.getCompanyNameList;
         List<WebElementFacade> proceed = customers_page.clickProceedBtn;
         for (int j = 0; j < company.size(); j++){
-            if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
-                bddUtil.sleep(8);
-                proceed.get(j).click();
-                break;
+            if (customerType.equals("companData")){
+                if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
+                    bddUtil.sleep(8);
+                    proceed.get(j).click();
+                    break;
+                }
+            }else{
+                if (FileUtils.LastReadFileInput3("buyer").equals(company.get(j).getText())){
+                    bddUtil.sleep(8);
+                    proceed.get(j).click();
+                    break;
+                }
             }
         }
         bddUtil.sleep(25);
@@ -1209,18 +1231,28 @@ public class creatCustomers_step extends ScenarioSteps {
             }
         }
         customers_page.enterComment.sendKeys(RandomPhoneNumber.randomPhoneNum());
+//        if (customerType.equals("Buyer")){
+//            bddUtil.scrollWindowToElement(customers_page.clickRelatedPartySelectYes).click();
+//        }
         customers_page.clickSubmitBtn.click();
         bddUtil.sleep(10);
     }
 
     @Step
-    public void assignToMeFullKYC(String result){
+    public void assignToMeFullKYC(String result,String customerType){
         List<WebElementFacade> assign = customers_page.ReviewCustomer;
         List<WebElementFacade> assignBtn = customers_page.clickAssignBtn;
         for (int i = 0; i < assign.size(); i++) {
-            if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
-                assignBtn.get(i).click();
-                break;
+            if (customerType.equals("companData")){
+                if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
+                    assignBtn.get(i).click();
+                    break;
+                }
+            }else {
+                if (FileUtils.LastReadFileInput3("buyer").equals(assign.get(i).getText())) {
+                    assignBtn.get(i).click();
+                    break;
+                }
             }
         }
         customers_page.assignedToMeClick.click();
@@ -1228,10 +1260,18 @@ public class creatCustomers_step extends ScenarioSteps {
         List<WebElementFacade> company = customers_page.getCompanyNameList;
         List<WebElementFacade> proceed = customers_page.clickProceedBtn;
         for (int j = 0; j < company.size(); j++){
-            if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
-                bddUtil.sleep(8);
-                proceed.get(j).click();
-                break;
+            if (customerType.equals("companData")){
+                if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
+                    bddUtil.sleep(8);
+                    proceed.get(j).click();
+                    break;
+                }
+            }else {
+                if (FileUtils.LastReadFileInput3("buyer").equals(company.get(j).getText())){
+                    bddUtil.sleep(8);
+                    proceed.get(j).click();
+                    break;
+                }
             }
         }
         bddUtil.sleep(10);
@@ -1265,11 +1305,23 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickComfirmBtnSimpleKYC.click();
     }
 
-    public void checkApprovedStatus(String status){
+    public void checkApprovedStatus(String status,String customerType){
         customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-        customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        if (customerType.equals("companyData")){
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        }else {
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+        }
         customers_page.clickStatusOnOnboardingList.click();
         bddUtil.sleep(3);
+//        if (!status.equals(customers_page.checkRegistrationtatus.getText())){
+//            bddUtil.clickByJS(customers_page.clickViewDetailsBtn);
+//            bddUtil.scrollWindowToElement(bddUtil.getDriver().findElement(By.xpath("//div[text()='Beneficial Owner (s)']")));
+//            customers_page.clickBackDetailsBtn.click();
+//            customers_page.sendKeysCompanyNameOnOnboardingList.clear();
+//            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+//            customers_page.clickStatusOnOnboardingList.click();
+//        }
         Assert.assertEquals(status,customers_page.checkRegistrationtatus.getText());
     }
 

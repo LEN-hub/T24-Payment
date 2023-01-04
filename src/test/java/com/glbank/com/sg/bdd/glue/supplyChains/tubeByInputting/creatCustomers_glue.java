@@ -78,7 +78,11 @@ public class creatCustomers_glue {
         customers_step.getSelectCustomerType();
         customers_step.getCustomerType(maps.get(0).get("Customer Type"));
         customers_step.getCompanyName(CompanyName);
-        FileUtils.FileString4("companyData",CompanyName);
+        if (maps.get(0).get("Customer Type").equals("Buyer")) {
+            FileUtils.FileString4("Buyer",CompanyName);
+        }else {
+            FileUtils.FileString4("companyData",CompanyName);
+        }
         FileUtils.FileString4("emailData",CompanyName);
         customers_step.getCompanyID(RandomPhoneNumber.randomPhoneNum());
         customers_step.getSelectCountryOfRegistration();
@@ -134,6 +138,27 @@ public class creatCustomers_glue {
         customers_step.clickSubmitBtn();
         bddUtil.sleep(3);
     }
+
+    @When("^Fill in email 1 and email 2 supplier information on the Authorized Person page for buyer$")
+    public void fillInAdministratorAndAdministratorSupplierInformationOnTheAuthorizedPersonPageForBuyer() {
+        customers_step.getFirstNameInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+        customers_step.getEmailInput(mailName + "@ihotmails.com");
+        FileUtils.FileString4("emailData",mailName + "@ihotmails.com");
+        System.out.println("---------------第一个邮箱地址："+ mailName + "@ihotmails.com"+"----------------------");
+        customers_step.phoneNumberFirst();
+        customers_step.getLastName(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+        customers_step.getEmailSecondInput(mailName1+ "@ihotmails.com");
+        System.out.println("---------------第二个邮箱地址："+ mailName1 + "@ihotmails.com"+"----------------------");
+        customers_step.getMobileInput();
+//        customers_step.getFirstNameSecondInput(JRandomNameTool.getStringRandom(4));
+//
+//        customers_step.getLastNameSecondInput(RandomNameTool.getName(Language.en,NameType.FULL_NAME));
+//        customers_step.getMobileSecondInput(RandomPhoneNumber.randomPhoneNum());
+//        customers_step.clickInputBySelectBox();
+        customers_step.clickSubmitBtn();
+        bddUtil.sleep(3);
+    }
+
 
     @When("^Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC$")
     public void fillInAdministratorAndAdministratorSupplierInformationOnTheAuthorizedPersonPageSimpleKYC() {
@@ -449,7 +474,7 @@ public class creatCustomers_glue {
         customers_step.getClickCustomersMenu();
         customers_step.onboardingReview();
         customers_step.onboardingReviewTitle();
-        customers_step.assignToMe(result.get(0).get("Result"));
+        customers_step.assignToMe(result.get(0).get("Result"),result.get(0).get("Customer Type"));
     }
     @When("^I authorize on the Onboarding Review page Full KYC$")
     public void iAuthorizeOnTheOnboardingReviewPageFullKyc(DataTable payDetails) {
@@ -457,7 +482,7 @@ public class creatCustomers_glue {
         customers_step.getClickCustomersMenu();
         customers_step.onboardingReview();
         customers_step.onboardingReviewTitle();
-        customers_step.assignToMeFullKYC(result.get(0).get("Result"));
+        customers_step.assignToMeFullKYC(result.get(0).get("Result"),result.get(0).get("Customer Type"));
     }
 
     @Then("^I compare Registration Status on the page$")
@@ -489,7 +514,7 @@ public class creatCustomers_glue {
     @Then("^I compare Approved Status on the page$")
     public void iCompareApprovedStatusOnThePage(DataTable payDetails) {
         List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
-        customers_step.checkApprovedStatus(result.get(0).get("Status"));
+        customers_step.checkApprovedStatus(result.get(0).get("Status"),result.get(0).get("Customer Type"));
     }
 
     @When("^I click agree Service Agreement on simple KYC$")
@@ -508,7 +533,7 @@ public class creatCustomers_glue {
     public void iFillInSimpleKYCCustomerInformationOnThePageNoAdministrator(DataTable payDetails) {
         List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
         customers_step.clickEditIcon();
-        customers_step.companyInformationNoAdministrator(result.get(0).get("Nature of Business"));
+        customers_step.companyInformationNoAdministrator(result.get(0).get("Nature of Business"),result.get(0).get("Customer Type"));
     }
 
     @When("^I click Upgrade KYC on the page and process the corresponding information$")

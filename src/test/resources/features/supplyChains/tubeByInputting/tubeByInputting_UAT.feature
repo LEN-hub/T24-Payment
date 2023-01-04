@@ -258,17 +258,17 @@ Feature: tube By Inputting
       |Nature of Business   |
       |Agriculture & Fishing|
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
     Given logon "environments_2" on tube by inputting system
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
 
     #2.simple（核心不存在、非自主、管理员）
@@ -285,13 +285,13 @@ Feature: tube By Inputting
       |Nature of Business   |Id Type |
       |Agriculture & Fishing|Passport|
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
     Given logon "environments_2" on tube by inputting system
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Registration Status on the page
     And I click the email icon to send the email
@@ -314,8 +314,8 @@ Feature: tube By Inputting
     Given logon "environments_2" on tube by inputting system
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
 
 
@@ -333,17 +333,17 @@ Feature: tube By Inputting
       |Nature of Business   |
       |Agriculture & Fishing|
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
     Given logon "environments_2" on tube by inputting system
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Upgrade KYC on the page and process the corresponding information
       |Upgrade Mode|Input By|
       |Full KYC    |Customer|
@@ -399,13 +399,13 @@ Feature: tube By Inputting
       |Nature of Business   |Id Type |
       |Agriculture & Fishing|Passport|
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
     Given logon "environments_2" on tube by inputting system
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Registration Status on the page
     And I click the email icon to send the email
@@ -428,8 +428,8 @@ Feature: tube By Inputting
     Given logon "environments_2" on tube by inputting system
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Upgrade KYC on the page and process the corresponding information
       |Upgrade Mode|Input By|
       |Full KYC    |Customer|
@@ -482,17 +482,17 @@ Feature: tube By Inputting
       |Nature of Business   |
       |Agriculture & Fishing|
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
     Given logon "environments_2" on tube by inputting system
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Upgrade KYC on the page and process the corresponding information
       |Upgrade Mode                 |Input By|
       |Full KYC + Account Opening   |Customer|
@@ -556,13 +556,13 @@ Feature: tube By Inputting
       |Nature of Business   |Id Type |
       |Agriculture & Fishing|Passport|
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
     Given logon "environments_2" on tube by inputting system
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Registration Status on the page
     And I click the email icon to send the email
@@ -585,8 +585,8 @@ Feature: tube By Inputting
     Given logon "environments_2" on tube by inputting system
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Upgrade KYC on the page and process the corresponding information
       |Upgrade Mode                   |Input By|
       |Full KYC + Account Opening     |Customer|
@@ -691,17 +691,17 @@ Feature: tube By Inputting
     When End the current browser process
     Given logon "environments_1" on tube by inputting system
     When I authorize on the Onboarding Review page Full KYC
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When End the current browser process
     Given logon "environments_2" on tube by inputting system
     When I authorize on the Onboarding Review page Full KYC
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Upgrade KYC on the page and process the corresponding information Full KYC
       |Upgrade Mode               |
       |Full KYC + Account Opening |
