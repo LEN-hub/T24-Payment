@@ -12,8 +12,8 @@ Feature: tube By Inputting In SIT
     Then I Check to see if you jump to the Authorized Person page
     When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
     When I fill in Simple KYC customer information on the page No Administrator
-      |Nature of Business   |
-      |Agriculture & Fishing|
+      |Nature of Business   |Customer Type|
+      |Agriculture & Fishing|Buyer        |
     When I authorize on the Onboarding Review page
       |Result |Customer Type|
       |Approve|Buyer        |
@@ -39,8 +39,8 @@ Feature: tube By Inputting In SIT
     Then I Check to see if you jump to the Authorized Person page
     When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC
     When I fill in Simple KYC customer information on the page
-      |Nature of Business   |Id Type |
-      |Agriculture & Fishing|Passport|
+      |Nature of Business   |Id Type |Customer Type|
+      |Agriculture & Fishing|Passport|Buyer        |
     When I authorize on the Onboarding Review page
       |Result |Customer Type|
       |Approve|Buyer        |
@@ -86,8 +86,8 @@ Feature: tube By Inputting In SIT
     Then I Check to see if you jump to the Authorized Person page
     When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
     When I fill in Simple KYC customer information on the page No Administrator
-      |Nature of Business   |
-      |Agriculture & Fishing|
+      |Nature of Business   |Customer Type|
+      |Agriculture & Fishing|Buyer        |
     When I authorize on the Onboarding Review page
       |Result |Customer Type|
       |Approve|Buyer        |
@@ -152,8 +152,8 @@ Feature: tube By Inputting In SIT
     Then I Check to see if you jump to the Authorized Person page
     When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC
     When I fill in Simple KYC customer information on the page
-      |Nature of Business   |Id Type |
-      |Agriculture & Fishing|Passport|
+      |Nature of Business   |Id Type |Customer Type|
+      |Agriculture & Fishing|Passport|Buyer        |
     When I authorize on the Onboarding Review page
       |Result |Customer Type|
       |Approve|Buyer        |
@@ -234,8 +234,8 @@ Feature: tube By Inputting In SIT
     Then I Check to see if you jump to the Authorized Person page
     When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
     When I fill in Simple KYC customer information on the page No Administrator
-      |Nature of Business   |
-      |Agriculture & Fishing|
+      |Nature of Business   |Customer Type|
+      |Agriculture & Fishing|Buyer        |
     When I authorize on the Onboarding Review page
       |Result |Customer Type|
       |Approve|Buyer        |
@@ -308,8 +308,8 @@ Feature: tube By Inputting In SIT
     Then I Check to see if you jump to the Authorized Person page
     When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC
     When I fill in Simple KYC customer information on the page
-      |Nature of Business   |Id Type |
-      |Agriculture & Fishing|Passport|
+      |Nature of Business   |Id Type |Customer Type|
+      |Agriculture & Fishing|Passport|Buyer        |
     When I authorize on the Onboarding Review page
       |Result |Customer Type|
       |Approve|Buyer        |

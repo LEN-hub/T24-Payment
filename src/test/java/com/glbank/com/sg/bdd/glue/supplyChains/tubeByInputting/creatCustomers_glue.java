@@ -465,8 +465,8 @@ public class creatCustomers_glue {
     @When("^I fill in Simple KYC customer information on the page$")
     public void iFillInSimpleKYCCustomerInformationOnThePage(DataTable payDetails) {
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class,String.class);
-        customers_step.clickEditIcon();
-        customers_step.companyInformation(payToInfo.get(0).get("Nature of Business"),payToInfo.get(0).get("Id Type"));
+        customers_step.clickEditIcon(payToInfo.get(0).get("Customer Type"));
+        customers_step.companyInformation(payToInfo.get(0).get("Nature of Business"),payToInfo.get(0).get("Id Type"),payToInfo.get(0).get("Customer Type"));
     }
 
     @When("^I authorize on the Onboarding Review page$")
@@ -533,7 +533,7 @@ public class creatCustomers_glue {
     @When("^I fill in Simple KYC customer information on the page No Administrator$")
     public void iFillInSimpleKYCCustomerInformationOnThePageNoAdministrator(DataTable payDetails) {
         List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
-        customers_step.clickEditIcon();
+        customers_step.clickEditIcon(result.get(0).get("Customer Type"));
         customers_step.companyInformationNoAdministrator(result.get(0).get("Nature of Business"),result.get(0).get("Customer Type"));
     }
 
