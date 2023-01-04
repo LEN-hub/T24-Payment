@@ -1069,13 +1069,20 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.quitDriver();
     }
     @Step
-    public void clickEditIcon(){
+    public void clickEditIcon(String companyType){
+        customers_page.sendKeysCompanyNameOnOnboardingList.clear();
+        if(companyType.equals("buyer")){
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+        }else {
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        }
+        customers_page.clickStatusOnOnboardingList.click();
         bddUtil.sleep(2);
         customers_page.clickEditIcon.click();
     }
 
     @Step
-    public void companyInformation(String Industry,String selectIdType){
+    public void companyInformation(String Industry,String selectIdType,String customerType){
         customers_page.enterRegisteredAddress.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.clickCountryOfBusiness.click();
         customers_page.selectCountryOfBusinessText.click();
@@ -1135,7 +1142,11 @@ public class creatCustomers_step extends ScenarioSteps {
         if(customers_page.clickBackButton.isVisible()){
             customers_page.clickBackButton.click();
             customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+            if (customerType.equals("Buyer")){
+                customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+            }else {
+                customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+            }
             customers_page.clickStatusOnOnboardingList.click();
         }
         bddUtil.sleep(5);
@@ -1182,13 +1193,13 @@ public class creatCustomers_step extends ScenarioSteps {
         List<WebElementFacade> assignBtn = customers_page.clickAssignBtn;
         for (int i = 0; i < assign.size(); i++) {
             bddUtil.sleep(3);
-            if (customerType.equals("companData")){
-                if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
+            if (customerType.equals("Buyer")){
+                if (FileUtils.LastReadFileInput3("buyer").equals(assign.get(i).getText())) {
                     assignBtn.get(i).click();
                     break;
                 }
             }else {
-                if (FileUtils.LastReadFileInput3("buyer").equals(assign.get(i).getText())) {
+                if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
                     assignBtn.get(i).click();
                     break;
                 }
@@ -1200,8 +1211,8 @@ public class creatCustomers_step extends ScenarioSteps {
         List<WebElementFacade> company = customers_page.getCompanyNameList;
         List<WebElementFacade> proceed = customers_page.clickProceedBtn;
         for (int j = 0; j < company.size(); j++){
-            if (customerType.equals("companData")){
-                if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
+            if (customerType.equals("buyer")){
+                if (FileUtils.LastReadFileInput3("Buyer").equals(company.get(j).getText())){
                     bddUtil.sleep(8);
                     proceed.get(j).click();
                     break;
@@ -1236,13 +1247,13 @@ public class creatCustomers_step extends ScenarioSteps {
         List<WebElementFacade> assign = customers_page.ReviewCustomer;
         List<WebElementFacade> assignBtn = customers_page.clickAssignBtn;
         for (int i = 0; i < assign.size(); i++) {
-            if (customerType.equals("companData")){
-                if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
+            if (customerType.equals("Buyer")){
+                if (FileUtils.LastReadFileInput3("buyer").equals(assign.get(i).getText())) {
                     assignBtn.get(i).click();
                     break;
                 }
             }else {
-                if (FileUtils.LastReadFileInput3("buyer").equals(assign.get(i).getText())) {
+                if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
                     assignBtn.get(i).click();
                     break;
                 }
@@ -1253,14 +1264,14 @@ public class creatCustomers_step extends ScenarioSteps {
         List<WebElementFacade> company = customers_page.getCompanyNameList;
         List<WebElementFacade> proceed = customers_page.clickProceedBtn;
         for (int j = 0; j < company.size(); j++){
-            if (customerType.equals("companData")){
-                if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
+            if (customerType.equals("Buyer")){
+                if (FileUtils.LastReadFileInput3("buyer").equals(company.get(j).getText())){
                     bddUtil.sleep(8);
                     proceed.get(j).click();
                     break;
                 }
             }else {
-                if (FileUtils.LastReadFileInput3("buyer").equals(company.get(j).getText())){
+                if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
                     bddUtil.sleep(8);
                     proceed.get(j).click();
                     break;
@@ -1300,10 +1311,10 @@ public class creatCustomers_step extends ScenarioSteps {
 
     public void checkApprovedStatus(String status,String customerType){
         customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-        if (customerType.equals("companyData")){
-            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
-        }else {
+        if (customerType.equals("Buyer")){
             customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+        }else {
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         }
         customers_page.clickStatusOnOnboardingList.click();
         bddUtil.sleep(3);
