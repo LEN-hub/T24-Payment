@@ -18,6 +18,7 @@ public class createBuyerCreditFileReview_step extends ScenarioSteps {
 
     @Step
     public void clickBuyerCreditFileReview(){
+        bddUtil.sleep(2);
         createBuyerCreditFileReview_page.clickBuyerCreditProfileReview.click();
     }
 

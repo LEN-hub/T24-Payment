@@ -154,7 +154,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//button[text()=' 设邮箱']")
     public WebElementFacade emailAddress;
 
-    @FindBy(xpath = "//span[text()=' 刷新 ']")
+    @FindBy(xpath = "//i[@id='refreshShortid']")
     public WebElementFacade clickRefresh;
 
     @FindBy(xpath = "//span[text()='查看']")
@@ -165,6 +165,12 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//table[@class='el-table__body']/tbody/tr//span[text()='查看']")
     public List<WebElementFacade> clickViewBtn;
+
+    @FindBy(xpath = "//td[text()='Green Link Digital Bank - Verification Code']")
+    public WebElementFacade selectCodeEamil;
+
+    @FindBy(xpath = "//td[text()='Green Link Digital Bank - Verification Code']")
+    public List<WebElementFacade> selectFirstCode;
 
     @FindBy(xpath = "//div[@id= 'message']")
     public WebElementFacade emailMessage;
@@ -360,6 +366,12 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[9]/span")
     public WebElementFacade checkRegistrationtatus;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody//i[@class='lls-tooltip lls-icon-data-view']")
+    public WebElementFacade clickViewDetailsBtn;
+
+    @FindBy(xpath = "//span[@class='back_view_item']")
+    public WebElementFacade clickBackDetailsBtn;
 
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[7]")
     public WebElementFacade checkEmail;
@@ -634,7 +646,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-message-box__wrapper']//span[contains(text(), 'Confirm')]")
     public WebElementFacade confirmBtn;
 
-    @FindBy(xpath = "//tbody[@id=\"convertd\"]//td[1]")
+    @FindBy(xpath = "//div[text()='Green Link Digital Bank - Invitation']")
     public WebElementFacade firstEmail;
 
     @FindBy(xpath = "//a[text()=' SCF portal ']")
@@ -666,6 +678,18 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//tbody[@id='maillist']/tr[1]/td[1]")
     public WebElementFacade clickFirstEmailName;
+
+    @FindBy(xpath = "//button[text()='Acquire from Myinfo']")
+    public WebElementFacade clickmyinfoInternetButton;
+
+    @FindBy(xpath = "//span[contains(text(),'Upload JSON')]")
+    public WebElementFacade clickUploadJson;
+
+    @FindBy(xpath = "//div[@class='lls-textarea']/textarea")
+    public WebElementFacade enterJsonInfomation;
+
+    @FindBy(xpath = "//span[text()='Confirm']")
+    public WebElementFacade getClickConfirmBtn;
 
     @FindBy(xpath = "//div[@id='message-content']/p")
     public WebElementFacade emailPageContent;
@@ -706,7 +730,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//input[@placeholder='Enter Company ID']")
     public WebElementFacade enterCompanyId;
 
-    @FindBy(xpath = "//span[text()='Login']")
+    @FindBy(xpath = "//span[contains(text(),'Login')]")
     public WebElementFacade GLDBEmailLoginBtn;
 
     @FindBy(xpath = "//p[text()='Set New Password']")

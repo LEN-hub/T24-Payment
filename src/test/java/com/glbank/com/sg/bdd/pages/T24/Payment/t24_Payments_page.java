@@ -74,6 +74,15 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//a[@id='fieldCaption:SendersReferenceNumber']/parent::label/parent::td/following-sibling::td[2]/span")
     public WebElementFacade getSenderReferenceNum;
 
+    @FindBy(xpath = "//a[text()='Processing Date']/parent::label/parent::td/following-sibling::td[2]/span")
+    public WebElementFacade getProcessingDate;
+
+    @FindBy(xpath = "//a[text()='Debit Value Date']/parent::label/parent::td/following-sibling::td[2]/span")
+    public WebElementFacade getDebitValueDate;
+
+    @FindBy(xpath = "//a[text()='Credit Value Date']/parent::label/parent::td/following-sibling::td[2]/span")
+    public WebElementFacade getCreditValueDate;
+
     @FindBy(xpath = "//a[text()='Transaction Currency']/parent::label/parent::td/following-sibling::td[2]/span")
     public WebElementFacade getTransactionCurrency;
 

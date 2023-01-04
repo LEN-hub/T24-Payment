@@ -171,4 +171,21 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//div[@class='upload-demo']//div//input")
     public WebElementFacade upLoadImg;
 
+    @FindBy(xpath = "//span[text()='Docs List']")
+    public WebElementFacade docsList;
+
+    @FindBy(xpath = "//span[contains(text(),'Upload Historical Documents')]")
+    public WebElementFacade uploadHistorical;
+    
+    @FindBy(xpath = "//div[@class='upload-widget']//input")
+    public WebElementFacade uploadInput;
+
+    @FindBy(xpath = "//label[text()='Supplier']/following-sibling::div//input")
+    public WebElementFacade inputSupplier;
+
+    @FindBy(xpath = "//label[text()='Supplier']")
+    public WebElementFacade clickOther;
+
+    @FindBy(xpath = "//button//span[contains(text(),'Confirm')]")
+    public WebElementFacade cfmbtn;
 }

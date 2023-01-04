@@ -332,6 +332,22 @@ public class creatCustomers_step extends ScenarioSteps {
 //        customers_page.scfLink.click();
         customers_page.GLDBEmailInput.sendKeys(username);
         customers_page.GLDBEmailPassword.sendKeys(password);
+        bddUtil.sleep(2);
+        customers_page.sendCodeBtn.click();
+    } @Step
+    public void selectFirstEmailAndTakeVCodeOnSitEvn(){
+        username = bddUtil.scrollWindowToElement(customers_page.userName).getText();
+        password = bddUtil.scrollWindowToElement(customers_page.passWord).getText();
+//        cuString stomers_page.scfLink.isVisible();
+        CommonUtil.waiting(2000);
+//        邮箱链接暂时失效，需要手动打开。
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"http://10.24.7.8:8080/\");");
+        bddUtil.sleep(5);
+        bddUtil.switchToWindows();
+//        customers_page.scfLink.click();
+        customers_page.GLDBEmailInput.sendKeys(username);
+        customers_page.GLDBEmailPassword.sendKeys(password);
         customers_page.sendCodeBtn.click();
     }
     public void iGetUsernameAndPasswordInTheEmail(){
@@ -346,19 +362,25 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         customers_page.sendCodeBtn.click();
     }
+
+    public void iGetUsernameAndPasswordInTheEmailScfSitEnv(){
+        CommonUtil.waiting(2000);
+//        邮箱链接暂时失效，需要手动打开。
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"http://10.24.7.8:8080/\");");
+        bddUtil.sleep(5);
+        bddUtil.switchToWindows();
+//        customers_page.scfLink.click();
+        customers_page.GLDBEmailInput.sendKeys(username);
+        customers_page.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
+        customers_page.sendCodeBtn.click();
+    }
     @Step
     public void thirdEmail(){
         bddUtil.sleep(3);
         customers_page.clickRefresh.click();
         bddUtil.sleep(1);
-        List<WebElementFacade> selectEmail = customers_page.emailSubject;
-        List<WebElementFacade> clickViewBtn = customers_page.clickViewBtn;
-        for (int i = 0; i < selectEmail.size(); i++) {
-            if (selectEmail.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
-                clickViewBtn.get(i).click();
-                break;
-            }
-        }
+        bddUtil.scrollWindowToElement(customers_page.selectCodeEamil).click();
         bddUtil.sleep(2);
         String verificationCode = customers_page.emailVerificationCode.getText();
         bddUtil.switchToWindows();
@@ -388,23 +410,22 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.GLDBEmailPassword.sendKeys(password);
         customers_page.enterCompanyId.clear();
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        bddUtil.switchToNewWindow();
+        customers_page.clickEditEmailName.click();
+        bddUtil.sleep(3);
+        customers_page.sendKeysEmailName.clear();
+        customers_page.sendKeysEmailName.sendKeys(FileUtils.LastReadFileInput3("emailData").substring(0,8));
+        customers_page.clickEditEmailName.click();
+        bddUtil.sleep(5);
+        bddUtil.switchToNewWindow();
         customers_page.sendCodeBtn.click();
+        bddUtil.sleep(3);
         bddUtil.switchToNewWindow();
         bddUtil.sleep(5);
-        customers_page.clickCloseEmailBtn.click();
-        customers_page.clickRefresh.click();
-        bddUtil.sleep(2);
-        customers_page.clickRefresh.click();
-        bddUtil.sleep(2);
-        List<WebElementFacade> selectEmail = customers_page.emailSubject;
-        List<WebElementFacade> clickViewBtn = customers_page.clickViewBtn;
-        for (int i = 0; i < selectEmail.size(); i++) {
-            if (selectEmail.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
-                clickViewBtn.get(i).click();
-                break;
-            }
-        }
-        bddUtil.sleep(1);
+//        customers_page.clickRefresh.click();
+//        bddUtil.scrollWindowToElement(customers_page.selectCodeEamil).click();
+        bddUtil.scrollWindowToElement(customers_page.selectFirstCode.get(0)).click();
+        bddUtil.sleep(3);
 //        customers_page.find(By.xpath("//div[@id='message-list']/button[1]")).click();
         String Vcode = customers_page.emailVerificationCode.getText();
         bddUtil.switchToWindows();
@@ -501,8 +522,8 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.selectCountry.click();
         customers_page.businessAddress.clear();
         customers_page.businessAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-//        customers_page.industry.click();
-//        bddUtil.scrollWindowToElement(customers_page.selectIndustry).click();
+        customers_page.industry.click();
+        bddUtil.scrollWindowToElement(customers_page.selectIndustry).click();
         customers_page.legalStructure.click();
         bddUtil.scrollWindowToElement(customers_page.selectLegalStructure).click();
         customers_page.isNonProfitYes.click();
@@ -568,7 +589,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public void clickSubmitBtnOnGLDB(){
         bddUtil.sleep(3);
         customers_page.clickSubmitBtnOnGLDB.click();
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
         customers_page.clickConfirmBtnOnGLDB.click();
         bddUtil.sleep(10);
     }
@@ -1111,11 +1132,18 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.enterCity2SimpleKYC.sendKeys("beijing");
         customers_page.getClickSaveBtn.click();
         bddUtil.sleep(10);
+        if(customers_page.clickBackButton.isVisible()){
+            customers_page.clickBackButton.click();
+            customers_page.sendKeysCompanyNameOnOnboardingList.clear();
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+            customers_page.clickStatusOnOnboardingList.click();
+        }
+        bddUtil.sleep(5);
         customers_page.clickSubmitSimpleKYC.click();
         customers_page.clickComfirmBtnSimpleKYC.click();
     }
     
-    public void companyInformationNoAdministrator(String Industry){
+    public void companyInformationNoAdministrator(String Industry,String customerType){
         customers_page.enterRegisteredAddress.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.clickCountryOfBusiness.click();
         customers_page.selectCountryOfBusinessText.click();
@@ -1132,32 +1160,61 @@ public class creatCustomers_step extends ScenarioSteps {
         getDriver().findElement(By.xpath("//label[@for='A0030']/following-sibling::div//input")).sendKeys(fileAddress);
         customers_page.getClickSaveBtn.click();
         bddUtil.sleep(20);
+        if(customers_page.clickBackButton.isVisible()){
+            customers_page.clickBackButton.click();
+            customers_page.sendKeysCompanyNameOnOnboardingList.clear();
+            if (customerType.equals("Buyer")){
+                customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+            }else {
+                customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+            }
+            customers_page.clickStatusOnOnboardingList.click();
+        }
+        bddUtil.sleep(5);
         customers_page.clickSubmitSimpleKYC.click();
+        bddUtil.sleep(2);
         customers_page.clickComfirmBtnSimpleKYC.click();
     }
 
     @Step
-    public void assignToMe(String result){
+    public void assignToMe(String result,String customerType){
         List<WebElementFacade> assign = customers_page.ReviewCustomer;
         List<WebElementFacade> assignBtn = customers_page.clickAssignBtn;
         for (int i = 0; i < assign.size(); i++) {
-            if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
-                assignBtn.get(i).click();
-                break;
+            bddUtil.sleep(3);
+            if (customerType.equals("companData")){
+                if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
+                    assignBtn.get(i).click();
+                    break;
+                }
+            }else {
+                if (FileUtils.LastReadFileInput3("buyer").equals(assign.get(i).getText())) {
+                    assignBtn.get(i).click();
+                    break;
+                }
             }
+
         }
         customers_page.assignedToMeClick.click();
         bddUtil.sleep(8);
         List<WebElementFacade> company = customers_page.getCompanyNameList;
         List<WebElementFacade> proceed = customers_page.clickProceedBtn;
         for (int j = 0; j < company.size(); j++){
-            if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
-                bddUtil.sleep(8);
-                proceed.get(j).click();
-                break;
+            if (customerType.equals("companData")){
+                if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
+                    bddUtil.sleep(8);
+                    proceed.get(j).click();
+                    break;
+                }
+            }else{
+                if (FileUtils.LastReadFileInput3("buyer").equals(company.get(j).getText())){
+                    bddUtil.sleep(8);
+                    proceed.get(j).click();
+                    break;
+                }
             }
         }
-        bddUtil.sleep(20);
+        bddUtil.sleep(25);
         customers_page.clickResultDownDrop.click();
         List<WebElementFacade> enterResult = customers_page.selectResult;
         for (int k = 0; k < enterResult.size(); k++){
@@ -1167,18 +1224,28 @@ public class creatCustomers_step extends ScenarioSteps {
             }
         }
         customers_page.enterComment.sendKeys(RandomPhoneNumber.randomPhoneNum());
+//        if (customerType.equals("Buyer")){
+//            bddUtil.scrollWindowToElement(customers_page.clickRelatedPartySelectYes).click();
+//        }
         customers_page.clickSubmitBtn.click();
         bddUtil.sleep(10);
     }
 
     @Step
-    public void assignToMeFullKYC(String result){
+    public void assignToMeFullKYC(String result,String customerType){
         List<WebElementFacade> assign = customers_page.ReviewCustomer;
         List<WebElementFacade> assignBtn = customers_page.clickAssignBtn;
         for (int i = 0; i < assign.size(); i++) {
-            if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
-                assignBtn.get(i).click();
-                break;
+            if (customerType.equals("companData")){
+                if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
+                    assignBtn.get(i).click();
+                    break;
+                }
+            }else {
+                if (FileUtils.LastReadFileInput3("buyer").equals(assign.get(i).getText())) {
+                    assignBtn.get(i).click();
+                    break;
+                }
             }
         }
         customers_page.assignedToMeClick.click();
@@ -1186,10 +1253,18 @@ public class creatCustomers_step extends ScenarioSteps {
         List<WebElementFacade> company = customers_page.getCompanyNameList;
         List<WebElementFacade> proceed = customers_page.clickProceedBtn;
         for (int j = 0; j < company.size(); j++){
-            if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
-                bddUtil.sleep(8);
-                proceed.get(j).click();
-                break;
+            if (customerType.equals("companData")){
+                if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
+                    bddUtil.sleep(8);
+                    proceed.get(j).click();
+                    break;
+                }
+            }else {
+                if (FileUtils.LastReadFileInput3("buyer").equals(company.get(j).getText())){
+                    bddUtil.sleep(8);
+                    proceed.get(j).click();
+                    break;
+                }
             }
         }
         bddUtil.sleep(10);
@@ -1223,11 +1298,23 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickComfirmBtnSimpleKYC.click();
     }
 
-    public void checkApprovedStatus(String status){
+    public void checkApprovedStatus(String status,String customerType){
         customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-        customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        if (customerType.equals("companyData")){
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        }else {
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+        }
         customers_page.clickStatusOnOnboardingList.click();
         bddUtil.sleep(3);
+//        if (!status.equals(customers_page.checkRegistrationtatus.getText())){
+//            bddUtil.clickByJS(customers_page.clickViewDetailsBtn);
+//            bddUtil.scrollWindowToElement(bddUtil.getDriver().findElement(By.xpath("//div[text()='Beneficial Owner (s)']")));
+//            customers_page.clickBackDetailsBtn.click();
+//            customers_page.sendKeysCompanyNameOnOnboardingList.clear();
+//            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+//            customers_page.clickStatusOnOnboardingList.click();
+//        }
         Assert.assertEquals(status,customers_page.checkRegistrationtatus.getText());
     }
 
@@ -1400,5 +1487,121 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickFiveQuestionCheckBox.click();
         getDriver().findElement(By.xpath("//span[text()='Browse']/parent::div/parent::div/following-sibling::input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
+    }
+
+    private static String MyinfoData = "{\n" +
+            " \"uinfin\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"S9812353I\"\n" +
+            " },\n" +
+            " \"name\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"SONG CHIN YONG\"\n" +
+            " },\n" +
+            " \"aliasname\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"\"\n" +
+            " },\n" +
+            " \"hanyupinyinaliasname\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"\"\n" +
+            " },\n" +
+            " \"hanyupinyinname\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"SONG ZHENYANG\"\n" +
+            " },\n" +
+            " \"sex\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"code\": \"M\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"desc\": \"MALE\"\n" +
+            " },\n" +
+            " \"regadd\": {\n" +
+            "  \"country\": {\n" +
+            "   \"code\": \"SG\",\n" +
+            "   \"desc\": \"SINGAPORE\"\n" +
+            "  },\n" +
+            "  \"unit\": {\n" +
+            "   \"value\": \"192\"\n" +
+            "  },\n" +
+            "  \"street\": {\n" +
+            "   \"value\": \"TELOK BLANGAH STREET 31\"\n" +
+            "  },\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"block\": {\n" +
+            "   \"value\": \"92b\"\n" +
+            "  },\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"postal\": {\n" +
+            "   \"value\": \"101092\"\n" +
+            "  },\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"floor\": {\n" +
+            "   \"value\": \"12\"\n" +
+            "  },\n" +
+            "  \"type\": \"SG\",\n" +
+            "  \"building\": {\n" +
+            "   \"value\": \"TELOK BLANGAH PARCVIEW\"\n" +
+            "  }\n" +
+            " },\n" +
+            " \"mobileno\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"4\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"areacode\": {\n" +
+            "   \"value\": \"65\"\n" +
+            "  },\n" +
+            "  \"prefix\": {\n" +
+            "   \"value\": \"+\"\n" +
+            "  },\n" +
+            "  \"nbr\": {\n" +
+            "   \"value\": \"97399245\"\n" +
+            "  }\n" +
+            " },\n" +
+            " \"email\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"4\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"myinfotesting@gmail.com\"\n" +
+            " },\n" +
+            " \"nationality\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"code\": \"SG\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"desc\": \"SINGAPORE CITIZEN\"\n" +
+            " },\n" +
+            " \"dob\": {\n" +
+            "  \"lastupdated\": \"2022-10-27\",\n" +
+            "  \"source\": \"1\",\n" +
+            "  \"classification\": \"C\",\n" +
+            "  \"value\": \"1988-10-06\"\n" +
+            " }\n" +
+            "}";
+
+    public void enterMyinfoInfomation(){
+        bddUtil.switchToNewWindow();
+        bddUtil.scrollWindowToElement(customers_page.clickFirstEmailName).click();
+        bddUtil.scrollWindowToElement(customers_page.clickmyinfoInternetButton).click();
+        bddUtil.switchToWindows();
+        String url = getDriver().getCurrentUrl();
+        String url2 = url.substring(0, url.indexOf("?"));
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"http://10.24.7.8:8080/#/myInfoCallBack?"+url.substring(url2.length() + 1, url.length())+"\");");
+        bddUtil.switchToNewWindow();
+        customers_page.clickUploadJson.click();
+        customers_page.enterJsonInfomation.sendKeys(MyinfoData);
+        customers_page.getClickConfirmBtn.click();
     }
 }

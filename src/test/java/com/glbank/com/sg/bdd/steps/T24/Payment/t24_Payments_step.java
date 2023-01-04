@@ -1,11 +1,11 @@
 package com.glbank.com.sg.bdd.steps.T24.Payment;
 
+import cn.hutool.core.date.DateUtil;
 import com.glbank.com.sg.bdd.pages.T24.Payment.t24_Payments_page;
 import com.glbank.com.sg.bdd.steps.T24.Logon.T24_Logon_step;
 import com.glbank.com.sg.bdd.steps.enterpriseNetSilver.paymentService_step;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import com.glbank.com.sg.bdd.utils.FileUtils;
-import com.glbank.com.sg.bdd.utils.GenerateDate;
 import com.glbank.com.sg.bdd.utils.WordUtils;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
@@ -14,8 +14,9 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
-import java.util.List;
-import java.util.Objects;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import static com.glbank.com.sg.bdd.utils.FileUtils.readtxtFile;
 import static org.junit.Assert.assertEquals;
@@ -269,12 +270,38 @@ public class t24_Payments_step extends ScenarioSteps {
     public void clickViewIcon(){
         t24_payments_page.clickViewIcon.click();
     }
+
+    public static Object convertDate(String Date){
+        SimpleDateFormat sdf1 = new SimpleDateFormat("dd MMM yyyy", Locale.ENGLISH);
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date parse = null;
+        try {
+            parse = sdf1.parse(Date);
+            System.out.println(parse);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(sdf2.format(parse));
+        return sdf2.format(parse);
+    }
     @Step
     public void channelAndT24DataFieldMappingSameCurrency(String WordPath){
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
         bddUtil.screenShort();
         WordUtils.photoStorageToFXPaymentMX(WordPath);
+        Assert.assertEquals(convertDate(t24_payments_page.getProcessingDate.getText()),DateUtil.format(new Date(),"yyyy-MM-dd"));
+        Calendar instance = Calendar.getInstance();
+        // 获取今天星期几
+        int i = instance.get(Calendar.DAY_OF_WEEK) - 1;
+        int Friday = Calendar.FRIDAY - 1;
+        if (i == Friday){
+            Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"));
+            Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"));
+        }else {
+            Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+            Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+        }
         getTransactionReferenceNum = t24_payments_page.getTransactionReferenceNum.getText();
         FileUtils.FileString4("t24","getTransactionReferenceNum:" + getTransactionReferenceNum);
         getSenderReferenceNum = t24_payments_page.getSenderReferenceNum.getText();

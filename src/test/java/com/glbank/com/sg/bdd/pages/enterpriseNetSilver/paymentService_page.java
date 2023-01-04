@@ -32,8 +32,35 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[2]//span[@class='el-radio__input']")
     public WebElementFacade selectPaymentTypeMEPS;
 
-    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//span[@class='el-radio__inner']")
+    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[2]//span[@class='el-radio__inner']")
     public WebElementFacade clickPaymentTypeMEPS;
+
+    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[1]//span[@class='el-radio__inner']")
+    public WebElementFacade clickPaymentTypeFast;
+
+    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[3]//span[@class='el-radio__inner']")
+    public WebElementFacade clickPaymentTypePayNow;
+
+    @FindBy(xpath = "//label[@for='paynowType']/following-sibling::div//label[1]//span[@class='el-radio__inner']")
+    public WebElementFacade clickPayNowTypeUEN;
+
+    @FindBy(xpath = "//label[@for='paynowType']/following-sibling::div//label[2]//span[@class='el-radio__inner']")
+    public WebElementFacade clickPayNowTypeVPA;
+
+    @FindBy(xpath = "//label[@for='paynowType']/following-sibling::div//label[3]//span[@class='el-radio__inner']")
+    public WebElementFacade clickPayNowTypeNRIC;
+
+    @FindBy(xpath = "//label[@for='paynowType']/following-sibling::div//label[4]//span[@class='el-radio__inner']")
+    public WebElementFacade clickPayNowTypeMobileNum;
+
+    @FindBy(xpath = "//label[@for='payeeAcctNo']/following-sibling::div//input")
+    public WebElementFacade enterPayeeAcctNo;
+
+    @FindBy(xpath = "//label[@for='mobilePhoneNo']/following-sibling::div/div[1]//input")
+    public WebElementFacade enterMobileNum;
+
+    @FindBy(xpath = "//label[@for='mobilePhoneNo']/following-sibling::div/div[2]//input")
+    public WebElementFacade enterMobileNum2;
 
     @FindBy(xpath = "//label[@for='transferMethod']/parent::div/following-sibling::div[1]//span[@class='el-input__suffix-inner']")
     public WebElementFacade payeeBankSelect;
@@ -79,6 +106,9 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//li/span")
     public List<WebElementFacade> rollOutAccountSGD;
+
+    @FindBy(xpath = "//div[@x-placement='bottom-start' or @x-placement='top-start']//li//div[@class='right']/div[1]")
+    public List<WebElementFacade> rollOutAccountSGDSit;
 
     @FindBy(xpath = "//label[@for='payerCurrencyTypeCd']/following-sibling::div//span[@class='el-input__suffix-inner']")
     public WebElementFacade getClickCurrencyBox;

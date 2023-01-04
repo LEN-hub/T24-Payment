@@ -135,7 +135,7 @@ public class product_page extends PageObject {
     public WebElementFacade supplier;
 
     @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")      //供应商列表，可删除数据
-    public List<WebElementFacade> supplierSelectList;         //选择供应商数据
+    public List<WebElementFacade> supplierSelectList;//选择供应商数据
 
     @FindBy(xpath = "//div[@data-key='f1036cgc']/child::div//span/span")
     public WebElementFacade Buyer;
@@ -179,10 +179,10 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//span[text()='Proportional Rate']")
     public WebElementFacade ProportionalRate;
 
-    @FindBy(xpath = "//div[@data-key='f1so67fp']//input")
+    @FindBy(xpath = "//div[@data-key='f14mgvqm']//input")
     public WebElementFacade FeeRatE;
 
-    @FindBy(xpath = "//div[@data-key='f1cbem8c']//input")
+    @FindBy(xpath = "//div[@data-key='f3c06k5e']//input")
     public WebElementFacade InterestRateExtension;
 
     @FindBy(xpath = "//div[@data-key='f225jvve']//input")
@@ -238,7 +238,7 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f21qf3bf']//input")
     public WebElementFacade GracePeriod;
 
-    @FindBy(xpath = "//div[@data-key='f0vilgld']//input")
+    @FindBy(xpath = "//div[@data-key='f2f9mje0']//input")
     public WebElementFacade setUpFee;
 
     @FindBy(xpath = "//div[@data-key='f0nqmgp0']//span")

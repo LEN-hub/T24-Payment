@@ -29,6 +29,7 @@ public class createBuyerCreditFileReview_glue {
     @And("^to Buyer Credit Profile Review page$")
     public void toBuyerCreditProfileReviewPage(){
         customers_step.getClickCustomersMenu();
+        bddUtil.sleep(1);
         createBuyerCreditFileReview_step.clickBuyerCreditFileReview();
     }
 

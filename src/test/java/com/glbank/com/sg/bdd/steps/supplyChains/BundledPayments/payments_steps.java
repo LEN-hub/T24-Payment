@@ -24,7 +24,10 @@ public class payments_steps extends ScenarioSteps {
     }
 
     @Step
-    public void clickOperations() {paymentsPage.operationsList.click();}
+    public void clickOperations() {
+        bddUtil.sleep(5);
+        paymentsPage.operationsList.click();
+    }
 
     @Step
     public void clickRequestDisbursement() {paymentsPage.requestDisbursement.click();}
@@ -297,7 +300,7 @@ public class payments_steps extends ScenarioSteps {
         paymentsPage.repaymentData.sendKeys(bddUtil.dateFormate());
         paymentsPage.commission.click();
         paymentsPage.submitBtn.click();
-        bddUtil.sleep(15);
+        bddUtil.sleep(24);
     }
 
     @Step

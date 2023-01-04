@@ -972,28 +972,28 @@ Feature: receipt and payment service
 #      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
 #
 #
-#    #选择每季度并且不写周期(SGD->SGD)
-#  Scenario:In-line transfer time is selected quarterly (SGD->SGD)
-#    Given logon "netSilverEnv_Kevin" on enterprise net silver
-#    When I fill in the transfer information of domestic transfer bank
-#    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
-#    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0001 256      |
-#    When I select date on the domestic transfer bank page
-#      |trasferOutDate|selectDate   |
-#      |2025-01-01    |Quarterly    |
-#    When I click next button on the domestic transfer bank page
-#    When If the transfer failure window pops up I will click the continue button
-#    Then I verify the information on the next page
-#      |account name    |receiving account|transfer amount  |transfer purpose |
-#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-#    When I click Next to go to the verification page
-#    When I get the TC code and click Next
-#    When I typed TC Code and click Authenticate Now
-#    Then I jump to the successful transfer page
-#    Then I check the details on the transfer success details page
-#      |account name    |receiving account|transfer amount  |transfer purpose |
-#      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
-#
+    #选择每季度并且不写周期(SGD->SGD)
+  Scenario:In-line transfer time is selected quarterly (SGD->SGD)
+    Given logon "netSilverEnv_Kevin" on enterprise net silver
+    When I fill in the transfer information of domestic transfer bank
+    |bank name                       |account name    |receiving account|transfer amount  |transfer purpose |payment information|
+    |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010003437      |0.1              |Business Expenses|1101 0001 256      |
+    When I select date on the domestic transfer bank page
+      |trasferOutDate|selectDate   |
+      |2025-01-01    |Quarterly    |
+    When I click next button on the domestic transfer bank page
+    When If the transfer failure window pops up I will click the continue button
+    Then I verify the information on the next page
+      |account name    |receiving account|transfer amount  |transfer purpose |
+      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+    When I click Next to go to the verification page
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    Then I jump to the successful transfer page
+    Then I check the details on the transfer success details page
+      |account name    |receiving account|transfer amount  |transfer purpose |
+      |TSC1643346550706|11010003437      |0.10             |Business Expenses|
+
 #    #境内转账-行内转账时间选择每周一(SGD->CNY)
 #  Scenario:Transfer time within the line is selected every Monday(SGD->CNY)
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
