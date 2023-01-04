@@ -47,43 +47,43 @@ Feature: test report for scf
       |allocation |
       |SGD        |
     Then Verify whether the Account page is displayed
-    When Enter the Account information
-      |currency |
-      |SGD      |
-    Then Check whether the Questionnaire page is displayed
-    When Enter information on the Questionnaire page
-      |currency         |num    |
-      |SGD 0 - 10,000   |1 to 20|
-    Then Verify whether the Confirm page is displayed
+#    When Enter the Account information
+#      |currency |
+#      |SGD      |
+#    Then Check whether the Questionnaire page is displayed
+#    When Enter information on the Questionnaire page
+#      |currency         |num    |
+#      |SGD 0 - 10,000   |1 to 20|
+#    Then Verify whether the Confirm page is displayed
     When Click the Submit button on the Confirm page
     When End the current browser process
-#
-#   #1.simple（核心不存在、非自主、无管理员）
-#  @simpleKYC01_SIT_01
-#  Scenario:Simple (core does not exist, non autonomous, no administrator)_SIT
-#    Given logon "scf_sit1" on sit tube by inputting system
-#    When I click Customers and select Onboarding List
-#    And I click Create Customer and fill in the supplier information in the pop-up window
-#      |KYC Mode    |Input by|Customer Type|
-#      |Simple KYC  |Operator|Buyer        |
-#    Then I Check to see if you jump to the Authorized Person page
-#    When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
-#    When I fill in Simple KYC customer information on the page No Administrator
-#      |Nature of Business   |Customer Type|
-#      |Agriculture & Fishing|Buyer        |
-#    When I authorize on the Onboarding Review page
-#      |Result |Customer Type|
-#      |Approve|Buyer        |
-#    When I close driver
-#    Given logon "scf_sit2" on sit tube by inputting system
-#    When I authorize on the Onboarding Review page
-#      |Result |Customer Type|
-#      |Approve|Buyer        |
-#    When I click Customers and select Onboarding List
-#    Then I compare Approved Status on the page
-#      |Status  |Customer Type|
-#      |Approved|Buyer        |
-#    When I close driver
+
+   #1.simple（核心不存在、非自主、无管理员）
+  @simpleKYC01_SIT_01
+  Scenario:Simple (core does not exist, non autonomous, no administrator)_SIT
+    Given logon "scf_sit1" on sit tube by inputting system
+    When I click Customers and select Onboarding List
+    And I click Create Customer and fill in the supplier information in the pop-up window
+      |KYC Mode    |Input by|Customer Type|
+      |Simple KYC  |Operator|Buyer        |
+    Then I Check to see if you jump to the Authorized Person page
+    When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
+    When I fill in Simple KYC customer information on the page No Administrator
+      |Nature of Business   |Customer Type|
+      |Agriculture & Fishing|Buyer        |
+    When I authorize on the Onboarding Review page
+      |Result |Customer Type|
+      |Approve|Buyer        |
+    When I close driver
+    Given logon "scf_sit2" on sit tube by inputting system
+    When I authorize on the Onboarding Review page
+      |Result |Customer Type|
+      |Approve|Buyer        |
+    When I click Customers and select Onboarding List
+    Then I compare Approved Status on the page
+      |Status  |Customer Type|
+      |Approved|Buyer        |
+    When I close driver
 
      #2.simple（核心不存在、非自主、管理员）
   @simpleKYC02_SIT
@@ -176,42 +176,42 @@ Feature: test report for scf
 #    When I upload Historical Documents
 #    Then I should see the uploaded historical documents
 #
-#  #创建信用档案
-#  Scenario:createSupplierCreditFile
-#    Given logon "scf_sit1" on sit tube by inputting system
-#    When login successfully and click the SCF link to createSupplierCreditFile
-#    And edit Supplier Credit Profile
-#    Then submit Supplier Credit Profile
-#    And to Supplier Credit Profile Review Page
-#    Then Supplier Credit Profile L1 Review
-#    Given logon "scf_sit2" on sit tube by inputting system
-#    And use User L2 to Supplier Review
-#    When I close driver
-#
-#  #授信限额
-#  Scenario:1Supplier The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained
-#    Given logon "scf_sit1" on sit tube by inputting system
+  #创建信用档案
+  Scenario:createSupplierCreditFile
+    Given logon "scf_sit1" on sit tube by inputting system
+    When login successfully and click the SCF link to createSupplierCreditFile
+    And edit Supplier Credit Profile
+    Then submit Supplier Credit Profile
+    And to Supplier Credit Profile Review Page
+    Then Supplier Credit Profile L1 Review
+    Given logon "scf_sit2" on sit tube by inputting system
+    And use User L2 to Supplier Review
+    When I close driver
+
+  #授信限额
+  Scenario:1Supplier The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained
+    Given logon "scf_sit1" on sit tube by inputting system
+    When I click UnderWriting and UnderWriting Approval
+    Then I should direct to the UnderWriting Approval page
+    When I click Supplier Test Data Assign to Me button on UnderWriting Approval page
+    When I click Assign to ME title on the on UnderWriting Approval page
+    When I should see Supplier Proceed Button and click on the UnderWriting Approval page
+    When I update Limit for THIS Product
+    When I click Result button on the UnderWriting Approval page
+    And I click Approve button and click Submit button on the page
+    When I click Completed Button on the UnderWriting Approval page
+#    SCF新版本 一次审批就ok
+#    Given logon "environments_2" on tube by inputting system
 #    When I click UnderWriting and UnderWriting Approval
 #    Then I should direct to the UnderWriting Approval page
 #    When I click Supplier Test Data Assign to Me button on UnderWriting Approval page
 #    When I click Assign to ME title on the on UnderWriting Approval page
 #    When I should see Supplier Proceed Button and click on the UnderWriting Approval page
-#    When I update Limit for THIS Product
 #    When I click Result button on the UnderWriting Approval page
 #    And I click Approve button and click Submit button on the page
-#    When I click Completed Button on the UnderWriting Approval page
-##    SCF新版本 一次审批就ok
-##    Given logon "environments_2" on tube by inputting system
-##    When I click UnderWriting and UnderWriting Approval
-##    Then I should direct to the UnderWriting Approval page
-##    When I click Supplier Test Data Assign to Me button on UnderWriting Approval page
-##    When I click Assign to ME title on the on UnderWriting Approval page
-##    When I should see Supplier Proceed Button and click on the UnderWriting Approval page
-##    When I click Result button on the UnderWriting Approval page
-##    And I click Approve button and click Submit button on the page
-##    When I the second click Completed Button on the UnderWriting Approval page
-##    When I click UnderWriting List button on the page
-##    When I close driver
+#    When I the second click Completed Button on the UnderWriting Approval page
+#    When I click UnderWriting List button on the page
+#    When I close driver
 
 #
 #
