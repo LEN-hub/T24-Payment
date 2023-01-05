@@ -367,6 +367,12 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[9]/span")
     public WebElementFacade checkRegistrationtatus;
 
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody//i[@class='lls-tooltip lls-icon-data-view']")
+    public WebElementFacade clickViewDetailsBtn;
+
+    @FindBy(xpath = "//span[@class='back_view_item']")
+    public WebElementFacade clickBackDetailsBtn;
+
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[7]")
     public WebElementFacade checkEmail;
 

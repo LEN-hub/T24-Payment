@@ -88,6 +88,19 @@ public class createBuyerCreditFile_page extends PageObject {
     @FindBy(xpath = "//span[text()=\"Save \"]")
     public WebElementFacade clickSaveBuyerCreditProfile;
 
+    @FindBy(xpath = "//div[@class='back_view']//span[contains(text(),'Back')]")
+    public WebElementFacade clickBackBtn;
+
+    @FindBy(xpath = "//label[text()='Status']")
+    public WebElementFacade clickStatusTitle;
+
+    @FindBy(xpath = "//label[text()='Company']/following-sibling::div//input")
+    public WebElementFacade inputCompanyText;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//table/tbody//i[@class='lls-tooltip lls-icon-s-check']")
+    public WebElementFacade clickSubmitBtn;
+
+
     @FindBy(xpath = "//div[@class=\"lls-menu-item is-active\"]//span[text()=\"Buyer Credit Profile List\"]")
     public WebElementFacade checkBuyerCreditProfileList;
 
