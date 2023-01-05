@@ -99,7 +99,8 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         createBuyerCreditFile_page.clickBackBtn.click();
         createBuyerCreditFile_page.inputCompanyText.sendKeys(FileUtils.LastReadFileInput3("buyer"));
         createBuyerCreditFile_page.clickStatusTitle.click();
-        createBuyerCreditFile_page.clickSubmitBtn.click();
+        bddUtil.sleep(2);
+        bddUtil.clickByJS(createBuyerCreditFile_page.clickSubmitBtn);
     }
 
     @Step

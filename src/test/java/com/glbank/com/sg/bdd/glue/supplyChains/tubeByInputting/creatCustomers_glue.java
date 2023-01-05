@@ -487,8 +487,9 @@ public class creatCustomers_glue {
     }
 
     @Then("^I compare Registration Status on the page$")
-    public void iCompareRegistrationStatusOnThePage() {
-        customers_step.checkRegistrationReport();
+    public void iCompareRegistrationStatusOnThePage(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.checkRegistrationReport(result.get(0).get("Customer Type"));
     }
 
     @When("^I receive mail in my mailbox$")
@@ -515,7 +516,7 @@ public class creatCustomers_glue {
     @Then("^I compare Approved Status on the page$")
     public void iCompareApprovedStatusOnThePage(DataTable payDetails) {
         List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
-        customers_step.checkApprovedStatus(result.get(0).get("Status"),result.get(0).get("Customer Type"));
+        customers_step.checkApprovedStatus(result.get(0).get("Result"),result.get(0).get("Customer Type"));
     }
 
     @When("^I click agree Service Agreement on simple KYC$")

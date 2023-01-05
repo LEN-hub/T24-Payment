@@ -2,6 +2,7 @@ package com.glbank.com.sg.bdd.steps.supplyChains.creditFile;
 
 import com.glbank.com.sg.bdd.pages.supplyChains.creditFile.createSupplierCreditFile_page;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import com.glbank.com.sg.bdd.utils.FileUtils;
 import com.glbank.com.sg.bdd.utils.ModifyExcel;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -74,6 +75,7 @@ public class createSupplierCreditFile_step extends PageObject {
         createSupplierCreditFile_page.getLastFiscalYear.sendKeys("2020");
         createSupplierCreditFile_page.clickBlank.click();
 //        createSupplierCreditFile_page.clickLastFiscalYear.click();
+        bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getBuyerCOGS);
         createSupplierCreditFile_page.getBuyerCOGS.clear();
         createSupplierCreditFile_page.getBuyerCOGS.sendKeys("0");
 //        createSupplierCreditFile_page.upFileScreenshotOfDRSKRating.click();
@@ -104,6 +106,7 @@ public class createSupplierCreditFile_step extends PageObject {
         createSupplierCreditFile_page.getTotalRevenue.clear();
         createSupplierCreditFile_page.getTotalRevenue.sendKeys("0");
         createSupplierCreditFile_page.getCashAndCashEquivalents.clear();
+        bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getCashAndCashEquivalents);
         createSupplierCreditFile_page.getCashAndCashEquivalents.sendKeys("0");
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getBookValueOfEquity);
         createSupplierCreditFile_page.getBookValueOfEquity.clear();
@@ -131,6 +134,10 @@ public class createSupplierCreditFile_step extends PageObject {
         getDriver().findElement(By.xpath("//label[@for='A0030']/following-sibling::div//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
         createSupplierCreditFile_page.clickSave.click();
+        createSupplierCreditFile_page.clickBackBtn.click();
+        createSupplierCreditFile_page.inputCompanyText.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        createSupplierCreditFile_page.clickStatusTitle.click();
+        bddUtil.clickByJS(createSupplierCreditFile_page.clickSubmitBtn);
         bddUtil.sleep(2);
     }
     @Step

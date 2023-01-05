@@ -1071,7 +1071,7 @@ public class creatCustomers_step extends ScenarioSteps {
     @Step
     public void clickEditIcon(String companyType){
         customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-        if(companyType.equals("buyer")){
+        if(companyType.equals("Buyer")){
             customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
         }else {
             customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
@@ -1083,6 +1083,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void companyInformation(String Industry,String selectIdType,String customerType){
+        bddUtil.sleep(5);
         customers_page.enterRegisteredAddress.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.clickCountryOfBusiness.click();
         customers_page.selectCountryOfBusinessText.click();
@@ -1211,14 +1212,14 @@ public class creatCustomers_step extends ScenarioSteps {
         List<WebElementFacade> company = customers_page.getCompanyNameList;
         List<WebElementFacade> proceed = customers_page.clickProceedBtn;
         for (int j = 0; j < company.size(); j++){
-            if (customerType.equals("buyer")){
-                if (FileUtils.LastReadFileInput3("Buyer").equals(company.get(j).getText())){
+            if (customerType.equals("Buyer")){
+                if (FileUtils.LastReadFileInput3("buyer").equals(company.get(j).getText())){
                     bddUtil.sleep(8);
                     proceed.get(j).click();
                     break;
                 }
             }else{
-                if (FileUtils.LastReadFileInput3("buyer").equals(company.get(j).getText())){
+                if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
                     bddUtil.sleep(8);
                     proceed.get(j).click();
                     break;
@@ -1294,9 +1295,13 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.sleep(10);
     }
 
-    public void checkRegistrationReport(){
+    public void checkRegistrationReport(String companyType){
         customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-        customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        if (companyType.equals("Buyer")){
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+        }else{
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        }
         customers_page.clickStatusOnOnboardingList.click();
         Assert.assertEquals("Pending Registration",customers_page.checkRegistrationtatus.getText());
         bddUtil.sleep(2);
@@ -1317,7 +1322,7 @@ public class creatCustomers_step extends ScenarioSteps {
             customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         }
         customers_page.clickStatusOnOnboardingList.click();
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
 //        if (!status.equals(customers_page.checkRegistrationtatus.getText())){
 //            bddUtil.clickByJS(customers_page.clickViewDetailsBtn);
 //            bddUtil.scrollWindowToElement(bddUtil.getDriver().findElement(By.xpath("//div[text()='Beneficial Owner (s)']")));
