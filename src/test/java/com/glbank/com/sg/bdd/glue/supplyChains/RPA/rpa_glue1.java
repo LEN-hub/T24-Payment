@@ -32,7 +32,6 @@ public class rpa_glue1 {
     @Then("^Enter the name of the supplier to filter$")
     public void enterTheNameOfTheSupplierToFilter() {
         rpaStep.clickCompanyName();
-        rpaStep.clickCompanyNameClickReset();
     }
 
     @When("^Upload a file$")

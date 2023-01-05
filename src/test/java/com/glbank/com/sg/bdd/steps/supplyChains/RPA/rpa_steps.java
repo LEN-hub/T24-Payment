@@ -1,4 +1,5 @@
 package com.glbank.com.sg.bdd.steps.supplyChains.RPA;
+import cn.hutool.core.date.DateUtil;
 import com.glbank.com.sg.bdd.pages.supplyChains.RPA.rpa_page;
 import com.glbank.com.sg.bdd.utils.*;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -7,6 +8,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -36,7 +38,18 @@ public class rpa_steps extends ScenarioSteps {
     public void clickContractManagement(){rpaPage.ContractManagement.click();}
 
     @Step
-    public void clickCompanyName(){rpaPage.CompanyName.sendKeys(FileUtils.LastReadFileInput3("companyData"));}
+    public void clickCompanyName(){
+        rpaPage.enterCompanyName.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        rpaPage.clickContractType.click();
+        rpaPage.clickUploadBtn.click();
+        getDriver().findElement(By.xpath("//div[@class='lls-upload-dragger']/following-sibling::input")).sendKeys(fileAddress);
+        String Date = DateUtil.format(DateUtil.offsetDay(new Date(),365),"yyyy-MM-dd");
+        rpaPage.enterDate.sendKeys(Date);
+        bddUtil.sleep(3);
+        rpaPage.clickNextBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.clickConfirmBtn.click();
+    }
 
     @Step
     public void clickCompanyNameClickReset(){

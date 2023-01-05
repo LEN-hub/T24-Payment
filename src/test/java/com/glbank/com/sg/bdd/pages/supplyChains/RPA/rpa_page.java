@@ -18,6 +18,24 @@ public class rpa_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f2ggi3np']//input")
     public WebElementFacade CompanyName;
 
+    @FindBy(xpath = "//label[text()='Company Name']/following-sibling::div//input")
+    public WebElementFacade enterCompanyName;
+
+    @FindBy(xpath = "//label[text()='Contract Type']")
+    public WebElementFacade clickContractType;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//span[contains(text(),'Upload')]")
+    public WebElementFacade clickUploadBtn;
+
+    @FindBy(xpath = "//div[contains(text(),'Active Date of Contract')]/parent::label/following-sibling::div//input")
+    public WebElementFacade enterDate;
+
+    @FindBy(xpath = "//span[contains(text(),'Next')]")
+    public WebElementFacade clickNextBtn;
+
+    @FindBy(xpath = "//div[@class='lls-dialog__body']//span[contains(text(),'Confirm')]")
+    public WebElementFacade clickConfirmBtn;
+
     @FindBy(xpath = "//span[text()='Contract Management']")
     public WebElementFacade CompanyNameClickReset;
 
