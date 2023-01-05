@@ -164,6 +164,18 @@ public class createSupplierCreditFile_page extends PageObject {
     @FindBy(xpath = "//span[text()=\"Save \"]")
     public WebElementFacade clickSave;
 
+    @FindBy(xpath = "//div[@class='back_view']//span[contains(text(),'Back')]")
+    public WebElementFacade clickBackBtn;
+
+    @FindBy(xpath = "//label[text()='Product Type']")
+    public WebElementFacade clickStatusTitle;
+
+    @FindBy(xpath = "//label[text()='Company Name']/following-sibling::div//input")
+    public WebElementFacade inputCompanyText;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//table/tbody//i[@class='lls-tooltip lls-icon-s-check']")
+    public WebElementFacade clickSubmitBtn;
+
     @FindBy(xpath = "//div[@class='lowcode-table-wrap']//tbody//td[@data-key=\"f2e1tmh0\"]")
     public List<WebElementFacade> companyNameList;
 

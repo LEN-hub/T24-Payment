@@ -267,8 +267,8 @@ Feature: tube By Inputting
       |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Result |Customer Type|
-      |Approve|Buyer        |
+      |Result  |Customer Type|
+      |Approved|Buyer        |
     When I close driver
 
     #2.simple（核心不存在、非自主、管理员）
@@ -294,6 +294,8 @@ Feature: tube By Inputting
       |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Registration Status on the page
+      |Customer Type|
+      |Buyer        |
     And I click the email icon to send the email
     When open the email browser page
     And I received an email from Green Union Bank on the email page
@@ -314,8 +316,8 @@ Feature: tube By Inputting
     Given logon "scf_environments_2_tian" on tube by inputting system
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Result |Customer Type|
-      |Approve|Buyer        |
+      |Result  |Customer Type|
+      |Approved|Buyer        |
     When I close driver
 
 
@@ -408,6 +410,8 @@ Feature: tube By Inputting
       |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Registration Status on the page
+      |Customer Type|
+      |Buyer        |
     And I click the email icon to send the email
     When open the email browser page
     And I received an email from Green Union Bank on the email page
@@ -565,6 +569,8 @@ Feature: tube By Inputting
       |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Registration Status on the page
+      |Customer Type|
+      |Buyer        |
     And I click the email icon to send the email
     When open the email browser page
     And I received an email from Green Union Bank on the email page
