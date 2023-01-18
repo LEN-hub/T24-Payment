@@ -132,7 +132,7 @@ public class payments_steps extends ScenarioSteps {
 
     @Step
     public void requesterValidation(){
-        paymentsPage.Requester1.click();
+        paymentsPage.Requester1.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         paymentsPage.Reset.click();
         CommonUtil.waiting(3000);
 //        assertEquals("Approve", paymentsPage.find(By.xpath("//td[@data-key='f109ru23']")).getText());
@@ -162,7 +162,7 @@ public class payments_steps extends ScenarioSteps {
 
     @Step
     public void validation() {
-        paymentsPage.Requester6.click();
+        paymentsPage.Requester6.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         paymentsPage.Reset.click();
         CommonUtil.waiting(3000);
 //        assertEquals("Approve", paymentsPage.find(By.xpath("//td[@data-key='f1b59fkq']")).getText());

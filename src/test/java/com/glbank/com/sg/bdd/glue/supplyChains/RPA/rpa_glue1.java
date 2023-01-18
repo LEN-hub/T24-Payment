@@ -76,4 +76,19 @@ public class rpa_glue1 {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         rpaStep.clickCreateUser(maps.get(0).get("first_new_password"),maps.get(0).get("second_new_password"));
     }
+
+    @When("^sit client login success$")
+    public void clientLoginSuccess() {
+        rpaStep.loginClientUseFixeDataSIT();
+    }
+
+    @When("^click Go to Digibank Link$")
+    public void clickGoToDigibankLink() {
+        rpaStep.clickGoToDigibankLink();
+    }
+
+    @Then("^Check page jump success$")
+    public void checkPageJumpSuccess() {
+        rpaStep.jumpToInbLink();
+    }
 }
