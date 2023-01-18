@@ -84,8 +84,11 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for=\"operatePersonNm\"]/following-sibling::div//div//input")
     public WebElementFacade inputFullName;
 
-    @FindBy(xpath = "//div[@class=\"iddbox\"]//input")
+    @FindBy(xpath = "//label[@for='idd']/following::div[1]//input")
     public WebElementFacade clickCountryCode;
+
+    @FindBy(xpath = "//div[@class='iddbox need-scrollbar']//input")
+    public WebElementFacade clickTrack3ContryCode;
 
     @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for='salutation']//following-sibling::div//input")
     public WebElementFacade selectSalutation;//第二个人信息。
@@ -186,6 +189,12 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for='fundAcctType']/following-sibling::div/div/label[1]")
     public WebElementFacade BusinessOperations;
 
+    @FindBy(xpath = "//label[@for='entityType']/following-sibling::div//span[@class='el-input__suffix']")
+    public WebElementFacade clickBusinessEntityTypeDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//li[1]/span")
+    public WebElementFacade selectBusinessEntityType;
+
     @FindBy(xpath = "//label[@for='monthAmont']/following-sibling::div//input")
     public WebElementFacade monthAmontNew;
 
@@ -210,16 +219,25 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//span[text()='Business entity type']/following-sibling::span//input")
     public WebElementFacade businessEntity;
 
+    @FindBy(xpath = "//span[text()='Date of registration']/following-sibling::span//input")
+    public WebElementFacade enterDateOfRegistration;
+
+    @FindBy(xpath = "//span[contains(text(),'Country where')]/following-sibling::span//input")
+    public WebElementFacade enterCountryWhere;
+
+    @FindBy(xpath = "//span[contains(text(),'Country where')]")
+    public WebElementFacade countryWhereTitle;
+
     @FindBy(xpath = "//span[text()='Business turnover']/following-sibling::span//input")
     public WebElementFacade businessTurnover;
 
     @FindBy(xpath = "//span[text()='Country of operation']/following-sibling::span//input")
     public WebElementFacade countryOfOperation;
 
-    @FindBy(xpath = "//span[text()='Turnover SGD 1 Million to ≤ SGD 20 Million']")
+    @FindBy(xpath = "//span[text()='SGD 1 Million < Turnover <= SGD 20 Million']")
     public WebElementFacade thanOneMillion;
 
-    @FindBy(xpath = "//span[text()='Public Limited Co (not listed in Singapore)']")
+    @FindBy(xpath = "//span[text()='Public Listed Company (Listed in Singapore)']")
     public WebElementFacade noListed;
 
     @FindBy(xpath = "//span[text()='Is non-profit organization']/following-sibling::span//div[@role='radiogroup']//label[1]/span[1]")
@@ -246,14 +264,17 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//span[text()='Date of Birth']/following-sibling::span//input")
     public WebElementFacade dateOfBirth;
 
-    @FindBy(xpath = "//span[text()='Document type']/following-sibling::span//input")
+    @FindBy(xpath = "//span[text()='Identification Type']/following-sibling::span//span[@class='el-input__suffix']")
     public WebElementFacade documentType;
 
-    @FindBy(xpath = "//span[text()='I.d.']/following-sibling::span//input")
+    @FindBy(xpath = "//span[text()='Identification Number']/following-sibling::span//input")
     public WebElementFacade nric;
 
     @FindBy(xpath = "//span[text()=' Country of residence ']/following-sibling::span//input")
     public WebElementFacade countryOfResidence;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\"]//li")
+    public WebElementFacade clickContryCode;
 
     @FindBy(xpath = "//span[text()=' Address ']/following-sibling::span//input")
     public WebElementFacade adressNew;
@@ -1030,6 +1051,30 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//div[text()='Yes, This is Accurate']")
     public WebElementFacade clickSubmitBtn;
+
+    @FindBy(xpath = "//div[@class='dialog-content']//span[@class=\"el-input__suffix\"]")
+    public WebElementFacade clickReminderDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement=\"top-start\" or @x-placement=\"bottom-start\"]//li[1]")
+    public WebElementFacade select1Type;
+
+    @FindBy(xpath = "//div[@class='dialog-content']//div[text()='OK']")
+    public WebElementFacade clickOkBtn;
+
+    @FindBy(xpath = "//span[text()='Industry']/following-sibling::span//input")
+    public WebElementFacade enterIndustry;
+
+    @FindBy(xpath = "//span[text()='Registered Address']/following-sibling::span//input")
+    public WebElementFacade enterAddress;
+
+    @FindBy(xpath = "//span[text()='Zip code']/following-sibling::span//input")
+    public WebElementFacade enterZipCode;
+
+    @FindBy(xpath = "//span[contains(text(),'The registered address')]/following-sibling::span//input")
+    public WebElementFacade enterCity;
+
+    @FindBy(xpath = "//span[text()='Sector ID']/following-sibling::span//input")
+    public WebElementFacade enterSectorID;
 
     @FindBy(xpath = "//label[@for='companyListedInFlag']/following-sibling::div//label[1]//span[@class='el-radio__inner']")
     public WebElementFacade selectSingaporeTrack1;
