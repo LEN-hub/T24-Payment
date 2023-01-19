@@ -379,7 +379,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public void thirdEmail(){
         bddUtil.sleep(3);
         customers_page.clickRefresh.click();
-        bddUtil.sleep(1);
+        bddUtil.sleep(3);
         bddUtil.scrollWindowToElement(customers_page.selectCodeEamil).click();
         bddUtil.sleep(2);
         String verificationCode = customers_page.emailVerificationCode.getText();

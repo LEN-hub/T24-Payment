@@ -32,7 +32,6 @@ public class rpa_glue1 {
     @Then("^Enter the name of the supplier to filter$")
     public void enterTheNameOfTheSupplierToFilter() {
         rpaStep.clickCompanyName();
-        rpaStep.clickCompanyNameClickReset();
     }
 
     @When("^Upload a file$")
@@ -76,5 +75,21 @@ public class rpa_glue1 {
     public void iClickCreateUserButton(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         rpaStep.clickCreateUser(maps.get(0).get("first_new_password"),maps.get(0).get("second_new_password"));
+    }
+
+    @When("^client login success$")
+    public void clientLoginSuccess(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        rpaStep.loginClientUseFixeData(maps.get(0).get("Email Name"));
+    }
+
+    @When("^click Go to Digibank Link$")
+    public void clickGoToDigibankLink() {
+        rpaStep.clickGoToDigibankLink();
+    }
+
+    @Then("^Check page jump success$")
+    public void checkPageJumpSuccess() {
+        rpaStep.jumpToInbLink();
     }
 }

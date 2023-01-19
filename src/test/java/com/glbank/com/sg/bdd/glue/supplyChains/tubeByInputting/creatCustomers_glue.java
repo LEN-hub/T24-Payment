@@ -83,7 +83,6 @@ public class creatCustomers_glue {
         }else {
             FileUtils.FileString4("companyData",CompanyName);
         }
-        FileUtils.FileString4("emailData",CompanyName);
         customers_step.getCompanyID(RandomPhoneNumber.randomPhoneNum());
         customers_step.getSelectCountryOfRegistration();
         customers_step.getCountryOfRegistrationValue();

@@ -8,8 +8,8 @@ Feature: supply chain run
 #    When open the email browser page
 #    When I click Customers and select Onboarding List
 #    And I click Create Customer and fill in the supplier information in the pop-up window
-#      |KYC Mode   |Input by|
-#      |Full KYC   |Customer|
+#      |KYC Mode   |Input by|Customer Type|
+#      |Full KYC   |Customer|Supplier     |
 #    Then I Check to see if you jump to the Authorized Person page
 #    When Fill in email 1 and email 2 supplier information on the Authorized Person page
 #    And I click the email icon to send the email

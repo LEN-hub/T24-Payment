@@ -3,12 +3,16 @@ Feature: openAccount_track2
   @testcode123
     #正常开户流程——单币种账户——新币
   Scenario:openAccount Singapore enterprise
-    Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
+    Given open "netSilverEnv_Kevin_SIT" enterprise net silver page
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information
     |Entity's Type                                  |Entity Consolidated       |Entity's Industry|date      |chekk      |
+<<<<<<< HEAD
     |Public Listed Company (Not Listed in Singapore)|Turnover <= SGD 1 Million |Manufacturing    |01/01/2010|201328933D |
+=======
+    |Public Listed Company (Not Listed in Singapore)|Turnover <= SGD 1 Million |Manufacturing    |01/01/2010|198103248W |
+>>>>>>> 305cc1bf3193763caca16070caa92e9f95ed28f4
     Then Enter Connected People's Details
     And Enter Connected Entities’ Details
     Then Create Company Administrators’ Profiles
