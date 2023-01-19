@@ -165,8 +165,8 @@ public class rpa_steps extends ScenarioSteps {
         }
     }
 
-    public void loginClientUseFixeDataSIT(){
-        rpaPage.GLDBEmailInput.sendKeys("p165662w@ihotmails.com");//("362DDf6O@MailTemp.top");
+    public void loginClientUseFixeData(String emailName){
+        rpaPage.GLDBEmailInput.sendKeys(emailName+"@ihotmails.com");//("362DDf6O@MailTemp.top");
         rpaPage.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         rpaPage.enterCompanyId.sendKeys("1234");
         // 换新邮箱地址了
@@ -192,7 +192,7 @@ public class rpa_steps extends ScenarioSteps {
         rpaPage.clickEditEmailName.click();
         bddUtil.sleep(3);
         rpaPage.sendKeysEmailName.clear();
-        rpaPage.sendKeysEmailName.sendKeys("p165662w");
+        rpaPage.sendKeysEmailName.sendKeys(emailName);
         rpaPage.clickEditEmailName.click();
         bddUtil.switchToWindows();
         rpaPage.sendCodeBtn.click();

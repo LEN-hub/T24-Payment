@@ -3,8 +3,8 @@
 Feature: Health Check SCF SIT Test Case
 
 #1.Full account供应商建档全流程
-  @health_check_supplier_Fulll_KYC_SIT
-  Scenario:Full account the whole process of supplier file creation
+  @health_check_supplier_Fulll_KYC_UAT
+  Scenario:Full account the whole process of supplier file creation_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When open the email browser page
 #      And I switch to the SCF page
@@ -67,13 +67,16 @@ Feature: Health Check SCF SIT Test Case
     When I close driver
 
    #2.客户端登录成功
-  Scenario:sit env client login success
+  @health_check_Login_Client_UAT
+  Scenario:uat env client login success_UAT
     Given logon "environments_SCF_UAT" test code
-    When sit client login success
+    When client login success
+      |Email Name|
+      |p165662w  |
 
     #3.创建simple kyc模式建档，建档信息补充中上传文件成功
-  @Health_Check_supplier_simple_kyc_buyer
-  Scenario:Create a simple kyc mode for filing, and upload the file successfully in the filing information supplement
+  @Health_Check_supplier_simple_kyc_buyer_UAT
+  Scenario:Create a simple kyc mode for filing, and upload the file successfully in the filing information supplement_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I click Customers and select Onboarding List
     And I click Create Customer and fill in the supplier information in the pop-up window
@@ -99,7 +102,8 @@ Feature: Health Check SCF SIT Test Case
     When I close driver
 
     #4.onboarding页面创建客户，点击发送邀请码邮件，邮件接收成功
-  Scenario:Create a customer on the onboarding page, click to send an invitation code email, and the email is received successfully
+  @health_check_Send_Email_UAT
+  Scenario:Create a customer on the onboarding page, click to send an invitation code email, and the email is received successfully_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When open the email browser page
 #      And I switch to the SCF page
@@ -113,7 +117,8 @@ Feature: Health Check SCF SIT Test Case
     And I received an email from Green Union Bank on the email page
 
   #5.线上签署BR成功后，在E-Sign查看BR文件成功
-  Scenario:After signing BR online successfully, check the BR file in E-Sign successfully
+  @health_check_BR_Signature_UAT
+  Scenario:After signing BR online successfully, check the BR file in E-Sign successfully_UAT
     Given Open Supplier Portal URL
     When I input login data and click on the Login Supplier Portal URL
       |pass word   |Company ID|
@@ -131,20 +136,26 @@ Feature: Health Check SCF SIT Test Case
 
 
    #6.客户端登录成功
-  Scenario:sit env client login success,page jump success
+  @health_check_Login_Client_Jump_UAT
+  Scenario:sit env client login success,page jump success_UAT
     Given logon "environments_SCF_UAT" test code
-    When sit client login success
+    When client login success
+      |Email Name|
+      |p165662w  |
     When click Go to Digibank Link
     Then Check page jump success
 
     #7.授权人登录客户端时触发OFD检查
-  Scenario:financing Request
+  @health_check_Login_Client_UAT
+  Scenario:financing Request_UAT
     Given logon "environments_SCF_UAT" test code
-    When sit client login success
+    When client login success
+      |Email Name|
+      |p165662w  |
 
 #8.建档 L1 提交审核通过，触发对企业、关联人的AML核查,L2可查看AML返回结果
-  @health_check_supplier_Fulll_KYC_SIT
-  Scenario:Filing L1 is submitted and approved, triggering the AML verification of enterprises and associated persons, and L2 can view the results returned by AML
+  @health_check_supplier_Fulll_KYC_UAT
+  Scenario:Filing L1 is submitted and approved, triggering the AML verification of enterprises and associated persons, and L2 can view the results returned by AML_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When open the email browser page
 #      And I switch to the SCF page
@@ -205,3 +216,8 @@ Feature: Health Check SCF SIT Test Case
     When Approval in the supply chain system
     Then Switch To the Assign To Me page and perform the corresponding operations
     When I close driver
+
+#9.scf用户登录正流程
+  @health_check_Login_Esso_UAT
+  Scenario:scf user login process_UAT
+    Given logon "scf_environments_1_yang" on tube by inputting system

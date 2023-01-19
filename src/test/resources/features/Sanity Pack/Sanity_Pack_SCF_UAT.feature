@@ -4,7 +4,7 @@ Feature: Sanity Pack SCF UAT Test Case
 
   #1.Full account供应商建档全流程
   @sanity_pack_supplier_Fulll_KYC+Account_Opening_UAT
-  Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
+  Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When open the email browser page
 #      And I switch to the SCF page
@@ -68,7 +68,7 @@ Feature: Sanity Pack SCF UAT Test Case
 
 
   #2.simple（核心不存在、非自主、无管理员）
-  @sanity_pack_supplier_simple_kyc_buyer
+  @sanity_pack_supplier_Simple_Kyc_Buyer_UAT
   Scenario:Simple (core does not exist, non autonomous, no administrator)_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I click Customers and select Onboarding List
@@ -95,7 +95,8 @@ Feature: Sanity Pack SCF UAT Test Case
     When I close driver
 
     # 3.绑定关系
-  Scenario:Buyer The operator binds a supplier relationship that does not exist between a single system for the buyer's customer, and the binding is successful
+  @sanity_pack_supplier_Customer_Mapping_UAT
+  Scenario:Buyer The operator binds a supplier relationship that does not exist between a single system for the buyer's customer, and the binding is successful_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I click Customers and select Customers Mapping
     Then I should direct to the Customers Mapping page
@@ -105,7 +106,8 @@ Feature: Sanity Pack SCF UAT Test Case
     When I close driver
 
      #4.产品设置
-  Scenario UAT_ Supply chain_Inner tube_Create product
+  @sanity_pack_supplier_Product_Quotation_Settings_UAT
+  Scenario:UAT_ Supply chain_Inner tube_Create product_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I click product
     When I click on Product List
@@ -129,8 +131,8 @@ Feature: Sanity Pack SCF UAT Test Case
     When I close driver
 
   #5.上传历史单据
-  @UploadHistoricalDocuments
-  Scenario:Upload historical documents
+  @sanity_pack_supplier_Upload_Historical_Documents_UAT
+  Scenario:Upload historical documents_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I click Operations button
     And I click docs List button
@@ -138,7 +140,8 @@ Feature: Sanity Pack SCF UAT Test Case
     Then I should see the uploaded historical documents
 
   #6.创建卖方信用档案
-  Scenario:create Supplier Credit File
+  @sanity_pack_supplier_Credit_Supplier_Customer_Profile_UAT
+  Scenario:create Supplier Credit File_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When login successfully and click the SCF link to createSupplierCreditFile
     And edit Supplier Credit Profile
@@ -150,7 +153,8 @@ Feature: Sanity Pack SCF UAT Test Case
     When I close driver
 
      #7.卖方授信限额
-  Scenario:Supplier The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained
+  @sanity_pack_supplier_Supplier_Underwriting_UAT
+  Scenario:Supplier The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I click UnderWriting and UnderWriting Approval
     Then I should direct to the UnderWriting Approval page
@@ -164,7 +168,8 @@ Feature: Sanity Pack SCF UAT Test Case
 
 
     #8.创建买方信用档案
-  Scenario:create Buyer Credit File
+  @sanity_pack_buyer_Credit_Supplier_Customer_Profile_UAT
+  Scenario:create Buyer Credit File_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When login successfully and click the SCF link to createBuyerCreditFile
     And edit Buyer Credit Profile
@@ -179,7 +184,8 @@ Feature: Sanity Pack SCF UAT Test Case
 
 
   # 9.买方授信限额
-  Scenario:Buyer The operator initiated Buyer Entity Flow & Buyer Entity Public to grant credit to buyer customers, and the credit was successfully granted, and the limit and rating were obtained
+  @sanity_pack_buyer_Supplier_Underwriting_UAT
+  Scenario:Buyer The operator initiated Buyer Entity Flow & Buyer Entity Public to grant credit to buyer customers, and the credit was successfully granted, and the limit and rating were obtained_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I click UnderWriting and UnderWriting Approval
     Then I should direct to the UnderWriting Approval page
@@ -193,7 +199,8 @@ Feature: Sanity Pack SCF UAT Test Case
 
 
   #10.BR签署
-  Scenario:BR signed
+  @sanity_pack_buyer_BR_Signature_UAT
+  Scenario:BR signed_UAT
     Given Open Supplier Portal URL
     When I input login data and click on the Login Supplier Portal URL
       |pass word   |Company ID|
@@ -210,14 +217,16 @@ Feature: Sanity Pack SCF UAT Test Case
     When I close driver
 
    #11.RPA上传
-  Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_ 00011
+  @sanity_pack_buyer_RPA_Upload_UAT
+  Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I click on the first Customers
     And click ContractManagement
     Then Enter the name of the supplier to filter
 
   #12.融资申请
-  Scenario:financing Request
+  @sanity_pack_buyer_Financing_Request_UAT
+  Scenario:financing Request_UAT
     Given logon "environments_SCF_UAT" test code
     When I input login information
     When login successfully and click RequestFinancing
@@ -234,7 +243,8 @@ Feature: Sanity Pack SCF UAT Test Case
 
 #
     #13.放款
-  Scenario:UAT_ Supply chain_ Inner tube_ Create payments_ 0001
+  @sanity_pack_buyer_Loan_UAT
+  Scenario:UAT_ Supply chain_ Inner tube_ Create payments_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When When I hit Operations
     And click Request for Disbursement
@@ -248,7 +258,8 @@ Feature: Sanity Pack SCF UAT Test Case
 
 
   # 14.全部还款
-  Scenario:UAT_supply chain_inner management_repayment_0001UAT_supply chain_inner management_repayment_0001
+  @sanity_pack_buyer_Full_Repayment_UAT
+  Scenario:UAT_supply chain_inner management_repayment_0001UAT_supply chain_inner management_repayment_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I click Operations button
     When I click Repayment button
