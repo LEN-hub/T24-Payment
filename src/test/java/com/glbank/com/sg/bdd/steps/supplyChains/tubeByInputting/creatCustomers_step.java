@@ -1215,13 +1215,13 @@ public class creatCustomers_step extends ScenarioSteps {
             if (customerType.equals("Buyer")){
                 if (FileUtils.LastReadFileInput3("buyer").equals(company.get(j).getText())){
                     bddUtil.sleep(8);
-                    proceed.get(j).click();
+                    bddUtil.clickByJS(proceed.get(j));
                     break;
                 }
             }else{
                 if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
                     bddUtil.sleep(8);
-                    proceed.get(j).click();
+                    bddUtil.clickByJS(proceed.get(j));
                     break;
                 }
             }

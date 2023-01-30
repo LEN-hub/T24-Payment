@@ -3,28 +3,29 @@
 Feature: Sanity Pack SCF UAT Test Case
 
   #1.Full account供应商建档全流程
-  @sanity_pack_supplier_Fulll_KYC+Account_Opening_UAT
-  Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully_UAT
+  @sanity_pack_supplier_Full_Kyc_UAT
+  Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account
     Given logon "scf_environments_1_yang" on tube by inputting system
     When open the email browser page
 #      And I switch to the SCF page
     When I click Customers and select Onboarding List
     And I click Create Customer and fill in the supplier information in the pop-up window
-      |KYC Mode                  |Input by|Customer Type|
-      |Full KYC + Account Opening|Customer|Supplier     |
+      |KYC Mode                    |Input by|Customer Type|
+      |Full KYC + Account Opening  |Customer|Supplier     |
     Then I Check to see if you jump to the Authorized Person page
     When Fill in email 1 and email 2 supplier information on the Authorized Person page
     And I click the email icon to send the email
     And I received an email from Green Union Bank on the email page
-    When I receive mail in my mailbox on scf sit env
-    And I get the verification code on the email interface
+    Then I check that the email has been sent successfully
+    When I get the verification code in the email and click to jump to the GLDB page to fill in the information and generate the verification code
+    And I went back to the email page to get the verification code
     And I enter Company ID and click Login button
     Then Click login to jump to the Set New Password page
     When After login Set a New Password on the Set New Password page
       |first_new_password|second_new_password|
       |P@ssw0rd_123      |P@ssw0rd_123       |
     Then I jump to the login page
-    When I entered new login information and successfully logged in
+    When I fill in the content on the login page and click operation
       |password    |
       |P@ssw0rd_123|
 #      Given logon "environments_3" test code
@@ -32,7 +33,7 @@ Feature: Sanity Pack SCF UAT Test Case
     When I click agree Service Agreement
     Then I jump to the Tell Us About Your Company page
 #       When I click next Button on the page
-    When I entered information on the Tell Us About Your Company page Full KYC
+    When I entered information on the Tell Us About Your Company page
     Then Check whether to jump to the next page after filling in the content of Company page
     When Fill in the administrator information on the People page and click Next to go to the Next page
     When I click next Button on the page
@@ -58,10 +59,6 @@ Feature: Sanity Pack SCF UAT Test Case
     When Click the Submit button on the Confirm page
     When End the current browser process
     Given logon "scf_environments_1_yang" on tube by inputting system
-    When Approval in the supply chain system
-    Then Switch To the Assign To Me page and perform the corresponding operations
-    When I close driver
-    Given logon "scf_environments_2_yang" on tube by inputting system
     When Approval in the supply chain system
     Then Switch To the Assign To Me page and perform the corresponding operations
     When I close driver
