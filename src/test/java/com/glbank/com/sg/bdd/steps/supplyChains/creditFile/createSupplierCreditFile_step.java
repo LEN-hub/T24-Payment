@@ -31,6 +31,7 @@ public class createSupplierCreditFile_step extends PageObject {
     @Step
     public void createCreateNewUnderwriting(String companyName,String buyerName){
         createSupplierCreditFile_page.clickToGetCustomerName.click();
+        createSupplierCreditFile_page.clickToGetCustomerName.sendKeys(companyName);
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.find(By.xpath("//span[text()='"+ companyName +"']"))).click();
         createSupplierCreditFile_page.clickToGetBuyer.click();
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.find(By.xpath("//span[text()='"+ buyerName +"']"))).click();

@@ -343,6 +343,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody//td[3]")
     public List<WebElementFacade> getCompanyNameList;
 
+    @FindBy(xpath = "//span[text()='Review Customer Profile']")
+    public WebElementFacade clickReviewCustomerProfileTitle;
+
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody//td[10]//span[contains(text(),'Proceed')]")
     public List<WebElementFacade> clickProceedBtn;
 
