@@ -222,11 +222,22 @@ Feature: Health Check SCF SIT Test Case
   Scenario:scf user login process_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
 
-#3.在Rating&Limits中，点击Change修改企业额度成功
+  #1.在Rating&Limits中，点击Change修改企业额度成功
   @Health_Check_supplier_simple_kyc_buyer_UAT
   Scenario:In Rating&Limits, click Change to modify the enterprise quota successfully
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I enter the Rating&Limits page
     When I operate with fixed data on the page
-      |Test Data|amount|
-      |20230112A|10000 |
+      |Test Data|Check Data        |amount|
+      |20230112A|YAYA 20230112A LTD|10000 |
+
+    #3.运营商发起供应商授信，供应商是CPS客户，授信成功
+  @Health_Check_supplier_simple_kyc_buyer_UAT
+  Scenario:The operator initiated supplier credit, and the supplier is a CPS customer, and the credit was granted successfully
+    Given logon "scf_environments_1_yang" on tube by inputting system
+    When I enter the Underwriting Approval page
+    When I select data and credit on the page
+      |Test Data   |
+      |Brittanyw76m|
+
+

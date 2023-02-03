@@ -639,6 +639,18 @@ public class creatCustomers_glue {
     @When("^I operate with fixed data on the page$")
     public void iOperateWithFixedDataOnThePage(DataTable payDetails) {
         List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
-        customers_step.searchData(result.get(0).get("Test Data"),result.get(0).get("amount"));
+        customers_step.searchData(result.get(0).get("Test Data"),result.get(0).get("Check Data"));
+        customers_step.checkAmount(result.get(0).get("amount"));
+    }
+
+    @When("^I enter the Underwriting Approval page$")
+    public void iEnterTheUnderwritingApprovalPage() {
+        customers_step.UnderWritingMenu();
+    }
+
+    @When("^I select data and credit on the page$")
+    public void iSelectDataAndCreditOnThePage(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.selectDataAndCredit(result.get(0).get("Test Data"));
     }
 }

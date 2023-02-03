@@ -1035,12 +1035,28 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickRatingsLimits.click();
         customers_page.clickRatingsLimitsMenu.click();
     }
-
     @Step
-    public void searchData(String data,String amount){
-        customers_page.enterSearchData.sendKeys(" ");
+    public void searchData(String dataName,String data){
+        customers_page.enterSearchData.sendKeys(dataName);
         customers_page.clickStatusTitle.click();
-        bddUtil.clickByJS(customers_page.clickChangeBtn);
+        while(true){
+            List<WebElementFacade> test = customers_page.clientName;
+            for (int i = 0; i < test.size(); i++) {
+                try {
+                    if (data.equals(test.get(i).getText())){
+                        bddUtil.clickByJS(customers_page.clickChangeBtn);
+                        return;
+                    }
+                }catch (Exception e){
+                    break;
+                }
+            }
+            customers_page.clickNextBtnSelectData.click();
+            bddUtil.sleep(2);
+        }
+    }
+    @Step
+    public void checkAmount(String amount){
         customers_page.limitForThisProduct.clear();
         customers_page.limitForThisProduct.sendKeys(amount);
         customers_page.titleProposedLimit.click();
@@ -1050,6 +1066,24 @@ public class creatCustomers_step extends ScenarioSteps {
         }
         customers_page.inputCommentText.sendKeys("ok");
         customers_page.clickSubmitBtnOnGLDB.click();
+    }
+
+    @Step
+    public void UnderWritingMenu(){
+        customers_page.clickUnderwritingMenu.click();
+        customers_page.clickUnderwritingApproval.click();
+        customers_page.clickAssignedToMeBtn.click();
+    }
+
+    @Step
+    public void selectDataAndCredit(String data){
+        customers_page.searchBox.sendKeys(data);
+        customers_page.clickApplicantTitle.click();
+        bddUtil.clickByJS(customers_page.clickUnderWritingProceedBtn);
+        customers_page.clickCpsPreadjustedCGInput.clear();
+        customers_page.clickCpsApprovedCGInput.clear();
+        bddUtil.scrollWindowToElement(customers_page.clickRetriggerCPS).click();
+        bddUtil.sleep(3);
     }
 
 
