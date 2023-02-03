@@ -326,7 +326,8 @@ public class creatCustomers_step extends ScenarioSteps {
         CommonUtil.waiting(2000);
 //        邮箱链接暂时失效，需要手动打开。
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"http://10.24.9.126:8080/#/login\");");
+//        webdriver.executeScript("window.open(\"http://10.24.9.126:8080/#/login\");");//UAT地址
+        webdriver.executeScript("window.open(\"http://10.24.7.8:8080/#/login/\");");//SIT地址
         bddUtil.sleep(5);
         bddUtil.switchToWindows();
 //        customers_page.scfLink.click();
@@ -386,6 +387,8 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.switchToWindows();
         customers_page.inputSendCode.sendKeys(verificationCode);
     }
+
+
     @Step
     public void enterCompanyIdAndClickLoginBtn(){
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -1135,7 +1138,7 @@ public class creatCustomers_step extends ScenarioSteps {
         if(customers_page.clickBackButton.isVisible()){
             customers_page.clickBackButton.click();
             customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
             customers_page.clickStatusOnOnboardingList.click();
         }
         bddUtil.sleep(5);
@@ -1163,7 +1166,7 @@ public class creatCustomers_step extends ScenarioSteps {
         if(customers_page.clickBackButton.isVisible()){
             customers_page.clickBackButton.click();
             customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
             customers_page.clickStatusOnOnboardingList.click();
         }
         bddUtil.sleep(5);
@@ -1176,7 +1179,7 @@ public class creatCustomers_step extends ScenarioSteps {
         List<WebElementFacade> assign = customers_page.ReviewCustomer;
         List<WebElementFacade> assignBtn = customers_page.clickAssignBtn;
         for (int i = 0; i < assign.size(); i++) {
-            if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
+            if (FileUtils.LastReadFileInput3("buyer").equals(assign.get(i).getText())) {
                 assignBtn.get(i).click();
                 break;
             }
@@ -1186,7 +1189,7 @@ public class creatCustomers_step extends ScenarioSteps {
         List<WebElementFacade> company = customers_page.getCompanyNameList;
         List<WebElementFacade> proceed = customers_page.clickProceedBtn;
         for (int j = 0; j < company.size(); j++){
-            if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
+            if (FileUtils.LastReadFileInput3("buyer").equals(company.get(j).getText())){
                 bddUtil.sleep(8);
                 proceed.get(j).click();
                 break;
@@ -1260,7 +1263,7 @@ public class creatCustomers_step extends ScenarioSteps {
 
     public void checkApprovedStatus(String status){
         customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-        customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
         customers_page.clickStatusOnOnboardingList.click();
         bddUtil.sleep(3);
         Assert.assertEquals(status,customers_page.checkRegistrationtatus.getText());

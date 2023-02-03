@@ -64,7 +64,11 @@ public class rpa_steps extends ScenarioSteps {
         }
 
     @Step
-    public void clickConfirms(){rpaPage.confirms.click();}
+    public void clickConfirms(){
+        rpaPage.confirms.click();
+        bddUtil.sleep(1);
+        rpaPage.confirmsTwo.click();
+    }
 
     @Step
     public void jumpToSupplierPortal() {     //跳转供应商门户

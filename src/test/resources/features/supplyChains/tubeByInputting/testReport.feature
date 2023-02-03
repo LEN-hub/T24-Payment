@@ -67,7 +67,7 @@ Feature: test report for scf
     When open the email browser page
     #      And I switch to the SCF page
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
+    And I click Create Customer and fill in the supplier information in the pop-up window buyer
     |KYC Mode                     |Input by|
     |Full KYC + Account Opening   |Customer|
     Then I Check to see if you jump to the Authorized Person page

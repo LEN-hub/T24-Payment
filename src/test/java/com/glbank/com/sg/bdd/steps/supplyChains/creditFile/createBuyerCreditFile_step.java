@@ -95,6 +95,8 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         getDriver().findElement(By.xpath("//label[@for='B0030']/following-sibling::div//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
         createBuyerCreditFile_page.clickSaveBuyerCreditProfile.click();
+        bddUtil.sleep(3);
+        getDriver().findElement(By.xpath("//span[@class='back_view_item']")).click();
     }
 
     @Step

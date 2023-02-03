@@ -76,7 +76,8 @@ public class creatCustomers_glue {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         customers_step.getClickCreateCustomerBtn();
         customers_step.getSelectCustomerType();
-        customers_step.getCustomerType(maps.get(0).get("Customer Type"));
+//        customers_step.getCustomerType(maps.get(0).get("Customer Type"));
+        customers_step.getCustomerTypeSupplier();
         customers_step.getCompanyName(CompanyName);
         FileUtils.FileString4("companyData",CompanyName);
         FileUtils.FileString4("emailData",CompanyName);
@@ -216,6 +217,7 @@ public class creatCustomers_glue {
         bddUtil.switchToNewWindow();
 //        customers_step.emailOperation(mailName);
         customers_step.thirdEmail();
+//        customers_step.selectCodeEmail();
     }
 
     @And("^I enter Company ID and click Login button$")

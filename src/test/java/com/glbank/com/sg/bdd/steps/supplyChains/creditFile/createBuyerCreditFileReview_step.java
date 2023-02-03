@@ -58,9 +58,9 @@ public class createBuyerCreditFileReview_step extends ScenarioSteps {
     public void changeUserToL2Review(){
         bddUtil.sleep(10);
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"http://10.26.9.74:8080/usoserver/\");");
+      //  webdriver.executeScript("window.open(\"http://10.26.9.74:8080/usoserver/\");");//UAT
+        webdriver.executeScript("window.open(\"http://10.24.7.8:8080/#/login/\");");//SIT
         bddUtil.switchToNewWindow();
-
 //        createBuyerCreditFileReview_page.clickUserToLogOut.click();
 //        bddUtil.clickByJS(createBuyerCreditFileReview_page.clickLogOutToChangeUser);
 //        createBuyerCreditFileReview_page.clickLogOutToChangeUser.click();
