@@ -23,6 +23,13 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//span[text()='User Menu']")
     public WebElementFacade clickUserMenu;
 
+    @FindBy(xpath = "//span[text()='Products']")
+    public WebElementFacade clickProducts;
+
+    @FindBy(xpath = "//a[text()='Find Account ']")
+    public WebElementFacade clickFindAccount;
+
+
     @FindBy(xpath = "//span[text()='Payments']")
     public WebElementFacade clickPayments;
 
@@ -61,6 +68,9 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//a[text()='Find']")
     public WebElementFacade getClickFindBtn;
+
+    @FindBy(xpath = "//label[@for='fieldName:Status']/parent::td/following-sibling::td[2]/span")
+    public WebElementFacade getStatus;
 
     @FindBy(xpath = "//table[@id='datadisplay']//td[2]")
     public WebElementFacade getFtNumber;
@@ -359,6 +369,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//a[text()='Credit Acct No']/parent::label/parent::td/following-sibling::td[2]/span")
     public WebElementFacade fundTransferCreditAccNo;
 
+    @FindBy(xpath = "//a[text()='Debit Charge Amount.1']/parent::label/parent::td/following-sibling::td[2]/span")
+    public WebElementFacade getDebitChargeAmount;
+
     @FindBy(xpath = "//a[text()='Credit Currency']/parent::label/parent::td/following-sibling::td[2]/span")
     public WebElementFacade fundsTransferCreditCurrency;
 
@@ -370,4 +383,13 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//a[text()='Amount Credited']/parent::label/parent::td/following-sibling::td[2]/span")
     public WebElementFacade fundsTransferAmoyntCredited;
+
+    @FindBy(xpath = "//label[text()='Arrangement']/parent::span/parent::td/following-sibling::td[2]/input[1]")
+    public WebElementFacade inputArrangement;
+
+    @FindBy(xpath = "//img[@title='Overview']")
+    public WebElementFacade clickOverViewBtn;
+
+    @FindBy(xpath = "//table[@summary=\"Recent Transactions\"]//div[2]//tr[1]/td[6]")
+    public WebElementFacade getTransferDebitAmount;
 }

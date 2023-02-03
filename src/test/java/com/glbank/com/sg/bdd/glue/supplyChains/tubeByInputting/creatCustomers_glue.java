@@ -630,4 +630,15 @@ public class creatCustomers_glue {
     public void iGetUsernameAndPasswordInTheEmailScfSitEnv() {
         customers_step.iGetUsernameAndPasswordInTheEmailScfSitEnv();
     }
+
+    @When("^I enter the Rating&Limits page$")
+    public void iEnterTheRatingLimitsPage() {
+        customers_step.joinRatingLimitPage();
+    }
+
+    @When("^I operate with fixed data on the page$")
+    public void iOperateWithFixedDataOnThePage(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.searchData(result.get(0).get("Test Data"),result.get(0).get("amount"));
+    }
 }

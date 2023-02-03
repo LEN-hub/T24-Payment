@@ -221,3 +221,12 @@ Feature: Health Check SCF SIT Test Case
   @health_check_Login_Esso_UAT
   Scenario:scf user login process_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
+
+#3.在Rating&Limits中，点击Change修改企业额度成功
+  @Health_Check_supplier_simple_kyc_buyer_UAT
+  Scenario:In Rating&Limits, click Change to modify the enterprise quota successfully
+    Given logon "scf_environments_1_yang" on tube by inputting system
+    When I enter the Rating&Limits page
+    When I operate with fixed data on the page
+      |Test Data|amount|
+      |20230112A|10000 |

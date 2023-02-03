@@ -5,8 +5,10 @@ import com.glbank.com.sg.bdd.pages.T24.Payment.t24_Payments_page;
 import com.glbank.com.sg.bdd.steps.T24.Logon.T24_Logon_step;
 import com.glbank.com.sg.bdd.steps.enterpriseNetSilver.paymentService_step;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import com.glbank.com.sg.bdd.utils.CommonUtil;
 import com.glbank.com.sg.bdd.utils.FileUtils;
 import com.glbank.com.sg.bdd.utils.WordUtils;
+import cucumber.api.java.bs.A;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
@@ -197,6 +199,17 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
         t24_payments_page.clickPayments.click();
     }
+
+    @Step
+    public void clickProductsMenu(){
+        bddUtil.sleep(2);
+        t24_payments_page.clickProducts.click();
+    }
+
+    @Step
+    public void clickFindAccountMenu(){
+        t24_payments_page.clickFindAccount.click();
+    }
     @Step
     public void clickPaymentHubMenu(){
         t24_payments_page.clickPaymentHubMenu.click();
@@ -216,6 +229,44 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.fileSendersReferenceInput.clear();
         t24_payments_page.fileSendersReferenceInput.sendKeys(t24TransactionReference);
         t24_payments_page.getClickFindBtn.click();
+    }
+
+    @Step
+    public void interfaceReturnInformationQuery(){
+        bddUtil.scrollWindowToElement(t24_payments_page.findFileSendersReference);
+        t24_payments_page.inputDate.clear();
+        t24_payments_page.fileSendersReferenceInput.clear();
+        t24_payments_page.fileSendersReferenceInput.sendKeys(paymentService_step.serialNumber);
+        t24_payments_page.getClickFindBtn.click();
+        getDriver().manage().window().maximize();
+        clickViewIcon();
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        if (t24_payments_page.getStatus.getText().equals("677") || t24_payments_page.getStatus.getText().equals("687") || t24_payments_page.getStatus.getText().equals("999") || t24_payments_page.getStatus.getText().equals("404")){
+            System.out.println("交易成功！");
+        }else {
+            System.out.println("交易失败！");
+        }
+    }
+
+    @Step
+    public void closeAllTabJumpToHomePage(){
+        bddUtil.closeWindow();
+        bddUtil.switchToNewWindow();
+        bddUtil.closeWindow();
+        switchToSecondFrame();
+    }
+
+    @Step
+    public void transactionDetailsCheckSGD_SGD(String chargeOption,String envName){
+        Assert.assertEquals(t24_payments_page.getChargeOption.getText(),chargeOption);
+        Assert.assertEquals(t24_payments_page.getTransactionCurrency.getText(),"USD");
+        Assert.assertEquals(t24_payments_page.getTransactionAmount.getText(),"0.01");
+        Assert.assertEquals(t24_payments_page.getDebitAccountNum.getText(),CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".USD_AC_SingleCurrency"));
+        t24_payments_page.getClickChargeInformation.click();
+        if (t24_payments_page.getDebitChargeAmount.isVisible()){
+            Assert.assertEquals(t24_payments_page.getDebitChargeAmount.getText(),"10.00");
+        }
     }
     @Step
     public void getFtNumber(String WordPath){
@@ -1501,5 +1552,17 @@ public class t24_Payments_step extends ScenarioSteps {
         Assert.assertEquals(fundsTransferDebitCurrency,readtxtFile("t24","ChannelDebitAccountCurrency"));
 //      Assert.assertEquals(fundsTransferCreditCurrency,readtxtFile("t24","ChannelCreditAccountCurrency"));
         Assert.assertEquals(fundTransferCreditAccNo,readtxtFile("t24","ChannelCreditAccountNumber"));
+    }
+    @Step
+    public void findInputArrangement(String account){
+        t24_payments_page.inputArrangement.clear();
+        t24_payments_page.inputArrangement.sendKeys(account);
+        t24_payments_page.getClickFindBtn.click();
+        t24_payments_page.clickOverViewBtn.click();
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        if (t24_payments_page.getTransferDebitAmount.getText().equals("7.28")){
+            System.out.println("金额比对成功！");
+        }
     }
 }

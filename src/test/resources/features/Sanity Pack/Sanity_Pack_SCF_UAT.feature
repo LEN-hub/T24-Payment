@@ -7,7 +7,7 @@ Feature: Sanity Pack SCF UAT Test Case
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account
     Given logon "scf_environments_1_yang" on tube by inputting system
     When open the email browser page
-#      And I switch to the SCF page
+    #And I switch to the SCF page
     When I click Customers and select Onboarding List
     And I click Create Customer and fill in the supplier information in the pop-up window
       |KYC Mode                    |Input by|Customer Type|

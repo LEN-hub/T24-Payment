@@ -231,4 +231,41 @@ public class t24_Payments_glue {
         t24_payments_step.forexAuthorizeDifferentCurrency(title.get(0).get("search content"),title.get(0).get("user Authorize"),title.get(0).get("WordPath"));
     }
 
+    @When("^I expand the Products menu on the page$")
+    public void iExpandTheProductsMenuOnThePage() {
+        t24_payments_step.clickProductsMenu();
+    }
+
+    @When("^I expand the Find Account menu on the page$")
+    public void iExpandTheFindAccountMenuOnThePage() {
+        t24_payments_step.clickFindAccountMenu();
+    }
+
+    @When("^I jump to a newly opened page for Find Account menu$")
+    public void iJumpToANewlyOpenedPageForFindAccountMenu(DataTable data) {
+        t24_payments_step.switchToDefaultContent();
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
+        t24_payments_step.findInputArrangement(title.get(0).get("Find Accounts"));
+    }
+
+    @When("^I query the transaction status in the core$")
+    public void iQueryTheTransactionStatusInTheCore(DataTable data) {
+        t24_payments_step.switchToDefaultContent();
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
+        t24_payments_step.switchToFirstFrame();
+        t24_payments_step.interfaceReturnInformationQuery();
+    }
+
+    @Then("^I check the transaction details on the page$")
+    public void transactionDetailsCheck(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.transactionDetailsCheckSGD_SGD(title.get(0).get("Charge Option"),title.get(0).get("envName"));
+    }
+
+    @When("^I close all tabs and jump to the home page$")
+    public void iCloseAllTabsAndJumpToTheHomePage() {
+        t24_payments_step.closeAllTabJumpToHomePage();
+    }
 }

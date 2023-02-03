@@ -4,6 +4,7 @@ import com.glbank.com.sg.bdd.steps.enterpriseNetSilver.paymentService_step;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
@@ -305,4 +306,27 @@ public class paymentService_glue {
     public void iSignedOnThePageSuccessfully() {
         paymentService_step.singSuccess();
     }
+
+    @Given("^Cross-currency and single-currency SHA interface request for overseas transfer$")
+    public void crossCurrencyAndSingleCurrencySHAInterfaceRequestForOverseasTransfer(DataTable data) {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.serviceChargeInquiry(payToInfo.get(0).get("parameter"));
+        paymentService_step.crossCurrencyOverseasTransferUSD_SGD_SHAGreaterThan250K(payToInfo.get(0).get("parameter"));
+    }
+
+    @Given("^Overseas transfer in the same currency and single currency SHA SGD-SGD$")
+    public void overseasTransferInTheSameCurrencyAndSingleCurrencySHASGDSGD(DataTable data) {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.SGD_Single_Currency_Charging(payToInfo.get(0).get("parameter"));
+        paymentService_step.overseas_Transfer_SGD_SGD(payToInfo.get(0).get("parameter"));
+
+    }
+
+    @Given("^Overseas transfer in the same currency and single currency SHA USD-USD$")
+    public void overseasTransferInTheSameCurrencyAndSingleCurrencySHAUSDUSD(DataTable data) {
+            List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+            paymentService_step.USD_Single_Currency_Charging(payToInfo.get(0).get("parameter"));
+            paymentService_step.overseas_Transfer_USD_USD_001(payToInfo.get(0).get("parameter"));
+    }
 }
+

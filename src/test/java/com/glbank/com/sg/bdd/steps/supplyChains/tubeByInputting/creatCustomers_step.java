@@ -12,8 +12,10 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.glbank.com.sg.bdd.utils.AssertLocal.assertTrue;
@@ -1026,6 +1028,66 @@ public class creatCustomers_step extends ScenarioSteps {
     public void clickAssignToMeTitle(){
         customers_page.clickAssignToMeTitle.click();
     }
+
+    @Step
+    public void joinRatingLimitPage(){
+        customers_page.clickMoreMenu.click();
+        customers_page.clickRatingsLimits.click();
+        customers_page.clickRatingsLimitsMenu.click();
+    }
+
+    @Step
+    public void searchData(String data,String amount){
+        customers_page.enterSearchData.sendKeys(" ");
+        customers_page.clickStatusTitle.click();
+        bddUtil.clickByJS(customers_page.clickChangeBtn);
+        customers_page.limitForThisProduct.clear();
+        customers_page.limitForThisProduct.sendKeys(amount);
+        customers_page.titleProposedLimit.click();
+        String checkAmount = solve(amount)+".00";
+        if (checkAmount.equals(customers_page.titleAmount.getText())){
+            System.out.println("交易成功！");
+        }
+        customers_page.inputCommentText.sendKeys("ok");
+        customers_page.clickSubmitBtnOnGLDB.click();
+    }
+
+
+    public static String solve(String num) {
+        if (num == null) {
+            return null;
+        }
+        // 判断是否有小数
+        int index = num.indexOf(".");
+        if (index >= 0) {
+            String integer = num.substring(0, index);
+            String decimal = num.substring(index);
+            // 分隔后的整数+小数拼接起来
+            return addSeparator(integer) + decimal;
+        } else {
+            return addSeparator(num);
+        }
+    }
+
+    // 添加分隔符
+    public static String addSeparator(String num) {
+        int length = num.length();
+        ArrayList list = new ArrayList();
+        while (length > 3) {
+            list.add(num.substring(length - 3, length));
+            length = length - 3;
+        }
+        // 将前面小于三位的数字添加到ArrayList中
+        list.add(num.substring(0, length));
+        StringBuffer buffer = new StringBuffer();
+        // 倒序拼接
+        for (int i = list.size() - 1; i > 0; i--) {
+            buffer.append(list.get(i) + ",");
+        }
+        buffer.append(list.get(0));
+        return buffer.toString();
+    }
+
 
     @Step
     public void clickProceedButtonOnAssignToMePage(){
