@@ -1451,6 +1451,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//span[contains(text(),'Submit')]")
     public WebElementFacade clickSubmitBtnOnGLDB;
 
+    @FindBy(xpath = "//p[text()='Saved successfully']")
+    public WebElementFacade checkTitleTips;
+
     @FindBy(xpath = "//div[text()=' Confirm Your Information ']")
     public WebElementFacade confirmPageTitle;
 

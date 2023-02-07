@@ -1069,6 +1069,15 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void checkTitleTips(){
+        if (customers_page.checkTitleTips.getText().equals("Saved successfully")){
+            System.out.println("交易成功！");
+        }else {
+            System.out.println("交易失败！");
+        }
+    }
+
+    @Step
     public void UnderWritingMenu(){
         customers_page.clickUnderwritingMenu.click();
         customers_page.clickUnderwritingApproval.click();

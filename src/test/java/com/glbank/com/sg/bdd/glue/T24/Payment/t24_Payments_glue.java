@@ -258,14 +258,34 @@ public class t24_Payments_glue {
         t24_payments_step.interfaceReturnInformationQuery();
     }
 
-    @Then("^I check the transaction details on the page$")
+    @Then("^I check ChangOptions on the page$")
     public void transactionDetailsCheck(DataTable data) {
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
-        t24_payments_step.transactionDetailsCheckSGD_SGD(title.get(0).get("Charge Option"),title.get(0).get("envName"));
+        t24_payments_step.transactionDetailsCheckSGD_SGD(title.get(0).get("Charge Option"));
     }
 
     @When("^I close all tabs and jump to the home page$")
     public void iCloseAllTabsAndJumpToTheHomePage() {
         t24_payments_step.closeAllTabJumpToHomePage();
+    }
+    @Then("^I check the transfer-out currency on the page$")
+    public void iCheckTheTransferOutCurrencyOnThePage() {
+        t24_payments_step.checkCurrency();
+    }
+
+    @Then("^I check transfer amount on the page$")
+    public void iCheckTransferAmountOnThePage() {
+        t24_payments_step.checkAmount();
+    }
+
+    @Then("^I check debit amount on the page$")
+    public void iCheckDebitAmountOnThePage(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkDebitAccountNum(title.get(0).get("envName"));
+    }
+
+    @Then("^I check Fee on the page$")
+    public void iCheckFeeOnThePage() {
+        t24_payments_step.checkFee();
     }
 }

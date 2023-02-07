@@ -33,3 +33,26 @@ getCreditAccountNum:15000000153
 getCreditAccountCurrency:SGD
 getBeneficiaryAccount:667812798
 getBeneficiaryName:lucky
+t24FtNumber:SGL23037B0JDBKKB
+getTransactionReferenceNum:SGL23037B0JDBKKB
+getSenderReferenceNum:PI2303705Q0LBPQF
+getTransactionCurrency:USD
+getInstructedCurrency:SGD
+getTransactionAmount:75.41
+getInstructedAmount:100.00
+getChargeOption:SHA
+getDebitAccountNum:11010001612
+getCreditAccountNum:11010003577
+getDebitAccountCurrency:SGD
+getCreditAccountCurrency:USD
+getDebitAmount:100.00
+getCreditAmount:75.41
+getDebitCustomerRate:1.32617
+getDebitTreasuryRate:1.32517
+getOrderingAccount:11010001612
+getBeneficiaryAccount:11010003577
+getOrderingName:ALLIANZ INVESTMENT MANAGEMENT SINGAPORE PTE. LTD.
+getBeneficiaryName:ALLIANZ INVESTMENT MANAGEMENT SINGAPORE PTE. LTD.
+getOrderingAddress:main
+getBeneficiaryAddress:79 ROBINSON ROAD 11-01
+getOrderingTown:SG

@@ -3,9 +3,9 @@ Feature: receipt and payment service
 
 @PaymentSIT_SingleCurrency_SHA_SGD_SGD
 Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD =250K
-  Given Overseas transfer in the same currency and single currency SHA SGD-SGD
-    |parameter             |
-    |serviceChargeInquiry  |
+#  Given Overseas transfer in the same currency and single currency SHA SGD-SGD
+#    |parameter             |
+#    |serviceChargeInquiry  |
   Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
   When I expand the User Menu menu on the page
   When I expand the User Payments menu on the page
@@ -15,9 +15,15 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   When I query the transaction status in the core
     |windows Title                            |
     |Pending and Processed Payments - UAT GLDB|
-  Then I check the transaction details on the page
-    |Charge Option|envName             |
-    |SHA          |serviceChargeInquiry|
+  Then I check ChangOptions on the page
+    |Charge Option|
+    |SHA          |
+  Then I check the transfer-out currency on the page
+  Then I check transfer amount on the page
+  Then I check debit amount on the page
+    |envName             |
+    |serviceChargeInquiry|
+  Then I check Fee on the page
   When I close all tabs and jump to the home page
   When I expand the Products menu on the page
   When I expand the Find Account menu on the page
@@ -39,9 +45,15 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
     When I query the transaction status in the core
       |windows Title                            |
       |Pending and Processed Payments - UAT GLDB|
-    Then I check the transaction details on the page
-      |Charge Option|envName             |
-      |SHA          |serviceChargeInquiry|
+    Then I check ChangOptions on the page
+      |Charge Option|
+      |SHA          |
+    Then I check the transfer-out currency on the page
+    Then I check transfer amount on the page
+    Then I check debit amount on the page
+     |envName             |
+     |serviceChargeInquiry|
+    Then I check Fee on the page
     When I close all tabs and jump to the home page
     When I expand the Products menu on the page
     When I expand the Find Account menu on the page

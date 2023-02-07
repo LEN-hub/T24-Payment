@@ -223,13 +223,17 @@ Feature: Health Check SCF SIT Test Case
     Given logon "scf_environments_1_yang" on tube by inputting system
 
   #1.在Rating&Limits中，点击Change修改企业额度成功
-  @Health_Check_supplier_simple_kyc_buyer_UAT
+  @Health_Check_Rating&Limits_buyer_UAT
   Scenario:In Rating&Limits, click Change to modify the enterprise quota successfully
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I enter the Rating&Limits page
     When I operate with fixed data on the page
-      |Test Data|Check Data        |amount|
-      |20230112A|YAYA 20230112A LTD|10000 |
+      |Test Data|Check Data        |
+      |20230112A|YAYA 20230112A LTD|
+    Then Verify whether the page Limit for THIS Product is consistent with the Proposed Limit value
+      |amount|
+      |10000 |
+    Then I check whether the page prompts success information
 
     #3.运营商发起供应商授信，供应商是CPS客户，授信成功
   @Health_Check_supplier_simple_kyc_buyer_UAT
