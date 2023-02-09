@@ -14,6 +14,7 @@ import java.awt.*;
 import java.net.MalformedURLException;
 import java.util.Set;
 
+import static com.glbank.com.sg.bdd.utils.MobileConfig.driver;
 import static com.glbank.com.sg.bdd.utils.RedisUtil.cli_single;
 
 public class Logon_step extends ScenarioSteps {
@@ -138,8 +139,10 @@ public class Logon_step extends ScenarioSteps {
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
         test.testMobile();
         Thread.sleep(20000);
-        if (MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout [ends-with(@resource-id,'btn_otp')]/child::android.widget.TextView[2]").getText().equals("一次性\n密码")) {
-            test.getVcode();
+        driver.findElementByXPath("//android.widget.Button[ends-with(@text,'OK')]").click();
+        Thread.sleep(5000);
+        if (driver.findElementByXPath("//android.widget.LinearLayout [ends-with(@resource-id,'btn_otp')]/child::android.widget.TextView[2]").getText().equals("一次性\n密码")) {
+          test.getVcode();
         }else {
             test.clickSystemPopupWindows();
             test.clickStartButton();
@@ -159,7 +162,7 @@ public class Logon_step extends ScenarioSteps {
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
         test.testSecondMobile();
         Thread.sleep(5000);
-        if (MobileConfig.driver.findElementByXPath("//android.widget.TextView[ends-with(@resource-id,'permission_message')]").isDisplayed()) {
+        if (driver.findElementByXPath("//android.widget.TextView[ends-with(@resource-id,'permission_message')]").isDisplayed()) {
             test.clickSystemPopupWindows();
             test.clickStartButton();
             test.clickLetUsStart();

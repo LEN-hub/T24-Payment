@@ -38,6 +38,11 @@ public class rpa_steps extends ScenarioSteps {
     public void clickContractManagement(){rpaPage.ContractManagement.click();}
 
     @Step
+    public void titleOverview(){
+        rpaPage.titleOverview.isDisabled();
+    }
+
+    @Step
     public void clickCompanyName(){
         rpaPage.enterCompanyName.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         rpaPage.clickContractType.click();
@@ -212,7 +217,13 @@ public class rpa_steps extends ScenarioSteps {
 
     public void jumpToInbLink(){
         bddUtil.switchToNewWindow();
-        rpaPage.jumpToInbLink.click();
+        if (rpaPage.clickSeniorBtn.isVisible()){
+            rpaPage.clickSeniorBtn.click();
+            rpaPage.getJumpToInbLink.click();
+            rpaPage.jumpToInbLinkCheck.click();
+        }else {
+            rpaPage.jumpToInbLinkCheck.click();
+        }
     }
 
     public void inputLogin(){

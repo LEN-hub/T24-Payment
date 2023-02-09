@@ -1137,7 +1137,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.searchCompanyInput.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         customers_page.searchCheckBox.click();
         bddUtil.sleep(2);
-        customers_page.proceedButtton.click();
+        bddUtil.clickByJS(customers_page.proceedButtton);
     }
 
     @Step
@@ -1145,7 +1145,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.searchCompanyInput.sendKeys(FileUtils.LastReadFileInput3("buyer"));
         customers_page.searchCheckBox.click();
         bddUtil.sleep(2);
-        customers_page.proceedButtton.click();
+        bddUtil.clickByJS(customers_page.proceedButtton);
     }
 
     @Step
