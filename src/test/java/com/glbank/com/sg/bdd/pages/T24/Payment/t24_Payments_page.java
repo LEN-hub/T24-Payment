@@ -396,6 +396,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//table[@summary=\"Recent Transactions\"]//div[2]//tr[2]/td[6]")
     public WebElementFacade subtract;
 
+    @FindBy(xpath = "//table[@summary=\"Recent Transactions\"]//div[2]//tr[2]/td[7]")
+    public WebElementFacade creditAmount;
+
     @FindBy(xpath = "//table[@summary=\"Recent Transactions\"]//div[2]//tr[1]/td[8]")
     public WebElementFacade getDifference;
 }
