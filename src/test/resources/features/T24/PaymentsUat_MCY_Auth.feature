@@ -15,6 +15,7 @@ Feature: receipt and payment service
       |WordPath   |
       |USD-SGD MCY|
     Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+#    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
@@ -88,7 +89,7 @@ Feature: receipt and payment service
   @MCY03
    #SGD->SGD
   Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process(MCY)
-    Given logon second "netSilverEnv_Kevin_Payment" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |currency|
       |1102 0571 063   |1101 0001 426|SGD     |
@@ -97,7 +98,8 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
       |WordPath   |
       |SGD-SGD MCY|
-    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+#    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
@@ -144,8 +146,8 @@ Feature: receipt and payment service
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)(MCY)
     Given logon second "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |Payee's Bank                      |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
-      |GREEN LINK DIGITAL BANK PTE LTD   |TSC1643346550706|11010001426           |Business Expenses   |1102 0571 063 |
+      |Payee's Bank                      |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |Payment Type|PayNow Type|PayNow Content|
+      |GREEN LINK DIGITAL BANK PTE LTD   |TSC1643346550706|11010001426           |Business Expenses   |1102 0571 063 |MEPS        |UEN        |UEN123321001  |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
     When I click Next to go to the verification page

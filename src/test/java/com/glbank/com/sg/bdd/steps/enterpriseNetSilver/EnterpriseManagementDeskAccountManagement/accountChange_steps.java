@@ -7,12 +7,14 @@ import com.glbank.com.sg.bdd.utils.EnterKeys;
 import com.glbank.com.sg.bdd.utils.MobileConfig;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
 import java.net.MalformedURLException;
 import java.util.List;
 
+import static com.glbank.com.sg.bdd.utils.MobileConfig.driver;
 import static org.junit.Assert.assertEquals;
 
 public class accountChange_steps extends ScenarioSteps {

@@ -569,6 +569,7 @@ public class paymentService_step extends ScenarioSteps {
         }
         //截止代码
         paymentService_page.transferAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
+//        paymentService_page.transferAmount.sendKeys("250000");
         bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
         paymentService_page.tradeAmountPopWindows.click();
         bddUtil.sleep(3);
@@ -636,15 +637,15 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.dateInputBox.clear();
         paymentService_page.dateInputBox.sendKeys(trasferOutDate);
         paymentService_page.textTitle.click();
-//        paymentService_page.cycleTransferCheckBox.click();
-//        paymentService_page.popWindowsSelect.click();
-//        List<WebElementFacade> selectdate = paymentService_page.selectDate;
-//        for (int i = 0; i < selectdate.size(); i++){
-//            if (selectDate.equals(selectdate.get(i).getText())){
-//                selectdate.get(i).click();
-//                break;
-//            }
-//        }
+        paymentService_page.cycleTransferCheckBox.click();
+        paymentService_page.popWindowsSelect.click();
+        List<WebElementFacade> selectdate = paymentService_page.selectDate;
+        for (int i = 0; i < selectdate.size(); i++){
+            if (selectDate.equals(selectdate.get(i).getText())){
+                selectdate.get(i).click();
+                break;
+            }
+        }
 //        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //        List<WebElementFacade> rollOutDate = paymentService_page.rollOutDate;
 //        a:for (int j = 0; j < rollOutDate.size(); j++){
@@ -829,6 +830,7 @@ public class paymentService_step extends ScenarioSteps {
 
     public void enterAmount(){
         paymentService_page.enterAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
+//        paymentService_page.enterAmount.sendKeys("250001");
     }
 
     public void selectAccBth(String selectAccBth){
@@ -1249,5 +1251,11 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.clickNextBox.click();
         paymentService_page.clickSubmitBtn.click();
         paymentService_page.getSuccessTitle.isVisible();
+    }
+
+    @Step
+    public void clickSubmitBtnJumpToVerifyCode(){
+        paymentService_page.getClickSubmitBtn.click();
+        paymentService_page.clickNextButton.click();
     }
 }

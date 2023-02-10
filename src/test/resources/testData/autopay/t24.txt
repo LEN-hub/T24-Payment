@@ -1,12 +1,42 @@
-2023-2-8 11:20:14:18
-ChannelReferenceID:230206000000069
+2023-2-10 12:12:0:403
+ChannelReferenceID:230210000000060
 ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
-ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11010001256
-ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD
-ChannelCreditAccountCurrency:SGD
-ChannelCreditAccountNumber:11010001426
-ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelTransactionAmount:208.14
-ChannelPurposeOfTransfer:Business Expenses
+ChannelDebitAccountCurrency:USD
+ChannelDebitAccountNumber:11010001434
+ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
+ChannelDetailPayeeName:lucky
+ChannelDetailAccountCurrency:SGD
+ChannelDetailPayeeAccountNum:667812798
+ChannelDetailExchangeRate:USD 1 ≈ SGD 1.32571
+ChannelDetailTransactionAmount:210.04
+ChannelDetailBeneficiaryBankBIC:DBSSSGS0DOD
+ChannelDetailPayeeAddress:countries
+ChannelDetailEstimatedProcessingFee:12.00
+ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
+ChannelDetailPurposeOfTransfer:Commission
+2023-2-10 12:14:35:437
+ID:230210000000060
+TransactionReference:PI2304100QT3WQD9
+t24FtNumber:SGL23041FFHCBCFG
+getTransactionReferenceNum:SGL23041FFHCBCFG
+getSenderReferenceNum:PI2304100QT3WQD9
+getTransactionCurrency:SGD
+getInstructedCurrency:USD
+getTransactionAmount:278.45
+getInstructedAmount:210.04
+getChargeOption:SHA
+getDebitAccountNum:11010001434
+getCreditAccountNum:15000000153
+getDebitAccountCurrency:USD
+getCreditAccountCurrency:SGD
+getDebitAmount:210.04
+getCreditAmount:278.45
+getDebitCustomerRate:1.32571
+getDebitTreasuryRate:1.32671
+getOrderingAccount:11010001434
+getBeneficiaryAccount:667812798
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getBeneficiaryName:lucky
+getOrderingAddress:XIAN
+getBeneficiaryAddress:countries
+getOrderingTown:SG
