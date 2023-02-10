@@ -32,6 +32,7 @@ public class createSupplierCreditFile_step extends PageObject {
     public void createCreateNewUnderwriting(String companyName,String buyerName){
         createSupplierCreditFile_page.clickToGetCustomerName.click();
         createSupplierCreditFile_page.clickToGetCustomerName.sendKeys(companyName);
+        bddUtil.sleep(5);
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.find(By.xpath("//span[text()='"+ companyName +"']"))).click();
         createSupplierCreditFile_page.clickToGetBuyer.click();
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.find(By.xpath("//span[text()='"+ buyerName +"']"))).click();
@@ -135,7 +136,9 @@ public class createSupplierCreditFile_step extends PageObject {
         getDriver().findElement(By.xpath("//label[@for='A0030']/following-sibling::div//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
         createSupplierCreditFile_page.clickSave.click();
-        createSupplierCreditFile_page.clickBackBtn.click();
+        if (createSupplierCreditFile_page.clickBackBtn.isVisible()){
+            createSupplierCreditFile_page.clickBackBtn.click();
+        }
         createSupplierCreditFile_page.inputCompanyText.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         createSupplierCreditFile_page.clickStatusTitle.click();
         bddUtil.clickByJS(createSupplierCreditFile_page.clickSubmitBtn);

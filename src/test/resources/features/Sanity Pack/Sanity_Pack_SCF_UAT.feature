@@ -148,6 +148,7 @@ Feature: Sanity Pack SCF UAT Test Case
 #    Then submit Supplier Credit Profile
     And to Supplier Credit Profile Review Page
     Then Supplier Credit Profile L1 Review
+    Then I close driver
     Given logon "scf_environments_2_yang" on tube by inputting system
     And use User L2 to Supplier Review
     When I close driver

@@ -1594,7 +1594,7 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
         BigDecimal num1 = new BigDecimal(t24_payments_page.getMinuend.getText().replace(",",""));
-        BigDecimal num2 = new BigDecimal(t24_payments_page.subtract.getText().replace(",",""));
+        BigDecimal num2 = new BigDecimal(t24_payments_page.creditAmount.getText().replace(",",""));
         String result = String.valueOf(num1.subtract(num2));
         System.out.println(result);
         String getDifference = creatCustomers_step.solve(result);
