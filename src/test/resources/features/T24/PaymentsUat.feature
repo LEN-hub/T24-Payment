@@ -167,7 +167,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1101 0001 434 |The expenses shall be borne by each party|
+      |1101 0001 434 |All expenses shall be borne by the payee|
     And I choose the payment currency
       |Currency   |
       |USD        |
@@ -330,7 +330,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
-      |1101 0003 453 |All expenses shall be borne by the remitter|
+      |1101 0003 453 |The expenses shall be borne by each party|
     And I choose the payment currency
       |Currency|
       |SGD     |

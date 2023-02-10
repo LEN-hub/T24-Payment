@@ -5,7 +5,7 @@ Feature: receipt and payment service
   @MCY01Auth
    #USD->SGD
   Scenario:I have successfully changed us dollars into Singapore dollars and T24(MCY)
-    Given logon second "netSilverEnv_Kevin_Payment" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |currency|
       |1102 0571 063   |1101 0001 256|USD     |
@@ -14,7 +14,7 @@ Feature: receipt and payment service
     Then My account has been transferred successfully To Local Payment
       |WordPath   |
       |USD-SGD MCY|
-    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
 #    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
@@ -48,7 +48,7 @@ Feature: receipt and payment service
   @MCY02
   #SGD->USD
   Scenario:I have successfully transferred from Singapore currency to US dollar(MCY)
-    Given logon second "netSilverEnv_Kevin_Payment" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |currency|
       |1102 0571 063   |1101 0001 434|SGD     |
@@ -57,7 +57,7 @@ Feature: receipt and payment service
     Then My account has been transferred successfully To Local Payment
       |WordPath   |
       |SGD-USD MCY|
-    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
@@ -98,7 +98,7 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
       |WordPath   |
       |SGD-SGD MCY|
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
 #    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
@@ -117,7 +117,7 @@ Feature: receipt and payment service
   @MCY04
     #USD->USD
   Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow(MCY)
-    Given logon second "netSilverEnv_Kevin_Payment" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |currency|
       |1102 0571 063   |1101 0001 442|USD     |
@@ -126,7 +126,7 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
       |WordPath   |
       |USD-USD MCY|
-    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
@@ -144,7 +144,7 @@ Feature: receipt and payment service
   @MCY05
     #境内转账-行内转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)(MCY)
-    Given logon second "netSilverEnv_Kevin_Payment" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |Payee's Bank                      |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |Payment Type|PayNow Type|PayNow Content|
       |GREEN LINK DIGITAL BANK PTE LTD   |TSC1643346550706|11010001426           |Business Expenses   |1102 0571 063 |MEPS        |UEN        |UEN123321001  |
@@ -157,7 +157,7 @@ Feature: receipt and payment service
     Then I will compare all the data on same Currency Payment
       |WordPath                 |
       |Local Payment SGD-SGD MCY|
-    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
@@ -306,11 +306,11 @@ Feature: receipt and payment service
 
   @MCY08
   Scenario:Positive process of overseas transfer Bic Is DBS(USD--SGD)(MCY)
-    Given logon second "netSilverEnv_Kevin_Payment" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|USD     |
+      |1102 0571 063 |All expenses shall be borne by the remitter|USD     |
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -333,7 +333,7 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath              |
       |Bic is DBS USD-SGD MCY|
-    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    Given logon "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next

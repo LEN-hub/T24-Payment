@@ -370,8 +370,8 @@ public class t24_Payments_step extends ScenarioSteps {
         int time = Integer.parseInt(format);
         if (i == Friday){
             if (time>1600){
-                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),4),"yyyy-MM-dd"));
-                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),4),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"));
             }else if (time<1600){
                 Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
                 Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));

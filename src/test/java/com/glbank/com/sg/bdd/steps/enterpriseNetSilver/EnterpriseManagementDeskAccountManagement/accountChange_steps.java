@@ -115,6 +115,7 @@ public class accountChange_steps extends ScenarioSteps {
     }
 
     public String tcCode (){
+        bddUtil.sleep(5);
         String first = accountChange_page.firstTCCode.getText();
         String second = accountChange_page.secondTCCode.getText();
         String third = accountChange_page.thirdTCCode.getText();

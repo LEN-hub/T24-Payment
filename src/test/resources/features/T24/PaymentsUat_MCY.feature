@@ -273,7 +273,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|USD     |
+      |1102 0571 063 |All expenses shall be borne by the payee|USD     |
     And I choose the payment currency
       |Currency|
       |SGD     |
