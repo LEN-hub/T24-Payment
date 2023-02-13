@@ -38,10 +38,12 @@ public class JenkinsReportData {
                     String errors = eElement.getElementsByTagName("errors").item(0).getTextContent();
                     String failures = eElement.getElementsByTagName("failures").item(0).getTextContent();
                     String skipped = eElement.getElementsByTagName("skipped").item(0).getTextContent();
-                    FileString4("Jenkins","Success="+success);
+                    FileString4("Jenkins","success="+success);
                     FileString4("Jenkins","error="+errors);
                     FileString4("Jenkins","failures="+failures);
                     FileString4("Jenkins","skipped="+skipped);
+                    int sum = Integer.parseInt(success)+Integer.parseInt(errors)+Integer.parseInt(failures)+Integer.parseInt(skipped);
+                    FileString4("Jenkins","sum=" + String.valueOf(sum));
                 }
             }
         }
@@ -49,5 +51,9 @@ public class JenkinsReportData {
         {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        jenkinsReport();
     }
 }
