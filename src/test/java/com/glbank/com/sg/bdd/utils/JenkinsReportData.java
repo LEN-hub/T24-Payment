@@ -17,7 +17,7 @@ public class JenkinsReportData {
         try {
             FileUtils.writeFile("Jenkins");
 //creating a constructor of file class and parsing an XML file
-            File file = new File( systemPath +"/target/failsafe-reports/failsafe-summary.xml");
+            File file = new File( "C:/Users/CyberArk/.jenkins/workspace/SCF_Automation_HealthCheck/target/failsafe-reports/failsafe-summary.xml");
 //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 //an instance of builder to parse the specified xml file
