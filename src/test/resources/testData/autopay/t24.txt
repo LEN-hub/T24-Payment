@@ -1,39 +1,12 @@
-2023-2-10 18:33:7:47
-ChannelReferenceID:230210000000159
+2023-2-13 10:57:21:365
+ChannelReferenceID:230210000000195
 ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD
-ChannelDebitAccountCurrency:USD
+ChannelDebitAccountCurrency:SGD
 ChannelDebitAccountNumber:11020571063
 ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD
 ChannelCreditAccountCurrency:SGD
-ChannelCreditAccountNumber:11010001256
+ChannelCreditAccountNumber:11010001426
 ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelDetailExchangeRate:USD 1 ≈ SGD 1.3255
-ChannelTransactionAmount:210.84
+ChannelTransactionAmount:213.27
 ChannelPurposeOfTransfer:Business Expenses
-2023-2-10 18:34:34:961
-ID:230210000000159
-TransactionReference:PI2304100QT6C7Q8
-t24FtNumber:SGL23041GBDDFCCD
-getTransactionReferenceNum:SGL23041GBDDFCCD
-getSenderReferenceNum:PI2304100QT6C7Q8
-getTransactionCurrency:SGD
-getInstructedCurrency:USD
-getTransactionAmount:279.47
-getInstructedAmount:210.84
-getChargeOption:SHA
-getDebitAccountNum:11020571098
-getCreditAccountNum:11010001256
-getDebitAccountCurrency:USD
-getCreditAccountCurrency:SGD
-getDebitAmount:210.84
-getCreditAmount:279.47
-getDebitCustomerRate:1.3255
-getDebitTreasuryRate:1.3265
-getOrderingAccount:11020571098
-getBeneficiaryAccount:11010001256
-getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
-getBeneficiaryName:COMPUTERCITY SINGAPORE PTE. LTD.
-getOrderingAddress:XIAN
-getBeneficiaryAddress:20 Pasir Panjang Road,Mapletree Bus
-getOrderingTown:SG

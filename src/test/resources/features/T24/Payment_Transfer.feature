@@ -3,9 +3,9 @@ Feature: receipt and payment service
 
 @PaymentSIT_SingleCurrency_SHA_SGD_SGD
 Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD =250K
-#  Given Overseas transfer in the same currency and single currency SHA SGD-SGD
-#    |parameter             |
-#    |serviceChargeInquiry  |
+  Given Overseas transfer in the same currency and single currency SHA SGD-SGD
+    |parameter             |
+    |serviceChargeInquiry  |
   Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
   When I verify the T24 transaction status
     |windows Title                            |
@@ -13,6 +13,9 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Then I verify that the data in the API request message is consistent with the page ChangOptions field
     |Charge Option|
     |SHA          |
+  Then I do field mapping for Channel and T24 in same currency
+    |WordPath                 |
+    |Local Payment SGD-SGD MCY|
   Then I verify that the data in the API request message is consistent with the currency field of the page
   Then I verify that the data in the API request message is consistent with the page amount field
   Then I verify that the data in the API request message is consistent with the bit amount field on the page

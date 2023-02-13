@@ -238,8 +238,8 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(t24_payments_page.findFileSendersReference);
         t24_payments_page.inputDate.clear();
         t24_payments_page.fileSendersReferenceInput.clear();
-//        t24_payments_page.fileSendersReferenceInput.sendKeys(paymentService_step.serialNumber);
-        t24_payments_page.fileSendersReferenceInput.sendKeys("PI230330CY0BPY1M");
+        t24_payments_page.fileSendersReferenceInput.sendKeys(paymentService_step.serialNumber);
+//        t24_payments_page.fileSendersReferenceInput.sendKeys("PI230330CY0BPY1M");
         t24_payments_page.getClickFindBtn.click();
         getDriver().manage().window().maximize();
         clickViewIcon();

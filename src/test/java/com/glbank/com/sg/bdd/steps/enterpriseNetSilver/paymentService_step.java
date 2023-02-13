@@ -511,6 +511,7 @@ public class paymentService_step extends ScenarioSteps {
 
     @Step
     public void domesticTransfer(String bankName, String paymentAccount, String tradeAmountSelect, String paymentInformation, String PaymentType, String PayNowType, String PayNowContent){
+        bddUtil.sleep(3);
         paymentService_page.domesticTransfer.click();
         CommonUtil.waiting(2000);
         paymentService_page.clickPopupbtn.click();
