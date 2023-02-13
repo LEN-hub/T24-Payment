@@ -158,6 +158,11 @@ public class Logon_step extends ScenarioSteps {
         }
     }
 
+    @Step
+    public void getJenkinsReportData(){
+        JenkinsReportData.jenkinsReport();
+    }
+
     public void secondVkeyAppVcode() throws MalformedURLException, InterruptedException {
         MobileConfig test = new MobileConfig();
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");

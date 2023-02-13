@@ -150,4 +150,10 @@ public class Logon_glue {
             logon_step.getRedisCodeEnterScfSitEnvPage();
         }
     }
+
+
+    @Given("^After the execution of all current cases, Jenkins counts the test data currently executed$")
+    public void afterTheExecutionOfAllCurrentCasesJenkinsCountsTheTestDataCurrentlyExecuted() {
+        logon_step.getJenkinsReportData();
+    }
 }

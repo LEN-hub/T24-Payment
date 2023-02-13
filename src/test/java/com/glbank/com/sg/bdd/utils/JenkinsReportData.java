@@ -13,8 +13,9 @@ import static com.glbank.com.sg.bdd.utils.FileUtils.FileString4;
 public class JenkinsReportData {
 
     private static String systemPath = System.getProperty("user.dir");
-    public static void main(String argv[]) {
+    public static void jenkinsReport(){
         try {
+            FileUtils.writeFile("Jenkins");
 //creating a constructor of file class and parsing an XML file
             File file = new File( systemPath +"/target/failsafe-reports/failsafe-summary.xml");
 //an instance of factory that gives a document builder
