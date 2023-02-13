@@ -549,4 +549,7 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span")
     public List<WebElementFacade> selectCycle;
+
+    @FindBy(xpath = "//div[contains(text(),'Submit')]")
+    public WebElementFacade getClickSubmitBtn;
 }

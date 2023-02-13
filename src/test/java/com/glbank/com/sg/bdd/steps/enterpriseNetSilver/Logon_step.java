@@ -5,6 +5,7 @@ import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.Logon_page;
 import com.glbank.com.sg.bdd.utils.*;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -139,8 +140,9 @@ public class Logon_step extends ScenarioSteps {
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
         test.testMobile();
         Thread.sleep(20000);
-        driver.findElementByXPath("//android.widget.Button[ends-with(@text,'OK')]").click();
-        Thread.sleep(5000);
+//        if (driver.findElement(By.xpath("//android.widget.Button[ends-with(@text,'OK')]")).isDisplayed()){
+//            driver.findElementByXPath("//android.widget.Button[ends-with(@text,'OK')]").click();
+//        }
         if (driver.findElementByXPath("//android.widget.LinearLayout [ends-with(@resource-id,'btn_otp')]/child::android.widget.TextView[2]").getText().equals("一次性\n密码")) {
           test.getVcode();
         }else {
