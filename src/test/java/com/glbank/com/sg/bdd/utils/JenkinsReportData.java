@@ -52,8 +52,4 @@ public class JenkinsReportData {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        jenkinsReport();
-    }
 }

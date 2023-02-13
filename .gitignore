@@ -6,5 +6,4 @@ caseMessage/
 *.iml
 DebugRunner.java
 debug.log
-WebRunner.java
 application.properties
