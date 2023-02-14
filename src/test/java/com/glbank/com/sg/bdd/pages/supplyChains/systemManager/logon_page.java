@@ -25,7 +25,7 @@ public class logon_page extends PageObject {
     @FindBy(xpath = "//p[text()='Supply Chain Finance']")
     public WebElementFacade clickSCFlink;
 
-    @FindBy(xpath = "//p[text()='Online Banking']")
+    @FindBy(xpath = "//p[text()='EBK']")
     public WebElementFacade onlineBank;
 
     public void enterUserName(String userName){

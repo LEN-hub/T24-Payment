@@ -343,6 +343,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody//td[3]")
     public List<WebElementFacade> getCompanyNameList;
 
+    @FindBy(xpath = "//span[text()='Review Customer Profile']")
+    public WebElementFacade clickReviewCustomerProfileTitle;
+
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody//td[10]//span[contains(text(),'Proceed')]")
     public List<WebElementFacade> clickProceedBtn;
 
@@ -366,6 +369,12 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[9]/span")
     public WebElementFacade checkRegistrationtatus;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody//i[@class='lls-tooltip lls-icon-data-view']")
+    public WebElementFacade clickViewDetailsBtn;
+
+    @FindBy(xpath = "//span[@class='back_view_item']")
+    public WebElementFacade clickBackDetailsBtn;
 
     @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr/td[7]")
     public WebElementFacade checkEmail;
@@ -1550,7 +1559,35 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()='Administrator 2']/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
     public WebElementFacade enterUpgradeKYCAdmin2MobileNum;
 
+    @FindBy(xpath = "//span[text()='More']")
+    public WebElementFacade clickMoreMenu;
 
+    @FindBy(xpath = "//div[text()='Ratings & Limits']")
+    public WebElementFacade clickRatingsLimits;
+
+    @FindBy(xpath = "//span[text()='Ratings & Limits List']")
+    public WebElementFacade clickRatingsLimitsMenu;
+
+    @FindBy(xpath = "//label[text()='Client']/following-sibling::div//input")
+    public WebElementFacade enterSearchData;
+
+    @FindBy(xpath = "//label[text()='Status']")
+    public WebElementFacade clickStatusTitle;
+
+    @FindBy(xpath = "//div[@data-key='f2h1a068']//div[@class='lowcode-table-base']//span[contains(text(),'Change')]")
+    public WebElementFacade clickChangeBtn;
+
+    @FindBy(xpath = "//label[@for='creditAmountNew']/following-sibling::div/div[2]//input")
+    public WebElementFacade limitForThisProduct;
+
+    @FindBy(xpath = "//div[@class='limit']//span[2]")
+    public WebElementFacade titleAmount;
+
+    @FindBy(xpath = "//p[text()='Proposed Limit']")
+    public WebElementFacade titleProposedLimit;
+
+    @FindBy(xpath = "//label[@for='comment']/following-sibling::div//textarea")
+    public WebElementFacade inputCommentText;
 
 
     public void enterUserName(String userName){

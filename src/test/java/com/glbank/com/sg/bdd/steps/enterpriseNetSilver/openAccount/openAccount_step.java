@@ -1,5 +1,6 @@
 package com.glbank.com.sg.bdd.steps.enterpriseNetSilver.openAccount;
 
+import cn.hutool.core.date.DateUtil;
 import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.openAccount.openAccount_page;
 import com.glbank.com.sg.bdd.utils.*;
 import com.lu.sn.Language;
@@ -294,7 +295,8 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         openAccount_page.clickCountryCode.click();
         bddUtil.scrollWindowToElement(openAccount_page.getCountryCode).click();
         openAccount_page.inputMobileNumber.sendKeys(mobileNumber);
-        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
+//        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
+        openAccount_page.inputEmailAddress.sendKeys("cyq2412337655@163.com");
         openAccount_page.clickVerifyEmailAddress.click();
         bddUtil.sleep(1);
     }
@@ -303,10 +305,11 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
     public void newProvideEssentialInformation(String applicantName, String emailName, String mobileNumber) {
         bddUtil.sleep(1);
         openAccount_page.inputFullName.sendKeys(applicantName);
-        openAccount_page.clickCountryCode.click();
+        openAccount_page.clickTrack3ContryCode.click();
         bddUtil.scrollWindowToElement(openAccount_page.getCountryCode).click();
         openAccount_page.inputContactNumber.sendKeys(mobileNumber);
-        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
+//        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
+        openAccount_page.inputEmailAddress.sendKeys("3111969204@qq.com");
         openAccount_page.verifyEmailNew.click();
         bddUtil.sleep(1);
     }
@@ -453,6 +456,8 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.inputCompanyRegistrationNumber.sendKeys(chekk);//199906179R    201700266Z
         openAccount_page.clickCountryOfIncorporation.sendKeys("SINGAPORE");
         getDriver().findElements(By.xpath("//span[text()='SINGAPORE']")).get(0).click();
+        openAccount_page.clickBusinessEntityTypeDownDrop.click();
+        openAccount_page.selectBusinessEntityType.click();
         openAccount_page.BusinessOperations.click();
         openAccount_page.selectYesNew.get(1).click();
         openAccount_page.selectYesNew.get(2).click();
@@ -493,6 +498,16 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         bddUtil.sleep(2);
         getDriver().findElements(By.xpath("//span[text()='Supplement']")).get(1).click();
         bddUtil.sleep(7);
+        openAccount_page.enterDateOfRegistration.sendKeys(DateUtil.today());
+        openAccount_page.countryWhereTitle.click();
+        bddUtil.sleep(2);
+//        openAccount_page.enterCountryWhere.sendKeys("SINGAPORE");
+//        openAccount_page.select1Type.click();
+        openAccount_page.enterIndustry.sendKeys("01111");
+        openAccount_page.select1Type.click();
+        openAccount_page.enterAddress.sendKeys("beijing");
+        openAccount_page.enterCity.sendKeys("beijing");
+        openAccount_page.enterZipCode.sendKeys("029");
         openAccount_page.businessEntity.click();
         bddUtil.sleep(1);
         openAccount_page.noListed.click();
@@ -511,6 +526,8 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
             }
 
         }
+        openAccount_page.enterSectorID.sendKeys("3001");
+        openAccount_page.select1Type.click();
         bddUtil.sleep(1);
         openAccount_page.relatedPerson.click();
         bddUtil.sleep(1);
@@ -523,10 +540,12 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         getDriver().findElement(By.xpath("//span[text()='NRIC']")).click();
         openAccount_page.nric.sendKeys("S"+idCard+"A");
         openAccount_page.countryOfResidence.sendKeys("SINGAPORE");
-        openAccount_page.selectNationality.click();
+        openAccount_page.clickContryCode.click();
+//        openAccount_page.selectNationality.click();
         openAccount_page.adressNew.sendKeys(address);
         openAccount_page.cityNew.sendKeys(address.toString().substring(2,5));
-        openAccount_page.emailNew.sendKeys(emailNew+"@MailTemp.top");
+//        openAccount_page.emailNew.sendKeys(emailNew+"@MailTemp.top");
+        openAccount_page.emailNew.sendKeys("LL3111969204@163.com");
         FileUtils.FileString4(""+"openAccountNew"+"","关联人邮箱：" + emailNew+"@MailTemp.top");
         bddUtil.sleep(1);
         openAccount_page.determine.click();
@@ -967,7 +986,8 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
 
     public void inputEmailTwo(String emailName){
 //        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
-        openAccount_page.emailAddressTwo.sendKeys(emailName + "@MailTemp.top");
+//        openAccount_page.emailAddressTwo.sendKeys(emailName + "@MailTemp.top");
+        openAccount_page.emailAddressTwo.sendKeys("cyq2412337655@163.com");
         bddUtil.sleep(1);
         openAccount_page.clickVerifyEmailAddress2.click();
         bddUtil.sleep(1);
@@ -1228,7 +1248,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
             "\"lastupdated\": \"2022-07-14\",\n"+
                     "\"source\": \"4\",\n"+
                     "\"classification\": \"C\",\n"+
-                    "\"value\": \"617558302@qq.com\""+
+                    "\"value\": \"cyq2412337655@163.com\""+
                     "    },\n" +
         "\"mobileno\": {\n"+
             "\"lastupdated\": \"2022-07-14\",\n"+
@@ -1536,6 +1556,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
             webdriver.executeScript("window.open(\"http://10.24.4.27:8080/direct/test_pc_ent.html\");");
         }
         bddUtil.switchToNewWindow();
+        bddUtil.sleep(5);
         openAccount_page.inputMockInformation.sendKeys("myinfoMockData");
         openAccount_page.inputMockGetInformation.click();
         openAccount_page.inputAuthUrlType.sendKeys("E");
@@ -1545,7 +1566,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         if (url.equals("UAT")){
             webdriver.executeScript("window.open(\"https://inb-uat.intranet.glbank.com/#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
         }else if (url.equals("SIT")){
-            webdriver.executeScript("window.open(\"http://10.24.4.123/ent_sit/direct/index.html#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
+            webdriver.executeScript("window.open(\"https://inb-sit.intranet.glbank.com/#/myinfo/stayInTouch?state="+mockDataResponse+"\")");
         }
 
         bddUtil.switchToNewWindow();
@@ -1563,6 +1584,9 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
     @Step
     public void step4Information(){
         bddUtil.sleep(5);
+        openAccount_page.clickReminderDownDrop.click();
+        openAccount_page.select1Type.click();
+        openAccount_page.clickOkBtn.click();
         openAccount_page.selectSingaporeTrack1.click();
         openAccount_page.selectCountryOfOperation.sendKeys("SINGAPORE");
         openAccount_page.clickSingapore.click();
@@ -1587,15 +1611,15 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.inputCountryCode.sendKeys("+65");
         openAccount_page.selectCountryCode.click();
         openAccount_page.inputMobileNum.sendKeys("13008553349");
-        openAccount_page.inputEmailAdd.sendKeys("617558302@qq.com");
-        openAccount_page.inputReEmailAdd.sendKeys("617558302@qq.com");
+        openAccount_page.inputEmailAdd.sendKeys("cyq2412337655@163.com");
+        openAccount_page.inputReEmailAdd.sendKeys("cyq2412337655@163.com");
         bddUtil.sleep(3);
         openAccount_page.selectSecondNRIC.click();
         openAccount_page.inputSecondCountryCode.sendKeys("+65");
         openAccount_page.selectSecondCountryCode.click();
         openAccount_page.inputSecondMobileNum.sendKeys("13008553349");
-        openAccount_page.inputSecondEmailAdd.sendKeys("13008553349@163.com");
-        openAccount_page.inputSecondReEmailAdd.sendKeys("13008553349@163.com");
+        openAccount_page.inputSecondEmailAdd.sendKeys("dcr_chenyqg@dcits.com");
+        openAccount_page.inputSecondReEmailAdd.sendKeys("dcr_chenyqg@dcits.com");
         openAccount_page.clickTrack1NextBtn.click();
     }
     @Step
@@ -1623,8 +1647,8 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         if (openAccount_page.ensureThatTheMobile.isVisible()){
             openAccount_page.clickYesAccurate.click();
         }
-        openAccount_page.inputFirstEmailAdmin.sendKeys("13008553349@163.com");
-        openAccount_page.inputSecondEmailAdmin.sendKeys("13008553349@163.com");
+        openAccount_page.inputFirstEmailAdmin.sendKeys("dcr_chenyqg@dcits.com");
+        openAccount_page.inputSecondEmailAdmin.sendKeys("dcr_chenyqg@dcits.com");
         openAccount_page.clickTrack1NextBtn.click();
     }
     

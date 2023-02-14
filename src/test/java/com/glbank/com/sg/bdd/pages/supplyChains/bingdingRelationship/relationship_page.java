@@ -85,4 +85,7 @@ public class relationship_page extends PageObject {
 
     @FindBy(xpath = "//button[@type='button']/span[contains(text(),'Confirm')]")
     public WebElementFacade confirmBtn;
+
+    @FindBy(xpath = "//div[contains(text(),'Company Name')]/parent::label/following-sibling::div//input")
+    public WebElementFacade inputCompanyName;
 }

@@ -40,6 +40,7 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.clickLogin.click();
     }
     public void clickRequestFinancing(){
+        bddUtil.sleep(10);
         financingRequest_page.clickRequestFinancing.click();
     }
     public void uploadRequestFinancing(){
@@ -61,7 +62,7 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.clickOperations.click();
         financingRequest_page.clickFrReview.click();
         FinancingNo = financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content']/div[1]/section/div[1]/div[3]//tr[1]/td[3]//span")).getText();
-        Map<String, Object> map1 = updateAml(FinancingNo);
+//        Map<String, Object> map1 = updateAml(FinancingNo);
         List<WebElementFacade> requestName = financingRequest_page.requesterName;
         for(int i = 0;i< requestName.size();i++){
             if(requestName.get(i).getText().equals(companyName)){
@@ -85,21 +86,21 @@ public class financingRequest_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(financingRequest_page.getApprove).click();
         financingRequest_page.getComments.sendKeys("PASS");
         financingRequest_page.clickSubmit.click();
-        Map<String, Object> map = updateAml(FinancingNo);
-        int status = (int)map.get("status");
-        if(status == 1){
-            System.out.println("status success");
-            String responseData = (String)map.get("data");
-            System.out.println("responseData: " + responseData);
-        }else {
-            System.out.println("status error");
-            String msg = (String)map.get("msg");
-            System.out.println("msg: " + msg);
-        }
-        for (int i = 0; i < 6; i++) {
-            bddUtil.sleep(20);
-        }
-        bddUtil.sleep(15);
+//        Map<String, Object> map = updateAml(FinancingNo);
+//        int status = (int)map.get("status");
+//        if(status == 1){
+//            System.out.println("status success");
+//            String responseData = (String)map.get("data");
+//            System.out.println("responseData: " + responseData);
+//        }else {
+//            System.out.println("status error");
+//            String msg = (String)map.get("msg");
+//            System.out.println("msg: " + msg);
+//        }
+//        for (int i = 0; i < 6; i++) {
+//            bddUtil.sleep(20);
+//        }
+//        bddUtil.sleep(15);
     }
 
     public void clickFinancingStatus(){

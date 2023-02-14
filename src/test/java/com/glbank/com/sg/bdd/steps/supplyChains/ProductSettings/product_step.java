@@ -25,6 +25,7 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickProducts() {
+        bddUtil.sleep(5);
         productPage.products.click();
         bddUtil.sleep(3);
     }
@@ -46,7 +47,6 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void code() {
-//        productPage.code.sendKeys("SCF.REV.PF.BMLTDREC");
         productPage.code.sendKeys("SCF.REV.PF.BWREC");
     }
 
@@ -207,7 +207,7 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickGLB() {
-        bddUtil.sleep(10);
+        bddUtil.sleep(5);
         productPage.GLB.click();
     }
 

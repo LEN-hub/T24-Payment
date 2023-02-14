@@ -2,6 +2,7 @@ package com.glbank.com.sg.bdd.steps.supplyChains.creditFile;
 
 import com.glbank.com.sg.bdd.pages.supplyChains.creditFile.createBuyerCreditFile_page;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import com.glbank.com.sg.bdd.utils.FileUtils;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -93,10 +94,13 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         bddUtil.sleep(2);
 //        bddUtil.fileUpload();
         getDriver().findElement(By.xpath("//label[@for='B0030']/following-sibling::div//input")).sendKeys(fileAddress);
-        bddUtil.sleep(5);
+        bddUtil.sleep(2);
         createBuyerCreditFile_page.clickSaveBuyerCreditProfile.click();
-        bddUtil.sleep(3);
-        getDriver().findElement(By.xpath("//span[@class='back_view_item']")).click();
+        createBuyerCreditFile_page.clickBackBtn.click();
+        createBuyerCreditFile_page.inputCompanyText.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+        createBuyerCreditFile_page.clickStatusTitle.click();
+        bddUtil.sleep(2);
+        bddUtil.clickByJS(createBuyerCreditFile_page.clickSubmitBtn);
     }
 
     @Step

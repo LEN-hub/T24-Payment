@@ -1,4 +1,5 @@
 package com.glbank.com.sg.bdd.steps.supplyChains.RPA;
+import cn.hutool.core.date.DateUtil;
 import com.glbank.com.sg.bdd.pages.supplyChains.RPA.rpa_page;
 import com.glbank.com.sg.bdd.utils.*;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -7,6 +8,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -29,6 +31,7 @@ public class rpa_steps extends ScenarioSteps {
 
     @Step
     public void clickCustomers(){
+        bddUtil.sleep(5);
         rpaPage.Customers.click();
     }
 
@@ -36,7 +39,18 @@ public class rpa_steps extends ScenarioSteps {
     public void clickContractManagement(){rpaPage.ContractManagement.click();}
 
     @Step
-    public void clickCompanyName(){rpaPage.CompanyName.sendKeys(FileUtils.LastReadFileInput3("companyData"));}
+    public void clickCompanyName(){
+        rpaPage.enterCompanyName.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        rpaPage.clickContractType.click();
+        rpaPage.clickUploadBtn.click();
+        getDriver().findElement(By.xpath("//div[@class='lls-upload-dragger']/following-sibling::input")).sendKeys(fileAddress);
+        String Date = DateUtil.format(DateUtil.offsetDay(new Date(),365),"yyyy-MM-dd");
+        rpaPage.enterDate.sendKeys(Date);
+        bddUtil.sleep(3);
+        rpaPage.clickNextBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.clickConfirmBtn.click();
+    }
 
     @Step
     public void clickCompanyNameClickReset(){
@@ -156,11 +170,10 @@ public class rpa_steps extends ScenarioSteps {
         }
     }
 
-    public void inputLogin(){
-        rpaPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
+    public void loginClientUseFixeData(String emailName){
+        rpaPage.GLDBEmailInput.sendKeys(emailName+"@ihotmails.com");//("362DDf6O@MailTemp.top");
         rpaPage.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
         rpaPage.enterCompanyId.sendKeys("1234");
-        rpaPage.sendCodeBtn.click();
         // 换新邮箱地址了
         /*JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
@@ -179,32 +192,73 @@ public class rpa_steps extends ScenarioSteps {
         bddUtil.switchToWindows();*/
 //        新邮箱
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
-        String twoEmail = FileUtils.LastReadFileInput3("emailData").substring(0,8);
-        bddUtil.switchToWindows();
-        bddUtil.sleep(2);
-        rpaPage.selectEmailDropDown.click();
-        rpaPage.selectC0c.click();
-        rpaPage.changeSendEmail.clear();
-        bddUtil.find(By.xpath("//input[@placeholder=\"请输入邮箱账号\"]")).sendKeys(twoEmail);
-        bddUtil.sleep(2);
-        rpaPage.clickRefresh.click();
+        webdriver.executeScript("window.open(\"https://ihotmails.com/\");");
+        bddUtil.switchToNewWindow();
+        rpaPage.clickEditEmailName.click();
         bddUtil.sleep(3);
-        List<WebElementFacade> selectEmail = rpaPage.emailSubject;
-        List<WebElementFacade> clickViewBtn = rpaPage.clickViewBtn;
-        for (int i = 0; i < selectEmail.size(); i++) {
-            if (selectEmail.get(i).getText().equals("GreenLinkDigitalBank-VerificationCode")){
-                clickViewBtn.get(i).click();
-                break;
-            }
-        }
-        bddUtil.sleep(1);
-        String Vcode = rpaPage.emailVerificationCode.getText();
-        bddUtil.sleep(2);
+        rpaPage.sendKeysEmailName.clear();
+        rpaPage.sendKeysEmailName.sendKeys(emailName);
+        rpaPage.clickEditEmailName.click();
         bddUtil.switchToWindows();
-        rpaPage.inputSendCode.sendKeys(Vcode);
+        rpaPage.sendCodeBtn.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(20);
+        bddUtil.scrollWindowToElement(rpaPage.clickFirstEmailName).click();
+        String otp = bddUtil.scrollWindowToElement(rpaPage.getEmailOtp).getText();
+        bddUtil.switchToWindows();
+        rpaPage.inputSendCode.sendKeys(otp);
         rpaPage.GLDBEmailLoginBtn.click();
-        bddUtil.sleep(5);
+        bddUtil.sleep(10);
+    }
+
+    public void clickGoToDigibankLink(){
+        rpaPage.clickGoToDigibankLink.click();
+    }
+
+    public void jumpToInbLink(){
+        bddUtil.switchToNewWindow();
+        rpaPage.jumpToInbLink.click();
+    }
+
+    public void inputLogin(){
+        rpaPage.GLDBEmailInput.sendKeys(FileUtils.LastReadFileInput3("emailData"));//("362DDf6O@MailTemp.top");
+        rpaPage.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
+        rpaPage.enterCompanyId.sendKeys("1234");
+        // 换新邮箱地址了
+        /*JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
+        bddUtil.switchToNewWindow();
+        if (rpaPage.errorText.isVisible()){
+            rpaPage.advancedButton.click();
+            rpaPage.enterEmailLink.click();
+        }
+        bddUtil.sleep(3);
+        rpaPage.clickRefreshBtn.click();
+        bddUtil.sleep(3);
+        rpaPage.clickRefreshBtn.click();
+        bddUtil.sleep(3);
+        rpaPage.thirdEmail.click();
+        String Vcode = rpaPage.emailVerificationCode.getText();
+        bddUtil.switchToWindows();*/
+//        新邮箱
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://ihotmails.com/\");");
+        String twoEmail = FileUtils.LastReadFileInput3("emailData").substring(0,8);
+        bddUtil.switchToNewWindow();
+        rpaPage.clickEditEmailName.click();
+        bddUtil.sleep(3);
+        rpaPage.sendKeysEmailName.clear();
+        rpaPage.sendKeysEmailName.sendKeys(twoEmail);
+        rpaPage.clickEditEmailName.click();
+        bddUtil.switchToWindows();
+        rpaPage.sendCodeBtn.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(20);
+        bddUtil.scrollWindowToElement(rpaPage.clickFirstEmailName).click();
+        String otp = bddUtil.scrollWindowToElement(rpaPage.getEmailOtp).getText();
+        bddUtil.switchToWindows();
+        rpaPage.inputSendCode.sendKeys(otp);
+        rpaPage.GLDBEmailLoginBtn.click();
     }
 
     public void clickCreateUser(String firstPassword,String secondPassword){

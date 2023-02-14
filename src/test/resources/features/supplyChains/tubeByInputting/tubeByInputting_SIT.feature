@@ -12,20 +12,20 @@ Feature: tube By Inputting In SIT
     Then I Check to see if you jump to the Authorized Person page
     When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
     When I fill in Simple KYC customer information on the page No Administrator
-      |Nature of Business   |
-      |Agriculture & Fishing|
+      |Nature of Business   |Customer Type|
+      |Agriculture & Fishing|Buyer        |
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
     Given logon "scf_sit2" on sit tube by inputting system
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result  |Customer Type|
+      |Approved|Buyer        |
     When I close driver
 
      #2.simple（核心不存在、非自主、管理员）
@@ -39,18 +39,20 @@ Feature: tube By Inputting In SIT
     Then I Check to see if you jump to the Authorized Person page
     When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC
     When I fill in Simple KYC customer information on the page
-      |Nature of Business   |Id Type |
-      |Agriculture & Fishing|Passport|
+      |Nature of Business   |Id Type |Customer Type|
+      |Agriculture & Fishing|Passport|Buyer        |
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
     Given logon "scf_sit2" on sit tube by inputting system
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Registration Status on the page
+      |Customer Type|
+      |Buyer        |
     And I click the email icon to send the email
     When open the email browser page
     And I received an email from Green Union Bank on the email page
@@ -71,8 +73,8 @@ Feature: tube By Inputting In SIT
     Given logon "scf_sit2" on sit tube by inputting system
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result  |Customer Type|
+      |Approved|Buyer        |
     When I close driver
 
       #3.(1)simple（无管理员）--full（customer）
@@ -86,20 +88,20 @@ Feature: tube By Inputting In SIT
     Then I Check to see if you jump to the Authorized Person page
     When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
     When I fill in Simple KYC customer information on the page No Administrator
-      |Nature of Business   |
-      |Agriculture & Fishing|
+      |Nature of Business   |Customer Type|
+      |Agriculture & Fishing|Buyer        |
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
     Given logon "scf_sit2" on sit tube by inputting system
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Upgrade KYC on the page and process the corresponding information
       |Upgrade Mode|Input By|
       |Full KYC    |Customer|
@@ -152,18 +154,20 @@ Feature: tube By Inputting In SIT
     Then I Check to see if you jump to the Authorized Person page
     When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC
     When I fill in Simple KYC customer information on the page
-      |Nature of Business   |Id Type |
-      |Agriculture & Fishing|Passport|
+      |Nature of Business   |Id Type |Customer Type|
+      |Agriculture & Fishing|Passport|Buyer        |
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
     Given logon "scf_sit2" on sit tube by inputting system
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Registration Status on the page
+      |Customer Type|
+      |Buyer        |
     And I click the email icon to send the email
     When open the email browser page
     And I received an email from Green Union Bank on the email page
@@ -184,8 +188,8 @@ Feature: tube By Inputting In SIT
     Given logon "scf_sit2" on sit tube by inputting system
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Upgrade KYC on the page and process the corresponding information
       |Upgrade Mode|Input By|
       |Full KYC    |Customer|
@@ -234,20 +238,20 @@ Feature: tube By Inputting In SIT
     Then I Check to see if you jump to the Authorized Person page
     When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
     When I fill in Simple KYC customer information on the page No Administrator
-      |Nature of Business   |
-      |Agriculture & Fishing|
+      |Nature of Business   |Customer Type|
+      |Agriculture & Fishing|Buyer        |
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
     Given logon "scf_sit2" on sit tube by inputting system
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Upgrade KYC on the page and process the corresponding information
       |Upgrade Mode                 |Input By|
       |Full KYC + Account Opening   |Customer|
@@ -308,18 +312,20 @@ Feature: tube By Inputting In SIT
     Then I Check to see if you jump to the Authorized Person page
     When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC
     When I fill in Simple KYC customer information on the page
-      |Nature of Business   |Id Type |
-      |Agriculture & Fishing|Passport|
+      |Nature of Business   |Id Type |Customer Type|
+      |Agriculture & Fishing|Passport|Buyer        |
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I close driver
     Given logon "scf_sit2" on sit tube by inputting system
     When I authorize on the Onboarding Review page
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Registration Status on the page
+      |Customer Type|
+      |Buyer        |
     And I click the email icon to send the email
     When open the email browser page
     And I received an email from Green Union Bank on the email page
@@ -340,8 +346,8 @@ Feature: tube By Inputting In SIT
     Given logon "scf_sit2" on sit tube by inputting system
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Upgrade KYC on the page and process the corresponding information
       |Upgrade Mode                   |Input By|
       |Full KYC + Account Opening     |Customer|
@@ -446,17 +452,17 @@ Feature: tube By Inputting In SIT
     When End the current browser process
     Given logon "scf_sit1" on sit tube by inputting system
     When I authorize on the Onboarding Review page Full KYC
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When End the current browser process
     Given logon "scf_sit2" on sit tube by inputting system
     When I authorize on the Onboarding Review page Full KYC
-      |Result |
-      |Approve|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
-      |Status  |
-      |Approved|
+      |Result |Customer Type|
+      |Approve|Buyer        |
     When I click Upgrade KYC on the page and process the corresponding information Full KYC
       |Upgrade Mode               |
       |Full KYC + Account Opening |

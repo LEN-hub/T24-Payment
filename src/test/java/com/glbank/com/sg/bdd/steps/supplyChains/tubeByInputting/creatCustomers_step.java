@@ -12,8 +12,10 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.glbank.com.sg.bdd.utils.AssertLocal.assertTrue;
@@ -326,8 +328,7 @@ public class creatCustomers_step extends ScenarioSteps {
         CommonUtil.waiting(2000);
 //        邮箱链接暂时失效，需要手动打开。
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-//        webdriver.executeScript("window.open(\"http://10.24.9.126:8080/#/login\");");//UAT地址
-        webdriver.executeScript("window.open(\"http://10.24.7.8:8080/#/login/\");");//SIT地址
+        webdriver.executeScript("window.open(\"http://10.24.9.126:8080/#/login\");");
         bddUtil.sleep(5);
         bddUtil.switchToWindows();
 //        customers_page.scfLink.click();
@@ -380,15 +381,13 @@ public class creatCustomers_step extends ScenarioSteps {
     public void thirdEmail(){
         bddUtil.sleep(3);
         customers_page.clickRefresh.click();
-        bddUtil.sleep(1);
+        bddUtil.sleep(3);
         bddUtil.scrollWindowToElement(customers_page.selectCodeEamil).click();
         bddUtil.sleep(2);
         String verificationCode = customers_page.emailVerificationCode.getText();
         bddUtil.switchToWindows();
         customers_page.inputSendCode.sendKeys(verificationCode);
     }
-
-
     @Step
     public void enterCompanyIdAndClickLoginBtn(){
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
@@ -1031,6 +1030,66 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
+    public void joinRatingLimitPage(){
+        customers_page.clickMoreMenu.click();
+        customers_page.clickRatingsLimits.click();
+        customers_page.clickRatingsLimitsMenu.click();
+    }
+
+    @Step
+    public void searchData(String data,String amount){
+        customers_page.enterSearchData.sendKeys(" ");
+        customers_page.clickStatusTitle.click();
+        bddUtil.clickByJS(customers_page.clickChangeBtn);
+        customers_page.limitForThisProduct.clear();
+        customers_page.limitForThisProduct.sendKeys(amount);
+        customers_page.titleProposedLimit.click();
+        String checkAmount = solve(amount)+".00";
+        if (checkAmount.equals(customers_page.titleAmount.getText())){
+            System.out.println("交易成功！");
+        }
+        customers_page.inputCommentText.sendKeys("ok");
+        customers_page.clickSubmitBtnOnGLDB.click();
+    }
+
+
+    public static String solve(String num) {
+        if (num == null) {
+            return null;
+        }
+        // 判断是否有小数
+        int index = num.indexOf(".");
+        if (index >= 0) {
+            String integer = num.substring(0, index);
+            String decimal = num.substring(index);
+            // 分隔后的整数+小数拼接起来
+            return addSeparator(integer) + decimal;
+        } else {
+            return addSeparator(num);
+        }
+    }
+
+    // 添加分隔符
+    public static String addSeparator(String num) {
+        int length = num.length();
+        ArrayList list = new ArrayList();
+        while (length > 3) {
+            list.add(num.substring(length - 3, length));
+            length = length - 3;
+        }
+        // 将前面小于三位的数字添加到ArrayList中
+        list.add(num.substring(0, length));
+        StringBuffer buffer = new StringBuffer();
+        // 倒序拼接
+        for (int i = list.size() - 1; i > 0; i--) {
+            buffer.append(list.get(i) + ",");
+        }
+        buffer.append(list.get(0));
+        return buffer.toString();
+    }
+
+
+    @Step
     public void clickProceedButtonOnAssignToMePage(){
         customers_page.searchCompanyInput.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         customers_page.searchCheckBox.click();
@@ -1072,13 +1131,21 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.quitDriver();
     }
     @Step
-    public void clickEditIcon(){
+    public void clickEditIcon(String companyType){
+        customers_page.sendKeysCompanyNameOnOnboardingList.clear();
+        if(companyType.equals("Buyer")){
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+        }else {
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        }
+        customers_page.clickStatusOnOnboardingList.click();
         bddUtil.sleep(2);
         customers_page.clickEditIcon.click();
     }
 
     @Step
-    public void companyInformation(String Industry,String selectIdType){
+    public void companyInformation(String Industry,String selectIdType,String customerType){
+        bddUtil.sleep(5);
         customers_page.enterRegisteredAddress.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.clickCountryOfBusiness.click();
         customers_page.selectCountryOfBusinessText.click();
@@ -1138,7 +1205,11 @@ public class creatCustomers_step extends ScenarioSteps {
         if(customers_page.clickBackButton.isVisible()){
             customers_page.clickBackButton.click();
             customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+            if (customerType.equals("Buyer")){
+                customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+            }else {
+                customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+            }
             customers_page.clickStatusOnOnboardingList.click();
         }
         bddUtil.sleep(5);
@@ -1146,7 +1217,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickComfirmBtnSimpleKYC.click();
     }
     
-    public void companyInformationNoAdministrator(String Industry){
+    public void companyInformationNoAdministrator(String Industry,String customerType){
         customers_page.enterRegisteredAddress.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.clickCountryOfBusiness.click();
         customers_page.selectCountryOfBusinessText.click();
@@ -1166,33 +1237,55 @@ public class creatCustomers_step extends ScenarioSteps {
         if(customers_page.clickBackButton.isVisible()){
             customers_page.clickBackButton.click();
             customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+            if (customerType.equals("Buyer")){
+                customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+            }else {
+                customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+            }
             customers_page.clickStatusOnOnboardingList.click();
         }
         bddUtil.sleep(5);
         customers_page.clickSubmitSimpleKYC.click();
+        bddUtil.sleep(2);
         customers_page.clickComfirmBtnSimpleKYC.click();
     }
 
     @Step
-    public void assignToMe(String result){
+    public void assignToMe(String result,String customerType){
         List<WebElementFacade> assign = customers_page.ReviewCustomer;
         List<WebElementFacade> assignBtn = customers_page.clickAssignBtn;
         for (int i = 0; i < assign.size(); i++) {
-            if (FileUtils.LastReadFileInput3("buyer").equals(assign.get(i).getText())) {
-                assignBtn.get(i).click();
-                break;
+            bddUtil.sleep(3);
+            if (customerType.equals("Buyer")){
+                if (FileUtils.LastReadFileInput3("buyer").equals(assign.get(i).getText())) {
+                    assignBtn.get(i).click();
+                    break;
+                }
+            }else {
+                if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
+                    assignBtn.get(i).click();
+                    break;
+                }
             }
+
         }
         customers_page.assignedToMeClick.click();
         bddUtil.sleep(8);
         List<WebElementFacade> company = customers_page.getCompanyNameList;
         List<WebElementFacade> proceed = customers_page.clickProceedBtn;
         for (int j = 0; j < company.size(); j++){
-            if (FileUtils.LastReadFileInput3("buyer").equals(company.get(j).getText())){
-                bddUtil.sleep(8);
-                proceed.get(j).click();
-                break;
+            if (customerType.equals("Buyer")){
+                if (FileUtils.LastReadFileInput3("buyer").equals(company.get(j).getText())){
+                    bddUtil.sleep(8);
+                    bddUtil.clickByJS(proceed.get(j));
+                    break;
+                }
+            }else{
+                if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
+                    bddUtil.sleep(8);
+                    bddUtil.clickByJS(proceed.get(j));
+                    break;
+                }
             }
         }
         bddUtil.sleep(25);
@@ -1205,18 +1298,28 @@ public class creatCustomers_step extends ScenarioSteps {
             }
         }
         customers_page.enterComment.sendKeys(RandomPhoneNumber.randomPhoneNum());
+//        if (customerType.equals("Buyer")){
+//            bddUtil.scrollWindowToElement(customers_page.clickRelatedPartySelectYes).click();
+//        }
         customers_page.clickSubmitBtn.click();
         bddUtil.sleep(10);
     }
 
     @Step
-    public void assignToMeFullKYC(String result){
+    public void assignToMeFullKYC(String result,String customerType){
         List<WebElementFacade> assign = customers_page.ReviewCustomer;
         List<WebElementFacade> assignBtn = customers_page.clickAssignBtn;
         for (int i = 0; i < assign.size(); i++) {
-            if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
-                assignBtn.get(i).click();
-                break;
+            if (customerType.equals("Buyer")){
+                if (FileUtils.LastReadFileInput3("buyer").equals(assign.get(i).getText())) {
+                    assignBtn.get(i).click();
+                    break;
+                }
+            }else {
+                if (FileUtils.LastReadFileInput3("companyData").equals(assign.get(i).getText())) {
+                    assignBtn.get(i).click();
+                    break;
+                }
             }
         }
         customers_page.assignedToMeClick.click();
@@ -1224,10 +1327,18 @@ public class creatCustomers_step extends ScenarioSteps {
         List<WebElementFacade> company = customers_page.getCompanyNameList;
         List<WebElementFacade> proceed = customers_page.clickProceedBtn;
         for (int j = 0; j < company.size(); j++){
-            if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
-                bddUtil.sleep(8);
-                proceed.get(j).click();
-                break;
+            if (customerType.equals("Buyer")){
+                if (FileUtils.LastReadFileInput3("buyer").equals(company.get(j).getText())){
+                    bddUtil.sleep(8);
+                    proceed.get(j).click();
+                    break;
+                }
+            }else {
+                if (FileUtils.LastReadFileInput3("companyData").equals(company.get(j).getText())){
+                    bddUtil.sleep(8);
+                    proceed.get(j).click();
+                    break;
+                }
             }
         }
         bddUtil.sleep(10);
@@ -1246,9 +1357,13 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.sleep(10);
     }
 
-    public void checkRegistrationReport(){
+    public void checkRegistrationReport(String companyType){
         customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-        customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        if (companyType.equals("Buyer")){
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+        }else{
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        }
         customers_page.clickStatusOnOnboardingList.click();
         Assert.assertEquals("Pending Registration",customers_page.checkRegistrationtatus.getText());
         bddUtil.sleep(2);
@@ -1261,11 +1376,23 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickComfirmBtnSimpleKYC.click();
     }
 
-    public void checkApprovedStatus(String status){
+    public void checkApprovedStatus(String status,String customerType){
         customers_page.sendKeysCompanyNameOnOnboardingList.clear();
-        customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+        if (customerType.equals("Buyer")){
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+        }else {
+            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        }
         customers_page.clickStatusOnOnboardingList.click();
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
+//        if (!status.equals(customers_page.checkRegistrationtatus.getText())){
+//            bddUtil.clickByJS(customers_page.clickViewDetailsBtn);
+//            bddUtil.scrollWindowToElement(bddUtil.getDriver().findElement(By.xpath("//div[text()='Beneficial Owner (s)']")));
+//            customers_page.clickBackDetailsBtn.click();
+//            customers_page.sendKeysCompanyNameOnOnboardingList.clear();
+//            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+//            customers_page.clickStatusOnOnboardingList.click();
+//        }
         Assert.assertEquals(status,customers_page.checkRegistrationtatus.getText());
     }
 

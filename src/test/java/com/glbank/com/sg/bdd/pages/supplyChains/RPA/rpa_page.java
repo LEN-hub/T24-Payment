@@ -18,6 +18,24 @@ public class rpa_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f2ggi3np']//input")
     public WebElementFacade CompanyName;
 
+    @FindBy(xpath = "//label[text()='Company Name']/following-sibling::div//input")
+    public WebElementFacade enterCompanyName;
+
+    @FindBy(xpath = "//label[text()='Contract Type']")
+    public WebElementFacade clickContractType;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//span[contains(text(),'Upload')]")
+    public WebElementFacade clickUploadBtn;
+
+    @FindBy(xpath = "//div[contains(text(),'Active Date of Contract')]/parent::label/following-sibling::div//input")
+    public WebElementFacade enterDate;
+
+    @FindBy(xpath = "//span[contains(text(),'Next')]")
+    public WebElementFacade clickNextBtn;
+
+    @FindBy(xpath = "//div[@class='lls-dialog__body']//span[contains(text(),'Confirm')]")
+    public WebElementFacade clickConfirmBtn;
+
     @FindBy(xpath = "//span[text()='Contract Management']")
     public WebElementFacade CompanyNameClickReset;
 
@@ -71,8 +89,21 @@ public class rpa_page extends PageObject {
     @FindBy(xpath = "//span[@class='el-input__suffix']/span/i")
     public WebElementFacade selectEmailDropDown;
 
-    @net.serenitybdd.core.annotations.findby.FindBy(xpath = "//span[text()='@c0c.fun']")
+    @FindBy(xpath = "//span[text()='@c0c.fun']")
     public WebElementFacade selectC0c;
+
+    @FindBy(id = "customShortid")
+    public WebElementFacade clickEditEmailName;
+
+    @FindBy(id = "shortid")
+    public WebElementFacade sendKeysEmailName;
+
+    @FindBy(xpath = "//tbody[@id='maillist']/tr[1]/td[1]")
+    public WebElementFacade clickFirstEmailName;
+
+    @net.serenitybdd.core.annotations.findby.FindBy(xpath = "//div[@class='container content']/h2")
+    public WebElementFacade getEmailOtp;
+
 
     @FindBy(xpath = "//input[@placeholder=\"请输入邮箱账号\"]")
     public WebElementFacade changeSendEmail;
@@ -87,8 +118,14 @@ public class rpa_page extends PageObject {
     public WebElementFacade DigitalSign;
 
 
-    @FindBy(xpath = "//span[text()='Login']")
+    @FindBy(xpath = "//span[contains(text(),'Login')]")
     public WebElementFacade GLDBEmailLoginBtn;
+
+    @FindBy(xpath = "//span[text()='Go to Digibank']")
+    public WebElementFacade clickGoToDigibankLink;
+
+    @FindBy(xpath = "//span[contains(text(),'Open Account ')]")
+    public WebElementFacade jumpToInbLink;
 
     @FindBy(xpath = "//span[text()='Contract']")
     public WebElementFacade Contract;

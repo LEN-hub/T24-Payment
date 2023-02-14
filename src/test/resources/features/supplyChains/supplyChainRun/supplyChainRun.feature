@@ -9,8 +9,8 @@ Feature: supply chain run
 #    When open the email browser page
 #    When I click Customers and select Onboarding List
 #    And I click Create Customer and fill in the supplier information in the pop-up window
-#      |KYC Mode   |Input by|
-#      |Full KYC   |Customer|
+#      |KYC Mode   |Input by|Customer Type|
+#      |Full KYC   |Customer|Supplier     |
 #    Then I Check to see if you jump to the Authorized Person page
 #    When Fill in email 1 and email 2 supplier information on the Authorized Person page
 #    And I click the email icon to send the email
@@ -130,8 +130,8 @@ Feature: supply chain run
 
 #    产品设置
   Scenario:UAT_ Supply chain_ Inner tube_ Create product_ 003
-#    Given logon "scf_environments_1_tian" on tube by inputting system
-    Given logon "scf_sit1" on sit tube by inputting system
+    Given logon "scf_environments_2_tian" on tube by inputting system
+#    Given logon "scf_sit1" on sit tube by inputting system
     When I click product
     When I click on Product List
     And  click Create Product
@@ -156,8 +156,8 @@ Feature: supply chain run
       #    上传历史单据
   @UploadHistoricalDocuments
   Scenario:Upload historical documents
-#    Given logon "scf_environments_1_tian" on tube by inputting system
-    Given logon "scf_sit1" on sit tube by inputting system
+    Given logon "scf_environments_1_tian" on tube by inputting system
+#    Given logon "scf_sit1" on sit tube by inputting system
     When I click Operations button
     And I click docs List button
     When I upload Historical Documents
@@ -226,20 +226,20 @@ Feature: supply chain run
       |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
 #
 #   融资申请
-#  Scenario:financingRequest1
-#    Given logon "environments_4" test code
-#    When I input login information
-#    When login successfully and click RequestFinancing
-#    Then upload RequestFinancing File
-#    And  logon "scf_environments_1_tian" on tube by inputting system
-#    Then click Operations to Review
-#    And change user To L2 Review
-#    When logon "scf_environments_2_tian" on tube by inputting system
-#    And click Operations to Review
-#    Given logon "environments_3" test code
-#    When I input login information
-#    And click Financing Status
-#    When I close driver
+  Scenario:financingRequest1
+    Given logon "environments_4" test code
+    When I input login information
+    When login successfully and click RequestFinancing
+    Then upload RequestFinancing File
+    And  logon "scf_environments_1_tian" on tube by inputting system
+    Then click Operations to Review
+    And change user To L2 Review
+    When logon "scf_environments_2_tian" on tube by inputting system
+    And click Operations to Review
+    Given logon "environments_3" test code
+    When I input login information
+    And click Financing Status
+    When I close driver
 
 ##
 #   放款
