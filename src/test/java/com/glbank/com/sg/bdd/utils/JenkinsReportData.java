@@ -6,18 +6,18 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
-import java.io.File;
 
-import static com.glbank.com.sg.bdd.utils.FileUtils.FileString4;
+import java.io.*;
 
 public class JenkinsReportData {
 
     private static String systemPath = System.getProperty("user.dir");
-    public static void jenkinsReport(){
+
+    public static void main(String[] args) {
         try {
-            FileUtils.writeFile("Jenkins");
+            writeFile("Jenkins");
 //creating a constructor of file class and parsing an XML file
-            File file = new File( "C:/Users/CyberArk/.jenkins/workspace/SCF_Automation_HealthCheck/target/failsafe-reports/failsafe-summary.xml");
+            File file = new File( systemPath + "/SCF_Automation_HealthCheck/target/failsafe-reports/failsafe-summary.xml");
 //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 //an instance of builder to parse the specified xml file
@@ -52,4 +52,62 @@ public class JenkinsReportData {
             e.printStackTrace();
         }
     }
+
+    public static void writeFile(String path) throws Exception{
+        System.out.println(systemPath);
+        String allPath = systemPath + "/SCF_Automation_HealthCheck/src/test/resources/testData/autopay/" + path + ".txt";
+        File f = new File (allPath);
+        FileWriter fw = new FileWriter (f);
+        fw.write("");
+        fw.flush();
+        fw.close();
+    }
+
+    public static void FileString4(String path, String data) {
+        try {
+            String allPath = systemPath + "/SCF_Automation_HealthCheck/src/test/resources/testData/autopay/" + path + ".txt";
+            File file=new File(allPath);
+            if(!file.isFile() && !file.exists()){ //判断文件是否存在
+                file.createNewFile();
+            }
+            FileOutputStream outputStream = new FileOutputStream(allPath, true);// 追加写入
+            String content = FileInput3(path);
+            data = content != null && !content.equals("") ? "\r\n" + data : "" + data;
+            outputStream.write(data.getBytes());
+            outputStream.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public static String FileInput3(String path) {
+        path = systemPath + "/SCF_Automation_HealthCheck/src/test/resources/testData/autopay/" + path + ".txt";
+        StringBuffer buffer = new StringBuffer();
+        try {
+            BufferedReader bufferedReader = new BufferedReader(
+                    new InputStreamReader(new FileInputStream(path), "UTF-8"));
+            String data = null;
+            while ((data = bufferedReader.readLine()) != null) {
+                //buffer.append(data+"\r\n");
+                buffer.append(data+",");
+            }
+            bufferedReader.close();
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        String rtn = buffer.toString();
+        return rtn != null && !rtn.equals("") ? rtn.substring(0, rtn.length() - 1) : null;
+    }
+
 }

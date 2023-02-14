@@ -1,5 +1,0 @@
-Success=1
-error=0
-failures=0
-skipped=0
-sum=1
