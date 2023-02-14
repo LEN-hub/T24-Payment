@@ -1662,8 +1662,16 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.clickOverViewBtn.click();
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
+        bddUtil.sleep(5);
+        BigDecimal b1 = new BigDecimal(doubleSum);
+        BigDecimal b2 = new BigDecimal(doubleTransactionAmount);
+        if (t24_payments_page.firstDebitAmount.getText().contains(".")){
+            Assert.assertEquals(String.valueOf(b1.add(b2).doubleValue()),t24_payments_page.firstDebitAmount.getText());
+        }else {
+            Assert.assertEquals(String.valueOf(intSum+intTransactionAmount),t24_payments_page.firstDebitAmount.getText());
+        }
         BigDecimal num1 = new BigDecimal(t24_payments_page.getMinuend.getText().replace(",",""));
-        BigDecimal num2 = new BigDecimal(t24_payments_page.creditAmount.getText().replace(",",""));
+        BigDecimal num2 = new BigDecimal(t24_payments_page.firstDebitAmount.getText().replace(",",""));
         String result = String.valueOf(num1.subtract(num2));
         System.out.println(result);
         String getDifference = creatCustomers_step.solve(result);
