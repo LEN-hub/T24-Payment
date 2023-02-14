@@ -296,4 +296,9 @@ public class t24_Payments_glue {
     public void iCheckFeeOnThePage() {
         t24_payments_step.checkFee();
     }
+
+    @Then("^I verify that the cut off time date is consistent with the expected result$")
+    public void iVerifyThatTheCutOffTimeDateIsCorrect() {
+        t24_payments_step.iVerifyThatTheCutOffTimeDateIsCorrect();
+    }
 }

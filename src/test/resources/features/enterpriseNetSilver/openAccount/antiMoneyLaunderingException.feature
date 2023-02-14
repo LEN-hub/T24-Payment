@@ -1,6 +1,7 @@
 @AntiMoneyLaunderingException
 Feature:AntiMoneyLaunderingException
 
+  @TestReportTest
   #开户后触发反洗钱处理--开户申请完成10分钟后执行
   Scenario:Anti money laundering exception handle
     Given I login Corporate management business platform

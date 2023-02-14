@@ -352,6 +352,37 @@ public class t24_Payments_step extends ScenarioSteps {
         System.out.println(sdf2.format(parse));
         return sdf2.format(parse);
     }
+
+    @Step
+    public void iVerifyThatTheCutOffTimeDateIsCorrect(){
+//        Assert.assertEquals(convertDate(t24_payments_page.getProcessingDate.getText()),DateUtil.format(new Date(),"yyyy-MM-dd"));
+        Calendar instance = Calendar.getInstance();
+        // 获取今天星期几
+        int i = instance.get(Calendar.DAY_OF_WEEK) - 1;
+        int Friday = Calendar.FRIDAY - 1;
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HHss");
+        String format = dateFormat.format(date);
+        System.out.println(format);
+        int time = Integer.parseInt(format);
+        if (i == Friday){
+            if (time>1600){
+                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"));
+            }else if (time<1600){
+                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+            }
+        }else {
+            if (time>1600){
+                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),1),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),1),"yyyy-MM-dd"));
+            }else if (time<1600){
+                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+            }
+        }
+    }
     @Step
     public void channelAndT24DataFieldMappingSameCurrency(String WordPath){
         bddUtil.switchToNewWindow();
