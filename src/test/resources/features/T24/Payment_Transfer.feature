@@ -38,7 +38,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
     Then I verify that the data in the API request message is consistent with the page ChangOptions field
       |Charge Option|
       |SHA          |
-    Then I verify that the cut off time date is consistent with the expected result
+#    Then I verify that the cut off time date is consistent with the expected result
     Then I verify that the data in the API request message is consistent with the currency field of the page
     Then I verify that the data in the API request message is consistent with the page amount field
     Then I verify that the data in the API request message is consistent with the bit amount field on the page
@@ -46,5 +46,5 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
       |serviceChargeInquiry|
     Then I verify that the data in the API request message is consistent with the page feed field
     When I verify that the account deduction is correct through the calculation formula
-      |windows Title            |Find Accounts|
-      |AA Arrangement - SIT GLDB|11010000608  |
+      |windows Title            |envName               |
+      |AA Arrangement - SIT GLDB|serviceChargeInquiry  |

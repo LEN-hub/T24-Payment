@@ -80,6 +80,9 @@ public class t24_Payments_step extends ScenarioSteps {
     public String fundsTransferAmoyntCredited;
     public Double doubleSum;
     public int intSum;
+    public Double doubleTransactionAmount;
+    public int intTransactionAmount;
+
 
     public void switchToFirstFrame(){
         getDriver().switchTo().frame(t24_payments_page.switchToFirstFrame);
@@ -266,6 +269,8 @@ public class t24_Payments_step extends ScenarioSteps {
         }
         bddUtil.closeWindow();
         bddUtil.switchToNewWindow();
+        switchToDefaultContent();
+        switchToFirstFrame();
     }
 
     @Step
@@ -299,6 +304,11 @@ public class t24_Payments_step extends ScenarioSteps {
     }
     @Step
     public void checkAmount() {
+        if (t24_payments_page.getTransactionAmount.getText().contains(".")){
+            doubleTransactionAmount = Double.valueOf(t24_payments_page.getTransactionAmount.getText());
+        }else {
+            intTransactionAmount = Integer.parseInt(t24_payments_page.getTransactionAmount.getText());
+        }
         Assert.assertEquals(t24_payments_page.getTransactionAmount.getText(),"0.01");
     }
     @Step
@@ -1645,9 +1655,9 @@ public class t24_Payments_step extends ScenarioSteps {
         Assert.assertEquals(fundTransferCreditAccNo,readtxtFile("t24","ChannelCreditAccountNumber"));
     }
     @Step
-    public void findInputArrangement(String account){
+    public void findInputArrangement(String envName){
         t24_payments_page.inputArrangement.clear();
-        t24_payments_page.inputArrangement.sendKeys(account);
+        t24_payments_page.inputArrangement.sendKeys(CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".USD_AC_SingleCurrency"));
         t24_payments_page.getClickFindBtn.click();
         t24_payments_page.clickOverViewBtn.click();
         bddUtil.switchToNewWindow();
