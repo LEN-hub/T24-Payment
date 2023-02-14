@@ -33,6 +33,8 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
     When I verify the T24 transaction status
       |windows Title                            |
       |Pending and Processed Payments - UAT GLDB|
+    Then I verify that the expected result of the actual deduction amount is consistent
+    Then I verify that the T24 transaction status is consistent with the expected result
     Then I verify that the data in the API request message is consistent with the page ChangOptions field
       |Charge Option|
       |SHA          |

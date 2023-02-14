@@ -263,7 +263,7 @@ public class t24_Payments_glue {
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
         t24_payments_step.switchToFirstFrame();
-        t24_payments_step.interfaceReturnInformationQuery();
+        t24_payments_step.clickFindBtn();
     }
 
     @Then("^I verify that the data in the API request message is consistent with the page ChangOptions field$")
@@ -300,5 +300,15 @@ public class t24_Payments_glue {
     @Then("^I verify that the cut off time date is consistent with the expected result$")
     public void iVerifyThatTheCutOffTimeDateIsCorrect() {
         t24_payments_step.iVerifyThatTheCutOffTimeDateIsCorrect();
+    }
+
+    @Then("^I verify that the T24 transaction status is consistent with the expected result$")
+    public void iVerifyThatTheTTransactionStatusIsConsistentWithTheExpectedResult() {
+        t24_payments_step.interfaceReturnInformationQuery();
+    }
+
+    @Then("^I verify that the expected result of the actual deduction amount is consistent$")
+    public void iVerifyThatTheExpectedResultOfTheActualDeductionAmountIsConsistent() {
+        t24_payments_step.checkDeductionAmount();
     }
 }

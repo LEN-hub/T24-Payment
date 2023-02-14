@@ -174,11 +174,17 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//option[text()='Outgoing Message']")
     public WebElementFacade selectOutgoingMessage;
 
+    @FindBy(xpath = "//option[text()='Fees Applied']")
+    public WebElementFacade selectFeesApplied;
+
     @FindBy(xpath = "//td[text()='Not Applicable']")
     public WebElementFacade notApplicableView;
 
     @FindBy(xpath = "//img[@alt='Select Drilldown']")
     public WebElementFacade clickSelectDrilldown;
+
+    @FindBy(xpath = "//table[@class='enquirydata enquirydata_PAYFEE']//td[7]")
+    public WebElementFacade getAmount;
 
     @FindBy(xpath = "//table[@id='datadisplay']")
     public WebElementFacade outgoingMessage;

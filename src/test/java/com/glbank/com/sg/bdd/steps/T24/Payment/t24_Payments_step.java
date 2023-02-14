@@ -78,6 +78,8 @@ public class t24_Payments_step extends ScenarioSteps {
     public String fundsTransferCreditAmount;
     public String fundsTransferAmountDebited;
     public String fundsTransferAmoyntCredited;
+    public Double doubleSum;
+    public int intSum;
 
     public void switchToFirstFrame(){
         getDriver().switchTo().frame(t24_payments_page.switchToFirstFrame);
@@ -232,9 +234,8 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.fileSendersReferenceInput.sendKeys(t24TransactionReference);
         t24_payments_page.getClickFindBtn.click();
     }
-
     @Step
-    public void interfaceReturnInformationQuery(){
+    public void clickFindBtn(){
         bddUtil.scrollWindowToElement(t24_payments_page.findFileSendersReference);
         t24_payments_page.inputDate.clear();
         t24_payments_page.fileSendersReferenceInput.clear();
@@ -242,6 +243,33 @@ public class t24_Payments_step extends ScenarioSteps {
 //        t24_payments_page.fileSendersReferenceInput.sendKeys("PI230330CY0BPY1M");
         t24_payments_page.getClickFindBtn.click();
         getDriver().manage().window().maximize();
+    }
+
+    @Step
+    public void checkDeductionAmount(){
+        t24_payments_page.getClickViewDetail.click();
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        switchToFirstFrame();
+        bddUtil.sleep(2);
+        t24_payments_page.clickInBox.click();
+        t24_payments_page.selectFeesApplied.click();
+        t24_payments_page.clickSelectDrilldown.click();
+        bddUtil.sleep(2);
+        switchToDefaultContent();
+        switchToSecondFrame();
+        System.out.println(t24_payments_page.getAmount.getText());
+        if (t24_payments_page.getAmount.getText().contains(".")){
+            doubleSum = Double.valueOf(t24_payments_page.getAmount.getText());
+        }else {
+            intSum = Integer.parseInt(t24_payments_page.getAmount.getText());
+        }
+        bddUtil.closeWindow();
+        bddUtil.switchToNewWindow();
+    }
+
+    @Step
+    public void interfaceReturnInformationQuery(){
         clickViewIcon();
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
@@ -355,7 +383,7 @@ public class t24_Payments_step extends ScenarioSteps {
 
     @Step
     public void iVerifyThatTheCutOffTimeDateIsCorrect(){
-//        Assert.assertEquals(convertDate(t24_payments_page.getProcessingDate.getText()),DateUtil.format(new Date(),"yyyy-MM-dd"));
+        Assert.assertEquals(convertDate(t24_payments_page.getProcessingDate.getText()),DateUtil.format(new Date(),"yyyy-MM-dd"));
         Calendar instance = Calendar.getInstance();
         // 获取今天星期几
         int i = instance.get(Calendar.DAY_OF_WEEK) - 1;
