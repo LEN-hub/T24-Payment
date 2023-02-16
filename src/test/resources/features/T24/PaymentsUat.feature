@@ -14,7 +14,7 @@ Feature: receipt and payment service
     Then My account has been transferred successfully To Local Payment
       |WordPath|
       |USD-SGD |
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath|
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|USD-SGD |
@@ -37,7 +37,10 @@ Feature: receipt and payment service
       |Internal Transfer USD-SGD |
     When I type FOREX in the search box use to authorize the operationToLocalPayment
       |search content|user Authorize                 |WordPath|
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|USD-SGD |
+      |FOREX         |T24-automation-UAT-login-Auth|USD-SGD |
+    When I view the exchange rate in the Payment Order RFQ Rate Audit menu On Local Payment
+      |WordPath|
+      |USD-SGD |
 
   @PaymentUat02
   #SGD->USD
@@ -51,7 +54,7 @@ Feature: receipt and payment service
     Then My account has been transferred successfully To Local Payment
       |WordPath|
       |SGD-USD |
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath|
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|SGD-USD |
@@ -74,7 +77,10 @@ Feature: receipt and payment service
       |Internal Transfer SGD-USD |
     When I type FOREX in the search box use to authorize the operationToLocalPayment
       |search content|user Authorize                 |WordPath|
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|SGD-USD |
+      |FOREX         |T24-automation-UAT-login-Auth|SGD-USD |
+    When I view the exchange rate in the Payment Order RFQ Rate Audit menu On Local Payment
+      |WordPath|
+      |SGD-USD |
 
   @PaymentUat03
    #SGD->SGD
@@ -88,7 +94,7 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
       |WordPath|
       |SGD-SGD |
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath|
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|SGD-SGD |
@@ -111,7 +117,7 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
       |WordPath|
       |USD-USD |
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath|
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|USD-USD |
@@ -138,7 +144,7 @@ Feature: receipt and payment service
     Then I will compare all the data on same Currency Payment
       |WordPath                   |
       |Local Fund Payment SGD-SGD |
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                   |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Local Fund Payment SGD-SGD |
@@ -191,7 +197,7 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath          |
       |Bic is DBS USD-USD|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS USD-USD|
@@ -244,7 +250,7 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment
       |WordPath          |
       |Bic is DBS SGD-USD|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath          |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-USD|
@@ -267,7 +273,10 @@ Feature: receipt and payment service
       |Bic is DBS SGD-USD|Bic is DBS SGD-USD|
     When I type FOREX in the search box use to authorize the operation
       |search content|user Authorize                 |WordPath          |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|Bic is DBS SGD-USD|
+      |FOREX         |T24-automation-UAT-login-Auth|Bic is DBS SGD-USD|
+    When I view the exchange rate in the Payment Order RFQ Rate Audit menu On Oversea Payment MT
+      |WordPath          |
+      |Bic is DBS SGD-USD|
 
 
   @PaymentUat08
@@ -299,7 +308,7 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath          |
       |Bic is DBS USD-SGD|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath          |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS USD-SGD|
@@ -322,7 +331,10 @@ Feature: receipt and payment service
       |Bic is DBS USD-SGD|Bic is DBS USD-SGD|
     When I type FOREX in the search box use to authorize the operation for Different Currency
       |search content|user Authorize                 |WordPath          |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|Bic is DBS USD-SGD|
+      |FOREX         |T24-automation-UAT-login-Auth|Bic is DBS USD-SGD|
+    When I view the exchange rate in the Payment Order RFQ Rate Audit menu On Oversea Payment MX
+      |WordPath          |
+      |Bic is DBS USD-SGD|
 
   @PaymentUat09
   Scenario:Positive process of overseas transfer Bic Is DBS(SGD--SGD)
@@ -353,7 +365,7 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath          |
       |Bic is DBS SGD-SGD|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-SGD|
@@ -392,7 +404,7 @@ Feature: receipt and payment service
     Then I will compare all the data on same Currency Payment
       |WordPath                   |
       |Local Fund Payment SGD-SGD |
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                   |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Local Fund Payment SGD-SGD |
@@ -445,7 +457,7 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath                    |
       |Bic is Bank of China USD-USD|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                    |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is Bank of China USD-USD|
@@ -497,7 +509,7 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment
       |WordPath                    |
       |Bic is Bank of China SGD-USD|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath                    |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is Bank of China SGD-USD|
@@ -520,7 +532,10 @@ Feature: receipt and payment service
       |Bic is Bank of China SGD-USD|Bic is Bank of China SGD-USD|
     When I type FOREX in the search box use to authorize the operation
       |search content|user Authorize                 |WordPath                    |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|Bic is Bank of China SGD-USD|
+      |FOREX         |T24-automation-UAT-login-Auth|Bic is Bank of China SGD-USD|
+    When I view the exchange rate in the Payment Order RFQ Rate Audit menu On Oversea Payment MT
+      |WordPath                    |
+      |Bic is Bank of China SGD-USD|
 
 
   @PaymentUat12
@@ -552,7 +567,7 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath                    |
       |Bic is Bank of China USD-SGD|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath                    |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is Bank of China USD-SGD|
@@ -575,7 +590,10 @@ Feature: receipt and payment service
       |Bic is Bank of China USD-SGD|Bic is Bank of China USD-SGD|
     When I type FOREX in the search box use to authorize the operation for Different Currency
       |search content|user Authorize                 |WordPath                    |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|Bic is Bank of China USD-SGD|
+      |FOREX         |T24-automation-UAT-login-Auth|Bic is Bank of China USD-SGD|
+    When I view the exchange rate in the Payment Order RFQ Rate Audit menu On Oversea Payment MX
+      |WordPath                    |
+      |Bic is Bank of China USD-SGD|
 
   @PaymentUat13
   Scenario:Positive process of overseas transfer Bic Is Bank of China(SGD--SGD)
@@ -606,7 +624,7 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath                    |
       |Bic is Bank of China SGD-SGD|
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                    |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is Bank of China SGD-SGD|

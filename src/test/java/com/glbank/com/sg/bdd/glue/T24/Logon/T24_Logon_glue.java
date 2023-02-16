@@ -13,8 +13,19 @@ public class T24_Logon_glue {
     public static String envTag;
 
 
+    @Given("^to verify transaction in T24 using \"([^\"]*)\"$")
+    public void T24AutomationLogin(String envName) {
+        envTag = envName;
+        if (!envName.isEmpty()) {
+            logon_steps.open_url(envName);
+            logon_steps.logonUserName(envName);
+            logon_steps.logonPassword(envName);
+            logon_steps.clickLogonBtn();
+        }
+    }
+
     @Given("^Use \"([^\"]*)\" to log in to T24 environment$")
-    public void useToLogInToTSITEnvironment(String envName) {
+    public void useToLogInEnvironment(String envName) {
         envTag = envName;
         if (!envName.isEmpty()) {
             logon_steps.open_url(envName);

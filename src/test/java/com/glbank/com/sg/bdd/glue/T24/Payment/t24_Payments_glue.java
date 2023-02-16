@@ -241,7 +241,7 @@ public class t24_Payments_glue {
         t24_payments_step.clickFindAccountMenu();
     }
 
-    @When("^I verify that the account deduction is correct through the calculation formula$")
+    @When("^Verify of successful deduction of transfer-out account$")
     public void iJumpToANewlyOpenedPageForFindAccountMenu(DataTable data) {
         t24_payments_step.closeAllTabJumpToHomePage();
         t24_payments_step.clickProductsMenu();
@@ -252,7 +252,7 @@ public class t24_Payments_glue {
         t24_payments_step.findInputArrangement(title.get(0).get("envName"));
     }
 
-    @When("^I verify the T24 transaction status$")
+    @When("^Enter the verification page$")
     public void iQueryTheTransactionStatusInTheCore(DataTable data) {
         t24_payments_step.clickUserMenu();
         t24_payments_step.clickPaymentsMenu();
@@ -266,22 +266,22 @@ public class t24_Payments_glue {
         t24_payments_step.clickFindBtn();
     }
 
-    @Then("^I verify that the data in the API request message is consistent with the page ChangOptions field$")
+    @Then("^Verify the Charge Options field$")
     public void transactionDetailsCheck(DataTable data) {
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
-        t24_payments_step.transactionDetailsCheckSGD_SGD(title.get(0).get("Charge Option"));
+        t24_payments_step.transactionDetailsCheckUSD_USD(title.get(0).get("Charge Option"));
     }
 
     @When("^I close all tabs and jump to the home page$")
     public void iCloseAllTabsAndJumpToTheHomePage() {
         t24_payments_step.closeAllTabJumpToHomePage();
     }
-    @Then("^I verify that the data in the API request message is consistent with the currency field of the page$")
+    @Then("^Verify Bene currency$")
     public void iCheckTheTransferOutCurrencyOnThePage() {
         t24_payments_step.checkCurrency();
     }
 
-    @Then("^I verify that the data in the API request message is consistent with the page amount field$")
+    @Then("^Verify transfer amount$")
     public void iCheckTransferAmountOnThePage() {
         t24_payments_step.checkAmount();
     }
@@ -292,23 +292,42 @@ public class t24_Payments_glue {
         t24_payments_step.checkDebitAccountNum(title.get(0).get("envName"));
     }
 
-    @Then("^I verify that the data in the API request message is consistent with the page feed field$")
+    @Then("^Verify fees$")
     public void iCheckFeeOnThePage() {
         t24_payments_step.checkFee();
     }
 
-    @Then("^I verify that the cut off time date is consistent with the expected result$")
+    @Then("^Verify cut off time date$")
     public void iVerifyThatTheCutOffTimeDateIsCorrect() {
         t24_payments_step.iVerifyThatTheCutOffTimeDateIsCorrect();
     }
 
-    @Then("^I verify that the T24 transaction status is consistent with the expected result$")
+    @Then("^Verify T24 transaction status$")
     public void iVerifyThatTheTTransactionStatusIsConsistentWithTheExpectedResult() {
         t24_payments_step.interfaceReturnInformationQuery();
     }
 
-    @Then("^I verify that the expected result of the actual deduction amount is consistent$")
+    @Then("^Verify the actual deduction amount$")
     public void iVerifyThatTheExpectedResultOfTheActualDeductionAmountIsConsistent() {
         t24_payments_step.checkDeductionAmount();
+    }
+
+    @When("^I view the exchange rate in the Payment Order RFQ Rate Audit menu On Local Payment$")
+    public void iViewTheExchangeRateInThePaymentOrderRFQRateAuditMenu(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkRateInternalTransfer(title.get(0).get("WordPath"));
+    }
+
+    @When("^I view the exchange rate in the Payment Order RFQ Rate Audit menu On Oversea Payment MT$")
+    public void iViewTheExchangeRateInThePaymentOrderRFQRateAuditMenuOnOverseaPaymentMT(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkRateOverseaDifferentCurrencyMT(title.get(0).get("WordPath"));
+    }
+
+    @When("^I view the exchange rate in the Payment Order RFQ Rate Audit menu On Oversea Payment MX$")
+    public void iViewTheExchangeRateInThePaymentOrderRFQRateAuditMenuOnOverseaPaymentMX(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkRateOverseaDifferentCurrencyMX(title.get(0).get("WordPath"));
+
     }
 }

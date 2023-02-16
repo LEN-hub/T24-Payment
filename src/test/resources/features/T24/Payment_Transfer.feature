@@ -2,49 +2,67 @@
 Feature: receipt and payment service
 
 @PaymentSIT_SingleCurrency_SHA_SGD_SGD
-Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD =250K
+Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD = 250k
   Given Overseas transfer in the same currency and single currency SHA SGD-SGD
-    |parameter             |
-    |serviceChargeInquiry  |
-  Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
-  When I verify the T24 transaction status
+    |Deposit amount|Transfer out amount|Charge Option|
+    |250001        |250000             |SHA          |
+  Given to verify transaction in T24 using "T24-automation-SIT-login"
+  When Enter the verification page
     |windows Title                            |
     |Pending and Processed Payments - UAT GLDB|
-  Then I verify that the data in the API request message is consistent with the page ChangOptions field
+  Then Verify the actual deduction amount
+  Then Verify the Charge Options field
     |Charge Option|
     |SHA          |
-  Then I verify that the cut off time date is consistent with the expected result
-  Then I verify that the data in the API request message is consistent with the currency field of the page
-  Then I verify that the data in the API request message is consistent with the page amount field
-  Then I verify that the data in the API request message is consistent with the bit amount field on the page
-    |envName             |
-    |serviceChargeInquiry|
-  Then I verify that the data in the API request message is consistent with the page feed field
-  When I verify that the account deduction is correct through the calculation formula
-    |windows Title            |Find Accounts|
-    |AA Arrangement - SIT GLDB|11010002414  |
+  Then Verify Bene currency
+  Then Verify transfer amount
+  Then Verify fees
+  Then Verify T24 transaction status
+  Then Verify cut off time date
+  When Verify of successful deduction of transfer-out account
+    |windows Title            |
+    |AA Arrangement - SIT GLDB|
 
   @PaymentSIT_SingleCurrency_SHA_USD_USD
   Scenario:Overseas transfer in the same currency and single currency SHA USD-USD =0.01
     Given Overseas transfer in the same currency and single currency SHA USD-USD
-      |parameter             |
-      |serviceChargeInquiry  |
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
-    When I verify the T24 transaction status
+      |Deposit amount|Transfer out amount|Charge Option|
+      |10            |0.01               |SHA          |
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
+    When Enter the verification page
       |windows Title                            |
       |Pending and Processed Payments - UAT GLDB|
-    Then I verify that the expected result of the actual deduction amount is consistent
-    Then I verify that the T24 transaction status is consistent with the expected result
-    Then I verify that the data in the API request message is consistent with the page ChangOptions field
+    Then Verify the actual deduction amount
+    Then Verify the Charge Options field
       |Charge Option|
       |SHA          |
-#    Then I verify that the cut off time date is consistent with the expected result
-    Then I verify that the data in the API request message is consistent with the currency field of the page
-    Then I verify that the data in the API request message is consistent with the page amount field
-    Then I verify that the data in the API request message is consistent with the bit amount field on the page
-      |envName             |
-      |serviceChargeInquiry|
-    Then I verify that the data in the API request message is consistent with the page feed field
-    When I verify that the account deduction is correct through the calculation formula
-      |windows Title            |envName               |
-      |AA Arrangement - SIT GLDB|serviceChargeInquiry  |
+    Then Verify Bene currency
+    Then Verify transfer amount
+    Then Verify fees
+    Then Verify T24 transaction status
+    Then Verify cut off time date
+    When Verify of successful deduction of transfer-out account
+      |windows Title            |
+      |AA Arrangement - SIT GLDB|
+
+  @PaymentSIT_SingleCurrency_SHA_USD_USD
+  Scenario:Overseas transfer in the same currency and single currency SHA USD-USD = 250k
+    Given Overseas transfer in the same currency and single currency SHA USD-USD
+      |Deposit amount|Transfer out amount|Charge Option|
+      |19000         |18600              |SHA          |
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
+    When Enter the verification page
+      |windows Title                            |
+      |Pending and Processed Payments - UAT GLDB|
+    Then Verify the actual deduction amount
+    Then Verify the Charge Options field
+      |Charge Option|
+      |SHA          |
+    Then Verify Bene currency
+    Then Verify transfer amount
+    Then Verify fees
+    Then Verify T24 transaction status
+    Then Verify cut off time date
+    When Verify of successful deduction of transfer-out account
+      |windows Title            |
+      |AA Arrangement - SIT GLDB|

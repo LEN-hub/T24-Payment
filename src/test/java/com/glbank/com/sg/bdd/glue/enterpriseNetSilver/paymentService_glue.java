@@ -307,26 +307,19 @@ public class paymentService_glue {
         paymentService_step.singSuccess();
     }
 
-    @Given("^Cross-currency and single-currency SHA interface request for overseas transfer$")
-    public void crossCurrencyAndSingleCurrencySHAInterfaceRequestForOverseasTransfer(DataTable data) {
-        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
-        paymentService_step.serviceChargeInquiry(payToInfo.get(0).get("parameter"));
-        paymentService_step.crossCurrencyOverseasTransferUSD_SGD_SHAGreaterThan250K(payToInfo.get(0).get("parameter"));
-    }
-
     @Given("^Overseas transfer in the same currency and single currency SHA SGD-SGD$")
     public void overseasTransferInTheSameCurrencyAndSingleCurrencySHASGDSGD(DataTable data) {
         List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
-        paymentService_step.SGD_Single_Currency_Charging(payToInfo.get(0).get("parameter"));
-        paymentService_step.overseas_Transfer_SGD_SGD(payToInfo.get(0).get("parameter"));
+        paymentService_step.SGD_Single_Currency_Charging(payToInfo.get(0).get("Deposit amount"));
+        paymentService_step.overseas_Transfer_SGD_SGD(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"));
 
     }
 
     @Given("^Overseas transfer in the same currency and single currency SHA USD-USD$")
     public void overseasTransferInTheSameCurrencyAndSingleCurrencySHAUSDUSD(DataTable data) {
             List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
-            paymentService_step.USD_Single_Currency_Charging(payToInfo.get(0).get("parameter"));
-            paymentService_step.overseas_Transfer_USD_USD_001(payToInfo.get(0).get("parameter"));
+            paymentService_step.USD_Single_Currency_Charging(payToInfo.get(0).get("Deposit amount"));
+            paymentService_step.overseas_Transfer_USD_USD_001(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"));
     }
 
     @When("^I click the submit button on the page until I jump to the verification code acquisition page$")

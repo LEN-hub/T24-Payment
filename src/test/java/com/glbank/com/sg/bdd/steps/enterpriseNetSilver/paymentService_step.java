@@ -68,114 +68,13 @@ public class paymentService_step extends ScenarioSteps {
         bddUtil.sleep(1);
         action.moveToElement(paymentService_page.transferAndRemittanceMenu).perform();
     }
-    public static void serviceChargeInquiry(String envName){
-                Response response = given()
-                .header("Content-type","application/json")
-                .and()
-                .body("{\n" +
-                        "    \"header\": {\n" +
-                        "        \"audit\": {},\n" +
-                        "        \"override\": {\n" +
-                        "            \"overrideDetails\": [\n" +
-                        "                {\n" +
-                        "                    \"code\": \"O-12621\",\n" +
-                        "                    \"description\": \"The rate calculated is a reference rate and not actual rate(O-12621)\",\n" +
-                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE1\",\n" +
-                        "                    \"type\": \"Override\",\n" +
-                        "                    \"responseCode\": \"\"\n" +
-                        "                }\n" +
-                        "            ]\n" +
-                        "        }\n" +
-                        "    },\n" +
-                        "    \"body\": {\n" +
-                        "        \"creditorBankCountryCode\": \"SG\",\n" +
-                        "        \"chargeBearer\": \"SHA\",\n" +
-                        "        \"amount\": \"250000\",\n" +
-                        "        \"beneficiaryBirthCountry\": \"SG\",\n" +
-                        "        \"debitCurrency\": \"SGD\",\n" +
-                        "        \"purpose\": \"BEXP\",\n" +
-                        "        \"debitAccountId\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".SGD_LargeAccount_sit")+"\",\n" +
-                        "        \"beneficiaryAccountId\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".AC_MCY_sit_SGD")+"\",\n" +
-                        "        \"acctWithBankName\": \"BANK OF CHINA LIMITED\",\n" +
-                        "        \"benPostSwiftAddress\": [\n" +
-                        "            {\n" +
-                        "                \"creditorAddress\": \"xi'an\"\n" +
-                        "            }\n" +
-                        "        ],\n" +
-                        "        \"accountWithBankBIC\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".sit_BIC_DBS")+"\",\n" +
-                        "        \"externalReference\": \"PI230090N49GY4BM\",\n" +
-                        "        \"paymentCurrencyId\": \"SGD\",\n" +
-                        "        \"beneficiaryName\": \"TestKevin\"\n" +
-                        "    }\n" +
-                        "}")
-                .when()
-                .post(""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".sit_url_test")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments?validate_only=true")
-                .then()
-                .log().all()
-//                .statusCode(200)
-                        .extract().response();
-            id = response.path("error.errorDetails.message").toString();
-        System.out.println(id);
-    }
 
-    public static void crossCurrencyOverseasTransferUSD_SGD_SHAGreaterThan250K(String envName){
-        Response response = given()
-                .header("Content-type","application/json")
-                .and()
-                .body("{\n" +
-                        "    \"header\": {\n" +
-                        "        \"audit\": {},\n" +
-                        "        \"override\": {\n" +
-                        "            \"overrideDetails\": [\n" +
-                        "                {\n" +
-                        "                    \"code\": \"O-12621\",\n" +
-                        "                    \"description\": \"The rate calculated is a reference rate and not actual rate(O-12621)\",\n" +
-                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE1\",\n" +
-                        "                    \"type\": \"Override\",\n" +
-                        "                    \"responseCode\": \"\"\n" +
-                        "                },\n" +
-                        "                {\n" +
-                        "                    \"code\": \"O-12622\",\n" +
-                        "                    \"description\": \"Amount shown are notional(O-12622)\",\n" +
-                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE2\",\n" +
-                        "                    \"type\": \"Override\",\n" +
-                        "                    \"responseCode\": \"\"\n" +
-                        "                }\n" +
-                        "            ]\n" +
-                        "        }\n" +
-                        "    },\n" +
-                        "    \"body\": {\n" +
-                        "        \"creditorBankCountryCode\": \"SG\",\n" +
-                        "        \"chargeBearer\": \"SHA\",\n" +
-                        "        \"purpose\": \"BEXP\",\n" +
-                        "        \"acctWithTownName\": \"SG\",\n" +
-                        "        \"debitAccountId\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".USD_AC_SingleCurrency")+"\",\n" +
-                        "        \"beneficiaryAccountId\": \"589879321\",\n" +
-                        "        \"acctWithBankName\": \"DBS BANK LTD\",\n" +
-                        "        \"orderingCustomerAccount\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".USD_AC_SingleCurrency")+"\",\n" +
-                        "        \"benPostSwiftAddress\": [\n" +
-                        "            {\n" +
-                        "                \"creditorAddress\": \"beijing\"\n" +
-                        "            }\n" +
-                        "        ],\n" +
-                        "        \"accountWithBankBIC\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".sit_BIC_DBS")+"\",\n" +
-                        "        \"externalReference\": \""+id+"\",\n" +
-                        "        \"paymentCurrencyId\": \"SGD\",\n" +
-                        "        \"beneficiaryName\": \"TestKevin\",\n" +
-                        "        \"requestedAmount\": \"250001\",\n" +
-                        "        \"requestedCurrency\": \"USD\"\n" +
-                        "    }\n" +
-                        "}")
-                .when()
-                .post(""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".sit_url_test")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments?validate_only=true")
-                .then()
-                .log().all()
-//                .statusCode(200)
-                .extract().response();
-    }
-
+    /**
+     * SGD 存钱脚本
+     * @param amount
+     */
     @Step
-    public void SGD_Single_Currency_Charging(String envName){
+    public void SGD_Single_Currency_Charging(String amount){
         given()
                 .header("Content-type","application/json")
                 .and()
@@ -197,34 +96,38 @@ public class paymentService_step extends ScenarioSteps {
                         "    \"body\": {\n" +
                         "        \"creditorBankCountryCode\": \"SG\",\n" +
                         "        \"chargeBearer\": \"SHA\",\n" +
-                        "        \"amount\": \"250000\",\n" +
+                        "        \"amount\": \""+amount+"\",\n" +
                         "        \"beneficiaryBirthCountry\": \"SG\",\n" +
                         "        \"debitCurrency\": \"SGD\",\n" +
                         "        \"purpose\": \"BEXP\",\n" +
-                        "        \"debitAccountId\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".SGD_LargeAccount_sit")+"\",\n" +
-                        "        \"beneficiaryAccountId\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".SGD_AC_SingleCurrency_sit")+"\",\n" +
+                        "        \"debitAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_LargeAccount_sit")+"\",\n" +
+                        "        \"beneficiaryAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency_sit")+"\",\n" +
                         "        \"acctWithBankName\": \"BANK OF CHINA LIMITED\",\n" +
                         "        \"benPostSwiftAddress\": [\n" +
                         "            {\n" +
                         "                \"creditorAddress\": \"xi'an\"\n" +
                         "            }\n" +
                         "        ],\n" +
-                        "        \"accountWithBankBIC\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".sit_BIC")+"\",\n" +
+                        "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC")+"\",\n" +
                         "        \"externalReference\": \"PI230090N49GY4BM\",\n" +
                         "        \"paymentCurrencyId\": \"SGD\",\n" +
                         "        \"beneficiaryName\": \"TestKevin\"\n" +
                         "    }\n" +
                         "}")
                 .when()
-                .post(""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".sit_url_test")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
+                .post("http://"+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_env_ip")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
                 .then()
                 .log().all()
                 .statusCode(200)
                 .extract().response();
     }
 
+    /**
+     * USD 存钱脚本
+     * @param amount
+     */
     @Step
-    public void USD_Single_Currency_Charging(String envName){
+    public void USD_Single_Currency_Charging(String amount){
         given()
                 .header("Content-type","application/json")
                 .and()
@@ -250,30 +153,34 @@ public class paymentService_step extends ScenarioSteps {
                         "        \"beneficiaryBirthCountry\": \"SG\",\n" +
                         "        \"debitCurrency\": \"USD\",\n" +
                         "        \"purpose\": \"BEXP\",\n" +
-                        "        \"debitAccountId\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".SGD_LargeAccount_sit")+"\",\n" +
-                        "        \"beneficiaryAccountId\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".AC_MCY_sit_USD")+"\",\n" +
+                        "        \"debitAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_LargeAccount_sit")+"\",\n" +
+                        "        \"beneficiaryAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","AC_MCY_sit_USD")+"\",\n" +
                         "        \"acctWithBankName\": \"BANK OF CHINA LIMITED\",\n" +
                         "        \"benPostSwiftAddress\": [\n" +
                         "            {\n" +
                         "                \"creditorAddress\": \"xi'an\"\n" +
                         "            }\n" +
                         "        ],\n" +
-                        "        \"accountWithBankBIC\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".sit_BIC")+"\",\n" +
+                        "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC")+"\",\n" +
                         "        \"externalReference\": \"PI230090N49GY4BM\",\n" +
                         "        \"paymentCurrencyId\": \"SGD\",\n" +
                         "        \"beneficiaryName\": \"TestKevin\"\n" +
                         "    }\n" +
                         "}")
                 .when()
-                .post(""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".sit_url_test")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
+                .post("http://"+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_env_ip")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
                 .then()
                 .log().all()
                 .statusCode(200)
                 .extract().response();
     }
 
+    /**
+     * SGD转SGD
+     * @param amount
+     */
     @Step
-    public void overseas_Transfer_SGD_SGD(String envName){
+    public void overseas_Transfer_SGD_SGD(String amount,String chargeOption){
                 Response response = given()
                 .header("Content-type","application/json")
                 .and()
@@ -294,12 +201,12 @@ public class paymentService_step extends ScenarioSteps {
                         "    },\n" +
                         "    \"body\": {\n" +
                         "        \"creditorBankCountryCode\": \"SG\",\n" +
-                        "        \"chargeBearer\": \"SHA\",\n" +
-                        "        \"amount\": \"250000\",\n" +
+                        "        \"chargeBearer\": \""+chargeOption+"\",\n" +
+                        "        \"amount\": \""+amount+"\",\n" +
                         "        \"beneficiaryBirthCountry\": \"SG\",\n" +
                         "        \"debitCurrency\": \"SGD\",\n" +
                         "        \"purpose\": \"BEXP\",\n" +
-                        "        \"debitAccountId\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".SGD_AC_SingleCurrency_sit")+"\",\n" +
+                        "        \"debitAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency_sit")+"\",\n" +
                         "        \"beneficiaryAccountId\": \"45456645123\",\n" +
                         "        \"acctWithBankName\": \"BANK OF CHINA LIMITED\",\n" +
                         "        \"benPostSwiftAddress\": [\n" +
@@ -307,14 +214,14 @@ public class paymentService_step extends ScenarioSteps {
                         "                \"creditorAddress\": \"xi'an\"\n" +
                         "            }\n" +
                         "        ],\n" +
-                        "        \"accountWithBankBIC\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".sit_BIC_DBS")+"\",\n" +
+                        "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC_DBS")+"\",\n" +
                         "        \"externalReference\": \"PI230090N49GY4BM\",\n" +
                         "        \"paymentCurrencyId\": \"SGD\",\n" +
                         "        \"beneficiaryName\": \"TestKevin\"\n" +
                         "    }\n" +
                         "}")
                 .when()
-                .post(""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".sit_url_test")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
+                .post("http://"+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_env_ip")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
                 .then()
                 .log().all()
                 .statusCode(200)
@@ -323,8 +230,12 @@ public class paymentService_step extends ScenarioSteps {
         System.out.println(serialNumber);
     }
 
+    /**
+     * USD转USD
+     * @param amount
+     */
     @Step
-    public void overseas_Transfer_USD_USD_001(String envName){
+    public void overseas_Transfer_USD_USD_001(String amount,String chargeOption){
         Response response = given()
                 .header("Content-type","application/json")
                 .and()
@@ -345,12 +256,12 @@ public class paymentService_step extends ScenarioSteps {
                         "    },\n" +
                         "    \"body\": {\n" +
                         "        \"creditorBankCountryCode\": \"SG\",\n" +
-                        "        \"chargeBearer\": \"SHA\",\n" +
-                        "        \"amount\": \"0.01\",\n" +
+                        "        \"chargeBearer\": \""+chargeOption+"\",\n" +
+                        "        \"amount\": \""+amount+"\",\n" +
                         "        \"beneficiaryBirthCountry\": \"SG\",\n" +
                         "        \"debitCurrency\": \"USD\",\n" +
                         "        \"purpose\": \"BEXP\",\n" +
-                        "        \"debitAccountId\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".USD_AC_SingleCurrency")+"\",\n" +
+                        "        \"debitAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","USD_AC_SingleCurrency")+"\",\n" +
                         "        \"beneficiaryAccountId\": \"15000000242\",\n" +
                         "        \"acctWithBankName\": \"BANK OF CHINA LIMITED\",\n" +
                         "        \"benPostSwiftAddress\": [\n" +
@@ -358,14 +269,14 @@ public class paymentService_step extends ScenarioSteps {
                         "                \"creditorAddress\": \"xi'an\"\n" +
                         "            }\n" +
                         "        ],\n" +
-                        "        \"accountWithBankBIC\": \""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".sit_BIC_DBS")+"\",\n" +
+                        "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC_DBS")+"\",\n" +
                         "        \"externalReference\": \"PI230090N49GY4BM\",\n" +
                         "        \"paymentCurrencyId\": \"USD\",\n" +
                         "        \"beneficiaryName\": \"TestKevin\"\n" +
                         "    }\n" +
                         "}")
                 .when()
-                .post(""+CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".sit_url_test")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
+                .post("http://"+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_env_ip")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
                 .then()
                 .log().all()
                 .statusCode(200)

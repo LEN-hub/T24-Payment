@@ -1,35 +1,195 @@
-2023-2-14 13:47:51:99
-ChannelReferenceID:230213000000076
+2023-2-15 14:48:7:352
+ChannelReferenceID:230215000000027
 ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
 ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11020571063
-ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
-ChannelDetailPayeeName:lucky
-ChannelDetailAccountCurrency:SGD
-ChannelDetailPayeeAccountNum:667812798
-ChannelDetailTransactionAmount:214.27
-ChannelDetailBeneficiaryBankBIC:DBSSSGS0VEC
-ChannelDetailPayeeAddress:countries
-ChannelDetailEstimatedProcessingFee:0.00
-ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
-ChannelDetailPurposeOfTransfer:Commission
-2023-2-14 13:50:58:294
-ID:230213000000076
-TransactionReference:PI230450RVLVG8NB
-t24FtNumber:SGL23045GHM0FFMB
-getTransactionReferenceNum:SGL23045GHM0FFMB
-getSenderReferenceNum:PI230450RVLVG8NB
+ChannelDebitAccountNumber:11010001256
+ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
+ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelCreditAccountCurrency:USD
+ChannelCreditAccountNumber:11010001434
+ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
+ChannelDetailExchangeRate:USD 1 ≈ SGD 1.33591
+ChannelTransactionAmount:215.52
+ChannelPurposeOfTransfer:Business Expenses
+2023-2-15 14:49:33:99
+ID:230215000000027
+TransactionReference:PI230460QDB1M07B
+t24FtNumber:SGL23044LDBGJB0F
+getTransactionReferenceNum:SGL23044LDBGJB0F
+getSenderReferenceNum:PI230440MV9HWBC5
 getTransactionCurrency:SGD
-getTransactionCurrency:SGD
-getTransactionAmount:214.27
-getChargeOption:SHA
-getDebitAccountNum:11020571071
-getDebitAccountCurrency:SGD
-getOrderingAccount:11020571063SGD
-getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
-getOrderingAddress:XIAN
-getOrderingTown:SG
+getInstructedCurrency:USD
+getTransactionAmount:22.61
+getInstructedAmount:17.00
+getChargeOption:BEN
+getDebitAccountNum:11020858036
 getCreditAccountNum:15000000153
+getDebitAccountCurrency:USD
 getCreditAccountCurrency:SGD
-getBeneficiaryAccount:667812798
-getBeneficiaryName:lucky
+getDebitAmount:17.00
+getCreditAmount:22.61
+getDebitCustomerRate:1.32982
+getDebitTreasuryRate:1.33082
+getOrderingAccount:11020858001USD
+getBeneficiaryAccount:324234234
+getOrderingName:KANG
+getBeneficiaryName:rew
+getOrderingAddress:Queenstownt
+getBeneficiaryAddress:SD
+getOrderingTown:SG
+2023-2-15 15:4:52:591
+ID:230215000000027
+TransactionReference:PI230460QDB1M07B
+t24FtNumber:SGL23046JJGCJBKB
+getTransactionReferenceNum:SGL23046JJGCJBKB
+getSenderReferenceNum:PI230460QDB1M07B
+getTransactionCurrency:USD
+getInstructedCurrency:SGD
+getTransactionAmount:161.33
+getInstructedAmount:215.52
+getChargeOption:SHA
+getDebitAccountNum:11010001256
+getCreditAccountNum:11010001434
+getDebitAccountCurrency:SGD
+getCreditAccountCurrency:USD
+getDebitAmount:215.52
+getCreditAmount:161.33
+getDebitCustomerRate:1.33591
+getDebitTreasuryRate:1.33491
+getOrderingAccount:11010001256
+getBeneficiaryAccount:11010001434
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getBeneficiaryName:COMPUTERCITY SINGAPORE PTE. LTD.
+getOrderingAddress:XIAN
+getBeneficiaryAddress:20 Pasir Panjang Road,Mapletree Bus
+getOrderingTown:SG
+2023-2-15 15:39:5:41
+ID:230215000000027
+TransactionReference:PI230460QDB1M07B
+t24FtNumber:SGL23046JJGCJBKB
+getTransactionReferenceNum:SGL23046JJGCJBKB
+getSenderReferenceNum:PI230460QDB1M07B
+getTransactionCurrency:USD
+getInstructedCurrency:SGD
+getTransactionAmount:161.33
+getInstructedAmount:215.52
+getChargeOption:SHA
+getDebitAccountNum:11010001256
+getCreditAccountNum:11010001434
+getDebitAccountCurrency:SGD
+getCreditAccountCurrency:USD
+getDebitAmount:215.52
+getCreditAmount:161.33
+getDebitCustomerRate:1.33591
+getDebitTreasuryRate:1.33491
+getOrderingAccount:11010001256
+getBeneficiaryAccount:11010001434
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getBeneficiaryName:COMPUTERCITY SINGAPORE PTE. LTD.
+getOrderingAddress:XIAN
+getBeneficiaryAddress:20 Pasir Panjang Road,Mapletree Bus
+getOrderingTown:SG
+2023-2-15 15:41:26:457
+ID:230215000000027
+TransactionReference:PI230460QDB1M07B
+t24FtNumber:SGL23046JJGCJBKB
+getTransactionReferenceNum:SGL23046JJGCJBKB
+getSenderReferenceNum:PI230460QDB1M07B
+getTransactionCurrency:USD
+getInstructedCurrency:SGD
+getTransactionAmount:161.33
+getInstructedAmount:215.52
+getChargeOption:SHA
+getDebitAccountNum:11010001256
+getCreditAccountNum:11010001434
+getDebitAccountCurrency:SGD
+getCreditAccountCurrency:USD
+getDebitAmount:215.52
+getCreditAmount:161.33
+getDebitCustomerRate:1.33591
+getDebitTreasuryRate:1.33491
+getOrderingAccount:11010001256
+getBeneficiaryAccount:11010001434
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getBeneficiaryName:COMPUTERCITY SINGAPORE PTE. LTD.
+getOrderingAddress:XIAN
+getBeneficiaryAddress:20 Pasir Panjang Road,Mapletree Bus
+getOrderingTown:SG
+2023-2-15 15:44:57:617
+ID:230215000000027
+TransactionReference:PI230460QDB1M07B
+t24FtNumber:SGL23046JJGCJBKB
+getTransactionReferenceNum:SGL23046JJGCJBKB
+getSenderReferenceNum:PI230460QDB1M07B
+getTransactionCurrency:USD
+getInstructedCurrency:SGD
+getTransactionAmount:161.33
+getInstructedAmount:215.52
+getChargeOption:SHA
+getDebitAccountNum:11010001256
+getCreditAccountNum:11010001434
+getDebitAccountCurrency:SGD
+getCreditAccountCurrency:USD
+getDebitAmount:215.52
+getCreditAmount:161.33
+getDebitCustomerRate:1.33591
+getDebitTreasuryRate:1.33491
+getOrderingAccount:11010001256
+getBeneficiaryAccount:11010001434
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getBeneficiaryName:COMPUTERCITY SINGAPORE PTE. LTD.
+getOrderingAddress:XIAN
+getBeneficiaryAddress:20 Pasir Panjang Road,Mapletree Bus
+getOrderingTown:SG
+2023-2-15 15:47:33:323
+ID:230215000000027
+TransactionReference:PI230460QDB1M07B
+t24FtNumber:SGL23046JJGCJBKB
+getTransactionReferenceNum:SGL23046JJGCJBKB
+getSenderReferenceNum:PI230460QDB1M07B
+getTransactionCurrency:USD
+getInstructedCurrency:SGD
+getTransactionAmount:161.33
+getInstructedAmount:215.52
+getChargeOption:SHA
+getDebitAccountNum:11010001256
+getCreditAccountNum:11010001434
+getDebitAccountCurrency:SGD
+getCreditAccountCurrency:USD
+getDebitAmount:215.52
+getCreditAmount:161.33
+getDebitCustomerRate:1.33591
+getDebitTreasuryRate:1.33491
+getOrderingAccount:11010001256
+getBeneficiaryAccount:11010001434
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getBeneficiaryName:COMPUTERCITY SINGAPORE PTE. LTD.
+getOrderingAddress:XIAN
+getBeneficiaryAddress:20 Pasir Panjang Road,Mapletree Bus
+getOrderingTown:SG
+2023-2-15 15:54:42:904
+ID:230215000000027
+TransactionReference:PI230460QDB1M07B
+t24FtNumber:SGL23046JJGCJBKB
+getTransactionReferenceNum:SGL23046JJGCJBKB
+getSenderReferenceNum:PI230460QDB1M07B
+getTransactionCurrency:USD
+getInstructedCurrency:SGD
+getTransactionAmount:161.33
+getInstructedAmount:215.52
+getChargeOption:SHA
+getDebitAccountNum:11010001256
+getCreditAccountNum:11010001434
+getDebitAccountCurrency:SGD
+getCreditAccountCurrency:USD
+getDebitAmount:215.52
+getCreditAmount:161.33
+getDebitCustomerRate:1.33591
+getDebitTreasuryRate:1.33491
+getOrderingAccount:11010001256
+getBeneficiaryAccount:11010001434
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getBeneficiaryName:COMPUTERCITY SINGAPORE PTE. LTD.
+getOrderingAddress:XIAN
+getBeneficiaryAddress:20 Pasir Panjang Road,Mapletree Bus
+getOrderingTown:SG

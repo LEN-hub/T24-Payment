@@ -30,7 +30,7 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment
       |WordPath           |
       |Bic is DBS SGD-USD |
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath           |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-USD |
@@ -53,7 +53,7 @@ Feature: T24 Payment transaction
       |Bic is DBS SGD-USD|Bic is DBS SGD-USD|
     When I type FOREX in the search box use to authorize the operation
       |search content|user Authorize                 |Name              |
-      |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth|Bic is DBS SGD-USD|
+      |FOREX         |T24-automation-SIT-login-Auth|Bic is DBS SGD-USD|
 
   @FxPaymentUSDToSGD
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(USD->SGD)
@@ -83,7 +83,7 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath          |
       |Bic is DBS USD-SGD|
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath          |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS USD-SGD|
@@ -106,8 +106,8 @@ Feature: T24 Payment transaction
       |Bic is DBS USD-SGD|Bic is DBS USD-SGD|
     When I type FOREX in the search box use to authorize the operation for Different Currency
       |search content|user Authorize                 |Name              |
-      |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth|Bic is DBS USD-SGD|
-#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
+      |FOREX         |T24-automation-SIT-login-Auth|Bic is DBS USD-SGD|
+#    When Use "T24-automation-SIT-login-Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
   @FxPaymentSGDToSGD
@@ -138,7 +138,7 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment MX Message
       |WordPath          |
       |Bic is DBS SGD-SGD|
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-SGD|
@@ -188,7 +188,7 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment MX Message
       |WordPath          |
       |Bic is DBS SGD-SGD|
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-SGD|
@@ -238,7 +238,7 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment
       |WordPath          |
       |Bic is UOB SGD-USD|
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath          |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is UOB SGD-USD|
@@ -261,8 +261,8 @@ Feature: T24 Payment transaction
       |Bic is UOB SGD-USD|Bic is UOB SGD-USD|
     When I type FOREX in the search box use to authorize the operation
       |search content|user Authorize                 |Name              |
-      |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth|Bic is UOB SGD-USD|
-#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
+      |FOREX         |T24-automation-SIT-login-Auth|Bic is UOB SGD-USD|
+#    When Use "T24-automation-SIT-login-Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
   @FxPaymentUSDToSGDBicIsUOB
@@ -293,7 +293,7 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath          |
       |Bic is UOB USD-SGD|
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath          |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is UOB USD-SGD|
@@ -316,8 +316,8 @@ Feature: T24 Payment transaction
       |Bic is UOB USD-SGD|Bic is UOB USD-SGD|
     When I type FOREX in the search box use to authorize the operation for Different Currency
       |search content|user Authorize                 |WordPath          |
-      |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth|Bic is UOB USD-SGD|
-#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
+      |FOREX         |T24-automation-SIT-login-Auth|Bic is UOB USD-SGD|
+#    When Use "T24-automation-SIT-login-Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
   @FxPaymentUSDToSGDBicIsUOB
@@ -348,7 +348,7 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment MX Message
       |WordPath          |
       |Bic is UOB SGD-SGD|
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is UOB SGD-SGD|
@@ -398,7 +398,7 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment MX Message
       |WordPath          |
       |Bic is UOB USD-USD|
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is UOB USD-USD|
@@ -432,7 +432,7 @@ Feature: T24 Payment transaction
     Then My account has been transferred successfully
       |WordPath                  |
       |Internal Transfer SGD-SGD |
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath                  |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Internal Transfer SGD-SGD |
@@ -454,7 +454,7 @@ Feature: T24 Payment transaction
     Then My account has been transferred successfully
       |WordPath                  |
       |Internal Transfer USD-USD |
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath                  |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Internal Transfer USD-USD |
@@ -476,7 +476,7 @@ Feature: T24 Payment transaction
     Then My account has been transferred successfully To Local Payment
       |WordPath                  |
       |Internal Transfer USD-SGD |
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath                  |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Internal Transfer USD-SGD |
@@ -499,8 +499,8 @@ Feature: T24 Payment transaction
       |Internal Transfer USD-SGD |
     When I type FOREX in the search box use to authorize the operationToLocalPayment
       |search content|user Authorize                 |Name                      |
-      |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth|Internal Transfer USD-SGD |
-#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
+      |FOREX         |T24-automation-SIT-login-Auth|Internal Transfer USD-SGD |
+#    When Use "T24-automation-SIT-login-Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
   @localPaymentSGDToUSD
@@ -514,7 +514,7 @@ Feature: T24 Payment transaction
     Then My account has been transferred successfully To Local Payment
       |WordPath                  |
       |Internal Transfer SGD-USD |
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath                  |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Internal Transfer SGD-USD |
@@ -537,8 +537,8 @@ Feature: T24 Payment transaction
       |Internal Transfer SGD-USD |
     When I type FOREX in the search box use to authorize the operationToLocalPayment
       |search content|user Authorize                 |WordPath                  |
-      |FOREX         |netSilverEnv_Kevin_T24_SIT_Auth|Internal Transfer SGD-USD |
-#    When Use "netSilverEnv_Kevin_T24_SIT_Auth" to log in to T24 environment
+      |FOREX         |T24-automation-SIT-login-Auth|Internal Transfer SGD-USD |
+#    When Use "T24-automation-SIT-login-Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
   @LocalPaymentTestSGDToSGD
@@ -556,7 +556,7 @@ Feature: T24 Payment transaction
     Then I will compare all the data on same Currency Payment
       |WordPath                   |
       |Local Fund Payment SGD-SGD |
-    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                   |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Local Fund Payment SGD-SGD |
@@ -592,7 +592,7 @@ Feature: T24 Payment transaction
 #    When If the transfer failure window pops up I will click the continue button
 #    When Vkey authorization for Payment transactions in the SIT environment
 #    Then I will compare all the data on same Currency Payment
-#    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
 #    When I type in the content and click the search button
 #      |search content           |windows Title        |
 #      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
