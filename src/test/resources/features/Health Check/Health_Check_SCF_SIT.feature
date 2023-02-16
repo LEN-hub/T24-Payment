@@ -38,7 +38,7 @@ Feature: Health Check SCF SIT Test Case
     Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
     When I click on the first Customers
     And click ContractManagement
-    Then Enter the name of the supplier to filter
+    Then Upload RPA file
 
     #5.CNP系统Health Check
   @CNP_Health_Check_SIT

@@ -60,6 +60,29 @@ public class rpa_steps extends ScenarioSteps {
     }
 
     @Step
+    public void uploadRpa(){
+        rpaPage.uploadBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.companyName.click();
+        bddUtil.sleep(3);
+        rpaPage.companyName.sendKeys("testVaultData4");
+        bddUtil.sleep(1);
+        rpaPage.companyName.clear();
+        rpaPage.companyName.sendKeys("testVaultData4");
+        bddUtil.sleep(2);
+        getDriver().findElement(By.xpath("//span[text()='testVaultData4']")).click();
+        rpaPage.ContractType.click();
+        bddUtil.sleep(2);
+        getDriver().findElements(By.xpath("//span[text()='RPA Full Recourse']")).get(1).click();
+        getDriver().findElement(By.xpath("//div[@class='lls-upload-dragger']/following-sibling::input")).sendKeys(fileAddress);
+        bddUtil.sleep(3);
+        rpaPage.clickNextBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.clickConfirmBtn.click();
+        bddUtil.sleep(5);
+    }
+
+    @Step
     public void clickCompanyNameClickReset(){
         rpaPage.CompanyNameClickReset.click();
     }
@@ -225,16 +248,29 @@ public class rpa_steps extends ScenarioSteps {
         rpaPage.clickGoToDigibankLink.click();
     }
 
-    public void jumpToInbLink(){
+    public void jumpToInbLink() throws Exception{
         bddUtil.switchToNewWindow();
-        if (rpaPage.clickSeniorBtn.isVisible()){
-            rpaPage.clickSeniorBtn.click();
-            rpaPage.getJumpToInbLink.click();
-            rpaPage.jumpToInbLinkCheck.click();
+        // 获取当前URL
+        String url = getDriver().getCurrentUrl();
+        // 拼接成新URL
+        String newUrl = "https://inb-sit.intranet.glbank.com/"+url.substring(34,url.length());
+        System.out.println(newUrl);
+        getDriver().get(newUrl);
+//        if (rpaPage.clickSeniorBtn.isVisible()){
+//            rpaPage.clickSeniorBtn.click();
+//            rpaPage.getJumpToInbLink.click();
+//            rpaPage.jumpToInbLinkCheck.click();
+//        }else {
+//            rpaPage.jumpToInbLinkCheck.click();
+//        }
+        //断言是否进入INB系统
+        getDriver().findElement(By.xpath("//span[text()='Tips']")).getText().equals("Tips");
+        if (getDriver().findElement(By.xpath("//span[text()='Tips']")).getText().equals("Tips")){
+            System.out.println("成功进入系统");
         }else {
-            rpaPage.jumpToInbLinkCheck.click();
+            throw new Exception("INB系统进入失败");
         }
-        bddUtil.sleep(5);
+        bddUtil.sleep(3);
     }
 
     public void inputLogin(){
