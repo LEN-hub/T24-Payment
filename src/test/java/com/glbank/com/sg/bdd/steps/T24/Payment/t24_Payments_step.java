@@ -80,9 +80,7 @@ public class t24_Payments_step extends ScenarioSteps {
     public String fundsTransferAmountDebited;
     public String fundsTransferAmoyntCredited;
     public Double doubleSum;
-    public int intSum;
     public Double doubleTransactionAmount;
-    public int intTransactionAmount;
 
 
     public void switchToFirstFrame(){
@@ -268,8 +266,6 @@ public class t24_Payments_step extends ScenarioSteps {
         System.out.println(t24_payments_page.getAmount.getText());
         if (t24_payments_page.getAmount.getText().contains(".")){
             doubleSum = Double.valueOf(t24_payments_page.getAmount.getText());
-        }else {
-            intSum = Integer.parseInt(t24_payments_page.getAmount.getText());
         }
         bddUtil.closeWindow();
         bddUtil.switchToNewWindow();
@@ -311,7 +307,12 @@ public class t24_Payments_step extends ScenarioSteps {
         if (t24_payments_page.getTransactionAmount.getText().contains(".")){
             doubleTransactionAmount = Double.parseDouble(t24_payments_page.getTransactionAmount.getText().replace(",", ""));
         }
-        Assert.assertEquals(t24_payments_page.getTransactionAmount.getText(),paymentServiceStep.transferAmount);
+        if (t24_payments_page.getTransactionAmount.getText().replace(",", "").contains(".00")){
+            Assert.assertEquals(t24_payments_page.getTransactionAmount.getText().replace(",", ""),paymentService_step.transferAmount+".00");
+        }else {
+            Assert.assertEquals(t24_payments_page.getTransactionAmount.getText().replace(",", ""),paymentService_step.transferAmount);
+        }
+
     }
     @Step
     public void checkDebitAccountNum(String envName){
@@ -1719,7 +1720,7 @@ public class t24_Payments_step extends ScenarioSteps {
         Assert.assertEquals(fundTransferCreditAccNo,readtxtFile("autopay/t24","ChannelCreditAccountNumber"));
     }
     @Step
-    public void findInputArrangement(String envName){
+    public void findInputArrangement(){
         t24_payments_page.inputArrangement.clear();
         t24_payments_page.inputArrangement.sendKeys(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","USD_AC_SingleCurrency"));
         t24_payments_page.getClickFindBtn.click();
@@ -1730,9 +1731,7 @@ public class t24_Payments_step extends ScenarioSteps {
         BigDecimal b1 = new BigDecimal(doubleSum);
         BigDecimal b2 = new BigDecimal(doubleTransactionAmount);
         if (t24_payments_page.firstDebitAmount.getText().contains(".")){
-            Assert.assertEquals(String.valueOf(b1.add(b2).setScale(2, RoundingMode.HALF_UP).doubleValue()),t24_payments_page.firstDebitAmount.getText());
-        }else {
-            Assert.assertEquals(String.valueOf(intSum+intTransactionAmount),t24_payments_page.firstDebitAmount.getText());
+            Assert.assertEquals(String.valueOf(b1.add(b2).setScale(2, RoundingMode.HALF_UP).doubleValue()),t24_payments_page.firstDebitAmount.getText().replace(",",""));
         }
         BigDecimal num1 = new BigDecimal(t24_payments_page.getMinuend.getText().replace(",",""));
         BigDecimal num2 = new BigDecimal(t24_payments_page.firstDebitAmount.getText().replace(",",""));

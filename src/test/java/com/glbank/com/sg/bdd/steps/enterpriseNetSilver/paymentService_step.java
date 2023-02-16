@@ -58,7 +58,7 @@ public class paymentService_step extends ScenarioSteps {
     public String fxDetailEstimatedProcessingFee;
     public String fxDetailPaymentModeForCharges;
     public String fxDetailPurposeOfTransfer;
-    public String transferAmount;
+    public static String transferAmount;
 
     @Step
     public void transferAndRemittanceMenu(){
