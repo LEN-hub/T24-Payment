@@ -18,6 +18,7 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.glbank.com.sg.bdd.utils.AssertLocal.assertNotNull;
 import static com.glbank.com.sg.bdd.utils.AssertLocal.assertTrue;
 import static com.glbank.com.sg.bdd.utils.JDBCUtil.updateAmlResult;
 import static org.junit.Assert.assertEquals;
@@ -434,6 +435,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.inputSendCode.clear();
         customers_page.inputSendCode.sendKeys(Vcode);
         customers_page.GLDBEmailLoginBtn.click();
+        bddUtil.sleep(6);
     }
 
     @Step
@@ -1069,11 +1071,12 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
-    public void checkTitleTips(){
+    public void checkTitleTips() throws Exception{
         if (customers_page.checkTitleTips.getText().equals("Saved successfully")){
-            System.out.println("交易成功！");
+            System.out.println("交易成功2！");
         }else {
             System.out.println("交易失败！");
+            throw new Exception("交易失败！");
         }
     }
 
@@ -1085,14 +1088,21 @@ public class creatCustomers_step extends ScenarioSteps {
     }
 
     @Step
-    public void selectDataAndCredit(String data){
+    public void selectDataAndCredit(String data) throws Exception{
         customers_page.searchBox.sendKeys(data);
         customers_page.clickApplicantTitle.click();
         bddUtil.clickByJS(customers_page.clickUnderWritingProceedBtn);
         customers_page.clickCpsPreadjustedCGInput.clear();
         customers_page.clickCpsApprovedCGInput.clear();
         bddUtil.scrollWindowToElement(customers_page.clickRetriggerCPS).click();
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
+        bddUtil.scrollWindowToElement(customers_page.lastUpdated);
+        String text = customers_page.clickCpsApprovedCGInput.getAttribute("value");
+        if (!text.isEmpty()){
+            System.out.println("成功拉取数据。");
+             }else {
+            throw new Exception("CPS系统拉取失败");
+        }
     }
 
 
@@ -1471,6 +1481,9 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.inputSendCode.clear();
         customers_page.inputSendCode.sendKeys(otp);
         customers_page.GLDBEmailLoginBtn.click();
+        bddUtil.sleep(5);
+        assertEquals("Service Agreement",getDriver().findElement(By.xpath("//span[text()='Service Agreement']")).getText());
+        bddUtil.sleep(2);
     }
     public void clickConfirmationInformation(){
         if (customers_page.clickConfirmationInformation.isVisible()){

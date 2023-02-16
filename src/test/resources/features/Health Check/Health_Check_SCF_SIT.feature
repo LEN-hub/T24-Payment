@@ -72,6 +72,8 @@ Feature: Health Check SCF SIT Test Case
     Given logon "environments_SCF_SIT" test code
     When client login success
       |Email Name|
-      |p165662w  |
+      |0f36m35j  |
     When click Go to Digibank Link
     Then Check page jump success
+
+

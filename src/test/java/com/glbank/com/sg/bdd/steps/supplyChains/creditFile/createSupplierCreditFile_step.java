@@ -143,6 +143,7 @@ public class createSupplierCreditFile_step extends PageObject {
         createSupplierCreditFile_page.clickStatusTitle.click();
         bddUtil.clickByJS(createSupplierCreditFile_page.clickSubmitBtn);
         bddUtil.sleep(2);
+        getDriver().findElement(By.xpath("//span[@class='back_view_item']")).click();
     }
     @Step
     public void submitSupplierCreditProfile(String companyName){

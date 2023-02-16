@@ -1,10 +1,11 @@
 @supplyChainRun
 Feature: supply chain run
 
-#
-#  @supplierFullFYC
-#  Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully FULL KYC
-#    Given logon "scf_environments_1_yang" on tube by inputting system
+##
+  @supplierFullFYC
+  Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully FULL KYC
+##    Given logon "scf_environments_1_yang" on tube by inputting system
+#    Given logon "scf_sit1" on sit tube by inputting system
 #    When open the email browser page
 #    When I click Customers and select Onboarding List
 #    And I click Create Customer and fill in the supplier information in the pop-up window
@@ -42,11 +43,13 @@ Feature: supply chain run
 #      |SGD        |
 #    When Click the Submit button on the Confirm page
 #    When End the current browser process
-#    Given logon "scf_environments_1_yang" on tube by inputting system
+##    Given logon "scf_environments_1_yang" on tube by inputting system
+#    Given logon "scf_sit1" on sit tube by inputting system
 #    When Approval in the supply chain system
 #    Then Switch To the Assign To Me page and perform the corresponding operations
 #    When I close driver
-#    Given logon "scf_environments_2_yang" on tube by inputting system
+##    Given logon "scf_environments_2_yang" on tube by inputting system
+#    Given logon "scf_sit2" on sit tube by inputting system
 #    When Approval in the supply chain system
 #    Then Switch To the Assign To Me page and perform the corresponding operations
 #    When I close driver
@@ -113,67 +116,74 @@ Feature: supply chain run
 #    When I close driver
 
 #
-#
-##绑定关系
-#  Scenario:Supplier The operator binds the supplier to a buyer relationship that does not exist between a single system, and the binding is successful
+##
+#绑定关系
+  Scenario:Supplier The operator binds the supplier to a buyer relationship that does not exist between a single system, and the binding is successful
 #    Given logon "scf_environments_1_tian" on tube by inputting system
-#    When I click Customers and select Customers Mapping
-#    Then I should direct to the Customers Mapping page
-#    When I click the Create New Supplier Relationship button and Create a New Relationship
-#    When I click Create New Counter button on the page
-#    And I should bind a buyer information in his downstream
-#    When I close driver
-#
-##    产品设置
-#  Scenario:UAT_ Supply chain_ Inner tube_ Create product_ 003
+    Given logon "scf_sit1" on sit tube by inputting system
+    When I click Customers and select Customers Mapping
+    Then I should direct to the Customers Mapping page
+    When I click the Create New Supplier Relationship button and Create a New Relationship
+    When I click Create New Counter button on the page
+    And I should bind a buyer information in his downstream
+    When I close driver
+
+#    产品设置
+  Scenario:UAT_ Supply chain_ Inner tube_ Create product_ 003
+    Given logon "scf_environments_2_tian" on tube by inputting system
+#    Given logon "scf_sit1" on sit tube by inputting system
+    When I click product
+    When I click on Product List
+    And  click Create Product
+    When enter the page information
+    Then click Submit to submit a new product
+    Then Refresh check whether the data is added successfully
+    When I click product
+    When I click on Quote List
+    And  click Create Quote
+    When enter the second case information supplier with buyer
+      |selectCurr|
+      |SGD       |
+    Then I click Submit to submit a new product
+    When I click product
+    When I click ProductProfile
+    And click Create ProductProfile
+    When enter the second case information supplier and buyer
+    Then I click Submit product profile
+#    And Enter login information
+    When I close driver
+
+      #    上传历史单据
+  @UploadHistoricalDocuments
+  Scenario:Upload historical documents
+    Given logon "scf_environments_1_tian" on tube by inputting system
+#    Given logon "scf_sit1" on sit tube by inputting system
+    When I click Operations button
+    And I click docs List button
+    When I upload Historical Documents
+    Then I should see the uploaded historical documents
+
+#创建信用档案
+  Scenario:createSupplierCreditFile
 #    Given logon "scf_environments_1_tian" on tube by inputting system
-#    When I click product
-#    When I click on Product List
-#    And  click Create Product
-#    When enter the page information
-#    Then click Submit to submit a new product
-#    Then Refresh check whether the data is added successfully
-#    When I click product
-#    When I click on Quote List
-#    And  click Create Quote
-#    When enter the second case information supplier with buyer
-#      |selectCurr|
-#      |SGD       |
-#    Then I click Submit to submit a new product
-#    When I click product
-#    When I click ProductProfile
-#    And click Create ProductProfile
-#    When enter the second case information supplier and buyer
-#    Then I click Submit product profile
-##    And Enter login information
-#    When I close driver
-#
-##创建信用档案
-#  Scenario:createSupplierCreditFile
-#    Given logon "scf_environments_1_tian" on tube by inputting system
-#    When login successfully and click the SCF link to createSupplierCreditFile
-#    And edit Supplier Credit Profile
-#    Then submit Supplier Credit Profile
-#    And to Supplier Credit Profile Review Page
-#    Then Supplier Credit Profile L1 Review
-#    And change user To L2 Review
+    Given logon "scf_sit1" on sit tube by inputting system
+    When login successfully and click the SCF link to createSupplierCreditFile
+    And edit Supplier Credit Profile
+    Then submit Supplier Credit Profile
+    And to Supplier Credit Profile Review Page
+    Then Supplier Credit Profile L1 Review
+    And change user To L2 Review
 #    Given logon "scf_environments_2_tian" on tube by inputting system
-#    And use User L2 to Supplier Review
-#    When I close driver
-#
-#
-#  #    上传历史单据
-#  @UploadHistoricalDocuments
-#  Scenario:Upload historical documents
-#    Given logon "scf_environments_1_tian" on tube by inputting system
-#    When I click Operations button
-#    And I click docs List button
-#    When I upload Historical Documents
-#    Then I should see the uploaded historical documents
-#
-#    授信限额
+    Given logon "scf_sit2" on sit tube by inputting system
+    And use User L2 to Supplier Review
+    When I close driver
+##
+##
+##
+##    授信限额
 #  Scenario:1Supplier The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained
-#    Given logon "scf_environments_1_tian" on tube by inputting system
+##    Given logon "scf_environments_1_tian" on tube by inputting system
+#    Given logon "scf_sit1" on sit tube by inputting system
 #    When I click UnderWriting and UnderWriting Approval
 #    Then I should direct to the UnderWriting Approval page
 #    When I click Supplier Test Data Assign to Me button on UnderWriting Approval page
@@ -183,18 +193,7 @@ Feature: supply chain run
 #    When I click Result button on the UnderWriting Approval page
 #    And I click Approve button and click Submit button on the page
 #    When I click Completed Button on the UnderWriting Approval page
-##    SCF新版本 一次审批就ok
-##    Given logon "environments_2" on tube by inputting system
-##    When I click UnderWriting and UnderWriting Approval
-##    Then I should direct to the UnderWriting Approval page
-##    When I click Supplier Test Data Assign to Me button on UnderWriting Approval page
-##    When I click Assign to ME title on the on UnderWriting Approval page
-##    When I should see Supplier Proceed Button and click on the UnderWriting Approval page
-##    When I click Result button on the UnderWriting Approval page
-##    And I click Approve button and click Submit button on the page
-##    When I the second click Completed Button on the UnderWriting Approval page
-##    When I click UnderWriting List button on the page
-##    When I close driver
+
 
 ##
 #  BR签署
@@ -215,39 +214,38 @@ Feature: supply chain run
 #    When I close driver
 #
 
-##   RPA上传
-#  Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_ 00011
+#   RPA上传
+  Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_ 00011
 #    Given logon "scf_environments_1_tian" on tube by inputting system
-#    When I click on the first Customers
-#    And click ContractManagement
-#    Then Enter the name of the supplier to filter
-#    When Upload a file
-#      |fileAddress                                                            |
-#      |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
-##    Then Jump to the supplier portal to check the RPA
-##    When I close driver
-
-
-##   融资申请
-#  Scenario:financingRequest1
-#    Given logon "environments_3" test code
-#    When I input login information
-#    When login successfully and click RequestFinancing
-#    Then upload RequestFinancing File
-#    And  logon "scf_environments_1_tian" on tube by inputting system
-#    Then click Operations to Review
-#    And change user To L2 Review
-#    When logon "scf_environments_2_tian" on tube by inputting system
-#    And click Operations to Review
-#    Given logon "environments_3" test code
-#    When I input login information
-#    And click Financing Status
-#    When I close driver
+    Given logon "scf_sit1" on sit tube by inputting system
+    When I click on the first Customers
+    And click ContractManagement
+    Then Enter the name of the supplier to filter
+    When Upload a file
+      |fileAddress                                                            |
+      |E:\DBB_GL_AutoTestting-dev\src\test\resources\testData\autopay\test.jpg|
+#
+#   融资申请
+  Scenario:financingRequest1
+    Given logon "environments_4" test code
+    When I input login information
+    When login successfully and click RequestFinancing
+    Then upload RequestFinancing File
+    And  logon "scf_environments_1_tian" on tube by inputting system
+    Then click Operations to Review
+    And change user To L2 Review
+    When logon "scf_environments_2_tian" on tube by inputting system
+    And click Operations to Review
+    Given logon "environments_3" test code
+    When I input login information
+    And click Financing Status
+    When I close driver
 
 ##
-##   放款
+#   放款
 #  Scenario:UAT_ Supply chain_ Inner tube_ Create payments_ 0001
-#    Given logon "scf_environments_1_tian" on tube by inputting system
+##    Given logon "scf_environments_1_tian" on tube by inputting system
+#    Given logon "scf_sit1" on sit tube by inputting system
 #    When When I hit Operations
 #    And click Request for Disbursement
 #    When I click on Assign To Me
@@ -261,7 +259,8 @@ Feature: supply chain run
 #
 ##    全部还款
 #  Scenario:UAT_supply chain_inner management_repayment_0001UAT_supply chain_inner management_repayment_0001
-#    Given logon "scf_environments_1_tian" on tube by inputting system
+##    Given logon "scf_environments_1_tian" on tube by inputting system
+#    Given logon "scf_sit1" on sit tube by inputting system
 #    When I click Operations button
 #    When I click Repayment button
 #    Then I should direct to the Repayment Management page
@@ -388,7 +387,8 @@ Feature: supply chain run
 #
 ##  买方 绑定关系
 #  Scenario:Buyer The operator binds a supplier relationship that does not exist between a single system for the buyer's customer, and the binding is successful
-#    Given logon "scf_environments_1_tian" on tube by inputting system
+##    Given logon "scf_environments_1_tian" on tube by inputting system
+#    Given logon "scf_sit1" on sit tube by inputting system
 #    When I click Customers and select Customers Mapping
 #    Then I should direct to the Customers Mapping page
 #    When I click the Create New Buyer Relationship button and Create a New Relationship
@@ -396,23 +396,26 @@ Feature: supply chain run
 #    And I should bind a Supplier information in his upstream
 #    When I close driver
 ##
-##   买方 信用档案
-#  Scenario:createBuyerCreditFile
+#   买方 信用档案
+  Scenario:createBuyerCreditFile
 #    Given logon "scf_environments_1_tian" on tube by inputting system
-#    When login successfully and click the SCF link to createBuyerCreditFile
-#    And edit Buyer Credit Profile
-#    Then submit Buyer Credit Profile
-#    And  to Buyer Credit Profile Review page
-#    Then buyer Credit Profile L1 Review
-#    And change user To L2 Review
+    Given logon "scf_sit1" on sit tube by inputting system
+    When login successfully and click the SCF link to createBuyerCreditFile
+    And edit Buyer Credit Profile
+    Then submit Buyer Credit Profile
+    And  to Buyer Credit Profile Review page
+    Then buyer Credit Profile L1 Review
+    When I close driver
 #    Then login "scf_environments_2_tian" on tube by inputting system
-#    And use UserL2 to Review
-#    When I close driver
+    Given logon "scf_sit2" on sit tube by inputting system
+    And use UserL2 to Review
+    When I close driver
 ##
 #
 ##  买方授信限额
 #  Scenario:Buyer The operator initiated Buyer Entity Flow & Buyer Entity Public to grant credit to buyer customers, and the credit was successfully granted, and the limit and rating were obtained
-#    Given logon "scf_environments_1_tian" on tube by inputting system
+##    Given logon "scf_environments_1_tian" on tube by inputting system
+#    Given logon "scf_sit1" on sit tube by inputting system
 #    When I click UnderWriting and UnderWriting Approval
 #    Then I should direct to the UnderWriting Approval page
 #    When I click buyer Test Data Assign to Me button on UnderWriting Approval page
@@ -422,18 +425,6 @@ Feature: supply chain run
 #    When I click Result button on the UnderWriting Approval page
 #    And I click Approve button and click Submit button on the page
 #    When I click Completed Button on the UnderWriting Approval page
-##    业务变动 改为一次审批就可以了。
-##    Given logon "environments_2" on tube by inputting system
-##    When I click UnderWriting and UnderWriting Approval
-##    Then I should direct to the UnderWriting Approval page
-##    When I click buyer Test Data Assign to Me button on UnderWriting Approval page
-##    When I click Assign to ME title on the on UnderWriting Approval page
-##    Then I should see Proceed Button on the UnderWriting Approval page
-##    When I click Result button on the UnderWriting Approval page
-##    And I click Approve and click Submit button on the page
-##    When I the second click Completed Button on the UnderWriting Approval page
-##    When I click UnderWriting List button on the page
-##    When I close driver
 
 
 #    mvn clean verify `-Dcucumber.options="--tags @supplyChainRun"
