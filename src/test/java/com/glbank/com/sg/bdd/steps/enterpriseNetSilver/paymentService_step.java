@@ -58,6 +58,7 @@ public class paymentService_step extends ScenarioSteps {
     public String fxDetailEstimatedProcessingFee;
     public String fxDetailPaymentModeForCharges;
     public String fxDetailPurposeOfTransfer;
+    public static String transferAmount;
 
     @Step
     public void transferAndRemittanceMenu(){
@@ -181,6 +182,7 @@ public class paymentService_step extends ScenarioSteps {
      */
     @Step
     public void overseas_Transfer_SGD_SGD(String amount,String chargeOption){
+                transferAmount = amount;
                 Response response = given()
                 .header("Content-type","application/json")
                 .and()
@@ -202,7 +204,7 @@ public class paymentService_step extends ScenarioSteps {
                         "    \"body\": {\n" +
                         "        \"creditorBankCountryCode\": \"SG\",\n" +
                         "        \"chargeBearer\": \""+chargeOption+"\",\n" +
-                        "        \"amount\": \""+amount+"\",\n" +
+                        "        \"amount\": \""+transferAmount+"\",\n" +
                         "        \"beneficiaryBirthCountry\": \"SG\",\n" +
                         "        \"debitCurrency\": \"SGD\",\n" +
                         "        \"purpose\": \"BEXP\",\n" +
@@ -236,6 +238,7 @@ public class paymentService_step extends ScenarioSteps {
      */
     @Step
     public void overseas_Transfer_USD_USD_001(String amount,String chargeOption){
+        transferAmount = amount;
         Response response = given()
                 .header("Content-type","application/json")
                 .and()
@@ -257,7 +260,7 @@ public class paymentService_step extends ScenarioSteps {
                         "    \"body\": {\n" +
                         "        \"creditorBankCountryCode\": \"SG\",\n" +
                         "        \"chargeBearer\": \""+chargeOption+"\",\n" +
-                        "        \"amount\": \""+amount+"\",\n" +
+                        "        \"amount\": \""+transferAmount+"\",\n" +
                         "        \"beneficiaryBirthCountry\": \"SG\",\n" +
                         "        \"debitCurrency\": \"USD\",\n" +
                         "        \"purpose\": \"BEXP\",\n" +

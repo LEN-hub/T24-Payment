@@ -249,7 +249,7 @@ public class t24_Payments_glue {
         t24_payments_step.switchToDefaultContent();
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
-        t24_payments_step.findInputArrangement(title.get(0).get("envName"));
+        t24_payments_step.findInputArrangement();
     }
 
     @When("^Enter the verification page$")
