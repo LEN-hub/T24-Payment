@@ -42,6 +42,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//td[@id='enqselfavs']/following-sibling::td//td[@width='1'][2]//td")
     public WebElementFacade clickFindBtn;
 
+    @FindBy(xpath = "//div[@id='enquiryDataSizer']//td[8]")
+    public WebElementFacade checkT24Status;
+
     @FindBy(xpath = "//table[@id='datadisplay']//tr/td[1]")
     public WebElementFacade t24Id;
 
@@ -410,4 +413,22 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//table[@summary=\"Recent Transactions\"]//div[2]//tr[1]/td[8]")
     public WebElementFacade getDifference;
+
+    @FindBy(xpath = "//span[text()='Admin Menu']")
+    public WebElementFacade clickAdminMenu;
+
+    @FindBy(xpath = "//div[@id='pane_']/ul[2]//span[text()='Payments']")
+    public WebElementFacade clickPaymentsBtn;
+
+    @FindBy(xpath = "//a[text()='Payment Order RFQ Rate Audit ']")
+    public WebElementFacade clickPaymentOrderRFQRateAuditMenu;
+
+    @FindBy(xpath = "//td[@id='dealtitle']/following-sibling::td[1]//input[@id='transactionId']")
+    public WebElementFacade sendTransactionID;
+
+    @FindBy(xpath = "//a[@title='View a contract']")
+    public WebElementFacade clickSearchBtn;
+
+    @FindBy(xpath = "//span[text()='Debit Credit Info']")
+    public WebElementFacade clickdebitCreditInfoMenu;
 }

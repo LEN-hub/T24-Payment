@@ -139,7 +139,7 @@ Feature: allReport
 #    Then My account has been transferred successfully
 #      |WordPath                  |
 #      |Internal Transfer SGD-SGD |
-#    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
 #    When I type in the content and click the search button To Local Payment
 #      |search content           |windows Title        |WordPath                  |
 #      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Internal Transfer SGD-SGD |
@@ -254,7 +254,7 @@ Feature: allReport
 #      |Internal Transfer SGD-SGD |
 #    Given logon second "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
 #    When Click My Task to find data for authorization
-#    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
 #    When I type in the content and click the search button To Local Payment
 #      |search content           |windows Title        |WordPath                  |
 #      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Internal Transfer SGD-SGD |
@@ -283,7 +283,7 @@ Feature: allReport
 #      |Local Fund Payment SGD-SGD |
 #    Given logon second "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
 #    When Click My Task to find data for authorization
-#    Given Use "netSilverEnv_Kevin_T24_SIT" to log in to T24 environment
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
 #    When I type in the content and click the search button on Mx Message
 #      |search content           |windows Title        |WordPath                   |
 #      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Local Fund Payment SGD-SGD |

@@ -14,13 +14,13 @@ Feature: receipt and payment service
     Then My account has been transferred successfully To Local Payment
       |WordPath   |
       |USD-SGD MCY|
-    Given logon "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
 #    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath   |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|USD-SGD MCY|
@@ -42,8 +42,8 @@ Feature: receipt and payment service
       |Name                         |
       |Internal Transfer USD-SGD MCY|
     When I type FOREX in the search box use to authorize the operationToLocalPayment
-      |search content|user Authorize                 |WordPath   |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|USD-SGD MCY|
+      |search content|user Authorize               |WordPath   |
+      |FOREX         |T24-automation-UAT-login-Auth|USD-SGD MCY|
 
   @MCY02
   #SGD->USD
@@ -57,12 +57,12 @@ Feature: receipt and payment service
     Then My account has been transferred successfully To Local Payment
       |WordPath   |
       |SGD-USD MCY|
-    Given logon "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath   |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|SGD-USD MCY|
@@ -84,8 +84,8 @@ Feature: receipt and payment service
       |Name                         |
       |Internal Transfer SGD-USD MCY|
     When I type FOREX in the search box use to authorize the operationToLocalPayment
-      |search content|user Authorize                 |WordPath   |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|SGD-USD MCY|
+      |search content|user Authorize               |WordPath   |
+      |FOREX         |T24-automation-UAT-login-Auth|SGD-USD MCY|
   @MCY03
    #SGD->SGD
   Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process(MCY)_UAT
@@ -98,13 +98,13 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
       |WordPath   |
       |SGD-SGD MCY|
-    Given logon "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
 #    Given logon second "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath   |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|SGD-SGD MCY|
@@ -126,12 +126,12 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
       |WordPath   |
       |USD-USD MCY|
-    Given logon "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath   |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|USD-USD MCY|
@@ -157,12 +157,12 @@ Feature: receipt and payment service
     Then I will compare all the data on same Currency Payment
       |WordPath                 |
       |Local Payment SGD-SGD MCY|
-    Given logon "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                 |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Local Payment SGD-SGD MCY|
@@ -220,7 +220,7 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath              |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS USD-USD MCY|
@@ -278,7 +278,7 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath              |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-USD MCY|
@@ -300,8 +300,8 @@ Feature: receipt and payment service
       |WordPath              |Name                  |
       |Bic is DBS SGD-USD MCY|Bic is DBS SGD-USD MCY|
     When I type FOREX in the search box use to authorize the operation
-      |search content|user Authorize                 |WordPath              |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|Bic is DBS SGD-USD MCY|
+      |search content|user Authorize               |WordPath              |
+      |FOREX         |T24-automation-UAT-login-Auth|Bic is DBS SGD-USD MCY|
 
 
   @MCY08
@@ -333,12 +333,12 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath              |
       |Bic is DBS USD-SGD MCY|
-    Given logon "netSilverEnv_Kevin_Payment_Auth" on enterprise net silver
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
     When Click My Task to find data for authorization
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath              |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS USD-SGD MCY|
@@ -360,8 +360,8 @@ Feature: receipt and payment service
       |WordPath              |Name                  |
       |Bic is DBS USD-SGD MCY|Bic is DBS USD-SGD MCY|
     When I type FOREX in the search box use to authorize the operation for Different Currency
-      |search content|user Authorize                 |WordPath              |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|Bic is DBS USD-SGD MCY|
+      |search content|user Authorize               |WordPath              |
+      |FOREX         |T24-automation-UAT-login-Auth|Bic is DBS USD-SGD MCY|
 
   @MCY09
   Scenario:Positive process of overseas transfer Bic Is DBS(SGD--SGD)(MCY)_UAT
@@ -397,7 +397,7 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath              |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-SGD MCY|
@@ -455,7 +455,7 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is Bank of China USD-USD MCY|
@@ -512,7 +512,7 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath                        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is Bank of China SGD-USD MCY|
@@ -534,8 +534,8 @@ Feature: receipt and payment service
       |WordPath                        |Name                            |
       |Bic is Bank of China SGD-USD MCY|Bic is Bank of China SGD-USD MCY|
     When I type FOREX in the search box use to authorize the operation
-      |search content|user Authorize                 |WordPath                        |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|Bic is Bank of China SGD-USD MCY|
+      |search content|user Authorize               |WordPath                        |
+      |FOREX         |T24-automation-UAT-login-Auth|Bic is Bank of China SGD-USD MCY|
 
 
   @MCY12
@@ -572,7 +572,7 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath                        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is Bank of China USD-SGD MCY|
@@ -594,8 +594,8 @@ Feature: receipt and payment service
       |WordPath                        |Name                            |
       |Bic is Bank of China USD-SGD MCY|Bic is Bank of China USD-SGD MCY|
     When I type FOREX in the search box use to authorize the operation for Different Currency
-      |search content|user Authorize                 |WordPath                        |
-      |FOREX         |netSilverEnv_Kevin_T24_UAT_Auth|Bic is Bank of China USD-SGD MCY|
+      |search content|user Authorize               |WordPath                        |
+      |FOREX         |T24-automation-UAT-login-Auth|Bic is Bank of China USD-SGD MCY|
 
   @MCY13
   Scenario:Positive process of overseas transfer Bic Is Bank of China(SGD--SGD)(MCY)_UAT
@@ -631,7 +631,7 @@ Feature: receipt and payment service
     Then TC code is then required for Vkey authentication
     When I get the TC code and click Next
     When I typed TC Code and click Authenticate Now
-    Given Use "netSilverEnv_Kevin_T24_UAT" to log in to T24 environment
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                        |
       |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is Bank of China SGD-SGD MCY|
