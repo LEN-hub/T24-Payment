@@ -76,7 +76,8 @@ public class creatCustomers_glue {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         customers_step.getClickCreateCustomerBtn();
         customers_step.getSelectCustomerType();
-        customers_step.getCustomerType(maps.get(0).get("Customer Type"));
+//        customers_step.getCustomerType(maps.get(0).get("Customer Type"));
+        customers_step.getCustomerTypeSupplier();
         customers_step.getCompanyName(CompanyName);
         if (maps.get(0).get("Customer Type").equals("Buyer")) {
             FileUtils.FileString4("Buyer",CompanyName);
@@ -240,6 +241,7 @@ public class creatCustomers_glue {
         bddUtil.switchToNewWindow();
 //        customers_step.emailOperation(mailName);
         customers_step.thirdEmail();
+//        customers_step.selectCodeEmail();
     }
 
     @And("^I enter Company ID and click Login button$")
@@ -648,7 +650,7 @@ public class creatCustomers_glue {
     }
 
     @When("^I select data and credit on the page$")
-    public void iSelectDataAndCreditOnThePage(DataTable payDetails) {
+    public void iSelectDataAndCreditOnThePage(DataTable payDetails) throws Exception{
         List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
         customers_step.selectDataAndCredit(result.get(0).get("Test Data"));
     }
@@ -660,7 +662,7 @@ public class creatCustomers_glue {
     }
 
     @Then("^I check whether the page prompts success information$")
-    public void iCheckWhetherThePagePromptsSuccessInformation() {
+    public void iCheckWhetherThePagePromptsSuccessInformation() throws Exception{
         customers_step.checkTitleTips();
     }
 }

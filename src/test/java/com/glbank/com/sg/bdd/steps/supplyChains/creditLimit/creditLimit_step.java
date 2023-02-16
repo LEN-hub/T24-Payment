@@ -230,7 +230,7 @@ public class creditLimit_step extends ScenarioSteps {
         String Vcode = creditLimit_page.emailVerificationCode.getText();*/
 
 //      新邮箱地址
-        webdriver.executeScript("window.open(\"https://applet.itcp.site/mail/#/\");");
+        webdriver.executeScript("window.open(\"https://ihotmails.com/\");");
         bddUtil.switchToNewWindow();
         creditLimit_page.selectEmailDropDown.click();
         creditLimit_page.selectC0c.click();

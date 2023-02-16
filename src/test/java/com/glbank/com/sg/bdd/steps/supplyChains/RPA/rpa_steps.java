@@ -31,6 +31,7 @@ public class rpa_steps extends ScenarioSteps {
 
     @Step
     public void clickCustomers(){
+        bddUtil.sleep(5);
         rpaPage.Customers.click();
     }
 
@@ -39,6 +40,7 @@ public class rpa_steps extends ScenarioSteps {
 
     @Step
     public void titleOverview(){
+        bddUtil.sleep(5);
         rpaPage.titleOverview.isDisabled();
     }
 
@@ -54,6 +56,7 @@ public class rpa_steps extends ScenarioSteps {
         rpaPage.clickNextBtn.click();
         bddUtil.sleep(1);
         rpaPage.clickConfirmBtn.click();
+        bddUtil.sleep(5);
     }
 
     @Step
@@ -82,7 +85,11 @@ public class rpa_steps extends ScenarioSteps {
         }
 
     @Step
-    public void clickConfirms(){rpaPage.confirms.click();}
+    public void clickConfirms(){
+        rpaPage.confirms.click();
+        bddUtil.sleep(1);
+        rpaPage.confirmsTwo.click();
+    }
 
     @Step
     public void jumpToSupplierPortal() {     //跳转供应商门户
@@ -208,7 +215,10 @@ public class rpa_steps extends ScenarioSteps {
         bddUtil.switchToWindows();
         rpaPage.inputSendCode.sendKeys(otp);
         rpaPage.GLDBEmailLoginBtn.click();
-        bddUtil.sleep(10);
+        bddUtil.sleep(5);
+        //断言是否登录成功
+        assertEquals("Home",getDriver().findElement(By.xpath("//span[text()='Home']")).getText());
+        bddUtil.sleep(2);
     }
 
     public void clickGoToDigibankLink(){
@@ -224,6 +234,7 @@ public class rpa_steps extends ScenarioSteps {
         }else {
             rpaPage.jumpToInbLinkCheck.click();
         }
+        bddUtil.sleep(5);
     }
 
     public void inputLogin(){

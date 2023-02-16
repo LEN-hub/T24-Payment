@@ -1621,6 +1621,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[text()='CPS Approved CG']/following-sibling::div//input")
     public WebElementFacade clickCpsApprovedCGInput;
 
+    @FindBy(xpath = "//label[text()='Last Updated']")
+    public WebElementFacade lastUpdated;
+
     @FindBy(xpath = "//span[contains(text(),'Retrigger CPS')]")
     public WebElementFacade clickRetriggerCPS;
 
