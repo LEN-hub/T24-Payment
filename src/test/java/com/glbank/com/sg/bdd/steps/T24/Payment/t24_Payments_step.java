@@ -78,6 +78,11 @@ public class t24_Payments_step extends ScenarioSteps {
     public String fundsTransferCreditAmount;
     public String fundsTransferAmountDebited;
     public String fundsTransferAmoyntCredited;
+    public Double doubleSum;
+    public int intSum;
+    public Double doubleTransactionAmount;
+    public int intTransactionAmount;
+
 
     public void switchToFirstFrame(){
         getDriver().switchTo().frame(t24_payments_page.switchToFirstFrame);
@@ -232,9 +237,8 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.fileSendersReferenceInput.sendKeys(t24TransactionReference);
         t24_payments_page.getClickFindBtn.click();
     }
-
     @Step
-    public void interfaceReturnInformationQuery(){
+    public void clickFindBtn(){
         bddUtil.scrollWindowToElement(t24_payments_page.findFileSendersReference);
         t24_payments_page.inputDate.clear();
         t24_payments_page.fileSendersReferenceInput.clear();
@@ -242,6 +246,35 @@ public class t24_Payments_step extends ScenarioSteps {
 //        t24_payments_page.fileSendersReferenceInput.sendKeys("PI230330CY0BPY1M");
         t24_payments_page.getClickFindBtn.click();
         getDriver().manage().window().maximize();
+    }
+
+    @Step
+    public void checkDeductionAmount(){
+        t24_payments_page.getClickViewDetail.click();
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        switchToFirstFrame();
+        bddUtil.sleep(2);
+        t24_payments_page.clickInBox.click();
+        t24_payments_page.selectFeesApplied.click();
+        t24_payments_page.clickSelectDrilldown.click();
+        bddUtil.sleep(2);
+        switchToDefaultContent();
+        switchToSecondFrame();
+        System.out.println(t24_payments_page.getAmount.getText());
+        if (t24_payments_page.getAmount.getText().contains(".")){
+            doubleSum = Double.valueOf(t24_payments_page.getAmount.getText());
+        }else {
+            intSum = Integer.parseInt(t24_payments_page.getAmount.getText());
+        }
+        bddUtil.closeWindow();
+        bddUtil.switchToNewWindow();
+        switchToDefaultContent();
+        switchToFirstFrame();
+    }
+
+    @Step
+    public void interfaceReturnInformationQuery(){
         clickViewIcon();
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
@@ -271,6 +304,11 @@ public class t24_Payments_step extends ScenarioSteps {
     }
     @Step
     public void checkAmount() {
+        if (t24_payments_page.getTransactionAmount.getText().contains(".")){
+            doubleTransactionAmount = Double.valueOf(t24_payments_page.getTransactionAmount.getText());
+        }else {
+            intTransactionAmount = Integer.parseInt(t24_payments_page.getTransactionAmount.getText());
+        }
         Assert.assertEquals(t24_payments_page.getTransactionAmount.getText(),"0.01");
     }
     @Step
@@ -351,6 +389,37 @@ public class t24_Payments_step extends ScenarioSteps {
         }
         System.out.println(sdf2.format(parse));
         return sdf2.format(parse);
+    }
+
+    @Step
+    public void iVerifyThatTheCutOffTimeDateIsCorrect(){
+        Assert.assertEquals(convertDate(t24_payments_page.getProcessingDate.getText()),DateUtil.format(new Date(),"yyyy-MM-dd"));
+        Calendar instance = Calendar.getInstance();
+        // 获取今天星期几
+        int i = instance.get(Calendar.DAY_OF_WEEK) - 1;
+        int Friday = Calendar.FRIDAY - 1;
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HHss");
+        String format = dateFormat.format(date);
+        System.out.println(format);
+        int time = Integer.parseInt(format);
+        if (i == Friday){
+            if (time>1600){
+                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"));
+            }else if (time<1600){
+                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+            }
+        }else {
+            if (time>1600){
+                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),1),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),1),"yyyy-MM-dd"));
+            }else if (time<1600){
+                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+            }
+        }
     }
     @Step
     public void channelAndT24DataFieldMappingSameCurrency(String WordPath){
@@ -1586,15 +1655,23 @@ public class t24_Payments_step extends ScenarioSteps {
         Assert.assertEquals(fundTransferCreditAccNo,readtxtFile("t24","ChannelCreditAccountNumber"));
     }
     @Step
-    public void findInputArrangement(String account){
+    public void findInputArrangement(String envName){
         t24_payments_page.inputArrangement.clear();
-        t24_payments_page.inputArrangement.sendKeys(account);
+        t24_payments_page.inputArrangement.sendKeys(CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".USD_AC_SingleCurrency"));
         t24_payments_page.getClickFindBtn.click();
         t24_payments_page.clickOverViewBtn.click();
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
+        bddUtil.sleep(5);
+        BigDecimal b1 = new BigDecimal(doubleSum);
+        BigDecimal b2 = new BigDecimal(doubleTransactionAmount);
+        if (t24_payments_page.firstDebitAmount.getText().contains(".")){
+            Assert.assertEquals(String.valueOf(b1.add(b2).doubleValue()),t24_payments_page.firstDebitAmount.getText());
+        }else {
+            Assert.assertEquals(String.valueOf(intSum+intTransactionAmount),t24_payments_page.firstDebitAmount.getText());
+        }
         BigDecimal num1 = new BigDecimal(t24_payments_page.getMinuend.getText().replace(",",""));
-        BigDecimal num2 = new BigDecimal(t24_payments_page.creditAmount.getText().replace(",",""));
+        BigDecimal num2 = new BigDecimal(t24_payments_page.firstDebitAmount.getText().replace(",",""));
         String result = String.valueOf(num1.subtract(num2));
         System.out.println(result);
         String getDifference = creatCustomers_step.solve(result);
