@@ -66,9 +66,9 @@ Feature: Health Check SCF SIT Test Case
       |password    |
       |P@ssw0rd_123|
 
-    #6.IB系统Health Check
-  @IB_Health_Check_SIT
-  Scenario:IB System Health Check SIT
+    #6.INB系统Health Check
+  @INB_Health_Check_SIT
+  Scenario:INB System Health Check SIT
     Given logon "environments_SCF_SIT" test code
     When client login success
       |Email Name|
