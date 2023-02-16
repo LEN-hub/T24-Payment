@@ -241,16 +241,24 @@ public class t24_Payments_glue {
         t24_payments_step.clickFindAccountMenu();
     }
 
-    @When("^I jump to a newly opened page for Find Account menu$")
+    @When("^I verify that the account deduction is correct through the calculation formula$")
     public void iJumpToANewlyOpenedPageForFindAccountMenu(DataTable data) {
+        t24_payments_step.closeAllTabJumpToHomePage();
+        t24_payments_step.clickProductsMenu();
+        t24_payments_step.clickFindAccountMenu();
         t24_payments_step.switchToDefaultContent();
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
         t24_payments_step.findInputArrangement(title.get(0).get("Find Accounts"));
     }
 
-    @When("^I query the transaction status in the core$")
+    @When("^I verify the T24 transaction status$")
     public void iQueryTheTransactionStatusInTheCore(DataTable data) {
+        t24_payments_step.clickUserMenu();
+        t24_payments_step.clickPaymentsMenu();
+        t24_payments_step.clickPaymentHubMenu();
+        t24_payments_step.clickPaymentInquiriesMenu();
+        t24_payments_step.clickPaymentTransactionWiseMenu();
         t24_payments_step.switchToDefaultContent();
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
@@ -258,14 +266,34 @@ public class t24_Payments_glue {
         t24_payments_step.interfaceReturnInformationQuery();
     }
 
-    @Then("^I check the transaction details on the page$")
+    @Then("^I verify that the data in the API request message is consistent with the page ChangOptions field$")
     public void transactionDetailsCheck(DataTable data) {
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
-        t24_payments_step.transactionDetailsCheckSGD_SGD(title.get(0).get("Charge Option"),title.get(0).get("envName"));
+        t24_payments_step.transactionDetailsCheckSGD_SGD(title.get(0).get("Charge Option"));
     }
 
     @When("^I close all tabs and jump to the home page$")
     public void iCloseAllTabsAndJumpToTheHomePage() {
         t24_payments_step.closeAllTabJumpToHomePage();
+    }
+    @Then("^I verify that the data in the API request message is consistent with the currency field of the page$")
+    public void iCheckTheTransferOutCurrencyOnThePage() {
+        t24_payments_step.checkCurrency();
+    }
+
+    @Then("^I verify that the data in the API request message is consistent with the page amount field$")
+    public void iCheckTransferAmountOnThePage() {
+        t24_payments_step.checkAmount();
+    }
+
+    @Then("^I verify that the data in the API request message is consistent with the bit amount field on the page$")
+    public void iCheckDebitAmountOnThePage(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkDebitAccountNum(title.get(0).get("envName"));
+    }
+
+    @Then("^I verify that the data in the API request message is consistent with the page feed field$")
+    public void iCheckFeeOnThePage() {
+        t24_payments_step.checkFee();
     }
 }

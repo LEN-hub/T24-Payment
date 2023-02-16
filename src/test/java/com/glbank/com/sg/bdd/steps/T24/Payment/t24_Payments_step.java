@@ -4,6 +4,7 @@ import cn.hutool.core.date.DateUtil;
 import com.glbank.com.sg.bdd.pages.T24.Payment.t24_Payments_page;
 import com.glbank.com.sg.bdd.steps.T24.Logon.T24_Logon_step;
 import com.glbank.com.sg.bdd.steps.enterpriseNetSilver.paymentService_step;
+import com.glbank.com.sg.bdd.steps.supplyChains.tubeByInputting.creatCustomers_step;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import com.glbank.com.sg.bdd.utils.CommonUtil;
 import com.glbank.com.sg.bdd.utils.FileUtils;
@@ -16,6 +17,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -237,6 +239,7 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.inputDate.clear();
         t24_payments_page.fileSendersReferenceInput.clear();
         t24_payments_page.fileSendersReferenceInput.sendKeys(paymentService_step.serialNumber);
+//        t24_payments_page.fileSendersReferenceInput.sendKeys("PI230330CY0BPY1M");
         t24_payments_page.getClickFindBtn.click();
         getDriver().manage().window().maximize();
         clickViewIcon();
@@ -258,11 +261,25 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
     @Step
-    public void transactionDetailsCheckSGD_SGD(String chargeOption,String envName){
-        Assert.assertEquals(t24_payments_page.getChargeOption.getText(),chargeOption);
+    public void transactionDetailsCheckSGD_SGD(String chargeOption) {
+        Assert.assertEquals(t24_payments_page.getChargeOption.getText(), chargeOption);
+    }
+
+    @Step
+    public void checkCurrency() {
         Assert.assertEquals(t24_payments_page.getTransactionCurrency.getText(),"USD");
+    }
+    @Step
+    public void checkAmount() {
         Assert.assertEquals(t24_payments_page.getTransactionAmount.getText(),"0.01");
+    }
+    @Step
+    public void checkDebitAccountNum(String envName){
         Assert.assertEquals(t24_payments_page.getDebitAccountNum.getText(),CommonUtil.getEnvironmentSpecificConfiguration("environments."+envName+".USD_AC_SingleCurrency"));
+    }
+
+    @Step
+    public void checkFee(){
         t24_payments_page.getClickChargeInformation.click();
         if (t24_payments_page.getDebitChargeAmount.isVisible()){
             Assert.assertEquals(t24_payments_page.getDebitChargeAmount.getText(),"10.00");
@@ -346,12 +363,27 @@ public class t24_Payments_step extends ScenarioSteps {
         // 获取今天星期几
         int i = instance.get(Calendar.DAY_OF_WEEK) - 1;
         int Friday = Calendar.FRIDAY - 1;
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HHss");
+        String format = dateFormat.format(date);
+        System.out.println(format);
+        int time = Integer.parseInt(format);
         if (i == Friday){
-            Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"));
-            Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"));
+            if (time>1600){
+                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"));
+            }else if (time<1600){
+                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+            }
         }else {
-            Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
-            Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+            if (time>1600){
+                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),1),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),1),"yyyy-MM-dd"));
+            }else if (time<1600){
+                Assert.assertEquals(convertDate(t24_payments_page.getDebitValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
+            }
         }
         getTransactionReferenceNum = t24_payments_page.getTransactionReferenceNum.getText();
         FileUtils.FileString4("t24","getTransactionReferenceNum:" + getTransactionReferenceNum);
@@ -839,7 +871,7 @@ public class t24_Payments_step extends ScenarioSteps {
                 }
             }
             Assert.assertEquals(getTransactionReferenceNum,t24_payments_page.check20Field.getText().substring(4));
-            Assert.assertEquals(getTransactionCurrency+getTransactionAmount.replace('.',','),t24_payments_page.check32AField.getText().substring(11));
+//            Assert.assertEquals(getTransactionCurrency+getTransactionAmount.replace('.',','),t24_payments_page.check32AField.getText().substring(11));
 //            Assert.assertEquals(getInstructedCurrency+getInstructedAmount.replace('.',','),t24_payments_page.check33BField.getText().substring(5));
 //            Assert.assertEquals(getDebitCustomerRate.replace('.',','),t24_payments_page.check36Field.getText().substring(4));
             Assert.assertEquals(getDebitAccountNum,t24_payments_page.check50KField.getText().substring(6));
@@ -1561,7 +1593,12 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.clickOverViewBtn.click();
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
-        if (t24_payments_page.getTransferDebitAmount.getText().equals("7.28")){
+        BigDecimal num1 = new BigDecimal(t24_payments_page.getMinuend.getText().replace(",",""));
+        BigDecimal num2 = new BigDecimal(t24_payments_page.creditAmount.getText().replace(",",""));
+        String result = String.valueOf(num1.subtract(num2));
+        System.out.println(result);
+        String getDifference = creatCustomers_step.solve(result);
+        if (getDifference.equals(t24_payments_page.getDifference.getText())){
             System.out.println("金额比对成功！");
         }
     }

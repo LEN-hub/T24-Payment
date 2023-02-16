@@ -328,5 +328,10 @@ public class paymentService_glue {
             paymentService_step.USD_Single_Currency_Charging(payToInfo.get(0).get("parameter"));
             paymentService_step.overseas_Transfer_USD_USD_001(payToInfo.get(0).get("parameter"));
     }
+
+    @When("^I click the submit button on the page until I jump to the verification code acquisition page$")
+    public void iClickTheSubmitButtonOnThePageUntilIJumpToTheVerificationCodeAcquisitionPage() {
+            paymentService_step.clickSubmitBtnJumpToVerifyCode();
+    }
 }
 

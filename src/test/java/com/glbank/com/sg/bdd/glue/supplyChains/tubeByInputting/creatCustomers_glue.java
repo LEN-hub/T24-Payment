@@ -641,6 +641,28 @@ public class creatCustomers_glue {
     @When("^I operate with fixed data on the page$")
     public void iOperateWithFixedDataOnThePage(DataTable payDetails) {
         List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
-        customers_step.searchData(result.get(0).get("Test Data"),result.get(0).get("amount"));
+        customers_step.searchData(result.get(0).get("Test Data"),result.get(0).get("Check Data"));
+    }
+
+    @When("^I enter the Underwriting Approval page$")
+    public void iEnterTheUnderwritingApprovalPage() {
+        customers_step.UnderWritingMenu();
+    }
+
+    @When("^I select data and credit on the page$")
+    public void iSelectDataAndCreditOnThePage(DataTable payDetails) throws Exception{
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.selectDataAndCredit(result.get(0).get("Test Data"));
+    }
+
+    @Then("^Verify whether the page Limit for THIS Product is consistent with the Proposed Limit value$")
+    public void verifyWhetherThePageLimitForTHISProductIsConsistentWithTheProposedLimitValue(DataTable payDetails) {
+        List<Map<String, String>> result = payDetails.asMaps(String.class,String.class);
+        customers_step.checkAmount(result.get(0).get("amount"));
+    }
+
+    @Then("^I check whether the page prompts success information$")
+    public void iCheckWhetherThePagePromptsSuccessInformation() throws Exception{
+        customers_step.checkTitleTips();
     }
 }

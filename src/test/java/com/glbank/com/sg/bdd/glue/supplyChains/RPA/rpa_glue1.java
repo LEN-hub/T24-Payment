@@ -92,4 +92,9 @@ public class rpa_glue1 {
     public void checkPageJumpSuccess() {
         rpaStep.jumpToInbLink();
     }
+
+    @Then("^Login succeeded jump to SCF homepage$")
+    public void loginSucceededJumpToSCFHomepage() {
+        rpaStep.titleOverview();
+    }
 }

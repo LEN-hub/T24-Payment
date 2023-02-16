@@ -1,35 +1,12 @@
-2023-1-10 10:12:0:87
-ChannelReferenceID:230109000000041
-ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+2023-2-13 10:57:21:365
+ChannelReferenceID:230210000000195
+ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD
 ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11010001256
-ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
-ChannelDetailPayeeName:lucky
-ChannelDetailAccountCurrency:SGD
-ChannelDetailPayeeAccountNum:667812798
-ChannelDetailTransactionAmount:110.61
-ChannelDetailBeneficiaryBankBIC:DBSSSGS0DOD
-ChannelDetailPayeeAddress:countries
-ChannelDetailEstimatedProcessingFee:0.00
-ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
-ChannelDetailPurposeOfTransfer:Commission
-2023-1-10 10:15:8:601
-ID:230109000000041
-TransactionReference:PI2301006T4K6HHR
-t24FtNumber:SGL23010BCLMCCJM
-getTransactionReferenceNum:SGL23010BCLMCCJM
-getSenderReferenceNum:PI2301006T4K6HHR
-getTransactionCurrency:SGD
-getTransactionCurrency:SGD
-getTransactionAmount:110.61
-getChargeOption:SHA
-getDebitAccountNum:11010001256
-getDebitAccountCurrency:SGD
-getOrderingAccount:11010001256
-getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
-getOrderingAddress:XIAN
-getOrderingTown:SG
-getCreditAccountNum:15000000153
-getCreditAccountCurrency:SGD
-getBeneficiaryAccount:667812798
-getBeneficiaryName:lucky
+ChannelDebitAccountNumber:11020571063
+ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
+ChannelCreditAccountName:COMPUTERCITY SINGAPORE PTE. LTD
+ChannelCreditAccountCurrency:SGD
+ChannelCreditAccountNumber:11010001426
+ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
+ChannelTransactionAmount:213.27
+ChannelPurposeOfTransfer:Business Expenses

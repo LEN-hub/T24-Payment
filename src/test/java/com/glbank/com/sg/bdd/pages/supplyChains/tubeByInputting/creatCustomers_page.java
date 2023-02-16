@@ -1451,6 +1451,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//span[contains(text(),'Submit')]")
     public WebElementFacade clickSubmitBtnOnGLDB;
 
+    @FindBy(xpath = "//p[text()='Saved successfully']")
+    public WebElementFacade checkTitleTips;
+
     @FindBy(xpath = "//div[text()=' Confirm Your Information ']")
     public WebElementFacade confirmPageTitle;
 
@@ -1571,12 +1574,17 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[text()='Client']/following-sibling::div//input")
     public WebElementFacade enterSearchData;
 
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tr/td[3]")
+    public List<WebElementFacade> clientName;
+
     @FindBy(xpath = "//label[text()='Status']")
     public WebElementFacade clickStatusTitle;
 
     @FindBy(xpath = "//div[@data-key='f2h1a068']//div[@class='lowcode-table-base']//span[contains(text(),'Change')]")
     public WebElementFacade clickChangeBtn;
 
+    @FindBy(xpath = "//div[@class='pagination-wrapper']//button[@class='btn-next']/i")
+    public WebElementFacade clickNextBtnSelectData;
     @FindBy(xpath = "//label[@for='creditAmountNew']/following-sibling::div/div[2]//input")
     public WebElementFacade limitForThisProduct;
 
@@ -1588,6 +1596,36 @@ public class creatCustomers_page extends PageObject {
 
     @FindBy(xpath = "//label[@for='comment']/following-sibling::div//textarea")
     public WebElementFacade inputCommentText;
+
+    @FindBy(xpath = "//span[text()='Home']/parent::div/following-sibling::div[4]/div[1]/span[text()='Underwriting']")
+    public WebElementFacade clickUnderwritingMenu;
+
+    @FindBy(xpath = "//span[text()='Underwriting Approval']")
+    public WebElementFacade clickUnderwritingApproval;
+
+    @FindBy(xpath = "//span[contains(text(),'Assigned to Me')]")
+    public WebElementFacade clickAssignedToMeBtn;
+
+    @FindBy(xpath = "//input[@placeholder=\"Search applicant\"]")
+    public WebElementFacade searchBox;
+
+    @FindBy(xpath = "//span[text()='Applicant']")
+    public WebElementFacade clickApplicantTitle;
+
+    @FindBy(xpath = "//div[@class='lowcode-table-base']//tbody/tr[1]//td[12]//span[contains(text(),'Proceed')]")
+    public WebElementFacade clickUnderWritingProceedBtn;
+
+    @FindBy(xpath = "//label[text()='CPS Preadjusted CG']/following-sibling::div//input")
+    public WebElementFacade clickCpsPreadjustedCGInput;
+
+    @FindBy(xpath = "//label[text()='CPS Approved CG']/following-sibling::div//input")
+    public WebElementFacade clickCpsApprovedCGInput;
+
+    @FindBy(xpath = "//label[text()='Last Updated']")
+    public WebElementFacade lastUpdated;
+
+    @FindBy(xpath = "//span[contains(text(),'Retrigger CPS')]")
+    public WebElementFacade clickRetriggerCPS;
 
 
     public void enterUserName(String userName){

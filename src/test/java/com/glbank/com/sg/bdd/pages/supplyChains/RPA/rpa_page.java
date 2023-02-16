@@ -125,7 +125,13 @@ public class rpa_page extends PageObject {
     public WebElementFacade clickGoToDigibankLink;
 
     @FindBy(xpath = "//span[contains(text(),'Open Account ')]")
-    public WebElementFacade jumpToInbLink;
+    public WebElementFacade jumpToInbLinkCheck;
+
+    @FindBy(xpath="//body[@id='body']//button[@id='details-button']")
+    public WebElementFacade clickSeniorBtn;
+
+    @FindBy(xpath = "//body[@id='body']//a[@id='proceed-link']")
+    public WebElementFacade getJumpToInbLink;
 
     @FindBy(xpath = "//span[text()='Contract']")
     public WebElementFacade Contract;
@@ -192,4 +198,7 @@ public class rpa_page extends PageObject {
 
     @FindBy(xpath = "//span[contains(text(),'Confirm')]")
     public WebElementFacade newPasswordPageConfirmBtn;
+
+    @FindBy(xpath = "//div[text()='Overview']")
+    public WebElementFacade titleOverview;
 }

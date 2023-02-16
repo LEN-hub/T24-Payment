@@ -62,7 +62,10 @@ Feature: Sanity Pack SCF UAT Test Case
     When Approval in the supply chain system
     Then Switch To the Assign To Me page and perform the corresponding operations
     When I close driver
-
+    Given logon "scf_environments_2_yang" on tube by inputting system
+    When Approval in the supply chain system
+    Then Switch To the Assign To Me page and perform the corresponding operations
+    When I close driver
 
   #2.simple（核心不存在、非自主、无管理员）
   @sanity_pack_supplier_Simple_Kyc_Buyer_UAT
@@ -145,6 +148,7 @@ Feature: Sanity Pack SCF UAT Test Case
 #    Then submit Supplier Credit Profile
     And to Supplier Credit Profile Review Page
     Then Supplier Credit Profile L1 Review
+    Then I close driver
     Given logon "scf_environments_2_yang" on tube by inputting system
     And use User L2 to Supplier Review
     When I close driver
