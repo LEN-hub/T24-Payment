@@ -38,13 +38,13 @@ public class JenkinsReportData {
                     String errors = eElement.getElementsByTagName("errors").item(0).getTextContent();
                     String failures = eElement.getElementsByTagName("failures").item(0).getTextContent();
                     String skipped = eElement.getElementsByTagName("skipped").item(0).getTextContent();
-                    int successReport = Integer.parseInt(success)-2;
+                    int successReport = Integer.parseInt(success)-1;
                     System.out.println(successReport);
                     FileString4("Jenkins","success="+successReport);
                     FileString4("Jenkins","error="+errors);
                     FileString4("Jenkins","failures="+failures);
                     FileString4("Jenkins","skipped="+skipped);
-                    int sum = Integer.parseInt(success)-2+Integer.parseInt(errors)+Integer.parseInt(failures)+Integer.parseInt(skipped);
+                    int sum = Integer.parseInt(success)-1+Integer.parseInt(errors)+Integer.parseInt(failures)+Integer.parseInt(skipped);
                     FileString4("Jenkins","sum=" + String.valueOf(sum));
                 }
             }

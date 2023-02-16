@@ -309,11 +309,9 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void checkAmount() {
         if (t24_payments_page.getTransactionAmount.getText().contains(".")){
-            doubleTransactionAmount = Double.valueOf(t24_payments_page.getTransactionAmount.getText());
-        }else {
-            intTransactionAmount = Integer.parseInt(t24_payments_page.getTransactionAmount.getText());
+            doubleTransactionAmount = Double.parseDouble(t24_payments_page.getTransactionAmount.getText().replace(",", ""));
         }
-        Assert.assertEquals(t24_payments_page.getTransactionAmount.getText(),"250000.00");
+        Assert.assertEquals(t24_payments_page.getTransactionAmount.getText(),paymentServiceStep.transferAmount);
     }
     @Step
     public void checkDebitAccountNum(String envName){
