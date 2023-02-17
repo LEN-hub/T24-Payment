@@ -93,13 +93,23 @@ public class rpa_glue1 {
         rpaStep.jumpToInbLink();
     }
 
+    @Then("^Check page jump success uat$")
+    public void checkPageJumpSuccessUAT() throws Exception{
+        rpaStep.jumpToInbLinkUAT();
+    }
+
     @Then("^Login succeeded jump to SCF homepage$")
-    public void loginSucceededJumpToSCFHomepage() {
+    public void loginSucceededJumpToSCFHomepage() throws Exception{
         rpaStep.titleOverview();
     }
 
     @Then("^Upload RPA file$")
     public void uploadRPAFile() {
         rpaStep.uploadRpa();
+    }
+
+    @Then("^Upload RPA file in UAT$")
+    public void uploadRPAFileInUAT() {
+        rpaStep.uploadRpaUAT();
     }
 }
