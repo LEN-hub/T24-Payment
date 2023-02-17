@@ -436,6 +436,8 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.inputSendCode.sendKeys(Vcode);
         customers_page.GLDBEmailLoginBtn.click();
         bddUtil.sleep(6);
+        assertEquals("Service Agreement",getDriver().findElement(By.xpath("//span[text()='Service Agreement']")).getText());
+        bddUtil.sleep(2);
     }
 
     @Step

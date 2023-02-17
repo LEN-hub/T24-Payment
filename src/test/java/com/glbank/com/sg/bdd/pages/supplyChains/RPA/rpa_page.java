@@ -143,6 +143,9 @@ public class rpa_page extends PageObject {
     @FindBy(xpath = "//body[@id='body']//a[@id='proceed-link']")
     public WebElementFacade getJumpToInbLink;
 
+    @FindBy(xpath = "//div[@class='el-message-box']//button[@type='button']")
+    public WebElementFacade okBtn;
+
     @FindBy(xpath = "//span[text()='Contract']")
     public WebElementFacade Contract;
 

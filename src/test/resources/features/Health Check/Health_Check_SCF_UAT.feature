@@ -44,7 +44,7 @@ Feature: Health Check SCF SIT Test Case
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I click on the first Customers
     And click ContractManagement
-    Then Enter the name of the supplier to filter
+    Then Upload RPA file in UAT
 
     #6.CNP系统Health Check
   @CNP_Health_Check_UAT
@@ -73,29 +73,21 @@ Feature: Health Check SCF SIT Test Case
       |password    |
       |P@ssw0rd_123|
 
-    #7.IB系统Health Check
-  @IB_Health_Check_UAT
-  Scenario:IB System Health Check UAT
+    #7.INB系统Health Check
+  @INB_Health_Check_UAT
+  Scenario:INB System Health Check UAT
     Given logon "environments_SCF_UAT" test code
     When client login success
       |Email Name|
       |v8c1pwr9  |
     When click Go to Digibank Link
-    Then Check page jump success
+    Then Check page jump success uat
 
  #8.AML系统Health Check
   @AML_Health_Check_UAT
   Scenario:AML System Health Check UAT
-    Given logon "environments_SCF_UAT" test code
-    When I input login information
-    When login successfully and click RequestFinancing
-    Then upload RequestFinancing File
-    And  logon "scf_environments_1_yang" on tube by inputting system
-    Then click Operations to Review
-#    And change user To L2 Review
+    Given logon "scf_environments_1_yang" on tube by inputting system
+    When Financing application for approval
+    And I close driver
     When logon "scf_environments_2_yang" on tube by inputting system
-    And click Operations to Review
-    Given logon "environments_SCF_UAT" test code
-    When I input login information
-    And click Financing Status
-    When I close driver
+    Then Financing application for approval Return

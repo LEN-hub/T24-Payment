@@ -4,6 +4,7 @@ import com.glbank.com.sg.bdd.pages.supplyChains.financingRequest.financingReques
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import com.glbank.com.sg.bdd.utils.CommonUtil;
 import com.glbank.com.sg.bdd.utils.ModifyExcel;
+import com.glbank.com.sg.bdd.utils.health_check;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -58,6 +59,24 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.SubmitBtn.click();
         bddUtil.sleep(3);
     }
+
+    //SCF UAT健康检查特定excel上传文件
+    public void uploadRequestFinancingHealthCheck(){
+        health_check check = new health_check();
+        check.excelPOI("health_check");
+        financingRequest_page.clickUpload.click();
+        getDriver().findElement(By.xpath("//div[@class='upload-widget']//input")).sendKeys(upExcel);
+        bddUtil.sleep(5);
+        financingRequest_page.clickConfirmOfUpload.click();
+        bddUtil.sleep(3);
+        getDriver().findElement(By.xpath("//div[@class='lowcode-table-base']//tbody/tr//div[@class='lls-cb-indot lls-cb-indot-act2']")).click();
+//        financingRequest_page.clickAllRequest.click();
+        financingRequest_page.clickApplyInBatch.click();
+        bddUtil.sleep(2);
+        financingRequest_page.SubmitBtn.click();
+        bddUtil.sleep(3);
+    }
+
     public void clickOperationsToL1Review(String companyName){
         financingRequest_page.clickOperations.click();
         financingRequest_page.clickFrReview.click();
@@ -102,6 +121,99 @@ public class financingRequest_step extends ScenarioSteps {
 //        }
 //        bddUtil.sleep(15);
     }
+
+    //健康检查特定数据的审批
+    public void health_checkApproval() throws Exception{
+        financingRequest_page.clickOperations.click();
+        financingRequest_page.clickFrReview.click();
+        FinancingNo = financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content']/div[1]/section/div[1]/div[3]//tr[1]/td[3]//span")).getText();
+        List<WebElementFacade> requestName = financingRequest_page.requesterName;
+        for(int i = 0;i< requestName.size();i++){
+            if(requestName.get(i).getText().equals("SCF001")){
+                int j = i + 1;
+                bddUtil.clickByJS(financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content'][1]//div[@class='lls-tab-pane'][1]//section[@class='query-table'][1]/div[1]/div[3]//tr["+j+"]//span[contains(text(),'Assign to Me')]")));
+                break;
+            }
+        }
+        financingRequest_page.clickAssignedToMe.click();
+        bddUtil.sleep(3);
+        List<WebElementFacade> getRequesterName = financingRequest_page.getRequesterName;
+        for(int i = 0;i< getRequesterName.size();i++){
+            if("SCF001".equals(getRequesterName.get(i).getText())){
+                int j = i + 1;
+                bddUtil.scrollWindowToElement(financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content'][1]//div[@class='lls-tab-pane'][2]//section[@class='query-table'][1]/div[1]/div[3]//tr["+j+"]//span[contains(text(),'Proceed')]")));
+                bddUtil.clickByJS(financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content'][1]//div[@class='lls-tab-pane'][2]//section[@class='query-table'][1]/div[1]/div[3]//tr["+j+"]//span[contains(text(),'Proceed')]")));
+                bddUtil.sleep(1);
+                break;
+            }
+        }
+        financingRequest_page.clickResult.click();
+        bddUtil.scrollWindowToElement(financingRequest_page.getApprove).click();
+        financingRequest_page.getComments.sendKeys("PASS");
+        financingRequest_page.clickSubmit.click();
+        //判断融资申请提交以后是否成功。
+        for (int i = 0; i < 5; i++) {
+            bddUtil.sleep(15);
+//            if (getDriver().findElement(By.xpath("//h2[text()='Financing Request']")).isDisplayed()){
+//                break;
+//            }else {
+//                getDriver().findElement(By.xpath("//span[text()='Submit ']/parent::button")).getAttribute("class").equals("lls-button btn-item lls-button--primary");
+//                financingRequest_page.clickSubmit.click();
+//            }
+            boolean c = false;
+            try {
+                String a = getDriver().findElement(By.xpath("//span[text()='Submit ']/parent::button")).getAttribute("class");
+                String b = "lls-button btn-item lls-button--primary";
+                c = a.equals(b);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            if (c){
+                financingRequest_page.clickSubmit.click();
+            }else {
+                break;
+            }
+        }
+        bddUtil.sleep(5);
+    }
+
+    //健康检查特定数据的审批L2回退
+    public void health_checkApprovalReturn()throws Exception{
+        financingRequest_page.clickOperations.click();
+        financingRequest_page.clickFrReview.click();
+        FinancingNo = financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content']/div[1]/section/div[1]/div[3]//tr[1]/td[3]//span")).getText();
+        List<WebElementFacade> requestName = financingRequest_page.requesterName;
+        for(int i = 0;i< requestName.size();i++){
+            if(requestName.get(i).getText().equals("SCF001")){
+                int j = i + 1;
+                bddUtil.clickByJS(financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content'][1]//div[@class='lls-tab-pane'][1]//section[@class='query-table'][1]/div[1]/div[3]//tr["+j+"]//span[contains(text(),'Assign to Me')]")));
+                break;
+            }
+        }
+        financingRequest_page.clickAssignedToMe.click();
+        List<WebElementFacade> getRequesterName = financingRequest_page.getRequesterName;
+        for(int i = 0;i< getRequesterName.size();i++){
+            if("SCF001".equals(getRequesterName.get(i).getText())){
+                int j = i + 1;
+                bddUtil.scrollWindowToElement(financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content'][1]//div[@class='lls-tab-pane'][2]//section[@class='query-table'][1]/div[1]/div[3]//tr["+j+"]//span[contains(text(),'Proceed')]")));
+                bddUtil.clickByJS(financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content'][1]//div[@class='lls-tab-pane'][2]//section[@class='query-table'][1]/div[1]/div[3]//tr["+j+"]//span[contains(text(),'Proceed')]")));
+                bddUtil.sleep(1);
+                break;
+            }
+        }
+        if (financingRequest_page.amlStatus.getAttribute("class").equals("lls-icon-warning icon_pending")){
+            System.out.println("AML结果未返回");
+            throw new Exception("AML结果未返回");
+        }else{
+            System.out.println("aml结果返回成功");
+        }
+        financingRequest_page.clickResult.click();
+        bddUtil.scrollWindowToElement(financingRequest_page.getReturn).click();
+        financingRequest_page.getComments.sendKeys("return");
+        financingRequest_page.clickSubmit.click();
+        bddUtil.sleep(5);
+    }
+
 
     public void clickFinancingStatus(){
         financingRequest_page.clickFinancingStatus.click();
