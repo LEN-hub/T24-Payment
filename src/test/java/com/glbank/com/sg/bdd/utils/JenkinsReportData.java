@@ -41,9 +41,10 @@ public class JenkinsReportData {
                     int successReport = Integer.parseInt(total);
                     System.out.println(successReport);
                     FileString4("Jenkins","total="+successReport);
-                    FileString4("Jenkins","error="+errors);
-                    FileString4("Jenkins","failures="+failures);
-                    int success = Integer.parseInt(total)-(Integer.parseInt(errors)+Integer.parseInt(failures));
+                    int error = Integer.parseInt(errors)+Integer.parseInt(failures);
+                    FileString4("Jenkins","error="+error);
+                    FileString4("Jenkins","skipped="+skipped);
+                    int success = Integer.parseInt(total)- error;
                     FileString4("Jenkins","success=" + String.valueOf(success));
                 }
             }
