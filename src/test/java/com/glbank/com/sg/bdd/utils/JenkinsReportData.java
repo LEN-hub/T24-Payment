@@ -34,18 +34,18 @@ public class JenkinsReportData {
                 if (node.getNodeType() == Node.ELEMENT_NODE)
                 {
                     Element eElement = (Element) node;
-                    String success = eElement.getElementsByTagName("completed").item(0).getTextContent();
+                    String total = eElement.getElementsByTagName("completed").item(0).getTextContent();
                     String errors = eElement.getElementsByTagName("errors").item(0).getTextContent();
                     String failures = eElement.getElementsByTagName("failures").item(0).getTextContent();
                     String skipped = eElement.getElementsByTagName("skipped").item(0).getTextContent();
-                    int successReport = Integer.parseInt(success);
+                    int successReport = Integer.parseInt(total);
                     System.out.println(successReport);
-                    FileString4("Jenkins","success="+successReport);
-                    FileString4("Jenkins","error="+errors);
-                    FileString4("Jenkins","failures="+failures);
+                    FileString4("Jenkins","total="+successReport);
+                    int error = Integer.parseInt(errors)+Integer.parseInt(failures);
+                    FileString4("Jenkins","error="+error);
                     FileString4("Jenkins","skipped="+skipped);
-                    int sum = Integer.parseInt(success)+Integer.parseInt(errors)+Integer.parseInt(failures)+Integer.parseInt(skipped);
-                    FileString4("Jenkins","sum=" + String.valueOf(sum));
+                    int success = Integer.parseInt(total)- error;
+                    FileString4("Jenkins","success=" + String.valueOf(success));
                 }
             }
         }
@@ -54,6 +54,7 @@ public class JenkinsReportData {
             e.printStackTrace();
         }
     }
+
 
     public static void writeFile(String path) throws Exception{
         System.out.println(systemPath);

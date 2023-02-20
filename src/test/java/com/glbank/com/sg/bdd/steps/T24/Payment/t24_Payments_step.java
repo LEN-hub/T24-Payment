@@ -277,7 +277,7 @@ public class t24_Payments_step extends ScenarioSteps {
     public void interfaceReturnInformationQuery(){
         if (t24_payments_page.getStatus.getText().equals("677") || t24_payments_page.getStatus.getText().equals("687") || t24_payments_page.getStatus.getText().equals("999") || t24_payments_page.getStatus.getText().equals("404")){
             System.out.println("交易成功！");
-        }else {
+        }else{
             System.out.println("交易失败！");
         }
     }
@@ -300,7 +300,7 @@ public class t24_Payments_step extends ScenarioSteps {
 
     @Step
     public void checkCurrency() {
-        Assert.assertEquals(t24_payments_page.getCreditAccountCurrency.getText(),"USD");
+        Assert.assertEquals(t24_payments_page.getCreditAccountCurrency.getText(),paymentService_step.transferCurrency);
     }
     @Step
     public void checkAmount() {
@@ -411,10 +411,10 @@ public class t24_Payments_step extends ScenarioSteps {
         System.out.println(format);
         int time = Integer.parseInt(format);
         if (i == Friday){
-            if (time>1600){
+            if (time>Integer.parseInt(String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","cut_off_time_after")))){
                 Assert.assertEquals(DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"),convertDate(t24_payments_page.getDebitValueDate.getText()));
                 Assert.assertEquals(DateUtil.format(DateUtil.offsetDay(new Date(),3),"yyyy-MM-dd"),convertDate(t24_payments_page.getCreditValueDate.getText()));
-            }else if (time<1600){
+            }else if (time<Integer.parseInt(String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","cut_off_time_after")))){
                 Assert.assertEquals(DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"),convertDate(t24_payments_page.getDebitValueDate.getText()));
                 Assert.assertEquals(DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"),convertDate(t24_payments_page.getCreditValueDate.getText()));
             }
@@ -425,15 +425,14 @@ public class t24_Payments_step extends ScenarioSteps {
             Assert.assertEquals(DateUtil.format(DateUtil.offsetDay(new Date(),1),"yyyy-MM-dd"),convertDate(t24_payments_page.getDebitValueDate.getText()));
             Assert.assertEquals(DateUtil.format(DateUtil.offsetDay(new Date(),1),"yyyy-MM-dd"),convertDate(t24_payments_page.getCreditValueDate.getText()));
         }else {
-            if (time>1600){
+            if (time>Integer.parseInt(String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","cut_off_time_after")))){
                 Assert.assertEquals(DateUtil.format(DateUtil.offsetDay(new Date(),1),"yyyy-MM-dd"),convertDate(t24_payments_page.getDebitValueDate.getText()));
                 Assert.assertEquals(DateUtil.format(DateUtil.offsetDay(new Date(),1),"yyyy-MM-dd"),convertDate(t24_payments_page.getCreditValueDate.getText()));
-            }else if (time<1600){
+            }else if (time<Integer.parseInt(String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","cut_off_time_after")))){
                 Assert.assertEquals(DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"),convertDate(t24_payments_page.getDebitValueDate.getText()));
                 Assert.assertEquals(DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"),convertDate(t24_payments_page.getCreditValueDate.getText()));
             }
         }
-
     }
     @Step
     public void channelAndT24DataFieldMappingSameCurrency(String WordPath){
@@ -1728,10 +1727,12 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
         bddUtil.sleep(5);
-        BigDecimal b1 = new BigDecimal(doubleSum);
-        BigDecimal b2 = new BigDecimal(doubleTransactionAmount);
-        if (t24_payments_page.firstDebitAmount.getText().contains(".")){
-            Assert.assertEquals(String.valueOf(b1.add(b2).setScale(2, RoundingMode.HALF_UP).doubleValue()),t24_payments_page.firstDebitAmount.getText().replace(",",""));
+        if (doubleSum != null && doubleSum != 0){
+            BigDecimal b1 = new BigDecimal(doubleSum);
+            BigDecimal b2 = new BigDecimal(doubleTransactionAmount);
+            if (t24_payments_page.firstDebitAmount.getText().contains(".")){
+                Assert.assertEquals(String.valueOf(b1.add(b2).setScale(2, RoundingMode.HALF_UP).doubleValue()),t24_payments_page.firstDebitAmount.getText().replace(",",""));
+            }
         }
         BigDecimal num1 = new BigDecimal(t24_payments_page.getMinuend.getText().replace(",",""));
         BigDecimal num2 = new BigDecimal(t24_payments_page.firstDebitAmount.getText().replace(",",""));

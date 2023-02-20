@@ -307,24 +307,81 @@ public class paymentService_glue {
         paymentService_step.singSuccess();
     }
 
-    @Given("^Overseas transfer in the same currency and single currency SHA SGD-SGD$")
+    @Given("^Overseas transfer in the same currency and single currency SGD-SGD$")
     public void overseasTransferInTheSameCurrencyAndSingleCurrencySHASGDSGD(DataTable data) {
         List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
-        paymentService_step.SGD_Single_Currency_Charging(payToInfo.get(0).get("Deposit amount"));
-        paymentService_step.overseas_Transfer_SGD_SGD(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.SGD_Single_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.overseas_Transfer_Single_Currency_SGD_SGD(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
 
     }
 
-    @Given("^Overseas transfer in the same currency and single currency SHA USD-USD$")
+    @Given("^Overseas transfer in the same currency and single currency USD-USD$")
     public void overseasTransferInTheSameCurrencyAndSingleCurrencySHAUSDUSD(DataTable data) {
             List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
-            paymentService_step.USD_Single_Currency_Charging(payToInfo.get(0).get("Deposit amount"));
-            paymentService_step.overseas_Transfer_USD_USD_001(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"));
+            paymentService_step.USD_Single_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+            paymentService_step.overseas_Transfer_Single_Currency_USD_USD_001(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
     }
 
     @When("^I click the submit button on the page until I jump to the verification code acquisition page$")
     public void iClickTheSubmitButtonOnThePageUntilIJumpToTheVerificationCodeAcquisitionPage() {
             paymentService_step.clickSubmitBtnJumpToVerifyCode();
+    }
+
+    @Given("^Overseas transfer in the same currency and Multi currency SGD-SGD$")
+    public void overseasTransferInTheSameCurrencyAndMultiCurrencySGDSGD(DataTable data) {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.SGD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.overseas_Transfer_Fees_Query(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
+        paymentService_step.overseas_Transfer_Multi_Currency_SGD_SGD(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
+    }
+
+    @Given("^Overseas transfer in the same currency and Multi currency USD-USD$")
+    public void overseasTransferInTheSameCurrencyAndMultiCurrencyUSDUSD(DataTable data) {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.USD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.USD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.USD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.USD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.overseas_Transfer_Fees_Query(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
+        paymentService_step.overseas_Transfer_Multi_Currency_USD_USD(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
+    }
+
+    @Given("^Overseas transfer in the Different currency and Single currency SGD-USD$")
+    public void overseasTransferInTheDifferentCurrencyAndSingleCurrencySGDUSD(DataTable data) {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.SGD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.overseas_Transfer_Fees_Query(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
+        paymentService_step.overseas_Transfer_Single_Currency_SGD_USD(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
+    }
+
+    @Given("^Overseas transfer in the Different currency and Single currency USD-SGD$")
+    public void overseasTransferInTheDifferentCurrencyAndSingleCurrencyUSDSGD(DataTable data) {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.USD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.USD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.USD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.USD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.overseas_Transfer_Fees_Query(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
+        paymentService_step.overseas_Transfer_Single_Currency_USD_SGD(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
+    }
+
+    @Given("^Overseas transfer in the Different currency and Multi currency SGD-USD$")
+    public void overseasTransferInTheDifferentCurrencyAndMultiCurrencySGDUSD(DataTable data) {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.SGD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.overseas_Transfer_Fees_Query(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
+        paymentService_step.overseas_Transfer_Multi_Currency_SGD_USD(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
+    }
+
+    @Given("^Overseas transfer in the Different currency and Multi currency USD-SGD$")
+    public void overseasTransferInTheDifferentCurrencyAndMultiCurrencyUSDSGD(DataTable data) {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        paymentService_step.USD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.USD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.USD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.USD_Multi_Currency_Charging(payToInfo.get(0).get("Deposit amount"),payToInfo.get(0).get("Charge Option"));
+        paymentService_step.overseas_Transfer_Fees_Query(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
+        paymentService_step.overseas_Transfer_Multi_Currency_USD_SGD(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
     }
 }
 

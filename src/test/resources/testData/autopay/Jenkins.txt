@@ -1,5 +1,5 @@
-success=0
-error=1
-failures=0
+success=6
+error=0
+failures=6
 skipped=0
-sum=2
+sum=0
