@@ -17,7 +17,7 @@ public class JenkinsReportData {
         try {
             writeFile("Jenkins");
 //creating a constructor of file class and parsing an XML file
-            File file = new File( "C:/Users/CyberArk/.jenkins/workspace/SCF_HealthCheck_Automation/target/failsafe-reports/failsafe-summary.xml");
+            File file = new File( systemPath+"/target/failsafe-reports/failsafe-summary.xml");
 //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 //an instance of builder to parse the specified xml file
@@ -34,18 +34,18 @@ public class JenkinsReportData {
                 if (node.getNodeType() == Node.ELEMENT_NODE)
                 {
                     Element eElement = (Element) node;
-                    String success = eElement.getElementsByTagName("completed").item(0).getTextContent();
+                    String total = eElement.getElementsByTagName("completed").item(0).getTextContent();
                     String errors = eElement.getElementsByTagName("errors").item(0).getTextContent();
                     String failures = eElement.getElementsByTagName("failures").item(0).getTextContent();
                     String skipped = eElement.getElementsByTagName("skipped").item(0).getTextContent();
-                    int successReport = Integer.parseInt(success);
+                    int successReport = Integer.parseInt(total);
                     System.out.println(successReport);
-                    FileString4("Jenkins","success="+successReport);
+                    FileString4("Jenkins","total="+successReport);
                     FileString4("Jenkins","error="+errors);
                     FileString4("Jenkins","failures="+failures);
                     FileString4("Jenkins","skipped="+skipped);
-                    int sum = Integer.parseInt(success)+Integer.parseInt(errors)+Integer.parseInt(failures)+Integer.parseInt(skipped);
-                    FileString4("Jenkins","sum=" + String.valueOf(sum));
+                    int success = Integer.parseInt(total)-(Integer.parseInt(errors)+Integer.parseInt(failures)+Integer.parseInt(skipped));
+                    FileString4("Jenkins","success=" + String.valueOf(success));
                 }
             }
         }
@@ -55,9 +55,10 @@ public class JenkinsReportData {
         }
     }
 
+
     public static void writeFile(String path) throws Exception{
         System.out.println(systemPath);
-        String allPath = "C:/Users/CyberArk/.jenkins/workspace/SCF_HealthCheck_Automation/src/test/resources/testData/autopay/" + path + ".txt";
+        String allPath = systemPath+"/src/test/resources/testData/autopay/" + path + ".txt";
         File f = new File (allPath);
         FileWriter fw = new FileWriter (f);
         fw.write("");
@@ -67,7 +68,7 @@ public class JenkinsReportData {
 
     public static void FileString4(String path, String data) {
         try {
-            String allPath = "C:/Users/CyberArk/.jenkins/workspace/SCF_HealthCheck_Automation/src/test/resources/testData/autopay/" + path + ".txt";
+            String allPath = systemPath+"/src/test/resources/testData/autopay/" + path + ".txt";
             File file=new File(allPath);
             if(!file.isFile() && !file.exists()){ //判断文件是否存在
                 file.createNewFile();
@@ -87,7 +88,7 @@ public class JenkinsReportData {
     }
 
     public static String FileInput3(String path) {
-        path = "C:/Users/CyberArk/.jenkins/workspace/SCF_HealthCheck_Automation/src/test/resources/testData/autopay/" + path + ".txt";
+        path = systemPath+"/src/test/resources/testData/autopay/" + path + ".txt";
         StringBuffer buffer = new StringBuffer();
         try {
             BufferedReader bufferedReader = new BufferedReader(
