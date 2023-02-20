@@ -27,6 +27,16 @@ public class rpa_page extends PageObject {
     @FindBy(xpath = "//div[@class='lowcode-table-base']//span[contains(text(),'Upload')]")
     public WebElementFacade clickUploadBtn;
 
+    @FindBy(xpath = "//div[@data-key='f17r962a']/button/span")
+    public WebElementFacade uploadBtn;
+
+    @FindBy(xpath = "//div[contains(text(),\"Company\")]/parent::label/following-sibling::div//input")
+    public WebElementFacade companyName;
+
+    @FindBy(xpath = "//div[contains(text(),\"Contract Type\")]/parent::label/following-sibling::div//input")
+    public WebElementFacade ContractType;
+
+
     @FindBy(xpath = "//div[contains(text(),'Active Date of Contract')]/parent::label/following-sibling::div//input")
     public WebElementFacade enterDate;
 
@@ -132,6 +142,9 @@ public class rpa_page extends PageObject {
 
     @FindBy(xpath = "//body[@id='body']//a[@id='proceed-link']")
     public WebElementFacade getJumpToInbLink;
+
+    @FindBy(xpath = "//div[@class='el-message-box']//button[@type='button']")
+    public WebElementFacade okBtn;
 
     @FindBy(xpath = "//span[text()='Contract']")
     public WebElementFacade Contract;

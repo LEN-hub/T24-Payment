@@ -66,8 +66,14 @@ public class financingRequest_page extends PageObject {
     @FindBy(xpath = "//label[text()=\"Result\"]/following-sibling::div//input")
     public WebElementFacade clickResult;
 
+    @FindBy(xpath = "//div[@class='report_title']/div[@class='tip_top']/i[2]")
+    public WebElementFacade amlStatus;
+
     @FindBy(xpath = "//span[text()=\"Approve\"]")
     public WebElementFacade getApprove;
+
+    @FindBy(xpath = "//span[text()=\"Return\"]")
+    public WebElementFacade getReturn;
 
     @FindBy(xpath = "//textarea")
     public WebElementFacade getComments;

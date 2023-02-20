@@ -39,9 +39,16 @@ public class rpa_steps extends ScenarioSteps {
     public void clickContractManagement(){rpaPage.ContractManagement.click();}
 
     @Step
-    public void titleOverview(){
+    public void titleOverview() throws Exception{
         bddUtil.sleep(5);
         rpaPage.titleOverview.isDisabled();
+        if (rpaPage.titleOverview.getText().equals("Overview")){
+            System.out.println("ISSO系统正常");
+        }else {
+            System.out.println("ISSO系统有问题");
+            throw new Exception("ISSO系统有问题");
+        }
+        bddUtil.sleep(3);
     }
 
     @Step
@@ -52,6 +59,52 @@ public class rpa_steps extends ScenarioSteps {
         getDriver().findElement(By.xpath("//div[@class='lls-upload-dragger']/following-sibling::input")).sendKeys(fileAddress);
         String Date = DateUtil.format(DateUtil.offsetDay(new Date(),365),"yyyy-MM-dd");
         rpaPage.enterDate.sendKeys(Date);
+        bddUtil.sleep(3);
+        rpaPage.clickNextBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.clickConfirmBtn.click();
+        bddUtil.sleep(5);
+    }
+
+    @Step
+    public void uploadRpa(){
+        rpaPage.uploadBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.companyName.click();
+        bddUtil.sleep(3);
+        rpaPage.companyName.sendKeys("testVaultData4");
+        bddUtil.sleep(1);
+        rpaPage.companyName.clear();
+        rpaPage.companyName.sendKeys("testVaultData4");
+        bddUtil.sleep(2);
+        getDriver().findElement(By.xpath("//span[text()='testVaultData4']")).click();
+        rpaPage.ContractType.click();
+        bddUtil.sleep(2);
+        getDriver().findElements(By.xpath("//span[text()='RPA Full Recourse']")).get(1).click();
+        getDriver().findElement(By.xpath("//div[@class='lls-upload-dragger']/following-sibling::input")).sendKeys(fileAddress);
+        bddUtil.sleep(3);
+        rpaPage.clickNextBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.clickConfirmBtn.click();
+        bddUtil.sleep(5);
+    }
+
+    @Step
+    public void uploadRpaUAT(){
+        rpaPage.uploadBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.companyName.click();
+        bddUtil.sleep(3);
+        rpaPage.companyName.sendKeys("BuyerTest");
+        bddUtil.sleep(1);
+        rpaPage.companyName.clear();
+        rpaPage.companyName.sendKeys("BuyerTest");
+        bddUtil.sleep(2);
+        getDriver().findElement(By.xpath("//span[text()='BuyerTest']")).click();
+        rpaPage.ContractType.click();
+        bddUtil.sleep(2);
+        getDriver().findElements(By.xpath("//span[text()='RPA Full Recourse']")).get(1).click();
+        getDriver().findElement(By.xpath("//div[@class='lls-upload-dragger']/following-sibling::input")).sendKeys(fileAddress);
         bddUtil.sleep(3);
         rpaPage.clickNextBtn.click();
         bddUtil.sleep(1);
@@ -225,16 +278,51 @@ public class rpa_steps extends ScenarioSteps {
         rpaPage.clickGoToDigibankLink.click();
     }
 
-    public void jumpToInbLink(){
+    public void jumpToInbLink() throws Exception{
+        bddUtil.switchToNewWindow();
+        // 获取当前URL
+        String url = getDriver().getCurrentUrl();
+        // 拼接成新URL
+        String newUrl = "https://inb-sit.intranet.glbank.com/"+url.substring(34,url.length());
+        System.out.println(newUrl);
+        getDriver().get(newUrl);
+//        if (rpaPage.clickSeniorBtn.isVisible()){
+//            rpaPage.clickSeniorBtn.click();
+//            rpaPage.getJumpToInbLink.click();
+//            rpaPage.jumpToInbLinkCheck.click();
+//        }else {
+//            rpaPage.jumpToInbLinkCheck.click();
+//        }
+        //断言是否进入INB系统
+        getDriver().findElement(By.xpath("//span[text()='Tips']")).getText().equals("Tips");
+        if (getDriver().findElement(By.xpath("//span[text()='Tips']")).getText().equals("Tips")){
+            System.out.println("成功进入系统");
+        }else {
+            throw new Exception("INB系统进入失败");
+        }
+        bddUtil.sleep(3);
+    }
+
+    public void jumpToInbLinkUAT() throws Exception{
         bddUtil.switchToNewWindow();
         if (rpaPage.clickSeniorBtn.isVisible()){
             rpaPage.clickSeniorBtn.click();
             rpaPage.getJumpToInbLink.click();
+            if (rpaPage.okBtn.isVisible()){
+                rpaPage.okBtn.click();
+                bddUtil.sleep(2);
+            }
             rpaPage.jumpToInbLinkCheck.click();
         }else {
             rpaPage.jumpToInbLinkCheck.click();
         }
-        bddUtil.sleep(5);
+        //断言是否进入INB系统
+        if (getDriver().findElement(By.xpath("//div[text()='Select the option that best describes your situation:']")).getText().equals("Select the option that best describes your situation:")){
+            System.out.println("成功进入系统");
+        }else {
+            throw new Exception("INB系统进入失败");
+        }
+        bddUtil.sleep(3);
     }
 
     public void inputLogin(){
