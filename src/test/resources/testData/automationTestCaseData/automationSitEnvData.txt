@@ -11,3 +11,4 @@ sit_BIC_DBS:DBSSSGS0
 sit_BIC_BankOfChina:BKCHSGS0XXX
 paynow_BIC:SACHSGS0XXX
 customer_sit:200510
+cut_off_time_after:1600
