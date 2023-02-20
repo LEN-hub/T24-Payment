@@ -153,7 +153,7 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.clickSubmit.click();
         //判断融资申请提交以后是否成功。
         for (int i = 0; i < 5; i++) {
-            bddUtil.sleep(15);
+            bddUtil.sleep(20);
 //            if (getDriver().findElement(By.xpath("//h2[text()='Financing Request']")).isDisplayed()){
 //                break;
 //            }else {
@@ -202,16 +202,26 @@ public class financingRequest_step extends ScenarioSteps {
             }
         }
         if (financingRequest_page.amlStatus.getAttribute("class").equals("lls-icon-warning icon_pending")){
+            financingRequest_page.clickResult.click();
+            bddUtil.scrollWindowToElement(financingRequest_page.getReturn).click();
+            financingRequest_page.getComments.sendKeys("return");
+            financingRequest_page.clickSubmit.click();
+            bddUtil.sleep(5);
             System.out.println("AML结果未返回");
             throw new Exception("AML结果未返回");
         }else{
+            financingRequest_page.clickResult.click();
+            bddUtil.scrollWindowToElement(financingRequest_page.getReturn).click();
+            financingRequest_page.getComments.sendKeys("return");
+            financingRequest_page.clickSubmit.click();
+            bddUtil.sleep(5);
             System.out.println("aml结果返回成功");
         }
-        financingRequest_page.clickResult.click();
-        bddUtil.scrollWindowToElement(financingRequest_page.getReturn).click();
-        financingRequest_page.getComments.sendKeys("return");
-        financingRequest_page.clickSubmit.click();
-        bddUtil.sleep(5);
+//        financingRequest_page.clickResult.click();
+//        bddUtil.scrollWindowToElement(financingRequest_page.getReturn).click();
+//        financingRequest_page.getComments.sendKeys("return");
+//        financingRequest_page.clickSubmit.click();
+//        bddUtil.sleep(5);
     }
 
 
