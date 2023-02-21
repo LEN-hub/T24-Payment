@@ -332,7 +332,7 @@ public class t24_Payments_step extends ScenarioSteps {
     public void checkFee(){
         t24_payments_page.getClickChargeInformation.click();
         if (t24_payments_page.getDebitChargeAmount.isVisible()){
-            Assert.assertEquals(t24_payments_page.getDebitChargeAmount.getText(),"10.00");
+            Assert.assertEquals(t24_payments_page.getDebitChargeAmount.getText(),String.format("%.2f",doubleSum));
         }else if (t24_payments_page.getCreditChargeAmount.isVisible()){
             Assert.assertEquals(t24_payments_page.getCreditChargeAmount.getText(),String.format("%.2f",doubleSum));
         }
