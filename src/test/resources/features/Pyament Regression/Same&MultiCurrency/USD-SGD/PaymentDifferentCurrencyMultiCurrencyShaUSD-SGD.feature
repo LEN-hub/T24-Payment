@@ -19,7 +19,7 @@ Feature: Payment Different Currency and Multi Sha Automation Test Case Execution
     Then Verify fees
     Then Verify T24 transaction status
     Then Verify cut off time date
-    Then Verify of successful deduction of transfer-out account
+    Then Verify of successful deduction of MYC transfer-out account
       |windows Title            |
       |AA Arrangement - SIT GLDB|
 
@@ -41,7 +41,7 @@ Feature: Payment Different Currency and Multi Sha Automation Test Case Execution
     Then Verify fees
     Then Verify T24 transaction status
     Then Verify cut off time date
-    Then Verify of successful deduction of transfer-out account
+    Then Verify of successful deduction of MYC transfer-out account
       |windows Title            |
       |AA Arrangement - SIT GLDB|
 

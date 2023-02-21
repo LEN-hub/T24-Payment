@@ -18,7 +18,7 @@ Feature: Payment Same Currency and Single BEN Automation Test Case Execution USD
     Then Verify transfer amount
     Then Verify fees
     Then Verify T24 transaction status
-#    Then Verify cut off time date
+    Then Verify cut off time date
     Then Verify of successful deduction of transfer-out account
       |windows Title            |
       |AA Arrangement - SIT GLDB|
@@ -27,7 +27,7 @@ Feature: Payment Same Currency and Single BEN Automation Test Case Execution USD
   Scenario:Overseas transfer in the same currency and single currency BEN Automation Test Case Execution USD-USD = 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |190000        |180000             |BEN          |USD                         |
+      |100000        |180000             |BEN          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -40,7 +40,7 @@ Feature: Payment Same Currency and Single BEN Automation Test Case Execution USD
     Then Verify transfer amount
     Then Verify fees
     Then Verify T24 transaction status
-#    Then Verify cut off time date
+    Then Verify cut off time date
     Then Verify of successful deduction of transfer-out account
       |windows Title            |
       |AA Arrangement - SIT GLDB|
@@ -49,7 +49,7 @@ Feature: Payment Same Currency and Single BEN Automation Test Case Execution USD
   Scenario:Overseas transfer in the same currency and single currency BEN Automation Test Case Execution USD-USD > 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |190000        |190000             |BEN          |USD                         |
+      |100000        |190000             |BEN          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |

@@ -218,6 +218,11 @@ public class t24_Payments_step extends ScenarioSteps {
     public void clickFindAccountMenu(){
         t24_payments_page.clickFindAccount.click();
     }
+
+    @Step
+    public void clickFindMCY(){
+        t24_payments_page.clickFindMCY.click();
+    }
     @Step
     public void clickPaymentHubMenu(){
         t24_payments_page.clickPaymentHubMenu.click();
@@ -252,6 +257,7 @@ public class t24_Payments_step extends ScenarioSteps {
 
     @Step
     public void checkDeductionAmount(){
+        bddUtil.sleep(2);
         t24_payments_page.getClickViewDetail.click();
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
@@ -264,9 +270,7 @@ public class t24_Payments_step extends ScenarioSteps {
         switchToDefaultContent();
         switchToSecondFrame();
         System.out.println(t24_payments_page.getAmount.getText());
-        if (t24_payments_page.getAmount.getText().contains(".")){
-            doubleSum = Double.valueOf(t24_payments_page.getAmount.getText());
-        }
+        doubleSum = Double.valueOf(t24_payments_page.getAmount.getText());
         bddUtil.closeWindow();
         bddUtil.switchToNewWindow();
         switchToDefaultContent();
@@ -309,6 +313,11 @@ public class t24_Payments_step extends ScenarioSteps {
         }
         if (t24_payments_page.getTransactionAmount.getText().replace(",", "").contains(".00")){
             Assert.assertEquals(t24_payments_page.getTransactionAmount.getText().replace(",", ""),paymentService_step.transferAmount+".00");
+        }else if(t24_payments_page.getDebitCustomerRate.isVisible()) {
+            Double doubleFirst = Double.parseDouble(t24_payments_page.getDebitCustomerRate.getText());
+            Double doubleSecond = Double.parseDouble(paymentService_step.transferAmount);
+            String multiplication = String.format("%.2f",(doubleSecond / doubleFirst));
+            Assert.assertEquals(t24_payments_page.getTransactionAmount.getText().replace(",",""),multiplication);
         }else {
             Assert.assertEquals(t24_payments_page.getTransactionAmount.getText().replace(",", ""),paymentService_step.transferAmount);
         }
@@ -324,6 +333,8 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.getClickChargeInformation.click();
         if (t24_payments_page.getDebitChargeAmount.isVisible()){
             Assert.assertEquals(t24_payments_page.getDebitChargeAmount.getText(),"10.00");
+        }else if (t24_payments_page.getCreditChargeAmount.isVisible()){
+            Assert.assertEquals(t24_payments_page.getCreditChargeAmount.getText(),String.format("%.2f",doubleSum));
         }
     }
     @Step
@@ -1721,19 +1732,38 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void findInputArrangement(){
         t24_payments_page.inputArrangement.clear();
-        t24_payments_page.inputArrangement.sendKeys(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","USD_AC_SingleCurrency"));
+        t24_payments_page.inputArrangement.sendKeys(paymentService_step.transferAccount);
         t24_payments_page.getClickFindBtn.click();
         t24_payments_page.clickOverViewBtn.click();
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
         bddUtil.sleep(5);
-        if (doubleSum != null && doubleSum != 0){
-            BigDecimal b1 = new BigDecimal(doubleSum);
-            BigDecimal b2 = new BigDecimal(doubleTransactionAmount);
-            if (t24_payments_page.firstDebitAmount.getText().contains(".")){
-                Assert.assertEquals(String.valueOf(b1.add(b2).setScale(2, RoundingMode.HALF_UP).doubleValue()),t24_payments_page.firstDebitAmount.getText().replace(",",""));
-            }
+        BigDecimal num1 = new BigDecimal(t24_payments_page.getMinuend.getText().replace(",",""));
+        BigDecimal num2 = new BigDecimal(t24_payments_page.firstDebitAmount.getText().replace(",",""));
+        String result = String.valueOf(num1.subtract(num2));
+        System.out.println(result);
+        String getDifference = creatCustomers_step.solve(result);
+        if (getDifference.equals(t24_payments_page.getDifference.getText())){
+            System.out.println("金额比对成功！");
         }
+    }
+
+    @Step
+    public void findMCYInputArrangement(){
+        t24_payments_page.inputArrangement.clear();
+        t24_payments_page.inputArrangement.sendKeys(paymentService_step.transferAccount.substring(0,11));
+        t24_payments_page.getClickFindBtn.click();
+        t24_payments_page.clickOverViewBtn.click();
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        if (paymentServiceStep.transferCurrency.equals("SGD")){
+            t24_payments_page.clickMultiCurrencySGDOverview.click();
+        }else if (paymentServiceStep.transferCurrency.equals("USD")){
+            t24_payments_page.getClickMultiCurrencyUSDOverview.click();
+        }
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(5);
         BigDecimal num1 = new BigDecimal(t24_payments_page.getMinuend.getText().replace(",",""));
         BigDecimal num2 = new BigDecimal(t24_payments_page.firstDebitAmount.getText().replace(",",""));
         String result = String.valueOf(num1.subtract(num2));

@@ -27,7 +27,7 @@ Feature: Payment Same Currency and Single OUR Automation Test Case Execution USD
   Scenario:Overseas transfer in the same currency and single currency OUR Automation Test Case Execution USD-USD = 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |190000        |180000             |OUR          |USD                         |
+      |100000        |180000             |OUR          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -49,7 +49,7 @@ Feature: Payment Same Currency and Single OUR Automation Test Case Execution USD
   Scenario:Overseas transfer in the same currency and single currency OUR Automation Test Case Execution USD-USD > 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |190000        |190000             |OUR          |USD                         |
+      |100000        |190000             |OUR          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
