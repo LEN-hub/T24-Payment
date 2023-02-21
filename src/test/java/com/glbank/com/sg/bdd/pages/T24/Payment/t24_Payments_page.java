@@ -29,6 +29,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//a[text()='Find Account ']")
     public WebElementFacade clickFindAccount;
 
+    @FindBy(xpath = "//a[text()='Find Multi Currency ']")
+    public WebElementFacade clickFindMCY;
+
 
     @FindBy(xpath = "//span[text()='Payments']")
     public WebElementFacade clickPayments;
@@ -381,6 +384,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//a[text()='Debit Charge Amount.1']/parent::label/parent::td/following-sibling::td[2]/span")
     public WebElementFacade getDebitChargeAmount;
 
+    @FindBy(xpath = "//a[text()='Credit Charge Amount.1']/parent::label/parent::td/following-sibling::td[2]/span")
+    public WebElementFacade getCreditChargeAmount;
+
     @FindBy(xpath = "//a[text()='Credit Currency']/parent::label/parent::td/following-sibling::td[2]/span")
     public WebElementFacade fundsTransferCreditCurrency;
 
@@ -431,4 +437,10 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//span[text()='Debit Credit Info']")
     public WebElementFacade clickdebitCreditInfoMenu;
+
+    @FindBy(xpath = "//td[text()='SGD']/following-sibling::td[6]//img[@title='Overview']")
+    public WebElementFacade clickMultiCurrencySGDOverview;
+
+    @FindBy(xpath = "//td[text()='USD']/following-sibling::td[6]//img[@title='Overview']")
+    public WebElementFacade getClickMultiCurrencyUSDOverview;
 }

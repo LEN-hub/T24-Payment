@@ -330,4 +330,15 @@ public class t24_Payments_glue {
         t24_payments_step.checkRateOverseaDifferentCurrencyMX(title.get(0).get("WordPath"));
 
     }
+
+    @Then("^Verify of successful deduction of MYC transfer-out account$")
+    public void verifyOfSuccessfulDeductionOfMYCTransferOutAccount(DataTable data) {
+        t24_payments_step.closeAllTabJumpToHomePage();
+        t24_payments_step.clickProductsMenu();
+        t24_payments_step.clickFindMCY();
+        t24_payments_step.switchToDefaultContent();
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
+        t24_payments_step.findMCYInputArrangement();
+    }
 }
