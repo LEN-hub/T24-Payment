@@ -15,6 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 import javax.swing.*;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import static com.glbank.com.sg.bdd.utils.HaveOrNo.updateAml;
 import static com.glbank.com.sg.bdd.utils.MobileConfig.driver;
@@ -153,7 +154,9 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.clickSubmit.click();
         //判断融资申请提交以后是否成功。
         for (int i = 0; i < 5; i++) {
-            bddUtil.sleep(20);
+            // 隐性等待。
+            getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//            bddUtil.sleep(10);
 //            if (getDriver().findElement(By.xpath("//h2[text()='Financing Request']")).isDisplayed()){
 //                break;
 //            }else {
