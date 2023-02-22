@@ -5,7 +5,7 @@ Feature: Payment Same Currency and Single SHA Automation Test Case Execution USD
   Scenario:Overseas transfer in the same currency and single currency Automation Test Case Execution SHA USD-USD < 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |SHA          |USD                         |
+      |10            |5                  |SHA          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |

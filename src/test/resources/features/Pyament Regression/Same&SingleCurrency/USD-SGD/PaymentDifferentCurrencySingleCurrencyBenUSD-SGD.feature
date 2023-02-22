@@ -5,7 +5,7 @@ Feature: Payment Different Currency and Single Ben Automation Test Case Executio
   Scenario:Overseas transfer in the Different currency and Single currency BEN Automation Test Case Execution USD-SGD < 250k
     Given Overseas transfer in the Different currency and Single currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |BEN          |SGD                         |
+      |10            |5                  |BEN          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |

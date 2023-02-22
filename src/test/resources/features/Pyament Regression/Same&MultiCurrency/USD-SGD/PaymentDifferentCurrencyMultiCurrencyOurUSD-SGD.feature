@@ -5,7 +5,7 @@ Feature: Payment Different Currency and Multi Our Automation Test Case Execution
   Scenario:Overseas transfer in the Different currency and Multi currency OUR Automation Test Case Execution USD-SGD < 250k
     Given Overseas transfer in the Different currency and Multi currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |OUR          |SGD                         |
+      |10            |5               |OUR          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
