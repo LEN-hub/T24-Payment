@@ -35,7 +35,8 @@ public class createSupplierCreditFile_step extends PageObject {
         bddUtil.sleep(5);
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.find(By.xpath("//span[text()='"+ companyName +"']"))).click();
         createSupplierCreditFile_page.clickToGetBuyer.click();
-        bddUtil.scrollWindowToElement(createSupplierCreditFile_page.find(By.xpath("//span[text()='"+ buyerName +"']"))).click();
+        bddUtil.sleep(1);
+        bddUtil.scrollWindowToElement(createSupplierCreditFile_page.findAll(By.xpath("//span[text()='"+ buyerName +"']")).get(1)).click();
         createSupplierCreditFile_page.clickToGetProductType.click();
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getProductType).click();
         createSupplierCreditFile_page.clickToGetInputBy.click();
@@ -143,7 +144,8 @@ public class createSupplierCreditFile_step extends PageObject {
         createSupplierCreditFile_page.clickStatusTitle.click();
         bddUtil.clickByJS(createSupplierCreditFile_page.clickSubmitBtn);
         bddUtil.sleep(2);
-        getDriver().findElement(By.xpath("//span[@class='back_view_item']")).click();
+        //这段代码暂时用不到
+//        getDriver().findElement(By.xpath("//span[@class='back_view_item']")).click();
     }
     @Step
     public void submitSupplierCreditProfile(String companyName){

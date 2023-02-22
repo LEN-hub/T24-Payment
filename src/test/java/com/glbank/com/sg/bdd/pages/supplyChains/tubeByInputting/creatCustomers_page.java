@@ -796,10 +796,10 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='custEmail']/following-sibling::div//input")
     public WebElementFacade companyEmail;
 
-    @FindBy(xpath = "//label[text()='Company Tel.']/following-sibling::div/div[1]//input")
+    @FindBy(xpath = "//label[text()='Company Tel.']/following-sibling::div/div[2]//input")
     public WebElementFacade companyPhoneNumber;
 
-    @FindBy(xpath = "//label[text()='Company Tel.']/following-sibling::div/div[2]//input")
+    @FindBy(xpath = "//label[text()='Company Tel.']/following-sibling::div/div[3]//input")
     public WebElementFacade companyPhoneNumberTwo;
 
     @FindBy(xpath = "//label[text()='Certificate of Incorporation']/following-sibling::div//span")
@@ -877,10 +877,10 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='name']/following-sibling::div//input")
     public WebElementFacade enterFullName;
 
-    @FindBy(xpath = "//div[text()='Applicant']/parent::div/following-sibling::div[1]//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[1]//input")
+    @FindBy(xpath = "//div[text()='Applicant']/parent::div/following-sibling::div[1]//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
     public WebElementFacade applicantPhoneNumFirst;
 
-    @FindBy(xpath = "//div[text()='Applicant']/parent::div/following-sibling::div[1]//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
+    @FindBy(xpath = "//div[text()='Applicant']/parent::div/following-sibling::div[1]//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[3]//input")
     public WebElementFacade applicantPhoneNumSecond;
 
     @FindBy(xpath = "//div[text()='Applicant']/parent::div/following-sibling::div[1]//label[@for='email']/following-sibling::div//input")
@@ -1136,10 +1136,10 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()='Shareholder 1']/parent::div/parent::div/following-sibling::div//label[@for='countryOfResidence']/following-sibling::div//input")
     public WebElementFacade shareholder1CountryOfResidence;
 
-    @FindBy(xpath = "//div[text()='Shareholder 1']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[1]//input")
+    @FindBy(xpath = "//div[text()='Shareholder 1']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
     public WebElementFacade shareholder1FirstPhoneNum;
 
-    @FindBy(xpath = "//div[text()='Shareholder 1']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
+    @FindBy(xpath = "//div[text()='Shareholder 1']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[3]//input")
     public WebElementFacade shareholder1SecondPhoneNum;
 
     @FindBy(xpath = "//div[text()='Shareholder 1']/parent::div/parent::div/following-sibling::div//label[@for='email']/following-sibling::div//input")
@@ -1181,10 +1181,10 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()='Shareholder 2']/parent::div/parent::div/following-sibling::div//label[@for='countryOfResidence']/following-sibling::div//input")
     public WebElementFacade shareholder2CountryOfResidence;
 
-    @FindBy(xpath = "//div[text()='Shareholder 2']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[1]//input")
+    @FindBy(xpath = "//div[text()='Shareholder 2']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
     public WebElementFacade shareholder2FirstPhoneNum;
 
-    @FindBy(xpath = "//div[text()='Shareholder 2']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[2]//input")
+    @FindBy(xpath = "//div[text()='Shareholder 2']/parent::div/parent::div/following-sibling::div//label[text()='Mobile (SMS-enabled)']/following-sibling::div/div[3]//input")
     public WebElementFacade shareholder2SecondPhoneNum;
 
     @FindBy(xpath = "//div[text()='Shareholder 2']/parent::div/parent::div/following-sibling::div//label[@for='email']/following-sibling::div//input")

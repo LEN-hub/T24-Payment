@@ -7,7 +7,6 @@ Feature: Sanity Pack SCF SIT Test Case
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully_SIT
     Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
     When open the email browser page
-#      And I switch to the SCF page
     When I click Customers and select Onboarding List
     And I click Create Customer and fill in the supplier information in the pop-up window
       |KYC Mode                  |Input by|Customer Type|
@@ -36,8 +35,8 @@ Feature: Sanity Pack SCF SIT Test Case
     Then Check whether to jump to the next page after filling in the content of Company page
     When Fill in the administrator information on the People page and click Next to go to the Next page
     When I click next Button on the page
-#      Then Verify whether the director page is displayed
-#      When Fill in the board information on the current page and click the Next button
+#    Then Verify whether the director page is displayed
+#    When Fill in the board information on the current page and click the Next button
     Then Verify whether the Shareholder page is displayed
     When Fill in the user information on the Shareholder page
       |allocation |
@@ -67,7 +66,7 @@ Feature: Sanity Pack SCF SIT Test Case
     When I close driver
 
 
-  #2.simple（核心不存在、非自主、无管理员）
+  #2.simple 买方（核心不存在、非自主、无管理员）
   @sanity_pack_supplier_simple_kyc_buyer_sit
   Scenario:Simple (core does not exist, non autonomous, no administrator)_SIT
     Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system

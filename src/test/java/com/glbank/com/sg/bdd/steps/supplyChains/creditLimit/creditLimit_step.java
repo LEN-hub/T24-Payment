@@ -176,7 +176,7 @@ public class creditLimit_step extends ScenarioSteps {
         List<WebElementFacade> actions = creditLimit_page.actionList;
         for (int i = 0; i <roles.size() ; i++) {
             if (roles.get(i).getText().equals(FileUtils.LastReadFileInput3("companyData"))){
-                getDriver().findElements(By.xpath("//div[@class='lowcode-table-fixed-right table-shadow']//span[@data-key='f3cahm5l']")).get(i).click();
+                getDriver().findElements(By.xpath("//div[@class='lowcode-table-fixed-right table-shadow']//span[@data-key='f0v0nf51']")).get(i).click();
 //                bddUtil.clickByJS(actions.get(i));
                 bddUtil.sleep(2);
                 break;
