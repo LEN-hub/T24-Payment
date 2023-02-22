@@ -640,7 +640,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.enterFullName.clear();
         customers_page.enterFullName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.applicantPhoneNumFirst.sendKeys("+86");
-        customers_page.applicantPhoneNumFirst.clear();
+        customers_page.applicantPhoneNumSecond.clear();
         customers_page.applicantPhoneNumSecond.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.applicantEmial.clear();
         customers_page.applicantEmial.sendKeys(value + "@ihotmails.com");

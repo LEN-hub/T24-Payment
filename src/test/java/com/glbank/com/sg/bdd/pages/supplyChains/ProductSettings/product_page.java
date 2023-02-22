@@ -43,6 +43,12 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[contains(text(), 'Maximum Financing Tenor')]/parent::label/following-sibling::div//input")
     public WebElementFacade financingTenor;
 
+    @FindBy(xpath = "//div[contains(text(), 'Credit Term')]/parent::label/following-sibling::div//input")
+    public WebElementFacade CreditTerm;
+
+    @FindBy(xpath = "//div[contains(text(), 'Grace Period')]/parent::label/following-sibling::div//input")
+    public WebElementFacade GracePeriod1;
+
     @FindBy(xpath = "//span[text()='Accepted']")
     public WebElementFacade Accepted;
 
@@ -235,7 +241,7 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")
     public List<WebElementFacade> buyerList;
 
-    @FindBy(xpath = "//div[@data-key='f21qf3bf']//input")
+    @FindBy(xpath = "//div[@data-key='f1efe2on']//input")
     public WebElementFacade GracePeriod;
 
     @FindBy(xpath = "//div[@data-key='f2f9mje0']//input")
