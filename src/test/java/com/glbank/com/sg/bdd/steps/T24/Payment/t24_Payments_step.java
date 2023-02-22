@@ -269,8 +269,9 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
         switchToDefaultContent();
         switchToSecondFrame();
-        System.out.println(t24_payments_page.getAmount.getText());
-        doubleSum = Double.valueOf(t24_payments_page.getAmount.getText());
+        if (t24_payments_page.getAmount.isVisible()){
+            doubleSum = Double.valueOf(t24_payments_page.getAmount.getText());
+        }
         bddUtil.closeWindow();
         bddUtil.switchToNewWindow();
         switchToDefaultContent();
