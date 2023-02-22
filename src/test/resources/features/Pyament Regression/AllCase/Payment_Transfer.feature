@@ -68,7 +68,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and single currency SHA USD-USD < 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |SHA          |USD                         |
+      |10            |5                  |SHA          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -90,7 +90,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and single currency SHA USD-USD = 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |190000        |180000             |SHA          |USD                         |
+      |100000        |180000             |SHA          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -112,7 +112,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and single currency SHA USD-USD > 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |190000        |190000             |SHA          |USD                         |
+      |100000        |100000             |SHA          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -190,7 +190,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and single currency BEN USD-USD < 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |BEN          |USD                         |
+      |10            |5                  |BEN          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -212,7 +212,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and single currency BEN USD-USD = 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |190000        |180000             |BEN          |USD                         |
+      |100000        |180000             |BEN          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -234,7 +234,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and single currency BEN USD-USD > 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |190000        |190000             |BEN          |USD                         |
+      |100000        |100000             |BEN          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -313,7 +313,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and single currency OUR USD-USD < 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |OUR          |USD                         |
+      |10            |5                  |OUR          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -335,7 +335,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and single currency OUR USD-USD = 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |190000        |180000             |OUR          |USD                         |
+      |100000        |180000             |OUR          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -357,7 +357,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and single currency OUR USD-USD > 250k
     Given Overseas transfer in the same currency and single currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |190000        |190000             |OUR          |USD                         |
+      |100000        |100000             |OUR          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -436,7 +436,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and Multi currency SHA USD-USD < 250k
     Given Overseas transfer in the same currency and Multi currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |SHA          |USD                         |
+      |10            |5                  |SHA          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -480,7 +480,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and Multi currency SHA USD-USD > 250k
     Given Overseas transfer in the same currency and Multi currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |100000        |190000             |SHA          |USD                         |
+      |100000        |100000             |SHA          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -559,7 +559,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and Multi currency BEN USD-USD < 250k
     Given Overseas transfer in the same currency and Multi currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |BEN          |USD                         |
+      |10            |5                  |BEN          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -603,7 +603,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and Multi currency BEN USD-USD > 250k
     Given Overseas transfer in the same currency and Multi currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |100000        |190000             |BEN          |USD                         |
+      |100000        |100000             |BEN          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -682,7 +682,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and Multi currency OUR USD-USD < 250k
     Given Overseas transfer in the same currency and Multi currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |OUR          |USD                         |
+      |10            |5                  |OUR          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -726,7 +726,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the same currency and Multi currency OUR USD-USD > 250k
     Given Overseas transfer in the same currency and Multi currency USD-USD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |100000        |190000             |OUR          |USD                         |
+      |100000        |100000             |OUR          |USD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -805,7 +805,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the Different currency and Single currency SHA USD-SGD < 250k
     Given Overseas transfer in the Different currency and Single currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |SHA          |SGD                         |
+      |10            |5                  |SHA          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -849,7 +849,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the Different currency and Single currency SHA USD-SGD > 250k
     Given Overseas transfer in the Different currency and Single currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |100000        |190000             |SHA          |SGD                         |
+      |100000        |100000             |SHA          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -928,7 +928,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the Different currency and Single currency BEN USD-SGD < 250k
     Given Overseas transfer in the Different currency and Single currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |BEN          |SGD                         |
+      |10            |5                  |BEN          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -972,7 +972,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the Different currency and Single currency BEN USD-SGD > 250k
     Given Overseas transfer in the Different currency and Single currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |100000        |190000             |BEN          |SGD                         |
+      |100000        |100000             |BEN          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -1051,7 +1051,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the Different currency and Single currency OUR USD-SGD < 250k
     Given Overseas transfer in the Different currency and Single currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |OUR          |SGD                         |
+      |10            |5                  |OUR          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -1095,7 +1095,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the Different currency and Single currency OUR USD-SGD > 250k
     Given Overseas transfer in the Different currency and Single currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |100000        |190000             |OUR          |SGD                         |
+      |100000        |100000             |OUR          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -1174,7 +1174,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the Different currency and Multi currency SHA USD-SGD < 250k
     Given Overseas transfer in the Different currency and Multi currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |SHA          |SGD                         |
+      |10            |5                  |SHA          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -1218,7 +1218,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the Different currency and Multi currency SHA USD-SGD > 250k
     Given Overseas transfer in the Different currency and Multi currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |100000        |190000             |SHA          |SGD                         |
+      |100000        |100000             |SHA          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -1297,7 +1297,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the Different currency and Multi currency BEN USD-SGD < 250k
     Given Overseas transfer in the Different currency and Multi currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |BEN          |SGD                         |
+      |10            |5                  |BEN          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -1341,7 +1341,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the Different currency and Multi currency BEN USD-SGD > 250k
     Given Overseas transfer in the Different currency and Multi currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |100000        |190000             |BEN          |SGD                         |
+      |100000        |100000             |BEN          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -1420,7 +1420,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the Different currency and Multi currency OUR USD-SGD < 250k
     Given Overseas transfer in the Different currency and Multi currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |10            |0.01               |OUR          |SGD                         |
+      |10            |5                  |OUR          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
@@ -1464,7 +1464,7 @@ Scenario:Overseas transfer in the same currency and single currency SHA SGD-SGD 
   Scenario:Overseas transfer in the Different currency and Multi currency OUR USD-SGD > 250k
     Given Overseas transfer in the Different currency and Multi currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |100000        |190000             |OUR          |SGD                         |
+      |100000        |100000             |OUR          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |

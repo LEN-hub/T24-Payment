@@ -269,8 +269,9 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
         switchToDefaultContent();
         switchToSecondFrame();
-        System.out.println(t24_payments_page.getAmount.getText());
-        doubleSum = Double.valueOf(t24_payments_page.getAmount.getText());
+        if (t24_payments_page.getAmount.isVisible()){
+            doubleSum = Double.valueOf(t24_payments_page.getAmount.getText());
+        }
         bddUtil.closeWindow();
         bddUtil.switchToNewWindow();
         switchToDefaultContent();
@@ -314,10 +315,18 @@ public class t24_Payments_step extends ScenarioSteps {
         if (t24_payments_page.getTransactionAmount.getText().replace(",", "").contains(".00")){
             Assert.assertEquals(t24_payments_page.getTransactionAmount.getText().replace(",", ""),paymentService_step.transferAmount+".00");
         }else if(t24_payments_page.getDebitCustomerRate.isVisible()) {
-            Double doubleFirst = Double.parseDouble(t24_payments_page.getDebitCustomerRate.getText());
-            Double doubleSecond = Double.parseDouble(paymentService_step.transferAmount);
-            String multiplication = String.format("%.2f",(doubleSecond / doubleFirst));
-            Assert.assertEquals(t24_payments_page.getTransactionAmount.getText().replace(",",""),multiplication);
+            if (paymentServiceStep.transferCurrency.equals("USD")){
+                Double doubleFirst = Double.parseDouble(t24_payments_page.getDebitCustomerRate.getText());
+                Double doubleSecond = Double.parseDouble(paymentService_step.transferAmount);
+                String multiplication = String.format("%.2f",(doubleSecond / doubleFirst));
+                Assert.assertEquals(t24_payments_page.getTransactionAmount.getText().replace(",",""),multiplication);
+            }else if ((paymentServiceStep.transferCurrency.equals("SGD"))){
+                Double doubleFirst = Double.parseDouble(t24_payments_page.getDebitCustomerRate.getText());
+                Double doubleSecond = Double.parseDouble(paymentService_step.transferAmount);
+                String multiplication = String.format("%.2f",(doubleSecond * doubleFirst));
+                Assert.assertEquals(t24_payments_page.getTransactionAmount.getText().replace(",",""),multiplication);
+            }
+
         }else {
             Assert.assertEquals(t24_payments_page.getTransactionAmount.getText().replace(",", ""),paymentService_step.transferAmount);
         }
