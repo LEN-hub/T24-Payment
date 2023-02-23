@@ -106,7 +106,7 @@ public class t24_Payments_step extends ScenarioSteps {
 //        FileUtils.writeFile("t24");
         t24_payments_page.clickCleraSelectionBtn.click();
         t24_payments_page.inputChannelId.clear();
-        t24_payments_page.inputChannelId.sendKeys(readtxtFile("aotopay/t24","ChannelReferenceID"));
+        t24_payments_page.inputChannelId.sendKeys(readtxtFile("autopay/t24","ChannelReferenceID"));
         t24_payments_page.clickFindBtn.click();
         getDriver().manage().window().maximize();
         t24Id = t24_payments_page.t24Id.getText();
