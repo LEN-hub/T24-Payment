@@ -77,7 +77,7 @@ public class creatCustomers_glue {
         customers_step.getClickCreateCustomerBtn();
         customers_step.getSelectCustomerType();
 //        customers_step.getCustomerType(maps.get(0).get("Customer Type"));
-        customers_step.getCustomerTypeSupplier();
+        customers_step.getCustomerTypeBuyer();
         customers_step.getCompanyName(CompanyName);
         if (maps.get(0).get("Customer Type").equals("Buyer")) {
             FileUtils.FileString4("Buyer",CompanyName);
