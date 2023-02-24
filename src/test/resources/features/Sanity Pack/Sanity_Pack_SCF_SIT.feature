@@ -8,7 +8,7 @@ Feature: Sanity Pack SCF SIT Test Case
     Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
     When open the email browser page
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
+    And I click Create Customer and fill in the supplier information in the pop-up window to supplier
       |KYC Mode                  |Input by|Customer Type|
       |Full KYC + Account Opening|Customer|Supplier     |
     Then I Check to see if you jump to the Authorized Person page
@@ -71,7 +71,7 @@ Feature: Sanity Pack SCF SIT Test Case
   Scenario:Simple (core does not exist, non autonomous, no administrator)_SIT
     Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
+    And I click Create Customer and fill in the supplier information in the pop-up window to buyer
       |KYC Mode    |Input by|Customer Type|
       |Simple KYC  |Operator|Buyer        |
     Then I Check to see if you jump to the Authorized Person page
@@ -200,20 +200,15 @@ Feature: Sanity Pack SCF SIT Test Case
   #10.BR签署
   @sanity_pack_buyer_BR_Signature_SIT
   Scenario:BR signed_SIT
-    Given Open Supplier Portal URL
+    Given Open Supplier Portal URL SIT
     When I input login data and click on the Login Supplier Portal URL
       |pass word   |Company ID|
       |P@ssw0rd_123|1234      |
     When I click Pending Signature button
     And I click confirm Button
-    When I close driver
-    When I open email URL
-    When I login email URL
-    When I to sign
-    When I close driver
-    When I open email URL
-    When I login two email URL
-    When I close driver
+    When I to sign one
+    Then I to sign Two
+
 
    #11.RPA上传
   @sanity_pack_buyer_RPA_Upload_SIT
