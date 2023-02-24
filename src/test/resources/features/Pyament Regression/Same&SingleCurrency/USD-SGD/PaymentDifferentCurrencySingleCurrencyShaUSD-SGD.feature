@@ -27,7 +27,7 @@ Feature: Payment Different Currency and Single Sha Automation Test Case Executio
   Scenario:Overseas transfer in the Different currency and Single currency SHA Automation Test Case Execution USD-SGD = 250k
     Given Overseas transfer in the Different currency and Single currency USD-SGD
       |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|
-      |100000        |148000             |SHA          |SGD                         |
+      |100000        |178000             |SHA          |SGD                         |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When Enter the verification page
       |windows Title                            |
