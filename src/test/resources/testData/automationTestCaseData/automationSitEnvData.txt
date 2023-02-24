@@ -1,6 +1,5 @@
 sit_env_ip:10.28.7.69
-SGD_AC_SingleCurrency_sit:11010002414
-SGD_AC_SingleCurrency_sit_two:11010002430
+SGD_AC_SingleCurrency:11010002414
 AC_MCY_sit_SGD:11020327162SGD
 AC_MCY_sit_USD:11020327162USD
 SGD_LargeAccount_sit:11010000675

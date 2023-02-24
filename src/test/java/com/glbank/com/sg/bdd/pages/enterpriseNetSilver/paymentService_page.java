@@ -32,7 +32,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[2]//span[@class='el-radio__input']")
     public WebElementFacade selectPaymentTypeMEPS;
 
-    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[2]//span[@class='el-radio__inner']")
+    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//span[@class='el-radio__inner']")
     public WebElementFacade clickPaymentTypeMEPS;
 
     @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[1]//span[@class='el-radio__inner']")

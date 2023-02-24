@@ -210,7 +210,7 @@ public class paymentService_step extends ScenarioSteps {
                         "        \"debitCurrency\": \"SGD\",\n" +
                         "        \"purpose\": \"BEXP\",\n" +
                         "        \"debitAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_LargeAccount_sit")+"\",\n" +
-                        "        \"beneficiaryAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency_sit")+"\",\n" +
+                        "        \"beneficiaryAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency")+"\",\n" +
                         "        \"acctWithBankName\": \"BANK OF CHINA LIMITED\",\n" +
                         "        \"benPostSwiftAddress\": [\n" +
                         "            {\n" +
@@ -236,7 +236,7 @@ public class paymentService_step extends ScenarioSteps {
      * @param amount
      */
     @Step
-    public void USD_Single_Currency_Charging(String amount,String chargeOption){
+    public static void USD_Single_Currency_Charging(String amount, String chargeOption){
         given()
                 .header("Content-type","application/json")
                 .and()
@@ -292,7 +292,7 @@ public class paymentService_step extends ScenarioSteps {
     public void overseas_Transfer_Single_Currency_SGD_SGD(String amount,String chargeOption,String transferInCurrency){
         transferAmount = amount;
         transferCurrency = transferInCurrency;
-        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency_sit"));
+        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency"));
                 Response response = given()
                 .header("Content-type","application/json")
                 .and()
@@ -589,7 +589,7 @@ public class paymentService_step extends ScenarioSteps {
     @Step
     public static void overseas_Transfer_Fees_Query_MultiCurrency_SGD_USD(String amount, String chargeOption, String transferInCurrency){
         transferAmount = amount;
-        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency_sit"));
+        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency"));
         Response response = given()
                 .header("Content-type","application/json")
                 .and()
@@ -709,7 +709,7 @@ public class paymentService_step extends ScenarioSteps {
     @Step
     public static void overseas_Transfer_Fees_Query_SingleCurrency_SGD_USD(String amount, String chargeOption, String transferInCurrency){
         transferAmount = amount;
-        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency_sit"));
+        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency"));
         Response response = given()
                 .header("Content-type","application/json")
                 .and()
@@ -762,7 +762,9 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     public static void main(String[] args) {
-        overseas_Transfer_Fees_Query_SingleCurrency_SGD_USD("10","SHA","SGD");
+        USD_Single_Currency_Charging("100000","SHA");
+        USD_Single_Currency_Charging("100000","SHA");
+        USD_Single_Currency_Charging("100000","SHA");
     }
 
     /**
@@ -905,7 +907,7 @@ public class paymentService_step extends ScenarioSteps {
     public void overseas_Transfer_Single_Currency_SGD_USD(String amount,String chargeOption,String transferInCurrency){
         transferAmount = amount;
         transferCurrency = transferInCurrency;
-        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency_sit"));
+        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency"));
         Response response = given()
                 .header("Content-type","application/json")
                 .and()
