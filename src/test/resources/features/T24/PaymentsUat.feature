@@ -41,6 +41,9 @@ Feature: receipt and payment service
     When I view the exchange rate in the Payment Order RFQ Rate Audit menu On Local Payment
       |WordPath|
       |USD-SGD |
+    When I check the deduction amount on the Find Account page On Local Payment
+      |windows Title            |
+      |AA Arrangement - SIT GLDB|
 
   @PaymentUat02
   #SGD->USD
@@ -81,6 +84,9 @@ Feature: receipt and payment service
     When I view the exchange rate in the Payment Order RFQ Rate Audit menu On Local Payment
       |WordPath|
       |SGD-USD |
+    When I check the deduction amount on the Find Account page On Local Payment
+      |windows Title            |
+      |AA Arrangement - SIT GLDB|
 
   @PaymentUat03
    #SGD->SGD
@@ -104,6 +110,9 @@ Feature: receipt and payment service
     Then I will map the page data
       |WordPath|
       |SGD-SGD |
+    When I check the deduction amount on the Find Account page On Local Payment
+      |windows Title            |
+      |AA Arrangement - SIT GLDB|
 
   @PaymentUat04
     #USD->USD

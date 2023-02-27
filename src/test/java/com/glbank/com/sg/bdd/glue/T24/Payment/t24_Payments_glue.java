@@ -341,4 +341,15 @@ public class t24_Payments_glue {
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
         t24_payments_step.findMCYInputArrangement();
     }
+
+    @When("^I check the deduction amount on the Find Account page On Local Payment$")
+    public void iCheckTheDeductionAmountOnTheFindAccountPageOnLocalPayment(DataTable data) {
+        t24_payments_step.closeTabJumpToHomePage();
+        t24_payments_step.clickProductsMenu();
+        t24_payments_step.clickFindAccountMenu();
+        t24_payments_step.switchToDefaultContent();
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
+        t24_payments_step.findInputArrangementPaymentUI();
+    }
 }

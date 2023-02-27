@@ -81,6 +81,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//table[@id='datadisplay']//td[2]")
     public WebElementFacade getFtNumber;
 
+    @FindBy(xpath = "//table[@id='datadisplay']//td[12]")
+    public WebElementFacade checkStatus;
+
     @FindBy(xpath = "//a[@title='View']")
     public WebElementFacade clickViewIcon;
 
@@ -191,6 +194,9 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//table[@class='enquirydata enquirydata_PAYFEE']//td[7]")
     public WebElementFacade getAmount;
+
+    @FindBy(xpath = "//table[@class='enquirydata enquirydata_PAYFEE']//td[5]")
+    public WebElementFacade getFeeAmt;
 
     @FindBy(xpath = "//table[@id='datadisplay']")
     public WebElementFacade outgoingMessage;
@@ -417,6 +423,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//table[@summary=\"Recent Transactions\"]//div[2]//tr[2]/td[7]")
     public WebElementFacade creditAmount;
 
+    @FindBy(xpath = "//table[@summary=\"Recent Transactions\"]//div[2]//tr[1]/td[7]")
+    public WebElementFacade firstCreditAmount;
+
     @FindBy(xpath = "//table[@summary=\"Recent Transactions\"]//div[2]//tr[1]/td[8]")
     public WebElementFacade getDifference;
 
@@ -434,6 +443,9 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//a[@title='View a contract']")
     public WebElementFacade clickSearchBtn;
+
+    @FindBy(xpath = "//label[@for='fieldName:PRICE']/parent::td/following-sibling::td[2]/span")
+    public WebElementFacade getPriceRate;
 
     @FindBy(xpath = "//span[text()='Debit Credit Info']")
     public WebElementFacade clickdebitCreditInfoMenu;
