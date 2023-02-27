@@ -200,22 +200,16 @@ Feature: Sanity Pack SCF UAT Test Case
 
 
   #10.BR签署
-  @sanity_pack_buyer_BR_Signature_UAT
-  Scenario:BR signed_UAT
-    Given Open Supplier Portal URL
+  @sanity_pack_buyer_BR_Signature_SIT
+  Scenario:BR signed_SIT
+    Given Open Supplier Portal URL SIT
     When I input login data and click on the Login Supplier Portal URL
       |pass word   |Company ID|
       |P@ssw0rd_123|1234      |
     When I click Pending Signature button
     And I click confirm Button
-    When I close driver
-    When I open email URL
-    When I login email URL
-    When I to sign
-    When I close driver
-    When I open email URL
-    When I login two email URL
-    When I close driver
+    When I to sign one
+    Then I to sign Two
 
    #11.RPA上传
   @sanity_pack_buyer_RPA_Upload_UAT
