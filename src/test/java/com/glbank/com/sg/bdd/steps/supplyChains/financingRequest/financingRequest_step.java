@@ -211,6 +211,7 @@ public class financingRequest_step extends ScenarioSteps {
             financingRequest_page.clickSubmit.click();
             bddUtil.sleep(5);
             System.out.println("AML结果未返回");
+            bddUtil.quitDriver();
             throw new Exception("AML结果未返回");
         }else{
             financingRequest_page.clickResult.click();
