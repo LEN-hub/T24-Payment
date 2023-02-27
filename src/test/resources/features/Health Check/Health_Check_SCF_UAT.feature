@@ -3,8 +3,8 @@
 Feature: Health Check SCF SIT Test Case
 
     #1.T24系统Health Check
-  @T24_Health_Check_UAT
-  Scenario:T24 System Health Check UAT
+  @T24_Health_Check_UAT1
+  Scenario:T24 System Health Check UAT1
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I enter the Rating&Limits page
     When I operate with fixed data on the page
@@ -20,7 +20,7 @@ Feature: Health Check SCF SIT Test Case
   @ESSO_Health_Check_UAT
   Scenario:ESSO System Health Check UAT
     Given logon "environments_SCF_UAT" test code
-    When client login success
+    When client login success to UAT
       |Email Name|
       |v8c1pwr9  |
     Then I close driver
