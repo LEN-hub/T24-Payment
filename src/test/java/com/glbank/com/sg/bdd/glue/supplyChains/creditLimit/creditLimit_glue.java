@@ -107,9 +107,14 @@ public class creditLimit_glue {
         creditLimit_step.clickSupplierTestDataAssignBtn();
     }
 
-    @Given("^Open Supplier Portal URL$")
-    public void openSupplierPortalURL() {
-        creditLimit_step.openToSupplierPortal();
+    @Given("^Open Supplier Portal URL UAT$")
+    public void openSupplierPortalURLUAT() {
+        creditLimit_step.openToSupplierPortalUat();
+    }
+
+    @Given("^Open Supplier Portal URL SIT$")
+    public void openSupplierPortalURLSIT() {
+        creditLimit_step.openToSupplierPortalSit();
     }
 
     @When("^I input login data and click on the Login Supplier Portal URL$")
@@ -159,9 +164,14 @@ public class creditLimit_glue {
         creditLimit_step.changeRating();
     }
 
-    @When("^I to sign$")
-    public void iToSign() {
+    @When("^I to sign one$")
+    public void iToSignOne() {
         creditLimit_step.toSign();
+    }
+
+    @Then("^I to sign Two$")
+    public void iToSignTwo() {
+        creditLimit_step.toSignTwoEmail();
     }
 
     @When("^I update Limit for THIS Product$")
@@ -195,4 +205,6 @@ public class creditLimit_glue {
     public void iShouldSeeTheUploadedHistoricalDocuments() {
         creditLimit_step.assertUploadExcel();
     }
+
+
 }

@@ -36,7 +36,7 @@ public class createSupplierCreditFile_step extends PageObject {
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.find(By.xpath("//span[text()='"+ companyName +"']"))).click();
         createSupplierCreditFile_page.clickToGetBuyer.click();
         bddUtil.sleep(1);
-        bddUtil.scrollWindowToElement(createSupplierCreditFile_page.findAll(By.xpath("//span[text()='"+ buyerName +"']")).get(1)).click();
+        bddUtil.scrollWindowToElement(createSupplierCreditFile_page.find(By.xpath("//span[text()='"+ buyerName +"']"))).click();
         createSupplierCreditFile_page.clickToGetProductType.click();
         bddUtil.scrollWindowToElement(createSupplierCreditFile_page.getProductType).click();
         createSupplierCreditFile_page.clickToGetInputBy.click();

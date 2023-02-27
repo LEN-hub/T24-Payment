@@ -84,11 +84,26 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//div[@class='lls-input-group__append']/preceding-sibling::input")
     public WebElementFacade inputSendCode;
 
+    @FindBy(xpath = "//span[contains(text(),'Login')]")
+    public WebElementFacade GLDBEmailLoginBtn;
+
     @FindBy(xpath = "//span[@class='el-input__suffix']/span/i")
     public WebElementFacade selectEmailDropDown;
 
     @FindBy(xpath = "//span[text()='@c0c.fun']")
     public WebElementFacade selectC0c;
+
+    @FindBy(id = "customShortid")
+    public WebElementFacade clickEditEmailName;
+
+    @FindBy(id = "shortid")
+    public WebElementFacade sendKeysEmailName;
+
+    @FindBy(xpath = "//tbody[@id='maillist']/tr[1]/td[1]")
+    public WebElementFacade clickFirstEmailName;
+
+    @FindBy(xpath = "//div[@class='container content']/h2")
+    public WebElementFacade getEmailOtp;
 
     @FindBy(xpath = "//input[@placeholder=\"请输入邮箱账号\"]")
     public WebElementFacade changeSendEmail;
@@ -108,9 +123,6 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//input[@placeholder='Enter Company ID']")
     public WebElementFacade enterCompanyId;
 
-    @FindBy(xpath = "//span[text()='Login']")
-    public WebElementFacade GLDBEmailLoginBtn;
-
     @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")
     public WebElementFacade clickRefreshBtn;
 
@@ -128,6 +140,18 @@ public class creditLimit_page extends PageObject {
 
     @FindBy(xpath = "//span[@class='dialog-footer']/button")
     public WebElementFacade confirmBtn;
+
+    @FindBy(xpath = "//td[text()='[Green Link Digital Bank] Account Opening - Digital Sign Certified Extract of Board Resolution']")
+    public WebElementFacade signEmail;
+
+    @FindBy(xpath = "//a[text()='Proceed to Digital Sign']")
+    public WebElementFacade signHref;
+
+    @FindBy(xpath = "//td[contains(text(),'Digital Sign OTP')]")
+    public WebElementFacade tokenEmail;
+
+    @FindBy(xpath = "//h5/b")
+    public WebElementFacade tokenNum;
 
     @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")
     public WebElementFacade refreshListBtn;

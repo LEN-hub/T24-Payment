@@ -11,6 +11,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
 
@@ -358,7 +359,8 @@ public class rpa_steps extends ScenarioSteps {
         bddUtil.switchToWindows();
         rpaPage.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(20);
+        //隐式等待
+        getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         bddUtil.scrollWindowToElement(rpaPage.clickFirstEmailName).click();
         String otp = bddUtil.scrollWindowToElement(rpaPage.getEmailOtp).getText();
         bddUtil.switchToWindows();

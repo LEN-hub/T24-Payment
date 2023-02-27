@@ -9,7 +9,7 @@ Feature: Sanity Pack SCF UAT Test Case
     When open the email browser page
     #And I switch to the SCF page
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
+    And I click Create Customer and fill in the supplier information in the pop-up window to supplier
       |KYC Mode                    |Input by|Customer Type|
       |Full KYC + Account Opening  |Customer|Supplier     |
     Then I Check to see if you jump to the Authorized Person page
