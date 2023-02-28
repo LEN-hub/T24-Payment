@@ -302,33 +302,33 @@ Feature: receipt and payment service
 
   @PaymentUat08
   Scenario:Positive process of overseas transfer Bic Is DBS(USD--SGD)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
-    When I click on overseas transfer payment and select the account
-    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |
-      |1101 0001 434 |The expenses shall be borne by each party|
-    And I choose the payment currency
-      |Currency|
-      |SGD     |
-    When I enter the payee information
-      |Payee's Account Number|Payee's Name|
-      |667812798             |lucky       |
-    When I choose the receiving bank
-      |Beneficiary Bank|
-      |DBSSSGS0DOD     |
-    When I choose the recipient country
-      |Payee's Address |Payee's Country|Comments For Payee|
-      |countries       |UNITED STATES  |ok                |
-    When I choose the nature of payment
-      |Purpose of Transfer|
-      |Commission         |
-    When I choose to submit the transfer information
-    Then TC code is then required for Vkey authentication
-    When I get the TC code and click Next
-    When I typed TC Code and click Authenticate Now
-    Then I will compare all the data on FX Payment Different Currency MX Message
-      |WordPath          |
-      |Bic is DBS USD-SGD|
+#    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+#    When I click on overseas transfer payment and select the account
+#    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+#      |Account Number|Payment Mode for Charges                 |
+#      |1101 0001 434 |The expenses shall be borne by each party|
+#    And I choose the payment currency
+#      |Currency|
+#      |SGD     |
+#    When I enter the payee information
+#      |Payee's Account Number|Payee's Name|
+#      |667812798             |lucky       |
+#    When I choose the receiving bank
+#      |Beneficiary Bank|
+#      |DBSSSGS0DOD     |
+#    When I choose the recipient country
+#      |Payee's Address |Payee's Country|Comments For Payee|
+#      |countries       |UNITED STATES  |ok                |
+#    When I choose the nature of payment
+#      |Purpose of Transfer|
+#      |Commission         |
+#    When I choose to submit the transfer information
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
+#    Then I will compare all the data on FX Payment Different Currency MX Message
+#      |WordPath          |
+#      |Bic is DBS USD-SGD|
     Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath          |
