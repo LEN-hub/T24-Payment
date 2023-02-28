@@ -10,6 +10,7 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import javax.swing.*;
@@ -152,33 +153,29 @@ public class financingRequest_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(financingRequest_page.getApprove).click();
         financingRequest_page.getComments.sendKeys("PASS");
         financingRequest_page.clickSubmit.click();
-        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //判断融资申请提交以后是否成功。
-        for (int z = 0; z < 5; z++) {
-//            bddUtil.sleep(10);
-            Thread.sleep(8000);
-            if (getDriver().findElement(By.xpath("//h2[text()='Financing Request']")).isDisplayed()){
-                break;
-            }else if (getDriver().findElement(By.xpath("//span[text()='Submit ']/parent::button")).getAttribute("class").equals("lls-button btn-item lls-button--primary")){
-                financingRequest_page.clickSubmit.click();
-            }else {
-                Thread.sleep(5);
-            }
-       /*     // 显示等待
-            boolean c = false;
+        Boolean a;
+        for (int k = 0; k < 5; k++) {
+            a = false;
             try {
-                String a = getDriver().findElement(By.xpath("//span[text()='Submit ']/parent::button")).getAttribute("class");
-                String b = "lls-button btn-item lls-button--primary";
-                c = a.equals(b);
-                System.out.println("a="+a);
+                if (getDriver().findElement(By.xpath("//h2[text()='Financing Request']")).isDisplayed()){
+                    break;
+                }
             }catch (Exception e){
                 e.printStackTrace();
             }
-            if (c){
-                break;
-            }else {
-                financingRequest_page.clickSubmit.click();
-            }*/
+            if (!a){
+                try {
+                    if (getDriver().findElement(By.xpath("//span[text()='Submit ']/parent::button")).getAttribute("class").equals("lls-button btn-item lls-button--primary")){
+                        financingRequest_page.clickSubmit.click();
+                    }else {
+                        Thread.sleep(3000);
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+
         }
         bddUtil.sleep(5);
     }
