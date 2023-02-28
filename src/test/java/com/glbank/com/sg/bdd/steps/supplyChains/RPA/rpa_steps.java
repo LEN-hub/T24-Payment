@@ -233,6 +233,50 @@ public class rpa_steps extends ScenarioSteps {
 
     public void loginClientUseFixeData(String emailName){
         rpaPage.GLDBEmailInput.sendKeys(emailName+"@ihotmails.com");//("362DDf6O@MailTemp.top");
+        rpaPage.GLDBEmailPassword.sendKeys("P@ssw0rd_123");
+        rpaPage.enterCompanyId.sendKeys("1234");
+        // 换新邮箱地址了
+        /*JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
+        bddUtil.switchToNewWindow();
+        if (rpaPage.errorText.isVisible()){
+            rpaPage.advancedButton.click();
+            rpaPage.enterEmailLink.click();
+        }
+        bddUtil.sleep(3);
+        rpaPage.clickRefreshBtn.click();
+        bddUtil.sleep(3);
+        rpaPage.clickRefreshBtn.click();
+        bddUtil.sleep(3);
+        rpaPage.thirdEmail.click();
+        String Vcode = rpaPage.emailVerificationCode.getText();
+        bddUtil.switchToWindows();*/
+//        新邮箱
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://ihotmails.com/\");");
+        bddUtil.switchToNewWindow();
+        rpaPage.clickEditEmailName.click();
+        bddUtil.sleep(3);
+        rpaPage.sendKeysEmailName.clear();
+        rpaPage.sendKeysEmailName.sendKeys(emailName);
+        rpaPage.clickEditEmailName.click();
+        bddUtil.switchToWindows();
+        rpaPage.sendCodeBtn.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(20);
+        bddUtil.scrollWindowToElement(rpaPage.clickFirstEmailName).click();
+        String otp = bddUtil.scrollWindowToElement(rpaPage.getEmailOtp).getText();
+        bddUtil.switchToWindows();
+        rpaPage.inputSendCode.sendKeys(otp);
+        rpaPage.GLDBEmailLoginBtn.click();
+        bddUtil.sleep(5);
+        //断言是否登录成功
+        assertEquals("Home",getDriver().findElement(By.xpath("//span[text()='Home']")).getText());
+        bddUtil.sleep(2);
+    }
+
+    public void loginClientUseFixeDataUat(String emailName){
+        rpaPage.GLDBEmailInput.sendKeys(emailName+"@ihotmails.com");//("362DDf6O@MailTemp.top");
         rpaPage.GLDBEmailPassword.sendKeys("P@ssw0rd_1234");
         rpaPage.enterCompanyId.sendKeys("1234");
         // 换新邮箱地址了

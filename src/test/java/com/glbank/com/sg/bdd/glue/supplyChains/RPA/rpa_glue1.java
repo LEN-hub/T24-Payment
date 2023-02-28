@@ -83,6 +83,12 @@ public class rpa_glue1 {
         rpaStep.loginClientUseFixeData(maps.get(0).get("Email Name"));
     }
 
+    @When("^client login success to UAT$")
+    public void clientLoginSuccessToUat(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        rpaStep.loginClientUseFixeDataUat(maps.get(0).get("Email Name"));
+    }
+
     @When("^click Go to Digibank Link$")
     public void clickGoToDigibankLink() {
         rpaStep.clickGoToDigibankLink();
