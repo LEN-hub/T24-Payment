@@ -12,13 +12,12 @@ import java.io.*;
 public class JenkinsReportData {
 
     private static String systemPath = System.getProperty("user.dir");
-    public static String fileName;
     public static void main(String[] args) {
         try {
             writeFile("Jenkins");
 //creating a constructor of file class and parsing an XML file
             int startIndex = systemPath.indexOf("workspace\\")+10;
-            fileName = systemPath.substring(startIndex);
+            String fileName = systemPath.substring(startIndex);
             File file = new File("C:/Users/CyberArk/.jenkins/workspace/"+fileName+"/target/failsafe-reports/failsafe-summary.xml");
 //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -59,6 +58,8 @@ public class JenkinsReportData {
 
 
     public static void writeFile(String path) throws Exception{
+        int startIndex = systemPath.indexOf("workspace\\")+10;
+        String fileName = systemPath.substring(startIndex);
         String allPath = "C:/Users/CyberArk/.jenkins/workspace/"+fileName+"/src/test/resources/testData/autopay/" + path + ".txt";
         File f = new File (allPath);
         FileWriter fw = new FileWriter (f);
@@ -68,6 +69,8 @@ public class JenkinsReportData {
     }
 
     public static void FileString4(String path, String data) {
+        int startIndex = systemPath.indexOf("workspace\\")+10;
+        String fileName = systemPath.substring(startIndex);
         try {
             String allPath = "C:/Users/CyberArk/.jenkins/workspace/"+fileName+"/src/test/resources/testData/autopay/" + path + ".txt";
             File file=new File(allPath);
@@ -89,6 +92,8 @@ public class JenkinsReportData {
     }
 
     public static String FileInput3(String path) {
+        int startIndex = systemPath.indexOf("workspace\\")+10;
+        String fileName = systemPath.substring(startIndex);
         path = "C:/Users/CyberArk/.jenkins/workspace/"+fileName+"/src/test/resources/testData/autopay/" + path + ".txt";
         StringBuffer buffer = new StringBuffer();
         try {
