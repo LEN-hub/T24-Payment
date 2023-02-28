@@ -152,30 +152,33 @@ public class financingRequest_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(financingRequest_page.getApprove).click();
         financingRequest_page.getComments.sendKeys("PASS");
         financingRequest_page.clickSubmit.click();
+        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //判断融资申请提交以后是否成功。
-        for (int i = 0; i < 5; i++) {
-            // 隐性等待。
-            getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        for (int z = 0; z < 5; z++) {
 //            bddUtil.sleep(10);
-//            if (getDriver().findElement(By.xpath("//h2[text()='Financing Request']")).isDisplayed()){
-//                break;
-//            }else {
-//                getDriver().findElement(By.xpath("//span[text()='Submit ']/parent::button")).getAttribute("class").equals("lls-button btn-item lls-button--primary");
-//                financingRequest_page.clickSubmit.click();
-//            }
+            Thread.sleep(8000);
+            if (getDriver().findElement(By.xpath("//h2[text()='Financing Request']")).isDisplayed()){
+                break;
+            }else if (getDriver().findElement(By.xpath("//span[text()='Submit ']/parent::button")).getAttribute("class").equals("lls-button btn-item lls-button--primary")){
+                financingRequest_page.clickSubmit.click();
+            }else {
+                Thread.sleep(5);
+            }
+       /*     // 显示等待
             boolean c = false;
             try {
                 String a = getDriver().findElement(By.xpath("//span[text()='Submit ']/parent::button")).getAttribute("class");
                 String b = "lls-button btn-item lls-button--primary";
                 c = a.equals(b);
+                System.out.println("a="+a);
             }catch (Exception e){
                 e.printStackTrace();
             }
             if (c){
-                financingRequest_page.clickSubmit.click();
-            }else {
                 break;
-            }
+            }else {
+                financingRequest_page.clickSubmit.click();
+            }*/
         }
         bddUtil.sleep(5);
     }

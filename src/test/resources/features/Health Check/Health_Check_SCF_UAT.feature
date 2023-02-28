@@ -4,7 +4,7 @@ Feature: Health Check SCF SIT Test Case
 
     #1.T24系统Health Check
   @T24_Health_Check_UAT1
-  Scenario:T24 System Health Check UAT1
+  Scenario:SCF to T24 UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I enter the Rating&Limits page
     When I operate with fixed data on the page
@@ -18,7 +18,7 @@ Feature: Health Check SCF SIT Test Case
 
   #2.ESSO系统Health Check
   @ESSO_Health_Check_UAT
-  Scenario:ESSO System Health Check UAT
+  Scenario:SCF to ESSO UAT
     Given logon "environments_SCF_UAT" test code
     When client login success to UAT
       |Email Name|
@@ -27,7 +27,7 @@ Feature: Health Check SCF SIT Test Case
 
     #3.CPS系统Health Check
   @CPS_Health_Check_UAT
-  Scenario:CPS System Health Check UAT
+  Scenario:SCF to CPS UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I enter the Underwriting Approval page
     When I select data and credit on the page
@@ -37,14 +37,14 @@ Feature: Health Check SCF SIT Test Case
 
     #4.ISSO系统Health Check
   @ISSO_Health_Check_UAT
-  Scenario:ISSO System Health Check UAT
+  Scenario:SCF to ISSO UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     Then Login succeeded jump to SCF homepage
     Then I close driver
 
     #5.IMS系统Health Check
   @IMS_Health_Check_UAT
-  Scenario:IMS System Health Check UAT
+  Scenario:SCF to IMS UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I click on the first Customers
     And click ContractManagement
@@ -53,7 +53,7 @@ Feature: Health Check SCF SIT Test Case
 
     #6.CNP系统Health Check
   @CNP_Health_Check_UAT
-  Scenario:CNP System Health Check UAT
+  Scenario:SCF to CNP UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When open the email browser page
     #And I switch to the SCF page
@@ -81,7 +81,7 @@ Feature: Health Check SCF SIT Test Case
 
     #7.INB系统Health Check
   @INB_Health_Check_UAT
-  Scenario:INB System Health Check UAT
+  Scenario:SCF to INB UAT
     Given logon "environments_SCF_UAT" test code
     When client login success to UAT
       |Email Name|
@@ -92,7 +92,7 @@ Feature: Health Check SCF SIT Test Case
 
  #8.AML系统Health Check
   @AML_Health_Check_UAT
-  Scenario:AML System Health Check UAT
+  Scenario:SCF to AML UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When Financing application for approval
     And I close driver
