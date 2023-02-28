@@ -510,6 +510,8 @@ public class t24_Payments_step extends ScenarioSteps {
 //                Assert.assertEquals(convertDate(t24_payments_page.getCreditValueDate.getText()),DateUtil.format(DateUtil.offsetDay(new Date(),0),"yyyy-MM-dd"));
 //            }
         }
+        getStatus = t24_payments_page.getStatus.getText();
+        FileUtils.FileString4("t24","getStatus:" + getStatus);
         getTransactionReferenceNum = t24_payments_page.getTransactionReferenceNum.getText();
         FileUtils.FileString4("t24","getTransactionReferenceNum:" + getTransactionReferenceNum);
         getSenderReferenceNum = t24_payments_page.getSenderReferenceNum.getText();
@@ -660,6 +662,8 @@ public class t24_Payments_step extends ScenarioSteps {
         getDriver().manage().window().maximize();
         bddUtil.screenShort();
         WordUtils.photoStorageToFxPaymentMT(WordPath);
+        getStatus = t24_payments_page.getStatus.getText();
+        FileUtils.FileString4("t24","getStatus:" + getStatus);
         getTransactionReferenceNum = t24_payments_page.getTransactionReferenceNum.getText();
         FileUtils.FileString4("t24","getTransactionReferenceNum:" + getTransactionReferenceNum);
         getSenderReferenceNum = t24_payments_page.getSenderReferenceNum.getText();
@@ -748,6 +752,8 @@ public class t24_Payments_step extends ScenarioSteps {
         getDriver().manage().window().maximize();
         bddUtil.screenShort();
         WordUtils.photoStorageToFxPaymentDifferentCurrencyMX(WordPath);
+        getStatus = t24_payments_page.getStatus.getText();
+        FileUtils.FileString4("t24","getStatus:" + getStatus);
         getTransactionReferenceNum = t24_payments_page.getTransactionReferenceNum.getText();
         FileUtils.FileString4("t24","getTransactionReferenceNum:" + getTransactionReferenceNum);
         getSenderReferenceNum = t24_payments_page.getSenderReferenceNum.getText();
@@ -1746,18 +1752,19 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
         bddUtil.screenShort();
         WordUtils.photoStorageToLocalPayment(WordPath);
+        FileUtils.FileString4("t24","getStatus:null" );
         fundsTransferDebitAccountNum = t24_payments_page.fundsTransferDebitAccountNum.getText();
-        FileUtils.FileString4("t24","fundsTransferDebitAccountNum:" + fundsTransferDebitAccountNum);
+        FileUtils.FileString4("t24","getDebitAccountNum:" + fundsTransferDebitAccountNum);
         fundsTransferDebitCurrency = t24_payments_page.fundsTransferDebitCurrency.getText();
-        FileUtils.FileString4("t24","fundsTransferDebitCurrency:" + fundsTransferDebitCurrency);
+        FileUtils.FileString4("t24","getDebitAccountCurrency:" + fundsTransferDebitCurrency);
         fundsTransferCreditCurrency = t24_payments_page.fundsTransferCreditCurrency.getText();
-        FileUtils.FileString4("t24","fundsTransferCreditCurrency:" + fundsTransferCreditCurrency);
+        FileUtils.FileString4("t24","getCreditAccountCurrency:" + fundsTransferCreditCurrency);
         fundTransferCreditAccNo = t24_payments_page.fundTransferCreditAccNo.getText();
-        FileUtils.FileString4("t24","fundTransferCreditAccNo:" + fundTransferCreditAccNo);
+        FileUtils.FileString4("t24","getCreditAccountNum:" + fundTransferCreditAccNo);
         fundsTransferAmountDebited = t24_payments_page.fundsTransferAmountDebited.getText();
-        FileUtils.FileString4("t24","fundsTransferAmountDebited:" + fundsTransferAmountDebited);
+        FileUtils.FileString4("t24","getDebitAmount:" + fundsTransferAmountDebited);
         fundsTransferAmoyntCredited = t24_payments_page.fundsTransferAmoyntCredited.getText();
-        FileUtils.FileString4("t24","fundsTransferAmoyntCredited:" + fundsTransferAmoyntCredited);
+        FileUtils.FileString4("t24","getCreditAmount:" + fundsTransferAmoyntCredited);
         bddUtil.scrollWindowToElement(t24_payments_page.fundsTransferAmoyntCredited);
         bddUtil.screenShort();
         WordUtils.photoStorageToLocalPayment(WordPath);
@@ -1786,12 +1793,33 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
     @Step
-    public void findInputArrangementPaymentUI(){
+    public void findInputArrangementLocalFundPaymentUI(String WordPath){
+        t24_payments_page.inputArrangement.clear();
+        t24_payments_page.inputArrangement.sendKeys(readtxtFile("autopay/t24","getDebitAccountNum"));
+        t24_payments_page.getClickFindBtn.click();
+        t24_payments_page.clickOverViewBtn.click();
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(5);
+        BigDecimal num1 = new BigDecimal(t24_payments_page.getMinuend.getText().replace(",",""));
+        BigDecimal num2 = new BigDecimal(t24_payments_page.firstDebitAmount.getText().replace(",",""));
+        String result = String.valueOf(num1.subtract(num2));
+        System.out.println(result);
+        String getDifference = creatCustomers_step.solve(result);
+        if (getDifference.equals(t24_payments_page.getDifference.getText())){
+            System.out.println("金额比对成功！");
+        }
+        bddUtil.screenShort();
+        WordUtils.photoStorageToFXPaymentMX(WordPath);
+    }
+
+    @Step
+    public void findInputArrangementPaymentUI(String WordPath){
         t24_payments_page.inputArrangement.clear();
         if (readtxtFile("autopay/t24","getDebitAccountCurrency").equals("USD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("SGD")|| readtxtFile("autopay/t24","getDebitAccountCurrency").equals("SGD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("USD")){
             t24_payments_page.inputArrangement.sendKeys(readtxtFile("autopay/t24","getDebitAccountNum"));
         }else if (readtxtFile("autopay/t24","getDebitAccountCurrency").equals("USD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("USD")|| readtxtFile("autopay/t24","getDebitAccountCurrency").equals("SGD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("SGD")) {
-            t24_payments_page.inputArrangement.sendKeys(readtxtFile("autopay/t24","fundsTransferDebitAccountNum"));
+            t24_payments_page.inputArrangement.sendKeys(readtxtFile("autopay/t24","getDebitAccountNum"));
         }
         t24_payments_page.getClickFindBtn.click();
         t24_payments_page.clickOverViewBtn.click();
@@ -1805,6 +1833,12 @@ public class t24_Payments_step extends ScenarioSteps {
         String getDifference = creatCustomers_step.solve(result);
         if (getDifference.equals(t24_payments_page.getDifference.getText())){
             System.out.println("金额比对成功！");
+        }
+        bddUtil.screenShort();
+        if (WordPath.equals("SGD-USD") || WordPath.equals("USD-SGD")){
+            WordUtils.photoStorageToLocalPaymentFXMessage(WordPath);
+        }else if (WordPath.equals("SGD-SGD") || WordPath.equals("USD-USD")){
+            WordUtils.photoStorageToLocalPayment(WordPath);
         }
         if (readtxtFile("autopay/t24","getStatus").equals("999")){
             if (readtxtFile("autopay/t24","getDebitAccountCurrency").equals("USD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("SGD")|| readtxtFile("autopay/t24","getDebitAccountCurrency").equals("SGD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("USD")){
@@ -1836,6 +1870,12 @@ public class t24_Payments_step extends ScenarioSteps {
                 if (getDifference1.equals(t24_payments_page.getDifference.getText())){
                     System.out.println("金额比对成功！");
                 }
+                bddUtil.screenShort();
+                if (WordPath.equals("SGD-USD") || WordPath.equals("USD-SGD")){
+                    WordUtils.photoStorageToLocalPaymentFXMessage(WordPath);
+                }else if (WordPath.equals("SGD-SGD") || WordPath.equals("USD-USD")){
+                    WordUtils.photoStorageToLocalPayment(WordPath);
+                }
             } else if (readtxtFile("autopay/t24","getDebitAccountCurrency").equals("USD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("USD")|| readtxtFile("autopay/t24","getDebitAccountCurrency").equals("SGD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("SGD")) {
                 closeAllTabJumpToHomePage();
                 clickFindAccountMenu();
@@ -1857,6 +1897,109 @@ public class t24_Payments_step extends ScenarioSteps {
                 String getDifference1 = creatCustomers_step.solve(testResult);
                 if (getDifference1.equals(t24_payments_page.getDifference.getText())){
                     System.out.println("金额比对成功！");
+                }
+                bddUtil.screenShort();
+                if (WordPath.equals("SGD-USD") || WordPath.equals("USD-SGD")){
+                    WordUtils.photoStorageToLocalPaymentFXMessage(WordPath);
+                }else if (WordPath.equals("SGD-SGD") || WordPath.equals("USD-USD")){
+                    WordUtils.photoStorageToLocalPayment(WordPath);
+                }
+            }
+        }
+    }
+
+    @Step
+    public void findInputArrangementOverseasPaymentUI(String WordPath){
+        t24_payments_page.inputArrangement.clear();
+        if (readtxtFile("autopay/t24","getDebitAccountCurrency").equals("USD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("SGD")|| readtxtFile("autopay/t24","getDebitAccountCurrency").equals("SGD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("USD")){
+            t24_payments_page.inputArrangement.sendKeys(readtxtFile("autopay/t24","getDebitAccountNum"));
+        }else if (readtxtFile("autopay/t24","getDebitAccountCurrency").equals("USD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("USD")|| readtxtFile("autopay/t24","getDebitAccountCurrency").equals("SGD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("SGD")) {
+            t24_payments_page.inputArrangement.sendKeys(readtxtFile("autopay/t24","getDebitAccountNum"));
+        }
+        t24_payments_page.getClickFindBtn.click();
+        t24_payments_page.clickOverViewBtn.click();
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(5);
+        BigDecimal num1 = new BigDecimal(t24_payments_page.getMinuend.getText().replace(",",""));
+        BigDecimal num2 = new BigDecimal(t24_payments_page.firstDebitAmount.getText().replace(",",""));
+        String result = String.valueOf(num1.subtract(num2));
+        System.out.println(result);
+        String getDifference = creatCustomers_step.solve(result);
+        if (getDifference.equals(t24_payments_page.getDifference.getText())){
+            System.out.println("金额比对成功！");
+        }
+        bddUtil.screenShort();
+        final boolean b = WordPath.equals("Bic is DBS SGD-USD") || WordPath.equals("Bic is DBS USD-SGD") || WordPath.equals("Bic is Bank of China USD-SGD") || WordPath.equals("Bic is Bank of China SGD-USD");
+        final boolean b1 = WordPath.equals("Bic is DBS SGD-SGD") || WordPath.equals("Bic is DBS USD-USD") || WordPath.equals("Bic is Bank of China SGD-SGD") || WordPath.equals("Bic is Bank of China USD-USD");
+        if (b){
+            WordUtils.photoStorageToFxPaymentDifferentCurrencyMX(WordPath);
+        }else if (b1){
+            WordUtils.photoStorageToFXPaymentMX(WordPath);
+        }
+        if (readtxtFile("autopay/t24","getStatus").equals("999")){
+            if (readtxtFile("autopay/t24","getDebitAccountCurrency").equals("USD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("SGD")|| readtxtFile("autopay/t24","getDebitAccountCurrency").equals("SGD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("USD")){
+                closeAllTabJumpToHomePage();
+                clickFindAccountMenu();
+                switchToDefaultContent();
+                bddUtil.switchToNewWindow();
+                t24_payments_page.inputArrangement.clear();
+                t24_payments_page.inputArrangement.sendKeys(readtxtFile("autopay/t24","getCreditAccountNum"));
+                t24_payments_page.getClickFindBtn.click();
+                t24_payments_page.clickOverViewBtn.click();
+                bddUtil.switchToNewWindow();
+                getDriver().manage().window().maximize();
+                bddUtil.sleep(5);
+                Double debitAmount = Double.parseDouble(String.valueOf(readtxtFile("autopay/t24","getDebitAmount")));
+                Double debitCustomerRate = Double.parseDouble(String.valueOf(readtxtFile("autopay/t24","getDebitCustomerRate")));
+                String price = null;
+                if (readtxtFile("autopay/t24","getDebitAccountCurrency").equals("USD")){
+                    price = String.format("%.2f",(debitAmount * debitCustomerRate));
+                }else if (readtxtFile("autopay/t24","getDebitAccountCurrency").equals("SGD")){
+                    price = String.format("%.2f",(debitAmount / debitCustomerRate));
+                }
+                BigDecimal num3 = new BigDecimal(t24_payments_page.getMinuend.getText().replace(",",""));
+                BigDecimal num4 = new BigDecimal(t24_payments_page.firstCreditAmount.getText().replace(",",""));
+                Assert.assertEquals(price,t24_payments_page.firstCreditAmount.getText().replace(",",""));
+                String testResult = String.valueOf(num3.add(num4));
+                System.out.println(testResult);
+                String getDifference1 = creatCustomers_step.solve(testResult);
+                if (getDifference1.equals(t24_payments_page.getDifference.getText())){
+                    System.out.println("金额比对成功！");
+                }
+                bddUtil.screenShort();
+                if (b){
+                    WordUtils.photoStorageToFxPaymentDifferentCurrencyMX(WordPath);
+                }else if (b1){
+                    WordUtils.photoStorageToFXPaymentMX(WordPath);
+                }
+            } else if (readtxtFile("autopay/t24","getDebitAccountCurrency").equals("USD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("USD")|| readtxtFile("autopay/t24","getDebitAccountCurrency").equals("SGD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("SGD")) {
+                closeAllTabJumpToHomePage();
+                clickFindAccountMenu();
+                switchToDefaultContent();
+                bddUtil.switchToNewWindow();
+                t24_payments_page.inputArrangement.clear();
+                t24_payments_page.inputArrangement.sendKeys(readtxtFile("autopay/t24","getCreditAccountNum"));
+                t24_payments_page.getClickFindBtn.click();
+                t24_payments_page.clickOverViewBtn.click();
+                bddUtil.switchToNewWindow();
+                getDriver().manage().window().maximize();
+                bddUtil.sleep(5);
+                Double debitAmount = Double.parseDouble(String.valueOf(readtxtFile("autopay/t24","getCreditAmount")));
+                BigDecimal num3 = new BigDecimal(t24_payments_page.getMinuend.getText().replace(",",""));
+                BigDecimal num4 = new BigDecimal(t24_payments_page.firstCreditAmount.getText().replace(",",""));
+                Assert.assertEquals(debitAmount,t24_payments_page.firstCreditAmount.getText().replace(",",""));
+                String testResult = String.valueOf(num3.add(num4));
+                System.out.println(testResult);
+                String getDifference1 = creatCustomers_step.solve(testResult);
+                if (getDifference1.equals(t24_payments_page.getDifference.getText())){
+                    System.out.println("金额比对成功！");
+                }
+                bddUtil.screenShort();
+                if (b){
+                    WordUtils.photoStorageToFxPaymentDifferentCurrencyMX(WordPath);
+                }else if (b1){
+                    WordUtils.photoStorageToFXPaymentMX(WordPath);
                 }
             }
         }
