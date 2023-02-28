@@ -17,6 +17,7 @@ public class t24_Payments_glue {
     @Steps
     private t24_Payments_step t24_payments_step;
     public static String envTag;
+    public BDDUtil bddUtil;
 
     @When("^I expand the User Menu menu on the page$")
     public void iExpandTheUserMenuMenuOnThePage() {
@@ -350,6 +351,30 @@ public class t24_Payments_glue {
         t24_payments_step.switchToDefaultContent();
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
-        t24_payments_step.findInputArrangementPaymentUI();
+        t24_payments_step.findInputArrangementPaymentUI(title.get(0).get("WordPath"));
+    }
+
+    @When("^I check the deduction amount on the Find Account page On Local Fund Payment$")
+    public void iCheckTheDeductionAmountOnTheFindAccountPageOnLocalFundPayment(DataTable data) {
+        bddUtil.switchToNewWindow();
+        t24_payments_step.switchToSecondFrame();
+        t24_payments_step.clickProductsMenu();
+        t24_payments_step.clickFindAccountMenu();
+        t24_payments_step.switchToDefaultContent();
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
+        t24_payments_step.findInputArrangementLocalFundPaymentUI(title.get(0).get("WordPath"));
+    }
+
+    @When("^I check the deduction amount on the Find Account page On overseas transfer Payment$")
+    public void iCheckTheDeductionAmountOnTheFindAccountPageOnOverseasTransferPayment(DataTable data) {
+        bddUtil.switchToNewWindow();
+        t24_payments_step.switchToSecondFrame();
+        t24_payments_step.clickProductsMenu();
+        t24_payments_step.clickFindAccountMenu();
+        t24_payments_step.switchToDefaultContent();
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
+        t24_payments_step.findInputArrangementOverseasPaymentUI(title.get(0).get("WordPath"));
     }
 }
