@@ -29,8 +29,8 @@ Feature: Health Check SCF SIT Test Case
     Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
     When I enter the Underwriting Approval page
     When I select data and credit on the page
-      |Test Data|
-      |20221124B|
+      |Test Data     |
+      |testVaultData3|
 
     #4.IMS系统Health Check
   @IMS_Health_Check_SIT
