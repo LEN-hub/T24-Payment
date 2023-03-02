@@ -277,7 +277,7 @@ public class rpa_steps extends ScenarioSteps {
 
     public void loginClientUseFixeDataUat(String emailName){
         rpaPage.GLDBEmailInput.sendKeys(emailName+"@ihotmails.com");//("362DDf6O@MailTemp.top");
-        rpaPage.GLDBEmailPassword.sendKeys("P@ssw0rd_1234");
+        rpaPage.GLDBEmailPassword.sendKeys("P@ssw0rd_1234.");
         rpaPage.enterCompanyId.sendKeys("1234");
         // 换新邮箱地址了
         /*JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
