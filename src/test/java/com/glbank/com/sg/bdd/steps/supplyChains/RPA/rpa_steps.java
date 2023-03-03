@@ -11,6 +11,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
 
@@ -31,6 +32,7 @@ public class rpa_steps extends ScenarioSteps {
 
     @Step
     public void clickCustomers(){
+        bddUtil.sleep(5);
         rpaPage.Customers.click();
     }
 
@@ -38,8 +40,16 @@ public class rpa_steps extends ScenarioSteps {
     public void clickContractManagement(){rpaPage.ContractManagement.click();}
 
     @Step
-    public void titleOverview(){
+    public void titleOverview() throws Exception{
+        bddUtil.sleep(5);
         rpaPage.titleOverview.isDisabled();
+        if (rpaPage.titleOverview.getText().equals("Overview")){
+            System.out.println("ISSO系统正常");
+        }else {
+            System.out.println("ISSO系统有问题");
+            throw new Exception("ISSO系统有问题");
+        }
+        bddUtil.sleep(3);
     }
 
     @Step
@@ -54,6 +64,53 @@ public class rpa_steps extends ScenarioSteps {
         rpaPage.clickNextBtn.click();
         bddUtil.sleep(1);
         rpaPage.clickConfirmBtn.click();
+        bddUtil.sleep(5);
+    }
+
+    @Step
+    public void uploadRpa(){
+        rpaPage.uploadBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.companyName.click();
+        bddUtil.sleep(3);
+        rpaPage.companyName.sendKeys("testVaultData4");
+        bddUtil.sleep(1);
+        rpaPage.companyName.clear();
+        rpaPage.companyName.sendKeys("testVaultData4");
+        bddUtil.sleep(2);
+        getDriver().findElement(By.xpath("//span[text()='testVaultData4']")).click();
+        rpaPage.ContractType.click();
+        bddUtil.sleep(2);
+        getDriver().findElements(By.xpath("//span[text()='RPA Full Recourse']")).get(1).click();
+        getDriver().findElement(By.xpath("//div[@class='lls-upload-dragger']/following-sibling::input")).sendKeys(fileAddress);
+        bddUtil.sleep(3);
+        rpaPage.clickNextBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.clickConfirmBtn.click();
+        bddUtil.sleep(5);
+    }
+
+    @Step
+    public void uploadRpaUAT(){
+        rpaPage.uploadBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.companyName.click();
+        bddUtil.sleep(3);
+        rpaPage.companyName.sendKeys("BuyerTest");
+        bddUtil.sleep(1);
+        rpaPage.companyName.clear();
+        rpaPage.companyName.sendKeys("BuyerTest");
+        bddUtil.sleep(2);
+        getDriver().findElement(By.xpath("//span[text()='BuyerTest']")).click();
+        rpaPage.ContractType.click();
+        bddUtil.sleep(2);
+        getDriver().findElements(By.xpath("//span[text()='RPA Full Recourse']")).get(1).click();
+        getDriver().findElement(By.xpath("//div[@class='lls-upload-dragger']/following-sibling::input")).sendKeys(fileAddress);
+        bddUtil.sleep(3);
+        rpaPage.clickNextBtn.click();
+        bddUtil.sleep(1);
+        rpaPage.clickConfirmBtn.click();
+        bddUtil.sleep(5);
     }
 
     @Step
@@ -82,7 +139,11 @@ public class rpa_steps extends ScenarioSteps {
         }
 
     @Step
-    public void clickConfirms(){rpaPage.confirms.click();}
+    public void clickConfirms(){
+        rpaPage.confirms.click();
+        bddUtil.sleep(1);
+        rpaPage.confirmsTwo.click();
+    }
 
     @Step
     public void jumpToSupplierPortal() {     //跳转供应商门户
@@ -208,22 +269,105 @@ public class rpa_steps extends ScenarioSteps {
         bddUtil.switchToWindows();
         rpaPage.inputSendCode.sendKeys(otp);
         rpaPage.GLDBEmailLoginBtn.click();
-        bddUtil.sleep(10);
+        bddUtil.sleep(5);
+        //断言是否登录成功
+        assertEquals("Home",getDriver().findElement(By.xpath("//span[text()='Home']")).getText());
+        bddUtil.sleep(2);
+    }
+
+    public void loginClientUseFixeDataUat(String emailName){
+        rpaPage.GLDBEmailInput.sendKeys(emailName+"@ihotmails.com");//("362DDf6O@MailTemp.top");
+        rpaPage.GLDBEmailPassword.sendKeys("P@ssw0rd_1234.");
+        rpaPage.enterCompanyId.sendKeys("1234");
+        // 换新邮箱地址了
+        /*JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox?name="+FileUtils.LastReadFileInput3("emailData").substring(0,8)+"\")");//name=362DDf60
+        bddUtil.switchToNewWindow();
+        if (rpaPage.errorText.isVisible()){
+            rpaPage.advancedButton.click();
+            rpaPage.enterEmailLink.click();
+        }
+        bddUtil.sleep(3);
+        rpaPage.clickRefreshBtn.click();
+        bddUtil.sleep(3);
+        rpaPage.clickRefreshBtn.click();
+        bddUtil.sleep(3);
+        rpaPage.thirdEmail.click();
+        String Vcode = rpaPage.emailVerificationCode.getText();
+        bddUtil.switchToWindows();*/
+//        新邮箱
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://ihotmails.com/\");");
+        bddUtil.switchToNewWindow();
+        rpaPage.clickEditEmailName.click();
+        bddUtil.sleep(3);
+        rpaPage.sendKeysEmailName.clear();
+        rpaPage.sendKeysEmailName.sendKeys(emailName);
+        rpaPage.clickEditEmailName.click();
+        bddUtil.switchToWindows();
+        rpaPage.sendCodeBtn.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(20);
+        bddUtil.scrollWindowToElement(rpaPage.clickFirstEmailName).click();
+        String otp = bddUtil.scrollWindowToElement(rpaPage.getEmailOtp).getText();
+        bddUtil.switchToWindows();
+        rpaPage.inputSendCode.sendKeys(otp);
+        rpaPage.GLDBEmailLoginBtn.click();
+        bddUtil.sleep(5);
+        //断言是否登录成功
+        assertEquals("Home",getDriver().findElement(By.xpath("//span[text()='Home']")).getText());
+        bddUtil.sleep(2);
     }
 
     public void clickGoToDigibankLink(){
         rpaPage.clickGoToDigibankLink.click();
     }
 
-    public void jumpToInbLink(){
+    public void jumpToInbLink() throws Exception{
+        bddUtil.switchToNewWindow();
+        // 获取当前URL
+        String url = getDriver().getCurrentUrl();
+        // 拼接成新URL
+        String newUrl = "https://inb-sit.intranet.glbank.com/"+url.substring(34,url.length());
+        System.out.println(newUrl);
+        getDriver().get(newUrl);
+//        if (rpaPage.clickSeniorBtn.isVisible()){
+//            rpaPage.clickSeniorBtn.click();
+//            rpaPage.getJumpToInbLink.click();
+//            rpaPage.jumpToInbLinkCheck.click();
+//        }else {
+//            rpaPage.jumpToInbLinkCheck.click();
+//        }
+        //断言是否进入INB系统
+        getDriver().findElement(By.xpath("//span[text()='Tips']")).getText().equals("Tips");
+        if (getDriver().findElement(By.xpath("//span[text()='Tips']")).getText().equals("Tips")){
+            System.out.println("成功进入系统");
+        }else {
+            throw new Exception("INB系统进入失败");
+        }
+        bddUtil.sleep(3);
+    }
+
+    public void jumpToInbLinkUAT() throws Exception{
         bddUtil.switchToNewWindow();
         if (rpaPage.clickSeniorBtn.isVisible()){
             rpaPage.clickSeniorBtn.click();
             rpaPage.getJumpToInbLink.click();
+            if (rpaPage.okBtn.isVisible()){
+                rpaPage.okBtn.click();
+                bddUtil.sleep(2);
+            }
             rpaPage.jumpToInbLinkCheck.click();
         }else {
             rpaPage.jumpToInbLinkCheck.click();
         }
+        //断言是否进入INB系统
+        if (getDriver().findElement(By.xpath("//div[text()='Select the option that best describes your situation:']")).getText().equals("Select the option that best describes your situation:")){
+            System.out.println("成功进入系统");
+        }else {
+            throw new Exception("INB系统进入失败");
+        }
+        bddUtil.sleep(3);
     }
 
     public void inputLogin(){
@@ -259,7 +403,8 @@ public class rpa_steps extends ScenarioSteps {
         bddUtil.switchToWindows();
         rpaPage.sendCodeBtn.click();
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(20);
+        //隐式等待
+        getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         bddUtil.scrollWindowToElement(rpaPage.clickFirstEmailName).click();
         String otp = bddUtil.scrollWindowToElement(rpaPage.getEmailOtp).getText();
         bddUtil.switchToWindows();

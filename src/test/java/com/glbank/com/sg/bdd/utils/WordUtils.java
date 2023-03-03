@@ -286,6 +286,39 @@ public class WordUtils {
             e.printStackTrace();
         }
     }
+
+
+    public static void photoStorageToFXPaymentMXUSDToUSD(String WordPath){
+        int size = 0;
+        for (File file : Objects.requireNonNull(new File(systemPath + "/src/test/resources/testData/screenShots").listFiles())){
+            if (file.isFile()){
+                size++;
+            }
+        }
+//        BDDUtil.size = BDDUtil.size + 1;
+//        int size = BDDUtil.size;
+        WordUtils wordUtil = new WordUtils();
+        String path = systemPath + "/src/test/resources/testData/";
+        Map<String,Object> jepg = new HashMap<String, Object>(){{
+            put("width", 692);put("height", 389);put("type", "png");
+        }};
+        try{
+            Map<String, Object> data = SerializationUtils.clone((HashMap<String, Object>) jepg);
+            data.put("content", WordUtils.inputStream2ByteArray(
+                    new FileInputStream(path+"screenShots/"+ getDate + size +".png"),
+                    true
+            ));
+            BDDUtil.params.put("${picture" + size + "}", data);
+            //模板文件位置
+            String path2=path + "excel/Oversea Payment Same Currency USD_USD.docx";
+            path3 = path + "word/Oversea Payment "+WordPath+".docx";
+            //生成文件位置
+            String fileName= new String(path3.getBytes("UTF-8"),"iso-8859-1");
+            wordUtil.getWord(path2,BDDUtil.params,fileName);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     public static void photoStorageToFxPaymentDifferentCurrencyMX(String WordPath){
         int size = 0;
         for (File file : Objects.requireNonNull(new File(systemPath + "/src/test/resources/testData/screenShots").listFiles())){

@@ -20,7 +20,7 @@ Feature: openAccount_track3
   @testcodeNew
     #正常开户新流程——单币种账户——新币
   Scenario:openAccountNew Singapore enterprise
-    Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
+    Given open "netSilverEnv_Kevin_SIT" enterprise net silver page
     When click open Account New page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page about CA_USD
     And Provide Essential Information New

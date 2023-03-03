@@ -1,6 +1,7 @@
 package com.glbank.com.sg.bdd.utils;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class FileUtils {
@@ -77,7 +78,6 @@ public class FileUtils {
         }
         return null;
     }
-
     /**
      * 删除指定文件夹下的全部内容
      * @param file
@@ -194,7 +194,7 @@ public class FileUtils {
         Map<String, String> map = new HashMap<>();
         try {
             String encoding="GBK";
-            path = systemPath + "/src/test/resources/testData/autopay/" + path + ".txt";
+            path = systemPath + "/src/test/resources/testData/" + path + ".txt";
             File file=new File(path);
             if(!file.isFile() && !file.exists()){ //判断文件是否存在
                 file.createNewFile();
@@ -236,7 +236,8 @@ public class FileUtils {
 
 
     public static void main(String[] args) throws Exception {
-        FileString("12345","321321312");
+        System.out.println(readtxtFile("automationTestCaseData/automationSitEnvData","sit_url_test"));
+//        FileString("12345","321321312");
 //        System.out.println(readtxtFile("t24","ChannelReferenceID"));
 //        writeFile("t24");
 //        //String filePath = "C:/workspace/DBB_GL_AutoTesting-dev/src/test/resources/testData/autopay/test.txt";

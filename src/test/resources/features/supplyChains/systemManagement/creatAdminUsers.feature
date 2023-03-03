@@ -7,7 +7,7 @@ Feature: createAdminUsers
     And createAdminUser Fill in information randomUsername
     Then update AdminUser PermissionMenu
 
-@testLogin
+  @testLogin
   Scenario:Login home
-  Given logon "environments_1" on tube by inputting system
-  When I should see home after login
+    Given logon "environments_1" on tube by inputting system
+    When I should see home after login

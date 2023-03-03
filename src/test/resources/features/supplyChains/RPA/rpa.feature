@@ -10,18 +10,18 @@ Feature:Bundled RPA test case
     When Upload a file
     Then Jump to the supplier portal to check the RPA
 
-    @test
+  @test
   Scenario:After the download is successful, you can view the document statement
     Given logon "environments_3" test code
     When I enter login information
     When I click report button
 
 
-    @setting
-    Scenario:When the supplier administrator creates a new user, the new user is a non-Internet banking user. The user receives an email and successfully logs in to the supplier portal according to the email prompt.
-      Given logon "environments_3" test code
-      When I input login information
-      When I click create user button
+  @setting
+  Scenario:When the supplier administrator creates a new user, the new user is a non-Internet banking user. The user receives an email and successfully logs in to the supplier portal according to the email prompt.
+    Given logon "environments_3" test code
+    When I input login information
+    When I click create user button
       |first_new_password|second_new_password|
       |P@ssw0rd_123      |P@ssw0rd_123       |
-      Then I jump to the login page
+    Then I jump to the login page

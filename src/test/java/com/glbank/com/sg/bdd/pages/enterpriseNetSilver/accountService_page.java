@@ -244,4 +244,10 @@ public class accountService_page extends PageObject {
     @FindBy(xpath = "//div[text()='Search']")
     public WebElementFacade clickSearch;
 
+    @FindBy(xpath = "//div[@class='el-table__fixed-body-wrapper']//tr[1]/td[6]//div[@class='el-tooltip btn-icon']")
+    public WebElementFacade clickThreePoint;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom\"]//div[text()='Download']")
+    public WebElementFacade clickSitEnvDownloadBtn;
+
 }

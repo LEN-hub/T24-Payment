@@ -29,6 +29,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//a[text()='Find Account ']")
     public WebElementFacade clickFindAccount;
 
+    @FindBy(xpath = "//a[text()='Find Multi Currency ']")
+    public WebElementFacade clickFindMCY;
+
 
     @FindBy(xpath = "//span[text()='Payments']")
     public WebElementFacade clickPayments;
@@ -41,6 +44,9 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//td[@id='enqselfavs']/following-sibling::td//td[@width='1'][2]//td")
     public WebElementFacade clickFindBtn;
+
+    @FindBy(xpath = "//div[@id='enquiryDataSizer']//td[8]")
+    public WebElementFacade checkT24Status;
 
     @FindBy(xpath = "//table[@id='datadisplay']//tr/td[1]")
     public WebElementFacade t24Id;
@@ -74,6 +80,9 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//table[@id='datadisplay']//td[2]")
     public WebElementFacade getFtNumber;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//td[12]")
+    public WebElementFacade checkStatus;
 
     @FindBy(xpath = "//a[@title='View']")
     public WebElementFacade clickViewIcon;
@@ -174,11 +183,20 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//option[text()='Outgoing Message']")
     public WebElementFacade selectOutgoingMessage;
 
+    @FindBy(xpath = "//option[text()='Fees Applied']")
+    public WebElementFacade selectFeesApplied;
+
     @FindBy(xpath = "//td[text()='Not Applicable']")
     public WebElementFacade notApplicableView;
 
     @FindBy(xpath = "//img[@alt='Select Drilldown']")
     public WebElementFacade clickSelectDrilldown;
+
+    @FindBy(xpath = "//table[@class='enquirydata enquirydata_PAYFEE']//td[7]")
+    public WebElementFacade getAmount;
+
+    @FindBy(xpath = "//table[@class='enquirydata enquirydata_PAYFEE']//td[5]")
+    public WebElementFacade getFeeAmt;
 
     @FindBy(xpath = "//table[@id='datadisplay']")
     public WebElementFacade outgoingMessage;
@@ -372,6 +390,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//a[text()='Debit Charge Amount.1']/parent::label/parent::td/following-sibling::td[2]/span")
     public WebElementFacade getDebitChargeAmount;
 
+    @FindBy(xpath = "//a[text()='Credit Charge Amount.1']/parent::label/parent::td/following-sibling::td[2]/span")
+    public WebElementFacade getCreditChargeAmount;
+
     @FindBy(xpath = "//a[text()='Credit Currency']/parent::label/parent::td/following-sibling::td[2]/span")
     public WebElementFacade fundsTransferCreditCurrency;
 
@@ -396,9 +417,42 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//table[@summary=\"Recent Transactions\"]//div[2]//tr[2]/td[6]")
     public WebElementFacade subtract;
 
+    @FindBy(xpath = "//table[@summary=\"Recent Transactions\"]//div[2]//tr[1]/td[6]")
+    public WebElementFacade firstDebitAmount;
+
     @FindBy(xpath = "//table[@summary=\"Recent Transactions\"]//div[2]//tr[2]/td[7]")
     public WebElementFacade creditAmount;
 
+    @FindBy(xpath = "//table[@summary=\"Recent Transactions\"]//div[2]//tr[1]/td[7]")
+    public WebElementFacade firstCreditAmount;
+
     @FindBy(xpath = "//table[@summary=\"Recent Transactions\"]//div[2]//tr[1]/td[8]")
     public WebElementFacade getDifference;
+
+    @FindBy(xpath = "//span[text()='Admin Menu']")
+    public WebElementFacade clickAdminMenu;
+
+    @FindBy(xpath = "//div[@id='pane_']/ul[2]//span[text()='Payments']")
+    public WebElementFacade clickPaymentsBtn;
+
+    @FindBy(xpath = "//a[text()='Payment Order RFQ Rate Audit ']")
+    public WebElementFacade clickPaymentOrderRFQRateAuditMenu;
+
+    @FindBy(xpath = "//td[@id='dealtitle']/following-sibling::td[1]//input[@id='transactionId']")
+    public WebElementFacade sendTransactionID;
+
+    @FindBy(xpath = "//a[@title='View a contract']")
+    public WebElementFacade clickSearchBtn;
+
+    @FindBy(xpath = "//label[@for='fieldName:PRICE']/parent::td/following-sibling::td[2]/span")
+    public WebElementFacade getPriceRate;
+
+    @FindBy(xpath = "//span[text()='Debit Credit Info']")
+    public WebElementFacade clickdebitCreditInfoMenu;
+
+    @FindBy(xpath = "//td[text()='SGD']/following-sibling::td[6]//img[@title='Overview']")
+    public WebElementFacade clickMultiCurrencySGDOverview;
+
+    @FindBy(xpath = "//td[text()='USD']/following-sibling::td[6]//img[@title='Overview']")
+    public WebElementFacade getClickMultiCurrencyUSDOverview;
 }

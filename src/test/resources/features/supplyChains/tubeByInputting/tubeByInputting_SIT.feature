@@ -6,7 +6,7 @@ Feature: tube By Inputting In SIT
   Scenario:Simple (core does not exist, non autonomous, no administrator)_SIT
     Given logon "scf_sit1" on sit tube by inputting system
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
+    And I click Create Customer and fill in the supplier information in the pop-up window buyer
       |KYC Mode    |Input by|Customer Type|
       |Simple KYC  |Operator|Buyer        |
     Then I Check to see if you jump to the Authorized Person page
@@ -28,12 +28,12 @@ Feature: tube By Inputting In SIT
       |Approved|Buyer        |
     When I close driver
 
-     #2.simple（核心不存在、非自主、管理员）
+     #2.simple（核心不存在、非自主、有管理员）
   @simpleKYC02_SIT
   Scenario: Simple (non-existent core, non autonomous, administrator)_SIT
-    Given logon "scf_sit1" on sit tube by inputting system
+    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
+    And I click Create Customer and fill in the supplier information in the pop-up window buyer
       |KYC Mode    |Input by|Customer Type|
       |Simple KYC  |Operator|Buyer        |
     Then I Check to see if you jump to the Authorized Person page
@@ -45,7 +45,7 @@ Feature: tube By Inputting In SIT
       |Result |Customer Type|
       |Approve|Buyer        |
     When I close driver
-    Given logon "scf_sit2" on sit tube by inputting system
+    Given logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
     When I authorize on the Onboarding Review page
       |Result |Customer Type|
       |Approve|Buyer        |
@@ -70,7 +70,7 @@ Feature: tube By Inputting In SIT
     When I click agree Service Agreement on simple KYC
     When I click the Confirmation Information button on the page
     When I close driver
-    Given logon "scf_sit2" on sit tube by inputting system
+    Given logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
       |Result  |Customer Type|

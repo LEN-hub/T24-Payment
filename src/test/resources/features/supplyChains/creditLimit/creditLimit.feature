@@ -24,33 +24,33 @@ Feature: test creditLimit
     When I click UnderWriting List button on the page
 
 
-@test
-Scenario:The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained
-  Given logon "environments_1" on tube by inputting system
-  When I click UnderWriting and UnderWriting Approval
-  Then I should direct to the UnderWriting Approval page
-  When I click Supplier Assign to Me button on UnderWriting Approval page
+  @test
+  Scenario:The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained
+    Given logon "environments_1" on tube by inputting system
+    When I click UnderWriting and UnderWriting Approval
+    Then I should direct to the UnderWriting Approval page
+    When I click Supplier Assign to Me button on UnderWriting Approval page
 #  When I click buyer Assign to Me button on UnderWriting Approval page
-  When I click Assign to ME title on the on UnderWriting Approval page
+    When I click Assign to ME title on the on UnderWriting Approval page
 #  Then I should see Proceed Button on the UnderWriting Approval page
-  When I should see Supplier Proceed Button and click on the UnderWriting Approval page
-  When I click Result button on the UnderWriting Approval page
-  And I click Approve button and click Submit button on the page
-  When I click Completed Button on the UnderWriting Approval page
-  Given logon "environments_2" on tube by inputting system
-  When I click UnderWriting and UnderWriting Approval
-  Then I should direct to the UnderWriting Approval page
-  When I click Supplier Assign to Me button on UnderWriting Approval page
-  When I click Assign to ME title on the on UnderWriting Approval page
-  When I should see Supplier Proceed Button and click on the UnderWriting Approval page
-  When I click Result button on the UnderWriting Approval page
-  And I click Approve button and click Submit button on the page
-  When I the second click Completed Button on the UnderWriting Approval page
-  When I click UnderWriting List button on the page
+    When I should see Supplier Proceed Button and click on the UnderWriting Approval page
+    When I click Result button on the UnderWriting Approval page
+    And I click Approve button and click Submit button on the page
+    When I click Completed Button on the UnderWriting Approval page
+    Given logon "environments_2" on tube by inputting system
+    When I click UnderWriting and UnderWriting Approval
+    Then I should direct to the UnderWriting Approval page
+    When I click Supplier Assign to Me button on UnderWriting Approval page
+    When I click Assign to ME title on the on UnderWriting Approval page
+    When I should see Supplier Proceed Button and click on the UnderWriting Approval page
+    When I click Result button on the UnderWriting Approval page
+    And I click Approve button and click Submit button on the page
+    When I the second click Completed Button on the UnderWriting Approval page
+    When I click UnderWriting List button on the page
 
 
 
-@test
+  @test
   Scenario:Buyer The operator initiated Buyer Entity Flow & Buyer Entity Public to grant credit to buyer customers, and the credit was successfully granted, and the limit and rating were obtained
     Given logon "environments_1" on tube by inputting system
     When I click UnderWriting and UnderWriting Approval
@@ -77,7 +77,7 @@ Scenario:The operator initiates the supplier's credit, the whole process is appr
 
 
 #授信限额。
-@testReportCreditLimit
+  @testReportCreditLimit
   Scenario:1Supplier The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained
     Given logon "environments_1" on tube by inputting system
     When I click UnderWriting and UnderWriting Approval
@@ -105,8 +105,8 @@ Scenario:The operator initiates the supplier's credit, the whole process is appr
     When I click UnderWriting List button on the page
 
 
-@testReportBr
-   Scenario:BR signed
+  @testReportBr
+  Scenario:BR signed
     Given Open Supplier Portal URL
     When I input login data and click on the Login Supplier Portal URL
       |pass word   |Company ID|
@@ -118,14 +118,10 @@ Scenario:The operator initiates the supplier's credit, the whole process is appr
 
 
 #    上传历史单据
-@UploadHistoricalDocuments
+  @UploadHistoricalDocuments
   Scenario:Upload historical documents
     Given logon "scf_environments_1_tian" on tube by inputting system
     When I click Operations button
     And I click docs List button
     When I upload Historical Documents
     Then I should see the uploaded historical documents
-
-
-
-

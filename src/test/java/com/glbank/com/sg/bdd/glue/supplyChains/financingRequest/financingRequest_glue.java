@@ -41,6 +41,16 @@ public class financingRequest_glue {
         financingRequest_step.clickOperationsToL1Review(companyName);
     }
 
+    @Then("^Financing application for approval$")
+    public void financingApplicationForApproval() throws Exception{
+        financingRequest_step.health_checkApproval();
+    }
+
+    @Then("^Financing application for approval Return$")
+    public void financingApplicationForApprovalReturn() throws Exception{
+        financingRequest_step.health_checkApprovalReturn();
+    }
+
     @And("^click Financing Status$")
     public void clickFinancingStatus(){
         financingRequest_step.clickFinancingStatus();
@@ -56,4 +66,11 @@ public class financingRequest_glue {
     public void iShouldSeeQuotaOccupancy() {
         financingRequest_step.seeQuotaOccupancy(companyName);
     }
+
+    @Then("^upload RequestFinancing File in health check$")
+    public void uploadRequestFinancingFileInHealthCheck() {
+        financingRequest_step.uploadRequestFinancingHealthCheck();
+    }
+
+
 }

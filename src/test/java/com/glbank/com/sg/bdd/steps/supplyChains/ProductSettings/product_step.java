@@ -6,6 +6,8 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -166,7 +168,9 @@ public class product_step extends ScenarioSteps {
 //        两个新增字段
         productPage.pool.click();
         getDriver().findElements(By.xpath("//span[text()='N']")).get(2).click();
-        productPage.financingTenor.sendKeys("500");
+//        productPage.financingTenor.sendKeys("500");//新版本 业务变更不用这个字段了
+        productPage.CreditTerm.sendKeys("300");
+        productPage.GracePeriod1.sendKeys("201");
         productPage.submit.click();
         bddUtil.sleep(5);
 
@@ -196,6 +200,7 @@ public class product_step extends ScenarioSteps {
     @Step
     public void secondContentName() {               //自动获取创建产品的名称
         productPage.createquoteTitle.isVisible();
+        bddUtil.sleep(3);
         productPage.productName.click();
         bddUtil.scrollWindowToElement(productPage.find(By.xpath("//body/div[2]//li/span[text()='" + content + "']"))).click();
     }
@@ -207,7 +212,10 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickGLB() {
-        bddUtil.sleep(5);
+//        bddUtil.sleep(10);
+        //显性等待等待 加载
+        WebDriverWait driverWait = new WebDriverWait(getDriver(), 50);
+        driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(),'Green Link Digital Bank')]")));
         productPage.GLB.click();
     }
 
@@ -226,6 +234,9 @@ public class product_step extends ScenarioSteps {
 //            }
 //        }
         String supplierName = FileUtils.LastReadFileInput3("companyData");
+        //显示等待判断是否加载出来
+        WebDriverWait driverWait = new WebDriverWait(getDriver(), 50);
+        driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@x-placement='bottom-start' or @x-placement='top-start' ]//span")));
         bddUtil.scrollWindowToElement(productPage.find(By.xpath("//div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='"+supplierName+"']"))).click();
         bddUtil.sleep(1);
     }
@@ -419,6 +430,7 @@ public class product_step extends ScenarioSteps {
 
     @Step
     public void clickGracePeriod(String value) {
+        productPage.GracePeriod.clear();
         productPage.GracePeriod.sendKeys(value);
         productPage.setUpFee.sendKeys("5");
 //        getDriver().findElement(By.xpath("//div[@data-key='f0vilgld']//input")).sendKeys("5");

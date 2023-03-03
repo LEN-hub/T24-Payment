@@ -83,18 +83,39 @@ public class rpa_glue1 {
         rpaStep.loginClientUseFixeData(maps.get(0).get("Email Name"));
     }
 
+    @When("^client login success to UAT$")
+    public void clientLoginSuccessToUat(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        rpaStep.loginClientUseFixeDataUat(maps.get(0).get("Email Name"));
+    }
+
     @When("^click Go to Digibank Link$")
     public void clickGoToDigibankLink() {
         rpaStep.clickGoToDigibankLink();
     }
 
     @Then("^Check page jump success$")
-    public void checkPageJumpSuccess() {
+    public void checkPageJumpSuccess() throws Exception{
         rpaStep.jumpToInbLink();
     }
 
+    @Then("^Check page jump success uat$")
+    public void checkPageJumpSuccessUAT() throws Exception{
+        rpaStep.jumpToInbLinkUAT();
+    }
+
     @Then("^Login succeeded jump to SCF homepage$")
-    public void loginSucceededJumpToSCFHomepage() {
+    public void loginSucceededJumpToSCFHomepage() throws Exception{
         rpaStep.titleOverview();
+    }
+
+    @Then("^Upload RPA file$")
+    public void uploadRPAFile() {
+        rpaStep.uploadRpa();
+    }
+
+    @Then("^Upload RPA file in UAT$")
+    public void uploadRPAFileInUAT() {
+        rpaStep.uploadRpaUAT();
     }
 }

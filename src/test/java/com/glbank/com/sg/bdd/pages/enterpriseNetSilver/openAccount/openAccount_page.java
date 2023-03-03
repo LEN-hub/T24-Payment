@@ -1207,4 +1207,35 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//div[text()='Congratulations!']")
     public WebElementFacade viewCongratulations;
+
+    @FindBy(xpath = "//label[@for='accountTypeCd']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade clickAccountTypeDropDownBox;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span")
+    public List<WebElementFacade> selectAccountTypeDropDownBox;
+
+    @FindBy(xpath = "//label[@for='accountTypeCd']/parent::div/following-sibling::div[1]//label[1]//span[@class='el-radio__input']")
+    public WebElementFacade selectAccountTypeSGD;
+
+    @FindBy(xpath = "//div[contains(text(),'Salutation')]/parent::label/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade clickSalutationDownDropBox;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//span")
+    public List<WebElementFacade> selectSalutaionText;
+
+    @FindBy(xpath = "//label[@for='operatePersonNm']/following-sibling::div//input")
+    public WebElementFacade enterOperatePersonNm;
+
+    @FindBy(xpath = "//div[contains(text(),'Contact Number')]/parent::label/following-sibling::div/div/div[1]//input")
+    public WebElementFacade enterContactNumberFirst;
+
+    @FindBy(xpath = "//ul[@class='flag_box-ul']/li[1]/div/span")
+    public WebElementFacade selectContactNumberFirstCountry;
+
+    @FindBy(xpath = "//div[contains(text(),'Contact Number')]/parent::label/following-sibling::div/div/div[2]//input")
+    public WebElementFacade enterContactNumberSecond;
+
+    @FindBy(xpath = "//label[@for='operatePersonEmail']/following-sibling::div//input")
+    public WebElementFacade enterEmailInput;
+
 }

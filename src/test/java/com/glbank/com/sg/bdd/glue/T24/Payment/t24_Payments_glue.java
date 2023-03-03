@@ -17,6 +17,7 @@ public class t24_Payments_glue {
     @Steps
     private t24_Payments_step t24_payments_step;
     public static String envTag;
+    public BDDUtil bddUtil;
 
     @When("^I expand the User Menu menu on the page$")
     public void iExpandTheUserMenuMenuOnThePage() {
@@ -241,7 +242,7 @@ public class t24_Payments_glue {
         t24_payments_step.clickFindAccountMenu();
     }
 
-    @When("^I verify that the account deduction is correct through the calculation formula$")
+    @When("^Verify of successful deduction of transfer-out account$")
     public void iJumpToANewlyOpenedPageForFindAccountMenu(DataTable data) {
         t24_payments_step.closeAllTabJumpToHomePage();
         t24_payments_step.clickProductsMenu();
@@ -249,10 +250,10 @@ public class t24_Payments_glue {
         t24_payments_step.switchToDefaultContent();
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
-        t24_payments_step.findInputArrangement(title.get(0).get("Find Accounts"));
+        t24_payments_step.findInputArrangement();
     }
 
-    @When("^I verify the T24 transaction status$")
+    @When("^Enter the verification page$")
     public void iQueryTheTransactionStatusInTheCore(DataTable data) {
         t24_payments_step.clickUserMenu();
         t24_payments_step.clickPaymentsMenu();
@@ -263,25 +264,25 @@ public class t24_Payments_glue {
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
         t24_payments_step.switchToFirstFrame();
-        t24_payments_step.interfaceReturnInformationQuery();
+        t24_payments_step.clickFindBtn();
     }
 
-    @Then("^I verify that the data in the API request message is consistent with the page ChangOptions field$")
+    @Then("^Verify the Charge Options field$")
     public void transactionDetailsCheck(DataTable data) {
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
-        t24_payments_step.transactionDetailsCheckSGD_SGD(title.get(0).get("Charge Option"));
+        t24_payments_step.transactionDetailsCheckUSD_USD(title.get(0).get("Charge Option"));
     }
 
     @When("^I close all tabs and jump to the home page$")
     public void iCloseAllTabsAndJumpToTheHomePage() {
         t24_payments_step.closeAllTabJumpToHomePage();
     }
-    @Then("^I verify that the data in the API request message is consistent with the currency field of the page$")
+    @Then("^Verify Bene currency$")
     public void iCheckTheTransferOutCurrencyOnThePage() {
         t24_payments_step.checkCurrency();
     }
 
-    @Then("^I verify that the data in the API request message is consistent with the page amount field$")
+    @Then("^Verify transfer amount$")
     public void iCheckTransferAmountOnThePage() {
         t24_payments_step.checkAmount();
     }
@@ -292,8 +293,88 @@ public class t24_Payments_glue {
         t24_payments_step.checkDebitAccountNum(title.get(0).get("envName"));
     }
 
-    @Then("^I verify that the data in the API request message is consistent with the page feed field$")
+    @Then("^Verify fees$")
     public void iCheckFeeOnThePage() {
         t24_payments_step.checkFee();
+    }
+
+    @Then("^Verify cut off time date$")
+    public void iVerifyThatTheCutOffTimeDateIsCorrect() {
+        t24_payments_step.iVerifyThatTheCutOffTimeDateIsCorrect();
+    }
+
+    @Then("^Verify T24 transaction status$")
+    public void iVerifyThatTheTTransactionStatusIsConsistentWithTheExpectedResult() {
+        t24_payments_step.interfaceReturnInformationQuery();
+    }
+
+    @Then("^Verify the actual deduction amount$")
+    public void iVerifyThatTheExpectedResultOfTheActualDeductionAmountIsConsistent() {
+        t24_payments_step.checkDeductionAmount();
+    }
+
+    @When("^I view the exchange rate in the Payment Order RFQ Rate Audit menu On Local Payment$")
+    public void iViewTheExchangeRateInThePaymentOrderRFQRateAuditMenu(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkRateInternalTransfer(title.get(0).get("WordPath"));
+    }
+
+    @When("^I view the exchange rate in the Payment Order RFQ Rate Audit menu On Oversea Payment MT$")
+    public void iViewTheExchangeRateInThePaymentOrderRFQRateAuditMenuOnOverseaPaymentMT(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkRateOverseaDifferentCurrencyMT(title.get(0).get("WordPath"));
+    }
+
+    @When("^I view the exchange rate in the Payment Order RFQ Rate Audit menu On Oversea Payment MX$")
+    public void iViewTheExchangeRateInThePaymentOrderRFQRateAuditMenuOnOverseaPaymentMX(DataTable data) {
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.checkRateOverseaDifferentCurrencyMX(title.get(0).get("WordPath"));
+
+    }
+
+    @Then("^Verify of successful deduction of MYC transfer-out account$")
+    public void verifyOfSuccessfulDeductionOfMYCTransferOutAccount(DataTable data) {
+        t24_payments_step.closeAllTabJumpToHomePage();
+        t24_payments_step.clickProductsMenu();
+        t24_payments_step.clickFindMCY();
+        t24_payments_step.switchToDefaultContent();
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
+        t24_payments_step.findMCYInputArrangement();
+    }
+
+    @When("^I check the deduction amount on the Find Account page On Local Payment$")
+    public void iCheckTheDeductionAmountOnTheFindAccountPageOnLocalPayment(DataTable data) {
+        t24_payments_step.closeTabJumpToHomePage();
+        t24_payments_step.clickProductsMenu();
+        t24_payments_step.clickFindAccountMenu();
+        t24_payments_step.switchToDefaultContent();
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
+        t24_payments_step.findInputArrangementPaymentUI(title.get(0).get("WordPath"));
+    }
+
+    @When("^I check the deduction amount on the Find Account page On Local Fund Payment$")
+    public void iCheckTheDeductionAmountOnTheFindAccountPageOnLocalFundPayment(DataTable data) {
+        bddUtil.switchToNewWindow();
+        t24_payments_step.switchToSecondFrame();
+        t24_payments_step.clickProductsMenu();
+        t24_payments_step.clickFindAccountMenu();
+        t24_payments_step.switchToDefaultContent();
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
+        t24_payments_step.findInputArrangementLocalFundPaymentUI(title.get(0).get("WordPath"));
+    }
+
+    @When("^I check the deduction amount on the Find Account page On overseas transfer Payment$")
+    public void iCheckTheDeductionAmountOnTheFindAccountPageOnOverseasTransferPayment(DataTable data) {
+        bddUtil.switchToNewWindow();
+        t24_payments_step.switchToSecondFrame();
+        t24_payments_step.clickProductsMenu();
+        t24_payments_step.clickFindAccountMenu();
+        t24_payments_step.switchToDefaultContent();
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
+        t24_payments_step.findInputArrangementOverseasPaymentUI(title.get(0).get("WordPath"));
     }
 }

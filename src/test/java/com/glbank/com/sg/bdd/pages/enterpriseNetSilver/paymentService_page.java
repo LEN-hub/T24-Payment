@@ -32,7 +32,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[2]//span[@class='el-radio__input']")
     public WebElementFacade selectPaymentTypeMEPS;
 
-    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[2]//span[@class='el-radio__inner']")
+    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//span[@class='el-radio__inner']")
     public WebElementFacade clickPaymentTypeMEPS;
 
     @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[1]//span[@class='el-radio__inner']")
@@ -552,4 +552,13 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[contains(text(),'Submit')]")
     public WebElementFacade getClickSubmitBtn;
+
+    @FindBy(xpath = "//span[text()='MEPS']/preceding-sibling::span//span")
+    public WebElementFacade clickMEPSBtn;
+
+    @FindBy(xpath = "//label[@for='acctObj']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade sitEnvLocalFundAccountPopBox;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//li[1]")
+    public WebElementFacade sitEnvLocalFundAccountisDisplay;
 }

@@ -1,6 +1,6 @@
 @payments
 Feature:Bundled payments test case
- @lending
+  @lending
    #此脚本需要用到test.txt
   Scenario:UAT_ Supply chain_ Inner tube_ Create payments_ 0001
     Given logon "environments_001" on tube by inputting system
@@ -50,7 +50,7 @@ Feature:Bundled payments test case
     When I input Adjustment Amout
     Then I click Submit
 
-@reimbursement
+  @reimbursement
   Scenario:UAT_supply chain_inner management_repayment_0001UAT_supply chain_inner management_repayment_0001
     Given logon "environments_1" on tube by inputting system
     When I click Operations button
@@ -84,20 +84,20 @@ Feature:Bundled payments test case
 
 
     #多还款
-@overpayment
-Scenario:Due account balance is sufficient, overpayment, resulting in a difference in payment
-  Given logon "environments_1" on tube by inputting system
-  When I click Operations button
-  When I click Repayment button
-  Then I should direct to the Repayment Management page
+  @overpayment
+  Scenario:Due account balance is sufficient, overpayment, resulting in a difference in payment
+    Given logon "environments_1" on tube by inputting system
+    When I click Operations button
+    When I click Repayment button
+    Then I should direct to the Repayment Management page
 #    When I click the Assign to me button of the repayment data
-  When I click Assign to ME title on the on Repayment Management page
-  When I click Proceed Button on the Repayment Management Page
-  Then I should direct to the Repayment Detail page
-  When I select Repayment Account No on the page
-  And I enter other parameters in the current pageThree
-  When I click more button
-  And I should see Quota occupancy
+    When I click Assign to ME title on the on Repayment Management page
+    When I click Proceed Button on the Repayment Management Page
+    Then I should direct to the Repayment Detail page
+    When I select Repayment Account No on the page
+    And I enter other parameters in the current pageThree
+    When I click more button
+    And I should see Quota occupancy
 
 
   #部分还款

@@ -3,7 +3,7 @@
 
 Feature: test report for scf
 
-    @supplierFullKYC
+  @supplierFullKYC
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully
     Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
     When open the email browser page
