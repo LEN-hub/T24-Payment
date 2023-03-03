@@ -4,7 +4,7 @@ Feature: Health Check SCF SIT Test Case
 
     #1.T24系统Health Check
   @T24_Health_Check_SIT
-  Scenario:T24 System Health Check SIT
+  Scenario:SCF to T24 SIT
     Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
     When I enter the Rating&Limits page
     When I operate with fixed data on the page
@@ -17,7 +17,7 @@ Feature: Health Check SCF SIT Test Case
 
   #2.ESSO系统Health Check
   @ESSO_Health_Check_SIT
-  Scenario:ESSO System Health Check SIT
+  Scenario:SCF to ESSO SIT
     Given logon "environments_SCF_SIT" test code
     When client login success
       |Email Name|
@@ -25,16 +25,16 @@ Feature: Health Check SCF SIT Test Case
 
     #3.CPS系统Health Check
   @CPS_Health_Check_SIT
-  Scenario:CPS System Health Check SIT
+  Scenario:SCF to CPS SIT
     Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
     When I enter the Underwriting Approval page
     When I select data and credit on the page
-      |Test Data|
-      |20221124B|
+      |Test Data     |
+      |testVaultData3|
 
     #4.IMS系统Health Check
   @IMS_Health_Check_SIT
-  Scenario:IMS System Health Check SIT
+  Scenario:SCF to IMS SIT
     Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
     When I click on the first Customers
     And click ContractManagement
@@ -42,7 +42,7 @@ Feature: Health Check SCF SIT Test Case
 
     #5.CNP系统Health Check
   @CNP_Health_Check_SIT
-  Scenario:CNP System Health Check SIT
+  Scenario:SCF to CNP SIT
     Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
     When open the email browser page
 #      And I switch to the SCF page
@@ -68,7 +68,7 @@ Feature: Health Check SCF SIT Test Case
 
     #6.INB系统Health Check
   @INB_Health_Check_SIT
-  Scenario:INB System Health Check SIT
+  Scenario:SCF to INB SIT
     Given logon "environments_SCF_SIT" test code
     When client login success
       |Email Name|

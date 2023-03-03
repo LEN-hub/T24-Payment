@@ -10,6 +10,7 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import javax.swing.*;
@@ -153,29 +154,28 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.getComments.sendKeys("PASS");
         financingRequest_page.clickSubmit.click();
         //判断融资申请提交以后是否成功。
-        for (int i = 0; i < 5; i++) {
-            // 隐性等待。
-            getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//            bddUtil.sleep(10);
-//            if (getDriver().findElement(By.xpath("//h2[text()='Financing Request']")).isDisplayed()){
-//                break;
-//            }else {
-//                getDriver().findElement(By.xpath("//span[text()='Submit ']/parent::button")).getAttribute("class").equals("lls-button btn-item lls-button--primary");
-//                financingRequest_page.clickSubmit.click();
-//            }
-            boolean c = false;
+        Boolean a;
+        for (int k = 0; k < 5; k++) {
+            a = false;
             try {
-                String a = getDriver().findElement(By.xpath("//span[text()='Submit ']/parent::button")).getAttribute("class");
-                String b = "lls-button btn-item lls-button--primary";
-                c = a.equals(b);
+                if (getDriver().findElement(By.xpath("//h2[text()='Financing Request']")).isDisplayed()){
+                    break;
+                }
             }catch (Exception e){
                 e.printStackTrace();
             }
-            if (c){
-                financingRequest_page.clickSubmit.click();
-            }else {
-                break;
+            if (!a){
+                try {
+                    if (getDriver().findElement(By.xpath("//span[text()='Submit ']/parent::button")).getAttribute("class").equals("lls-button btn-item lls-button--primary")){
+                        financingRequest_page.clickSubmit.click();
+                    }else {
+                        Thread.sleep(3000);
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
             }
+
         }
         bddUtil.sleep(5);
     }
