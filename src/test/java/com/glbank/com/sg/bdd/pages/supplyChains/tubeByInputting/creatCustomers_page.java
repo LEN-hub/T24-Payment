@@ -1627,6 +1627,12 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//span[contains(text(),'Retrigger CPS')]")
     public WebElementFacade clickRetriggerCPS;
 
+    @FindBy(xpath = "//span[text()='Supply Chain Finance']")
+    public WebElementFacade clickSCFLink;
+
+    @FindBy(xpath = "//div[@id='app']//p")
+    public WebElementFacade scfPageTitle;
+
 
     public void enterUserName(String userName){
         withTimeoutOf(10,SECONDS)

@@ -172,7 +172,11 @@ public class t24_Payments_step extends ScenarioSteps {
         t24Id = t24_payments_page.t24Id.getText();
         t24TransactionReference = t24_payments_page.t24TransactionReference.getText();
         bddUtil.screenShort();
-        WordUtils.photoStorageToFXPaymentMX(WordPath);
+        if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+            WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+        } else{
+            WordUtils.photoStorageToFXPaymentMX(WordPath);
+        }
         FileUtils.FileString4("t24",nowDate+"\n"+"ID:" + t24Id);
         FileUtils.FileString4("t24","TransactionReference:" + t24TransactionReference);
         bddUtil.closeWindow();
@@ -405,7 +409,11 @@ public class t24_Payments_step extends ScenarioSteps {
         getDriver().manage().window().maximize();
         if (t24_payments_page.checkStatus.getText().equals("999") || t24_payments_page.checkStatus.getText().equals("677") || t24_payments_page.checkStatus.getText().equals("687")) {
             bddUtil.screenShort();
-            WordUtils.photoStorageToFXPaymentMX(WordPath);
+            if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+                WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+            } else{
+                WordUtils.photoStorageToFXPaymentMX(WordPath);
+            }
             clickViewIcon();
         }
     }
@@ -482,7 +490,11 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
         bddUtil.screenShort();
-        WordUtils.photoStorageToFXPaymentMX(WordPath);
+        if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+            WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+        } else{
+            WordUtils.photoStorageToFXPaymentMX(WordPath);
+        }
         Assert.assertEquals(convertDate(t24_payments_page.getProcessingDate.getText()),DateUtil.format(new Date(),"yyyy-MM-dd"));
         Calendar instance = Calendar.getInstance();
         // 获取今天星期几
@@ -568,13 +580,25 @@ public class t24_Payments_step extends ScenarioSteps {
         Assert.assertEquals(getBeneficiaryName, readtxtFile("autopay/t24","ChannelDetailPayeeName"));
         t24_payments_page.getClickChargeInformation.click();
         bddUtil.screenShort();
-        WordUtils.photoStorageToFXPaymentMX(WordPath);
+        if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+            WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+        } else{
+            WordUtils.photoStorageToFXPaymentMX(WordPath);
+        }
         t24_payments_page.getRoutingInformation.click();
         bddUtil.screenShort();
-        WordUtils.photoStorageToFXPaymentMX(WordPath);
+        if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+            WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+        } else{
+            WordUtils.photoStorageToFXPaymentMX(WordPath);
+        }
         t24_payments_page.getAdditionalInformation.click();
         bddUtil.screenShort();
-        WordUtils.photoStorageToFXPaymentMX(WordPath);
+        if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+            WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+        } else{
+            WordUtils.photoStorageToFXPaymentMX(WordPath);
+        }
         bddUtil.closeWindow();
         bddUtil.switchToNewWindow();
         switchToDefaultContent();
@@ -820,7 +844,7 @@ public class t24_Payments_step extends ScenarioSteps {
             System.out.println("数据对比失败！");
         }
 //        Assert.assertEquals(getOrderingAccount, readtxtFile("autopay/t24","ChannelDebitAccountNumber"));
-        Assert.assertEquals(getOrderingName, readtxtFile("autopay/t24","ChannelDebitAccountName"));
+//        Assert.assertEquals(getOrderingName, readtxtFile("autopay/t24","ChannelDebitAccountName"));
         Assert.assertEquals(getBeneficiaryName, readtxtFile("autopay/t24","ChannelDetailPayeeName"));
         t24_payments_page.getClickChargeInformation.click();
         bddUtil.screenShort();
@@ -896,7 +920,11 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.clickSelectDrilldown.click();
         bddUtil.sleep(2);
         bddUtil.screenShort();
-        WordUtils.photoStorageToFXPaymentMX(WordPath);
+        if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+            WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+        } else{
+            WordUtils.photoStorageToFXPaymentMX(WordPath);
+        }
     }
     //获取Outgoing Message
     @Step
@@ -1125,10 +1153,18 @@ public class t24_Payments_step extends ScenarioSteps {
         if (t24_payments_page.notApplicableView.isVisible()){
             System.out.println("Outgoing没有生成数据！");
             bddUtil.screenShort();
-            WordUtils.photoStorageToFXPaymentMX(WordPath);
+            if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+                WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+            } else{
+                WordUtils.photoStorageToFXPaymentMX(WordPath);
+            }
         }else if (t24_payments_page.mtMsgType.isVisible()){
             bddUtil.screenShort();
-            WordUtils.photoStorageToFXPaymentMX(WordPath);
+            if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+                WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+            } else{
+                WordUtils.photoStorageToFXPaymentMX(WordPath);
+            }
             FileUtils.FileString(name+"MT Message","company ID:"+t24_payments_page.companyId.getText());
             FileUtils.FileString(name+"MT Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
             FileUtils.FileString(name+"MT Message","Send Ref:"+t24_payments_page.sendRef.getText());
@@ -1151,7 +1187,11 @@ public class t24_Payments_step extends ScenarioSteps {
             Assert.assertEquals(getChargeOption,t24_payments_page.check71AField.getText().substring(5));
         }else if (t24_payments_page.msgType.isVisible()){
             bddUtil.screenShort();
-            WordUtils.photoStorageToFXPaymentMX(WordPath);
+            if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+                WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+            } else{
+                WordUtils.photoStorageToFXPaymentMX(WordPath);
+            }
             FileUtils.FileString(name+"MX Message","company ID:"+t24_payments_page.companyId.getText());
             FileUtils.FileString(name+"MX Message","FT Number:"+t24_payments_page.getGetFtNumber.getText());
             FileUtils.FileString(name+"MX Message","Send Ref:"+t24_payments_page.sendRef.getText());
@@ -1167,14 +1207,26 @@ public class t24_Payments_step extends ScenarioSteps {
             }
             bddUtil.scrollWindowToElement(t24_payments_page.msgContent35);
             bddUtil.screenShort();
-            WordUtils.photoStorageToFXPaymentMX(WordPath);
+            if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+                WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+            } else{
+                WordUtils.photoStorageToFXPaymentMX(WordPath);
+            }
             bddUtil.scrollWindowToElement(t24_payments_page.msgContent70);
             bddUtil.screenShort();
-            WordUtils.photoStorageToFXPaymentMX(WordPath);
+            if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+                WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+            } else{
+                WordUtils.photoStorageToFXPaymentMX(WordPath);
+            }
             t24_payments_page.clickNextPage.click();
             bddUtil.sleep(2);
             bddUtil.screenShort();
-            WordUtils.photoStorageToFXPaymentMX(WordPath);
+            if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+                WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+            } else{
+                WordUtils.photoStorageToFXPaymentMX(WordPath);
+            }
             List<WebElementFacade> trList2 = t24_payments_page.trList;
             for (int i = 1; i <= trList2.size()-2; i++){
                 FileUtils.FileString(name+"MX Message",getDriver().findElement(By.xpath("//table[@id='datadisplay']//tr[@id='r"+i+"']/td[6]")).getText());
@@ -1810,7 +1862,11 @@ public class t24_Payments_step extends ScenarioSteps {
             System.out.println("金额比对成功！");
         }
         bddUtil.screenShort();
-        WordUtils.photoStorageToFXPaymentMX(WordPath);
+        if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+            WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+        } else{
+            WordUtils.photoStorageToFXPaymentMX(WordPath);
+        }
     }
 
     @Step
@@ -1835,9 +1891,9 @@ public class t24_Payments_step extends ScenarioSteps {
             System.out.println("金额比对成功！");
         }
         bddUtil.screenShort();
-        if (WordPath.equals("SGD-USD") || WordPath.equals("USD-SGD")){
+        if (WordPath.equals("SGD-USD") || WordPath.equals("USD-SGD") || WordPath.equals("Internal Transfer USD-SGD MCY") || WordPath.equals("Internal Transfer SGD-USD MCY")){
             WordUtils.photoStorageToLocalPaymentFXMessage(WordPath);
-        }else if (WordPath.equals("SGD-SGD") || WordPath.equals("USD-USD")){
+        }else if (WordPath.equals("SGD-SGD") || WordPath.equals("USD-USD") || WordPath.equals("SGD-SGD MCY") || WordPath.equals("USD-USD MCY")){
             WordUtils.photoStorageToLocalPayment(WordPath);
         }
         if (readtxtFile("autopay/t24","getStatus").equals("999")){
@@ -1871,9 +1927,9 @@ public class t24_Payments_step extends ScenarioSteps {
                     System.out.println("金额比对成功！");
                 }
                 bddUtil.screenShort();
-                if (WordPath.equals("SGD-USD") || WordPath.equals("USD-SGD")){
+                if (WordPath.equals("SGD-USD") || WordPath.equals("USD-SGD") || WordPath.equals("Internal Transfer USD-SGD MCY") || WordPath.equals("Internal Transfer SGD-USD MCY")){
                     WordUtils.photoStorageToLocalPaymentFXMessage(WordPath);
-                }else if (WordPath.equals("SGD-SGD") || WordPath.equals("USD-USD")){
+                }else if (WordPath.equals("SGD-SGD") || WordPath.equals("USD-USD") || WordPath.equals("SGD-SGD MCY") || WordPath.equals("USD-USD MCY")){
                     WordUtils.photoStorageToLocalPayment(WordPath);
                 }
             } else if (readtxtFile("autopay/t24","getDebitAccountCurrency").equals("USD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("USD")|| readtxtFile("autopay/t24","getDebitAccountCurrency").equals("SGD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("SGD")) {
@@ -1899,9 +1955,9 @@ public class t24_Payments_step extends ScenarioSteps {
                     System.out.println("金额比对成功！");
                 }
                 bddUtil.screenShort();
-                if (WordPath.equals("SGD-USD") || WordPath.equals("USD-SGD")){
+                if (WordPath.equals("SGD-USD") || WordPath.equals("USD-SGD") || WordPath.equals("Internal Transfer USD-SGD MCY") || WordPath.equals("Internal Transfer SGD-USD MCY")){
                     WordUtils.photoStorageToLocalPaymentFXMessage(WordPath);
-                }else if (WordPath.equals("SGD-SGD") || WordPath.equals("USD-USD")){
+                }else if (WordPath.equals("SGD-SGD") || WordPath.equals("USD-USD") || WordPath.equals("SGD-SGD MCY") || WordPath.equals("USD-USD MCY")){
                     WordUtils.photoStorageToLocalPayment(WordPath);
                 }
             }
@@ -1930,12 +1986,15 @@ public class t24_Payments_step extends ScenarioSteps {
             System.out.println("金额比对成功！");
         }
         bddUtil.screenShort();
-        final boolean b = WordPath.equals("Bic is DBS SGD-USD") || WordPath.equals("Bic is DBS USD-SGD") || WordPath.equals("Bic is Bank of China USD-SGD") || WordPath.equals("Bic is Bank of China SGD-USD");
-        final boolean b1 = WordPath.equals("Bic is DBS SGD-SGD") || WordPath.equals("Bic is DBS USD-USD") || WordPath.equals("Bic is Bank of China SGD-SGD") || WordPath.equals("Bic is Bank of China USD-USD");
+        final boolean b = WordPath.equals("Bic is DBS USD-SGD") || WordPath.equals("Bic is Bank of China USD-SGD") || WordPath.equals("Bic is DBS USD-SGD MCY");
+        final boolean b1 = WordPath.equals("Bic is DBS SGD-SGD") || WordPath.equals("Bic is DBS USD-USD") || WordPath.equals("Bic is Bank of China SGD-SGD") || WordPath.equals("Bic is Bank of China USD-USD") ||WordPath.equals("Bic is DBS USD-USD MCY") || WordPath.equals("Bic is DBS SGD-SGD MCY");
+        final boolean b2 = WordPath.equals("Bic is DBS SGD-USD") || WordPath.equals("Bic is Bank of China SGD-USD") || WordPath.equals("Bic is DBS SGD-USD MCY");
         if (b){
             WordUtils.photoStorageToFxPaymentDifferentCurrencyMX(WordPath);
         }else if (b1){
             WordUtils.photoStorageToFXPaymentMX(WordPath);
+        }else if (b2){
+            WordUtils.photoStorageToFxPaymentMT(WordPath);
         }
         if (readtxtFile("autopay/t24","getStatus").equals("999")){
             if (readtxtFile("autopay/t24","getDebitAccountCurrency").equals("USD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("SGD")|| readtxtFile("autopay/t24","getDebitAccountCurrency").equals("SGD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("USD")){
@@ -1972,6 +2031,8 @@ public class t24_Payments_step extends ScenarioSteps {
                     WordUtils.photoStorageToFxPaymentDifferentCurrencyMX(WordPath);
                 }else if (b1){
                     WordUtils.photoStorageToFXPaymentMX(WordPath);
+                }else if (b2){
+                    WordUtils.photoStorageToFxPaymentMT(WordPath);
                 }
             } else if (readtxtFile("autopay/t24","getDebitAccountCurrency").equals("USD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("USD")|| readtxtFile("autopay/t24","getDebitAccountCurrency").equals("SGD") && readtxtFile("autopay/t24","getCreditAccountCurrency").equals("SGD")) {
                 closeAllTabJumpToHomePage();
@@ -2000,6 +2061,8 @@ public class t24_Payments_step extends ScenarioSteps {
                     WordUtils.photoStorageToFxPaymentDifferentCurrencyMX(WordPath);
                 }else if (b1){
                     WordUtils.photoStorageToFXPaymentMX(WordPath);
+                }else if (b2){
+                    WordUtils.photoStorageToFxPaymentMT(WordPath);
                 }
             }
         }

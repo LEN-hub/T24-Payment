@@ -1672,4 +1672,30 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.viewCongratulations.isVisible();
     }
 
+    @Step
+    public void track3FirstPageInformationEnter(String accountType,String salutation){
+        openAccount_page.clickAccountTypeDropDownBox.click();
+        List<WebElementFacade> accountTypeText = openAccount_page.selectAccountTypeDropDownBox;
+        for (int i = 0; i < accountTypeText.size(); i++) {
+            if (accountType.equals(accountTypeText.get(i).getText())){
+                accountTypeText.get(i).click();
+                break;
+            }
+        }
+        openAccount_page.selectAccountTypeSGD.click();
+        openAccount_page.clickSalutationDownDropBox.click();
+        List<WebElementFacade> salutationText = openAccount_page.selectSalutaionText;
+        for (int j = 0; j < salutationText.size(); j++){
+            if (salutationText.equals(salutationText.get(j).getText())){
+                salutationText.get(j).click();
+                break;
+            }
+        }
+        openAccount_page.enterOperatePersonNm.sendKeys("zhangsan");
+        openAccount_page.enterContactNumberFirst.sendKeys("SINGAPORE");
+        bddUtil.clickByJS(openAccount_page.selectContactNumberFirstCountry);
+        openAccount_page.enterContactNumberSecond.sendKeys("85642126");
+        openAccount_page.enterEmailInput.sendKeys("617558302@qq.com");
+    }
+
 }

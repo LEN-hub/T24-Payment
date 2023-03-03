@@ -687,4 +687,9 @@ public class creatCustomers_glue {
         customers_step.inputBy(maps.get(0).get("Input by"));
         customers_step.getCLickNextBtn();
     }
+
+    @When("^jump to SCF$")
+    public void jumpToSCF() {
+        customers_step.clickSCFLink();
+    }
 }

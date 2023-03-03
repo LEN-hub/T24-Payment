@@ -1,5 +1,5 @@
-2023-2-28 11:11:25:673
-ChannelReferenceID:230227000000076
+2023-3-3 11:51:11:736
+ChannelReferenceID:230303000000002
 ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
 ChannelDebitAccountCurrency:USD
 ChannelDebitAccountNumber:11010001434
@@ -7,60 +7,33 @@ ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
 ChannelDetailPayeeName:lucky
 ChannelDetailAccountCurrency:SGD
 ChannelDetailPayeeAccountNum:667812798
-ChannelDetailExchangeRate:USD 1 ≈ SGD 1.34507
-ChannelDetailTransactionAmount:228.25
+ChannelDetailExchangeRate:USD 1 ≈ SGD 1.34495
+ChannelDetailTransactionAmount:303.39
 ChannelDetailBeneficiaryBankBIC:DBSSSGS0DOD
 ChannelDetailPayeeAddress:countries
-ChannelDetailEstimatedProcessingFee:12.00
+ChannelDetailEstimatedProcessingFee:0.00
 ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
 ChannelDetailPurposeOfTransfer:Commission
-2023-2-28 11:14:8:849
-ID:230227000000076
-TransactionReference:PI230590DK9YQD01
-t24FtNumber:SGL23059JLDKMJJH
+2023-3-3 11:53:59:730
+ID:230303000000002
+TransactionReference:PI2306205SF9P7FQ
+t24FtNumber:SGL23062KMJLGKH0
 getStatus:677
-getTransactionReferenceNum:SGL23059JLDKMJJH
-getSenderReferenceNum:PI230590DK9YQD01
+getTransactionReferenceNum:SGL23062KMJLGKH0
+getSenderReferenceNum:PI2306205SF9P7FQ
 getTransactionCurrency:SGD
 getInstructedCurrency:USD
-getTransactionAmount:307.01
-getInstructedAmount:228.25
+getTransactionAmount:408.04
+getInstructedAmount:303.39
 getChargeOption:SHA
 getDebitAccountNum:11010001434
 getCreditAccountNum:15000000153
 getDebitAccountCurrency:USD
 getCreditAccountCurrency:SGD
-getDebitAmount:228.25
-getCreditAmount:307.01
-getDebitCustomerRate:1.34507
-getDebitTreasuryRate:1.34607
-getOrderingAccount:11010001434
-getBeneficiaryAccount:667812798
-getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
-getBeneficiaryName:lucky
-getOrderingAddress:XIAN
-getBeneficiaryAddress:countries
-getOrderingTown:SG
-2023-2-28 11:18:21:138
-ID:230227000000076
-TransactionReference:PI230590DK9YQD01
-t24FtNumber:SGL23059JLDKMJJH
-getStatus:677
-getTransactionReferenceNum:SGL23059JLDKMJJH
-getSenderReferenceNum:PI230590DK9YQD01
-getTransactionCurrency:SGD
-getInstructedCurrency:USD
-getTransactionAmount:307.01
-getInstructedAmount:228.25
-getChargeOption:SHA
-getDebitAccountNum:11010001434
-getCreditAccountNum:15000000153
-getDebitAccountCurrency:USD
-getCreditAccountCurrency:SGD
-getDebitAmount:228.25
-getCreditAmount:307.01
-getDebitCustomerRate:1.34507
-getDebitTreasuryRate:1.34607
+getDebitAmount:303.39
+getCreditAmount:408.04
+getDebitCustomerRate:1.34495
+getDebitTreasuryRate:1.34595
 getOrderingAccount:11010001434
 getBeneficiaryAccount:667812798
 getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.

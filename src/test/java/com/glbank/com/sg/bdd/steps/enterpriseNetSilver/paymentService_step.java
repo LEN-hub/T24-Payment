@@ -1348,6 +1348,7 @@ public class paymentService_step extends ScenarioSteps {
             List<WebElementFacade> payeeBank = paymentService_page.selectPayeeBankText;
             for (int i = 0; i < payeeBank.size(); i++) {
                 if (payeeBank.get(i).getText().equals(bankName)){
+                    bddUtil.scrollWindowToElement(payeeBank.get(i));
                     payeeBank.get(i).click();
                     break;
                 }
@@ -1858,7 +1859,11 @@ public class paymentService_step extends ScenarioSteps {
         bddUtil.sleep(2);
         FileUtils.deleteFile("screenShots");
         bddUtil.screenShort();
-        WordUtils.photoStorageToFXPaymentMX(WordPath);
+        if (WordPath.equals("Bic is DBS USD-USD")|| WordPath.equals("Bic is Bank of China USD-USD")){
+            WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
+        } else{
+            WordUtils.photoStorageToFXPaymentMX(WordPath);
+        }
         debitAccountName = paymentService_page.debitAccountName.getText();
         FileUtils.FileString4("t24","ChannelDebitAccountName:" + debitAccountName);
         debitAccountCurrency = paymentService_page.debitAccountCurrency.getText();
@@ -2045,5 +2050,15 @@ public class paymentService_step extends ScenarioSteps {
     public void clickSubmitBtnJumpToVerifyCode(){
         paymentService_page.getClickSubmitBtn.click();
         paymentService_page.clickNextButton.click();
+    }
+
+    @Step
+    public void checkAccountIsVisible(){
+        bddUtil.sleep(3);
+        paymentService_page.domesticTransfer.click();
+        paymentService_page.clickMEPSBtn.click();
+        paymentService_page.clickNextButton.click();
+        paymentService_page.sitEnvLocalFundAccountPopBox.click();
+        paymentService_page.sitEnvLocalFundAccountisDisplay.isVisible();
     }
 }
