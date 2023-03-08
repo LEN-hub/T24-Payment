@@ -139,7 +139,7 @@ public class paymentService_glue {
         List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
         paymentService_step.enterAmount();
         List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
-        paymentService_step.expense(payToI.get(0).get("Payment Mode for Charges"), payToI.get(0).get("expenseEnglish"));
+        paymentService_step.expense(payToI.get(0).get("Payment Mode for Charges"));
     }
 
     @And("^I choose the payment currency$")
@@ -245,7 +245,7 @@ public class paymentService_glue {
         List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
         paymentService_step.enterAmount();
         List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
-        paymentService_step.expense(payToI.get(0).get("expense"), payToI.get(0).get("expenseEnglish"));
+        paymentService_step.expense(payToI.get(0).get("expense"));
     }
 
     @When("^Vkey authorization for Payment transactions in the SIT environment$")

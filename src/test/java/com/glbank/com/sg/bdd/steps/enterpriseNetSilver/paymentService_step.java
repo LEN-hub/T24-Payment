@@ -2173,15 +2173,21 @@ public class paymentService_step extends ScenarioSteps {
     public void remittancePostscriptContent(String remittancePostscriptContent){
         paymentService_page.remittancePostscriptContent.sendKeys(remittancePostscriptContent);}
 
-    public void expense(String expense ,String expenseEnglish) {
+    public void expense(String expense) {
         paymentService_page.expenseBox.click();
         bddUtil.sleep(5);
         List<WebElementFacade> bears = paymentService_page.expense;
         for (int i = 0; i < bears.size(); i++) {
-              if (expense.equals(bears.get(i).getText())) {
-                    bears.get(i).click();
-                    break;
-                }
+            if (expense.equals("SHA") && "The expenses shall be borne by each party".equals(bears.get(i).getText())){
+                bears.get(i).click();
+                break;
+            }else if (expense.equals("BEN") && "All expenses shall be borne by the remitter".equals(bears.get(i).getText())){
+                bears.get(i).click();
+                break;
+            } else if (expense.equals("OUR") && "All expenses shall be borne by the payee".equals(bears.get(i).getText())) {
+                bears.get(i).click();
+                break;
+            }
             }
         }
 

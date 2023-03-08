@@ -187,8 +187,8 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |
-      |1101 0001 434 |The expenses shall be borne by each party|
+      |Account Number|Payment Mode for Charges|
+      |1101 0001 434 |SHA                     |
     And I choose the payment currency
       |Currency   |
       |USD        |
@@ -243,8 +243,8 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |
-      |1101 0001 256 |The expenses shall be borne by each party|
+      |Account Number|Payment Mode for Charges |
+      |1101 0001 256 |SHA                      |
     And I choose the payment currency
       |Currency|
       |USD     |
@@ -305,8 +305,8 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |
-      |1101 0001 434 |The expenses shall be borne by each party|
+      |Account Number|Payment Mode for Charges |
+      |1101 0001 434 |SHA                      |
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -365,8 +365,8 @@ Feature: receipt and payment service
 #    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-#      |Account Number|Payment Mode for Charges                 |
-#      |1101 0003 453 |All expenses shall be borne by the payee|
+#      |Account Number|Payment Mode for Charges|
+#      |1101 0003 453 |SHA                     |
 #    And I choose the payment currency
 #      |Currency|
 #      |SGD     |
@@ -459,8 +459,8 @@ Feature: receipt and payment service
 #    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-#      |Account Number|Payment Mode for Charges                 |
-#      |1101 0001 434 |The expenses shall be borne by each party|
+#      |Account Number|Payment Mode for Charges|
+#      |1101 0001 434 |SHA                     |
 #    And I choose the payment currency
 #      |Currency   |
 #      |USD        |
@@ -515,8 +515,8 @@ Feature: receipt and payment service
 #    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-#      |Account Number|Payment Mode for Charges                 |
-#      |1101 0001 256 |The expenses shall be borne by each party|
+#      |Account Number|Payment Mode for Charges|
+#      |1101 0001 256 |SHA                     |
 #    And I choose the payment currency
 #      |Currency|
 #      |USD     |
@@ -577,8 +577,8 @@ Feature: receipt and payment service
 #    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-#      |Account Number|Payment Mode for Charges                 |
-#      |1101 0001 434 |The expenses shall be borne by each party|
+#      |Account Number|Payment Mode for Charges|
+#      |1101 0001 434 |SHA                     |
 #    And I choose the payment currency
 #      |Currency|
 #      |SGD     |
@@ -637,8 +637,8 @@ Feature: receipt and payment service
 #    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-#      |Account Number|Payment Mode for Charges                 |
-#      |1101 0001 256 |The expenses shall be borne by each party|
+#      |Account Number|Payment Mode for Charges |
+#      |1101 0001 256 |SHA                      |
 #    And I choose the payment currency
 #      |Currency|
 #      |SGD     |
