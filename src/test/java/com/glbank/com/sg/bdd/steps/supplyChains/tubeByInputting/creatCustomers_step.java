@@ -1094,6 +1094,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.searchBox.sendKeys(data);
         customers_page.clickApplicantTitle.click();
         bddUtil.clickByJS(customers_page.clickUnderWritingProceedBtn);
+        bddUtil.scrollWindowToElement(customers_page.clickCpsPreadjustedCGInput);
         customers_page.clickCpsPreadjustedCGInput.clear();
         customers_page.clickCpsApprovedCGInput.clear();
         bddUtil.scrollWindowToElement(customers_page.clickRetriggerCPS).click();
