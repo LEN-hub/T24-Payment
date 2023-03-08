@@ -386,5 +386,11 @@ public class paymentService_glue {
         paymentService_step.overseas_Transfer_Fees_Query_MultiCurrency_USD_SGD(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
         paymentService_step.overseas_Transfer_Multi_Currency_USD_SGD(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
     }
+
+    @When("^view meps account$")
+    public void viewMepsAccount() {
+        paymentService_step.transferAndRemittanceMenu();
+        paymentService_step.checkAccountIsVisible();
+    }
 }
 

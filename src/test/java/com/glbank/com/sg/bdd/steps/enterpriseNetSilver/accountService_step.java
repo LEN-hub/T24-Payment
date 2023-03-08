@@ -149,9 +149,8 @@ public class accountService_step extends ScenarioSteps {
         action.moveToElement(accountService_page.clickDownloadBtn).perform();
         accountService_page.viewEadvices.click();
         accountService_page.clickSelectBtn.click();
-        if (accountService_page.clickViewEstatementsDownloadBtn.isVisible()){
-            accountService_page.clickViewEstatementsDownloadBtn.click();
-        }
+        action.moveToElement(accountService_page.clickThreePoint).perform();
+        accountService_page.clickSitEnvDownloadBtn.click();
     }
 
     @Step

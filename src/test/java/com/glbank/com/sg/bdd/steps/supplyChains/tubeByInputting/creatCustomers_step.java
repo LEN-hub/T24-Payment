@@ -1741,4 +1741,11 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.enterJsonInfomation.sendKeys(MyinfoData);
         customers_page.getClickConfirmBtn.click();
     }
+
+    public void clickSCFLink(){
+        customers_page.clickSCFLink.click();
+        bddUtil.sleep(3);
+        bddUtil.switchToNewWindow();
+        customers_page.scfPageTitle.getText();
+    }
 }
