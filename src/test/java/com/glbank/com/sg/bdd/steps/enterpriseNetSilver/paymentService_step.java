@@ -5,12 +5,14 @@ import com.glbank.com.sg.bdd.utils.*;
 import com.lu.sn.Language;
 import com.lu.sn.NameType;
 import com.lu.sn.RandomNameTool;
+import cucumber.api.java.bs.A;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
@@ -409,6 +411,64 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     /**
+     * USD转USD单币种
+     * @param amount
+     */
+    @Step
+    public void overseas_Transfer_Single_Currency_USD_USD_002(String amount,String chargeOption,String transferInCurrency){
+        transferAmount = amount;
+        transferCurrency = transferInCurrency;
+        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","USD_AC_SingleCurrency"));
+        Response response = given()
+                .header("Content-type","application/json")
+                .and()
+                .body("{\n" +
+                        "    \"header\": {\n" +
+                        "        \"audit\": {},\n" +
+                        "        \"override\": {\n" +
+                        "            \"overrideDetails\": [\n" +
+                        "                {\n" +
+                        "                    \"code\": \"O-12621\",\n" +
+                        "                    \"description\": \"The rate calculated is a reference rate and not actual rate(O-12621)\",\n" +
+                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE1\",\n" +
+                        "                    \"type\": \"Override\",\n" +
+                        "                    \"responseCode\": \"\"\n" +
+                        "                }\n" +
+                        "            ]\n" +
+                        "        }\n" +
+                        "    },\n" +
+                        "    \"body\": {\n" +
+                        "        \"creditorBankCountryCode\": \"SG\",\n" +
+                        "        \"chargeBearer\": \""+chargeOption+"\",\n" +
+                        "        \"amount\": \""+amount+"\",\n" +
+                        "        \"beneficiaryBirthCountry\": \"SG\",\n" +
+                        "        \"debitCurrency\": \"USD\",\n" +
+                        "        \"purpose\": \"BEXP\",\n" +
+                        "        \"debitAccountId\": \""+transferAccount+"\",\n" +
+                        "        \"beneficiaryAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","USD_AC_SingleCurrency_Two")+"\",\n" +
+                        "        \"acctWithBankName\": \"GREEN LINK DIGITAL BANK PTE LTD\",\n" +
+                        "        \"benPostSwiftAddress\": [\n" +
+                        "            {\n" +
+                        "                \"creditorAddress\": \"xi'an\"\n" +
+                        "            }\n" +
+                        "        ],\n" +
+                        "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC")+"\",\n" +
+                        "        \"externalReference\": \"PI230090N49GY4BM\",\n" +
+                        "        \"paymentCurrencyId\": \""+transferInCurrency+"\",\n" +
+                        "        \"beneficiaryName\": \"TestKevin\"\n" +
+                        "    }\n" +
+                        "}")
+                .when()
+                .post("http://"+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_env_ip")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
+                .then()
+                .log().all()
+                .statusCode(200)
+                .extract().response();
+        serialNumber = response.path("header.id").toString();
+        System.out.println(serialNumber);
+    }
+
+    /**
      * 境外转账跨币种单币种手续费USD-SGD
      * @param amount
      */
@@ -761,11 +821,7 @@ public class paymentService_step extends ScenarioSteps {
         System.out.println(feesSerialNumber);
     }
 
-    public static void main(String[] args) {
-        USD_Single_Currency_Charging("100000","SHA");
-        USD_Single_Currency_Charging("100000","SHA");
-        USD_Single_Currency_Charging("100000","SHA");
-    }
+
 
     /**
      * SGD转SGD多币种
@@ -818,6 +874,72 @@ public class paymentService_step extends ScenarioSteps {
                         "            }\n" +
                         "        ],\n" +
                         "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC_DBS")+"\",\n" +
+                        "        \"externalReference\": \""+feesSerialNumber+"\",\n" +
+                        "        \"paymentCurrencyId\": \""+transferInCurrency+"\",\n" +
+                        "        \"beneficiaryName\": \"TestKevin\"\n" +
+                        "    }\n" +
+                        "}")
+                .when()
+                .post("http://"+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_env_ip")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
+                .then()
+                .log().all()
+                .statusCode(200)
+                .extract().response();
+        serialNumber = response.path("header.id").toString();
+        System.out.println(serialNumber);
+    }
+
+    /**
+     * SGD转SGD多币种
+     * @param amount
+     */
+    @Step
+    public void overseas_Transfer_Multi_Currency_SGD_SGD_001(String amount,String chargeOption,String transferInCurrency){
+        transferAmount = amount;
+        transferCurrency = transferInCurrency;
+        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","AC_MCY_sit_SGD"));
+        Response response = given()
+                .header("Content-type","application/json")
+                .and()
+                .body("{\n" +
+                        "    \"header\": {\n" +
+                        "        \"audit\": {},\n" +
+                        "        \"override\": {\n" +
+                        "            \"overrideDetails\": [\n" +
+                        "                {\n" +
+                        "                    \"code\": \"O-12621\",\n" +
+                        "                    \"description\": \"The rate calculated is a reference rate and not actual rate(O-12621)\",\n" +
+                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE1\",\n" +
+                        "                    \"type\": \"Override\",\n" +
+                        "                    \"responseCode\": \"\"\n" +
+                        "                },\n" +
+                        "                {\n" +
+                        "                    \"code\": \"O-12622\",\n" +
+                        "                    \"description\": \"Amount shown are notional(O-12622)\",\n" +
+                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE2\",\n" +
+                        "                    \"type\": \"Override\",\n" +
+                        "                    \"responseCode\": \"\"\n" +
+                        "                }\n" +
+                        "            ]\n" +
+                        "        }\n" +
+                        "    },\n" +
+                        "    \"body\": {\n" +
+                        "        \"creditorBankCountryCode\": \"SG\",\n" +
+                        "        \"chargeBearer\": \""+chargeOption+"\",\n" +
+                        "        \"amount\": \""+amount+"\",\n" +
+                        "        \"debitCurrency\": \"SGD\",\n" +
+                        "        \"purpose\": \"BEXP\",\n" +
+                        "        \"acctWithTownName\": \"SG\",\n" +
+                        "        \"debitAccountId\": \""+transferAccount+"\",\n" +
+                        "        \"beneficiaryAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency_Two")+"\",\n" +
+                        "        \"acctWithBankName\": \"GREEN LINK DIGITAL BANK PTE LTD\",\n" +
+                        "        \"orderingCustomerAccount\": \""+transferAccount+"\",\n" +
+                        "        \"benPostSwiftAddress\": [\n" +
+                        "            {\n" +
+                        "                \"creditorAddress\": \"beijing\"\n" +
+                        "            }\n" +
+                        "        ],\n" +
+                        "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC")+"\",\n" +
                         "        \"externalReference\": \""+feesSerialNumber+"\",\n" +
                         "        \"paymentCurrencyId\": \""+transferInCurrency+"\",\n" +
                         "        \"beneficiaryName\": \"TestKevin\"\n" +
@@ -900,6 +1022,72 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     /**
+     * USD转USD多币种
+     * @param amount
+     */
+    @Step
+    public void overseas_Transfer_Multi_Currency_USD_USD_001(String amount,String chargeOption,String transferInCurrency){
+        transferAmount = amount;
+        transferCurrency = transferInCurrency;
+        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","AC_MCY_sit_USD"));
+        Response response = given()
+                .header("Content-type","application/json")
+                .and()
+                .body("{\n" +
+                        "    \"header\": {\n" +
+                        "        \"audit\": {},\n" +
+                        "        \"override\": {\n" +
+                        "            \"overrideDetails\": [\n" +
+                        "                {\n" +
+                        "                    \"code\": \"O-12621\",\n" +
+                        "                    \"description\": \"The rate calculated is a reference rate and not actual rate(O-12621)\",\n" +
+                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE1\",\n" +
+                        "                    \"type\": \"Override\",\n" +
+                        "                    \"responseCode\": \"\"\n" +
+                        "                },\n" +
+                        "                {\n" +
+                        "                    \"code\": \"O-12622\",\n" +
+                        "                    \"description\": \"Amount shown are notional(O-12622)\",\n" +
+                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE2\",\n" +
+                        "                    \"type\": \"Override\",\n" +
+                        "                    \"responseCode\": \"\"\n" +
+                        "                }\n" +
+                        "            ]\n" +
+                        "        }\n" +
+                        "    },\n" +
+                        "    \"body\": {\n" +
+                        "        \"creditorBankCountryCode\": \"SG\",\n" +
+                        "        \"chargeBearer\": \""+chargeOption+"\",\n" +
+                        "        \"amount\": \""+amount+"\",\n" +
+                        "        \"debitCurrency\": \"USD\",\n" +
+                        "        \"purpose\": \"BEXP\",\n" +
+                        "        \"acctWithTownName\": \"SG\",\n" +
+                        "        \"debitAccountId\": \""+transferAccount+"\",\n" +
+                        "        \"beneficiaryAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","USD_AC_SingleCurrency_Two")+"\",\n" +
+                        "        \"acctWithBankName\": \"GREEN LINK DIGITAL BANK PTE LTD\",\n" +
+                        "        \"orderingCustomerAccount\": \""+transferAccount+"\",\n" +
+                        "        \"benPostSwiftAddress\": [\n" +
+                        "            {\n" +
+                        "                \"creditorAddress\": \"beijing\"\n" +
+                        "            }\n" +
+                        "        ],\n" +
+                        "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC")+"\",\n" +
+                        "        \"externalReference\": \""+feesSerialNumber+"\",\n" +
+                        "        \"paymentCurrencyId\": \""+transferInCurrency+"\",\n" +
+                        "        \"beneficiaryName\": \"TestKevin\"\n" +
+                        "    }\n" +
+                        "}")
+                .when()
+                .post("http://"+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_env_ip")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
+                .then()
+                .log().all()
+                .statusCode(200)
+                .extract().response();
+        serialNumber = response.path("header.id").toString();
+        System.out.println(serialNumber);
+    }
+
+    /**
      * SGD转USD单币种
      * @param amount
      */
@@ -948,6 +1136,72 @@ public class paymentService_step extends ScenarioSteps {
                         "            }\n" +
                         "        ],\n" +
                         "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC_DBS")+"\",\n" +
+                        "        \"externalReference\": \""+feesSerialNumber+"\",\n" +
+                        "        \"paymentCurrencyId\": \""+transferInCurrency+"\",\n" +
+                        "        \"beneficiaryName\": \"TestKevin\",\n" +
+                        "        \"requestedAmount\": \""+amount+"\",\n" +
+                        "        \"requestedCurrency\": \"SGD\"\n" +
+                        "    }\n" +
+                        "}")
+                .when()
+                .post("http://"+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_env_ip")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments?externalReference="+feesSerialNumber+"")
+                .then()
+                .log().all()
+                .statusCode(200)
+                .extract().response();
+        serialNumber = response.path("header.id").toString();
+        System.out.println(serialNumber);
+    }
+
+    /**
+     * SGD转USD单币种
+     * @param amount
+     */
+    @Step
+    public void overseas_Transfer_Single_Currency_SGD_USD_001(String amount,String chargeOption,String transferInCurrency){
+        transferAmount = amount;
+        transferCurrency = transferInCurrency;
+        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency"));
+        Response response = given()
+                .header("Content-type","application/json")
+                .and()
+                .body("{\n" +
+                        "    \"header\": {\n" +
+                        "        \"audit\": {},\n" +
+                        "        \"override\": {\n" +
+                        "            \"overrideDetails\": [\n" +
+                        "                {\n" +
+                        "                    \"code\": \"O-12621\",\n" +
+                        "                    \"description\": \"The rate calculated is a reference rate and not actual rate(O-12621)\",\n" +
+                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE1\",\n" +
+                        "                    \"type\": \"Override\",\n" +
+                        "                    \"responseCode\": \"\"\n" +
+                        "                },\n" +
+                        "                {\n" +
+                        "                    \"code\": \"O-12622\",\n" +
+                        "                    \"description\": \"Amount shown are notional(O-12622)\",\n" +
+                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE2\",\n" +
+                        "                    \"type\": \"Override\",\n" +
+                        "                    \"responseCode\": \"\"\n" +
+                        "                }\n" +
+                        "            ]\n" +
+                        "        }\n" +
+                        "    },\n" +
+                        "    \"body\": {\n" +
+                        "        \"creditorBankCountryCode\": \"SG\",\n" +
+                        "        \"chargeBearer\": \""+chargeOption+"\",\n" +
+                        "        \"purpose\": \"BEXP\",\n" +
+                        "        \"acctWithTownName\": \"SG\",\n" +
+                        "        \"debitAccountId\": \""+transferAccount+"\",\n" +
+                        "        \"beneficiaryAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","USD_AC_SingleCurrency_Two")+"\",\n" +
+                        "        \"acctWithBankName\": \"GREEN LINK DIGITAL BANK PTE LTD\",\n" +
+                        "        \"orderingCustomerAccount\": \""+transferAccount+"\",\n" +
+                        "        \"benPostSwiftAddress\": [\n" +
+                        "            {\n" +
+                        "                \"creditorAddress\": \"beijing\"\n" +
+                        "            }\n" +
+                        "        ],\n" +
+                        "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC")+"\",\n" +
                         "        \"externalReference\": \""+feesSerialNumber+"\",\n" +
                         "        \"paymentCurrencyId\": \""+transferInCurrency+"\",\n" +
                         "        \"beneficiaryName\": \"TestKevin\",\n" +
@@ -1031,6 +1285,73 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     /**
+     * USD转SGD单币种
+     * @param amount
+     */
+    @Step
+    public void overseas_Transfer_Single_Currency_USD_SGD_001(String amount,String chargeOption,String transferInCurrency){
+        transferAmount = amount;
+        transferCurrency = transferInCurrency;
+        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","USD_AC_SingleCurrency"));
+        Response response = given()
+                .header("Content-type","application/json")
+                .and()
+                .body("{\n" +
+                        "    \"header\": {\n" +
+                        "        \"audit\": {},\n" +
+                        "        \"override\": {\n" +
+                        "            \"overrideDetails\": [\n" +
+                        "                {\n" +
+                        "                    \"code\": \"O-12621\",\n" +
+                        "                    \"description\": \"The rate calculated is a reference rate and not actual rate(O-12621)\",\n" +
+                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE1\",\n" +
+                        "                    \"type\": \"Override\",\n" +
+                        "                    \"responseCode\": \"\"\n" +
+                        "                },\n" +
+                        "                {\n" +
+                        "                    \"code\": \"O-12622\",\n" +
+                        "                    \"description\": \"Amount shown are notional(O-12622)\",\n" +
+                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE2\",\n" +
+                        "                    \"type\": \"Override\",\n" +
+                        "                    \"responseCode\": \"\"\n" +
+                        "                }\n" +
+                        "            ]\n" +
+                        "        }\n" +
+                        "    },\n" +
+                        "    \"body\": {\n" +
+                        "        \"creditorBankCountryCode\": \"SG\",\n" +
+                        "        \"chargeBearer\": \""+chargeOption+"\",\n" +
+                        "        \"purpose\": \"BEXP\",\n" +
+                        "        \"acctWithTownName\": \"SG\",\n" +
+                        "        \"debitAccountId\": \""+transferAccount+"\",\n" +
+                        "        \"beneficiaryAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency_Two")+"\",\n" +
+                        "        \"acctWithBankName\": \"GREEN LINK DIGITAL BANK PTE LTD\",\n" +
+                        "        \"orderingCustomerAccount\": \""+transferAccount+"\",\n" +
+                        "        \"benPostSwiftAddress\": [\n" +
+                        "            {\n" +
+                        "                \"creditorAddress\": \"beijing\"\n" +
+                        "            }\n" +
+                        "        ],\n" +
+                        "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC")+"\",\n" +
+                        "        \"externalReference\": \""+feesSerialNumber+"\",\n" +
+                        "        \"paymentCurrencyId\": \""+transferInCurrency+"\",\n" +
+                        "        \"beneficiaryName\": \"TestKevin\",\n" +
+                        "        \"requestedAmount\": \""+amount+"\",\n" +
+                        "        \"requestedCurrency\": \"USD\"\n" +
+                        "    }\n" +
+                        "}")
+                .when()
+                .post("http://"+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_env_ip")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments?externalReference="+feesSerialNumber+"")
+                .then()
+                .log().all()
+                .statusCode(200)
+                .extract().response();
+        serialNumber = response.path("header.id").toString();
+        System.out.println(serialNumber);
+    }
+
+
+    /**
      * SGD转USD多币种
      * @param amount
      */
@@ -1097,6 +1418,73 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     /**
+     * SGD转USD多币种
+     * @param amount
+     */
+    @Step
+    public void overseas_Transfer_Multi_Currency_SGD_USD_001(String amount,String chargeOption,String transferInCurrency){
+        transferAmount = amount;
+        transferCurrency = transferInCurrency;
+        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","AC_MCY_sit_SGD"));
+        Response response = given()
+                .header("Content-type","application/json")
+                .and()
+                .body("{\n" +
+                        "    \"header\": {\n" +
+                        "        \"audit\": {},\n" +
+                        "        \"override\": {\n" +
+                        "            \"overrideDetails\": [\n" +
+                        "                {\n" +
+                        "                    \"code\": \"O-12621\",\n" +
+                        "                    \"description\": \"The rate calculated is a reference rate and not actual rate(O-12621)\",\n" +
+                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE1\",\n" +
+                        "                    \"type\": \"Override\",\n" +
+                        "                    \"responseCode\": \"\"\n" +
+                        "                },\n" +
+                        "                {\n" +
+                        "                    \"code\": \"O-12622\",\n" +
+                        "                    \"description\": \"Amount shown are notional(O-12622)\",\n" +
+                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE2\",\n" +
+                        "                    \"type\": \"Override\",\n" +
+                        "                    \"responseCode\": \"\"\n" +
+                        "                }\n" +
+                        "            ]\n" +
+                        "        }\n" +
+                        "    },\n" +
+                        "    \"body\": {\n" +
+                        "        \"creditorBankCountryCode\": \"SG\",\n" +
+                        "        \"chargeBearer\": \""+chargeOption+"\",\n" +
+                        "        \"purpose\": \"BEXP\",\n" +
+                        "        \"acctWithTownName\": \"SG\",\n" +
+                        "        \"debitAccountId\": \""+transferAccount+"\",\n" +
+                        "        \"beneficiaryAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","USD_AC_SingleCurrency_Two")+"\",\n" +
+                        "        \"acctWithBankName\": \"GREEN LINK DIGITAL BANK PTE LTD\",\n" +
+                        "        \"orderingCustomerAccount\": \""+transferAccount+"\",\n" +
+                        "        \"benPostSwiftAddress\": [\n" +
+                        "            {\n" +
+                        "                \"creditorAddress\": \"beijing\"\n" +
+                        "            }\n" +
+                        "        ],\n" +
+                        "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC")+"\",\n" +
+                        "        \"externalReference\": \""+feesSerialNumber+"\",\n" +
+                        "        \"paymentCurrencyId\": \""+transferCurrency+"\",\n" +
+                        "        \"beneficiaryName\": \"TestKevin\",\n" +
+                        "        \"requestedAmount\": \""+amount+"\",\n" +
+                        "        \"requestedCurrency\": \"SGD\"\n" +
+                        "    }\n" +
+                        "}")
+                .when()
+                .post("http://"+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_env_ip")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
+                .then()
+                .log().all()
+                .statusCode(200)
+                .extract().response();
+        serialNumber = response.path("header.id").toString();
+        System.out.println(serialNumber);
+    }
+
+
+    /**
      * USD转SGD多币种
      * @param amount
      */
@@ -1146,10 +1534,116 @@ public class paymentService_step extends ScenarioSteps {
                         "        ],\n" +
                         "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC_DBS")+"\",\n" +
                         "        \"externalReference\": \""+feesSerialNumber+"\",\n" +
-                        "        \"paymentCurrencyId\": \""+transferInCurrency+"\",\n" +
+                        "        \"paymentCurrencyId\": \""+transferCurrency+"\",\n" +
                         "        \"beneficiaryName\": \"TestKevin\",\n" +
                         "        \"requestedAmount\": \""+amount+"\",\n" +
                         "        \"requestedCurrency\": \"USD\"\n" +
+                        "    }\n" +
+                        "}")
+                .when()
+                .post("http://"+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_env_ip")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
+                .then()
+                .log().all()
+                .statusCode(200)
+                .extract().response();
+    }
+
+
+    /**
+     * USD转SGD多币种
+     * @param amount
+     */
+    @Step
+    public static void overseas_Transfer_Multi_Currency_USD_SGD_001(String amount, String chargeOption, String transferInCurrency){
+        transferAmount = amount;
+        transferCurrency = transferInCurrency;
+        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","AC_MCY_sit_USD"));
+        Response response = given()
+                .header("Content-type","application/json")
+                .and()
+                .body("{\n" +
+                        "    \"header\": {\n" +
+                        "        \"audit\": {},\n" +
+                        "        \"override\": {\n" +
+                        "            \"overrideDetails\": [\n" +
+                        "                {\n" +
+                        "                    \"code\": \"O-12621\",\n" +
+                        "                    \"description\": \"The rate calculated is a reference rate and not actual rate(O-12621)\",\n" +
+                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE1\",\n" +
+                        "                    \"type\": \"Override\",\n" +
+                        "                    \"responseCode\": \"\"\n" +
+                        "                },\n" +
+                        "                {\n" +
+                        "                    \"code\": \"O-12622\",\n" +
+                        "                    \"description\": \"Amount shown are notional(O-12622)\",\n" +
+                        "                    \"id\": \"PI-SIM.OFF.FX.INVOLVE2\",\n" +
+                        "                    \"type\": \"Override\",\n" +
+                        "                    \"responseCode\": \"\"\n" +
+                        "                }\n" +
+                        "            ]\n" +
+                        "        }\n" +
+                        "    },\n" +
+                        "    \"body\": {\n" +
+                        "        \"creditorBankCountryCode\": \"SG\",\n" +
+                        "        \"chargeBearer\": \""+chargeOption+"\",\n" +
+                        "        \"purpose\": \"BEXP\",\n" +
+                        "        \"acctWithTownName\": \"SG\",\n" +
+                        "        \"debitAccountId\": \""+transferAccount+"\",\n" +
+                        "        \"beneficiaryAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency_Two")+"\",\n" +
+                        "        \"acctWithBankName\": \"GREEN LINK DIGITAL BANK PTE LTD\",\n" +
+                        "        \"orderingCustomerAccount\": \""+transferAccount+"\",\n" +
+                        "        \"benPostSwiftAddress\": [\n" +
+                        "            {\n" +
+                        "                \"creditorAddress\": \"beijing\"\n" +
+                        "            }\n" +
+                        "        ],\n" +
+                        "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC")+"\",\n" +
+                        "        \"externalReference\": \""+feesSerialNumber+"\",\n" +
+                        "        \"paymentCurrencyId\": \""+transferCurrency+"\",\n" +
+                        "        \"beneficiaryName\": \"TestKevin\",\n" +
+                        "        \"requestedAmount\": \""+amount+"\",\n" +
+                        "        \"requestedCurrency\": \"USD\"\n" +
+                        "    }\n" +
+                        "}")
+                .when()
+                .post("http://"+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_env_ip")+"/irf-provider-container/api/v1.0.0/order/gldb/paymentOrders/swiftPayments")
+                .then()
+                .log().all()
+                .statusCode(200)
+                .extract().response();
+    }
+
+
+    public static void inHouse_Transfer_Single_Currency_USD_SGD(String amount, String transferInCurrency){
+        transferAmount = amount;
+        transferCurrency = transferInCurrency;
+        transferAccount = String.valueOf(FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency"));
+        Response response = given()
+                .header("Content-type","application/json")
+                .and()
+                .body("{\n" +
+                        "    \"header\": {\n" +
+                        "        \"audit\": {},\n" +
+                        "        \"override\": {}\n" +
+                        "    },\n" +
+                        "    \"body\": {\n" +
+                        "        \"narratives\": [],\n" +
+                        "        \"originatorToBeneficiaryInformations\": [\n" +
+                        "            {\n" +
+                        "                \"originatorToBeneficiaryInformation\": \"BEXP\"\n" +
+                        "            }\n" +
+                        "        ],\n" +
+                        "        \"amount\": \""+transferAmount+"\",\n" +
+                        "        \"debitCurrency\": \""+transferCurrency+"\",\n" +
+                        "        \"beneficiaryCountryCode\": \"SG\",\n" +
+                        "        \"acctWithTownName\": \"Singapore\",\n" +
+                        "        \"debitAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency")+"\",\n" +
+                        "        \"beneficiaryAccountId\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency_Two")+"\",\n" +
+                        "        \"orderingCustomerAccount\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","SGD_AC_SingleCurrency")+"\",\n" +
+                        "        \"beneficiaryTownName\": \"Singapore\",\n" +
+                        "        \"accountWithBankBIC\": \""+FileUtils.readtxtFile("automationTestCaseData/automationSitEnvData","sit_BIC")+"\",\n" +
+                        "        \"paymentCurrencyId\": \""+transferCurrency+"\",\n" +
+                        "        \"beneficiaryName\": \"TestKevin\"\n" +
                         "    }\n" +
                         "}")
                 .when()
@@ -1162,6 +1656,9 @@ public class paymentService_step extends ScenarioSteps {
         System.out.println(serialNumber);
     }
 
+    public static void main(String[] args) {
+        overseas_Transfer_Multi_Currency_USD_SGD_001("100","SHA","SGD");
+    }
 
     @Step
     public void sdgTransferToUsd(String rollOutAccount,String intoAccount,String current){
@@ -1728,6 +2225,17 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.inputVerificationCode.sendKeys(loginOtp);
         paymentService_page.clickOkBtn.click();
     }
+
+    @Step
+    public void openEmailUrl(String emailName){
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://mailtemp.top/\");");
+        bddUtil.switchToNewWindow();
+        paymentService_page.inputMailBox.sendKeys(emailName);
+        paymentService_page.clickCreateBtn.click();
+        paymentService_page.getClickRefreshBtn.click();
+        Assert.assertEquals("Green Link Digital Bank Pte. Ltd message notification",paymentService_page.emailTitle.getText());
+    }
     @Step
     public void getInnerPaymentDataOnChannelPage(String WordPath) throws Exception {
         FileUtils.writeFile("t24");
@@ -2060,5 +2568,67 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.clickNextButton.click();
         paymentService_page.sitEnvLocalFundAccountPopBox.click();
         paymentService_page.sitEnvLocalFundAccountisDisplay.isVisible();
+    }
+
+    public void checkMEPSAccount(String fromAccountNum){
+        bddUtil.sleep(3);
+        paymentService_page.domesticTransfer.click();
+        CommonUtil.waiting(2000);
+        paymentService_page.selectMepsMenu.click();
+        paymentService_page.clickNextButton.click();
+        paymentService_page.clickFromAccountDownDropBox.click();
+        List<WebElementFacade> fromAccount = paymentService_page.selectFromAccountNum;
+        for (int i = 0; i < fromAccount.size(); i++) {
+            if (fromAccountNum.equals(fromAccount.get(i).getText())){
+                fromAccount.get(i).click();
+                break;
+            }
+        }
+    }
+
+    @Step
+    public void inputFastInformation(String fromAccountNum,String toAccountNum,String date,String bankName){
+        bddUtil.sleep(3);
+        paymentService_page.domesticTransfer.click();
+        CommonUtil.waiting(2000);
+        paymentService_page.selectFastMenu.click();
+        paymentService_page.clickNextButton.click();
+        paymentService_page.clickFromAccountDownDropBox.click();
+        List<WebElementFacade> fromAccount = paymentService_page.selectFromAccountNum;
+        for (int i = 0; i < fromAccount.size(); i++) {
+            if (fromAccountNum.equals(fromAccount.get(i).getText())){
+                fromAccount.get(i).click();
+                break;
+            }
+        }
+        paymentService_page.clickANewPayeeBtn.click();
+        paymentService_page.inputPayeeAccountName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+        paymentService_page.inputPayeeAccountNum.sendKeys(toAccountNum);
+        paymentService_page.inputBankName.sendKeys(bankName);
+        paymentService_page.selectBankName.click();
+        paymentService_page.clickAddPayeeSecondBox.click();
+        paymentService_page.inputTransactionAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
+        paymentService_page.inputTransactionDate.clear();
+        paymentService_page.inputTransactionDate.sendKeys(date);
+        paymentService_page.clickTransactionTips.click();
+        paymentService_page.selectRecurringTransferNoBox.click();
+        paymentService_page.clickPurposeInputBox.click();
+        paymentService_page.selectPurposeText.click();
+        paymentService_page.clickNextButton.click();
+        paymentService_page.getClickSubmitBtn.click();
+    }
+
+    public void checkINBPage(){
+        Assert.assertEquals("Home",paymentService_page.viewHomeMenu.getText());
+        Assert.assertEquals("Accounts",paymentService_page.viewAccountsMenu.getText());
+        Assert.assertEquals("Fixed Deposits",paymentService_page.viewFixedDepositsMenu.getText());
+        Assert.assertEquals("Loans",paymentService_page.viewLoansMenu.getText());
+        Assert.assertEquals("Payments",paymentService_page.viewPaymentsMenu.getText());
+        Assert.assertEquals("Admin",paymentService_page.viewAdminMenu.getText());
+        Assert.assertEquals("Supply Chain Finance",paymentService_page.viewSupplyChainFinanceMenu.getText());
+    }
+
+    public void checkMessage(){
+        Assert.assertEquals("Welcome message",paymentService_page.checkMessage.getText());
     }
 }

@@ -6,6 +6,7 @@ import com.glbank.com.sg.bdd.utils.*;
 import com.lu.sn.Language;
 import com.lu.sn.NameType;
 import com.lu.sn.RandomNameTool;
+import jnr.constants.platform.Access;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -445,6 +446,34 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         bddUtil.scrollWindowToElement(openAccount_page.clickLetContinue).click();
         bddUtil.sleep(2);
         openAccount_page.clickLetContinue.click();
+    }
+    public void inputEntityDetailsHealthCheck(String entityType,String entityConsolidated,String entityIndustry,String date) {
+        bddUtil.scrollWindowToElement(openAccount_page.goEntityDetails);
+        bddUtil.sleep(1);
+        //没有挡板，用shekk数据。
+//        openAccount_page.inputCompanyRegistrationNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        openAccount_page.inputCompanyRegistrationNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());//199906179R    201700266Z
+        openAccount_page.clickCountryOfIncorporation.sendKeys("SINGAPORE");
+        getDriver().findElements(By.xpath("//span[text()='SINGAPORE']")).get(0).click();
+        openAccount_page.clickBusinessEntityTypeDownDrop.click();
+        openAccount_page.selectBusinessEntityType.click();
+        openAccount_page.BusinessOperations.click();
+        openAccount_page.selectYesNew.get(1).click();
+        openAccount_page.selectYesNew.get(2).click();
+        openAccount_page.selectYesNew.get(3).click();
+        openAccount_page.monthAmontNew.click();
+        getDriver().findElement(By.xpath("//span[text()='SGD 500,001 - SGD 1 Million']")).click();
+        openAccount_page.monthTrsCount.click();
+        getDriver().findElement(By.xpath("//span[text()='1 - 20']")).click();
+        openAccount_page.nextButtonNew.click();
+        bddUtil.sleep(1);
+        for (int i = 0; i < 3; i++) {
+            bddUtil.sleep(2);
+        }
+        bddUtil.sleep(3);
+        getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(0).sendKeys(fileAddress);
+        bddUtil.sleep(3);
+        Assert.assertEquals("Upload Successful",openAccount_page.checkUploadFileSuccess.getText());
     }
 
 //    在线开户新流程
@@ -1684,9 +1713,10 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         }
         openAccount_page.selectAccountTypeSGD.click();
         openAccount_page.clickSalutationDownDropBox.click();
+        bddUtil.sleep(1);
         List<WebElementFacade> salutationText = openAccount_page.selectSalutaionText;
         for (int j = 0; j < salutationText.size(); j++){
-            if (salutationText.equals(salutationText.get(j).getText())){
+            if (salutation.equals(salutationText.get(j).getText())){
                 salutationText.get(j).click();
                 break;
             }
@@ -1696,6 +1726,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         bddUtil.clickByJS(openAccount_page.selectContactNumberFirstCountry);
         openAccount_page.enterContactNumberSecond.sendKeys("85642126");
         openAccount_page.enterEmailInput.sendKeys("617558302@qq.com");
+        bddUtil.sleep(1);
+        openAccount_page.verifyEmailNew.click();
     }
-
 }

@@ -178,6 +178,7 @@ public class loanApplication_step extends ScenarioSteps {
         loanApplication_page.name.click();
         loanApplication_page.countryBox.click();
         loanApplication_page.china.click();
+        bddUtil.sleep(1);
         loanApplication_page.idCard.sendKeys(idCard);
         loanApplication_page.countryCode.click();
         loanApplication_page.chinaCode.click();

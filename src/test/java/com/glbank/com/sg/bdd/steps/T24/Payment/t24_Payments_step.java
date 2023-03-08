@@ -323,6 +323,13 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
     @Step
+    public void clickViewAndCheckInformation(){
+        clickViewIcon();
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+    }
+
+    @Step
     public void checkCurrency() {
         Assert.assertEquals(t24_payments_page.getCreditAccountCurrency.getText(),paymentService_step.transferCurrency);
     }
