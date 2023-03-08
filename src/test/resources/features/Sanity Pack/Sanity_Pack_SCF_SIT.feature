@@ -66,90 +66,90 @@ Feature: Sanity Pack SCF SIT Test Case
     When I close driver
 
 
-#  #2.simple 买方（核心不存在、非自主、无管理员）
-#  @sanity_pack_supplier_simple_kyc_buyer_sit
-#  Scenario:Simple (core does not exist, non autonomous, no administrator)_SIT
-#    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
-#    When I click Customers and select Onboarding List
-#    And I click Create Customer and fill in the supplier information in the pop-up window to buyer
-#      |KYC Mode    |Input by|Customer Type|
-#      |Simple KYC  |Operator|Buyer        |
-#    Then I Check to see if you jump to the Authorized Person page
-#    When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
-#    When I fill in Simple KYC customer information on the page No Administrator
-#      |Nature of Business   |Customer Type|
-#      |Agriculture & Fishing|Buyer        |
-#    When I authorize on the Onboarding Review page
-#      |Result |Customer Type|
-#      |Approve|Buyer        |
-#    When I close driver
-#    Given logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
-#    When I authorize on the Onboarding Review page
-#      |Result |Customer Type|
-#      |Approve|Buyer        |
-#    When I click Customers and select Onboarding List
-#    Then I compare Approved Status on the page
-#      |Result  |Customer Type|
-#      |Approved|Buyer        |
-#    When I close driver
-#
-#    # 3.绑定关系
-#  @sanity_pack_supplier_Customer_Mapping_SIT
-#  Scenario:Buyer The operator binds a supplier relationship that does not exist between a single system for the buyer's customer, and the binding is successful_SIT
-#    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
-#    When I click Customers and select Customers Mapping
-#    Then I should direct to the Customers Mapping page
-#    When I click the Create New Buyer Relationship button and Create a New Relationship
-#    When I click Create New Counter button on the page
-#    And I should bind a Supplier information in his upstream
-#    When I close driver
-#
-#     #4.产品设置
-#  @sanity_pack_supplier_Product_Quotation_Settings_SIT
-#  Scenario:SIT_ Supply chain_Inner tube_Create product_SIT
-#    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
-#    When I click product
-#    When I click on Product List
-#    And  click Create Product
-#    When enter the page information
-#    Then click Submit to submit a new product
-#    Then Refresh check whether the data is added successfully
-#    When I click product
-#    When I click on Quote List
-#    And  click Create Quote
-#    When enter the second case information supplier with buyer
-#      |selectCurr|
-#      |SGD       |
-#    Then I click Submit to submit a new product
-#    When I click product
-#    When I click ProductProfile
-#    And click Create ProductProfile
-#    When enter the second case information supplier and buyer
-#    Then I click Submit product profile
-##    And Enter login information
-#    When I close driver
-#
-#  #5.上传历史单据
-#  @sanity_pack_supplier_Upload_Historical_Documents_SIT
-#  Scenario:Upload historical documents_SIT
-#    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
-#    When I click Operations button
-#    And I click docs List button
-#    When I upload Historical Documents
-#    Then I should see the uploaded historical documents
-#
-#  #6.创建卖方信用档案
-#  @sanity_pack_supplier_Credit_Supplier_Customer_Profile_SIT
-#  Scenario:create Supplier Credit File_SIT
-#    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
-#    When login successfully and click the SCF link to createSupplierCreditFile
-#    And edit Supplier Credit Profile
-##    Then submit Supplier Credit Profile
-#    And to Supplier Credit Profile Review Page
-#    Then Supplier Credit Profile L1 Review
-#    Given logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
-#    And use User L2 to Supplier Review
-#    When I close driver
+  #2.simple 买方（核心不存在、非自主、无管理员）
+  @sanity_pack_supplier_simple_kyc_buyer_sit
+  Scenario:Simple (core does not exist, non autonomous, no administrator)_SIT
+    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
+    When I click Customers and select Onboarding List
+    And I click Create Customer and fill in the supplier information in the pop-up window to buyer
+      |KYC Mode    |Input by|Customer Type|
+      |Simple KYC  |Operator|Buyer        |
+    Then I Check to see if you jump to the Authorized Person page
+    When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
+    When I fill in Simple KYC customer information on the page No Administrator
+      |Nature of Business   |Customer Type|
+      |Agriculture & Fishing|Buyer        |
+    When I authorize on the Onboarding Review page
+      |Result |Customer Type|
+      |Approve|Buyer        |
+    When I close driver
+    Given logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
+    When I authorize on the Onboarding Review page
+      |Result |Customer Type|
+      |Approve|Buyer        |
+    When I click Customers and select Onboarding List
+    Then I compare Approved Status on the page
+      |Result  |Customer Type|
+      |Approved|Buyer        |
+    When I close driver
+
+    # 3.绑定关系
+  @sanity_pack_supplier_Customer_Mapping_SIT
+  Scenario:Buyer The operator binds a supplier relationship that does not exist between a single system for the buyer's customer, and the binding is successful_SIT
+    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
+    When I click Customers and select Customers Mapping
+    Then I should direct to the Customers Mapping page
+    When I click the Create New Buyer Relationship button and Create a New Relationship
+    When I click Create New Counter button on the page
+    And I should bind a Supplier information in his upstream
+    When I close driver
+
+     #4.产品设置
+  @sanity_pack_supplier_Product_Quotation_Settings_SIT
+  Scenario:SIT_ Supply chain_Inner tube_Create product_SIT
+    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
+    When I click product
+    When I click on Product List
+    And  click Create Product
+    When enter the page information
+    Then click Submit to submit a new product
+    Then Refresh check whether the data is added successfully
+    When I click product
+    When I click on Quote List
+    And  click Create Quote
+    When enter the second case information supplier with buyer
+      |selectCurr|
+      |SGD       |
+    Then I click Submit to submit a new product
+    When I click product
+    When I click ProductProfile
+    And click Create ProductProfile
+    When enter the second case information supplier and buyer
+    Then I click Submit product profile
+#    And Enter login information
+    When I close driver
+
+  #5.上传历史单据
+  @sanity_pack_supplier_Upload_Historical_Documents_SIT
+  Scenario:Upload historical documents_SIT
+    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
+    When I click Operations button
+    And I click docs List button
+    When I upload Historical Documents
+    Then I should see the uploaded historical documents
+
+  #6.创建卖方信用档案
+  @sanity_pack_supplier_Credit_Supplier_Customer_Profile_SIT
+  Scenario:create Supplier Credit File_SIT
+    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
+    When login successfully and click the SCF link to createSupplierCreditFile
+    And edit Supplier Credit Profile
+#    Then submit Supplier Credit Profile
+    And to Supplier Credit Profile Review Page
+    Then Supplier Credit Profile L1 Review
+    Given logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
+    And use User L2 to Supplier Review
+    When I close driver
 #
 #     #7.卖方授信限额
 #  @sanity_pack_supplier_Supplier_Underwriting_SIT
