@@ -3,9 +3,8 @@
 Feature: Sanity Pack INB SIT Test Case
 
  #境外转账
-  @FxPaymentSGDToUSDSIT
-  Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(SGD->USD)_SIT
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+  Scenario:Overseas fund transfer SGD-USD
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges|
@@ -62,9 +61,8 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath           |
       |AA Arrangement - SIT GLDB|Bic is DBS SGD-USD |
 
-  @FxPaymentUSDToSGD
-  Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(USD->SGD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+  Scenario:Overseas fund transfer USD-SGD
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges |
@@ -121,9 +119,9 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath           |
       |AA Arrangement - SIT GLDB|Bic is DBS USD-SGD |
 
-  @FxPaymentSGDToSGD
-  Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(SGD->SGD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+
+  Scenario:Overseas fund transfer SGD-SGD
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges |
@@ -174,9 +172,9 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath           |
       |AA Arrangement - SIT GLDB|Bic is DBS SGD-SGD |
 
-  @FxPaymentUSDToUSD
-  Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(USD->USD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+
+  Scenario:Overseas fund transfer USD-USD
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges |
@@ -228,20 +226,20 @@ Feature: Sanity Pack INB SIT Test Case
       |AA Arrangement - SIT GLDB|Bic is DBS USD-USD |
 
   Scenario:FAST transfer method, new currency to new currency positive process (unauthorized transfer)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date      |bank name            |transfer type|recurring transfer|date type|
       |11010002414 |11552636365|15/03/2024|BANK OF CHINA LIMITED|Fast         |No                |Weekly   |
 
 
   Scenario:FAST transfer method, where the new currency is transferred to the new currency in a positive process (without authorization).
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date      |bank name            |transfer type|recurring transfer|date type|
       |11010002414 |11552636365|15/03/2024|BANK OF CHINA LIMITED|Fast         |Yes               |Weekly   |
 
   Scenario:FAST transfer method, new currency to new currency positive process (without authorization)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date    |bank name            |transfer type|recurring transfer|date type|
       |11010002414 |11552636365|today   |BANK OF CHINA LIMITED|Fast         |No                |Weekly   |
@@ -262,21 +260,43 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath                   |
       |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
 
+  Scenario:FAST transfer method, the new currency to new currency positive process (without authorization) choose GLDB Bank
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    Then Domestic transfer Fast transfer succeeded and the transaction email was received
+      |from account|to account |date    |bank name                      |transfer type|recurring transfer|date type|
+      |11010002414 |11552636365|today   |GREEN LINK DIGITAL BANK PTE LTD|Fast         |No                |Weekly   |
+    Then I get transaction details on the page
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
+    When I type in the content and click the search button on Mx Message
+      |search content           |windows Title        |WordPath                   |
+      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Local Fund Payment SGD-SGD |
+    When I expand the User Menu menu on the page
+    When I expand the User Payments menu on the page
+    When I expand the Payment Hub menu on the page
+    When I expand the Payment Inquiries and Exceptions menu on the page
+    When I expand the Payments Enquiry Transaction wise menu on the page
+    When I jump to a newly opened page on Mx Message
+      |windows Title                            |WordPath                   |
+      |Pending and Processed Payments - SIT GLDB|Local Fund Payment SGD-SGD |
+    When I check the deduction amount on the Find Account page On smock test
+      |windows Title            |WordPath                   |
+      |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
+
   Scenario:MEPS transfer method, new currency to new currency positive process (unauthorized transfer)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date      |bank name            |transfer type|recurring transfer|date type|
       |11010002414 |11552636365|15/03/2024|BANK OF CHINA LIMITED|Meps         |No                |Weekly   |
 
 
   Scenario:MEPS transfer method, where the new currency is transferred to the new currency in a positive process (without authorization).
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date      |bank name            |transfer type|recurring transfer|date type|
       |11010002414 |11552636365|15/03/2024|BANK OF CHINA LIMITED|Meps         |Yes               |Weekly   |
 
   Scenario:MEPS transfer method, new currency to new currency positive process (without authorization)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date    |bank name            |transfer type|recurring transfer|date type|
       |11010002414 |11552636365|today   |BANK OF CHINA LIMITED|Meps         |No                |Weekly   |
@@ -298,10 +318,10 @@ Feature: Sanity Pack INB SIT Test Case
       |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
 
   Scenario:UEN the process of converting new currency to new currency (without authorization)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
-      |from account|to account |date    |bank name            |transfer type|recurring transfer|date type|
-      |11010002414 |11552636365|today   |BANK OF CHINA LIMITED|Meps         |No                |Weekly   |
+      |from account|to account |date    |bank name            |transfer type|PayNow Module|PayNow Content|recurring transfer|date type|
+      |11010002414 |11552636365|today   |BANK OF CHINA LIMITED|PayNow       |UEN          |UEN123321001  |No                |Weekly   |
     Then I get transaction details on the page
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
@@ -318,3 +338,88 @@ Feature: Sanity Pack INB SIT Test Case
     When I check the deduction amount on the Find Account page On smock test
       |windows Title            |WordPath                   |
       |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
+
+  Scenario:VPA the process of converting new currency to new currency (without authorization)
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    Then Domestic transfer Fast transfer succeeded and the transaction email was received
+      |from account|to account |date    |bank name            |transfer type|PayNow Module|PayNow Content         |recurring transfer|date type|
+      |11010002414 |11552636365|today   |BANK OF CHINA LIMITED|PayNow       |VPA          |UEN12345678901DD#GRAB  |No                |Weekly   |
+    Then I get transaction details on the page
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
+    When I type in the content and click the search button on Mx Message
+      |search content           |windows Title        |WordPath                   |
+      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Local Fund Payment SGD-SGD |
+    When I expand the User Menu menu on the page
+    When I expand the User Payments menu on the page
+    When I expand the Payment Hub menu on the page
+    When I expand the Payment Inquiries and Exceptions menu on the page
+    When I expand the Payments Enquiry Transaction wise menu on the page
+    When I jump to a newly opened page on Mx Message
+      |windows Title                            |WordPath                   |
+      |Pending and Processed Payments - SIT GLDB|Local Fund Payment SGD-SGD |
+    When I check the deduction amount on the Find Account page On smock test
+      |windows Title            |WordPath                   |
+      |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
+
+  Scenario:Mobile the process of converting new currency to new currency (without authorization)
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    Then Domestic transfer Fast transfer succeeded and the transaction email was received
+      |from account|to account |date    |bank name            |transfer type|PayNow Module|PayNow Content |recurring transfer|date type|
+      |11010002414 |11552636365|today   |BANK OF CHINA LIMITED|PayNow       |Mobile       |90688461       |No                |Weekly   |
+    Then I get transaction details on the page
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
+    When I type in the content and click the search button on Mx Message
+      |search content           |windows Title        |WordPath                   |
+      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Local Fund Payment SGD-SGD |
+    When I expand the User Menu menu on the page
+    When I expand the User Payments menu on the page
+    When I expand the Payment Hub menu on the page
+    When I expand the Payment Inquiries and Exceptions menu on the page
+    When I expand the Payments Enquiry Transaction wise menu on the page
+    When I jump to a newly opened page on Mx Message
+      |windows Title                            |WordPath                   |
+      |Pending and Processed Payments - SIT GLDB|Local Fund Payment SGD-SGD |
+    When I check the deduction amount on the Find Account page On smock test
+      |windows Title            |WordPath                   |
+      |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
+
+  Scenario:NRIC the process of converting new currency to new currency (without authorization)
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    Then Domestic transfer Fast transfer succeeded and the transaction email was received
+      |from account|to account |date    |bank name            |transfer type|PayNow Module|PayNow Content |recurring transfer|date type|
+      |11010002414 |11552636365|today   |BANK OF CHINA LIMITED|PayNow       |NRIC         |S1234569B      |No                |Weekly   |
+    Then I get transaction details on the page
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
+    When I type in the content and click the search button on Mx Message
+      |search content           |windows Title        |WordPath                   |
+      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Local Fund Payment SGD-SGD |
+    When I expand the User Menu menu on the page
+    When I expand the User Payments menu on the page
+    When I expand the Payment Hub menu on the page
+    When I expand the Payment Inquiries and Exceptions menu on the page
+    When I expand the Payments Enquiry Transaction wise menu on the page
+    When I jump to a newly opened page on Mx Message
+      |windows Title                            |WordPath                   |
+      |Pending and Processed Payments - SIT GLDB|Local Fund Payment SGD-SGD |
+    When I check the deduction amount on the Find Account page On smock test
+      |windows Title            |WordPath                   |
+      |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
+
+     #本人互转
+  @localPaymentSGDToSGD
+  Scenario:Local Payment Data Mapping FX Payment (SGD->SGD)
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I fill in the transfer information on the page
+      |From Account |To Account   |
+      |11010002414  |11010002430  |
+    Then I checked the transfer success in My transactions
+
+    #  转存方式1代表不转存，2代表本金续存，3代表本息续存
+#  未授权
+#   定期存款_新币_一个月_不转存
+  Scenario:SGD single-currency account is purchased for one month, and it is not transferred to regular positive process (without authorization)
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When click Fixed Deposits menu
+    Then I fill in the information about the SGD transfer on the time deposit page
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0000 470       |11010000438 |250000 |1 Month |1                    |

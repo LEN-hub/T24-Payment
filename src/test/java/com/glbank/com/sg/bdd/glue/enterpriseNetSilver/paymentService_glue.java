@@ -397,7 +397,7 @@ public class paymentService_glue {
     public void domesticTransferFastTransferSucceededAndTheTransactionEmailWasReceived(DataTable payDetails) {
         paymentService_step.transferAndRemittanceMenu();
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        paymentService_step.inputFastInformation(payToInfo.get(0).get("from account"), payToInfo.get(0).get("to account"), payToInfo.get(0).get("date"),payToInfo.get(0).get("bank name"),payToInfo.get(0).get("transfer type"),payToInfo.get(0).get("recurring transfer"),payToInfo.get(0).get("date type"));
+        paymentService_step.inputFastInformation(payToInfo.get(0).get("from account"), payToInfo.get(0).get("to account"), payToInfo.get(0).get("date"),payToInfo.get(0).get("bank name"),payToInfo.get(0).get("transfer type"),payToInfo.get(0).get("PayNow Module"),payToInfo.get(0).get("PayNow Content"),payToInfo.get(0).get("recurring transfer"),payToInfo.get(0).get("date type"));
         paymentService_step.getPopWindowsTitle();
         paymentService_step.vkeyAuthorizationSIT();
     }
@@ -502,6 +502,18 @@ public class paymentService_glue {
     @Then("^I get transaction details on the page$")
     public void iGetTransactionDetailsOnThePage() throws Exception {
         paymentService_step.getTransactionDetails();
+    }
+
+    @When("^I fill in the transfer information on the page$")
+    public void iFillInTheTransferInformationOnThePage(DataTable payDetails) {
+        paymentService_step.transferAndRemittanceMenu();
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
+        paymentService_step.inputTransferInformation(payToInfo.get(0).get("From Account"),payToInfo.get(0).get("To Account"));
+    }
+
+    @Then("^I checked the transfer success in My transactions$")
+    public void iCheckedTheTransferSuccessInMyTransactions() {
+        paymentService_step.checkMyTransactionInformation();
     }
 }
 

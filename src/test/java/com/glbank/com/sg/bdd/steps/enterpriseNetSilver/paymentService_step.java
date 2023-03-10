@@ -1658,7 +1658,7 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     public static void main(String[] args) {
-        overseas_Transfer_Multi_Currency_USD_SGD_001("100","SHA","SGD");
+        System.out.println( DateUtil.format(new Date(),"dd/MM/yyyy HH:mm:ss"));
     }
 
     @Step
@@ -2582,7 +2582,7 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     @Step
-    public void inputFastInformation(String fromAccountNum,String toAccountNum,String date,String bankName,String transferType,String recurringTransfer,String dateType){
+    public void inputFastInformation(String fromAccountNum,String toAccountNum,String date,String bankName,String transferType,String payNowModule,String payNowContent,String recurringTransfer,String dateType){
         bddUtil.sleep(3);
         paymentService_page.domesticTransfer.click();
         CommonUtil.waiting(2000);
@@ -2602,16 +2602,35 @@ public class paymentService_step extends ScenarioSteps {
                 break;
             }
         }
-        paymentService_page.clickANewPayeeBtn.click();
-        paymentService_page.inputPayeeAccountName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-        paymentService_page.inputPayeeAccountNum.sendKeys(toAccountNum);
-        paymentService_page.inputBankName.sendKeys(bankName);
-        paymentService_page.selectBankName.click();
-        paymentService_page.clickAddPayeeSecondBox.click();
+        if (transferType.equals("Fast") || transferType.equals("Meps")){
+            paymentService_page.clickANewPayeeBtn.click();
+            paymentService_page.inputPayeeAccountName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+            paymentService_page.inputPayeeAccountNum.sendKeys(toAccountNum);
+            paymentService_page.inputBankName.sendKeys(bankName);
+            paymentService_page.selectBankName.click();
+            paymentService_page.clickAddPayeeSecondBox.click();
+        }else if (transferType.equals("PayNow")){
+            if (payNowModule.equals("UEN")){
+                paymentService_page.sitEnvPayNowUen.click();
+                paymentService_page.enterPayeeAcctNo.sendKeys(payNowContent);
+            } else if (payNowModule.equals("VPA")) {
+                paymentService_page.sitEnvPayNowVpa.click();
+                paymentService_page.enterPayeeAcctNo.sendKeys(payNowContent);
+            } else if (payNowModule.equals("Mobile")) {
+                paymentService_page.sitEnvPayNowMobileNumber.click();
+                paymentService_page.inputCountryCode.sendKeys("+65");
+                bddUtil.clickByJS(paymentService_page.selectCountryCode);
+                paymentService_page.enterMobileNum.sendKeys(payNowContent);
+            } else if (payNowModule.equals("NRIC")) {
+                paymentService_page.sitEnvPayNowNric.click();
+                paymentService_page.enterPayeeAcctNo.sendKeys(payNowContent);
+            }
+        }
         paymentService_page.inputTransactionAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         paymentService_page.inputTransactionDate.clear();
         if (date.equals("today")){
             paymentService_page.inputTransactionDate.sendKeys(DateUtil.format(new Date(),"dd/MM/yyyy"));
+            bddUtil.sleep(1);
             paymentService_page.clickTransactionTips.click();
         }else {
             paymentService_page.inputTransactionDate.sendKeys(date);
@@ -2658,10 +2677,47 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.checkDetails.click();
         bddUtil.sleep(2);
         debitAccountNumber = paymentService_page.getFromAccountNumber.getText();
-        FileUtils.FileString4("t24", "ChannelDebitAccountNumber:" + debitAccountNumber);
-        creditAccountNumber = paymentService_page.getToAccountNumber.getText();
-        FileUtils.FileString4("t24","ChannelCreditAccountNumber:" + creditAccountNumber);
+        FileUtils.FileString4("t24", "getDebitAccountNum:" + debitAccountNumber);
+        if (paymentService_page.getToAccountNumber.isVisible()){
+            creditAccountNumber = paymentService_page.getToAccountNumber.getText();
+            FileUtils.FileString4("t24","getCreditAccountNumber:" + creditAccountNumber);
+        }
         transactionAmount = paymentService_page.getTransferAmountSmockTest.getText();
-        FileUtils.FileString4("t24","ChannelTransactionAmount:" + transactionAmount);
+        FileUtils.FileString4("t24","getTransactionAmount:" + transactionAmount);
     }
+    public void inputTransferInformation(String fromAccountNum,String toAccountNum){
+        paymentService_page.transferMoney.click();
+        bddUtil.sleep(3);
+        paymentService_page.rollOutCurrencySelectWindows.click();
+        List<WebElementFacade> fromAccount = paymentService_page.selectFromAccountNum;
+        for (int i = 0; i < fromAccount.size(); i++) {
+            if (fromAccountNum.equals(fromAccount.get(i).getText())){
+                fromAccount.get(i).click();
+                break;
+            }
+        }
+        paymentService_page.localPaymentToAccountDownDrop.click();
+        bddUtil.sleep(2);
+        List<WebElementFacade> toAccount = paymentService_page.selectFromAccountNum;
+        for (int j = 0; j < toAccount.size(); j++) {
+            if (toAccountNum.equals(toAccount.get(j).getText())){
+                toAccount.get(j).click();
+                break;
+            }
+        }
+        transactionAmount = GenerateDate.today()+"."+randomTwoNum();
+        paymentService_page.inputTransactionAmount.sendKeys(transactionAmount);
+        paymentService_page.clickPurposeInputBox.click();
+        paymentService_page.selectPurposeText.click();
+        paymentService_page.clickNextButton.click();
+        paymentService_page.getClickSubmitBtn.click();
+    }
+    public void checkMyTransactionInformation(){
+        paymentService_page.successTitle.isDisplayed();
+        paymentService_page.clickMyTransaction.click();
+        if (paymentService_page.getMyTransactionDate.getText().substring(0,9).equals(DateUtil.format(new Date(),"dd/MM/yyyy"))){
+            Assert.assertEquals(transferAmount,paymentService_page.getMyTransactionAmount.getText());
+        }
+    }
+
 }

@@ -4,7 +4,7 @@ Feature: T24 Payment transaction
   #境外转账
   @FxPaymentSGDToUSDSIT
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(SGD->USD)_SIT
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
@@ -57,7 +57,7 @@ Feature: T24 Payment transaction
 
   @FxPaymentUSDToSGD
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(USD->SGD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
@@ -112,7 +112,7 @@ Feature: T24 Payment transaction
 
   @FxPaymentSGDToSGD
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(SGD->SGD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
@@ -162,7 +162,7 @@ Feature: T24 Payment transaction
 
   @FxPaymentUSDToUSD
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(USD->USD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges |
@@ -218,7 +218,7 @@ Feature: T24 Payment transaction
   #境外转账
   @FxPaymentSGDToUSDBicIsUOB
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is UOB(SGD->USD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
@@ -273,7 +273,7 @@ Feature: T24 Payment transaction
 
   @FxPaymentUSDToSGDBicIsUOB
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is UOB(USD->SGD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
@@ -328,7 +328,7 @@ Feature: T24 Payment transaction
 
   @FxPaymentUSDToSGDBicIsUOB
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is UOB(SGD->SGD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
@@ -378,7 +378,7 @@ Feature: T24 Payment transaction
 
   @FxPaymentUSDToUSDBicIsUOB
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is UOB(USD->USD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges                 |
@@ -429,7 +429,7 @@ Feature: T24 Payment transaction
     #本人互转
   @localPaymentSGDToSGD
   Scenario:Local Payment Data Mapping FX Payment (SGD->SGD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
       |1101 0000 438   |1101 0000 470|
@@ -451,7 +451,7 @@ Feature: T24 Payment transaction
 
   @localPaymentUSDToUSD
   Scenario:Local Payment Data Mapping FX Payment (USD->USD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
       |1101 0000 489   |1101 0000 608|
@@ -473,7 +473,7 @@ Feature: T24 Payment transaction
 
   @localPaymentUSDToSGD
   Scenario:Local Payment Data Mapping FX Payment (USD->SGD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
       |1101 0000 489   |1101 0000 438|
@@ -511,7 +511,7 @@ Feature: T24 Payment transaction
 
   @localPaymentSGDToUSD
   Scenario:Local Payment Data Mapping FX Payment (SGD->USD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
       |1101 0000 438   |1101 0000 489|
@@ -550,7 +550,7 @@ Feature: T24 Payment transaction
   @LocalPaymentTestSGDToSGD
     #境内转账-跨行转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I fill in the transfer information of domestic transfer bank
       |Payee's Bank           |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
       |BANK OF CHINA LIMITED  |TSC1643346550706|678321687312          |Business Expenses   |1101 0000 438 |
@@ -588,7 +588,7 @@ Feature: T24 Payment transaction
 #@LocalPaymentTestSGDToUSD
 #    #境内转账-行内转账时间选择每周一(SGD->USD)
 #  Scenario:Transfer time within the line is selected every Monday (SGD->USD)
-#    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
 #    When I fill in the transfer information of domestic transfer bank
 #      |Payee's Bank                    |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |
 #      |Green Link Digital Bank Pte. Ltd|TSC1643346550706|11010000489           |Business Expenses   |1101 0000 438 |
@@ -610,21 +610,21 @@ Feature: T24 Payment transaction
   #PayNow签约
   @Paynow01
   Scenario:PayNow Signing Process
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I execute manage PayNow Profile transaction on the page
-    Given logon second "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    Given logon second "INB-automation-SIT-login2" in SIT environment and bypass Vkey
     When Click My Task to find data for authorization
 
   #PayNow解约
   @Paynow02
   Scenario:PayNow Signing Off
-    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
     When I sign and cancel the transaction on the page
 
   #PayNow修改
   @Paynow03
   Scenario:PayNow Signing Modify
-    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
     When I carry out the signing and modification process on the page
       |AccountNu    |
       |1101 0002 449|

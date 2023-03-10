@@ -62,6 +62,12 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='mobilePhoneNo']/following-sibling::div/div[2]//input")
     public WebElementFacade enterMobileNum2;
 
+    @FindBy(xpath = "//label[@for='idd']/following-sibling::div//input")
+    public WebElementFacade inputCountryCode;
+
+    @FindBy(xpath = "//div[@class='flag_box']//li/div/span")
+    public WebElementFacade selectCountryCode;
+
     @FindBy(xpath = "//label[@for='transferMethod']/parent::div/following-sibling::div[1]//span[@class='el-input__suffix-inner']")
     public WebElementFacade payeeBankSelect;
 
@@ -670,4 +676,28 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[contains(text(),'Transaction Amount')]/following-sibling::div")
     public WebElementFacade getTransferAmountSmockTest;
+
+    @FindBy(xpath = "//span[contains(text(),'UEN (Unique Entity Number)')]/preceding-sibling::span")
+    public WebElementFacade sitEnvPayNowUen;
+
+    @FindBy(xpath = "//span[contains(text(),'VPA')]/preceding-sibling::span")
+    public WebElementFacade sitEnvPayNowVpa;
+
+    @FindBy(xpath = "//span[contains(text(),'Mobile Number')]/preceding-sibling::span")
+    public WebElementFacade sitEnvPayNowMobileNumber;
+
+    @FindBy(xpath = "//span[contains(text(),'NRIC')]/preceding-sibling::span")
+    public WebElementFacade sitEnvPayNowNric;
+
+    @FindBy(xpath = "//label[text()='To Account (Payee’s Account)']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade localPaymentToAccountDownDrop;
+
+    @FindBy(xpath = "//div[text()='My Transactions']")
+    public WebElementFacade clickMyTransaction;
+
+    @FindBy(xpath = "//div[@class='base_mb ui-table']/div[2]/div[3]//tr[1]/td[1]/div")
+    public WebElementFacade getMyTransactionDate;
+
+    @FindBy(xpath = "//div[@class='base_mb ui-table']/div[2]/div[3]//tr[1]/td[6]/div")
+    public WebElementFacade getMyTransactionAmount;
 }
