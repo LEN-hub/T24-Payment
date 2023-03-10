@@ -21,7 +21,6 @@ Feature: Health Check INB SIT Test Case
       |accountType    |salutation|Entity's Type                                  |Entity Consolidated       |Entity's Industry|date      |
       |Current Account|Mr        |Public Listed Company (Not Listed in Singapore)|Turnover <= SGD 1 Million |Manufacturing    |01/01/2010|
 
-  Scenario: INB to ESC
 
   Scenario: INB to CNP
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey

@@ -12,6 +12,9 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//ul[@class='el-menu--horizontal el-menu']/li[4]//span")
     public WebElementFacade loan;
 
+    @FindBy(xpath = "//span[text()='Apply New']/parent::p/following-sibling::p/span")
+    public WebElementFacade clickLoanMenu;
+
     @FindBy(xpath = "//div[@class='children-list']//div[@class='list']/div[2]//span[@class='sub-menu-title']")
     public WebElementFacade loanApplicationBtn;
 
