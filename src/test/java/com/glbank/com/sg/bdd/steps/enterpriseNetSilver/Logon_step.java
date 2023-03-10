@@ -38,6 +38,13 @@ public class Logon_step extends ScenarioSteps {
     }
 
     @Step
+    public void clickOkButton(){
+        if (logonPage.clickSecondPageOkBtn.isVisible()){
+            logonPage.clickSecondPageOkBtn.click();
+        }
+    }
+
+    @Step
     public String enter_OrganisationID_into_box(String envName) {
         organisationID = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".organisationID");
         logonPage.enterOrganisationID(organisationID);
@@ -80,6 +87,9 @@ public class Logon_step extends ScenarioSteps {
 
     @Step
     public void clickLogonBtn(){
+        if (logonPage.clickSecondPageOkBtn.isVisible()){
+            logonPage.clickSecondPageOkBtn.click();
+        }
         logonPage.logonBtn.click();
     }
 

@@ -26,8 +26,8 @@ Feature: Health Check INB SIT Test Case
   Scenario: INB to CNP
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
-      |from account|to account |date      |bank name            |
-      |11010002414 |11552636365|15/03/2024|BANK OF CHINA LIMITED|
+      |from account|to account |date      |bank name            |transfer type|recurring transfer|date type|
+      |11010002414 |11552636365|15/03/2024|BANK OF CHINA LIMITED|Fast         |No                |Weekly   |
     Then Check whether you can receive mail in the mailbox
       |email name|
       |2022005   |

@@ -1,5 +1,6 @@
 package com.glbank.com.sg.bdd.utils;
 
+import cn.hutool.core.date.DateUtil;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -149,145 +150,6 @@ public class BDDUtil extends PageObject {
 
     public String getEnvVariable(String key){
         return envVariable.getProperty(key);
-    }
-
-    @Step
-    public void logonDBBWithPushAuth(String env){
-        getConfig(env);
-        openUrl(url);
-        enter(username).into(userNameInputBox);
-        nextButton.click();
-        tab_HSBC_App.click();
-        enter(password).into(pushAuthPasswordInputBox);
-        scrollWindowToElement(continueBtn);
-        continueBtn.click();
-    }
-
-    @Step
-    public void logonEcare(String env){
-        getConfigForOtherEnv(env,"eCare");
-        openUrl(url);
-        enter(username).into(userNameForEcare);
-        enter(password).into(passwordForEcare);
-        logInForEcare.click();
-    }
-
-    public boolean isContainsText(String text,int time){
-        boolean flage = false;
-       for (int i =0 ;i<=time ;i++){
-           boolean b = containsText(text);
-           if(b){
-               flage = b;
-               break;
-           }else{
-               sleep(1);
-           }
-       }
-       return flage;
-    }
-
-    @Step
-    public void logonDBB(String env){
-        getConfig(env);
-        openUrl(url);
-        enter(username).into(userNameInputBox);
-        scrollWindowToElement(nextButton).click();
-
-        // if the user is suspended during logon, try to unlock it first.
-        //  1. if unlock successfully, will go ahead to logon.
-        //  2. otherwise, sleep 3 mins, then logon again.
-        if(containsText("has been suspended")) {
-            LOGGER.info("'" + username + "' is suspended, will try to unlock it.");
-            String response = accessURL("http://hkg3vl5591o.hk.hsbc:28080/api/env/acc/unlock/" + username);
-            LOGGER.info("Sleeping 5 seconds to wait user unlock take effect...");
-            sleep(5);
-            if (response.contains("unlock success!")) {
-                LOGGER.info("Unlock success!");
-            } else {
-                LOGGER.info("Unlock failed, will sleep 3 mins!");
-                sleep(180);
-            }
-            enter(username).into(userNameInputBox);
-            scrollWindowToElement(nextButton).click();
-        }
-
-        enter(password).into(passwordInputBox);
-
-        String securityCode = getLogonToken(securityCodeUrl);
-        enter(securityCode).into(securityCodeInputBox);
-
-        scrollWindowToElement(logOnButton).click();
-
-        if(getTitle().equals("Log on to HSBC Online Business Banking")) {
-            LOGGER.warn("After click logon button, page title is still 'Log on to HSBC Online Business Banking', " +
-                    "will sleep 3 seconds, then verify again.");
-            sleep(3);
-        }
-
-        if(getTitle().equals("Error")){
-            selectProfile(profile);
-            skipLogonQuickTour();
-            isLogonSuccess = true;
-        } else if(getTitle().equals("Business Internet Banking")){
-            skipLogonQuickTour();
-            selectProfile(profile);
-            isLogonSuccess = true;
-        } else if(getTitle().equals("Log on to HSBC Online Business Banking")){
-            // retry logon for another 2 times, to avoid some unexpected failure, such as:
-            // 1. security code becomes invalid when we click logon button.
-            // 2. user session becomes expired.
-            if (logonAlertError.isCurrentlyVisible()) {
-                LOGGER.warn("Logon Error Message : " + logonAlertError.getText());
-            }
-            while (logonRetryCount > 0){
-                if(isLogonSuccess){
-                    LOGGER.info("Logon DBB OK after retry.");
-                    break;
-                }
-                LOGGER.info("Retry Logon DBB ...");
-                logonRetryCount-- ;
-                logonDBB(env);
-            }
-            if (logonRetryCount == 0 && !isLogonSuccess){
-                throw new RuntimeException("Fail to logon DBB after 3 times, with page title '" + getTitle() + "'");
-            }
-        }else if(getTitle().equals("Submit Remittance Statement")){
-            LOGGER.info("Logon with a MPF-only customers");
-        } else {
-            throw new RuntimeException("Fail to logon DBB with page title '" + getTitle() + "'");
-        }
-    }
-
-    public void skipLogonQuickTour(){
-        if(env.equals("UAT4S") || env.equals("SIT1")|| env.equals("SITO38") || env.equals("O63_SIT1_1")) {
-//            waitForTextToAppear("FINAL REMINDER");
-            sleep(5);
-            if (containsText("FINAL REMINDER")) {
-//                scrollWindowToElement(find(By.xpath("//span[text()='Please update business information.']")));
-                scrollWindowToElement(find(By.xpath("//div[@class='ng-binding']/following-sibling::div/child::div[2]/child::span")));
-                ackOverLayBtn.click();
-            }
-            if(containsText("IMPORTANT NOTICE")){
-                for(int i = 0;i<topTips.size();i++){
-                    scrollWindowToElement(topTips.get(i));
-                }
-                ackOverLayBtn.click();
-            }
-        }
-
-        waitForTextToAppear("Would you like a 1 minute quick tour", 45000);
-        findAll("//*[text() = 'No, please skip.']").get(1).click();
-
-        waitForTextToAppear("Show quick tour again next time I log on", 3000);
-        findAll("//button[@data-analytics-event-content='quick tour - step 6 - complete']").get(1).click();
-    }
-
-    public void skipTour(){
-        waitForTextToAppear("Quick Tour (1 of");
-        if(isElementVisible(By.xpath("//span[@translate='page overlay show again']"))){
-            find(By.xpath("//span[@translate='page overlay show again']")).click();
-        }
-        findAll(By.xpath("//span[@translate='page overlay close']")).get(0).click();
     }
 
     /** @deprecated
@@ -641,6 +503,7 @@ public class BDDUtil extends PageObject {
                 getDriver().switchTo().window(temhandle);
         }
     }
+
     public static String getTimeNowThroughCalendar(){
         //使用默认时区和语言环境获得一个日历。
         Calendar    rightNow    =    Calendar.getInstance();

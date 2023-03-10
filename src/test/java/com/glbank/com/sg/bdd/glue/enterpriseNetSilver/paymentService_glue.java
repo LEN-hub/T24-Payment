@@ -397,7 +397,7 @@ public class paymentService_glue {
     public void domesticTransferFastTransferSucceededAndTheTransactionEmailWasReceived(DataTable payDetails) {
         paymentService_step.transferAndRemittanceMenu();
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
-        paymentService_step.inputFastInformation(payToInfo.get(0).get("from account"), payToInfo.get(0).get("to account"), payToInfo.get(0).get("date"),payToInfo.get(0).get("bank name"));
+        paymentService_step.inputFastInformation(payToInfo.get(0).get("from account"), payToInfo.get(0).get("to account"), payToInfo.get(0).get("date"),payToInfo.get(0).get("bank name"),payToInfo.get(0).get("transfer type"),payToInfo.get(0).get("recurring transfer"),payToInfo.get(0).get("date type"));
         paymentService_step.getPopWindowsTitle();
         paymentService_step.vkeyAuthorizationSIT();
     }
@@ -499,5 +499,9 @@ public class paymentService_glue {
         paymentService_step.overseas_Transfer_Multi_Currency_USD_USD_001(payToInfo.get(0).get("Transfer out amount"),payToInfo.get(0).get("Charge Option"),payToInfo.get(0).get("Transfer in account currency"));
     }
 
+    @Then("^I get transaction details on the page$")
+    public void iGetTransactionDetailsOnThePage() throws Exception {
+        paymentService_step.getTransactionDetails();
+    }
 }
 

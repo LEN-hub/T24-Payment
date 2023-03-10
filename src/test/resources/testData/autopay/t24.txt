@@ -1,0 +1,38 @@
+2023-3-9 17:8:13:161
+ChannelReferenceID:230309000000037
+ChannelDebitAccountNumber:11010002414
+ChannelCreditAccountNumber:11552636365
+ChannelTransactionAmount:309.76
+2023-3-9 17:9:45:11
+ID:230309000000037
+TransactionReference:PI230680M39XJ0C7
+t24FtNumber:SGL23068CHM0HGMG
+getStatus:687
+getTransactionReferenceNum:SGL23068CHM0HGMG
+getSenderReferenceNum:PI230680M39XJ0C7
+getTransactionCurrency:SGD
+getTransactionCurrency:SGD
+getTransactionAmount:309.76
+getChargeOption:SHA
+getDebitAccountNum:11010002414
+getDebitAccountCurrency:SGD
+getOrderingAccount:11010002414
+getOrderingName:WATERHOUSE INVESTMENT PTE. LTD.
+getOrderingAddress:SINGAPORE
+getOrderingTown:SG
+getCreditAccountNum:SGD140200001
+getCreditAccountCurrency:SGD
+getBeneficiaryAccount:11552636365
+getBeneficiaryName:Charles
+2023-3-9 17:19:19:941
+ID:230309000000037
+TransactionReference:PI230680M39XJ0C7
+t24FtNumber:SGL23068CHM0HGMG
+2023-3-9 17:20:58:78
+ID:230309000000037
+TransactionReference:PI230680M39XJ0C7
+t24FtNumber:SGL23068CHM0HGMG
+2023-3-9 17:27:27:687
+ID:230309000000037
+TransactionReference:PI230680M39XJ0C7
+t24FtNumber:SGL23068CHM0HGMG

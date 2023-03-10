@@ -1,5 +1,6 @@
 package com.glbank.com.sg.bdd.steps.enterpriseNetSilver;
 
+import cn.hutool.core.date.DateUtil;
 import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.paymentService_page;
 import com.glbank.com.sg.bdd.utils.*;
 import com.lu.sn.Language;
@@ -2161,14 +2162,8 @@ public class paymentService_step extends ScenarioSteps {
 
     public void payeeCountriesEnCd(String payeeCountries) {
         paymentService_page.payeeCountriesEnCdBox.click();
-        bddUtil.sleep(5);
-        List<WebElementFacade> countries = paymentService_page.payeeCountries;
-        for (int i = 0; i < countries.size(); i++) {
-            if (payeeCountries.equals(countries.get(i).getText())) {
-                countries.get(i).click();
-                break;
-            }
-        }
+        bddUtil.sleep(2);
+        paymentService_page.payeeCountries.click();
     }
     public void remittancePostscriptContent(String remittancePostscriptContent){
         paymentService_page.remittancePostscriptContent.sendKeys(remittancePostscriptContent);}
@@ -2194,13 +2189,7 @@ public class paymentService_step extends ScenarioSteps {
     public void paymentAttributeCd(String selectPaymentAttributeCd){
         paymentService_page.paymentAttributeCdBox.click();
         bddUtil.sleep(3);
-        List<WebElementFacade> AttributeCd = paymentService_page.selectPaymentAttributeCd;
-        for (int i = 0; i < AttributeCd.size(); i++) {
-            if (selectPaymentAttributeCd.equals(AttributeCd.get(i).getText())) {
-                AttributeCd.get(i).click();
-                break;
-            }
-        }
+       paymentService_page.selectPaymentAttributeCd.click();
     }
 
     public void clickNextBox(){
@@ -2593,11 +2582,17 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     @Step
-    public void inputFastInformation(String fromAccountNum,String toAccountNum,String date,String bankName){
+    public void inputFastInformation(String fromAccountNum,String toAccountNum,String date,String bankName,String transferType,String recurringTransfer,String dateType){
         bddUtil.sleep(3);
         paymentService_page.domesticTransfer.click();
         CommonUtil.waiting(2000);
-        paymentService_page.selectFastMenu.click();
+        if (transferType.equals("Fast")) {
+            paymentService_page.selectFastMenu.click();
+        } else if (transferType.equals("Meps")) {
+            paymentService_page.selectMepsMenu.click();
+        } else if (transferType.equals("PayNow")) {
+            paymentService_page.selectPayNowMenu.click();
+        }
         paymentService_page.clickNextButton.click();
         paymentService_page.clickFromAccountDownDropBox.click();
         List<WebElementFacade> fromAccount = paymentService_page.selectFromAccountNum;
@@ -2615,9 +2610,26 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.clickAddPayeeSecondBox.click();
         paymentService_page.inputTransactionAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
         paymentService_page.inputTransactionDate.clear();
-        paymentService_page.inputTransactionDate.sendKeys(date);
-        paymentService_page.clickTransactionTips.click();
-        paymentService_page.selectRecurringTransferNoBox.click();
+        if (date.equals("today")){
+            paymentService_page.inputTransactionDate.sendKeys(DateUtil.format(new Date(),"dd/MM/yyyy"));
+            paymentService_page.clickTransactionTips.click();
+        }else {
+            paymentService_page.inputTransactionDate.sendKeys(date);
+            paymentService_page.clickTransactionTips.click();
+            if (recurringTransfer.equals("No")){
+                paymentService_page.selectRecurringTransferNoBox.click();
+            }else if (recurringTransfer.equals("Yes")){
+                paymentService_page.selectRecurringTransferYesBox.click();
+                paymentService_page.requencyOfRecurrence.click();
+                List<WebElementFacade> selectDate = paymentService_page.selectRequencyOfRecurrenceDate;
+                for (int i = 0; i < selectDate.size(); i++) {
+                    if (dateType.equals(selectDate.get(i).getText())){
+                        selectDate.get(i).click();
+                        break;
+                    }
+                }
+            }
+        }
         paymentService_page.clickPurposeInputBox.click();
         paymentService_page.selectPurposeText.click();
         paymentService_page.clickNextButton.click();
@@ -2636,5 +2648,20 @@ public class paymentService_step extends ScenarioSteps {
 
     public void checkMessage(){
         Assert.assertEquals("Welcome message",paymentService_page.checkMessage.getText());
+    }
+
+    @Step
+    public void getTransactionDetails() throws Exception {
+        FileUtils.writeFile("t24");
+        referenceID = paymentService_page.referenceID.getText().replace(" ", "");
+        FileUtils.FileString4("t24", nowDate + "\n" + "ChannelReferenceID:" + referenceID);
+        paymentService_page.checkDetails.click();
+        bddUtil.sleep(2);
+        debitAccountNumber = paymentService_page.getFromAccountNumber.getText();
+        FileUtils.FileString4("t24", "ChannelDebitAccountNumber:" + debitAccountNumber);
+        creditAccountNumber = paymentService_page.getToAccountNumber.getText();
+        FileUtils.FileString4("t24","ChannelCreditAccountNumber:" + creditAccountNumber);
+        transactionAmount = paymentService_page.getTransferAmountSmockTest.getText();
+        FileUtils.FileString4("t24","ChannelTransactionAmount:" + transactionAmount);
     }
 }

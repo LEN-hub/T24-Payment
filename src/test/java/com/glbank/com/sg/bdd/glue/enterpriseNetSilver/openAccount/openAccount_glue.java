@@ -51,6 +51,7 @@ public class openAccount_glue {
         envTag = envName;
         if (!envName.isEmpty()) {
             logon_step.open_the_first_dbb_logon_page(envName);
+            logon_step.clickOkButton();
 //            logon_step.clickOkBtnOnTitle();
         }
     }

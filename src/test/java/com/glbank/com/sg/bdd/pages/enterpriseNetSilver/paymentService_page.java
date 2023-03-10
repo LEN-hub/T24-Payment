@@ -383,8 +383,9 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='payeeCountriesEnCd']/following-sibling::div//i")
     public WebElementFacade payeeCountriesEnCdBox;  //收款国家下拉框
 
-    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul//li")
-    public List<WebElementFacade> payeeCountries; //美国
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul/li[1]/span")
+    public WebElementFacade payeeCountries; //新加坡
 
     @FindBy(xpath = "//div[@class='el-textarea el-input--medium']/textarea")
     public WebElementFacade remittancePostscriptContent;//汇款留言 输入
@@ -401,8 +402,8 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='paymentAttributeCd']/following-sibling::div//i")
     public WebElementFacade paymentAttributeCdBox;  //付汇性质下拉框
 
-    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul//li")
-    public List<WebElementFacade> selectPaymentAttributeCd;  //选择付汇性质
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul/li[1]/span")
+    public WebElementFacade selectPaymentAttributeCd;  //选择付汇性质
 
     @FindBy(xpath = "//div[text()='Next']")
     public WebElementFacade clickNextButton;
@@ -568,6 +569,9 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//span[text()='MEPS']/preceding-sibling::span")
     public WebElementFacade selectMepsMenu;
 
+    @FindBy(xpath = "//span[text()='PayNow']/preceding-sibling::span")
+    public WebElementFacade selectPayNowMenu;
+
     @FindBy(xpath = "//label[@for='acctObj']/following-sibling::div//span[@class='el-input__suffix-inner']")
     public WebElementFacade clickFromAccountDownDropBox;
 
@@ -588,6 +592,15 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//label[@for='contractTypeCd']/following-sibling::div//label[2]//span[@class='el-radio__inner']")
     public WebElementFacade selectRecurringTransferNoBox;
+
+    @FindBy(xpath = "//label[@for='contractTypeCd']/following-sibling::div//label[1]//span[@class='el-radio__inner']")
+    public WebElementFacade selectRecurringTransferYesBox;
+
+    @FindBy(xpath = "//label[@for='contractCycleCd']/following-sibling::div//span[@class='el-input__suffix']")
+    public WebElementFacade requencyOfRecurrence;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\" ]//ul/li")
+    public List<WebElementFacade> selectRequencyOfRecurrenceDate;
 
     @FindBy(xpath = "//label[text()='Purpose of Transfer *']/following-sibling::div//input")
     public WebElementFacade clickPurposeInputBox;
@@ -648,4 +661,13 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//span[text()='Welcome message']")
     public WebElementFacade checkMessage;
+
+    @FindBy(xpath = "//div[contains(text(),'2. Where are you')]/following-sibling::div//div[contains(text(),'Account Number')]/following-sibling::div")
+    public WebElementFacade getFromAccountNumber;
+
+    @FindBy(xpath = "//div[contains(text(),'3. Whom are you')]/following-sibling::div//div[contains(text(),'Account Number')]/following-sibling::div")
+    public WebElementFacade getToAccountNumber;
+
+    @FindBy(xpath = "//div[contains(text(),'Transaction Amount')]/following-sibling::div")
+    public WebElementFacade getTransferAmountSmockTest;
 }
