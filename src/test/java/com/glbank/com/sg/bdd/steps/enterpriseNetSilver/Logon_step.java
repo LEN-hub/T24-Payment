@@ -87,9 +87,6 @@ public class Logon_step extends ScenarioSteps {
 
     @Step
     public void clickLogonBtn(){
-        if (logonPage.clickSecondPageOkBtn.isVisible()){
-            logonPage.clickSecondPageOkBtn.click();
-        }
         logonPage.logonBtn.click();
     }
 
