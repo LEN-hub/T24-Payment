@@ -10,6 +10,11 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +30,7 @@ public class creditLimit_step extends ScenarioSteps {
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/autopay/BR.jpg";
     String uploadExcel = systemPath + "/src/test/resources/testData/excel/HistoricalExcel.xlsx";
+    String ChromePath = systemPath+"/src/test/resources/drivers/chromedriver.exe";
     @Step
     public void clickUnderWritingAndApproval(){
         creditLimit_page.underWriting.click();
@@ -241,11 +247,12 @@ public class creditLimit_step extends ScenarioSteps {
         creditLimit_page.inputSendCode.sendKeys(otp);
         creditLimit_page.GLDBEmailLoginBtn.click();
         bddUtil.sleep(3);
-        bddUtil.switchToWindows();
-        //打开第二封邮件。
-        webdriver.executeScript("window.open(\"https://ihotmails.com/\");");
+//        bddUtil.switchToWindows();
+//        //打开第二封邮件。
+//        String directEmail = FileUtils.LastReadFileInput3("directEmail").substring(0,7);
+//        webdriver.executeScript("window.open(\"https://mail.td/zh/mail/"+directEmail+"@uuf.me"+"\");");
           //获取所有句柄存到list集合
-        ArrayList<String> list = new ArrayList<>(getDriver().getWindowHandles());
+      /*  ArrayList<String> list = new ArrayList<>(getDriver().getWindowHandles());
         System.out.println(list);
         //打开第二封邮件，一起签署BR
         creditLimit_page.clickEditEmailName.click();
@@ -271,7 +278,7 @@ public class creditLimit_step extends ScenarioSteps {
         creditLimit_page.clickEditEmailName.click();
         bddUtil.sleep(3);
         //切换到客户端首页进行操作。
-        getDriver().switchTo().window(list.get(0));
+        getDriver().switchTo().window(list.get(0));*/
     }
 
     @Step
@@ -448,59 +455,106 @@ public class creditLimit_step extends ScenarioSteps {
 
     }
 
+
     @Step
     public void toSign(){
-        //获取所有句柄存到list集合
-        ArrayList<String> list = new ArrayList<>(getDriver().getWindowHandles());
-        getDriver().switchTo().window(list.get(1));
+        //登录第一封邮件进行签约BR
+        System.setProperty("webdriver.chrome.driver",ChromePath);
+        //更换selenium打开浏览器机制
+        ChromeOptions options = new ChromeOptions();
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+        ChromeDriver driver = new ChromeDriver(options);
+        JavascriptExecutor webdriver = (JavascriptExecutor) driver;
+        String directEmail = FileUtils.LastReadFileInput3("directEmail").substring(0,7);
+        String Url = "https://mail.td/zh/mail/"+directEmail+"@uuf.me";
+        driver.get(Url);
+        driver.manage().window().maximize();
         //开始签约
         bddUtil.sleep(3);
-        creditLimit_page.signEmail.click();
-        //获取签约链接并且在新标签页打开。
-        String href = creditLimit_page.signHref.getAttribute("href");
-        JavascriptExecutor webdriver = (JavascriptExecutor) getDriver();
-        webdriver.executeScript("window.open('"+href+"')");
-        getDriver().switchTo().window(list.get(1));
-        bddUtil.scrollWindowToElement(creditLimit_page.tokenEmail).click();
-        creditLimit_page.tokenNum.getText();
-        String token = getDriver().findElement(By.xpath("//h5/b")).getText().substring(1,7);
-        // 切换到邮箱界面
-        getDriver().switchTo().window(list.get(3));
-        creditLimit_page.inputToken.sendKeys(token);
-        bddUtil.sleep(5);
-        bddUtil.scrollWindowToElement(creditLimit_page.signHere).click();
-        getDriver().findElement(By.xpath("//div[@class='upload-demo']//div//input")).sendKeys(fileAddress);
+        //点击签约邮件
+        driver.findElement(By.xpath("//div[text()='[Green Link Digital Bank] Account Opening - Digital Sign Certified Extract of Board Resolution']")).click();
         bddUtil.sleep(2);
-        getDriver().findElement(By.xpath("//span[text()='Confirm Digital Signature']")).click();
+        //获取签约链接并且在新标签页打开。
+        //切入iframe
+        driver.switchTo().frame(driver.findElement(By.xpath("//div[@class='flex justify-between']/following-sibling::div/iframe")));
+        String href = driver.findElement(By.xpath("//a[text()='Proceed to Digital Sign']")).getAttribute("href");
+        webdriver.executeScript("window.open('"+href+"')");
         bddUtil.sleep(5);
+        //获取浏览器句柄，切换标签页
+        ArrayList<String> list = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(list.get(0));
+        driver.findElement(By.xpath("//nav[@id='nav']//span[text()='收件箱']")).click();
+        //点击OTP验证码邮件
+        bddUtil.sleep(3);
+        driver.findElement(By.xpath("//div[contains(text(),'Digital Sign OTP')]")).click();
+        bddUtil.sleep(2);
+        //获取验证码
+        driver.switchTo().frame(driver.findElement(By.xpath("//div[@class='flex justify-between']/following-sibling::div/iframe")));
+        String token = driver.findElement(By.xpath("//h5/b")).getText().substring(1,7);
+        //切换到签约界面界面
+        driver.switchTo().window(list.get(1));
+        driver.findElement(By.xpath("//div[@class='Verificationode_BoxChildIptChild']/div/form/input")).sendKeys(token);
+        bddUtil.sleep(8);
+        //跳转到签约位置
+        driver.executeScript("arguments[0].scrollIntoView();",driver.findElement(By.xpath("//div[@id='pdfList']//div[5]//span[1]")));
+        driver.findElement(By.xpath("//div[@id='pdfList']//div[5]//span[1]")).click();
+        //上传文件签约
+        driver.findElement(By.xpath("//div[@class='upload-demo']//div//input")).sendKeys(fileAddress);
+        bddUtil.sleep(2);
+        driver.findElement(By.xpath("//span[text()='Confirm Digital Signature']")).click();
+        bddUtil.sleep(6);
+        //关闭当前浏览器
+        driver.quit();
     }
 
     @Step
     public void toSignTwoEmail(){
-        //获取所有句柄存到list集合
-        ArrayList<String> list = new ArrayList<>(getDriver().getWindowHandles());
-        getDriver().switchTo().window(list.get(2));
-        //开始签约第二份邮件
+        //登录第二封邮件进行签约BR
+        System.setProperty("webdriver.chrome.driver",ChromePath);
+        //更换selenium打开浏览器机制
+        ChromeOptions options = new ChromeOptions();
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+        ChromeDriver driver = new ChromeDriver(options);
+        JavascriptExecutor webdriver = (JavascriptExecutor) driver;
+        String directEmail = FileUtils.LastReadFileInput3("directEmail").substring(0,7);
+        String Url = "https://mail.td/zh/mail/"+directEmail+"2@uuf.me";
+        driver.get(Url);
+        driver.manage().window().maximize();
+        //开始签约
         bddUtil.sleep(3);
-        creditLimit_page.signEmail.click();
-        //获取签约链接并且在新标签页打开。
-        String href = creditLimit_page.signHref.getAttribute("href");
-        JavascriptExecutor webdriver = (JavascriptExecutor) getDriver();
-        webdriver.executeScript("window.open('"+href+"')");
-        ArrayList<String> list1 = new ArrayList<>(getDriver().getWindowHandles());
-        getDriver().switchTo().window(list1.get(2));
-        creditLimit_page.tokenEmail.click();
-        creditLimit_page.tokenNum.getText();
-        String token = getDriver().findElement(By.xpath("//h5/b")).getText().substring(1,7);
-        // 切换到邮箱界面
-        getDriver().switchTo().window(list1.get(3));
-        creditLimit_page.inputToken.sendKeys(token);
-        bddUtil.sleep(5);
-        bddUtil.scrollWindowToElement(creditLimit_page.signHere).click();
-        getDriver().findElement(By.xpath("//div[@class='upload-demo']//div//input")).sendKeys(fileAddress);
+        //点击签约邮件
+        driver.findElement(By.xpath("//div[text()='[Green Link Digital Bank] Account Opening - Digital Sign Certified Extract of Board Resolution']")).click();
         bddUtil.sleep(2);
-        getDriver().findElement(By.xpath("//span[text()='Confirm Digital Signature']")).click();
+        //获取签约链接并且在新标签页打开。
+        //切入iframe
+        driver.switchTo().frame(driver.findElement(By.xpath("//div[@class='flex justify-between']/following-sibling::div/iframe")));
+        String href = driver.findElement(By.xpath("//a[text()='Proceed to Digital Sign']")).getAttribute("href");
+        webdriver.executeScript("window.open('"+href+"')");
+        bddUtil.sleep(5);
+        //获取浏览器句柄，切换标签页
+        ArrayList<String> list = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(list.get(0));
+        driver.findElement(By.xpath("//nav[@id='nav']//span[text()='收件箱']")).click();
+        //点击OTP验证码邮件
+        bddUtil.sleep(3);
+        driver.findElement(By.xpath("//div[contains(text(),'Digital Sign OTP')]")).click();
+        bddUtil.sleep(2);
+        //获取验证码
+        driver.switchTo().frame(driver.findElement(By.xpath("//div[@class='flex justify-between']/following-sibling::div/iframe")));
+        String token = driver.findElement(By.xpath("//h5/b")).getText().substring(1,7);
+        //切换到签约界面界面
+        driver.switchTo().window(list.get(1));
+        driver.findElement(By.xpath("//div[@class='Verificationode_BoxChildIptChild']/div/form/input")).sendKeys(token);
+        bddUtil.sleep(10);
+        //跳转到签约位置
+        driver.executeScript("arguments[0].scrollIntoView();",driver.findElement(By.xpath("//div[@id='pdfList']//div[5]//span[1]")));
+        driver.findElement(By.xpath("//div[@id='pdfList']//div[5]//span[1]")).click();
+        //上传文件签约
+        driver.findElement(By.xpath("//div[@class='upload-demo']//div//input")).sendKeys(fileAddress);
+        bddUtil.sleep(2);
+        driver.findElement(By.xpath("//span[text()='Confirm Digital Signature']")).click();
         bddUtil.sleep(6);
+        driver.quit();
     }
 
     @Step

@@ -141,13 +141,16 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//span[@class='dialog-footer']/button")
     public WebElementFacade confirmBtn;
 
-    @FindBy(xpath = "//td[text()='[Green Link Digital Bank] Account Opening - Digital Sign Certified Extract of Board Resolution']")
+    @FindBy(xpath = "//div[text()='[Green Link Digital Bank] Account Opening - Digital Sign Certified Extract of Board Resolution']")
     public WebElementFacade signEmail;
+
+    @FindBy(xpath = "//nav[@id='nav']//span[text()='收件箱']")
+    public WebElementFacade InboxBtn;
 
     @FindBy(xpath = "//a[text()='Proceed to Digital Sign']")
     public WebElementFacade signHref;
 
-    @FindBy(xpath = "//td[contains(text(),'Digital Sign OTP')]")
+    @FindBy(xpath = "//div[contains(text(),'Digital Sign OTP')]")
     public WebElementFacade tokenEmail;
 
     @FindBy(xpath = "//h5/b")

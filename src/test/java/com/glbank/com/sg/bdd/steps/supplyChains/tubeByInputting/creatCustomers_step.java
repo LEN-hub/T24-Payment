@@ -32,6 +32,7 @@ public class creatCustomers_step extends ScenarioSteps {
     public static String password;
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/autopay/test2.jpg";
+    public static String directorEmail = JRandomNameTool.getStringRandom(7);
     @Step
     public void getClickCustomersMenu(){
         customers_page.clickCustomersMenu.isVisible();
@@ -584,6 +585,25 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.isNonProfitYes.click();
         bddUtil.sleep(3);
         customers_page.nextBtnIndustry.click();
+    }
+
+    @Step
+    public void changeEmail1(){
+       //修改第个董事签约BR的邮箱
+        bddUtil.sleep(2);
+        FileUtils.FileString4("directEmail",directorEmail + "@uuf.me");
+        //先清掉之前的邮箱
+        getDriver().findElements(By.xpath("//label[@for='email']/following-sibling::div//input")).get(0).clear();
+        getDriver().findElements(By.xpath("//label[@for='email']/following-sibling::div//input")).get(0).sendKeys(directorEmail+"@uuf.me");
+    }
+
+    @Step
+    public void changeEmail2(){
+        //修改第2个董事签约BR的邮箱
+        bddUtil.sleep(2);
+        //先清掉之前的邮箱
+        getDriver().findElements(By.xpath("//label[@for='email']/following-sibling::div//input")).get(1).clear();
+        getDriver().findElements(By.xpath("//label[@for='email']/following-sibling::div//input")).get(1).sendKeys(directorEmail+"2@uuf.me");
     }
 
     @Step
