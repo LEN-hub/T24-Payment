@@ -1,43 +1,36 @@
-2023-3-3 11:51:11:736
-ChannelReferenceID:230303000000002
+2023-3-3 17:41:47:566
+ChannelReferenceID:230303000000052
 ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
-ChannelDebitAccountCurrency:USD
-ChannelDebitAccountNumber:11010001434
+ChannelDebitAccountCurrency:SGD
+ChannelDebitAccountNumber:11010003453
 ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
 ChannelDetailPayeeName:lucky
 ChannelDetailAccountCurrency:SGD
 ChannelDetailPayeeAccountNum:667812798
-ChannelDetailExchangeRate:USD 1 ≈ SGD 1.34495
-ChannelDetailTransactionAmount:303.39
+ChannelDetailTransactionAmount:303.18
 ChannelDetailBeneficiaryBankBIC:DBSSSGS0DOD
 ChannelDetailPayeeAddress:countries
-ChannelDetailEstimatedProcessingFee:0.00
-ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
+ChannelDetailEstimatedProcessingFee:--
+ChannelDetailPaymentModeForCharges:All expenses shall be borne by the payee
 ChannelDetailPurposeOfTransfer:Commission
-2023-3-3 11:53:59:730
-ID:230303000000002
-TransactionReference:PI2306205SF9P7FQ
-t24FtNumber:SGL23062KMJLGKH0
+2023-3-3 17:48:10:640
+ID:230303000000052
+TransactionReference:PI2306205SFCZD1Q
+t24FtNumber:SGL23062CLCDKLLD
 getStatus:677
-getTransactionReferenceNum:SGL23062KMJLGKH0
-getSenderReferenceNum:PI2306205SF9P7FQ
+getTransactionReferenceNum:SGL23062CLCDKLLD
+getSenderReferenceNum:PI2306205SFCZD1Q
 getTransactionCurrency:SGD
-getInstructedCurrency:USD
-getTransactionAmount:408.04
-getInstructedAmount:303.39
-getChargeOption:SHA
-getDebitAccountNum:11010001434
-getCreditAccountNum:15000000153
-getDebitAccountCurrency:USD
-getCreditAccountCurrency:SGD
-getDebitAmount:303.39
-getCreditAmount:408.04
-getDebitCustomerRate:1.34495
-getDebitTreasuryRate:1.34595
-getOrderingAccount:11010001434
-getBeneficiaryAccount:667812798
+getTransactionCurrency:SGD
+getTransactionAmount:303.18
+getChargeOption:BEN
+getDebitAccountNum:11010003453
+getDebitAccountCurrency:SGD
+getOrderingAccount:11010003453
 getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
-getBeneficiaryName:lucky
 getOrderingAddress:XIAN
-getBeneficiaryAddress:countries
 getOrderingTown:SG
+getCreditAccountNum:15000000153
+getCreditAccountCurrency:SGD
+getBeneficiaryAccount:667812798
+getBeneficiaryName:lucky
