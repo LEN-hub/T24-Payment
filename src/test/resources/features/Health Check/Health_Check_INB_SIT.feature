@@ -17,9 +17,8 @@ Feature: Health Check INB SIT Test Case
   Scenario: INB to IMS
     Given open "INB-automation-SIT-login" enterprise net silver page
     When click open Account New page
-    Then Attachment uploaded successfully
-      |accountType    |salutation|Entity's Type                                  |Entity Consolidated       |Entity's Industry|date      |
-      |Current Account|Mr        |Public Listed Company (Not Listed in Singapore)|Turnover <= SGD 1 Million |Manufacturing    |01/01/2010|
+    Then New Fill in information "netSilverEnv_OpenAccount" on Getting Started page
+    And Verification IMS system file uploaded successfully
 
 #
 #  Scenario: INB to CNP

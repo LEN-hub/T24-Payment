@@ -502,6 +502,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
     }
         bddUtil.sleep(3);
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(0).sendKeys(fileAddress);
+        Assert.assertEquals("Upload Successful",openAccount_page.checkUploadFileSuccess.getText());
         bddUtil.sleep(1);
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(1).sendKeys(fileAddress);
         bddUtil.sleep(1);
@@ -1728,5 +1729,32 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.enterEmailInput.sendKeys("617558302@qq.com");
         bddUtil.sleep(1);
         openAccount_page.verifyEmailNew.click();
+    }
+
+    public void checkHealthCheck() {
+        bddUtil.scrollWindowToElement(openAccount_page.goEntityDetails);
+        bddUtil.sleep(1);
+        //没有挡板，用shekk数据。
+//        openAccount_page.inputCompanyRegistrationNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
+        openAccount_page.inputCompanyRegistrationNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());//199906179R    201700266Z
+        openAccount_page.clickCountryOfIncorporation.sendKeys("SINGAPORE");
+        getDriver().findElements(By.xpath("//span[text()='SINGAPORE']")).get(0).click();
+        openAccount_page.clickBusinessEntityTypeDownDrop.click();
+        openAccount_page.selectBusinessEntityType.click();
+        openAccount_page.BusinessOperations.click();
+        openAccount_page.selectYesNew.get(1).click();
+        openAccount_page.selectYesNew.get(2).click();
+        openAccount_page.selectYesNew.get(3).click();
+        openAccount_page.monthAmontNew.click();
+        getDriver().findElement(By.xpath("//span[text()='SGD 500,001 - SGD 1 Million']")).click();
+        openAccount_page.monthTrsCount.click();
+        getDriver().findElement(By.xpath("//span[text()='1 - 20']")).click();
+        openAccount_page.nextButtonNew.click();
+        bddUtil.sleep(1);
+        for (int i = 0; i < 3; i++) {
+            bddUtil.sleep(2);
+        }
+        bddUtil.sleep(3);
+        getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(0).sendKeys(fileAddress);
     }
 }

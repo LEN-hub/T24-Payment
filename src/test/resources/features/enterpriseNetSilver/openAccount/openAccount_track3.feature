@@ -3,7 +3,7 @@ Feature: openAccount_track3
   @testcodeNew
     #正常开户新流程——单币种账户——新币
   Scenario:openAccountNew Singapore enterprise Track3
-    Given open "netSilverEnv_Kevin_SIT" enterprise net silver page
+    Given open "INB-automation-SIT-login" enterprise net silver page
     When click open Account New page
     Then New Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information New
