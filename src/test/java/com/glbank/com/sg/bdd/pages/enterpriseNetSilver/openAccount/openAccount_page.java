@@ -207,6 +207,9 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[text()='Next']")
     public WebElementFacade nextButtonNew;
 
+    @FindBy(xpath = "//div[contains(text(),'Upload Successful')]")
+    public WebElementFacade checkUploadFileSuccess;
+
     @FindBy(xpath = "//div[text()='Confirm']")
     public WebElementFacade confirmNew;
 
@@ -1237,5 +1240,4 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//label[@for='operatePersonEmail']/following-sibling::div//input")
     public WebElementFacade enterEmailInput;
-
 }

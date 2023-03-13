@@ -12,6 +12,9 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//ul[@class='el-menu--horizontal el-menu']/li[4]//span")
     public WebElementFacade loan;
 
+    @FindBy(xpath = "//span[text()='Apply New']/parent::p/following-sibling::p/span")
+    public WebElementFacade clickLoanMenu;
+
     @FindBy(xpath = "//div[@class='children-list']//div[@class='list']/div[2]//span[@class='sub-menu-title']")
     public WebElementFacade loanApplicationBtn;
 
@@ -165,7 +168,7 @@ public class loanApplication_page extends PageObject {
     @FindBy(xpath = "//label[@for='enterpriseTypeCd']/following-sibling::div//input")
     public WebElementFacade enterpriseTypeCd;//企业实体类型。
 
-    @FindBy(xpath = "//li[@class='el-select-dropdown__item country-option']//span[text()='CHINESE']")
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or  @x-placement=\"top-start\"]//span[text()='CHINESE']")
     public WebElementFacade china;//中国
 
     @FindBy(xpath = "//label[@for='certfctNo']/following-sibling::div//input")

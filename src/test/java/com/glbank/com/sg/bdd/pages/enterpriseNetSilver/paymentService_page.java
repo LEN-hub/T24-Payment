@@ -62,6 +62,12 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='mobilePhoneNo']/following-sibling::div/div[2]//input")
     public WebElementFacade enterMobileNum2;
 
+    @FindBy(xpath = "//label[@for='idd']/following-sibling::div//input")
+    public WebElementFacade inputCountryCode;
+
+    @FindBy(xpath = "//div[@class='flag_box']//li/div/span")
+    public WebElementFacade selectCountryCode;
+
     @FindBy(xpath = "//label[@for='transferMethod']/parent::div/following-sibling::div[1]//span[@class='el-input__suffix-inner']")
     public WebElementFacade payeeBankSelect;
 
@@ -383,8 +389,9 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='payeeCountriesEnCd']/following-sibling::div//i")
     public WebElementFacade payeeCountriesEnCdBox;  //收款国家下拉框
 
-    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul//li")
-    public List<WebElementFacade> payeeCountries; //美国
+
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul/li[1]/span")
+    public WebElementFacade payeeCountries; //新加坡
 
     @FindBy(xpath = "//div[@class='el-textarea el-input--medium']/textarea")
     public WebElementFacade remittancePostscriptContent;//汇款留言 输入
@@ -401,8 +408,8 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='paymentAttributeCd']/following-sibling::div//i")
     public WebElementFacade paymentAttributeCdBox;  //付汇性质下拉框
 
-    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul//li")
-    public List<WebElementFacade> selectPaymentAttributeCd;  //选择付汇性质
+    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul/li[1]/span")
+    public WebElementFacade selectPaymentAttributeCd;  //选择付汇性质
 
     @FindBy(xpath = "//div[text()='Next']")
     public WebElementFacade clickNextButton;
@@ -561,4 +568,136 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//li[1]")
     public WebElementFacade sitEnvLocalFundAccountisDisplay;
+
+    @FindBy(xpath = "//span[text()='FAST']/preceding-sibling::span")
+    public WebElementFacade selectFastMenu;
+
+    @FindBy(xpath = "//span[text()='MEPS']/preceding-sibling::span")
+    public WebElementFacade selectMepsMenu;
+
+    @FindBy(xpath = "//span[text()='PayNow']/preceding-sibling::span")
+    public WebElementFacade selectPayNowMenu;
+
+    @FindBy(xpath = "//label[@for='acctObj']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade clickFromAccountDownDropBox;
+
+    @FindBy(xpath = "//label[@for='payeeInfo']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade clickToAccountDownDropBox;
+
+    @FindBy(xpath = "//div[@x-placement=\"top-start\" or @x-placement=\"bottom-start\"]//div[@class='right']/div[1]")
+    public List<WebElementFacade> selectFromAccountNum;
+
+    @FindBy(xpath = "//label[@for='tradeAmont']/following-sibling::div//input")
+    public WebElementFacade inputTransactionAmount;
+
+    @FindBy(xpath = "//label[@for='appointmentDdate']/following-sibling::div//input")
+    public WebElementFacade inputTransactionDate;
+
+    @FindBy(xpath = "//div[contains(text(),'If you wish to')]")
+    public WebElementFacade clickTransactionTips;
+
+    @FindBy(xpath = "//label[@for='contractTypeCd']/following-sibling::div//label[2]//span[@class='el-radio__inner']")
+    public WebElementFacade selectRecurringTransferNoBox;
+
+    @FindBy(xpath = "//label[@for='contractTypeCd']/following-sibling::div//label[1]//span[@class='el-radio__inner']")
+    public WebElementFacade selectRecurringTransferYesBox;
+
+    @FindBy(xpath = "//label[@for='contractCycleCd']/following-sibling::div//span[@class='el-input__suffix']")
+    public WebElementFacade requencyOfRecurrence;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\" ]//ul/li")
+    public List<WebElementFacade> selectRequencyOfRecurrenceDate;
+
+    @FindBy(xpath = "//label[text()='Purpose of Transfer *']/following-sibling::div//input")
+    public WebElementFacade clickPurposeInputBox;
+
+    @FindBy(xpath = "//div[text()='Business Expenses']")
+    public WebElementFacade selectPurposeText;
+
+    @FindBy(xpath = "//div[contains(text(),'A New Payee')]")
+    public WebElementFacade clickANewPayeeBtn;
+
+    @FindBy(xpath = "//label[@for='payeeAcctNm']/following-sibling::div//input")
+    public WebElementFacade inputPayeeAccountName;
+
+    @FindBy(xpath = "//label[@for='payeeAcctNo']/following-sibling::div//input")
+    public WebElementFacade inputPayeeAccountNum;
+
+    @FindBy(xpath = "//label[text()='Bank Name *']/following-sibling::div//input")
+    public WebElementFacade inputBankName;
+
+    @FindBy(xpath = "//label[text()='Bank Name *']/parent::div/parent::div/following-sibling::div[2]//div[@class='list']/div[1]/div[2]")
+    public WebElementFacade selectBankName;
+
+    @FindBy(xpath = "//label[@for='savePayeeFlag']/following-sibling::div//label[2]//span[@class='el-radio__inner']")
+    public WebElementFacade clickAddPayeeSecondBox;
+
+    @FindBy(xpath = "//form[@class='form-inline']//input")
+    public WebElementFacade inputMailBox;
+
+    @FindBy(xpath = "//button[text()='Create']")
+    public WebElementFacade clickCreateBtn;
+
+    @FindBy(xpath = "//span[@class='glyphicon glyphicon-refresh']")
+    public WebElementFacade getClickRefreshBtn;
+
+    @FindBy(xpath = "//div[@id='message-list-wrapper']//div[@class='row']/div/span")
+    public WebElementFacade emailTitle;
+
+    @FindBy(xpath = "//span[text()='Accounts']")
+    public WebElementFacade viewAccountsMenu;
+
+    @FindBy(xpath = "//span[text()='Home']")
+    public WebElementFacade viewHomeMenu;
+
+    @FindBy(xpath = "//span[text()='Fixed Deposits']")
+    public WebElementFacade viewFixedDepositsMenu;
+
+    @FindBy(xpath = "//span[text()='Loans']")
+    public WebElementFacade viewLoansMenu;
+
+    @FindBy(xpath = "//span[text()='Payments']")
+    public WebElementFacade viewPaymentsMenu;
+
+    @FindBy(xpath = "//span[text()='Admin']")
+    public WebElementFacade viewAdminMenu;
+
+    @FindBy(xpath = "//span[text()='Supply Chain Finance']")
+    public WebElementFacade viewSupplyChainFinanceMenu;
+
+    @FindBy(xpath = "//span[text()='Welcome message']")
+    public WebElementFacade checkMessage;
+
+    @FindBy(xpath = "//div[contains(text(),'2. Where are you')]/following-sibling::div//div[contains(text(),'Account Number')]/following-sibling::div")
+    public WebElementFacade getFromAccountNumber;
+
+    @FindBy(xpath = "//div[contains(text(),'3. Whom are you')]/following-sibling::div//div[contains(text(),'Account Number')]/following-sibling::div")
+    public WebElementFacade getToAccountNumber;
+
+    @FindBy(xpath = "//div[contains(text(),'Transaction Amount')]/following-sibling::div")
+    public WebElementFacade getTransferAmountSmockTest;
+
+    @FindBy(xpath = "//span[contains(text(),'UEN (Unique Entity Number)')]/preceding-sibling::span")
+    public WebElementFacade sitEnvPayNowUen;
+
+    @FindBy(xpath = "//span[contains(text(),'VPA')]/preceding-sibling::span")
+    public WebElementFacade sitEnvPayNowVpa;
+
+    @FindBy(xpath = "//span[contains(text(),'Mobile Number')]/preceding-sibling::span")
+    public WebElementFacade sitEnvPayNowMobileNumber;
+
+    @FindBy(xpath = "//span[contains(text(),'NRIC')]/preceding-sibling::span")
+    public WebElementFacade sitEnvPayNowNric;
+
+    @FindBy(xpath = "//label[text()='To Account (Payee’s Account)']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade localPaymentToAccountDownDrop;
+
+    @FindBy(xpath = "//div[text()='My Transactions']")
+    public WebElementFacade clickMyTransaction;
+
+    @FindBy(xpath = "//div[@class='base_mb ui-table']/div[2]/div[3]//tr[1]/td[1]/div")
+    public WebElementFacade getMyTransactionDate;
+
+    @FindBy(xpath = "//div[@class='base_mb ui-table']/div[2]/div[3]//tr[1]/td[6]/div")
+    public WebElementFacade getMyTransactionAmount;
 }

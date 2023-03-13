@@ -20,6 +20,9 @@ public class Logon_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-row']/following-sibling::div//div[@class='btn_box']")
     public WebElementFacade logonBtn;
 
+    @FindBy(xpath = "//div[@id='fullpage']/following-sibling::div/div[2]//div[text()='Ok']")
+    public WebElementFacade clickSecondPageOkBtn;
+
     @FindBy(xpath = "//div[@class='ui-dialog notice-dialog']/div[2]//div[@class='el-dialog']//div[text()='Ok']")
     public WebElementFacade clickOkBtnOnTitle;
 

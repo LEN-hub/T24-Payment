@@ -51,6 +51,7 @@ public class openAccount_glue {
         envTag = envName;
         if (!envName.isEmpty()) {
             logon_step.open_the_first_dbb_logon_page(envName);
+            logon_step.clickOkButton();
 //            logon_step.clickOkBtnOnTitle();
         }
     }
@@ -604,5 +605,14 @@ public class openAccount_glue {
     @When("^I enter information in Step 9 and jump to the next step$")
     public void iEnterInformationInStepAndJumpToTheNextStep9() {
         openAccount_step.step9Information();
+    }
+
+    @Then("^Attachment uploaded successfully$")
+    public void attachmentUploadedSuccessfully(DataTable data) throws AWTException {
+        List<Map<String, String>> payToInfo = data.asMaps(String.class, String.class);
+        openAccount_step.track3FirstPageInformationEnter(payToInfo.get(0).get("accountType"), payToInfo.get(0).get("salutation"));
+        openAccount_step.clickValidationCode();
+        openAccount_step.inputValidationCode();
+        openAccount_step.inputEntityDetailsHealthCheck(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"));
     }
 }
