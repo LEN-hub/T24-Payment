@@ -1633,6 +1633,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@id='app']//p")
     public WebElementFacade scfPageTitle;
 
+    @FindBy(xpath = "//label[@for='email']/following-sibling::div//input")
+    public WebElementFacade directorEmail1;
+
 
     public void enterUserName(String userName){
         withTimeoutOf(10,SECONDS)
