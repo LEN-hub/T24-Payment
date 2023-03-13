@@ -18,6 +18,8 @@ Feature: Health Check INB SIT Test Case
     Given open "INB-automation-SIT-login" enterprise net silver page
     When click open Account New page
     Then Attachment uploaded successfully
+      |accountType    |salutation|
+      |Current Account|Mr        |
 
 #
 #  Scenario: INB to CNP
