@@ -692,4 +692,10 @@ public class creatCustomers_glue {
     public void jumpToSCF() {
         customers_step.clickSCFLink();
     }
+
+    @When("^I modify the director's email address$")
+    public void iModifyTheDirectorSEmailAddress() {
+        customers_step.changeEmail1();
+        customers_step.changeEmail2();
+    }
 }
