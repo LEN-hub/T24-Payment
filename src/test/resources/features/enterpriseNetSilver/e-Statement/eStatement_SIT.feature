@@ -4,13 +4,13 @@ Feature: e-Statement
   @ext123_SIT
   Scenario:Download e-Statement file successfully_SIT
 #    Given Closing the Browser driver
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click My Downloads Btn
     When I click View eStatements Btn
 #    Then I should direct to the eStatements Overview page
     When I click select box
       |select       |
-      |11010000608  |
+      |11010003747  |
     And I click search button
     Then I should see Account List
     When I click on the first data to download
@@ -20,7 +20,7 @@ Feature: e-Statement
 
   @ext123test122_SIT
   Scenario:Download past e-statements successfully_SIT
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click My Downloads Btn
     When I click View eStatements Btn
 #    Then I should direct to the eStatements Overview page
@@ -36,7 +36,7 @@ Feature: e-Statement
 
   @ext123test_SIT
   Scenario:Download the electronic notice and successfully generate the download task_SIT
-    Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click My Downloads Btn
     When I click View eAdvices Btn
     When I click select button on the View eAdvices page

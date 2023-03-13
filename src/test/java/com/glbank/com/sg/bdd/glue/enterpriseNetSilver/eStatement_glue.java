@@ -87,4 +87,19 @@ public class eStatement_glue {
         estatement_step.clickDownLoadBtn();
         bddUtil.sleep(3);
     }
+
+    @When("^Successful presentation of transaction history$")
+    public void successfulPresentationOfTransactionHistory() {
+        estatement_step.clickMyTransactions();
+    }
+
+    @When("^Successfully demonstrated Bank Announcement$")
+    public void successfullyDemonstratedBankAnnouncement() {
+        estatement_step.checkMyAlertsAndNotifications();
+    }
+
+    @When("^Templete can be downloaded normally$")
+    public void templeteCanBeDownloadedNormally() {
+        estatement_step.checkViewExports();
+    }
 }

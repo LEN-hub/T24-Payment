@@ -143,8 +143,8 @@ Feature: receipt and payment service
   Scenario:Transfer time within the line is 120660selected every Monday (SGD->SGD)(MCY)
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
-      |Payee's Bank           |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |Payment Type|PayNow Type|PayNow Content|
-      |OVERSEA-CHINESE BANKING CORPORATIONLIMITED  |TSC1643346550706|11010001426           |Business Expenses   |1102 0807 091 |FAST        |UEN        |UEN123321001  |
+      |Payee's Bank                                |Payee's Name    |Payee's Account Number|Purpose of Transfer |From Account  |Payment Type|PayNow Type |PayNow Content|
+      |OVERSEA-CHINESE BANKING CORPORATIONLIMITED  |TSC1643346550706|11010001426           |Business Expenses   |1102 0807 091 |FAST        |UEN         |UEN123321001  |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
     When I click Next to go to the verification page
@@ -185,8 +185,8 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|USD     |
+      |Account Number|Payment Mode for Charges |Currency|
+      |1102 0571 063 |SHA                      |USD     |
     And I choose the payment currency
       |Currency   |
       |USD        |
@@ -238,8 +238,8 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|SGD     |
+      |Account Number|Payment Mode for Charges|Currency|
+      |1102 0571 063 |SHA                     |SGD     |
     And I choose the payment currency
       |Currency|
       |USD     |
@@ -296,8 +296,8 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|USD     |
+      |Account Number|Payment Mode for Charges |Currency|
+      |1102 0571 063 |SHA                      |USD     |
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -356,8 +356,8 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|SGD     |
+      |Account Number|Payment Mode for Charges |Currency|
+      |1102 0571 063 |SHA                      |SGD     |
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -408,8 +408,8 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|USD     |
+      |Account Number|Payment Mode for Charges |Currency|
+      |1102 0571 063 |SHA                      |USD     |
     And I choose the payment currency
       |Currency   |
       |USD        |
@@ -460,8 +460,8 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|SGD     |
+      |Account Number|Payment Mode for Charges |Currency|
+      |1102 0571 063 |SHA                      |SGD     |
     And I choose the payment currency
       |Currency|
       |USD     |
@@ -518,8 +518,8 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|USD     |
+      |Account Number|Payment Mode for Charges |Currency|
+      |1102 0571 063 |SHA                      |USD     |
     And I choose the payment currency
       |Currency|
       |SGD     |
@@ -575,8 +575,8 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |Currency|
-      |1102 0571 063 |The expenses shall be borne by each party|SGD     |
+      |Account Number|Payment Mode for Charges |Currency|
+      |1102 0571 063 |SHA                      |SGD     |
     And I choose the payment currency
       |Currency|
       |SGD     |

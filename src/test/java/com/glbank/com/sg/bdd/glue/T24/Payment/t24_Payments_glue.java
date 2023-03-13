@@ -377,4 +377,25 @@ public class t24_Payments_glue {
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
         t24_payments_step.findInputArrangementOverseasPaymentUI(title.get(0).get("WordPath"));
     }
+
+    @Then("^Verify trade information$")
+    public void verifyTradeInformation() {
+        t24_payments_step.clickViewAndCheckInformation();
+    }
+
+    @When("^I check the deduction amount on the Find Account page On smock test$")
+    public void iCheckTheDeductionAmountOnTheFindAccountPageOnSmockTest(DataTable data) {
+        t24_payments_step.switchToDefaultContent();
+        bddUtil.closeWindow();
+        bddUtil.switchToNewWindow();
+        bddUtil.closeWindow();
+        bddUtil.switchToNewWindow();
+        t24_payments_step.switchToSecondFrame();
+        t24_payments_step.clickProductsMenu();
+        t24_payments_step.clickFindAccountMenu();
+        t24_payments_step.switchToDefaultContent();
+        List<Map<String, String>> title = data.asMaps(String.class, String.class);
+        t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
+        t24_payments_step.findInputArrangementLocalFundPaymentUI(title.get(0).get("WordPath"));
+    }
 }

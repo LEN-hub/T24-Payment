@@ -23,11 +23,10 @@ public class loanApplication_step extends ScenarioSteps {
 
     //鼠标悬浮在贷款业务上。
     public void FloatingLoanButton(){
-//        Actions actions = new Actions(getDriver());
-//        actions.moveToElement(loanApplication_page.loan).build().perform();
-        loanApplication_page.loan.click();
-        loanApplication_page.loanApplicationBtn.click();
-        bddUtil.sleep(1);
+        Actions actions = new Actions(getDriver());
+        actions.moveToElement(loanApplication_page.loan).build().perform();
+        bddUtil.sleep(3);
+        loanApplication_page.clickLoanMenu.click();
     }
 
     public void clickLoanDisbursementBtn(){
@@ -178,6 +177,7 @@ public class loanApplication_step extends ScenarioSteps {
         loanApplication_page.name.click();
         loanApplication_page.countryBox.click();
         loanApplication_page.china.click();
+        bddUtil.sleep(1);
         loanApplication_page.idCard.sendKeys(idCard);
         loanApplication_page.countryCode.click();
         loanApplication_page.chinaCode.click();
