@@ -97,4 +97,9 @@ public class eStatement_glue {
     public void successfullyDemonstratedBankAnnouncement() {
         estatement_step.checkMyAlertsAndNotifications();
     }
+
+    @When("^Templete can be downloaded normally$")
+    public void templeteCanBeDownloadedNormally() {
+        estatement_step.checkViewExports();
+    }
 }

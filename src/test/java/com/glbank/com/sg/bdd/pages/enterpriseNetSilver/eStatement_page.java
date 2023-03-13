@@ -8,7 +8,7 @@ import java.util.List;
 
 public class eStatement_page extends PageObject {
 
-    @FindBy(xpath = "//div[@class='el-dropdown'][1]/div/div/div")
+    @FindBy(xpath = "//div[text()='My Downloads']")
     public WebElementFacade myDownloadsBtn;
 
     @FindBy(xpath = "//li[contains(text(),'eStatements')]")
@@ -82,4 +82,13 @@ public class eStatement_page extends PageObject {
 
     @FindBy(xpath = "//a[text()='Bank Announcement']")
     public WebElementFacade clickBankAnnouncement;
+
+    @FindBy(xpath = "//li[contains(text(),'Exports')]")
+    public WebElementFacade clickViewExportsMenu;
+
+    @FindBy(xpath = "//a[text()='Download Template']")
+    public WebElementFacade clickDownloadTemplateMenu;
+
+    @FindBy(xpath = "//tr[@class='el-table__row']//div[text()='Download']")
+    public WebElementFacade clickFirstDownloadBtn;
 }

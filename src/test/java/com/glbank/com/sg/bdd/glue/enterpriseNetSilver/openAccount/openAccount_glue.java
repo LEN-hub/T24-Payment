@@ -615,19 +615,4 @@ public class openAccount_glue {
         openAccount_step.inputValidationCode();
         openAccount_step.inputEntityDetailsHealthCheck();
     }
-
-    @And("^Verification IMS system file uploaded successfully$")
-    public void verificationIMSSystemFileUploadedSuccessfully() throws AWTException {
-        openAccount_step.newProvideEssentialInformation(applicantName,emailName,mobileNumber);
-        FileUtils.FileString4(""+"openAccountNew"+"",nowDate);
-        System.out.println("---------------申请人姓名："+ applicantName + "----------------------");
-        FileUtils.FileString4(""+"openAccountNew"+"","申请人姓名:" + applicantName);
-        System.out.println("---------------申请人电话号码："+ mobileNumber + "----------------------");
-        FileUtils.FileString4(""+"openAccountNew"+"","申请人电话号码:" + mobileNumber);
-        System.out.println("---------------申请人邮箱地址："+ emailName + "@MailTemp.top"+"----------------------");
-        FileUtils.FileString4(""+"openAccountNew"+"","申请人邮箱地址:" + emailName + "@MailTemp.top");
-        openAccount_step.clickValidationCode();
-        openAccount_step.inputValidationCode();
-        openAccount_step.checkHealthCheck();
-    }
 }

@@ -450,3 +450,8 @@ Feature: Sanity Pack INB SIT Test Case
   Scenario: Manage alert/notification can query normally
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When Successfully demonstrated Bank Announcement
+
+  Scenario: Templete can be downloaded normally
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click My Downloads Btn
+    When Templete can be downloaded normally

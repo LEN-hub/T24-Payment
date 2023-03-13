@@ -126,4 +126,10 @@ public class eStatement_step extends ScenarioSteps {
         eStatement_page.getRecordInformation.isVisible();
         eStatement_page.clickBankAnnouncement.click();
     }
+
+    public void checkViewExports(){
+        eStatement_page.clickViewExportsMenu.click();
+        eStatement_page.clickDownloadTemplateMenu.click();
+        eStatement_page.clickFirstDownloadBtn.click();
+    }
 }
