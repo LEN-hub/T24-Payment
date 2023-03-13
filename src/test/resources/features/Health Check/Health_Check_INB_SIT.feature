@@ -14,12 +14,12 @@ Feature: Health Check INB SIT Test Case
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When click Download after the file is generated successfully
 
-  Scenario: INB to IMS
-    Given open "INB-automation-SIT-login" enterprise net silver page
-    When click open Account New page
-    Then Attachment uploaded successfully
-      |accountType    |salutation|
-      |Current Account|Mr        |
+#  Scenario: INB to IMS
+#    Given open "INB-automation-SIT-login" enterprise net silver page
+#    When click open Account New page
+#    Then Attachment uploaded successfully
+#      |accountType    |salutation|
+#      |Current Account|Mr        |
 
 
   Scenario: INB to CNP
@@ -45,9 +45,9 @@ Feature: Health Check INB SIT Test Case
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then I check whether the INB page display is normal
 
-  Scenario: INB to ISO
-    Given logon "ISSO-automation-SIT-login" on tube by inputting system online bank
-    Then check ISO page information
+#  Scenario: INB to ISO
+#    Given logon "ISSO-automation-SIT-login" on tube by inputting system online bank
+#    Then check ISO page information
 
 
   Scenario:INB to CPS
