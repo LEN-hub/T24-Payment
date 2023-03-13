@@ -11,7 +11,7 @@ public class eStatement_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-dropdown'][1]/div/div/div")
     public WebElementFacade myDownloadsBtn;
 
-    @FindBy(xpath = "//li[@class='el-dropdown-menu__item'][text()='View eStatements']")
+    @FindBy(xpath = "//li[contains(text(),'eStatements')]")
     public WebElementFacade viewEStatementsBtn;
 
     @FindBy(xpath = "//div[text()='eStatements Overview']")
@@ -20,7 +20,7 @@ public class eStatement_page extends PageObject {
     @FindBy(xpath = "//div[text()='电子结单概况']")
     public WebElementFacade eStatementSOverviewChina;
 
-    @FindBy(xpath = "//span[@class='el-input__suffix-inner']")
+    @FindBy(xpath = "//label[@for='acctNo']/following-sibling::div//span[@class='el-input__suffix-inner']")
     public WebElementFacade selectBox;
 
     @FindBy(xpath = "//ul[@class='el-scrollbar__view el-select-dropdown__list']/li")
@@ -56,7 +56,7 @@ public class eStatement_page extends PageObject {
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom']//div[@class='btn_box']")
     public WebElementFacade pastDownloads;
 
-    @FindBy(xpath = "//li[@class='el-dropdown-menu__item'][text()='View eAdvices']")
+    @FindBy(xpath = "//li[contains(text(),'eAdvices')]")
     public WebElementFacade ViewEAdvicesBtn;
 
     @FindBy(xpath = "//div[@class='el-table__fixed-body-wrapper']//tr[@class='el-table__row'][1]/td[6]/div")
@@ -64,4 +64,22 @@ public class eStatement_page extends PageObject {
 
     @FindBy(xpath = "//div[@x-placement='bottom']//div[@class='btn_box']")
     public WebElementFacade downloadNotice;//电子通知下载按钮。
+
+    @FindBy(xpath = "//div[text()='My Transactions']")
+    public WebElementFacade clickMyTransactions;
+
+    @FindBy(xpath = "//div[text()='Search']")
+    public WebElementFacade clickSearchBtn;
+
+    @FindBy(xpath = "//div[@class='record']")
+    public WebElementFacade getRecordInformation;
+
+    @FindBy(xpath = "//div[text()='My Settings']")
+    public WebElementFacade clickMySettingsMenu;
+
+    @FindBy(xpath = "//li[contains(text(),'Notifications')]")
+    public WebElementFacade clickNotifications;
+
+    @FindBy(xpath = "//a[text()='Bank Announcement']")
+    public WebElementFacade clickBankAnnouncement;
 }

@@ -112,4 +112,18 @@ public class eStatement_step extends ScenarioSteps {
         eStatement_page.downloadFirstBtn.click();
         bddUtil.sleep(5);
     }
+
+    public void clickMyTransactions(){
+        eStatement_page.clickMyTransactions.click();
+        eStatement_page.clickSearchBtn.click();
+        eStatement_page.getRecordInformation.isVisible();
+    }
+
+    public void checkMyAlertsAndNotifications(){
+        eStatement_page.clickMySettingsMenu.click();
+        eStatement_page.clickNotifications.click();
+        eStatement_page.clickSearchBtn.click();
+        eStatement_page.getRecordInformation.isVisible();
+        eStatement_page.clickBankAnnouncement.click();
+    }
 }

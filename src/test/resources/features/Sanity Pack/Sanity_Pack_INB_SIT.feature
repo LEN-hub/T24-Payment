@@ -423,3 +423,30 @@ Feature: Sanity Pack INB SIT Test Case
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
       |1101 0000 470       |11010000438 |250000 |1 Month |1                    |
+
+#成功展示eStatement数据
+  Scenario:Successfully displayed eStatement data
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click My Downloads Btn
+    When I click View eStatements Btn
+    When I click select box
+      |select       |
+      |11010003747  |
+    And I click search button
+    Then I should see Account List
+
+    #成功下载eadvice数据
+  Scenario:EAdivce can be downloaded normally
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click My Downloads Btn
+    When I click View eAdvices Btn
+    When I click select button on the View eAdvices page
+    When I click first data to download on the view eAdvices page
+
+  Scenario: My Transactions query transaction succeeded
+  Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Successful presentation of transaction history
+
+  Scenario: Manage alert/notification can query normally
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Successfully demonstrated Bank Announcement

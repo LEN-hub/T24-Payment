@@ -1,5 +1,9 @@
-2023-3-10 17:1:2:398
-ChannelReferenceID:230310000000193
-ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
-ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11010002414
+2023-3-13 9:56:3:477
+ChannelReferenceID:230310000000351
+getDebitAccountNum:11010002414
+getCreditAccountNumber:11552636365
+getTransactionAmount:313.26
+2023-3-13 9:57:40:657
+ID:230310000000351
+TransactionReference:PI23072059SK62PM
+t24FtNumber:SGL23072CDLKDF0C

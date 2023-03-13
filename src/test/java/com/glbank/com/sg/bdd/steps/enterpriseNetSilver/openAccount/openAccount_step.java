@@ -352,7 +352,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
 ////        verificationCode=getLastOtp("60120003");
 //        verificationCode= otp.substring(7,13);
 //        System.out.println("------------otp验证码:"+otp+"-----------------");
-        bddUtil.sleep(1);
+        bddUtil.sleep(3);
     }
 
     public void inputValidationCode() throws AWTException {
