@@ -613,7 +613,7 @@ public class openAccount_glue {
         openAccount_step.track3FirstPageInformationEnter(payToInfo.get(0).get("accountType"), payToInfo.get(0).get("salutation"));
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
-        openAccount_step.inputEntityDetailsHealthCheck(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"));
+        openAccount_step.inputEntityDetailsHealthCheck();
     }
 
     @And("^Verification IMS system file uploaded successfully$")

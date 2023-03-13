@@ -447,7 +447,8 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         bddUtil.sleep(2);
         openAccount_page.clickLetContinue.click();
     }
-    public void inputEntityDetailsHealthCheck(String entityType,String entityConsolidated,String entityIndustry,String date) {
+    public void inputEntityDetailsHealthCheck() {
+        bddUtil.sleep(3);
         bddUtil.scrollWindowToElement(openAccount_page.goEntityDetails);
         bddUtil.sleep(1);
         //没有挡板，用shekk数据。

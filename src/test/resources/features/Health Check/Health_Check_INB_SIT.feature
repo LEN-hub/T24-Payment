@@ -17,8 +17,7 @@ Feature: Health Check INB SIT Test Case
   Scenario: INB to IMS
     Given open "INB-automation-SIT-login" enterprise net silver page
     When click open Account New page
-    Then New Fill in information "netSilverEnv_OpenAccount" on Getting Started page
-    And Verification IMS system file uploaded successfully
+    Then Attachment uploaded successfully
 
 #
 #  Scenario: INB to CNP
