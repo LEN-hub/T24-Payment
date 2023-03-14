@@ -700,4 +700,70 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='base_mb ui-table']/div[2]/div[3]//tr[1]/td[6]/div")
     public WebElementFacade getMyTransactionAmount;
+
+    @FindBy(xpath = "//span[text()='Manage Payees']")
+    public WebElementFacade clickManagePayees;
+
+    @FindBy(xpath = "//div[contains(text(),'Add a New Payee')]")
+    public WebElementFacade payeesAddNewPayee;
+
+    @FindBy(xpath = "//label[@for='payeeAcctNo']/following-sibling::div//input")
+    public WebElementFacade payeesAccountNum;
+
+    @FindBy(xpath = "//label[@for='payeeAcctNm']/following-sibling::div//input")
+    public WebElementFacade payeesAccountName;
+
+    @FindBy(xpath = "//label[@for='bankInfo']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade clickPayeeBankDownDrop;
+
+    @FindBy(xpath = "//div[text()='Save']")
+    public WebElementFacade clickSaveBtn;
+
+    @FindBy(xpath = "//div[@class='base_mb']//div[@class='ui-table']/div[2]/div[3]//tbody/tr[1]/td[1]/div")
+    public WebElementFacade getFirstDataAccountNum;
+
+    @FindBy(xpath = "//div[@class='base_mb']//div[@class='ui-table']/div[2]/div[4]//tbody/tr[1]/td[6]//img")
+    public WebElementFacade threePoint;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Modify']")
+    public WebElementFacade clickModifyBtn;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Delete']")
+    public WebElementFacade clickDeleteBtn;
+
+    @FindBy(xpath = "//span[contains(text(),'Yes')]")
+    public WebElementFacade clickYesBtn;
+
+    @FindBy(xpath = "//div[contains(text(),'Successful')]")
+    public WebElementFacade payeesNewStatus;
+
+    @FindBy(xpath = "//div[@class='body']//div[text()='Return']")
+    public WebElementFacade clickReturnBtn;
+
+    @FindBy(xpath = "//p[@class='third-title']/span[text()='Current & Multi-Currency Accounts']")
+    public WebElementFacade clickSingAndMCY;
+
+    @FindBy(xpath = "//span[text()='Accounts Overview']")
+    public WebElementFacade clickAccountsOverview;
+
+    @FindBy(xpath = "//span[text()='Transaction Histories']")
+    public WebElementFacade clickTransactionHistories;
+
+    @FindBy(xpath = "//ul[@class='el-menu--horizontal el-menu']/li[2]//span")
+    public WebElementFacade clickAccountsMenu;
+
+    @FindBy(xpath = "//div[@class='outer-box active']/div[1]//img")
+    public WebElementFacade clickThreePoint;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Local Funds Transfer']")
+    public WebElementFacade clickLocalFundsTransfer;
+
+    @FindBy(xpath = "//div[contains(text(),'Make Local Fund Transfer')]")
+    public WebElementFacade localFundsTransferTitle;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Place Fixed Deposits']")
+    public WebElementFacade clickPlaceFixedDeposits;
+
+    @FindBy(xpath = "//div[contains(text(),'Place Fixed Deposit')]")
+    public WebElementFacade checkPlaceFixedDepositTitle;
 }

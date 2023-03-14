@@ -459,3 +459,81 @@ Feature: Sanity Pack INB SIT Test Case
   Scenario: INB to SCF
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When jump to SCF
+
+    #    CA账户SGD开立
+  Scenario:Add single currency is a positive process
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
+    When I click on the Enterprise Administration Desk and select Account Management
+    When I click account Opening
+      |CA             |
+      |Current Account|
+    And I choose the currency to open the account SGD
+    When I select account permissions
+    When Vkey authorization for Payment transactions in the SIT environment
+
+    #  MCA账户,默认选择SGD，SGD+USD开立
+  Scenario:Add multi-currency positive process
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click on the Enterprise Administration Desk and select Account Management
+    When I click account Opening
+      |CA                     |
+      |'Multi-Currency Account|
+    And  I choose the currency to open USD
+    When I select account permissions
+    When Vkey authorization for Payment transactions in the SIT environment
+
+    #Payment add a new payee
+  Scenario:Add a new payee click modify to modify successfully
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Select Payments and click manage payments
+    When Add a new payee in Payees
+      |payee bank           |
+      |BANK OF CHINA LIMITED|
+    When Vkey authorization for Payment transactions in the SIT environment
+    Then Add successfully and click modify to modify successfully
+    When Vkey authorization for Payment transactions in the SIT environment
+
+    #Payment payees delete
+  Scenario:Add a new payee click delete to delete successfully
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Select Payments and click manage payments
+    When Add a new payee in Payees
+      |payee bank           |
+      |BANK OF CHINA LIMITED|
+    When Vkey authorization for Payment transactions in the SIT environment
+    When Delete new payees data
+    When Vkey authorization for Payment transactions in the SIT environment
+
+      #PayNow签约
+  Scenario:PayNow Signing Process
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I execute manage PayNow Profile transaction on the page
+    When Vkey authorization for Payment transactions in the SIT environment
+
+   #PayNow解约
+  Scenario:PayNow Signing Off
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I sign and cancel the transaction on the page
+    When Vkey authorization for Payment transactions in the SIT environment
+
+  #check 账户列表Local fund transfer 可用
+    Scenario: Account list SGD query positive process
+      Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+      When Query of account list information succeeded
+
+  #check 账户列表Local fund transfer 可用
+  Scenario: Check account list Local fund transfer is available
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Check account list Local fund transfer is available
+
+  #Fixed Deposits overview跳转Place Fixed Deposit
+  Scenario:Fixed Deposits overview jump Place Fixed Deposit
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When click Fixed Deposits First menu
+    Then Fixed Deposits overview jump Place Fixed Deposit
+
+      #Fixed Deposits view details查看详情
+  Scenario:Fixed Deposits view details view details
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When click Fixed Deposits First menu
+    When Fixed Deposits view details view details

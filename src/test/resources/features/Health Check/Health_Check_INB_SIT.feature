@@ -58,9 +58,9 @@ Feature: Health Check INB SIT Test Case
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then I check whether the INB page display is normal
 
-#  Scenario: INB to ISO
-#    Given logon "ISSO-automation-SIT-login" on tube by inputting system online bank
-#    Then check ISO page information
+  Scenario: INB to ISO
+    Given logon "ISSO-automation-SIT-login" on tube by inputting system online bank
+    Then check ISO page information
 
 
   Scenario:INB to CPS

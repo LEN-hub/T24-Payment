@@ -37,4 +37,18 @@ public class fixedDepositManage_page extends PageObject {
     @FindBy(xpath = "//div[contains(text(),' Return')]")
     public WebElementFacade clickReturnBtn;
 
+    @FindBy(xpath = "//div[@class='el-row']//div[contains(text(),'Place Fixed Deposit')]")
+    public WebElementFacade clickOverviewPagePlaceFixedDepositBtn;
+
+    @FindBy(xpath = "//div[contains(text(),'Place Fixed Deposit')]")
+    public WebElementFacade checkPlaceFixedDepositTitle;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='view Details']")
+    public WebElementFacade clickViewDetails;
+
+    @FindBy(xpath = "//div[@class='ui-table']/div[1]/div[4]//table[@class='el-table__body']//tr[1]/td[9]")
+    public WebElementFacade clickThreePoint;
+
+    @FindBy(xpath = "//div[contains(text(),'Which account')]")
+    public WebElementFacade getWhichAccount;
 }

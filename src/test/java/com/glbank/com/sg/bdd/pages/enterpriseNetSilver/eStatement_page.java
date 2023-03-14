@@ -71,6 +71,9 @@ public class eStatement_page extends PageObject {
     @FindBy(xpath = "//div[text()='Search']")
     public WebElementFacade clickSearchBtn;
 
+    @FindBy(xpath = "//div[contains(text(),'Search')]")
+    public WebElementFacade clickSearchButton;
+
     @FindBy(xpath = "//div[@class='record']")
     public WebElementFacade getRecordInformation;
 

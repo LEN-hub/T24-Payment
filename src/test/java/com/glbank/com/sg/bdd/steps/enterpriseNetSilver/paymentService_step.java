@@ -65,6 +65,7 @@ public class paymentService_step extends ScenarioSteps {
     public static String feesSerialNumber;
     public static String transferCurrency;
     public static String transferAccount;
+    public String randomAccount = RandomPhoneNumber.randomPhoneNum();
 
     @Step
     public void transferAndRemittanceMenu(){
@@ -2490,7 +2491,6 @@ public class paymentService_step extends ScenarioSteps {
         enterKeys.EnterKeys(StringUtil.getRandomNum(1));
         paymentService_page.clickNextBox.click();
         paymentService_page.clickSubmitBtn.click();
-        paymentService_page.getSuccessTitle.isVisible();
     }
 
     public void singSuccess(){
@@ -2718,6 +2718,88 @@ public class paymentService_step extends ScenarioSteps {
         if (paymentService_page.getMyTransactionDate.getText().substring(0,9).equals(DateUtil.format(new Date(),"dd/MM/yyyy"))){
             Assert.assertEquals(transferAmount,paymentService_page.getMyTransactionAmount.getText());
         }
+    }
+
+    @Step
+    public void clickManagePayees(){
+        paymentService_page.clickManagePayees.click();
+    }
+
+    @Step
+    public void payeesAddNewPayee(String bankName){
+        paymentService_page.payeesAddNewPayee.click();
+        paymentService_page.payeesAccountNum.sendKeys(randomAccount);
+        paymentService_page.payeesAccountName.sendKeys("zhangsan");
+        paymentService_page.clickPayeeBankDownDrop.click();
+        List<WebElementFacade> selectBank = paymentService_page.selectTitle;
+        for (int i = 0; i < selectBank.size(); i++) {
+            if (bankName.equals(selectBank.get(i).getText())){
+                selectBank.get(i).click();
+                break;
+            }
+        }
+        paymentService_page.clickSaveBtn.click();
+    }
+
+    public void checkDataAccountNum(){
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.payeesNewStatus.getText(),"Successful");
+        paymentService_page.clickReturnBtn.click();
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.getFirstDataAccountNum.getText(),randomAccount);
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(1);
+        action.moveToElement(paymentService_page.threePoint).perform();
+        paymentService_page.clickModifyBtn.click();
+        paymentService_page.payeesAccountName.clear();
+        paymentService_page.payeesAccountName.sendKeys("lisi");
+        paymentService_page.clickSaveBtn.click();
+    }
+
+    @Step
+    public void clickDeleteBtn(){
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.payeesNewStatus.getText(),"Successful");
+        paymentService_page.clickReturnBtn.click();
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.getFirstDataAccountNum.getText(),randomAccount);
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(1);
+        action.moveToElement(paymentService_page.threePoint).perform();
+        paymentService_page.clickDeleteBtn.click();
+        paymentService_page.clickYesBtn.click();
+    }
+
+    @Step
+    public void clickAccountsMenu(){
+        if (paymentService_page.popWindowsTitle.isVisible()){
+            paymentService_page.popWindowsOk.click();
+        }
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(1);
+        action.moveToElement(paymentService_page.clickAccountsMenu).perform();
+    }
+
+    @Step
+    public void checkLocalFundsTransfer(){
+        paymentService_page.clickAccountsOverview.click();
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(1);
+        action.moveToElement(paymentService_page.clickThreePoint).perform();
+        paymentService_page.clickLocalFundsTransfer.click();
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.localFundsTransferTitle.getText(),"Make Local Fund Transfer");
+    }
+
+    @Step
+    public void checkPlaceFixedDeposits(){
+        paymentService_page.clickAccountsOverview.click();
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(1);
+        action.moveToElement(paymentService_page.clickThreePoint).perform();
+        paymentService_page.clickPlaceFixedDeposits.click();
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.checkPlaceFixedDepositTitle.getText(),"Place Fixed Deposit");
     }
 
 }

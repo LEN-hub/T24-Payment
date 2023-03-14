@@ -5,35 +5,37 @@ Feature: accountChange
   @ModifyingAccountRights_SIT
 #    账户修改
   Scenario:Modify the enterprise management console account_SIT
-    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
     When I click on the Enterprise Administration Desk and select Account Management
     When I hit Permissions modify
 
   @accountOpeningSGD_SIT
 #    CA账户SGD开立
   Scenario:Enterprise management console CA account SGD opened_SIT
-    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA             |
       |Current Account|
     And I choose the currency to open the account SGD
     When I select account permissions
+    When Vkey authorization for Payment transactions in the SIT environment
 
   @accountOpeningUSD_SIT
     #    CA账户USD开立
   Scenario:Enterprise management console CA account USD opened_SIT
-    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA             |
       |Current Account|
     And I choose the currency to open the account USD
     When I select account permissions
+    When Vkey authorization for Payment transactions in the SIT environment
 #  @accountOpeningCNY_SIT
 ##    CA账户CNY开立
 #  Scenario:Enterprise management console CA account CNY opened_SIT
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When I click account Opening
 #      |CA             |
@@ -44,7 +46,7 @@ Feature: accountChange
 #  @accountOpeningHKD_SIT
 ##    CA账户HKD开立
 #  Scenario:Enterprise management console CA account HKD opened_SIT
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When I click account Opening
 #      |CA             |
@@ -55,7 +57,7 @@ Feature: accountChange
 #  @accountOpeningEUR_SIT
 ##    CA账户EUR开立
 #  Scenario:Enterprise management console CA account EUR opened_SIT
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When I click account Opening
 #      |CA             |
@@ -67,7 +69,7 @@ Feature: accountChange
 #  @accountOpeningMCACNY_SIT
 ##  MCA账户,默认选择SGD，SGD+CNY开立
 #  Scenario:Enterprise management console MCA account CNY opened_SIT
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When I click account Opening
 #      |CA                     |
@@ -77,7 +79,7 @@ Feature: accountChange
   @accountOpeningMCAUSD_SIT
 #  MCA账户,默认选择SGD，SGD+USD开立
   Scenario:Enterprise management console MCA account USD opened_SIT
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on the Enterprise Administration Desk and select Account Management
     When I click account Opening
       |CA                     |
@@ -88,7 +90,7 @@ Feature: accountChange
 #  @accountOpeningMCAHKD_SIT
 ##  MCA账户,默认选择SGD，SGD+HKD开立
 #  Scenario:Enterprise management console MCA account HKD opened_SIT
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When I click account Opening
 #      |CA                     |
@@ -103,7 +105,7 @@ Feature: accountChange
 #  @accountOpeningMCAEUR_SIT
 ##  MCA账户,默认选择SGD，SGD+EUR开立
 #  Scenario:Enterprise management console MCA account EUR opened_SIT
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When I click account Opening
 #      |CA                     |
@@ -118,7 +120,7 @@ Feature: accountChange
 #  @accountOpeningMCAAll_SIT
 ##  MCA账户,默认选择SGD，SGD+USD+CNY+HKD+EUR开立
 #  Scenario:Enterprise management console MCA account All opened_SIT
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When I click account Opening
 #      |CA                     |
@@ -133,7 +135,7 @@ Feature: accountChange
 #  @accountOpeningMCA01_SIT
 ##  MCA账户,默认选择SGD，SGD+USD+CNY开立
 #  Scenario:Enterprise Management Console MCA account has CNY USD SGD enabled_SIT
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When I click account Opening
 #      |CA                     |
@@ -148,7 +150,7 @@ Feature: accountChange
 #  @accountOpeningMCA02_SIT
 ##  MCA账户,默认选择SGD，SGD+USD+EUR开立
 #  Scenario:Enterprise Management Console MCA account has EUR USD SGD enabled_SIT
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When I click account Opening
 #      |CA                     |
@@ -163,7 +165,7 @@ Feature: accountChange
 #  @accountOpeningMCA03_SIT
 ##  MCA账户,默认选择SGD，SGD+USD+HKD开立
 #  Scenario:Enterprise Management Console MCA account has HKD USD SGD enabled_SIT
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When I click account Opening
 #      |CA                     |
@@ -178,7 +180,7 @@ Feature: accountChange
 #  @accountOpeningMCA04_SIT
 ##  MCA账户,默认选择SGD，SGD+CNY+HKD开立
 #  Scenario:Enterprise Management Console MCA account has CNY HKD SGD enabled_SIT
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When I click account Opening
 #      |CA                     |
@@ -195,7 +197,7 @@ Feature: accountChange
   @deleteCurrency_SIT
 #    删除币种
   Scenario:The enterprise management console deletes the currency_SIT
-    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
     When I click on the Enterprise Administration Desk and select Account Management
     When I click delete currency information
     Then TC code is then required for Vkey authentication
@@ -207,7 +209,7 @@ Feature: accountChange
 #  @AuthorizationMode01
 ##  授权模式双人
 #  Scenario:Enterprise management desk two-person authorization mode
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When click authorization
 #    When I choose two-person authorization management mode
@@ -222,7 +224,7 @@ Feature: accountChange
 #  @AuthorizationMode02
 ##  授权模式单人
 #  Scenario:Enterprise management console single-person authorization mode
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When click authorization
 #    When I choose single-player license management mode
@@ -237,7 +239,7 @@ Feature: accountChange
 #  @AuthorizationMode03
 ##  无授权模式
 #  Scenario:Enterprise management console in unauthorized mode
-#    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
 #    When I click on the Enterprise Administration Desk and select Account Management
 #    When click authorization
 #    When I choose unlicensed management mode

@@ -24,6 +24,7 @@ public class fixedDeposit_step extends ScenarioSteps {
     }
 
     public void createFixedDeposit(String transferAccount,String intoAccount,String amount,String period,String transferAccountsWay){
+        bddUtil.sleep(3);
         fixedDeposit_page.clickPopwindows.click();
         List<WebElementFacade> selectTransferAccount = fixedDeposit_page.selectAccountValue;
         for (int i = 0; i <= selectTransferAccount.size();i++){

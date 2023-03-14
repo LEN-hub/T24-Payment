@@ -37,6 +37,7 @@ public class openAccount_step extends ScenarioSteps {
     public static int idCard = (int)((Math.random()*9+1)*1000000);
     public String ApplicantEmail;
     public String customerId;
+    public String chekk;
     public static String mobileNumber = RandomPhoneNumber.randomPhoneNum();
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
@@ -478,7 +479,8 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
     }
 
 //    在线开户新流程
-public void inputEntityDetailsNew(String entityType,String entityConsolidated,String entityIndustry,String date,String chekk) {
+public void inputEntityDetailsNew() {
+        chekk = RandomPhoneNumber.randomPhoneNum();
         bddUtil.scrollWindowToElement(openAccount_page.goEntityDetails);
         bddUtil.sleep(1);
     //没有挡板，用shekk数据。
@@ -520,7 +522,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
 }
 
 //进入后管补充信息。
-    public void AdditionalInformation(String chekk){
+    public void AdditionalInformation(){
         bddUtil.sleep(3);
         getDriver().findElements(By.xpath("//span[text()='Trading Center']")).get(0).click();
         openAccount_page.informationSupplement.click();

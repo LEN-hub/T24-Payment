@@ -123,7 +123,7 @@ public class eStatement_step extends ScenarioSteps {
     public void checkMyAlertsAndNotifications(){
         eStatement_page.clickMySettingsMenu.click();
         eStatement_page.clickNotifications.click();
-        eStatement_page.clickSearchBtn.click();
+        eStatement_page.clickSearchButton.click();
         eStatement_page.getRecordInformation.isVisible();
         eStatement_page.clickBankAnnouncement.click();
     }

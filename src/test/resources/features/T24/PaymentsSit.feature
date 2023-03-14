@@ -612,14 +612,17 @@ Feature: T24 Payment transaction
   Scenario:PayNow Signing Process
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I execute manage PayNow Profile transaction on the page
-    Given logon second "INB-automation-SIT-login2" in SIT environment and bypass Vkey
-    When Click My Task to find data for authorization
+    When Vkey authorization for Payment transactions in the SIT environment
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
+#    When Click My Task to find data for authorization
+#    When Vkey authorization for Payment transactions in the SIT environment
 
   #PayNow解约
   @Paynow02
   Scenario:PayNow Signing Off
-    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I sign and cancel the transaction on the page
+    When Vkey authorization for Payment transactions in the SIT environment
 
   #PayNow修改
   @Paynow03
