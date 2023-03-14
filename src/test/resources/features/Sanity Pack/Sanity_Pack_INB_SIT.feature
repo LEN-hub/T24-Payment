@@ -455,3 +455,7 @@ Feature: Sanity Pack INB SIT Test Case
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click My Downloads Btn
     When Templete can be downloaded normally
+
+  Scenario: INB to SCF
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When jump to SCF

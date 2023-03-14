@@ -34,6 +34,7 @@ public class eStatement_step extends ScenarioSteps {
     }
 
     public void clickSelectBox(){
+        bddUtil.sleep(2);
         eStatement_page.selectBox.click();
     }
 
