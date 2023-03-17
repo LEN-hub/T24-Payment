@@ -253,4 +253,9 @@ public class Logon_step extends ScenarioSteps {
         logonPage.clickLoginBtn.click();
     }
 
+    public void changePassWord(){
+        logonPage.password.clear();
+        logonPage.password.sendKeys(FileUtils.LastReadFileInput3("changePassword"));
+    }
+
 }

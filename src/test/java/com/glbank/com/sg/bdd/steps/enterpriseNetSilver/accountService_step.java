@@ -9,9 +9,11 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
+import sun.security.pkcs11.P11Util;
 
 import java.util.List;
 
+import static java.time.temporal.ChronoUnit.SECONDS;
 import static org.junit.Assert.assertEquals;
 
 public class accountService_step extends ScenarioSteps {
@@ -282,5 +284,41 @@ public class accountService_step extends ScenarioSteps {
             }
         }
         accountService_page.createSaveBtn.click();
+    }
+
+    @Step
+    public void downloadThreeFiles(String text){
+        Actions action=new Actions(getDriver());
+        action.moveToElement(accountService_page.adminMenu).perform();
+        accountService_page.clickExtractAuditLogs.click();
+        accountService_page.clickTransactionTypeDownDrop.click();
+        List<WebElementFacade> selectText = accountService_page.selectTransactionType;
+        for (int i = 0; i < selectText.size(); i++) {
+            if (text.equals(selectText.get(i).getText())){
+                selectText.get(i).click();
+                break;
+            }
+        }
+        accountService_page.clickSearchBtn.click();
+        Actions actionTwo=new Actions(getDriver());
+        actionTwo.moveToElement(accountService_page.clickDownloadButton).perform();
+    }
+    @Step
+    public void downloadXls(){
+        accountService_page.clickXlsDownload.click();
+        bddUtil.sleep(10);
+        accountService_page.getClickDownloadButton.click();
+    }
+    @Step
+    public void downloadCsv(){
+        accountService_page.clickCsvDownload.click();
+        bddUtil.sleep(10);
+        accountService_page.getClickDownloadButton.click();
+    }
+    @Step
+    public void downloadXlsx(){
+        accountService_page.clickXlsxDownload.click();
+        bddUtil.sleep(10);
+        accountService_page.getClickDownloadButton.click();
     }
 }

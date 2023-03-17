@@ -102,4 +102,19 @@ public class eStatement_glue {
     public void templeteCanBeDownloadedNormally() {
         estatement_step.checkViewExports();
     }
+
+    @When("^Click My Settings and select Manage security settings to modify the password$")
+    public void clickMySettingsAndSelectManageSecuritySettingsToModifyThePassword() {
+        estatement_step.changePassword();
+    }
+
+    @When("^I click Confirm Button on the change password page$")
+    public void iClickConfirmButtonOnTheChangePasswordPage() {
+        estatement_step.changePasswordConfirmBtn();
+    }
+
+    @Then("^Password modified successfully check the status$")
+    public void passwordModifiedSuccessfullyCheckTheStatus() {
+        estatement_step.checkStatus();
+    }
 }

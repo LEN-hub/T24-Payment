@@ -414,15 +414,14 @@ Feature: Sanity Pack INB SIT Test Case
       |11010002414  |11010002430  |
     Then I checked the transfer success in My transactions
 
-    #  转存方式1代表不转存，2代表本金续存，3代表本息续存
-#  未授权
-#   定期存款_新币_一个月_不转存
+# SGD单币种账户买入1个月不转存定期正流程（无授权）
   Scenario:SGD single-currency account is purchased for one month, and it is not transferred to regular positive process (without authorization)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
       |1101 0000 470       |11010000438 |250000 |1 Month |1                    |
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
 
 #成功展示eStatement数据
   Scenario:Successfully displayed eStatement data
@@ -537,3 +536,40 @@ Feature: Sanity Pack INB SIT Test Case
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When click Fixed Deposits First menu
     When Fixed Deposits view details view details
+
+   #Change Password后可以正常登录
+  Scenario:You can log in normally after changing password
+    Given logon "INB-automation-SIT-change-password" in SIT environment and change password
+    When Click My Settings and select Manage security settings to modify the password
+    When Vkey authorization for Payment transactions in the SIT environment
+    When I click Confirm Button on the change password page
+    When Vkey authorization for Payment transactions in the SIT environment
+    Then Password modified successfully check the status
+    Given logon "INB-automation-SIT-change-password" in SIT environment and change password
+
+    #选择Extract audit logs,分别点击download下的xls格式、csv格式、xlsx格式
+  Scenario: Audit logs in three formats were downloaded successfully
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Audit logs in three formats were downloaded successfully
+      |transaction type|
+      |Login           |
+
+    #可查看到当前用户和该客户号下其他用户的操作日志
+  Scenario: You can view the operation logs of the current user and other users under this customer number
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When You can view the operation logs of the current user and other users under this customer number
+      |transaction type|
+      |Login           |
+
+    #修改用户手机号、用户权限，账号权限，用户对网银功能的权限
+  Scenario:Modify the user's mobile phone number
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click on the Enterprise Administration as well user administration
+    When I click modify info menu
+      |emailAddress         |
+      |bg@263.net           |
+    When Vkey authorization for Payment transactions in the SIT environment
+
+  Scenario: jump to SCF
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When jump to SCF

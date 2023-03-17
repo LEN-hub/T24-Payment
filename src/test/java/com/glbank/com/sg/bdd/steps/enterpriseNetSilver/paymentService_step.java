@@ -2118,7 +2118,7 @@ public class paymentService_step extends ScenarioSteps {
 
     public void enterAmount(){
         paymentService_page.enterAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
-//        paymentService_page.enterAmount.sendKeys("220001");
+//        paymentService_page.enterAmount.sendKeys("150000");
     }
 
     public void selectAccBth(String selectAccBth){
@@ -2190,7 +2190,7 @@ public class paymentService_step extends ScenarioSteps {
     public void paymentAttributeCd(String selectPaymentAttributeCd){
         paymentService_page.paymentAttributeCdBox.click();
         bddUtil.sleep(3);
-       paymentService_page.selectPaymentAttributeCd.click();
+        paymentService_page.selectPaymentAttributeCd.click();
     }
 
     public void clickNextBox(){
@@ -2198,6 +2198,9 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     public void staging() {
+//        if (paymentService_page.getResetAmount.isVisible()){
+//            paymentService_page.clickContinue.click();
+//        }
 //        accountTitleVerify();
         paymentService_page.staging.click();
     }
@@ -2209,7 +2212,7 @@ public class paymentService_step extends ScenarioSteps {
     @Step
     public void vkeyAuthorizationSIT(){
         paymentService_page.clickNextButton.click();
-        bddUtil.sleep(3);
+        bddUtil.sleep(6);
         if (paymentService_page.clickNextButton.isVisible()){
             paymentService_page.clickNextButton.click();
         }
@@ -2597,7 +2600,7 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.clickFromAccountDownDropBox.click();
         List<WebElementFacade> fromAccount = paymentService_page.selectFromAccountNum;
         for (int i = 0; i < fromAccount.size(); i++) {
-            if (fromAccountNum.equals(fromAccount.get(i).getText())){
+            if (fromAccountNum.equals(fromAccount.get(i).getText().substring(0,13))){
                 fromAccount.get(i).click();
                 break;
             }
@@ -2660,8 +2663,17 @@ public class paymentService_step extends ScenarioSteps {
         Assert.assertEquals("Accounts",paymentService_page.viewAccountsMenu.getText());
         Assert.assertEquals("Fixed Deposits",paymentService_page.viewFixedDepositsMenu.getText());
         Assert.assertEquals("Loans",paymentService_page.viewLoansMenu.getText());
-        Assert.assertEquals("Payments",paymentService_page.viewPaymentsMenu.getText());
-        Assert.assertEquals("Admin",paymentService_page.viewAdminMenu.getText());
+        if (paymentService_page.transferAndRemittanceMenu.getText().equals("Payments")){
+            Assert.assertEquals("Payments",paymentService_page.transferAndRemittanceMenu.getText());
+        }else{
+            Assert.assertEquals("Payments & Transfers",paymentService_page.transferAndRemittanceMenu.getText());
+        }
+        if (paymentService_page.adminMenu.getText().equals("Admin")){
+            Assert.assertEquals("Admin",paymentService_page.adminMenu.getText());
+        }else {
+            Assert.assertEquals("Company Administration",paymentService_page.adminMenu.getText());
+        }
+
         Assert.assertEquals("Supply Chain Finance",paymentService_page.viewSupplyChainFinanceMenu.getText());
     }
 

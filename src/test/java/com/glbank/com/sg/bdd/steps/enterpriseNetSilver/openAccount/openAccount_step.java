@@ -297,8 +297,8 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         openAccount_page.clickCountryCode.click();
         bddUtil.scrollWindowToElement(openAccount_page.getCountryCode).click();
         openAccount_page.inputMobileNumber.sendKeys(mobileNumber);
-//        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
-        openAccount_page.inputEmailAddress.sendKeys("cyq2412337655@163.com");
+        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
+//        openAccount_page.inputEmailAddress.sendKeys("cyq2412337655@163.com");
         openAccount_page.clickVerifyEmailAddress.click();
         bddUtil.sleep(1);
     }
@@ -1281,7 +1281,7 @@ public void inputEntityDetailsNew() {
             "\"lastupdated\": \"2022-07-14\",\n"+
                     "\"source\": \"4\",\n"+
                     "\"classification\": \"C\",\n"+
-                    "\"value\": \"cyq2412337655@163.com\""+
+                    "\"value\": \"openaccount@MailTemp.top\""+
                     "    },\n" +
         "\"mobileno\": {\n"+
             "\"lastupdated\": \"2022-07-14\",\n"+
@@ -1617,9 +1617,9 @@ public void inputEntityDetailsNew() {
     @Step
     public void step4Information(){
         bddUtil.sleep(5);
-        openAccount_page.clickReminderDownDrop.click();
-        openAccount_page.select1Type.click();
-        openAccount_page.clickOkBtn.click();
+//        openAccount_page.clickReminderDownDrop.click();
+//        openAccount_page.select1Type.click();
+//        openAccount_page.clickOkBtn.click();
         openAccount_page.selectSingaporeTrack1.click();
         openAccount_page.selectCountryOfOperation.sendKeys("SINGAPORE");
         openAccount_page.clickSingapore.click();
@@ -1644,15 +1644,15 @@ public void inputEntityDetailsNew() {
         openAccount_page.inputCountryCode.sendKeys("+65");
         openAccount_page.selectCountryCode.click();
         openAccount_page.inputMobileNum.sendKeys("13008553349");
-        openAccount_page.inputEmailAdd.sendKeys("cyq2412337655@163.com");
-        openAccount_page.inputReEmailAdd.sendKeys("cyq2412337655@163.com");
+        openAccount_page.inputEmailAdd.sendKeys("openaccount@MailTemp.top");
+        openAccount_page.inputReEmailAdd.sendKeys("openaccount@MailTemp.top");
         bddUtil.sleep(3);
         openAccount_page.selectSecondNRIC.click();
         openAccount_page.inputSecondCountryCode.sendKeys("+65");
         openAccount_page.selectSecondCountryCode.click();
         openAccount_page.inputSecondMobileNum.sendKeys("13008553349");
-        openAccount_page.inputSecondEmailAdd.sendKeys("dcr_chenyqg@dcits.com");
-        openAccount_page.inputSecondReEmailAdd.sendKeys("dcr_chenyqg@dcits.com");
+        openAccount_page.inputSecondEmailAdd.sendKeys("openaccount2@MailTemp.top");
+        openAccount_page.inputSecondReEmailAdd.sendKeys("openaccount2@MailTemp.top");
         openAccount_page.clickTrack1NextBtn.click();
     }
     @Step
@@ -1680,8 +1680,8 @@ public void inputEntityDetailsNew() {
         if (openAccount_page.ensureThatTheMobile.isVisible()){
             openAccount_page.clickYesAccurate.click();
         }
-        openAccount_page.inputFirstEmailAdmin.sendKeys("dcr_chenyqg@dcits.com");
-        openAccount_page.inputSecondEmailAdmin.sendKeys("dcr_chenyqg@dcits.com");
+        openAccount_page.inputFirstEmailAdmin.sendKeys("openaccount@MailTemp.top");
+        openAccount_page.inputSecondEmailAdmin.sendKeys("openaccount@MailTemp.top");
         openAccount_page.clickTrack1NextBtn.click();
     }
     

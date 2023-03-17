@@ -2,8 +2,12 @@ package com.glbank.com.sg.bdd.steps.enterpriseNetSilver;
 
 import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.eStatement_page;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import com.glbank.com.sg.bdd.utils.FileUtils;
+import com.glbank.com.sg.bdd.utils.RandomPhoneNumber;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
@@ -132,5 +136,30 @@ public class eStatement_step extends ScenarioSteps {
         eStatement_page.clickViewExportsMenu.click();
         eStatement_page.clickDownloadTemplateMenu.click();
         eStatement_page.clickFirstDownloadBtn.click();
+    }
+
+    @Step
+    public void changePassword(){
+        String randomPassword = "Ps@"+RandomPhoneNumber.randomPhoneNum();
+        eStatement_page.clickMySettingsMenu.click();
+        eStatement_page.clickMangeMySecurityMenu.click();
+        eStatement_page.inputOriPassword.sendKeys(FileUtils.LastReadFileInput3("changePassword"));
+        eStatement_page.inputNewPassword.sendKeys(randomPassword);
+        FileUtils.FileString4("changePassword",randomPassword);
+        eStatement_page.inputNewSecondPassword.sendKeys(randomPassword);
+        eStatement_page.clickConfirmBtn.click();
+    }
+
+    @Step
+    public void changePasswordConfirmBtn(){
+        bddUtil.sleep(2);
+        eStatement_page.clickOkButton.click();
+        eStatement_page.clickConfirmBtn.click();
+    }
+
+    @Step
+    public void checkStatus(){
+        bddUtil.sleep(3);
+        Assert.assertEquals(eStatement_page.checkStatus.getText(),"Successful");
     }
 }

@@ -250,4 +250,33 @@ public class accountService_page extends PageObject {
     @FindBy(xpath = "//div[@x-placement=\"bottom\"]//div[text()='Download']")
     public WebElementFacade clickSitEnvDownloadBtn;
 
+    @FindBy(xpath = "//ul[@class='el-menu--horizontal el-menu']/li[6]//span")
+    public WebElementFacade adminMenu;
+
+    @FindBy(xpath = "//span[text()='Extract Audit Logs']")
+    public WebElementFacade clickExtractAuditLogs;
+
+    @FindBy(xpath = "//div[contains(text(),'Search')]")
+    public WebElementFacade clickSearchBtn;
+
+    @FindBy(xpath = "//div[@class='container-component']//div[contains(text(),'Download')]")
+    public WebElementFacade clickDownloadButton;
+
+    @FindBy(xpath = "//ul[@x-placement=\"bottom\" or @x-placement=\"top\"]/li[1]/div")
+    public WebElementFacade clickXlsDownload;
+
+    @FindBy(xpath = "//tr[@class='el-table__row'][1]//div[text()='Download']")
+    public WebElementFacade getClickDownloadButton;
+
+    @FindBy(xpath = "//ul[@x-placement=\"bottom\" or @x-placement=\"top\"]/li[1]/div")
+    public WebElementFacade clickCsvDownload;
+
+    @FindBy(xpath = "//ul[@x-placement=\"bottom\" or @x-placement=\"top\"]/li[3]/div")
+    public WebElementFacade clickXlsxDownload;
+
+    @FindBy(xpath = "//label[@for='queryTypeCd']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade clickTransactionTypeDownDrop;
+
+    @FindBy(xpath = "//div[@x-placement=\"top-start\" or @x-placement=\"bottom-start\"]//span")
+    public List<WebElementFacade> selectTransactionType;
 }

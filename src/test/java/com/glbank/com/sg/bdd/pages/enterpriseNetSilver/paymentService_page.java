@@ -17,6 +17,9 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//ul[@class='el-menu--horizontal el-menu']/li[5]//span")
     public WebElementFacade transferAndRemittanceMenu;
 
+    @FindBy(xpath = "//ul[@class='el-menu--horizontal el-menu']/li[6]//span")
+    public WebElementFacade adminMenu;
+
     @FindBy(xpath = "//div[@class='list']/div[1]/p[2]")
     public WebElementFacade transferMoney;
 
@@ -32,13 +35,13 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[2]//span[@class='el-radio__input']")
     public WebElementFacade selectPaymentTypeMEPS;
 
-    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//span[@class='el-radio__inner']")
+    @FindBy(xpath = "//span[text()='MEPS']/preceding-sibling::span")
     public WebElementFacade clickPaymentTypeMEPS;
 
-    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[1]//span[@class='el-radio__inner']")
+    @FindBy(xpath = "//span[text()='FAST']/preceding-sibling::span")
     public WebElementFacade clickPaymentTypeFast;
 
-    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[3]//span[@class='el-radio__inner']")
+    @FindBy(xpath = "//span[text()='PAYNOW']/preceding-sibling::span")
     public WebElementFacade clickPaymentTypePayNow;
 
     @FindBy(xpath = "//label[@for='paynowType']/following-sibling::div//label[1]//span[@class='el-radio__inner']")
@@ -427,7 +430,13 @@ public class paymentService_page extends PageObject {
     public  WebElementFacade clickNextBox;  //下一步
 
     @FindBy(xpath = "//div[@class='ui-button dialog_btn primary common is-block']//div[@class='btn_box']")
-    public WebElementFacade staging;  //暂存
+    public WebElementFacade staging;//暂存
+
+    @FindBy(xpath = "//span[contains(text(),'The system calibration feedback')]")
+    public WebElementFacade getResetAmount;
+
+    @FindBy(xpath = "//div[text()='Continue']")
+    public WebElementFacade clickContinue;
 
     @FindBy(xpath = "//div[@class='el-col el-col-24']/div[2]//div[@class='btn_box']")
     public WebElementFacade selectSumB;
@@ -584,7 +593,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='payeeInfo']/following-sibling::div//span[@class='el-input__suffix-inner']")
     public WebElementFacade clickToAccountDownDropBox;
 
-    @FindBy(xpath = "//div[@x-placement=\"top-start\" or @x-placement=\"bottom-start\"]//div[@class='right']/div[1]")
+    @FindBy(xpath = "//div[@x-placement=\"top-start\" or @x-placement=\"bottom-start\"]//span")
     public List<WebElementFacade> selectFromAccountNum;
 
     @FindBy(xpath = "//label[@for='tradeAmont']/following-sibling::div//input")

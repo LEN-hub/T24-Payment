@@ -94,4 +94,26 @@ public class eStatement_page extends PageObject {
 
     @FindBy(xpath = "//tr[@class='el-table__row']//div[text()='Download']")
     public WebElementFacade clickFirstDownloadBtn;
+
+    @FindBy(xpath = "//li[contains(text(),'Manage My Security')]")
+    public WebElementFacade clickMangeMySecurityMenu;
+
+    @FindBy(id = "oriPassword")
+    public WebElementFacade inputOriPassword;
+
+    @FindBy(xpath = "//label[@for='passwd']/following-sibling::div//input")
+    public WebElementFacade inputNewPassword;
+
+    @FindBy(xpath = "//label[@for='confirmPasswd']/following-sibling::div//input")
+    public WebElementFacade inputNewSecondPassword;
+
+    @FindBy(xpath = "//div[text()='Confirm']")
+    public WebElementFacade clickConfirmBtn;
+
+
+    @FindBy(xpath = "//span[contains(text(),'OK')]")
+    public WebElementFacade clickOkButton;
+
+    @FindBy(xpath = "//div[contains(text(),'Successful')]")
+    public WebElementFacade checkStatus;
 }

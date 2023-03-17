@@ -157,4 +157,21 @@ public class accountService_glue {
         List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
         accountService_step.clickTransationHistory(payToInfo.get(0).get("AccountNum"));
     }
+
+    @When("^Audit logs in three formats were downloaded successfully$")
+    public void auditLogsInThreeFormatsWereDownloadedSuccessfully(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
+        accountService_step.downloadThreeFiles(payToInfo.get(0).get("transaction type"));
+        accountService_step.downloadXls();
+        accountService_step.downloadThreeFiles(payToInfo.get(0).get("transaction type"));
+        accountService_step.downloadCsv();
+        accountService_step.downloadThreeFiles(payToInfo.get(0).get("transaction type"));
+        accountService_step.downloadXlsx();
+    }
+
+    @When("^You can view the operation logs of the current user and other users under this customer number$")
+    public void youCanViewTheOperationLogsOfTheCurrentUserAndOtherUsersUnderThisCustomerNumber(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
+        accountService_step.downloadThreeFiles(payToInfo.get(0).get("transaction type"));
+    }
 }

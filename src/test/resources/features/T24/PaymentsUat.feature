@@ -146,7 +146,7 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |Payee's Bank           |Payee's Account Number|Purpose of Transfer |From Account  |Payment Type|PayNow Type|PayNow Content|
-      |BANK OF CHINA LIMITED  |11010001426           |Business Expenses   |1101 0001 256 |MEPS        |VPA        |UEN123321001  |
+      |BANK OF CHINA LIMITED  |11010001426           |Business Expenses   |1101 0003 453 |MEPS        |VPA        |UEN123321001  |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
     When I click Next to go to the verification page
@@ -244,7 +244,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges |
-      |1101 0001 256 |SHA                      |
+      |1101 0003 453 |OUR                      |
     And I choose the payment currency
       |Currency|
       |USD     |
