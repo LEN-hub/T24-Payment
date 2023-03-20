@@ -65,4 +65,8 @@ public class createBuyerCreditFileReview_glue {
         bddUtil.sleep(5);
     }
 
+    @Then("^I Check buyer Credit file status$")
+    public void iCheckBuyerCreditFileStatus() throws Exception{
+        createBuyerCreditFile_step.checkBuyerStatus();
+    }
 }

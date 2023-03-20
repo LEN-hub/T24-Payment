@@ -704,11 +704,17 @@ public class creditLimit_step extends ScenarioSteps {
         bddUtil.sleep(3);
     }
 
-    public void assertUploadExcel(){
-//        creditLimit_page.inputSupplier.sendKeys(FileUtils.LastReadFileInput3("companyData"));
-//        bddUtil.sleep(1);
+    public void assertUploadExcel () throws Exception{
+        creditLimit_page.inputSupplier.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        bddUtil.sleep(2);
         creditLimit_page.clickOther.click();
         bddUtil.sleep(3);
+        if (creditLimit_page.supplierName.getText().equals(FileUtils.LastReadFileInput3("companyData"))){
+            System.out.println("数据对比正常");
+        }else {
+            throw new Exception("历史单据上传失败");
+        }
+
 
     }
 }
