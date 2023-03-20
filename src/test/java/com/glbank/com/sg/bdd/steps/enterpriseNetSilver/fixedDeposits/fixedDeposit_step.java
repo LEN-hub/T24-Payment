@@ -24,6 +24,7 @@ public class fixedDeposit_step extends ScenarioSteps {
     }
 
     public void createFixedDeposit(String transferAccount,String intoAccount,String amount,String period,String transferAccountsWay){
+        bddUtil.sleep(3);
         fixedDeposit_page.clickPopwindows.click();
         List<WebElementFacade> selectTransferAccount = fixedDeposit_page.selectAccountValue;
         for (int i = 0; i <= selectTransferAccount.size();i++){
@@ -36,7 +37,7 @@ public class fixedDeposit_step extends ScenarioSteps {
         List<WebElementFacade> selectIntoAccount = fixedDeposit_page.selectAccountValue;
         bddUtil.sleep(1);
         for (int j = 0; j <= selectIntoAccount.size();j++){
-            if (intoAccount.equals(selectIntoAccount.get(j).getText().substring(0,11))){
+            if (intoAccount.equals(bddUtil.scrollWindowToElement(selectIntoAccount.get(j)).getText().substring(0,11))){
                 selectIntoAccount.get(j).click();
                 break;
             }
@@ -57,8 +58,8 @@ public class fixedDeposit_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(fixedDeposit_page.clickNext);
         fixedDeposit_page.clickNext.click();
         bddUtil.sleep(2);
-        if (fixedDeposit_page.clickCheck.isVisible()){
-            fixedDeposit_page.clickCheck.click();
+        if (fixedDeposit_page.clickCheckBox.isVisible()){
+            fixedDeposit_page.clickCheckBox.click();
         }
         fixedDeposit_page.clickSubmit.click();
         bddUtil.sleep(3);

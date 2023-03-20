@@ -3,6 +3,7 @@ package com.glbank.com.sg.bdd.glue.enterpriseNetSilver;
 import com.glbank.com.sg.bdd.steps.enterpriseNetSilver.paymentService_step;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import cucumber.api.DataTable;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -514,6 +515,40 @@ public class paymentService_glue {
     @Then("^I checked the transfer success in My transactions$")
     public void iCheckedTheTransferSuccessInMyTransactions() {
         paymentService_step.checkMyTransactionInformation();
+    }
+
+    @When("^Select Payments and click manage payments$")
+    public void selectPaymentsAndClickManagePayments() {
+        paymentService_step.transferAndRemittanceMenu();
+        paymentService_step.clickManagePayees();
+    }
+
+    @When("^Add a new payee in Payees$")
+    public void addANewPayeeInPayees(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
+        paymentService_step.payeesAddNewPayee(payToInfo.get(0).get("payee bank"));
+    }
+
+    @Then("^Add successfully and click modify to modify successfully$")
+    public void addSuccessfullyAndClickModifyToModifySuccessfully() {
+        paymentService_step.checkDataAccountNum();
+    }
+
+    @When("^Delete new payees data$")
+    public void deleteNewPayeesData() {
+        paymentService_step.clickDeleteBtn();
+    }
+
+    @When("^Query of account list information succeeded$")
+    public void queryOfAccountListInformationSucceeded() {
+        paymentService_step.clickAccountsMenu();
+        paymentService_step.checkLocalFundsTransfer();
+    }
+
+    @When("^Check account list Local fund transfer is available$")
+    public void checkAccountListLocalFundTransferIsAvailable() {
+        paymentService_step.clickAccountsMenu();
+        paymentService_step.checkPlaceFixedDeposits();
     }
 }
 

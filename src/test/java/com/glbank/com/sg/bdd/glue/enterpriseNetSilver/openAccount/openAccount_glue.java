@@ -264,7 +264,7 @@ public class openAccount_glue {
         FileUtils.FileString4(""+"openAccountNew"+"","申请人邮箱地址:" + emailName + "@MailTemp.top");
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
-        openAccount_step.inputEntityDetailsNew(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"),payToInfo.get(0).get("chekk"));
+        openAccount_step.inputEntityDetailsNew();
     }
 
     @And("^Provide Essential Information About SubIndustry$")
@@ -536,9 +536,8 @@ public class openAccount_glue {
     }
 
     @When("^I into the rear tube Supplementary account opening information$")
-    public void iIntoTheRearTube(DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        openAccount_step.AdditionalInformation(maps.get(0).get("chekk"));
+    public void iIntoTheRearTube() {
+        openAccount_step.AdditionalInformation();
     }
 
     @When("^I enter the mailbox$")
@@ -613,6 +612,6 @@ public class openAccount_glue {
         openAccount_step.track3FirstPageInformationEnter(payToInfo.get(0).get("accountType"), payToInfo.get(0).get("salutation"));
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
-        openAccount_step.inputEntityDetailsHealthCheck(payToInfo.get(0).get("Entity's Type"),payToInfo.get(0).get("Entity Consolidated"),payToInfo.get(0).get("Entity's Industry"),payToInfo.get(0).get("date"));
+        openAccount_step.inputEntityDetailsHealthCheck();
     }
 }

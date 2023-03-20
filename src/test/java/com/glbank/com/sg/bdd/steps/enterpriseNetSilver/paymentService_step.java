@@ -65,6 +65,7 @@ public class paymentService_step extends ScenarioSteps {
     public static String feesSerialNumber;
     public static String transferCurrency;
     public static String transferAccount;
+    public String randomAccount = RandomPhoneNumber.randomPhoneNum();
 
     @Step
     public void transferAndRemittanceMenu(){
@@ -2117,7 +2118,7 @@ public class paymentService_step extends ScenarioSteps {
 
     public void enterAmount(){
         paymentService_page.enterAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
-//        paymentService_page.enterAmount.sendKeys("220001");
+//        paymentService_page.enterAmount.sendKeys("150000");
     }
 
     public void selectAccBth(String selectAccBth){
@@ -2189,7 +2190,7 @@ public class paymentService_step extends ScenarioSteps {
     public void paymentAttributeCd(String selectPaymentAttributeCd){
         paymentService_page.paymentAttributeCdBox.click();
         bddUtil.sleep(3);
-       paymentService_page.selectPaymentAttributeCd.click();
+        paymentService_page.selectPaymentAttributeCd.click();
     }
 
     public void clickNextBox(){
@@ -2197,6 +2198,9 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     public void staging() {
+//        if (paymentService_page.getResetAmount.isVisible()){
+//            paymentService_page.clickContinue.click();
+//        }
 //        accountTitleVerify();
         paymentService_page.staging.click();
     }
@@ -2208,7 +2212,7 @@ public class paymentService_step extends ScenarioSteps {
     @Step
     public void vkeyAuthorizationSIT(){
         paymentService_page.clickNextButton.click();
-        bddUtil.sleep(3);
+        bddUtil.sleep(6);
         if (paymentService_page.clickNextButton.isVisible()){
             paymentService_page.clickNextButton.click();
         }
@@ -2490,7 +2494,6 @@ public class paymentService_step extends ScenarioSteps {
         enterKeys.EnterKeys(StringUtil.getRandomNum(1));
         paymentService_page.clickNextBox.click();
         paymentService_page.clickSubmitBtn.click();
-        paymentService_page.getSuccessTitle.isVisible();
     }
 
     public void singSuccess(){
@@ -2597,7 +2600,7 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.clickFromAccountDownDropBox.click();
         List<WebElementFacade> fromAccount = paymentService_page.selectFromAccountNum;
         for (int i = 0; i < fromAccount.size(); i++) {
-            if (fromAccountNum.equals(fromAccount.get(i).getText())){
+            if (fromAccountNum.equals(fromAccount.get(i).getText().substring(0,13))){
                 fromAccount.get(i).click();
                 break;
             }
@@ -2660,8 +2663,17 @@ public class paymentService_step extends ScenarioSteps {
         Assert.assertEquals("Accounts",paymentService_page.viewAccountsMenu.getText());
         Assert.assertEquals("Fixed Deposits",paymentService_page.viewFixedDepositsMenu.getText());
         Assert.assertEquals("Loans",paymentService_page.viewLoansMenu.getText());
-        Assert.assertEquals("Payments",paymentService_page.viewPaymentsMenu.getText());
-        Assert.assertEquals("Admin",paymentService_page.viewAdminMenu.getText());
+        if (paymentService_page.transferAndRemittanceMenu.getText().equals("Payments")){
+            Assert.assertEquals("Payments",paymentService_page.transferAndRemittanceMenu.getText());
+        }else{
+            Assert.assertEquals("Payments & Transfers",paymentService_page.transferAndRemittanceMenu.getText());
+        }
+        if (paymentService_page.adminMenu.getText().equals("Admin")){
+            Assert.assertEquals("Admin",paymentService_page.adminMenu.getText());
+        }else {
+            Assert.assertEquals("Company Administration",paymentService_page.adminMenu.getText());
+        }
+
         Assert.assertEquals("Supply Chain Finance",paymentService_page.viewSupplyChainFinanceMenu.getText());
     }
 
@@ -2718,6 +2730,88 @@ public class paymentService_step extends ScenarioSteps {
         if (paymentService_page.getMyTransactionDate.getText().substring(0,9).equals(DateUtil.format(new Date(),"dd/MM/yyyy"))){
             Assert.assertEquals(transferAmount,paymentService_page.getMyTransactionAmount.getText());
         }
+    }
+
+    @Step
+    public void clickManagePayees(){
+        paymentService_page.clickManagePayees.click();
+    }
+
+    @Step
+    public void payeesAddNewPayee(String bankName){
+        paymentService_page.payeesAddNewPayee.click();
+        paymentService_page.payeesAccountNum.sendKeys(randomAccount);
+        paymentService_page.payeesAccountName.sendKeys("zhangsan");
+        paymentService_page.clickPayeeBankDownDrop.click();
+        List<WebElementFacade> selectBank = paymentService_page.selectTitle;
+        for (int i = 0; i < selectBank.size(); i++) {
+            if (bankName.equals(selectBank.get(i).getText())){
+                selectBank.get(i).click();
+                break;
+            }
+        }
+        paymentService_page.clickSaveBtn.click();
+    }
+
+    public void checkDataAccountNum(){
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.payeesNewStatus.getText(),"Successful");
+        paymentService_page.clickReturnBtn.click();
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.getFirstDataAccountNum.getText(),randomAccount);
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(1);
+        action.moveToElement(paymentService_page.threePoint).perform();
+        paymentService_page.clickModifyBtn.click();
+        paymentService_page.payeesAccountName.clear();
+        paymentService_page.payeesAccountName.sendKeys("lisi");
+        paymentService_page.clickSaveBtn.click();
+    }
+
+    @Step
+    public void clickDeleteBtn(){
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.payeesNewStatus.getText(),"Successful");
+        paymentService_page.clickReturnBtn.click();
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.getFirstDataAccountNum.getText(),randomAccount);
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(1);
+        action.moveToElement(paymentService_page.threePoint).perform();
+        paymentService_page.clickDeleteBtn.click();
+        paymentService_page.clickYesBtn.click();
+    }
+
+    @Step
+    public void clickAccountsMenu(){
+        if (paymentService_page.popWindowsTitle.isVisible()){
+            paymentService_page.popWindowsOk.click();
+        }
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(1);
+        action.moveToElement(paymentService_page.clickAccountsMenu).perform();
+    }
+
+    @Step
+    public void checkLocalFundsTransfer(){
+        paymentService_page.clickAccountsOverview.click();
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(1);
+        action.moveToElement(paymentService_page.clickThreePoint).perform();
+        paymentService_page.clickLocalFundsTransfer.click();
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.localFundsTransferTitle.getText(),"Make Local Fund Transfer");
+    }
+
+    @Step
+    public void checkPlaceFixedDeposits(){
+        paymentService_page.clickAccountsOverview.click();
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(1);
+        action.moveToElement(paymentService_page.clickThreePoint).perform();
+        paymentService_page.clickPlaceFixedDeposits.click();
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.checkPlaceFixedDepositTitle.getText(),"Place Fixed Deposit");
     }
 
 }

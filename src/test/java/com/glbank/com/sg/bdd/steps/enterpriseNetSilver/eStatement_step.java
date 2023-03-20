@@ -2,8 +2,12 @@ package com.glbank.com.sg.bdd.steps.enterpriseNetSilver;
 
 import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.eStatement_page;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import com.glbank.com.sg.bdd.utils.FileUtils;
+import com.glbank.com.sg.bdd.utils.RandomPhoneNumber;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
@@ -34,6 +38,7 @@ public class eStatement_step extends ScenarioSteps {
     }
 
     public void clickSelectBox(){
+        bddUtil.sleep(2);
         eStatement_page.selectBox.click();
     }
 
@@ -111,5 +116,50 @@ public class eStatement_step extends ScenarioSteps {
         bddUtil.sleep(5);
         eStatement_page.downloadFirstBtn.click();
         bddUtil.sleep(5);
+    }
+
+    public void clickMyTransactions(){
+        eStatement_page.clickMyTransactions.click();
+        eStatement_page.clickSearchBtn.click();
+        eStatement_page.getRecordInformation.isVisible();
+    }
+
+    public void checkMyAlertsAndNotifications(){
+        eStatement_page.clickMySettingsMenu.click();
+        eStatement_page.clickNotifications.click();
+        eStatement_page.clickSearchButton.click();
+        eStatement_page.getRecordInformation.isVisible();
+        eStatement_page.clickBankAnnouncement.click();
+    }
+
+    public void checkViewExports(){
+        eStatement_page.clickViewExportsMenu.click();
+        eStatement_page.clickDownloadTemplateMenu.click();
+        eStatement_page.clickFirstDownloadBtn.click();
+    }
+
+    @Step
+    public void changePassword(){
+        String randomPassword = "Ps@"+RandomPhoneNumber.randomPhoneNum();
+        eStatement_page.clickMySettingsMenu.click();
+        eStatement_page.clickMangeMySecurityMenu.click();
+        eStatement_page.inputOriPassword.sendKeys(FileUtils.LastReadFileInput3("changePassword"));
+        eStatement_page.inputNewPassword.sendKeys(randomPassword);
+        FileUtils.FileString4("changePassword",randomPassword);
+        eStatement_page.inputNewSecondPassword.sendKeys(randomPassword);
+        eStatement_page.clickConfirmBtn.click();
+    }
+
+    @Step
+    public void changePasswordConfirmBtn(){
+        bddUtil.sleep(2);
+        eStatement_page.clickOkButton.click();
+        eStatement_page.clickConfirmBtn.click();
+    }
+
+    @Step
+    public void checkStatus(){
+        bddUtil.sleep(3);
+        Assert.assertEquals(eStatement_page.checkStatus.getText(),"Successful");
     }
 }

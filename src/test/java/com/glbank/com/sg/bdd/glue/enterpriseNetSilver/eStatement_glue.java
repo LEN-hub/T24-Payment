@@ -87,4 +87,34 @@ public class eStatement_glue {
         estatement_step.clickDownLoadBtn();
         bddUtil.sleep(3);
     }
+
+    @When("^Successful presentation of transaction history$")
+    public void successfulPresentationOfTransactionHistory() {
+        estatement_step.clickMyTransactions();
+    }
+
+    @When("^Successfully demonstrated Bank Announcement$")
+    public void successfullyDemonstratedBankAnnouncement() {
+        estatement_step.checkMyAlertsAndNotifications();
+    }
+
+    @When("^Templete can be downloaded normally$")
+    public void templeteCanBeDownloadedNormally() {
+        estatement_step.checkViewExports();
+    }
+
+    @When("^Click My Settings and select Manage security settings to modify the password$")
+    public void clickMySettingsAndSelectManageSecuritySettingsToModifyThePassword() {
+        estatement_step.changePassword();
+    }
+
+    @When("^I click Confirm Button on the change password page$")
+    public void iClickConfirmButtonOnTheChangePasswordPage() {
+        estatement_step.changePasswordConfirmBtn();
+    }
+
+    @Then("^Password modified successfully check the status$")
+    public void passwordModifiedSuccessfullyCheckTheStatus() {
+        estatement_step.checkStatus();
+    }
 }

@@ -414,12 +414,162 @@ Feature: Sanity Pack INB SIT Test Case
       |11010002414  |11010002430  |
     Then I checked the transfer success in My transactions
 
-    #  转存方式1代表不转存，2代表本金续存，3代表本息续存
-#  未授权
-#   定期存款_新币_一个月_不转存
+# SGD单币种账户买入1个月不转存定期正流程（无授权）
   Scenario:SGD single-currency account is purchased for one month, and it is not transferred to regular positive process (without authorization)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When click Fixed Deposits menu
     Then I fill in the information about the SGD transfer on the time deposit page
       |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
       |1101 0000 470       |11010000438 |250000 |1 Month |1                    |
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
+
+#成功展示eStatement数据
+  Scenario:Successfully displayed eStatement data
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click My Downloads Btn
+    When I click View eStatements Btn
+    When I click select box
+      |select       |
+      |11010003747  |
+    And I click search button
+    Then I should see Account List
+
+    #成功下载eadvice数据
+  Scenario:EAdivce can be downloaded normally
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click My Downloads Btn
+    When I click View eAdvices Btn
+    When I click select button on the View eAdvices page
+    When I click first data to download on the view eAdvices page
+
+  Scenario: My Transactions query transaction succeeded
+  Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Successful presentation of transaction history
+
+  Scenario: Manage alert/notification can query normally
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Successfully demonstrated Bank Announcement
+
+  Scenario: Templete can be downloaded normally
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click My Downloads Btn
+    When Templete can be downloaded normally
+
+  Scenario: INB to SCF
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When jump to SCF
+
+    #    CA账户SGD开立
+  Scenario:Add single currency is a positive process
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
+    When I click on the Enterprise Administration Desk and select Account Management
+    When I click account Opening
+      |CA             |
+      |Current Account|
+    And I choose the currency to open the account SGD
+    When I select account permissions
+    When Vkey authorization for Payment transactions in the SIT environment
+
+    #  MCA账户,默认选择SGD，SGD+USD开立
+  Scenario:Add multi-currency positive process
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click on the Enterprise Administration Desk and select Account Management
+    When I click account Opening
+      |CA                     |
+      |'Multi-Currency Account|
+    And  I choose the currency to open USD
+    When I select account permissions
+    When Vkey authorization for Payment transactions in the SIT environment
+
+    #Payment add a new payee
+  Scenario:Add a new payee click modify to modify successfully
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Select Payments and click manage payments
+    When Add a new payee in Payees
+      |payee bank           |
+      |BANK OF CHINA LIMITED|
+    When Vkey authorization for Payment transactions in the SIT environment
+    Then Add successfully and click modify to modify successfully
+    When Vkey authorization for Payment transactions in the SIT environment
+
+    #Payment payees delete
+  Scenario:Add a new payee click delete to delete successfully
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Select Payments and click manage payments
+    When Add a new payee in Payees
+      |payee bank           |
+      |BANK OF CHINA LIMITED|
+    When Vkey authorization for Payment transactions in the SIT environment
+    When Delete new payees data
+    When Vkey authorization for Payment transactions in the SIT environment
+
+      #PayNow签约
+  Scenario:PayNow Signing Process
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I execute manage PayNow Profile transaction on the page
+    When Vkey authorization for Payment transactions in the SIT environment
+
+   #PayNow解约
+  Scenario:PayNow Signing Off
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I sign and cancel the transaction on the page
+    When Vkey authorization for Payment transactions in the SIT environment
+
+  #check 账户列表Local fund transfer 可用
+    Scenario: Account list SGD query positive process
+      Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+      When Query of account list information succeeded
+
+  #check 账户列表Local fund transfer 可用
+  Scenario: Check account list Local fund transfer is available
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Check account list Local fund transfer is available
+
+  #Fixed Deposits overview跳转Place Fixed Deposit
+  Scenario:Fixed Deposits overview jump Place Fixed Deposit
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When click Fixed Deposits First menu
+    Then Fixed Deposits overview jump Place Fixed Deposit
+
+      #Fixed Deposits view details查看详情
+  Scenario:Fixed Deposits view details view details
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When click Fixed Deposits First menu
+    When Fixed Deposits view details view details
+
+   #Change Password后可以正常登录
+  Scenario:You can log in normally after changing password
+    Given logon "INB-automation-SIT-change-password" in SIT environment and change password
+    When Click My Settings and select Manage security settings to modify the password
+    When Vkey authorization for Payment transactions in the SIT environment
+    When I click Confirm Button on the change password page
+    When Vkey authorization for Payment transactions in the SIT environment
+    Then Password modified successfully check the status
+    Given logon "INB-automation-SIT-change-password" in SIT environment and change password
+
+    #选择Extract audit logs,分别点击download下的xls格式、csv格式、xlsx格式
+  Scenario: Audit logs in three formats were downloaded successfully
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Audit logs in three formats were downloaded successfully
+      |transaction type|
+      |Login           |
+
+    #可查看到当前用户和该客户号下其他用户的操作日志
+  Scenario: You can view the operation logs of the current user and other users under this customer number
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When You can view the operation logs of the current user and other users under this customer number
+      |transaction type|
+      |Login           |
+
+    #修改用户手机号、用户权限，账号权限，用户对网银功能的权限
+  Scenario:Modify the user's mobile phone number
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click on the Enterprise Administration as well user administration
+    When I click modify info menu
+      |emailAddress         |
+      |bg@263.net           |
+    When Vkey authorization for Payment transactions in the SIT environment
+
+  Scenario: jump to SCF
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When jump to SCF

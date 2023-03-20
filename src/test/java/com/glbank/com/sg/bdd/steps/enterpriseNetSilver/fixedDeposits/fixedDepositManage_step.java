@@ -3,7 +3,9 @@ package com.glbank.com.sg.bdd.steps.enterpriseNetSilver.fixedDeposits;
 import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.fixedDeposits.fixedDepositManage_page;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
@@ -59,5 +61,21 @@ public class fixedDepositManage_step extends ScenarioSteps {
     public void clickSubmit(){
         bddUtil.sleep(30);
         fixedDepositManage_page.clickSubmit.click();
+    }
+
+    @Step
+    public void clickOverviewPagePlaceFixedDepositBtn(){
+        bddUtil.sleep(3);
+        fixedDepositManage_page.clickOverviewPagePlaceFixedDepositBtn.click();
+        Assert.assertEquals(fixedDepositManage_page.checkPlaceFixedDepositTitle.getText(),"Place Fixed Deposit");
+    }
+
+    @Step
+    public void checkViewDetails(){
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(1);
+        action.moveToElement(fixedDepositManage_page.clickThreePoint).perform();
+        fixedDepositManage_page.clickViewDetails.click();
+        Assert.assertEquals(fixedDepositManage_page.getWhichAccount.getText(),"Which account is this fixed deposit linked to?");
     }
 }

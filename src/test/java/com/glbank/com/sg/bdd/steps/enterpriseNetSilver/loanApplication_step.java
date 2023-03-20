@@ -4,6 +4,7 @@ import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.loanApplication_page;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
@@ -25,7 +26,7 @@ public class loanApplication_step extends ScenarioSteps {
     public void FloatingLoanButton(){
         Actions actions = new Actions(getDriver());
         actions.moveToElement(loanApplication_page.loan).build().perform();
-        bddUtil.sleep(3);
+        bddUtil.sleep(1);
         loanApplication_page.clickLoanMenu.click();
     }
 
@@ -176,6 +177,7 @@ public class loanApplication_step extends ScenarioSteps {
         loanApplication_page.birthDay.sendKeys(birthday);
         loanApplication_page.name.click();
         loanApplication_page.countryBox.click();
+        bddUtil.sleep(1);
         loanApplication_page.china.click();
         bddUtil.sleep(1);
         loanApplication_page.idCard.sendKeys(idCard);
@@ -331,6 +333,7 @@ public class loanApplication_step extends ScenarioSteps {
 
     public void upLoadFile(){
         getDriver().findElement(By.xpath("//div[@class='ui-container-full__body']/div/div[4]//div[@class='upload_block'][1]//input")).sendKeys(fileAddress);
+        Assert.assertEquals(loanApplication_page.checkUploadFileStatus.getText(),"Upload Successful");
         bddUtil.sleep(2);
         getDriver().findElement(By.xpath("//div[@class='ui-container-full__body']/div/div[4]//div[@class='upload_block'][2]//input")).sendKeys(fileAddress);
         bddUtil.sleep(2);

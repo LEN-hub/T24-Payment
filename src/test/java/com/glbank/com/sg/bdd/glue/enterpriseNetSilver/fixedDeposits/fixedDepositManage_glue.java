@@ -36,4 +36,14 @@ public class fixedDepositManage_glue {
     public void clickFixedDepositsFirstMenu() {
         fixedDepositManage_step.clickFixedDepositsFirstMenu();
     }
+
+    @Then("^Fixed Deposits overview jump Place Fixed Deposit$")
+    public void fixedDepositsOverviewJumpPlaceFixedDeposit() {
+        fixedDepositManage_step.clickOverviewPagePlaceFixedDepositBtn();
+    }
+
+    @When("^Fixed Deposits view details view details$")
+    public void fixedDepositsViewDetailsViewDetails() {
+        fixedDepositManage_step.checkViewDetails();
+    }
 }

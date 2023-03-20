@@ -1642,6 +1642,12 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='email']/following-sibling::div//input")
     public WebElementFacade directorEmail1;
 
+    @FindBy(xpath = "//button[contains(text(),'高级')]")
+    public WebElementFacade clickSeniorBtn;
+
+    @FindBy(xpath = "//a[contains(text(),'继续前往')]")
+    public WebElementFacade clickJumpToSCFlink;
+
 
     public void enterUserName(String userName){
         withTimeoutOf(10,SECONDS)

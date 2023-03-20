@@ -1,5 +1,36 @@
-2023-3-10 17:1:2:398
-ChannelReferenceID:230310000000193
-ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
+2023-3-17 16:31:2:972
+ChannelReferenceID:230317000000069
+ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
 ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11010002414
+ChannelDebitAccountNumber:11010003453
+ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
+ChannelDetailPayeeName:lucky
+ChannelDetailAccountCurrency:SGD
+ChannelDetailPayeeAccountNum:667812798
+ChannelDetailTransactionAmount:317.08
+ChannelDetailBeneficiaryBankBIC:DBSSSGS0DOD
+ChannelDetailPayeeAddress:countries
+ChannelDetailEstimatedProcessingFee:0.00
+ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
+ChannelDetailPurposeOfTransfer:Business Expenses
+2023-3-17 16:33:41:816
+ID:230317000000069
+TransactionReference:PI23076111LP2TJ6
+t24FtNumber:SGL23076JBCKMMBL
+getStatus:677
+getTransactionReferenceNum:SGL23076JBCKMMBL
+getSenderReferenceNum:PI23076111LP2TJ6
+getTransactionCurrency:SGD
+getTransactionCurrency:SGD
+getTransactionAmount:317.08
+getChargeOption:SHA
+getDebitAccountNum:11010003453
+getDebitAccountCurrency:SGD
+getOrderingAccount:11010003453
+getOrderingName:COMPUTERCITY SINGAPORE PTE. LTD.
+getOrderingAddress:XIAN
+getOrderingTown:SG
+getCreditAccountNum:15000000153
+getCreditAccountCurrency:SGD
+getBeneficiaryAccount:667812798
+getBeneficiaryName:lucky

@@ -1791,6 +1791,10 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickSCFLink.click();
         bddUtil.sleep(3);
         bddUtil.switchToNewWindow();
+        if (customers_page.clickSeniorBtn.isVisible()){
+            customers_page.clickSeniorBtn.click();
+            customers_page.clickJumpToSCFlink.click();
+        }
         customers_page.scfPageTitle.getText();
     }
 }

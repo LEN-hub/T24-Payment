@@ -17,6 +17,9 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//ul[@class='el-menu--horizontal el-menu']/li[5]//span")
     public WebElementFacade transferAndRemittanceMenu;
 
+    @FindBy(xpath = "//ul[@class='el-menu--horizontal el-menu']/li[6]//span")
+    public WebElementFacade adminMenu;
+
     @FindBy(xpath = "//div[@class='list']/div[1]/p[2]")
     public WebElementFacade transferMoney;
 
@@ -32,13 +35,13 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[2]//span[@class='el-radio__input']")
     public WebElementFacade selectPaymentTypeMEPS;
 
-    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//span[@class='el-radio__inner']")
+    @FindBy(xpath = "//span[text()='MEPS']/preceding-sibling::span")
     public WebElementFacade clickPaymentTypeMEPS;
 
-    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[1]//span[@class='el-radio__inner']")
+    @FindBy(xpath = "//span[text()='FAST']/preceding-sibling::span")
     public WebElementFacade clickPaymentTypeFast;
 
-    @FindBy(xpath = "//label[@for='transferMethod']/following-sibling::div//label[3]//span[@class='el-radio__inner']")
+    @FindBy(xpath = "//span[text()='PAYNOW']/preceding-sibling::span")
     public WebElementFacade clickPaymentTypePayNow;
 
     @FindBy(xpath = "//label[@for='paynowType']/following-sibling::div//label[1]//span[@class='el-radio__inner']")
@@ -427,7 +430,13 @@ public class paymentService_page extends PageObject {
     public  WebElementFacade clickNextBox;  //下一步
 
     @FindBy(xpath = "//div[@class='ui-button dialog_btn primary common is-block']//div[@class='btn_box']")
-    public WebElementFacade staging;  //暂存
+    public WebElementFacade staging;//暂存
+
+    @FindBy(xpath = "//span[contains(text(),'The system calibration feedback')]")
+    public WebElementFacade getResetAmount;
+
+    @FindBy(xpath = "//div[text()='Continue']")
+    public WebElementFacade clickContinue;
 
     @FindBy(xpath = "//div[@class='el-col el-col-24']/div[2]//div[@class='btn_box']")
     public WebElementFacade selectSumB;
@@ -584,7 +593,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='payeeInfo']/following-sibling::div//span[@class='el-input__suffix-inner']")
     public WebElementFacade clickToAccountDownDropBox;
 
-    @FindBy(xpath = "//div[@x-placement=\"top-start\" or @x-placement=\"bottom-start\"]//div[@class='right']/div[1]")
+    @FindBy(xpath = "//div[@x-placement=\"top-start\" or @x-placement=\"bottom-start\"]//span")
     public List<WebElementFacade> selectFromAccountNum;
 
     @FindBy(xpath = "//label[@for='tradeAmont']/following-sibling::div//input")
@@ -700,4 +709,70 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='base_mb ui-table']/div[2]/div[3]//tr[1]/td[6]/div")
     public WebElementFacade getMyTransactionAmount;
+
+    @FindBy(xpath = "//span[text()='Manage Payees']")
+    public WebElementFacade clickManagePayees;
+
+    @FindBy(xpath = "//div[contains(text(),'Add a New Payee')]")
+    public WebElementFacade payeesAddNewPayee;
+
+    @FindBy(xpath = "//label[@for='payeeAcctNo']/following-sibling::div//input")
+    public WebElementFacade payeesAccountNum;
+
+    @FindBy(xpath = "//label[@for='payeeAcctNm']/following-sibling::div//input")
+    public WebElementFacade payeesAccountName;
+
+    @FindBy(xpath = "//label[@for='bankInfo']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade clickPayeeBankDownDrop;
+
+    @FindBy(xpath = "//div[text()='Save']")
+    public WebElementFacade clickSaveBtn;
+
+    @FindBy(xpath = "//div[@class='base_mb']//div[@class='ui-table']/div[2]/div[3]//tbody/tr[1]/td[1]/div")
+    public WebElementFacade getFirstDataAccountNum;
+
+    @FindBy(xpath = "//div[@class='base_mb']//div[@class='ui-table']/div[2]/div[4]//tbody/tr[1]/td[6]//img")
+    public WebElementFacade threePoint;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Modify']")
+    public WebElementFacade clickModifyBtn;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Delete']")
+    public WebElementFacade clickDeleteBtn;
+
+    @FindBy(xpath = "//span[contains(text(),'Yes')]")
+    public WebElementFacade clickYesBtn;
+
+    @FindBy(xpath = "//div[contains(text(),'Successful')]")
+    public WebElementFacade payeesNewStatus;
+
+    @FindBy(xpath = "//div[@class='body']//div[text()='Return']")
+    public WebElementFacade clickReturnBtn;
+
+    @FindBy(xpath = "//p[@class='third-title']/span[text()='Current & Multi-Currency Accounts']")
+    public WebElementFacade clickSingAndMCY;
+
+    @FindBy(xpath = "//span[text()='Accounts Overview']")
+    public WebElementFacade clickAccountsOverview;
+
+    @FindBy(xpath = "//span[text()='Transaction Histories']")
+    public WebElementFacade clickTransactionHistories;
+
+    @FindBy(xpath = "//ul[@class='el-menu--horizontal el-menu']/li[2]//span")
+    public WebElementFacade clickAccountsMenu;
+
+    @FindBy(xpath = "//div[@class='outer-box active']/div[1]//img")
+    public WebElementFacade clickThreePoint;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Local Funds Transfer']")
+    public WebElementFacade clickLocalFundsTransfer;
+
+    @FindBy(xpath = "//div[contains(text(),'Make Local Fund Transfer')]")
+    public WebElementFacade localFundsTransferTitle;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Place Fixed Deposits']")
+    public WebElementFacade clickPlaceFixedDeposits;
+
+    @FindBy(xpath = "//div[contains(text(),'Place Fixed Deposit')]")
+    public WebElementFacade checkPlaceFixedDepositTitle;
 }

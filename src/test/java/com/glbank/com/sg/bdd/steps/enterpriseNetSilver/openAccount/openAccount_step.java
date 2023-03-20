@@ -37,6 +37,7 @@ public class openAccount_step extends ScenarioSteps {
     public static int idCard = (int)((Math.random()*9+1)*1000000);
     public String ApplicantEmail;
     public String customerId;
+    public String chekk;
     public static String mobileNumber = RandomPhoneNumber.randomPhoneNum();
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
@@ -296,8 +297,8 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         openAccount_page.clickCountryCode.click();
         bddUtil.scrollWindowToElement(openAccount_page.getCountryCode).click();
         openAccount_page.inputMobileNumber.sendKeys(mobileNumber);
-//        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
-        openAccount_page.inputEmailAddress.sendKeys("cyq2412337655@163.com");
+        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
+//        openAccount_page.inputEmailAddress.sendKeys("cyq2412337655@163.com");
         openAccount_page.clickVerifyEmailAddress.click();
         bddUtil.sleep(1);
     }
@@ -447,7 +448,8 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         bddUtil.sleep(2);
         openAccount_page.clickLetContinue.click();
     }
-    public void inputEntityDetailsHealthCheck(String entityType,String entityConsolidated,String entityIndustry,String date) {
+    public void inputEntityDetailsHealthCheck() {
+        bddUtil.sleep(3);
         bddUtil.scrollWindowToElement(openAccount_page.goEntityDetails);
         bddUtil.sleep(1);
         //没有挡板，用shekk数据。
@@ -477,7 +479,8 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
     }
 
 //    在线开户新流程
-public void inputEntityDetailsNew(String entityType,String entityConsolidated,String entityIndustry,String date,String chekk) {
+public void inputEntityDetailsNew() {
+        chekk = RandomPhoneNumber.randomPhoneNum();
         bddUtil.scrollWindowToElement(openAccount_page.goEntityDetails);
         bddUtil.sleep(1);
     //没有挡板，用shekk数据。
@@ -502,6 +505,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
     }
         bddUtil.sleep(3);
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(0).sendKeys(fileAddress);
+        Assert.assertEquals("Upload Successful",openAccount_page.checkUploadFileSuccess.getText());
         bddUtil.sleep(1);
         getDriver().findElements(By.xpath("//div[@class='upload-btn']//input")).get(1).sendKeys(fileAddress);
         bddUtil.sleep(1);
@@ -518,7 +522,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
 }
 
 //进入后管补充信息。
-    public void AdditionalInformation(String chekk){
+    public void AdditionalInformation(){
         bddUtil.sleep(3);
         getDriver().findElements(By.xpath("//span[text()='Trading Center']")).get(0).click();
         openAccount_page.informationSupplement.click();
@@ -1277,7 +1281,7 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
             "\"lastupdated\": \"2022-07-14\",\n"+
                     "\"source\": \"4\",\n"+
                     "\"classification\": \"C\",\n"+
-                    "\"value\": \"cyq2412337655@163.com\""+
+                    "\"value\": \"openaccount@MailTemp.top\""+
                     "    },\n" +
         "\"mobileno\": {\n"+
             "\"lastupdated\": \"2022-07-14\",\n"+
@@ -1613,9 +1617,9 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
     @Step
     public void step4Information(){
         bddUtil.sleep(5);
-        openAccount_page.clickReminderDownDrop.click();
-        openAccount_page.select1Type.click();
-        openAccount_page.clickOkBtn.click();
+//        openAccount_page.clickReminderDownDrop.click();
+//        openAccount_page.select1Type.click();
+//        openAccount_page.clickOkBtn.click();
         openAccount_page.selectSingaporeTrack1.click();
         openAccount_page.selectCountryOfOperation.sendKeys("SINGAPORE");
         openAccount_page.clickSingapore.click();
@@ -1640,15 +1644,15 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         openAccount_page.inputCountryCode.sendKeys("+65");
         openAccount_page.selectCountryCode.click();
         openAccount_page.inputMobileNum.sendKeys("13008553349");
-        openAccount_page.inputEmailAdd.sendKeys("cyq2412337655@163.com");
-        openAccount_page.inputReEmailAdd.sendKeys("cyq2412337655@163.com");
+        openAccount_page.inputEmailAdd.sendKeys("openaccount@MailTemp.top");
+        openAccount_page.inputReEmailAdd.sendKeys("openaccount@MailTemp.top");
         bddUtil.sleep(3);
         openAccount_page.selectSecondNRIC.click();
         openAccount_page.inputSecondCountryCode.sendKeys("+65");
         openAccount_page.selectSecondCountryCode.click();
         openAccount_page.inputSecondMobileNum.sendKeys("13008553349");
-        openAccount_page.inputSecondEmailAdd.sendKeys("dcr_chenyqg@dcits.com");
-        openAccount_page.inputSecondReEmailAdd.sendKeys("dcr_chenyqg@dcits.com");
+        openAccount_page.inputSecondEmailAdd.sendKeys("openaccount2@MailTemp.top");
+        openAccount_page.inputSecondReEmailAdd.sendKeys("openaccount2@MailTemp.top");
         openAccount_page.clickTrack1NextBtn.click();
     }
     @Step
@@ -1676,8 +1680,8 @@ public void inputEntityDetailsNew(String entityType,String entityConsolidated,St
         if (openAccount_page.ensureThatTheMobile.isVisible()){
             openAccount_page.clickYesAccurate.click();
         }
-        openAccount_page.inputFirstEmailAdmin.sendKeys("dcr_chenyqg@dcits.com");
-        openAccount_page.inputSecondEmailAdmin.sendKeys("dcr_chenyqg@dcits.com");
+        openAccount_page.inputFirstEmailAdmin.sendKeys("openaccount@MailTemp.top");
+        openAccount_page.inputSecondEmailAdmin.sendKeys("openaccount@MailTemp.top");
         openAccount_page.clickTrack1NextBtn.click();
     }
     

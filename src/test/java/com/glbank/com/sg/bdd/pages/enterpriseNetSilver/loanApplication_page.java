@@ -9,7 +9,7 @@ import java.util.List;
 
 public class loanApplication_page extends PageObject {
 
-    @FindBy(xpath = "//ul[@class='el-menu--horizontal el-menu']/li[4]//span")
+    @FindBy(xpath = "//span[text()='Loans']")
     public WebElementFacade loan;
 
     @FindBy(xpath = "//span[text()='Apply New']/parent::p/following-sibling::p/span")
@@ -487,6 +487,9 @@ public class loanApplication_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='ui-container-full__body']/div/div[2]//div[@class='ui-button primary common']/div")
     public WebElementFacade submitOnSpendPage;//支用界面的提交按钮。
+
+    @FindBy(xpath = "//div[contains(text(),'Upload Successful')]")
+    public WebElementFacade checkUploadFileStatus;
 
 }
 

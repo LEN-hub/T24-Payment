@@ -3,7 +3,7 @@ Feature: loan application
 
   @loanApplication0
   Scenario:Select "≤1,000,000" for "Corporate Turnover (SGD)", select "Current Assets Loan" for the loan type, select the guarantor: Director, select the duration of the financial report: six months, enter the application amount: 10,000 Singapore dollars, "Micro Current "Overdraft" product loan application successful
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I hover over the loan business
     When I continue to fill in the information
       |amount|
@@ -27,7 +27,7 @@ Feature: loan application
     @loanApplication1
     Scenario:Select “>1,000,000 and ≤ 20,000,000” for “Corporate Turnover (SGD)”, “Current Asset Loan” for the loan type, select collateral: real estate, select guarantor: personal guarantee-director; input the loan amount: 200,000; "Overdraft" product loan application successful
 #     活期透支
-      Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+      Given logon "INB-automation-SIT-login" on enterprise net silver
       When I hover over the loan business
       When I choose a turnover of one million to two million
         |amount|
@@ -47,7 +47,7 @@ Feature: loan application
     @loanApplication2
     Scenario:Select “>1,000,000 and ≤20,000,000” for “Corporate Turnover (SGD)”, select “Current Asset Loan” for the loan type, select the collateral: real estate, select the guarantor: personal guarantee - two directors, input the loan amount: 200,000; 30-Day Accounts Receivable Financing Product Loan Application Successful (Loan Currency Selection: USD)
 #     收账融资
-      Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+      Given logon "INB-automation-SIT-login" on enterprise net silver
       When I hover over the loan business
       When I choose collection financing
         |amount|
@@ -73,7 +73,7 @@ Feature: loan application
   @loanApplication3
   Scenario:Select “>1,000,000 and ≤20,000,000” for “Corporate Turnover (SGD)”, select “Fixed Assets Loan” for the loan type, select the guarantor: Corporate Guarantee - a corporate shareholder, input the loan amount: 1.2 million; 1-year new auto financing product successful loan application
 #    固定资产
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+    Given logon "INB-automation-SIT-login" on enterprise net silver
     When I hover over the loan business
     When I choose fixed asset loan
       |amount |
@@ -95,7 +95,7 @@ Feature: loan application
 #    贷款支用。无授权
   @loanApplication4
   Scenario:Accounts Payable Financing Loan Draw Application Process
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+    Given logon "INB-automation-SIT-login" on enterprise net silver
     When I click the loan draw button
     When I choose a product type to fill in the information
     |product type         |
@@ -113,7 +113,7 @@ Feature: loan application
 
   @loanApplication5
   Scenario:2Accounts Payable Financing Loan Disbursement Application Process (The payment currency is USD, no review is required)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+    Given logon "INB-automation-SIT-login" on enterprise net silver
     When I click the loan draw button
     When I choose a product type to fill in the information
       |product type         |
@@ -172,7 +172,7 @@ Feature: loan application
 #    还款。
     @loanApplication7
 Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: SGD, product term: 30 days), the repayment is successful
-      Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+      Given logon "INB-automation-SIT-login" on enterprise net silver
       When I click the loan Manage ment Button
       When I click SGD Prepay button
 #      Then TC code is then required for Vkey authentication
@@ -182,7 +182,7 @@ Scenario:For accounts receivable financing products, the repayment date is 5 day
 
 #    @loanApplication48
 # Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: USD, product term: 30 days), the repayment is successful
-#      Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+#      Given logon "INB-automation-SIT-login" on enterprise net silver
 #      When I click the loan Manage ment Button
 #      When I click USD Prepay button
 #      Then TC code is then required for Vkey authentication
