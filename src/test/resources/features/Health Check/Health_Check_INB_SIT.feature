@@ -44,6 +44,21 @@ Feature: Health Check INB SIT Test Case
 #      |email name|
 #      |2022005   |
 
+
+  Scenario: INB to CNP
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I fill in the transfer information of domestic transfer bank
+      |Payee's Bank           |Payee's Account Number|Purpose of Transfer |From Account  |Payment Type|PayNow Type|PayNow Content|
+      |BANK OF CHINA LIMITED  |11552636365           |Business Expenses   |1101 0002 414 |FAST        |VPA        |UEN123321001  |
+    When I click next button on the domestic transfer bank page
+    Then I verify the information on the next page
+    When I click Next to go to the verification page
+    When If the transfer failure window pops up I will click the continue button
+    When Vkey authorization for Payment transactions in the SIT environment
+    Then Check whether you can receive mail in the mailbox
+      |email name|
+      |2022005   |
+
   Scenario: INB to MSP
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer MEPS transfer succeeded and the transaction email was received
