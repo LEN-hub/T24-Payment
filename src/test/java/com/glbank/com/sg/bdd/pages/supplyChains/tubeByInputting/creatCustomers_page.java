@@ -136,6 +136,12 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='autoCustBuild']/following-sibling::div//span[@class='lls-input__suffix-inner']")
     public WebElementFacade clickInputBySelectBox;
 
+    @FindBy(xpath = "//td[@data-key='f0ai35fo']")
+    public WebElementFacade LastUpdatedBtn;
+
+    @FindBy(xpath = "//td[@data-key='f0talgjq']//span")
+    public WebElementFacade supplierStatus;
+
     @FindBy(xpath = "//span[text()='Customer']")
     public WebElementFacade inputByTypeCustomer;
 

@@ -137,9 +137,9 @@ public class createSupplierCreditFile_step extends PageObject {
         getDriver().findElement(By.xpath("//label[@for='A0030']/following-sibling::div//input")).sendKeys(fileAddress);
         bddUtil.sleep(5);
         createSupplierCreditFile_page.clickSave.click();
-        if (createSupplierCreditFile_page.clickBackBtn.isVisible()){
-            createSupplierCreditFile_page.clickBackBtn.click();
-        }
+//        if (createSupplierCreditFile_page.clickBackBtn.isVisible()){
+//            createSupplierCreditFile_page.clickBackBtn.click();
+//        }
         createSupplierCreditFile_page.inputCompanyText.sendKeys(FileUtils.LastReadFileInput3("companyData"));
         createSupplierCreditFile_page.clickStatusTitle.click();
         bddUtil.clickByJS(createSupplierCreditFile_page.clickSubmitBtn);
@@ -164,6 +164,33 @@ public class createSupplierCreditFile_step extends PageObject {
     @Step
     public void clickToSupplierCreditProfileReviewPage(){
         createSupplierCreditFile_page.clickSupplierCreditProfileReview.click();
+    }
+
+    @Step
+    public void checkDataStatus() throws Exception{
+        createSupplierCreditFile_page.inputCompanyText.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        createSupplierCreditFile_page.profileListBtn.click();
+        bddUtil.sleep(4);
+        if (createSupplierCreditFile_page.status.getText().equals("Under Credit Review")){
+            System.out.println("信用档案创建正常");
+        }else {
+            throw new Exception("创建信用档案失败");
+        }
+    }
+
+    @Step
+    public void checkUnderWritingStatus() throws Exception{
+        createSupplierCreditFile_page.underWriting.click();
+        createSupplierCreditFile_page.underwritingListBtn.click();
+        createSupplierCreditFile_page.applicantInput.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        createSupplierCreditFile_page.applicantBtn.click();
+        bddUtil.sleep(6);
+//      校验状态。
+        if (createSupplierCreditFile_page.underWritingStatus.getText().equals("Approved")){
+            System.out.println("状态通过");
+        }else {
+            throw new Exception("状态校验不通过。");
+        }
     }
 
     @Step

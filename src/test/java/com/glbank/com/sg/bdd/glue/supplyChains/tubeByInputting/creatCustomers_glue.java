@@ -698,4 +698,9 @@ public class creatCustomers_glue {
         customers_step.changeEmail1();
         customers_step.changeEmail2();
     }
+
+    @When("^I Check data status$")
+    public void iCheckDataStatus() {
+        customers_step.checkStatus();
+    }
 }

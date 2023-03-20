@@ -199,13 +199,13 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void phoneNumberFirst(){
-        customers_page.mobileAreaCode.sendKeys("+86");
+        customers_page.mobileAreaCode.sendKeys("86");
         customers_page.mobileNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
     }
 
     @Step
     public void getMobileInput(){
-        customers_page.twoMobileAreaCodeInput.sendKeys("+86");
+        customers_page.twoMobileAreaCodeInput.sendKeys("86");
         customers_page.twomobileNumberInput.sendKeys(RandomPhoneNumber.randomPhoneNum());
     }
 
@@ -595,6 +595,30 @@ public class creatCustomers_step extends ScenarioSteps {
         //先清掉之前的邮箱
         getDriver().findElements(By.xpath("//label[@for='email']/following-sibling::div//input")).get(0).clear();
         getDriver().findElements(By.xpath("//label[@for='email']/following-sibling::div//input")).get(0).sendKeys(directorEmail+"@uuf.me");
+    }
+
+    @Step
+    public void checkStatus(){
+        customers_page.clickCustomersMenu.click();
+        bddUtil.sleep(2);
+        customers_page.clickOnboardingListMenu.click();
+        bddUtil.sleep(2);
+        customers_page.uploadSingBR.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        customers_page.checkSuccessPageTitle.click();
+        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(customers_page.LastUpdatedBtn);
+        bddUtil.sleep(1);
+        try {
+            Assert.assertEquals("Approved",customers_page.supplierStatus.getText());
+            if (customers_page.supplierStatus.getText().equals("Approved")){
+                System.out.println("数据正常");
+            }else {
+                throw new Exception("INB系统进入失败");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        bddUtil.sleep(5);
     }
 
     @Step
@@ -1204,7 +1228,6 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.submitBtnOnAssignToMePage.click();
         bddUtil.sleep(13);
         updateAmlResult(1,"companyData");
-        bddUtil.quitDriver();
     }
     @Step
     public void clickEditIcon(String companyType){
@@ -1469,7 +1492,9 @@ public class creatCustomers_step extends ScenarioSteps {
 //            customers_page.sendKeysCompanyNameOnOnboardingList.sendKeys(FileUtils.LastReadFileInput3("companyData"));
 //            customers_page.clickStatusOnOnboardingList.click();
 //        }
+        bddUtil.scrollWindowToElement(customers_page.LastUpdatedBtn);
         Assert.assertEquals(status,customers_page.checkRegistrationtatus.getText());
+        bddUtil.sleep(5);
     }
 
     public void checkRegistrationReportUpgrade(){

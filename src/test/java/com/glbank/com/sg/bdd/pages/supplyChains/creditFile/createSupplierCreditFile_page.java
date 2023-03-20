@@ -212,5 +212,25 @@ public class createSupplierCreditFile_page extends PageObject {
     @FindBy(xpath = "//button[@class=\"lls-button btn-item lls-button--primary\"]")
     public WebElementFacade clickSubmit;
 
+    @FindBy(xpath = "//div[@id='main']//span[text()='Supplier Credit Profile List']")
+    public WebElementFacade profileListBtn;
+
+    @FindBy(xpath = "//tbody//span[text()='Under Credit Review']")
+    public WebElementFacade status;
+
+    @FindBy(xpath = "//div[@class='lls-menu__content']/div[5]/div[1]/span")
+    public WebElementFacade underWriting;
+
+    @FindBy(xpath = "//div[@class='lls-submenu__content']//span[text()='Underwriting List']")
+    public WebElementFacade underwritingListBtn;
+
+    @FindBy(xpath = "//label[text()='Applicant']/following-sibling::div//input")
+    public  WebElementFacade applicantInput;
+
+    @FindBy(xpath = "//label[text()='Applicant']")
+    public WebElementFacade applicantBtn;
+
+    @FindBy(xpath = "//span[text()='Approved']")
+    public WebElementFacade underWritingStatus;
 
 }

@@ -97,7 +97,7 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
         bddUtil.sleep(2);
         createBuyerCreditFile_page.clickSaveBuyerCreditProfile.click();
         bddUtil.sleep(2);
-        createBuyerCreditFile_page.clickBackBtn.click();
+//        createBuyerCreditFile_page.clickBackBtn.click();   // 不用点击返回按钮了
         bddUtil.sleep(2);
         createBuyerCreditFile_page.inputCompanyText.sendKeys(FileUtils.LastReadFileInput3("buyer"));
         createBuyerCreditFile_page.clickStatusTitle.click();
@@ -115,6 +115,18 @@ public class createBuyerCreditFile_step extends ScenarioSteps {
                 webdriver.executeScript("arguments[0].click();", buyerSubmitList.get(i));
                 break;
             }
+        }
+    }
+
+    @Step
+    public void checkBuyerStatus() throws Exception{
+        createBuyerCreditFile_page.companyNameInput.sendKeys(FileUtils.LastReadFileInput3("buyer"));
+        createBuyerCreditFile_page.companyBtn.click();
+        bddUtil.sleep(5);
+        if (createBuyerCreditFile_page.buyerCreditFileStatus.getText().equals("Under Credit Review")){
+            System.out.println("创建信用档案成功");
+        }else {
+            throw new Exception("创建信用档案失败");
         }
     }
 
