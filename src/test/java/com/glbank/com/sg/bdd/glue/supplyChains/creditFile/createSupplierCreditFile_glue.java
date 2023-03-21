@@ -7,6 +7,7 @@ import com.glbank.com.sg.bdd.utils.FileUtils;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.api.java.es.E;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
@@ -72,5 +73,16 @@ public class createSupplierCreditFile_glue {
         customers_step.getClickCustomersMenu();
         createSupplierCreditFile_step.clickToSupplierCreditProfileReviewPage();
         bddUtil.sleep(5);
+    }
+
+    @When("^I check the Credit Supplier status$")
+    public void iCheckTheCreditSupplierStatus() throws Exception {
+        customers_step.getClickCustomersMenu();
+        createSupplierCreditFile_step.checkDataStatus();
+    }
+
+    @Then("^I check Underwriting status$")
+    public void iCheckUnderwritingStatus() throws Exception{
+        createSupplierCreditFile_step.checkUnderWritingStatus();
     }
 }

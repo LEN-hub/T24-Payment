@@ -64,6 +64,7 @@ Feature: Sanity Pack SCF SIT Test Case
     Given logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
     When Approval in the supply chain system
     Then Switch To the Assign To Me page and perform the corresponding operations
+    When I Check data status
     When I close driver
 
 
@@ -149,6 +150,7 @@ Feature: Sanity Pack SCF SIT Test Case
     Then Supplier Credit Profile L1 Review
     Given logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
     And use User L2 to Supplier Review
+    When I check the Credit Supplier status
     When I close driver
 
      #7.卖方授信限额
@@ -164,21 +166,24 @@ Feature: Sanity Pack SCF SIT Test Case
     When I click Result button on the UnderWriting Approval page
     And I click Approve button and click Submit button on the page
     When I click Completed Button on the UnderWriting Approval page
+    Then I check Underwriting status
+    When I close driver
 
-#
-#    #8.创建买方信用档案
-#  @sanity_pack_buyer_Credit_Supplier_Customer_Profile_SIT
-#  Scenario:create Buyer Credit File_SIT
-#    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
-#    When login successfully and click the SCF link to createBuyerCreditFile
-#    And edit Buyer Credit Profile
-##    Then submit Buyer Credit Profile
-#    And  to Buyer Credit Profile Review page
-#    Then buyer Credit Profile L1 Review
-##    And change user To L2 Review
-#    Given logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
-#    And use UserL2 to Review
-#    When I close driver
+
+    #8.创建买方信用档案
+  @sanity_pack_buyer_Credit_Supplier_Customer_Profile_SIT
+  Scenario:create Buyer Credit File_SIT
+    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
+    When login successfully and click the SCF link to createBuyerCreditFile
+    And edit Buyer Credit Profile
+#    Then submit Buyer Credit Profile
+    And  to Buyer Credit Profile Review page
+    Then buyer Credit Profile L1 Review
+#    And change user To L2 Review
+    Given logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
+    And use UserL2 to Review
+    Then I Check buyer Credit file status
+    When I close driver
 #
 #
 #

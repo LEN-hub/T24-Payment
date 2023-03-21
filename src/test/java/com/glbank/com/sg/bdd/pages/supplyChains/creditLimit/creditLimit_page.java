@@ -213,6 +213,12 @@ public class creditLimit_page extends PageObject {
     @FindBy(xpath = "//label[text()='Supplier']")
     public WebElementFacade clickOther;
 
+    @FindBy(xpath = "//tbody/tr[1]//td[5]")
+    public WebElementFacade supplierName;
+
+    @FindBy(xpath = "//label[text()='Supplier']/following-sibling::div//input")
+    public WebElementFacade supplierInput;
+
     @FindBy(xpath = "//button//span[contains(text(),'Confirm')]")
     public WebElementFacade cfmbtn;
 }

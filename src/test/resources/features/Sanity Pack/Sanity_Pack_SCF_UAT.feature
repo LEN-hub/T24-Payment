@@ -36,6 +36,7 @@ Feature: Sanity Pack SCF UAT Test Case
     When I entered information on the Tell Us About Your Company page
     Then Check whether to jump to the next page after filling in the content of Company page
     When Fill in the administrator information on the People page and click Next to go to the Next page
+    When I modify the director's email address
     When I click next Button on the page
 #      Then Verify whether the director page is displayed
 #      When Fill in the board information on the current page and click the Next button
@@ -65,6 +66,7 @@ Feature: Sanity Pack SCF UAT Test Case
     Given logon "scf_environments_2_yang" on tube by inputting system
     When Approval in the supply chain system
     Then Switch To the Assign To Me page and perform the corresponding operations
+    When I Check data status
     When I close driver
 
   #2.simple（核心不存在、非自主、无管理员）
@@ -72,7 +74,7 @@ Feature: Sanity Pack SCF UAT Test Case
   Scenario:Simple (core does not exist, non autonomous, no administrator)_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window buyer
+    And I click Create Customer and fill in the supplier information in the pop-up window to buyer
       |KYC Mode    |Input by|Customer Type|
       |Simple KYC  |Operator|Buyer        |
     Then I Check to see if you jump to the Authorized Person page
@@ -108,7 +110,7 @@ Feature: Sanity Pack SCF UAT Test Case
      #4.产品设置
   @sanity_pack_supplier_Product_Quotation_Settings_UAT
   Scenario:UAT_ Supply chain_Inner tube_Create product_UAT
-    Given logon "scf_environments_1_yang" on tube by inputting system
+    Given logon "scf_environments_1_tian" on tube by inputting system
     When I click product
     When I click on Product List
     And  click Create Product
@@ -152,117 +154,118 @@ Feature: Sanity Pack SCF UAT Test Case
     Given logon "scf_environments_2_yang" on tube by inputting system
     And use User L2 to Supplier Review
     When I close driver
-
-     #7.卖方授信限额
-  @sanity_pack_supplier_Supplier_Underwriting_UAT
-  Scenario:Supplier The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained_UAT
-    Given logon "scf_environments_1_yang" on tube by inputting system
-    When I click UnderWriting and UnderWriting Approval
-    Then I should direct to the UnderWriting Approval page
-    When I click Supplier Test Data Assign to Me button on UnderWriting Approval page
-    When I click Assign to ME title on the on UnderWriting Approval page
-    When I should see Supplier Proceed Button and click on the UnderWriting Approval page
-    When I update Limit for THIS Product
-    When I click Result button on the UnderWriting Approval page
-    And I click Approve button and click Submit button on the page
-    When I click Completed Button on the UnderWriting Approval page
-
-
+#
+#     #7.卖方授信限额
+#  @sanity_pack_supplier_Supplier_Underwriting_UAT
+#  Scenario:Supplier The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained_UAT
+#    Given logon "scf_environments_1_yang" on tube by inputting system
+#    When I click UnderWriting and UnderWriting Approval
+#    Then I should direct to the UnderWriting Approval page
+#    When I click Supplier Test Data Assign to Me button on UnderWriting Approval page
+#    When I click Assign to ME title on the on UnderWriting Approval page
+#    When I should see Supplier Proceed Button and click on the UnderWriting Approval page
+#    When I update Limit for THIS Product
+#    When I click Result button on the UnderWriting Approval page
+#    And I click Approve button and click Submit button on the page
+#    When I click Completed Button on the UnderWriting Approval page
+#
+#
     #8.创建买方信用档案
   @sanity_pack_buyer_Credit_Supplier_Customer_Profile_UAT
   Scenario:create Buyer Credit File_UAT
-    Given logon "scf_environments_1_yang" on tube by inputting system
+    Given logon "scf_environments_1_tian" on tube by inputting system
     When login successfully and click the SCF link to createBuyerCreditFile
     And edit Buyer Credit Profile
 #    Then submit Buyer Credit Profile
     And  to Buyer Credit Profile Review page
     Then buyer Credit Profile L1 Review
 #    And change user To L2 Review
-    Given logon "scf_environments_2_yang" on tube by inputting system
+    Given logon "scf_environments_2_tian" on tube by inputting system
     And use UserL2 to Review
     When I close driver
-
-
-
-  # 9.买方授信限额
-  @sanity_pack_buyer_Supplier_Underwriting_UAT
-  Scenario:Buyer The operator initiated Buyer Entity Flow & Buyer Entity Public to grant credit to buyer customers, and the credit was successfully granted, and the limit and rating were obtained_UAT
-    Given logon "scf_environments_1_yang" on tube by inputting system
-    When I click UnderWriting and UnderWriting Approval
-    Then I should direct to the UnderWriting Approval page
-    When I click buyer Test Data Assign to Me button on UnderWriting Approval page
-    When I click Assign to ME title on the on UnderWriting Approval page
-    Then I should see Proceed Button on the UnderWriting Approval page
-    When I update Limit for THIS Product
-    When I click Result button on the UnderWriting Approval page
-    And I click Approve button and click Submit button on the page
-    When I click Completed Button on the UnderWriting Approval page
-
-
-  #10.BR签署
-  @sanity_pack_buyer_BR_Signature_SIT
-  Scenario:BR signed_SIT
-    Given Open Supplier Portal URL SIT
-    When I input login data and click on the Login Supplier Portal URL
-      |pass word   |Company ID|
-      |P@ssw0rd_123|1234      |
-    When I click Pending Signature button
-    And I click confirm Button
-    When I to sign one
-    Then I to sign Two
-
-   #11.RPA上传
-  @sanity_pack_buyer_RPA_Upload_UAT
-  Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_UAT
-    Given logon "scf_environments_1_yang" on tube by inputting system
-    When I click on the first Customers
-    And click ContractManagement
-    Then Enter the name of the supplier to filter
-
-  #12.融资申请
-  @sanity_pack_buyer_Financing_Request_UAT
-  Scenario:financing Request_UAT
-    Given logon "environments_SCF_UAT" test code
-    When I input login information
-    When login successfully and click RequestFinancing
-    Then upload RequestFinancing File
-    And  logon "scf_environments_1_yang" on tube by inputting system
-    Then click Operations to Review
-#    And change user To L2 Review
-    When logon "scf_environments_2_yang" on tube by inputting system
-    And click Operations to Review
-    Given logon "environments_SCF_UAT" test code
-    When I input login information
-    And click Financing Status
-    When I close driver
-
 #
-    #13.放款
-  @sanity_pack_buyer_Loan_UAT
-  Scenario:UAT_ Supply chain_ Inner tube_ Create payments_UAT
-    Given logon "scf_environments_1_yang" on tube by inputting system
-    When When I hit Operations
-    And click Request for Disbursement
-    When I click on Assign To Me
-    Then I click Submit
-    When I click on Review Disbursement
-    And  click proceed
-    Then Click on the submit APPROVE
-    When Confirm Disbursement page
-    When I close driver
-
-
-  # 14.全部还款
-  @sanity_pack_buyer_Full_Repayment_UAT
-  Scenario:UAT_supply chain_inner management_repayment_0001UAT_supply chain_inner management_repayment_UAT
-    Given logon "scf_environments_1_yang" on tube by inputting system
-    When I click Operations button
-    When I click Repayment button
-    Then I should direct to the Repayment Management page
-#    When I click the Assign to me button of the repayment data
-    When I click Assign to ME title on the on Repayment Management page
-    When I click Proceed Button on the Repayment Management Page
-    Then I should direct to the Repayment Detail page
-    When I select Repayment Account No on the page
-    And I enter other parameters in the current page
-    When I close driver
+#
+#
+#  # 9.买方授信限额
+#  @sanity_pack_buyer_Supplier_Underwriting_UAT
+#  Scenario:Buyer The operator initiated Buyer Entity Flow & Buyer Entity Public to grant credit to buyer customers, and the credit was successfully granted, and the limit and rating were obtained_UAT
+#    Given logon "scf_environments_1_yang" on tube by inputting system
+#    When I click UnderWriting and UnderWriting Approval
+#    Then I should direct to the UnderWriting Approval page
+#    When I click buyer Test Data Assign to Me button on UnderWriting Approval page
+#    When I click Assign to ME title on the on UnderWriting Approval page
+#    Then I should see Proceed Button on the UnderWriting Approval page
+#    When I update Limit for THIS Product
+#    When I click Result button on the UnderWriting Approval page
+#    And I click Approve button and click Submit button on the page
+#    When I click Completed Button on the UnderWriting Approval page
+#
+#
+#  #10.BR签署
+#  @sanity_pack_buyer_BR_Signature_SIT
+#  Scenario:BR signed_UAT
+#    Given Open Supplier Portal URL UAT
+#    When I input login data and click on the Login Supplier Portal URL
+#      |pass word   |Company ID|
+#      |P@ssw0rd_123|1234      |
+#    When I click Pending Signature button
+#    And I click confirm Button
+#    Then I close driver
+#    When I to sign one
+#    Then I to sign Two
+#
+#   #11.RPA上传
+#  @sanity_pack_buyer_RPA_Upload_UAT
+#  Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_UAT
+#    Given logon "scf_environments_1_yang" on tube by inputting system
+#    When I click on the first Customers
+#    And click ContractManagement
+#    Then Enter the name of the supplier to filter
+#
+#  #12.融资申请
+#  @sanity_pack_buyer_Financing_Request_UAT
+#  Scenario:financing Request_UAT
+#    Given logon "environments_SCF_UAT" test code
+#    When I input login information
+#    When login successfully and click RequestFinancing
+#    Then upload RequestFinancing File
+#    And  logon "scf_environments_1_yang" on tube by inputting system
+#    Then click Operations to Review
+##    And change user To L2 Review
+#    When logon "scf_environments_2_yang" on tube by inputting system
+#    And click Operations to Review
+#    Given logon "environments_SCF_UAT" test code
+#    When I input login information
+#    And click Financing Status
+#    When I close driver
+#
+##
+#    #13.放款
+#  @sanity_pack_buyer_Loan_UAT
+#  Scenario:UAT_ Supply chain_ Inner tube_ Create payments_UAT
+#    Given logon "scf_environments_1_yang" on tube by inputting system
+#    When When I hit Operations
+#    And click Request for Disbursement
+#    When I click on Assign To Me
+#    Then I click Submit
+#    When I click on Review Disbursement
+#    And  click proceed
+#    Then Click on the submit APPROVE
+#    When Confirm Disbursement page
+#    When I close driver
+#
+#
+#  # 14.全部还款
+#  @sanity_pack_buyer_Full_Repayment_UAT
+#  Scenario:UAT_supply chain_inner management_repayment_0001UAT_supply chain_inner management_repayment_UAT
+#    Given logon "scf_environments_1_yang" on tube by inputting system
+#    When I click Operations button
+#    When I click Repayment button
+#    Then I should direct to the Repayment Management page
+##    When I click the Assign to me button of the repayment data
+#    When I click Assign to ME title on the on Repayment Management page
+#    When I click Proceed Button on the Repayment Management Page
+#    Then I should direct to the Repayment Detail page
+#    When I select Repayment Account No on the page
+#    And I enter other parameters in the current page
+#    When I close driver

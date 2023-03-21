@@ -109,4 +109,13 @@ public class createBuyerCreditFile_page extends PageObject {
 
     @FindBy(xpath = "//td[@data-key=\"f103l7h9\"]//span[@data-key=\"f1bkanph\"]//i")
     public List<WebElementFacade> buyerSubmitList;
+
+    @FindBy(xpath = "//label[text()='Company']/following-sibling::div//input")
+    public WebElementFacade companyNameInput;
+
+    @FindBy(xpath = "//label[text()='Company']")
+    public WebElementFacade companyBtn;
+
+    @FindBy(xpath = "//tbody//span[text()='Under Credit Review']")
+    public WebElementFacade buyerCreditFileStatus;
 }

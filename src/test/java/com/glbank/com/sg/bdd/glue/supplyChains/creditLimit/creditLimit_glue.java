@@ -53,8 +53,7 @@ public class creditLimit_glue {
     @When("^I click Completed Button on the UnderWriting Approval page$")
     public void iClickCompletedButtonOnTheUnderWritingApprovalPage() {
         creditLimit_step.clickCompletedBtn();
-        bddUtil.sleep(5);
-        bddUtil.quitDriver();
+        bddUtil.sleep(3);
     }
 
     @When("^I click Result button on the UnderWriting Approval page$")
@@ -202,7 +201,7 @@ public class creditLimit_glue {
     }
 
     @Then("^I should see the uploaded historical documents$")
-    public void iShouldSeeTheUploadedHistoricalDocuments() {
+    public void iShouldSeeTheUploadedHistoricalDocuments() throws Exception{
         creditLimit_step.assertUploadExcel();
     }
 
