@@ -72,7 +72,7 @@ Feature: Sanity Pack SCF UAT Test Case
   Scenario:Simple (core does not exist, non autonomous, no administrator)_UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
+    And I click Create Customer and fill in the supplier information in the pop-up window buyer
       |KYC Mode    |Input by|Customer Type|
       |Simple KYC  |Operator|Buyer        |
     Then I Check to see if you jump to the Authorized Person page

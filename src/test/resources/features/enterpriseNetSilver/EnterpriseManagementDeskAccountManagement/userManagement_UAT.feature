@@ -3,7 +3,7 @@ Feature: userManagements
 
 #  @ChangingMobilePhoneNumber
 #    修改手机号
-  @userManagement123_UAT
+  @Changing_Mobile_Number_UAT
   Scenario:Process for modifying user information_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When I click on the Enterprise Administration as well user administration
@@ -14,7 +14,7 @@ Feature: userManagements
     When I initiate captcha verification
 
 
-  @newUsers_UAT
+  @add_user_Operation_Flow_UAT
 #    新增用户
   Scenario:Add the user operation flow_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
@@ -32,7 +32,7 @@ Feature: userManagements
     When The program is finished I will release the Linux SSH connection
 
 
-  @stopUser_UAT
+  @stop_User_Operation_Flow_UAT
 #    停止用户
   Scenario:Stop the user operation flow_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
@@ -47,7 +47,7 @@ Feature: userManagements
 
 
 
-   @startUser_UAT
+  @start_User_Operation_Flow_UAT
 #    启动用户
   Scenario:Start the user operation flow_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
@@ -60,7 +60,7 @@ Feature: userManagements
     Then End the deals
 
 
-  @UserCancellation_UAT
+  @User_Cancellation_UAT
 #    用户注销
   Scenario:Process for querying the New users_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver

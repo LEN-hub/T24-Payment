@@ -3,7 +3,7 @@
 Feature: Health Check SCF SIT Test Case
 
     #1.T24系统Health Check
-  @T24_Health_Check_UAT1
+  @T24_Health_Check_UAT
   Scenario:SCF to T24 UAT
     Given logon "scf_environments_1_yang" on tube by inputting system
     When I enter the Rating&Limits page

@@ -1,7 +1,8 @@
 @loanApplication
 Feature: loan application
 
-  @loanApplication0
+  @loan_Application_Micro_Current_Overdraft_UAT
+    #微型活期透支
   Scenario:Select "≤1,000,000" for "Corporate Turnover (SGD)", select "Current Assets Loan" for the loan type, select the guarantor: Director, select the duration of the financial report: six months, enter the application amount: 10,000 Singapore dollars, "Micro Current "Overdraft" product loan application successful
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I hover over the loan business
@@ -24,7 +25,7 @@ Feature: loan application
     When I click next button on the upLoadFile page
 
 
-    @loanApplication1
+  @loan_Application_Overdraft_UAT
     Scenario:Select “>1,000,000 and ≤ 20,000,000” for “Corporate Turnover (SGD)”, “Current Asset Loan” for the loan type, select collateral: real estate, select guarantor: personal guarantee-director; input the loan amount: 200,000; "Overdraft" product loan application successful
 #     活期透支
       Given logon "INB-automation-SIT-login" on enterprise net silver
@@ -44,7 +45,7 @@ Feature: loan application
       When I upload the five required documents
       When I click next button on the upLoadFile page
 
-    @loanApplication2
+  @loan_Application_Collection_Financing_UAT
     Scenario:Select “>1,000,000 and ≤20,000,000” for “Corporate Turnover (SGD)”, select “Current Asset Loan” for the loan type, select the collateral: real estate, select the guarantor: personal guarantee - two directors, input the loan amount: 200,000; 30-Day Accounts Receivable Financing Product Loan Application Successful (Loan Currency Selection: USD)
 #     收账融资
       Given logon "INB-automation-SIT-login" on enterprise net silver
@@ -70,7 +71,7 @@ Feature: loan application
       When I upload the five required documents
       When I click next button on the upLoadFile page
 
-  @loanApplication3
+  @loan_Application_Fixed_Asset_UAT
   Scenario:Select “>1,000,000 and ≤20,000,000” for “Corporate Turnover (SGD)”, select “Fixed Assets Loan” for the loan type, select the guarantor: Corporate Guarantee - a corporate shareholder, input the loan amount: 1.2 million; 1-year new auto financing product successful loan application
 #    固定资产
     Given logon "INB-automation-SIT-login" on enterprise net silver
@@ -93,7 +94,7 @@ Feature: loan application
 
 
 #    贷款支用。无授权
-  @loanApplication4
+  @Loan_Drawdown-SGD
   Scenario:Accounts Payable Financing Loan Draw Application Process
     Given logon "INB-automation-SIT-login" on enterprise net silver
     When I click the loan draw button
@@ -111,8 +112,8 @@ Feature: loan application
 #    Then I should see Submitted successfully page
 
 
-  @loanApplication5
-  Scenario:2Accounts Payable Financing Loan Disbursement Application Process (The payment currency is USD, no review is required)
+  @Loan_Drawdown-USD
+  Scenario:Accounts Payable Financing Loan Disbursement Application Process (The payment currency is USD, no review is required)
     Given logon "INB-automation-SIT-login" on enterprise net silver
     When I click the loan draw button
     When I choose a product type to fill in the information
@@ -170,7 +171,7 @@ Feature: loan application
 
 
 #    还款。
-    @loanApplication7
+    @Loan_Repayment_SGD
 Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: SGD, product term: 30 days), the repayment is successful
       Given logon "INB-automation-SIT-login" on enterprise net silver
       When I click the loan Manage ment Button
@@ -180,7 +181,7 @@ Scenario:For accounts receivable financing products, the repayment date is 5 day
 #      When I typed TC Code and click Authenticate Now
 #      Then I should see Submitted successfully page
 
-#    @loanApplication48
+#        @Loan_Repayment_USD
 # Scenario:For accounts receivable financing products, the repayment date is 5 days after the current date, within 1 month, if it does not exceed the due date, and it is fully settled in advance (loan currency: USD, product term: 30 days), the repayment is successful
 #      Given logon "INB-automation-SIT-login" on enterprise net silver
 #      When I click the loan Manage ment Button

@@ -1,7 +1,7 @@
 @openAccountTrack1
 Feature: openAccount_track1
 
-  @testcodeNewTrack123
+  @OpenAccount_Track1_Single_SGD
     #正常开户新流程——单币种账户——新币
   Scenario:openAccount_track1 Singapore enterprise_SGD
     Given open "INB-automation-SIT-login" enterprise net silver page
@@ -19,7 +19,7 @@ Feature: openAccount_track1
     When I enter information in Step 8 and jump to the next step
     When I enter information in Step 9 and jump to the next step
 
-  @testcodeNewTrack2
+  @OpenAccount_Track1_Single_USD
     #正常开户新流程——单币种账户——美元
   Scenario:openAccount_track1 Singapore enterprise_USD
     Given open "netSilverEnv_Kevin_Payment" enterprise net silver page

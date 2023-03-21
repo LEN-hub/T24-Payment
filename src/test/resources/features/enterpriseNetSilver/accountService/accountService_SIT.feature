@@ -1,7 +1,7 @@
 @accountService_SIT
 Feature: accountService
   @accountService_SIT01
-  Scenario:process for uerying the account list_SIT
+  Scenario:process for querying the account list_SIT
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When click the Account Details menu in the account
   @accountService_SIT02

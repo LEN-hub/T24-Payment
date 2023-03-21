@@ -1,6 +1,6 @@
 @openAccountNew
 Feature: openAccount_track3
-  @testcodeNew
+  @OpenAccount_Track3_Single_SGD
     #正常开户新流程——单币种账户——新币
   Scenario:openAccountNew Singapore enterprise Track3
     Given open "INB-automation-SIT-login" enterprise net silver page
@@ -15,7 +15,7 @@ Feature: openAccount_track3
     When I enter the back tube for authorization
     When I enter the mailbox
 
-  @testcodeNew
+  @OpenAccount_Track3_Single_USD
     #正常开户新流程——单币种账户——新币
   Scenario:openAccountNew Singapore enterprise
     Given open "netSilverEnv_Kevin_SIT" enterprise net silver page

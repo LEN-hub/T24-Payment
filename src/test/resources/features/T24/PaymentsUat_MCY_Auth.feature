@@ -2,7 +2,7 @@
 Feature: receipt and payment service
 
 #本人互转
-  @MCY01Auth
+  @Payment_Own_Transfer_MCY_Auth_USD-SGD_UAT
    #USD->SGD
   Scenario:I have successfully changed us dollars into Singapore dollars and T24(MCY)_UAT
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
@@ -45,7 +45,7 @@ Feature: receipt and payment service
       |search content|user Authorize               |WordPath   |
       |FOREX         |T24-automation-UAT-login-Auth|USD-SGD MCY|
 
-  @MCY02
+  @Payment_Own_Transfer_MCY_Auth_SGD-USD_UAT
   #SGD->USD
   Scenario:I have successfully transferred from Singapore currency to US dollar(MCY)_UAT
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
@@ -86,7 +86,9 @@ Feature: receipt and payment service
     When I type FOREX in the search box use to authorize the operationToLocalPayment
       |search content|user Authorize               |WordPath   |
       |FOREX         |T24-automation-UAT-login-Auth|SGD-USD MCY|
-  @MCY03
+
+
+  @Payment_Own_Transfer_MCY_Auth_SGD-SGD_UAT
    #SGD->SGD
   Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process(MCY)_UAT
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
@@ -114,7 +116,7 @@ Feature: receipt and payment service
     Then I will map the page data
       |WordPath   |
       |SGD-SGD MCY|
-  @MCY04
+  @Payment_Own_Transfer_MCY_Auth_USD-USD_UAT
     #USD->USD
   Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow(MCY)_UAT
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
@@ -141,7 +143,8 @@ Feature: receipt and payment service
     Then I will map the page data
       |WordPath   |
       |USD-USD MCY|
-  @MCY05
+
+  @Payment_Local_Fund_Transfer_MCY_Auth_MEPS/FAST/PayNow_UAT
     #境内转账-行内转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)(MCY)_UAT
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
@@ -185,7 +188,7 @@ Feature: receipt and payment service
       |Local Payment SGD-SGD|Local Payment SGD-SGD MCY|
 
     #境外转账
-  @MCY06
+  @Payment_Overseas_Transfer_MCY_Auth_USD-USD_UAT
   Scenario:Positive process of overseas transfer Bic Is DBS(USD--USD)(MCY)_UAT
     Given logon second "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
@@ -243,7 +246,7 @@ Feature: receipt and payment service
       |Bic is DBS USD-USD MCY|Bic is DBS USD-USD MCY|
 
       #境外转账
-  @MCY07
+  @Payment_Overseas_Transfer_MCY_Auth_SGD-USD_UAT
   Scenario:Positive process of overseas transfer Bic Is DBS(SGD--USD)(MCY)_UAT
     Given logon second "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
@@ -304,7 +307,7 @@ Feature: receipt and payment service
       |FOREX         |T24-automation-UAT-login-Auth|Bic is DBS SGD-USD MCY|
 
 
-  @MCY08
+  @Payment_Overseas_Transfer_MCY_Auth_USD-SGD_UAT
   Scenario:Positive process of overseas transfer Bic Is DBS(USD--SGD)(MCY)_UAT
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
@@ -363,7 +366,7 @@ Feature: receipt and payment service
       |search content|user Authorize               |WordPath              |
       |FOREX         |T24-automation-UAT-login-Auth|Bic is DBS USD-SGD MCY|
 
-  @MCY09
+  @Payment_Overseas_Transfer_MCY_Auth_SGD-SGD_UAT
   Scenario:Positive process of overseas transfer Bic Is DBS(SGD--SGD)(MCY)_UAT
     Given logon second "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account

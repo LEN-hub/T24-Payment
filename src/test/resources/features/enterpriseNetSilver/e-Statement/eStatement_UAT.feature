@@ -1,7 +1,7 @@
 @e-Statement_UAT
 Feature: e-Statement
 
-  @ext123_UAT
+  @Download_e-Statement_file_Successfully_UAT
   Scenario:Download e-Statement file successfully_UAT
 #    Given Closing the Browser driver
     Given logon "netSilverEnv_Kevin" on enterprise net silver
@@ -18,7 +18,7 @@ Feature: e-Statement
 #    When I see My Downloads List
 
 
-  @ext123test122_UAT
+  @Download_Past_e-Statement_file_Successfully_UAT
 Scenario:Download past e-statements successfully_UAT
   Given logon "netSilverEnv_Kevin" on enterprise net silver
   When I click My Downloads Btn
@@ -34,7 +34,7 @@ Scenario:Download past e-statements successfully_UAT
 #    When I see My Downloads List
 
 
-  @ext123test_UAT
+  @Download_Electronic_Notice_Successfully_UAT
 Scenario:Download the electronic notice and successfully generate the download task_UAT
   Given logon "netSilverEnv_Kevin" on enterprise net silver
   When I click My Downloads Btn

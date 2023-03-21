@@ -1,7 +1,7 @@
 @Sanity_Pack_INB_SIT
 
 Feature: Sanity Pack INB SIT Test Case
-
+  @sanity_pack_Overseas_Fund_Transfer_SGD_USD_SIT
  #境外转账
   Scenario:Overseas fund transfer SGD-USD
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
@@ -61,6 +61,7 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath           |
       |AA Arrangement - SIT GLDB|Bic is DBS SGD-USD |
 
+  @sanity_pack_Overseas_Fund_Transfer_USD_SGD_SIT
   Scenario:Overseas fund transfer USD-SGD
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
@@ -119,7 +120,7 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath           |
       |AA Arrangement - SIT GLDB|Bic is DBS USD-SGD |
 
-
+  @sanity_pack_Overseas_Fund_Transfer_SGD_SGD_SIT
   Scenario:Overseas fund transfer SGD-SGD
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
@@ -172,7 +173,7 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath           |
       |AA Arrangement - SIT GLDB|Bic is DBS SGD-SGD |
 
-
+  @sanity_pack_Overseas_Fund_Transfer_USD_USD_SIT
   Scenario:Overseas fund transfer USD-USD
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
@@ -225,20 +226,25 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath           |
       |AA Arrangement - SIT GLDB|Bic is DBS USD-USD |
 
-  Scenario:FAST transfer method, new currency to new currency positive process (unauthorized transfer)
+    #FAST转账方式，新币转新币正流程（无授权通过）预约转账
+  @sanity_pack_Local_Fund_Transfers_Fast_Appointment_Transfer_SIT
+  Scenario:FAST transfer method, SGD to SGD positive process (unauthorized transfer)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date      |bank name            |transfer type|recurring transfer|date type|
       |11010002414 |11552636365|15/03/2024|BANK OF CHINA LIMITED|Fast         |No                |Weekly   |
 
-
-  Scenario:FAST transfer method, where the new currency is transferred to the new currency in a positive process (without authorization).
+    #FAST转账方式，新币转新币正流程（无授权通过）周期转账
+  @sanity_pack_Local_Fund_Transfers_Fast_Periodic_Transfer_SIT
+  Scenario:FAST transfer method, where the SGD is transferred to the SGD in a positive process (without authorization).
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date      |bank name            |transfer type|recurring transfer|date type|
       |11010002414 |11552636365|15/03/2024|BANK OF CHINA LIMITED|Fast         |Yes               |Weekly   |
 
-  Scenario:FAST transfer method, new currency to new currency positive process (without authorization)
+  @sanity_pack_Local_Fund_Transfers_Fast_SGD_SGD_SIT
+    #FAST转账方式，新币转新币正流程（无授权通过）
+  Scenario:FAST transfer method, SGD to SGD positive process (without authorization)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date    |bank name            |transfer type|recurring transfer|date type|
@@ -260,7 +266,9 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath                   |
       |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
 
-  Scenario:FAST transfer method, the new currency to new currency positive process (without authorization) choose GLDB Bank
+  @sanity_pack_Local_Fund_Transfers_Fast_SGD_SGD_Choose_GLDB_SIT
+    #FAST转账方式，新币转新币正流程（无授权通过）选择绿联银行
+  Scenario:FAST transfer method, the SGD to SGD positive process (without authorization) choose GLDB Bank
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date    |bank name                      |transfer type|recurring transfer|date type|
@@ -282,20 +290,25 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath                   |
       |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
 
-  Scenario:MEPS transfer method, new currency to new currency positive process (unauthorized transfer)
+  @sanity_pack_Local_Fund_Transfers_MEPS_SGD_SGD_Appointment_Transfer_SIT
+    #MEPS转账方式，新币转新币正流程（无授权通过）预约转账
+  Scenario:MEPS transfer method, SGD to SGD positive process (unauthorized transfer)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date      |bank name            |transfer type|recurring transfer|date type|
       |11010002414 |11552636365|15/03/2024|BANK OF CHINA LIMITED|Meps         |No                |Weekly   |
 
-
-  Scenario:MEPS transfer method, where the new currency is transferred to the new currency in a positive process (without authorization).
+  @sanity_pack_Local_Fund_Transfers_MEPS_SGD_SGD_Periodic_Transfer_SIT
+    #MEPS转账方式，新币转新币正流程（无授权通过）周期转账
+  Scenario:MEPS transfer method, where the SGD is transferred to the SGD in a positive process (without authorization).
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date      |bank name            |transfer type|recurring transfer|date type|
       |11010002414 |11552636365|15/03/2024|BANK OF CHINA LIMITED|Meps         |Yes               |Weekly   |
 
-  Scenario:MEPS transfer method, new currency to new currency positive process (without authorization)
+  @sanity_pack_Local_Fund_Transfers_MEPS_SGD_SGD_SIT
+    #MEPS转账方式，新币转新币正流程（无授权通过）
+  Scenario:MEPS transfer method, SGD to SGD positive process (without authorization)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date    |bank name            |transfer type|recurring transfer|date type|
@@ -317,7 +330,9 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath                   |
       |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
 
-  Scenario:UEN the process of converting new currency to new currency (without authorization)
+  @sanity_pack_Local_Fund_Transfers_UEN_SGD_SGD_SIT
+    #UEN, 新币转新币正流程（无授权通过）
+  Scenario:UEN the process of converting SGD to SGD (without authorization)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date    |bank name            |transfer type|PayNow Module|PayNow Content|recurring transfer|date type|
@@ -339,7 +354,9 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath                   |
       |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
 
-  Scenario:VPA the process of converting new currency to new currency (without authorization)
+  @sanity_pack_Local_Fund_Transfers_VPA_SGD_SGD_SIT
+    #VPA 新币转新币正流程（无授权通过）
+  Scenario:VPA the process of converting SGD to SGD (without authorization)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date    |bank name            |transfer type|PayNow Module|PayNow Content         |recurring transfer|date type|
@@ -361,7 +378,9 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath                   |
       |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
 
-  Scenario:Mobile the process of converting new currency to new currency (without authorization)
+  @sanity_pack_Local_Fund_Transfers_Mobile_SGD_SGD_SIT
+    #Mobile 新币转新币正流程（无授权通过）
+  Scenario:Mobile the process of converting SGD to SGD (without authorization)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date    |bank name            |transfer type|PayNow Module|PayNow Content |recurring transfer|date type|
@@ -383,7 +402,9 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath                   |
       |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
 
-  Scenario:NRIC the process of converting new currency to new currency (without authorization)
+  @sanity_pack_Local_Fund_Transfers_NRIC/FIN_SGD_SGD_SIT
+    #NRIC/FIN 新币转新币正流程（无授权通过）
+  Scenario:NRIC the process of converting SGD to SGD (without authorization)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer Fast transfer succeeded and the transaction email was received
       |from account|to account |date    |bank name            |transfer type|PayNow Module|PayNow Content |recurring transfer|date type|
@@ -405,8 +426,8 @@ Feature: Sanity Pack INB SIT Test Case
       |windows Title            |WordPath                   |
       |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
 
-     #本人互转
-  @localPaymentSGDToSGD
+     #本人互转交易正常
+  @sanity_pack_Transfers_Within_My_Green_Link_Accounts_SGD_SGD_SIT
   Scenario:Local Payment Data Mapping FX Payment (SGD->SGD)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I fill in the transfer information on the page
@@ -414,6 +435,7 @@ Feature: Sanity Pack INB SIT Test Case
       |11010002414  |11010002430  |
     Then I checked the transfer success in My transactions
 
+    @sanity_pack_Fixed_Deposit_One_Month_SIT
 # SGD单币种账户买入1个月不转存定期正流程（无授权）
   Scenario:SGD single-currency account is purchased for one month, and it is not transferred to regular positive process (without authorization)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
@@ -423,7 +445,8 @@ Feature: Sanity Pack INB SIT Test Case
       |1101 0000 470       |11010000438 |250000 |1 Month |1                    |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
 
-#成功展示eStatement数据
+  @sanity_pack_View_eStatement_SIT
+#eStatements可以正常查看
   Scenario:Successfully displayed eStatement data
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click My Downloads Btn
@@ -434,6 +457,8 @@ Feature: Sanity Pack INB SIT Test Case
     And I click search button
     Then I should see Account List
 
+
+  @sanity_pack_Download_Eadvice_Data_SIT
     #成功下载eadvice数据
   Scenario:EAdivce can be downloaded normally
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
@@ -442,24 +467,35 @@ Feature: Sanity Pack INB SIT Test Case
     When I click select button on the View eAdvices page
     When I click first data to download on the view eAdvices page
 
+
+    @sanity_pack_My_Transactions_Query_Success_SIT
+    #My Transactions查询交易成功
   Scenario: My Transactions query transaction succeeded
   Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When Successful presentation of transaction history
 
+    @sanity_pack_Manage_Alert/Notification_Query_Normally_SIT
+    #Manage alert/notification可以正常查询
   Scenario: Manage alert/notification can query normally
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When Successfully demonstrated Bank Announcement
 
+    @sanity_pack_Templete_Download_Normally_SIT
+    #templete可以正常下载
   Scenario: Templete can be downloaded normally
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click My Downloads Btn
     When Templete can be downloaded normally
 
-  Scenario: INB to SCF
+
+    @sanity_pack_Jump_To_SCF_SIT
+    #jump to SCF
+  Scenario: jump to SCF
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When jump to SCF
 
-    #    CA账户SGD开立
+    @sanity_pack_Add_Single_Currency_SIT
+    #新增单个币种正流程
   Scenario:Add single currency is a positive process
     Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
     When I click on the Enterprise Administration Desk and select Account Management
@@ -470,6 +506,8 @@ Feature: Sanity Pack INB SIT Test Case
     When I select account permissions
     When Vkey authorization for Payment transactions in the SIT environment
 
+
+    @sanity_pack_Add_MCA_Currency_SIT
     #  MCA账户,默认选择SGD，SGD+USD开立
   Scenario:Add multi-currency positive process
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
@@ -481,6 +519,7 @@ Feature: Sanity Pack INB SIT Test Case
     When I select account permissions
     When Vkey authorization for Payment transactions in the SIT environment
 
+    @sanity_pack_Payment_Add_New_Payee_SIT
     #Payment add a new payee
   Scenario:Add a new payee click modify to modify successfully
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
@@ -492,6 +531,8 @@ Feature: Sanity Pack INB SIT Test Case
     Then Add successfully and click modify to modify successfully
     When Vkey authorization for Payment transactions in the SIT environment
 
+
+    @sanity_pack_Payment_Payees_Delete_SIT
     #Payment payees delete
   Scenario:Add a new payee click delete to delete successfully
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
@@ -503,40 +544,49 @@ Feature: Sanity Pack INB SIT Test Case
     When Delete new payees data
     When Vkey authorization for Payment transactions in the SIT environment
 
+   @sanity_pack_PayNow_Signing_Process_SIT
       #PayNow签约
   Scenario:PayNow Signing Process
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I execute manage PayNow Profile transaction on the page
     When Vkey authorization for Payment transactions in the SIT environment
 
+    @sanity_pack_PayNow_Signing_Off_SIT
    #PayNow解约
   Scenario:PayNow Signing Off
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I sign and cancel the transaction on the page
     When Vkey authorization for Payment transactions in the SIT environment
 
+    @sanity_pack_Check_Account_List_Local_Fund_Transfer_SIT
   #check 账户列表Local fund transfer 可用
     Scenario: Account list SGD query positive process
       Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
       When Query of account list information succeeded
 
+  @sanity_pack_Check_Account_List_Local_Fund_Transfer_Available_SIT
   #check 账户列表Local fund transfer 可用
   Scenario: Check account list Local fund transfer is available
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When Check account list Local fund transfer is available
 
+
+  @sanity_pack_Fixed_Deposits_Overview_Jump_Place_Fixed_Deposit_SIT
   #Fixed Deposits overview跳转Place Fixed Deposit
   Scenario:Fixed Deposits overview jump Place Fixed Deposit
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When click Fixed Deposits First menu
     Then Fixed Deposits overview jump Place Fixed Deposit
 
+
+  @sanity_pack_Fixed_Deposits_View_Details_SIT
       #Fixed Deposits view details查看详情
   Scenario:Fixed Deposits view details view details
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When click Fixed Deposits First menu
     When Fixed Deposits view details view details
 
+  @sanity_pack_Change_Password_Login_Success_SIT
    #Change Password后可以正常登录
   Scenario:You can log in normally after changing password
     Given logon "INB-automation-SIT-change-password" in SIT environment and change password
@@ -547,6 +597,7 @@ Feature: Sanity Pack INB SIT Test Case
     Then Password modified successfully check the status
     Given logon "INB-automation-SIT-change-password" in SIT environment and change password
 
+  @sanity_pack_Download_XLS_CSV_XLSX_SIT
     #选择Extract audit logs,分别点击download下的xls格式、csv格式、xlsx格式
   Scenario: Audit logs in three formats were downloaded successfully
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
@@ -554,6 +605,7 @@ Feature: Sanity Pack INB SIT Test Case
       |transaction type|
       |Login           |
 
+  @sanity_pack_View_Operation_Log_SIT
     #可查看到当前用户和该客户号下其他用户的操作日志
   Scenario: You can view the operation logs of the current user and other users under this customer number
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
@@ -561,6 +613,7 @@ Feature: Sanity Pack INB SIT Test Case
       |transaction type|
       |Login           |
 
+  @sanity_pack_Modify_Mobile_Number_SIT
     #修改用户手机号、用户权限，账号权限，用户对网银功能的权限
   Scenario:Modify the user's mobile phone number
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
@@ -569,7 +622,3 @@ Feature: Sanity Pack INB SIT Test Case
       |emailAddress         |
       |bg@263.net           |
     When Vkey authorization for Payment transactions in the SIT environment
-
-  Scenario: jump to SCF
-    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
-    When jump to SCF

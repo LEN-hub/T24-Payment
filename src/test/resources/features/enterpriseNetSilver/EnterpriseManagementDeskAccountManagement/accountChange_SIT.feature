@@ -2,14 +2,14 @@
 Feature: accountChange
 
 
-  @ModifyingAccountRights_SIT
+  @Modifying_Account_Rights_SIT
 #    账户修改
   Scenario:Modify the enterprise management console account_SIT
     Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
     When I click on the Enterprise Administration Desk and select Account Management
     When I hit Permissions modify
 
-  @accountOpeningSGD_SIT
+  @account_Opening_SGD_SIT
 #    CA账户SGD开立
   Scenario:Enterprise management console CA account SGD opened_SIT
     Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
@@ -21,7 +21,7 @@ Feature: accountChange
     When I select account permissions
     When Vkey authorization for Payment transactions in the SIT environment
 
-  @accountOpeningUSD_SIT
+  @account_Opening_USD_SIT
     #    CA账户USD开立
   Scenario:Enterprise management console CA account USD opened_SIT
     Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
@@ -76,7 +76,7 @@ Feature: accountChange
 #      |'Multi-Currency Account|
 #    And  I choose the currency to open CNY
 #    When I select account permissions
-  @accountOpeningMCAUSD_SIT
+  @account_OpeningMCA_SGDH&USD_SIT
 #  MCA账户,默认选择SGD，SGD+USD开立
   Scenario:Enterprise management console MCA account USD opened_SIT
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
@@ -194,7 +194,7 @@ Feature: accountChange
 
 
 
-  @deleteCurrency_SIT
+  @delete_Currency_SIT
 #    删除币种
   Scenario:The enterprise management console deletes the currency_SIT
     Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
@@ -206,7 +206,7 @@ Feature: accountChange
     Then I verify that the transaction is successful
 
 
-#  @AuthorizationMode01
+#  @Authorization_Mode_Double_SIT
 ##  授权模式双人
 #  Scenario:Enterprise management desk two-person authorization mode
 #    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
@@ -221,7 +221,7 @@ Feature: accountChange
 #    Then I verify that the transaction is successful
 
 
-#  @AuthorizationMode02
+#  @Authorization_Mode_Single_SIT
 ##  授权模式单人
 #  Scenario:Enterprise management console single-person authorization mode
 #    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
@@ -236,7 +236,7 @@ Feature: accountChange
 #    Then I verify that the transaction is successful
 
 
-#  @AuthorizationMode03
+#  @Unauthorization_Mode_SIT
 ##  无授权模式
 #  Scenario:Enterprise management console in unauthorized mode
 #    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
@@ -249,7 +249,7 @@ Feature: accountChange
 #    When I typed TC Code and click Authenticate Now
 #    Then I verify that the transaction is successful
 #
-#  @LinkAccount
+#  @Link_Account_SIT
 ##    账户加挂，从注册绑定vkey开始跑头开始跑
 #  Scenario:The enterprise management console account is added
 #    Given logon second "netSilverEnv_Kevin2" on enterprise net silver
@@ -259,7 +259,7 @@ Feature: accountChange
 #    When I get the TC code and click Next
 #    When I typed TC Code and click Authenticate Now
 #
-#  @addCurrency
+#  @add_Currency_SIT
 ##    新增币种,注意，此case需要双人管理模式，需要后管设置管理模式，换号授权
 #  Scenario:Enterprise management desk new currency
 #    Given Closing the Browser driver

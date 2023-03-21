@@ -2,7 +2,7 @@
 Feature: T24 Payment transaction
 
   #境外转账
-  @Payment_Overseas_Transfer_SGD-USD_SIT
+  @Payment_Overseas_Transfer_Single_Auth_SGD-USD_SIT
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(SGD->USD)_SIT
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
@@ -30,6 +30,8 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment
       |WordPath           |
       |Bic is DBS SGD-USD |
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath           |
@@ -55,7 +57,7 @@ Feature: T24 Payment transaction
       |search content|user Authorize                 |Name              |
       |FOREX         |T24-automation-SIT-login-Auth|Bic is DBS SGD-USD|
 
-  @Payment_Overseas_Transfer_USD-SGD_SIT
+  @Payment_Overseas_Transfer_Single_Auth_USD-SGD_SIT
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(USD->SGD)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
@@ -83,6 +85,8 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath          |
       |Bic is DBS USD-SGD|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath          |
@@ -110,7 +114,7 @@ Feature: T24 Payment transaction
 #    When Use "T24-automation-SIT-login-Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
-  @Payment_Overseas_Transfer_SGD-SGD_SIT
+  @Payment_Overseas_Transfer_Single_Auth_SGD-SGD_SIT
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(SGD->SGD)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
@@ -138,6 +142,8 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment MX Message
       |WordPath          |
       |Bic is DBS SGD-SGD|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
@@ -160,7 +166,7 @@ Feature: T24 Payment transaction
       |WordPath          |Name              |
       |Bic is DBS SGD-SGD|Bic is DBS SGD-SGD|
 
-  @Payment_Overseas_Transfer_USD-USD_SIT
+  @Payment_Overseas_Transfer_Single_Auth_USD-USD_SIT
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(USD->USD)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
@@ -188,6 +194,8 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment MX Message
       |WordPath          |
       |Bic is DBS USD-USD|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
@@ -244,6 +252,8 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment
       |WordPath          |
       |Bic is UOB SGD-USD|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath          |
@@ -299,6 +309,8 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath          |
       |Bic is UOB USD-SGD|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath          |
@@ -354,6 +366,8 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment MX Message
       |WordPath          |
       |Bic is UOB SGD-SGD|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
@@ -404,6 +418,8 @@ Feature: T24 Payment transaction
     Then I will compare all the data on FX Payment MX Message
       |WordPath          |
       |Bic is UOB USD-USD|
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
@@ -427,7 +443,7 @@ Feature: T24 Payment transaction
       |Bic is UOB USD-USD|Bic is UOB USD-USD|
 
     #本人互转
-  @Payment_Own_Transfer_SGD-SGD_SIT
+  @Payment_Own_Transfer_Single_Auth_SGD-SGD_SIT
   Scenario:Local Payment Data Mapping FX Payment (SGD->SGD)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
@@ -438,6 +454,8 @@ Feature: T24 Payment transaction
     Then My account has been transferred successfully
       |WordPath                  |
       |Internal Transfer SGD-SGD |
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath                  |
@@ -449,7 +467,7 @@ Feature: T24 Payment transaction
       |WordPath                  |
       |Internal Transfer SGD-SGD |
 
-  @Payment_Own_Transfer_USD-USD_SIT
+  @Payment_Own_Transfer_Single_Auth_USD-USD_SIT
   Scenario:Local Payment Data Mapping FX Payment (USD->USD)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
@@ -460,6 +478,8 @@ Feature: T24 Payment transaction
     Then My account has been transferred successfully
       |WordPath                  |
       |Internal Transfer USD-USD |
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath                  |
@@ -471,7 +491,7 @@ Feature: T24 Payment transaction
       |WordPath                  |
       |Internal Transfer USD-USD |
 
-  @Payment_Own_Transfer_USD-SGD_SIT
+  @Payment_Own_Transfer_Single_Auth_USD-SGD_SIT
   Scenario:Local Payment Data Mapping FX Payment (USD->SGD)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
@@ -482,6 +502,8 @@ Feature: T24 Payment transaction
     Then My account has been transferred successfully To Local Payment
       |WordPath                  |
       |Internal Transfer USD-SGD |
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath                  |
@@ -509,7 +531,7 @@ Feature: T24 Payment transaction
 #    When Use "T24-automation-SIT-login-Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
-  @Payment_Own_Transfer_SGD-USD_SIT
+  @Payment_Own_Transfer_Single_Auth_SGD-USD_SIT
   Scenario:Local Payment Data Mapping FX Payment (SGD->USD)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
@@ -520,6 +542,8 @@ Feature: T24 Payment transaction
     Then My account has been transferred successfully To Local Payment
       |WordPath                  |
       |Internal Transfer SGD-USD |
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath                  |
@@ -547,7 +571,7 @@ Feature: T24 Payment transaction
 #    When Use "T24-automation-SIT-login-Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
-  @Payment_Local_Fund_Transfer_MEPS/FAST/PayNow_SIT
+  @Payment_Local_Fund_Transfer_Single_Auth_MEPS/FAST/PayNow_SIT
     #境内转账-跨行转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
@@ -562,6 +586,8 @@ Feature: T24 Payment transaction
     Then I will compare all the data on same Currency Payment
       |WordPath                   |
       |Local Fund Payment SGD-SGD |
+    Given logon "netSilverEnv_Kevin_SIT2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                   |

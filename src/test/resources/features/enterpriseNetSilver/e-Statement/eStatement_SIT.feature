@@ -1,7 +1,7 @@
 @e-Statement_SIT
 Feature: e-Statement
 
-  @ext123_SIT
+  @Download_e-Statement_file_Successfully_SIT
   Scenario:Download e-Statement file successfully_SIT
 #    Given Closing the Browser driver
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
@@ -18,7 +18,7 @@ Feature: e-Statement
 #    When I see My Downloads List
 
 
-  @ext123test122_SIT
+  @Download_Past_e-Statement_file_Successfully_SIT
   Scenario:Download past e-statements successfully_SIT
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click My Downloads Btn
@@ -34,7 +34,7 @@ Feature: e-Statement
 #    When I see My Downloads List
 
 
-  @ext123test_SIT
+  @Download_Electronic_Notice_Successfully_SIT
   Scenario:Download the electronic notice and successfully generate the download task_SIT
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click My Downloads Btn

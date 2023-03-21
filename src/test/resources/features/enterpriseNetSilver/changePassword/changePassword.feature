@@ -20,7 +20,7 @@ Feature: changePassword
 
 #    When I input other information on the forgotPassword page
 
-  @forgotPassWordIDCard123
+  @forgot_Pass_Word_IDCard_UAT
   Scenario:idCard Forgot password users log in normally after resetting their passwords
     Given open "netSilverEnvTian" on enterprise net silver
     When I click forgotPassword button
