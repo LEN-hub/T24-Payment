@@ -544,6 +544,18 @@ Feature: Sanity Pack INB SIT Test Case
     When Delete new payees data
     When Vkey authorization for Payment transactions in the SIT environment
 
+  @sanity_pack_Payment_Modify&Transfer_Payee_SIT
+    #Payment modify payee and transfer
+  Scenario:Modify payee and Transfer successfully
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Select Payments and click manage payments
+    When Add a new payee in Payees
+      |payee bank           |
+      |BANK OF CHINA LIMITED|
+    When Vkey authorization for Payment transactions in the SIT environment
+    Then Add successfully and click modify to modify successfully
+    When Vkey authorization for Payment transactions in the SIT environment
+
    @sanity_pack_PayNow_Signing_Process_SIT
       #PayNow签约
   Scenario:PayNow Signing Process

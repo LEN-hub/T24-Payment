@@ -90,6 +90,9 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class='iddbox need-scrollbar']//input")
     public WebElementFacade clickTrack3ContryCode;
 
+    @FindBy(xpath = "//div[contains(text(),'Contact Number')]/parent::label/following-sibling::div/div/div[1]//input")
+    public WebElementFacade clickContactNumberFirstCountry;
+
     @FindBy(xpath = "//div[@class='ui-container-full__body']//form[2]//label[@for='salutation']//following-sibling::div//input")
     public WebElementFacade selectSalutation;//第二个人信息。
 
