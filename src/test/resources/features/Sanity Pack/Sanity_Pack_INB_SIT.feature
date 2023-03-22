@@ -555,6 +555,62 @@ Feature: Sanity Pack INB SIT Test Case
     When Vkey authorization for Payment transactions in the SIT environment
     Then Add successfully and click modify to modify successfully
     When Vkey authorization for Payment transactions in the SIT environment
+    When Click the transfer button on the page to jump to the transfer page
+    When Enter information on the transfer details page
+      |Payee's Bank           |Payee's Account Number|Purpose of Transfer |From Account  |Payment Type|PayNow Type|PayNow Content|
+      |BANK OF CHINA LIMITED  |11552636365           |Business Expenses   |1101 0002 414 |FAST        |VPA        |UEN123321001  |
+    When I click next button on the domestic transfer bank page
+    Then I verify the information on the next page
+    When I click Next to go to the verification page
+    When If the transfer failure window pops up I will click the continue button
+    When Vkey authorization for Payment transactions in the SIT environment
+
+  @sanity_pack_Payment_Transfer_Payee_SIT
+  #Payment transfer payee
+  Scenario:Transfer payee successfully
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Select Payments and click manage payments
+    When Click the Transfer button on the page
+    When Enter information on the transfer details page
+      |Payee's Bank           |Payee's Account Number|Purpose of Transfer |From Account  |Payment Type|PayNow Type|PayNow Content|
+      |BANK OF CHINA LIMITED  |11552636365           |Business Expenses   |1101 0002 414 |FAST        |VPA        |UEN123321001  |
+    When I click next button on the domestic transfer bank page
+    Then I verify the information on the next page
+    When I click Next to go to the verification page
+    When If the transfer failure window pops up I will click the continue button
+    When Vkey authorization for Payment transactions in the SIT environment
+
+  @sanity_pack_PayNow_Signing_Process_Transfer_SIT
+      #PayNow签约+Paynow转账
+  Scenario:PayNow Signing Process and Transfer
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I execute manage PayNow Profile transaction on the page
+    When Vkey authorization for Payment transactions in the SIT environment
+    When I got PayNow Proxy ID in the signing details
+    When Use the PayNow Proxy ID after successful signing to transfer Paynow
+     |Purpose of Transfer |From Account  |Payment Type|PayNow Type|
+     |Business Expenses   |1101 0002 414 |PayNow      |UEN        |
+    When I click next button on the domestic transfer bank page
+    Then I verify the information on the next page
+    When I click Next to go to the verification page
+    When If the transfer failure window pops up I will click the continue button
+    When Vkey authorization for Payment transactions in the SIT environment
+
+  @sanity_pack_Paynow_Profile_Edit_Transfer_SIT
+      #PayNow签约+Paynow Profile Edit转账
+  Scenario:PayNow Profile Edit Transfer
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I edit manage PayNow Profile transaction on the page
+    When Vkey authorization for Payment transactions in the SIT environment
+    When I got PayNow Proxy ID in the signing details
+    When Use the PayNow Proxy ID after successful signing to transfer Paynow
+      |Purpose of Transfer |From Account  |Payment Type|PayNow Type|
+      |Business Expenses   |1101 0002 414 |PayNow      |UEN        |
+    When I click next button on the domestic transfer bank page
+    Then I verify the information on the next page
+    When I click Next to go to the verification page
+    When If the transfer failure window pops up I will click the continue button
+    When Vkey authorization for Payment transactions in the SIT environment
 
    @sanity_pack_PayNow_Signing_Process_SIT
       #PayNow签约

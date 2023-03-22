@@ -98,7 +98,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='tradeAmont']/following-sibling::div//input")
     public WebElementFacade transferAmount;
 
-    @FindBy(xpath = "//label[@for='tradeAmont']/parent::div/following-sibling::div[1]//span[@class='el-input__suffix-inner']/i")
+    @FindBy(xpath = "//label[@for='tradeAmont']/parent::div/following-sibling::div[1]//span[@class='el-input__suffix-inner']")
     public WebElementFacade tradeAmountPopWindows;
 
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul/li/span")
@@ -740,6 +740,18 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Delete']")
     public WebElementFacade clickDeleteBtn;
 
+    @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Transfer']")
+    public WebElementFacade clickTransferBtn;
+
+    @FindBy(xpath = "//div[@class='el-row']//div[contains(text(),'PayNow Proxy ID')]/following-sibling::div")
+    public WebElementFacade getPayNowProxyId;
+
+    @FindBy(xpath = "//div[text()='View Details']")
+    public WebElementFacade clickViewDetails;
+
+    @FindBy(xpath = "//div[text()='Done']")
+    public WebElementFacade clickDoneBtn;
+
     @FindBy(xpath = "//span[contains(text(),'Yes')]")
     public WebElementFacade clickYesBtn;
 
@@ -775,4 +787,7 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[contains(text(),'Place Fixed Deposit')]")
     public WebElementFacade checkPlaceFixedDepositTitle;
+
+    @FindBy(xpath = "//table[@class='el-table__body']//tr[1]/td[6]//img")
+    public WebElementFacade clickManagePaynowProfileThreePoint;
 }
