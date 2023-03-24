@@ -9,7 +9,7 @@ Feature: test report for scf
     When open the email browser page
 #      And I switch to the SCF page
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
+    And I click Create Customer and fill in the supplier information in the pop-up window to supplier
       |KYC Mode                  |Input by|Customer Type|
       |Full KYC + Account Opening|Customer|Supplier     |
     Then I Check to see if you jump to the Authorized Person page
@@ -71,7 +71,7 @@ Feature: test report for scf
   Scenario:Simple (core does not exist, non autonomous, no administrator)_SIT
     Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
+    And I click Create Customer and fill in the supplier information in the pop-up window to buyer
       |KYC Mode    |Input by|Customer Type|
       |Simple KYC  |Operator|Buyer        |
     Then I Check to see if you jump to the Authorized Person page
@@ -95,11 +95,11 @@ Feature: test report for scf
 
 
      #2.simple（核心不存在、非自主、管理员）
-  @simpleKYC02_SIT
+  @simpleAdmin
   Scenario: Simple (non-existent core, non autonomous, administrator)_SIT1
-    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
+    Given logon "scf_environments_1_tian" on tube by inputting system
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
+    And I click Create Customer and fill in the supplier information in the pop-up window to buyer
       |KYC Mode    |Input by|Customer Type|
       |Simple KYC  |Operator|Buyer        |
     Then I Check to see if you jump to the Authorized Person page
@@ -111,7 +111,7 @@ Feature: test report for scf
       |Result |Customer Type|
       |Approve|Buyer        |
     When I close driver
-    Given logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
+    Given logon "scf_environments_2_tian" on tube by inputting system
     When I authorize on the Onboarding Review page
       |Result |Customer Type|
       |Approve|Buyer        |
@@ -136,7 +136,7 @@ Feature: test report for scf
     When I click agree Service Agreement on simple KYC
     When I click the Confirmation Information button on the page
     When I close driver
-    Given logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
+    Given logon "scf_environments_2_tian" on sit tube by inputting system
     When I click Customers and select Onboarding List
     Then I compare Approved Status on the page
       |Result  |Customer Type|

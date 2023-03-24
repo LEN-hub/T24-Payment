@@ -82,7 +82,7 @@ Feature: tube By Inputting In SIT
   Scenario:Simple (no administrator) -- full (customer)_SIT
     Given logon "scf_sit1" on sit tube by inputting system
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
+    And I click Create Customer and fill in the supplier information in the pop-up window to buyer
       |KYC Mode    |Input by|Customer Type|
       |Simple KYC  |Operator|Buyer        |
     Then I Check to see if you jump to the Authorized Person page
@@ -148,7 +148,7 @@ Feature: tube By Inputting In SIT
   Scenario:Simple (administrator) -- full (customer)_SIT
     Given logon "scf_sit1" on sit tube by inputting system
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
+    And I click Create Customer and fill in the supplier information in the pop-up window to buyer
       |KYC Mode    |Input by|Customer Type|
       |Simple KYC  |Operator|Buyer        |
     Then I Check to see if you jump to the Authorized Person page
@@ -232,7 +232,7 @@ Feature: tube By Inputting In SIT
   Scenario:Simple (no administrator) -- full (customer)_SIT
     Given logon "scf_sit1" on sit tube by inputting system
     When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window
+    And I click Create Customer and fill in the supplier information in the pop-up window to buyer
       |KYC Mode    |Input by|Customer Type|
       |Simple KYC  |Operator|Buyer        |
     Then I Check to see if you jump to the Authorized Person page

@@ -480,14 +480,23 @@ public class creditLimit_step extends ScenarioSteps {
         String href = driver.findElement(By.xpath("//a[text()='Proceed to Digital Sign']")).getAttribute("href");
         webdriver.executeScript("window.open('"+href+"')");
         bddUtil.sleep(5);
-        //获取浏览器句柄，切换标签页
         ArrayList<String> list = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(list.get(1));
+        if (driver.findElement(By.xpath("//body[@id='body']//button[@id='details-button']")).isDisplayed()){
+            driver.findElement(By.xpath("//body[@id='body']//button[@id='details-button']")).click();
+            bddUtil.sleep(2);
+            driver.findElement(By.xpath("//body[@id='body']//a[@id='proceed-link']")).click();
+            bddUtil.sleep(5);
+        }
+        //获取浏览器句柄，切换标签页
+//        ArrayList<String> list = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(list.get(0));
+        bddUtil.sleep(5);
         driver.findElement(By.xpath("//nav[@id='nav']//span[text()='收件箱']")).click();
         //点击OTP验证码邮件
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
         driver.findElement(By.xpath("//div[contains(text(),'Digital Sign OTP')]")).click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(5);
         //获取验证码
         driver.switchTo().frame(driver.findElement(By.xpath("//div[@class='flex justify-between']/following-sibling::div/iframe")));
         String token = driver.findElement(By.xpath("//h5/b")).getText().substring(1,7);
@@ -524,19 +533,27 @@ public class creditLimit_step extends ScenarioSteps {
         bddUtil.sleep(3);
         //点击签约邮件
         driver.findElement(By.xpath("//div[text()='[Green Link Digital Bank] Account Opening - Digital Sign Certified Extract of Board Resolution']")).click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(5);
         //获取签约链接并且在新标签页打开。
         //切入iframe
         driver.switchTo().frame(driver.findElement(By.xpath("//div[@class='flex justify-between']/following-sibling::div/iframe")));
         String href = driver.findElement(By.xpath("//a[text()='Proceed to Digital Sign']")).getAttribute("href");
         webdriver.executeScript("window.open('"+href+"')");
         bddUtil.sleep(5);
-        //获取浏览器句柄，切换标签页
         ArrayList<String> list = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(list.get(1));
+        if (driver.findElement(By.xpath("//body[@id='body']//button[@id='details-button']")).isDisplayed()){
+            driver.findElement(By.xpath("//body[@id='body']//button[@id='details-button']")).click();
+            bddUtil.sleep(2);
+            driver.findElement(By.xpath("//body[@id='body']//a[@id='proceed-link']")).click();
+            bddUtil.sleep(5);
+        }
+        //获取浏览器句柄，切换标签页
         driver.switchTo().window(list.get(0));
+        bddUtil.sleep(4);
         driver.findElement(By.xpath("//nav[@id='nav']//span[text()='收件箱']")).click();
         //点击OTP验证码邮件
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
         driver.findElement(By.xpath("//div[contains(text(),'Digital Sign OTP')]")).click();
         bddUtil.sleep(2);
         //获取验证码
