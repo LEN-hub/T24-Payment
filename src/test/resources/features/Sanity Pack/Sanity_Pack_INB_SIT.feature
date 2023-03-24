@@ -626,6 +626,103 @@ Feature: Sanity Pack INB SIT Test Case
     When I sign and cancel the transaction on the page
     When Vkey authorization for Payment transactions in the SIT environment
 
+   @sanity_pack_AppointmentTransferCycleTransferDisplay
+   #预约转账/周期转账展示成功
+  Scenario: Appointment transfer/cycle transfer display succeeded
+     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+     When Appointment transfer/cycle transfer display succeeded
+        |account number|Status of scheduled payments|
+        |1102 0327 162 |In Progress                 |
+
+  @sanity_pack_CompanyUserAccountsViewDetails
+   #Manage Company Users' Accounts 用户信息，可操作账号，可使用功能展示正确
+  Scenario: Manage Company Users Accounts View Details
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When Manage Company Users Accounts View Details
+
+  @sanity_pack_ManageCompayAccountCancelTransferAuthority
+   #Manage Company's Accounts 取消转账权限
+  Scenario: Manage Company's Accounts Cancel transfer authority
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click on the Enterprise Administration Desk and select Account Management
+    When Manage Company's Accounts Cancel transfer authority
+    When Vkey authorization for Payment transactions in the SIT environment
+    When Cancellation of verification transfer authority succeeded
+      |From Account   |
+      |1101 0003 887  |
+
+    #根据账户限额进行转账交易，转出金额大于账户限额 (未完成)
+  @Payment_Overseas_Transfer_Amount_Greater_Than_Account_Limit
+  Scenario:Make a transfer transaction, and the transferred-out amount is greater than the account limit
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click on overseas transfer payment and select the account
+    When Make a transfer transaction, and the transferred-out amount is greater than the account limit
+      |Account Number|Payment Mode for Charges |
+      |1101 0003 747 |SHA                      |
+    And I choose the payment currency
+      |Currency|
+      |SGD     |
+    When I enter the payee information
+      |Payee's Account Number|Payee's Name|
+      |667812798             |lucky       |
+    When I choose the receiving bank
+      |Beneficiary Bank|
+      |DBSSSGS0DOD     |
+    When I choose the recipient country
+      |Payee's Address |Payee's Country|Comments For Payee|
+      |countries       |UNITED STATES  |ok                |
+    When I choose the nature of payment
+      |Purpose of Transfer|
+      |Commission         |
+    Then I check error information on the page
+
+  @sanity_pack_Track3_Single_Currency_SGD
+    #Track3开户(未完成)
+  Scenario:Track3 opened an account with SGD in single currency. The account was opened successfully
+    Given open "INB-automation-SIT-login" enterprise net silver page
+    When click open Account New page
+    Then New Fill in information "netSilverEnv_OpenAccount" on Getting Started page
+    And Provide Essential Information New
+      |Entity's Type                                  |Entity Consolidated       |Entity's Industry|date      |chekk      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover <= SGD 1 Million |Manufacturing    |01/01/2010|2009117799 |
+    Given logon "environments_5" on tube by inputting system online bank
+    When I into the rear tube Supplementary account opening information
+
+  @sanity_pack_Track1_Single_Currency_SGD
+    #Track1开户(未完成)
+  Scenario:Myinfo opened an account with SGD in single currency, and the account was opened successfully
+    Given open "INB-automation-SIT-login" enterprise net silver page
+    When I enter the myinfo page and complete Step 1 information input
+      |currency|
+      |SGD     |
+    When I open the myinfo Mock and get the bezel information
+      |url|
+      |SIT|
+    When I enter information in Step 3 and jump to the next step
+    When I enter information in Step 4 and jump to the next step
+    When I enter information in Step 5 and jump to the next step
+    When I enter information in Step 6 and jump to the next step
+    When I enter information in Step 7 and jump to the next step
+    When I enter information in Step 8 and jump to the next step
+    When I enter information in Step 9 and jump to the next step
+
+  @sanity_pack_Track2_Single_Currency_SGD
+    #注册国家选择新加坡企业，客户网银在线开户成功（正常客户）（未完成）
+  Scenario:Singapore enterprise was selected as the country of registration, and the online account of the customer's online banking was successfully opened (normal customer).
+    Given open "INB-automation-SIT-login" enterprise net silver page
+    When click open Account page
+    Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
+    And Provide Essential Information
+      |Entity's Type                                  |Entity Consolidated       |Entity's Industry|date      |chekk      |
+      |Public Listed Company (Not Listed in Singapore)|Turnover <= SGD 1 Million |Manufacturing    |01/01/2010|201328933D |
+    Then Enter Connected People's Details
+    And Enter Connected Entities’ Details
+    Then Create Company Administrators’ Profiles
+    And Share Account’s Risk Profile
+    Then Upload Supporting Documents
+    And Review Details
+
+
     @sanity_pack_Check_Account_List_Local_Fund_Transfer_SIT
   #check 账户列表Local fund transfer 可用
     Scenario: Account list SGD query positive process
@@ -690,3 +787,99 @@ Feature: Sanity Pack INB SIT Test Case
       |emailAddress         |
       |bg@263.net           |
     When Vkey authorization for Payment transactions in the SIT environment
+
+  @sanity_pack_Account_List_SGD_Query
+#    账户列表SGD查询正流程
+  Scenario:Account list SGD query positive process
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
+    When I click on the Enterprise Administration Desk and select Account Management
+    When Successful presentation of transaction history
+
+      #操作员有未到期的定期买入(因数据问题，未完成)
+  @sanity_pack_Unexpired_Regular_Purchase
+  Scenario:The operator has an unexpired regular purchase
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When click Fixed Deposits View menu
+    When The operator has an unexpired regular purchase
+
+    #SGD单币种账户买入1个月不转存定期正流程（无授权）
+  @sanity_pack_One_Month_fixed_deposit
+  Scenario:SGD single-currency account is purchased for one month, and it is not transferred to regular positive process (without authorization)
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When click Fixed Deposits menu
+    Then I fill in the information about the SGD transfer on the time deposit page
+      |Transfer accounts   |Into account|Amount |Period  |Transfer accounts way|
+      |1101 0000 470       |11010000438 |250000 |1 Month |1                    |
+
+
+      #客户有未授权的交易，My Task授权成功
+  @sanity_pack_My_Task_Authorized_Success
+  Scenario:My Task authorized successfully
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When click Fixed Deposits menu
+    Then I fill in the information about the USD transfer on the time deposit page
+      |Transfer accounts   |Into account|Amount |Period   |Transfer accounts way|
+      |1101 0000 489       |11010000608 |10000  |18 Months|3                    |
+    When logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
+
+      @sanity_pack_Authorization_Mode_Single
+#  授权模式单人
+  Scenario:Modify the authorization mode of non-management transactions in enterprises
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click on the Enterprise Administration Desk and select Account Management
+    When click authorization
+    When I choose single-player license management mode
+    And Confirm the authorization mode and submit it
+    When secondary authorized person notification is then displayed
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    Then I verify that the transaction is successful
+
+
+  @sanity_pack_Loan_Application_Product_Overdraft
+  Scenario:Enterprise turnover (SGD): The loan application for the product Overdraft was successful
+#     活期透支
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I hover over the loan business
+    When I choose a turnover of one million to two million
+      |amount|
+      |200000|
+    When I select real estate mortgage
+      |houseAddress|zipCode|constructionArea|
+      |test123     |123456 |140             |
+    When I select personal guarantor
+      |name   |birthday  |idCard   |phoneNum   |email           |experience|
+      |WANG WU|1988-02-02|S1472581A|13087544979|126161178@qq.com|4         |
+    When I fill out other financial commitments on real estate mortgage
+      |financialInstitutionName |loanAmt |outstandingAmt |monthlyInstallments |rate|
+      |test123                  |12      |1              |0                   |1   |
+    When I upload the five required documents
+    When I click next button on the upLoadFile page
+
+
+    #    还款。
+  @sanity_pack_Loan_Repayment
+  Scenario:For the accounts receivable financing products, the repayment date is five days after the current date, and within one month, before the maturity date, all of them are settled in advance (loan currency: SGD, product term: 30 days), and the repayment is successful
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click the loan Manage ment Button
+    When I click SGD Prepay button
+
+
+    #    贷款支用。无授权
+  @sanity_pack_Loan_Drawdown
+  Scenario:Positive process of application for disbursement of accounts receivable financing loan (withdrawal currency is SGD, and no review is required)
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    When I click the loan draw button
+    When I choose a product type to fill in the information
+      |product type         |
+      |Receivable Financing |
+#    When I choose to apply for disbursement of financing receivables
+    When I choose Singapore Dollar
+    When I have filled in the other information
+      |amount|dayNum|goodsDescr|
+      |100   |30    |testAnd12 |
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now

@@ -34,7 +34,6 @@ public class userManagement_glue {
     @When("^I click modify info menu$")
     public void iClickModifyInfoMenu(DataTable emailAddress) {
         List<Map<String, String>> maps = emailAddress.asMaps(String.class, String.class);
-        userManagement_steps.clickAccountManagements();
         userManagement_steps.selectTheMenus(maps.get(0).get("emailAddress"));
         userManagement_steps.clickModifyInformation();
         userManagement_steps.clickMobilePHONNO();
@@ -150,6 +149,12 @@ public class userManagement_glue {
     public void endTheDeals() {
         userManagement_steps.clickComplete();
         userManagement_steps.seeViewStart();
+    }
+
+    @When("^Manage Company Users Accounts View Details$")
+    public void manageCompanyUsersAccountsViewDetails() {
+        userManagement_steps.clickEnterpriseManagementDesk();
+        userManagement_steps.viewAccountDetail();
     }
 }
 

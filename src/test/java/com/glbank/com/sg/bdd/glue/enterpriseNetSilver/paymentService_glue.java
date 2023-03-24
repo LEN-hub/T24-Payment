@@ -142,6 +142,8 @@ public class paymentService_glue {
         paymentService_step.expense(payToI.get(0).get("Payment Mode for Charges"));
     }
 
+
+
     @And("^I choose the payment currency$")
     public void iChooseThePaymentCurrency(DataTable payDetail) {
         List<Map<String, String>> payToInfoE = payDetail.asMaps(String.class, String.class);
@@ -583,6 +585,39 @@ public class paymentService_glue {
     public void iEditManagePayNowProfileTransactionOnThePage() {
         paymentService_step.transferAndRemittanceMenu();
         paymentService_step.clickManagePayNowProfileEdit();
+    }
+
+    @When("^Appointment transfer/cycle transfer display succeeded$")
+    public void appointmentTransferCycleTransferDisplaySucceeded(DataTable payDetails) {
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
+        paymentService_step.transferAndRemittanceMenu();
+        paymentService_step.appointmentTransferCycleTransfer(payToInfo.get(0).get("account number"),payToInfo.get(0).get("Status of scheduled payments"));
+    }
+
+    @When("^Cancellation of verification transfer authority succeeded$")
+    public void cancellationOfVerificationTransferAuthoritySucceeded(DataTable payDetails) {
+        paymentService_step.clickFinishBtn();
+        paymentService_step.transferAndRemittanceMenu();
+        List<Map<String, String>> payToInfo = payDetails.asMaps(String.class, String.class);
+        paymentService_step.checkTransferFromAccount(payToInfo.get(0).get("From Account"));
+    }
+
+    @When("^Make a transfer transaction, and the transferred-out amount is greater than the account limit$")
+    public void makeATransferTransactionAndTheTransferredOutAmountIsGreaterThanTheAccountLimit(DataTable payDetail) {
+        List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
+        paymentService_step.selectPaymentAccount(payToInfo.get(0).get("Account Number"), payToInfo.get(0).get("Currency"));
+//        List<Map<String, String>> payToInfoN = payDetail.asMaps(String.class, String.class);
+//        paymentService_step.clickCurrency(payToInfoN.get(0).get("payeeCurrency"));
+        List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
+        paymentService_step.largeAmount();
+        List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
+        paymentService_step.expense(payToI.get(0).get("Payment Mode for Charges"));
+    }
+
+    @Then("^I check error information on the page$")
+    public void pageErrorPromptAfterICheckTheAmountExceedsTheLimit() {
+        paymentService_step.clickNextBox();
+        paymentService_step.checkErrorInformation();
     }
 }
 

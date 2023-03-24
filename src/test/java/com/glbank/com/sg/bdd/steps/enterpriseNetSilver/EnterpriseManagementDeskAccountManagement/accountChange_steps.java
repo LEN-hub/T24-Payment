@@ -6,6 +6,7 @@ import com.glbank.com.sg.bdd.utils.BDDUtil;
 import com.glbank.com.sg.bdd.utils.EnterKeys;
 import com.glbank.com.sg.bdd.utils.MobileConfig;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
@@ -297,6 +298,25 @@ public class accountChange_steps extends ScenarioSteps {
 
     public void clickSelectCurrencyBt(){
         accountChange_page.selectCurrencyBt.click();
-        bddUtil.sleep(5);}
-
+        bddUtil.sleep(5);
     }
+
+    public void checkDetails(){
+        Actions actions = new Actions(getDriver());
+        actions.moveToElement(accountChange_page.clickThreePoint).perform();
+        accountChange_page.clickDetail.click();
+        bddUtil.sleep(5);
+        accountChange_page.checkAccountDetails.isVisible();
+    }
+
+    @Step
+    public void cancelTransfer(){
+        Actions actions = new Actions(getDriver());
+        actions.moveToElement(accountChange_page.clickThreePoint).perform();
+        accountChange_page.clickAuthorityManagement.click();
+        bddUtil.sleep(5);
+        accountChange_page.clickNextButton.click();
+        bddUtil.sleep(3);
+        accountChange_page.clickSubmitBtn.click();
+    }
+ }

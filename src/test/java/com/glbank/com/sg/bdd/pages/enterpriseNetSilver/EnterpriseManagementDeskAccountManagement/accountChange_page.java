@@ -233,4 +233,21 @@ public class accountChange_page extends PageObject {
     @FindBy(xpath = "//div[@class='el-dialog__wrapper pdf-dialog']/following-sibling::div[5]//ul/li[1]/span")
     public WebElementFacade selectCurrencyBt;  //选择币种
 
+    @FindBy(xpath = "//div[contains(text(),'Total Number Of')]/parent::div/following-sibling::div[1]/div[1]//img")
+    public WebElementFacade clickThreePoint;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Detail']")
+    public WebElementFacade clickDetail;
+
+    @FindBy(xpath = "//div[text()='Account Details']")
+    public WebElementFacade checkAccountDetails;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Authority Management']")
+    public WebElementFacade clickAuthorityManagement;
+
+    @FindBy(xpath = "//div[contains(text(),'Next')]")
+    public WebElementFacade clickNextButton;
+
+    @FindBy(xpath = "//div[text()='Submit']")
+    public WebElementFacade clickSubmitBtn;
 }

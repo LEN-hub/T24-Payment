@@ -17,6 +17,15 @@ public class fixedDeposit_page extends PageObject {
     @FindBy(xpath = "//ul[@class=\"el-menu--horizontal el-menu\"]//li[3]//div")
     public WebElementFacade clickFixedDeposit;
 
+    @FindBy(xpath = "//span[text()='Fixed Deposits Overview']")
+    public WebElementFacade clickFixedDepositOverview;
+
+    @FindBy(xpath = "//div[@class='el-table__fixed-right']/div[2]//tbody/tr[1]/td[9]//img")
+    public WebElementFacade clickThreePoint;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Withdraw FD']")
+    public WebElementFacade clickWithdrawFD;
+
     @FindBy(xpath = "//div[@class=\"list\"]//p[3]/span")
     public WebElementFacade selectSecondMenu;
 

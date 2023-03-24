@@ -19,6 +19,12 @@ public class userManagement_page extends PageObject {
     @FindBy(xpath = "//div[@class='children-list']//p[4]//span")
     public WebElementFacade accountManagement; //用户管理
 
+    @FindBy(xpath = "//span[text()='000001']")
+    public WebElementFacade clickFirstRecode;
+
+    @FindBy(xpath = "//div[text()='User Details']")
+    public WebElementFacade viewUserDetails;
+
     @FindBy(xpath = "//div[@class='pagination']//slot/span")
     public WebElementFacade  record;  //点击空白处
 

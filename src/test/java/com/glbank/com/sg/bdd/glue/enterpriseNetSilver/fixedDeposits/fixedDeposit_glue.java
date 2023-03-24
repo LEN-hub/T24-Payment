@@ -39,4 +39,15 @@ public class fixedDeposit_glue {
     public void clickMyTaskToFindDataForAuthorization() {
         fixedDeposit_step.fixedDepositAuthorize();
     }
+
+
+    @When("^click Fixed Deposits View menu$")
+    public void clickFixedDepositsViewMenu() {
+        fixedDeposit_step.clickFixedDepositOverview();
+    }
+
+    @When("^The operator has an unexpired regular purchase$")
+    public void theOperatorHasAnUnexpiredRegularPurchase() {
+        fixedDeposit_step.theOperatorHasAnUnexpiredRegularPurchase();
+    }
 }

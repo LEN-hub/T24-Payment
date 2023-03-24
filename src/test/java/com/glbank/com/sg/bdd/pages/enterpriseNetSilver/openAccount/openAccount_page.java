@@ -135,6 +135,9 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//ul[@class='flag_box-ul']/li/div/span[text()=\"CHINA\"]")
     public WebElementFacade getCountryCode;
 
+    @FindBy(xpath = "//div[@class='iddbox']/div[2]//span[text()='SINGAPORE']")
+    public WebElementFacade selectSingaporeCountryCode;
+
     @FindBy(xpath = "//label[@for=\"operatePersonMobilePhoneNo\"]/following-sibling::div//div//input")
     public WebElementFacade inputMobileNumber;
 

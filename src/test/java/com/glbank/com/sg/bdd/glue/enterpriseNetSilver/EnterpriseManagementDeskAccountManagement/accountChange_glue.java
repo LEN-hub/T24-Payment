@@ -29,7 +29,6 @@ public class accountChange_glue {
     @When("^I click on the Enterprise Administration Desk and select Account Management$")
     public void iClickOnTheEnterpriseAdministrationDeskAndSelectAccountManagement() {
         accountChange_steps.selectEnterpriseManagementDesk();
-
     }
 
     @When("^I hit Permissions modify$")
@@ -224,5 +223,15 @@ public class accountChange_glue {
     }
 
 
+    @When("^Manage Company's Accounts View Details$")
+    public void manageCompanySAccountsViewDetails() {
+        accountChange_steps.accountManagement();
+        accountChange_steps.checkDetails();
+    }
 
+    @When("^Manage Company's Accounts Cancel transfer authority$")
+    public void manageCompanySAccountsCancelTransferAuthority() {
+        accountChange_steps.accountManagement();
+        accountChange_steps.cancelTransfer();
+    }
 }

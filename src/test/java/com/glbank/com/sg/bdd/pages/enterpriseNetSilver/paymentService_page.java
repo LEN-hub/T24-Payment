@@ -23,8 +23,14 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@class='list']/div[1]/p[2]")
     public WebElementFacade transferMoney;
 
+    @FindBy(xpath = "//div[contains(text(),'Finish')]")
+    public WebElementFacade clickFinishBtn;
+
     @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//li/span")
     public List<WebElementFacade> selectTitle;
+
+    @FindBy(xpath = "//div[@x-placement=\"bottom-start\" or @x-placement=\"top-start\"]//li/span[text() != 'All']")
+    public List<WebElementFacade> selectAccountNumber;
 
     @FindBy(xpath = "//div[@class='bank_list']/div[1]//div[@class='name'][1]")
     public WebElementFacade overseasTrasferAccount;
@@ -429,6 +435,9 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[text()='Next']")
     public  WebElementFacade clickNextBox;  //下一步
 
+    @FindBy(xpath = "//p[contains(text(),'account single transfer limit')]")
+    public WebElementFacade checkErrorInformation;
+
     @FindBy(xpath = "//div[@class='ui-button dialog_btn primary common is-block']//div[@class='btn_box']")
     public WebElementFacade staging;//暂存
 
@@ -511,6 +520,9 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[contains(text(),'Manage PayNow Profiles')]")
     public WebElementFacade managePayNowProfileTitle;
+
+    @FindBy(xpath = "//span[text()='Manage Scheduled / Recurring Transfers']")
+    public WebElementFacade manageScheduledRecurringTransfers;
 
     @FindBy(xpath = "//div[text()='Register PayNow Profile']")
     public WebElementFacade clickRegisterPayNowProfileBtn;
@@ -790,4 +802,16 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//table[@class='el-table__body']//tr[1]/td[6]//img")
     public WebElementFacade clickManagePaynowProfileThreePoint;
+
+    @FindBy(xpath = "//label[@for='acctObj']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade clickAccountNumberDownDrop;
+
+    @FindBy(xpath = "//label[text()='Status of scheduled payments']/following-sibling::div//span[@class='el-input__suffix-inner']")
+    public WebElementFacade clickStatusOfScheduledPaymentsDownDrop;
+
+    @FindBy(xpath = "//div[text()='Search']")
+    public WebElementFacade clickSearchBtn;
+
+    @FindBy(xpath = "//div[@class='sizes']/div[1]")
+    public WebElementFacade checkSizes;
 }

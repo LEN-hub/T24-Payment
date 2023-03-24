@@ -3,6 +3,7 @@ package com.glbank.com.sg.bdd.steps.enterpriseNetSilver.fixedDeposits;
 import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.fixedDeposits.fixedDeposit_page;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
@@ -22,7 +23,23 @@ public class fixedDeposit_step extends ScenarioSteps {
         action.moveToElement( fixedDeposit_page.clickFixedDeposit).perform();
         fixedDeposit_page.selectSecondMenu.click();
     }
+    @Step
+    public void clickFixedDepositOverview(){
+        if(fixedDeposit_page.checkPopup.isVisible()){
+            fixedDeposit_page.clickOk.click();
+        }
+        Actions action=new Actions(getDriver());
+        action.moveToElement(fixedDeposit_page.clickFixedDeposit).perform();
+        fixedDeposit_page.clickFixedDepositOverview.click();
+    }
 
+    @Step
+    public void theOperatorHasAnUnexpiredRegularPurchase(){
+        Actions action=new Actions(getDriver());
+        action.moveToElement(fixedDeposit_page.clickThreePoint).perform();
+        fixedDeposit_page.clickWithdrawFD.click();
+        fixedDeposit_page.clickSubmitBtn.click();
+    }
     public void createFixedDeposit(String transferAccount,String intoAccount,String amount,String period,String transferAccountsWay){
         bddUtil.sleep(3);
         fixedDeposit_page.clickPopwindows.click();

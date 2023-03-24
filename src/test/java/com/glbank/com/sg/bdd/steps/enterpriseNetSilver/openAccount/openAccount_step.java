@@ -308,7 +308,7 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         bddUtil.sleep(1);
         openAccount_page.inputFullName.sendKeys(applicantName);
         openAccount_page.clickContactNumberFirstCountry.sendKeys("+65");
-        bddUtil.scrollWindowToElement(openAccount_page.getCountryCode).click();
+        openAccount_page.selectSingaporeCountryCode.click();
         openAccount_page.inputContactNumber.sendKeys(mobileNumber);
         openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
 //        openAccount_page.inputEmailAddress.sendKeys("3111969204@qq.com");
@@ -488,8 +488,8 @@ public void inputEntityDetailsNew() {
         openAccount_page.inputCompanyRegistrationNumber.sendKeys(chekk);//199906179R    201700266Z
         openAccount_page.clickCountryOfIncorporation.sendKeys("SINGAPORE");
         getDriver().findElements(By.xpath("//span[text()='SINGAPORE']")).get(0).click();
-        openAccount_page.clickBusinessEntityTypeDownDrop.click();
-        openAccount_page.selectBusinessEntityType.click();
+//        openAccount_page.clickBusinessEntityTypeDownDrop.click();
+//        openAccount_page.selectBusinessEntityType.click();
         openAccount_page.BusinessOperations.click();
         openAccount_page.selectYesNew.get(1).click();
         openAccount_page.selectYesNew.get(2).click();
@@ -532,6 +532,7 @@ public void inputEntityDetailsNew() {
         getDriver().findElements(By.xpath("//span[text()='Supplement']")).get(1).click();
         bddUtil.sleep(7);
         openAccount_page.enterDateOfRegistration.sendKeys(DateUtil.today());
+        bddUtil.sleep(2);
         openAccount_page.countryWhereTitle.click();
         bddUtil.sleep(2);
 //        openAccount_page.enterCountryWhere.sendKeys("SINGAPORE");

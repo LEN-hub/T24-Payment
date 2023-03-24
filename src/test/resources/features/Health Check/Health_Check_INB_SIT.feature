@@ -2,6 +2,11 @@
 
 Feature: Health Check INB SIT Test Case
 
+  @INB_To_ESO_SIT
+  Scenario: INB to ESO
+    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    Then I check whether the INB page display is normal
+
   @INB_To_T24_SIT
   Scenario: INB to t24
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
@@ -74,11 +79,6 @@ Feature: Health Check INB SIT Test Case
   Scenario:INB to EST
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When click Download after the file is generated successfully
-
-  @INB_To_ESO_SIT
-  Scenario: INB to ESO
-    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
-    Then I check whether the INB page display is normal
 
 
   @INB_To_ISO_SIT

@@ -3,7 +3,7 @@ Feature: openAccount_track2
   @Single_Currency_SGD
     #正常开户流程——单币种账户——新币
   Scenario:openAccount Singapore enterprise
-    Given open "netSilverEnv_Kevin_SIT" enterprise net silver page
+    Given open "INB-automation-SIT-login" enterprise net silver page
     When click open Account page
     Then Fill in information "netSilverEnv_OpenAccount" on Getting Started page
     And Provide Essential Information

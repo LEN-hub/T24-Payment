@@ -4,6 +4,7 @@ import com.glbank.com.sg.bdd.pages.enterpriseNetSilver.EnterpriseManagementDeskA
 import com.glbank.com.sg.bdd.steps.enterpriseNetSilver.Logon_step;
 import com.glbank.com.sg.bdd.utils.*;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
@@ -39,6 +40,13 @@ public class userManagement_steps extends ScenarioSteps {
         bddUtil.sleep(10);
         userManagement_page.record.click();
         bddUtil.sleep(3);
+    }
+
+    @Step
+    public void viewAccountDetail(){
+        userManagement_page.accountManagement.click();
+        userManagement_page.clickFirstRecode.click();
+        userManagement_page.viewUserDetails.isVisible();
     }
 
 

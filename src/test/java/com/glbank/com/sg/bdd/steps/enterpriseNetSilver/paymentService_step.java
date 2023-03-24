@@ -1874,10 +1874,12 @@ public class paymentService_step extends ScenarioSteps {
 
     @Step
     public void clickManagePayNowProfileEdit(){
+        paymentService_page.managePayNowProfile.click();
         Actions action=new Actions(getDriver());
         bddUtil.sleep(1);
         action.moveToElement(paymentService_page.clickManagePaynowProfileThreePoint).perform();
         paymentService_page.clickEditProfile.click();
+        bddUtil.sleep(3);
         paymentService_page.clickNextButton.click();
         paymentService_page.clickSubmitBtn.click();
     }
@@ -2221,6 +2223,10 @@ public class paymentService_step extends ScenarioSteps {
 //        paymentService_page.enterAmount.sendKeys("150000");
     }
 
+    public void largeAmount(){
+        paymentService_page.enterAmount.sendKeys("310000");
+    }
+
     public void selectAccBth(String selectAccBth){
         paymentService_page.currencyBox.click();
         bddUtil.sleep(3);
@@ -2295,6 +2301,9 @@ public class paymentService_step extends ScenarioSteps {
 
     public void clickNextBox(){
         paymentService_page.clickNextBox.click();
+    }
+    public void checkErrorInformation(){
+        paymentService_page.checkErrorInformation.isVisible();
     }
 
     public void staging() {
@@ -2942,4 +2951,47 @@ public class paymentService_step extends ScenarioSteps {
         Assert.assertEquals(paymentService_page.checkPlaceFixedDepositTitle.getText(),"Place Fixed Deposit");
     }
 
+    @Step
+    public void appointmentTransferCycleTransfer(String accountNum,String status){
+        paymentService_page.manageScheduledRecurringTransfers.click();
+        paymentService_page.clickAccountNumberDownDrop.click();
+        List<WebElementFacade> selectAccount = paymentService_page.selectAccountNumber;
+        for (int i = 0; i < selectAccount.size(); i++) {
+            if (accountNum.equals(selectAccount.get(i).getText().substring(0,13))){
+                selectAccount.get(i).click();
+                break;
+            }
+        }
+        bddUtil.sleep(2);
+        paymentService_page.clickStatusOfScheduledPaymentsDownDrop.click();
+        List<WebElementFacade> statusOfScheduledPayments = paymentService_page.selectTitle;
+        for (int j = 0; j < statusOfScheduledPayments.size(); j++) {
+            if (status.equals(statusOfScheduledPayments.get(j).getText())){
+                statusOfScheduledPayments.get(j).click();
+                break;
+            }
+        }
+        paymentService_page.clickSearchBtn.click();
+        bddUtil.sleep(4);
+        paymentService_page.checkSizes.isVisible();
+    }
+    public void clickFinishBtn(){
+        paymentService_page.clickFinishBtn.click();
+    }
+
+    @Step
+    public void checkTransferFromAccount(String rollOutAccount){
+        paymentService_page.transferMoney.click();
+        bddUtil.sleep(3);
+        paymentService_page.rollOutCurrencySelectWindows.click();
+        List<WebElementFacade> currency = paymentService_page.rollOutAccountSGD;
+        for (int i = 0; i< currency.size();i++){
+            if (rollOutAccount.contains(currency.get(i).getText().substring(0,currency.get(i).getText().indexOf("/")).trim())){
+                bddUtil.scrollWindowToElement(currency.get(i)).click();
+                break;
+            }else {
+                System.out.println("账号不存在，案例成功！");
+            }
+        }
+    }
 }
