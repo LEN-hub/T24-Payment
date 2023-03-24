@@ -5,7 +5,7 @@ Feature: Sanity Pack SCF UAT Test Case
   #1.Full account供应商建档全流程
   @sanity_pack_supplier_Full_Kyc_UAT
   Scenario:Create supplier customer profile select: the customer input, the customer input related information, the supplier customer created successfully Account
-    Given logon "scf_environments_1_yang" on tube by inputting system
+    Given logon "scf_environments_1_tian" on tube by inputting system
     When open the email browser page
     #And I switch to the SCF page
     When I click Customers and select Onboarding List
@@ -59,54 +59,54 @@ Feature: Sanity Pack SCF UAT Test Case
     Then Verify whether the Confirm page is displayed
     When Click the Submit button on the Confirm page
     When End the current browser process
-    Given logon "scf_environments_1_yang" on tube by inputting system
+    Given logon "scf_environments_1_tian" on tube by inputting system
     When Approval in the supply chain system
     Then Switch To the Assign To Me page and perform the corresponding operations
     When I close driver
-    Given logon "scf_environments_2_yang" on tube by inputting system
+    Given logon "scf_environments_2_tian" on tube by inputting system
     When Approval in the supply chain system
     Then Switch To the Assign To Me page and perform the corresponding operations
     When I Check data status
     When I close driver
-
-  #2.simple（核心不存在、非自主、无管理员）
-  @sanity_pack_supplier_Simple_Kyc_Buyer_UAT
-  Scenario:Simple (core does not exist, non autonomous, no administrator)_UAT
-    Given logon "scf_environments_1_yang" on tube by inputting system
-    When I click Customers and select Onboarding List
-    And I click Create Customer and fill in the supplier information in the pop-up window to buyer
-      |KYC Mode    |Input by|Customer Type|
-      |Simple KYC  |Operator|Buyer        |
-    Then I Check to see if you jump to the Authorized Person page
-    When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
-    When I fill in Simple KYC customer information on the page No Administrator
-      |Nature of Business   |Customer Type|
-      |Agriculture & Fishing|Buyer        |
-    When I authorize on the Onboarding Review page
-      |Result |Customer Type|
-      |Approve|Buyer        |
-    When I close driver
-    Given logon "scf_environments_2_yang" on tube by inputting system
-    When I authorize on the Onboarding Review page
-      |Result |Customer Type|
-      |Approve|Buyer        |
-    When I click Customers and select Onboarding List
-    Then I compare Approved Status on the page
-      |Result  |Customer Type|
-      |Approved|Buyer        |
-    When I close driver
-
-    # 3.绑定关系
-  @sanity_pack_supplier_Customer_Mapping_UAT
-  Scenario:Buyer The operator binds a supplier relationship that does not exist between a single system for the buyer's customer, and the binding is successful_UAT
-    Given logon "scf_environments_1_yang" on tube by inputting system
-    When I click Customers and select Customers Mapping
-    Then I should direct to the Customers Mapping page
-    When I click the Create New Buyer Relationship button and Create a New Relationship
-    When I click Create New Counter button on the page
-    And I should bind a Supplier information in his upstream
-    When I close driver
-
+#
+#  #2.simple（核心不存在、非自主、无管理员）
+#  @sanity_pack_supplier_Simple_Kyc_Buyer_UAT
+#  Scenario:Simple (core does not exist, non autonomous, no administrator)_UAT
+#    Given logon "scf_environments_1_tian" on tube by inputting system
+#    When I click Customers and select Onboarding List
+#    And I click Create Customer and fill in the supplier information in the pop-up window to buyer
+#      |KYC Mode    |Input by|Customer Type|
+#      |Simple KYC  |Operator|Buyer        |
+#    Then I Check to see if you jump to the Authorized Person page
+#    When Fill in email 1 and email 2 supplier information on the Authorized Person page Simple KYC No Administrator
+#    When I fill in Simple KYC customer information on the page No Administrator
+#      |Nature of Business   |Customer Type|
+#      |Agriculture & Fishing|Buyer        |
+#    When I authorize on the Onboarding Review page
+#      |Result |Customer Type|
+#      |Approve|Buyer        |
+#    When I close driver
+#    Given logon "scf_environments_2_tian" on tube by inputting system
+#    When I authorize on the Onboarding Review page
+#      |Result |Customer Type|
+#      |Approve|Buyer        |
+#    When I click Customers and select Onboarding List
+#    Then I compare Approved Status on the page
+#      |Result  |Customer Type|
+#      |Approved|Buyer        |
+#    When I close driver
+#
+#    # 3.绑定关系
+#  @sanity_pack_supplier_Customer_Mapping_UAT
+#  Scenario:Buyer The operator binds a supplier relationship that does not exist between a single system for the buyer's customer, and the binding is successful_UAT
+#    Given logon "scf_environments_1_yang" on tube by inputting system
+#    When I click Customers and select Customers Mapping
+#    Then I should direct to the Customers Mapping page
+#    When I click the Create New Buyer Relationship button and Create a New Relationship
+#    When I click Create New Counter button on the page
+#    And I should bind a Supplier information in his upstream
+#    When I close driver
+#
      #4.产品设置
   @sanity_pack_supplier_Product_Quotation_Settings_UAT
   Scenario:UAT_ Supply chain_Inner tube_Create product_UAT
@@ -131,34 +131,35 @@ Feature: Sanity Pack SCF UAT Test Case
     Then I click Submit product profile
 #    And Enter login information
     When I close driver
-
-  #5.上传历史单据
-  @sanity_pack_supplier_Upload_Historical_Documents_UAT
-  Scenario:Upload historical documents_UAT
-    Given logon "scf_environments_1_yang" on tube by inputting system
-    When I click Operations button
-    And I click docs List button
-    When I upload Historical Documents
-    Then I should see the uploaded historical documents
-
-  #6.创建卖方信用档案
-  @sanity_pack_supplier_Credit_Supplier_Customer_Profile_UAT
-  Scenario:create Supplier Credit File_UAT
-    Given logon "scf_environments_1_yang" on tube by inputting system
-    When login successfully and click the SCF link to createSupplierCreditFile
-    And edit Supplier Credit Profile
-#    Then submit Supplier Credit Profile
-    And to Supplier Credit Profile Review Page
-    Then Supplier Credit Profile L1 Review
-    Then I close driver
-    Given logon "scf_environments_2_yang" on tube by inputting system
-    And use User L2 to Supplier Review
-    When I close driver
 #
+#  #5.上传历史单据
+#  @sanity_pack_supplier_Upload_Historical_Documents_UAT
+#  Scenario:Upload historical documents_UAT
+#    Given logon "scf_environments_1_tian" on tube by inputting system
+#    When I click Operations button
+#    And I click docs List button
+#    When I upload Historical Documents
+#    Then I should see the uploaded historical documents
+#    When I close driver
+#
+#  #6.创建卖方信用档案
+#  @sanity_pack_supplier_Credit_Supplier_Customer_Profile_UAT
+#  Scenario:create Supplier Credit File_UAT
+#    Given logon "scf_environments_1_tian" on tube by inputting system
+#    When login successfully and click the SCF link to createSupplierCreditFile
+#    And edit Supplier Credit Profile
+##    Then submit Supplier Credit Profile
+#    And to Supplier Credit Profile Review Page
+#    Then Supplier Credit Profile L1 Review
+#    Then I close driver
+#    Given logon "scf_environments_2_tian" on tube by inputting system
+#    And use User L2 to Supplier Review
+#    When I close driver
+##
 #     #7.卖方授信限额
 #  @sanity_pack_supplier_Supplier_Underwriting_UAT
 #  Scenario:Supplier The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained_UAT
-#    Given logon "scf_environments_1_yang" on tube by inputting system
+#    Given logon "scf_environments_1_tian" on tube by inputting system
 #    When I click UnderWriting and UnderWriting Approval
 #    Then I should direct to the UnderWriting Approval page
 #    When I click Supplier Test Data Assign to Me button on UnderWriting Approval page
@@ -168,28 +169,33 @@ Feature: Sanity Pack SCF UAT Test Case
 #    When I click Result button on the UnderWriting Approval page
 #    And I click Approve button and click Submit button on the page
 #    When I click Completed Button on the UnderWriting Approval page
+#    Then I check Underwriting status
+#    When I close driver
 #
-#
-    #8.创建买方信用档案
-  @sanity_pack_buyer_Credit_Supplier_Customer_Profile_UAT
-  Scenario:create Buyer Credit File_UAT
-    Given logon "scf_environments_1_tian" on tube by inputting system
-    When login successfully and click the SCF link to createBuyerCreditFile
-    And edit Buyer Credit Profile
-#    Then submit Buyer Credit Profile
-    And  to Buyer Credit Profile Review page
-    Then buyer Credit Profile L1 Review
-#    And change user To L2 Review
-    Given logon "scf_environments_2_tian" on tube by inputting system
-    And use UserL2 to Review
-    When I close driver
+##
+##
+#    #8.创建买方信用档案
+#  @sanity_pack_buyer_Credit_Supplier_Customer_Profile_UAT
+#  Scenario:create Buyer Credit File_UAT
+#    Given logon "scf_environments_1_tian" on tube by inputting system
+#    When login successfully and click the SCF link to createBuyerCreditFile
+#    And edit Buyer Credit Profile
+##    Then submit Buyer Credit Profile
+#    And  to Buyer Credit Profile Review page
+#    Then buyer Credit Profile L1 Review
+#    Then I close driver
+##    And change user To L2 Review
+#    Given logon "scf_environments_2_tian" on tube by inputting system
+#    And use UserL2 to Review
+#    Then I Check buyer Credit file status
+#    When I close driver
 #
 #
 #
 #  # 9.买方授信限额
 #  @sanity_pack_buyer_Supplier_Underwriting_UAT
 #  Scenario:Buyer The operator initiated Buyer Entity Flow & Buyer Entity Public to grant credit to buyer customers, and the credit was successfully granted, and the limit and rating were obtained_UAT
-#    Given logon "scf_environments_1_yang" on tube by inputting system
+#    Given logon "scf_environments_1_tian" on tube by inputting system
 #    When I click UnderWriting and UnderWriting Approval
 #    Then I should direct to the UnderWriting Approval page
 #    When I click buyer Test Data Assign to Me button on UnderWriting Approval page
@@ -199,8 +205,9 @@ Feature: Sanity Pack SCF UAT Test Case
 #    When I click Result button on the UnderWriting Approval page
 #    And I click Approve button and click Submit button on the page
 #    When I click Completed Button on the UnderWriting Approval page
+#    When I close driver
 #
-#
+##
 #  #10.BR签署
 #  @sanity_pack_buyer_BR_Signature_SIT
 #  Scenario:BR signed_UAT
@@ -214,14 +221,15 @@ Feature: Sanity Pack SCF UAT Test Case
 #    When I to sign one
 #    Then I to sign Two
 #
-#   #11.RPA上传
-#  @sanity_pack_buyer_RPA_Upload_UAT
-#  Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_UAT
-#    Given logon "scf_environments_1_yang" on tube by inputting system
-#    When I click on the first Customers
-#    And click ContractManagement
-#    Then Enter the name of the supplier to filter
-#
+   #11.RPA上传
+  @sanity_pack_buyer_RPA_Upload_UAT
+  Scenario:UAT_ Supply chain_ Inner tube_ Create RPA_UAT
+    Given logon "scf_environments_1_yang" on tube by inputting system
+    When I click on the first Customers
+    And click ContractManagement
+    Then Enter the name of the supplier to filter
+    When I close driver
+
 #  #12.融资申请
 #  @sanity_pack_buyer_Financing_Request_UAT
 #  Scenario:financing Request_UAT

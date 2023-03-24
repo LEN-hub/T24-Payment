@@ -230,7 +230,6 @@ public class createSupplierCreditFile_page extends PageObject {
     @FindBy(xpath = "//label[text()='Applicant']")
     public WebElementFacade applicantBtn;
 
-    @FindBy(xpath = "//span[text()='Approved']")
+    @FindBy(xpath = "//td//span[text()='Approved']")
     public WebElementFacade underWritingStatus;
-
 }

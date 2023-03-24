@@ -346,7 +346,8 @@ public class creatCustomers_step extends ScenarioSteps {
         CommonUtil.waiting(2000);
 //        邮箱链接暂时失效，需要手动打开。
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-        webdriver.executeScript("window.open(\"http://10.24.7.8:8080/\");");
+      //  webdriver.executeScript("window.open(\"http://10.24.7.8:8080/\");");  // SIT链接
+        webdriver.executeScript("window.open(\"http://10.24.9.126:8080/\");"); // UAT链接
         bddUtil.sleep(5);
         bddUtil.switchToWindows();
 //        customers_page.scfLink.click();
@@ -500,7 +501,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.companyEmail.clear();
         customers_page.companyEmail.sendKeys(value+ "@ihotmails.com");
         customers_page.companyPhoneNumber.clear();
-        customers_page.companyPhoneNumber.sendKeys("+86");
+        customers_page.companyPhoneNumber.sendKeys("86");
         customers_page.companyPhoneNumberTwo.clear();
         customers_page.companyPhoneNumberTwo.sendKeys(RandomPhoneNumber.randomPhoneNum());
 //        customers_page.fileUpdate.click();
@@ -549,7 +550,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.companyEmail.clear();
         customers_page.companyEmail.sendKeys(value+ "@ihotmails.com");
         customers_page.companyPhoneNumber.clear();
-        customers_page.companyPhoneNumber.sendKeys("+86");
+        customers_page.companyPhoneNumber.sendKeys("86");
         customers_page.companyPhoneNumberTwo.clear();
         customers_page.companyPhoneNumberTwo.sendKeys(RandomPhoneNumber.randomPhoneNum());
 //        customers_page.fileUpdate.click();
@@ -683,7 +684,7 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.sleep(3);
         customers_page.enterFullName.clear();
         customers_page.enterFullName.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
-        customers_page.applicantPhoneNumFirst.sendKeys("+86");
+        customers_page.applicantPhoneNumFirst.sendKeys("86");
         customers_page.applicantPhoneNumSecond.clear();
         customers_page.applicantPhoneNumSecond.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.applicantEmial.clear();
@@ -825,7 +826,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.selectCountry.click();
         customers_page.shareholder1NoExpiry.click();
         customers_page.shareholder1FirstPhoneNum.clear();
-        customers_page.shareholder1FirstPhoneNum.sendKeys("+86");
+        customers_page.shareholder1FirstPhoneNum.sendKeys("86");
         customers_page.shareholder1SecondPhoneNum.clear();
         customers_page.shareholder1SecondPhoneNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.shareholder1EnterEmail.clear();
@@ -865,7 +866,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.shareholder2ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
         customers_page.shareholder2CountryOfResidence.sendKeys("singapore");
         customers_page.selectCountry.click();
-        customers_page.shareholder2FirstPhoneNum.sendKeys("+86");
+        customers_page.shareholder2FirstPhoneNum.sendKeys("86");
         customers_page.shareholder2SecondPhoneNum.clear();
         customers_page.shareholder2SecondPhoneNum.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.shareholder2EnterEmail.clear();

@@ -2,7 +2,7 @@
 Feature: test bingdingRelationship
 
 
-  @textReprotbangding
+  @supplierCustomerMapping
   Scenario:Supplier The operator binds the supplier to a buyer relationship that does not exist between a single system, and the binding is successful
     Given logon "environments_1" on tube by inputting system
     When I click Customers and select Customers Mapping
@@ -12,7 +12,7 @@ Feature: test bingdingRelationship
     And I should bind a buyer information in his downstream
 
 
-  @text
+  @buyerCustomerMapping
   Scenario:Buyer The operator binds a supplier relationship that does not exist between a single system for the buyer's customer, and the binding is successful
     Given logon "environments_1" on tube by inputting system
     When I click Customers and select Customers Mapping

@@ -96,7 +96,7 @@ Feature: Sanity Pack SCF SIT Test Case
     When I close driver
 
     # 3.绑定关系
-  @sanity_pack_supplier_Customer_Mapping_SIT
+  @@sanity_pack_buyerCustomerMapping_SIT
   Scenario:Buyer The operator binds a supplier relationship that does not exist between a single system for the buyer's customer, and the binding is successful_SIT
     Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
     When I click Customers and select Customers Mapping
@@ -184,26 +184,26 @@ Feature: Sanity Pack SCF SIT Test Case
     And use UserL2 to Review
     Then I Check buyer Credit file status
     When I close driver
-#
-#
-#
-#  # 9.买方授信限额
-#  @sanity_pack_buyer_Supplier_Underwriting_SIT
-#  Scenario:Buyer The operator initiated Buyer Entity Flow & Buyer Entity Public to grant credit to buyer customers, and the credit was successfully granted, and the limit and rating were obtained_SIT
-#    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
-#    When I click UnderWriting and UnderWriting Approval
-#    Then I should direct to the UnderWriting Approval page
-#    When I click buyer Test Data Assign to Me button on UnderWriting Approval page
-#    When I click Assign to ME title on the on UnderWriting Approval page
-#    Then I should see Proceed Button on the UnderWriting Approval page
-#    When I update Limit for THIS Product
-#    When I click Result button on the UnderWriting Approval page
-#    And I click Approve button and click Submit button on the page
-#    When I click Completed Button on the UnderWriting Approval page
+
+
+
+  # 9.买方授信限额
+  @sanity_pack_buyer_Supplier_Underwriting_SIT
+  Scenario:Buyer The operator initiated Buyer Entity Flow & Buyer Entity Public to grant credit to buyer customers, and the credit was successfully granted, and the limit and rating were obtained_SIT
+    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
+    When I click UnderWriting and UnderWriting Approval
+    Then I should direct to the UnderWriting Approval page
+    When I click buyer Test Data Assign to Me button on UnderWriting Approval page
+    When I click Assign to ME title on the on UnderWriting Approval page
+    Then I should see Proceed Button on the UnderWriting Approval page
+    When I update Limit for THIS Product
+    When I click Result button on the UnderWriting Approval page
+    And I click Approve button and click Submit button on the page
+    When I click Completed Button on the UnderWriting Approval page
 
 
   #10.BR签署
-  @sanity_pack_buyer_BR_Signature_SIT
+  @sanity_pack_supplier_BR_Signature_SIT
   Scenario:BR signed_SIT
     Given Open Supplier Portal URL SIT
     When I input login data and click on the Login Supplier Portal URL
@@ -216,16 +216,16 @@ Feature: Sanity Pack SCF SIT Test Case
     Then I to sign Two
 
 
-#   #11.RPA上传
-#  @sanity_pack_buyer_RPA_Upload_SIT
-#  Scenario:SIT_ Supply chain_ Inner tube_ Create RPA_SIT
-#    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
-#    When I click on the first Customers
-#    And click ContractManagement
-#    Then Enter the name of the supplier to filter
+   #11.RPA上传
+  @sanity_pack_supplier_RPA_Upload_SIT
+  Scenario:SIT_ Supply chain_ Inner tube_ Create RPA_SIT
+    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
+    When I click on the first Customers
+    And click ContractManagement
+    Then Enter the name of the supplier to filter
 #
 #  #12.融资申请
-#  @sanity_pack_buyer_Financing_Request_SIT
+#  @sanity_pack_supplier_Financing_Request_SIT
 #  Scenario:financing Request_SIT
 #    Given logon "environments_SCF_SIT" test code
 #    When I input login information
@@ -243,7 +243,7 @@ Feature: Sanity Pack SCF SIT Test Case
 
 ##
 #    #13.放款
-#  @sanity_pack_buyer_Loan_SIT
+#  @sanity_pack_supplier_Loan_SIT
 #  Scenario:UAT_ Supply chain_ Inner tube_ Create payments_SIT
 #    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
 #    When When I hit Operations
@@ -258,7 +258,7 @@ Feature: Sanity Pack SCF SIT Test Case
 #
 #
 #  # 14.全部还款
-#  @sanity_pack_buyer_Full_Repayment_SIT
+#  @sanity_pack_supplier_Full_Repayment_SIT
 #  Scenario:UAT_supply chain_inner management_repayment_0001UAT_supply chain_inner management_repayment_SIT
 #    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
 #    When I click Operations button
