@@ -1517,6 +1517,8 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[@id='app']/following-sibling::div[@x-placement='bottom-start' or @x-placement='top-start' ]//span[text()='Approve']")
     public WebElementFacade selectApprove;
 
+
+
     @FindBy(xpath = "//label[@for='comment']/following-sibling::div//textarea")
     public WebElementFacade inputBoxComment;
 
