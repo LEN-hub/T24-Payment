@@ -2,18 +2,22 @@
 
 Feature: Health Check INB SIT Test Case
 
+  @INB_To_T24_SIT
   Scenario: INB to t24
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then view meps account
 
+  @INB_To_SCF_SIT
   Scenario: INB to SCF
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When jump to SCF
 
+  @INB_To_DFT_SIT
   Scenario:INB to DFT
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When click Download after the file is generated successfully
 
+  @INB_To_IMS_SIT
   Scenario: INB to IMS
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I hover over the loan business
@@ -44,7 +48,7 @@ Feature: Health Check INB SIT Test Case
 #      |email name|
 #      |2022005   |
 
-
+  @INB_To_CNP_SIT
   Scenario: INB to CNP
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I fill in the transfer information of domestic transfer bank
@@ -59,25 +63,30 @@ Feature: Health Check INB SIT Test Case
       |email name|
       |2022005   |
 
+  @INB_To_MSP_SIT
   Scenario: INB to MSP
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then Domestic transfer MEPS transfer succeeded and the transaction email was received
       |from account|
       |11010002449 |
 
+  @INB_To_EST_SIT
   Scenario:INB to EST
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When click Download after the file is generated successfully
 
+  @INB_To_ESO_SIT
   Scenario: INB to ESO
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     Then I check whether the INB page display is normal
 
+
+  @INB_To_ISO_SIT
   Scenario: INB to ISO
     Given logon "ISSO-automation-SIT-login" on tube by inputting system online bank
     Then check ISO page information
 
-
+  @INB_To_CPS_SIT
   Scenario:INB to CPS
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I hover over the loan business

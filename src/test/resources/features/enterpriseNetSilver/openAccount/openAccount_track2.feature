@@ -1,6 +1,6 @@
 @openAccount
 Feature: openAccount_track2
-  @testcode123
+  @Single_Currency_SGD
     #正常开户流程——单币种账户——新币
   Scenario:openAccount Singapore enterprise
     Given open "netSilverEnv_Kevin_SIT" enterprise net silver page
@@ -33,6 +33,7 @@ Feature: openAccount_track2
     And Review Details
     Then get Organisation ID
 
+  @Single_Currency_USD
     #单币种账户——美元
   Scenario:openAccount Current Account CA_USD
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
@@ -97,6 +98,7 @@ Feature: openAccount_track2
     And Review Details
     Then get Organisation ID
 
+  @Single_Currency_SGD_Single_Administrator_Mode
     #开户——单管理员模式
   Scenario:openAccount Current Account CA_SGD About OneAdministrators
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
@@ -113,6 +115,7 @@ Feature: openAccount_track2
     And Review Details
     Then get Organisation ID
 
+  @Single_Currency_SGD_Double_Administrator_Mode
    #开户——双管理员模式
   Scenario:openAccount Current Account CA_SGD About TwoAdministrators
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
@@ -161,6 +164,7 @@ Feature: openAccount_track2
     And Review Details CNY
     Then get Organisation ID
 
+  @MCY_Open_Account_SGD&USD
       #多币种账户 新币+美元
   Scenario:openAccount Current Account MCA_SGD_USD
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
@@ -257,6 +261,7 @@ Feature: openAccount_track2
     And Review Details
     Then get Organisation ID
 
+    @OpenAccount_Single_Sub_Industry_Finance_Companies
     #主行业为Financial & Insurance Activities，子行业为Finance Companies
   Scenario:openAccount Singapore enterprise About SubIndustry is Finance Companies
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
@@ -273,6 +278,7 @@ Feature: openAccount_track2
     And Review Details
     Then get Organisation ID
 
+  @OpenAccount_Single_Sub_Industry_Funds&Similar_Financial_Entities
     #主行业为Financial & Insurance Activities，子行业为Trust, Funds & Similar Financial Entities
   Scenario:openAccount Singapore enterprise About SubIndustry is Trust, Funds & Similar Financial Entities
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
@@ -289,6 +295,7 @@ Feature: openAccount_track2
     And Review Details
     Then get Organisation ID
 
+  @OpenAccount_Single_Sub_Industry_Insurance&Reinsurance_Underwriting
        #主行业为Financial & Insurance Activities，子行业为Insurance & Reinsurance Underwriting
   Scenario:openAccount Singapore enterprise About SubIndustry is Insurance & Reinsurance Underwriting
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
@@ -305,6 +312,7 @@ Feature: openAccount_track2
     And Review Details
     Then get Organisation ID
 
+  @OpenAccount_Single_Sub_Industry_Provident&Pension_Fund
      #主行业为Financial & Insurance Activities，子行业为Provident & Pension Fund
   Scenario:openAccount Singapore enterprise About SubIndustry is Provident & Pension Fund
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
@@ -321,6 +329,7 @@ Feature: openAccount_track2
     And Review Details
     Then get Organisation ID
 
+  @OpenAccount_Single_Sub_Industry_Securities&Commodities_Contracts_Brokerage
    #主行业为Financial & Insurance Activities，子行业为Securities & Commodities Contracts Brokerage
   Scenario:openAccount Singapore enterprise About SubIndustry is Securities & Commodities Contracts Brokerage
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
@@ -337,6 +346,7 @@ Feature: openAccount_track2
     And Review Details
     Then get Organisation ID
 
+  @OpenAccount_Single_Sub_Industry_Other_Financial_Service_Activities
        #主行业为Financial & Insurance Activities，子行业为Other Financial Service Activities
   Scenario:openAccount Singapore enterprise About SubIndustry is Other Financial Service Activities
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
@@ -354,7 +364,7 @@ Feature: openAccount_track2
     Then get Organisation ID
 
 #    在线开户+小额透支贷款
-@testLoan0291
+@Online_Account_Opening+Small_Overdraft_Loan_SGD
 #  单币种 新币+贷款
   Scenario: The new bank customer initiated the "new auto financing" product loan application successfully
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
@@ -375,6 +385,7 @@ Feature: openAccount_track2
 #    Then get Organisation ID
 
     #单币种账户——美元+贷款
+  @Single_Currency_Account_USD_Loan
   Scenario:openAccount Current Account CA_USD and loan
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page
     When click open Account page
@@ -489,6 +500,7 @@ Feature: openAccount_track2
     And Review Details
     Then get Organisation ID
 
+    @MCY_Account_USD&SGD_Loan
         #多币种账户 新币+美元+贷款
   Scenario:openAccount Current Account MCA_SGD_USD and loan
     Given open "netSilverEnv_ycjpt_uat" enterprise net silver page

@@ -3,7 +3,7 @@ Feature: userManagements
 
 #  @ChangingMobilePhoneNumber
 #    修改手机号
-  @userManagement123_SIT
+  @Changing_Mobile_Number_SIT
   Scenario:Process for modifying user information_SIT
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on the Enterprise Administration as well user administration
@@ -14,7 +14,7 @@ Feature: userManagements
     When I initiate captcha verification
 
 
-  @newUsers_SIT
+  @add_user_Operation_Flow_SIT
 #    新增用户
   Scenario:Add the user operation flow_SIT
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
@@ -32,7 +32,7 @@ Feature: userManagements
 #    When The program is finished I will release the Linux SSH connection
 
 
-  @stopUser_SIT
+  @stop_User_Operation_Flow_SIT
 #    停止用户
   Scenario:Stop the user operation flow_SIT
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
@@ -47,7 +47,7 @@ Feature: userManagements
 
 
 
-  @startUser_SIT
+  @start_User_Operation_Flow_SIT
 #    启动用户
   Scenario:Start the user operation flow_SIT
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
@@ -60,7 +60,7 @@ Feature: userManagements
     Then End the deals
 
 
-  @UserCancellation_SIT
+  @User_Cancellation_SIT
 #    用户注销
   Scenario:Process for querying the New users_SIT
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey

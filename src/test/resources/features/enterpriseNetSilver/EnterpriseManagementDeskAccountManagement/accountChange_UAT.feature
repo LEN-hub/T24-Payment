@@ -2,7 +2,7 @@
 Feature: accountChange
 
 
-  @ModifyingAccountRights_UAT
+  @Modifying_Account_Rights_UAT
 #    账户修改
   Scenario:Modify the enterprise management console account_UAT
     Given logon "netSilverEnv_Kevin2" on enterprise net silver
@@ -15,7 +15,7 @@ Feature: accountChange
 
 
 
-  @accountOpeningSGD_UAT
+  @account_Opening_SGD_UAT
 #    CA账户SGD开立
   Scenario:Enterprise management console CA account SGD opened_UAT
     Given logon "netSilverEnv_Kevin2" on enterprise net silver
@@ -30,7 +30,7 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningUSD_UAT
+  @account_Opening_USD_UAT
     #    CA账户USD开立
   Scenario:Enterprise management console CA account USD opened_UAT
     Given logon "netSilverEnv_Kevin2" on enterprise net silver
@@ -45,7 +45,7 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningCNY_UAT
+  @account_Opening_CNY_UAT
 #    CA账户CNY开立
   Scenario:Enterprise management console CA account CNY opened_UAT
     Given logon "netSilverEnv_Kevin2" on enterprise net silver
@@ -106,7 +106,7 @@ Feature: accountChange
     When I typed TC Code and click Authenticate Now
     Then I verify that the transaction is successful
 
-  @accountOpeningMCAUSD_UAT
+  @account_Opening_MCA_SGD&USD_UAT
 #  MCA账户,默认选择SGD，SGD+USD开立
   Scenario:Enterprise management console MCA account USD opened_UAT
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
@@ -229,7 +229,7 @@ Feature: accountChange
 
 
 
-  @deleteCurrency_UAT
+  @delete_Currency_UAT
 #    删除币种
   Scenario:The enterprise management console deletes the currency_UAT
     Given logon "netSilverEnv_Kevin2" on enterprise net silver
@@ -241,7 +241,7 @@ Feature: accountChange
     Then I verify that the transaction is successful
 
 
-#  @AuthorizationMode01
+#  @Authorization_Mode_Double_UAT
 ##  授权模式双人
 #  Scenario:Enterprise management desk two-person authorization mode
 #    Given logon "netSilverEnv_Kevin2" on enterprise net silver
@@ -256,7 +256,7 @@ Feature: accountChange
 #    Then I verify that the transaction is successful
 
 
-#  @AuthorizationMode02
+#  @Authorization_Mode_Single_UAT
 ##  授权模式单人
 #  Scenario:Enterprise management console single-person authorization mode
 #    Given logon "netSilverEnv_Kevin2" on enterprise net silver
@@ -271,7 +271,7 @@ Feature: accountChange
 #    Then I verify that the transaction is successful
 
 
-#  @AuthorizationMode03
+#  @Unauthorization_Mode_UAT
 ##  无授权模式
 #  Scenario:Enterprise management console in unauthorized mode
 #    Given logon "netSilverEnv_Kevin2" on enterprise net silver
@@ -284,7 +284,7 @@ Feature: accountChange
 #    When I typed TC Code and click Authenticate Now
 #    Then I verify that the transaction is successful
 #
-#  @LinkAccount
+#  @Link_Account_UAT
 ##    账户加挂，从注册绑定vkey开始跑头开始跑
 #  Scenario:The enterprise management console account is added
 #    Given logon second "netSilverEnv_Kevin2" on enterprise net silver
@@ -294,7 +294,7 @@ Feature: accountChange
 #    When I get the TC code and click Next
 #    When I typed TC Code and click Authenticate Now
 #
-#  @addCurrency
+#  @add_Currency_UAT
 ##    新增币种,注意，此case需要双人管理模式，需要后管设置管理模式，换号授权
 #  Scenario:Enterprise management desk new currency
 #    Given Closing the Browser driver

@@ -1,7 +1,7 @@
 @Payment_In_House_Fund_Transfer_Different_Currency_SGD-USD
 Feature: Payment In House Fund Transfer and Single Automation Test Case Execution SGD-USD
 
-@PaymentSIT_SingleCurrency_DifferentCurrency_SHA_SGD_USD
+  @PaymentSIT_In_House_Single_Currency_SGD_USD
 Scenario:In house fund transfer same & Single currency SGD-USD
   Given In house fund transfer same & Single currency SGD-USD
   |Deposit amount|Transfer out amount|Charge Option|Transfer in account currency|

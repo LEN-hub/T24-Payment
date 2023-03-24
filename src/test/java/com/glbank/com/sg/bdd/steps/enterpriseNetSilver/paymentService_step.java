@@ -49,6 +49,8 @@ public class paymentService_step extends ScenarioSteps {
     public String referenceID;
     public String nowDate = BDDUtil.getTimeNowThroughCalendar();
     public String loginOtp;
+
+    public String proxyId;
     public String fxDetailBankName;
     public String fxDetailPayeeName;
     public String fxDetailAccountCurrency;
@@ -1870,6 +1872,104 @@ public class paymentService_step extends ScenarioSteps {
         }
     }
 
+    @Step
+    public void clickManagePayNowProfileEdit(){
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(1);
+        action.moveToElement(paymentService_page.clickManagePaynowProfileThreePoint).perform();
+        paymentService_page.clickEditProfile.click();
+        paymentService_page.clickNextButton.click();
+        paymentService_page.clickSubmitBtn.click();
+    }
+
+    @Step
+    public void payNowTransfer(String tradeAmountSelect, String paymentInformation, String PaymentType, String PayNowType){
+        bddUtil.sleep(5);
+        paymentService_page.domesticTransfer.click();
+        CommonUtil.waiting(2000);
+        paymentService_page.clickPopupbtn.click();
+        List<WebElementFacade> payment = paymentService_page.paymentInformationText;
+        for (int i = 0; i <= payment.size(); i++){
+            if (paymentInformation.equals(payment.get(i).getText().substring(0,13))){
+                bddUtil.scrollWindowToElement(payment.get(i)).click();
+                break;
+            }
+        }
+        if(PaymentType.equals("PayNow")){
+            paymentService_page.clickPaymentTypePayNow.click();
+            if (PayNowType.equals("UEN")){
+                paymentService_page.clickPayNowTypeUEN.click();
+                paymentService_page.enterPayeeAcctNo.sendKeys(proxyId);
+            }else if(PayNowType.equals("VPA")){
+                paymentService_page.clickPayNowTypeVPA.click();
+                paymentService_page.enterPayeeAcctNo.sendKeys(proxyId);
+            }else if(PayNowType.equals("NRIC")){
+                paymentService_page.clickPayNowTypeNRIC.click();
+                paymentService_page.enterPayeeAcctNo.sendKeys(proxyId);
+            }else if(PayNowType.equals("Mobile Number")){
+                paymentService_page.clickPayNowTypeMobileNum.click();
+                paymentService_page.enterMobileNum2.sendKeys(proxyId);
+            }
+        }
+        //截止代码
+        paymentService_page.transferAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
+//        paymentService_page.transferAmount.sendKeys("250000");
+        bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
+        bddUtil.sleep(3);
+        paymentService_page.tradeAmountPopWindows.click();
+        bddUtil.sleep(3);
+        List<WebElementFacade> selectTradeAmount = paymentService_page.tradeAmountSelectFirst;
+        for (int k = 0; k< selectTradeAmount.size(); k++){
+            if (tradeAmountSelect.equals(selectTradeAmount.get(k).getText())){
+                selectTradeAmount.get(k).click();
+                break;
+            }
+        }
+    }
+
+    public void payeeTransfer(String bankName, String paymentAccount, String tradeAmountSelect, String paymentInformation, String PaymentType, String PayNowType, String PayNowContent){
+        CommonUtil.waiting(2000);
+        paymentService_page.clickPopupbtn.click();
+        List<WebElementFacade> payment = paymentService_page.paymentInformationText;
+        for (int i = 0; i <= payment.size(); i++){
+            if (paymentInformation.equals(payment.get(i).getText().substring(0,13))){
+                bddUtil.scrollWindowToElement(payment.get(i)).click();
+                break;
+            }
+        }
+        if (PaymentType.equals("FAST")){
+            paymentService_page.clickPaymentTypeFast.click();
+        }else if (PaymentType.equals("MEPS")){
+            paymentService_page.clickPaymentTypeMEPS.click();
+        }
+        if (!PaymentType.equals("PayNow")){
+            paymentService_page.payeeBankSelect.click();
+            List<WebElementFacade> payeeBank = paymentService_page.selectPayeeBankText;
+            for (int i = 0; i < payeeBank.size(); i++) {
+                if (payeeBank.get(i).getText().equals(bankName)){
+                    bddUtil.scrollWindowToElement(payeeBank.get(i));
+                    payeeBank.get(i).click();
+                    break;
+                }
+            }
+            paymentService_page.payeeNameInput.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
+            paymentService_page.payeeAccountNum.sendKeys(paymentAccount);
+        }
+        //截止代码
+        paymentService_page.transferAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
+//        paymentService_page.transferAmount.sendKeys("250000");
+        bddUtil.scrollWindowToElement(paymentService_page.nextBtn);
+        paymentService_page.tradeAmountPopWindows.click();
+        bddUtil.sleep(3);
+        List<WebElementFacade> selectTradeAmount = paymentService_page.tradeAmountSelectFirst;
+        for (int k = 0; k< selectTradeAmount.size(); k++){
+            if (tradeAmountSelect.equals(selectTradeAmount.get(k).getText())){
+                selectTradeAmount.get(k).click();
+                break;
+            }
+        }
+    }
+
     public void timeAdjustment(String date,String cycle){
         paymentService_page.clickDateInput.clear();
         paymentService_page.clickDateInput.sendKeys(date);
@@ -2226,6 +2326,13 @@ public class paymentService_step extends ScenarioSteps {
     }
 
     @Step
+    public void getPayNowProxyId(){
+        paymentService_page.clickViewDetails.click();
+        proxyId = paymentService_page.getPayNowProxyId.getText();
+        paymentService_page.clickDoneBtn.click();
+    }
+
+    @Step
     public void openEmailUrl(String emailName){
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("window.open(\"https://mailtemp.top/\");");
@@ -2485,6 +2592,7 @@ public class paymentService_step extends ScenarioSteps {
         EnterKeys enterKeys = new EnterKeys();
         paymentService_page.managePayNowProfile.click();
         paymentService_page.managePayNowProfileTitle.isVisible();
+        bddUtil.sleep(3);
         paymentService_page.clickRegisterPayNowProfileBtn.click();
         paymentService_page.enterNum1.click();
         enterKeys.EnterKeys(StringUtil.getRandomNum(1));
@@ -2766,6 +2874,26 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.payeesAccountName.clear();
         paymentService_page.payeesAccountName.sendKeys("lisi");
         paymentService_page.clickSaveBtn.click();
+    }
+
+    public void modifyAndTransfer(){
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.payeesNewStatus.getText(),"Successful");
+        paymentService_page.clickReturnBtn.click();
+        bddUtil.sleep(2);
+        Assert.assertEquals(paymentService_page.getFirstDataAccountNum.getText(),randomAccount);
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(3);
+        action.moveToElement(paymentService_page.threePoint).perform();
+        paymentService_page.clickTransferBtn.click();
+    }
+
+    @Step
+    public void Transfer(){
+        Actions action=new Actions(getDriver());
+        bddUtil.sleep(3);
+        action.moveToElement(paymentService_page.threePoint).perform();
+        paymentService_page.clickTransferBtn.click();
     }
 
     @Step

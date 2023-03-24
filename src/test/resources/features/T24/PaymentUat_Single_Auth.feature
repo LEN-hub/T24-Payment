@@ -2,7 +2,7 @@
 Feature: receipt and payment service
 
 #本人互转
-  @Payment_Own_Transfer_USD-SGD_UAT
+  @Payment_Own_Transfer_Single_Auth_USD-SGD_UAT
    #USD->SGD
   Scenario:I have successfully changed us dollars into Singapore dollars and T24
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
@@ -14,6 +14,11 @@ Feature: receipt and payment service
     Then My account has been transferred successfully To Local Payment
       |WordPath|
       |USD-SGD |
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath|
@@ -45,7 +50,7 @@ Feature: receipt and payment service
       |windows Title            |WordPath|
       |AA Arrangement - SIT GLDB|USD-SGD |
 
-  @Payment_Own_Transfer_SGD-USD_UAT
+  @Payment_Own_Transfer_Single_Auth_SGD-USD_UAT
   #SGD->USD
   Scenario:I have successfully transferred from Singapore currency to US dollar
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
@@ -57,6 +62,11 @@ Feature: receipt and payment service
     Then My account has been transferred successfully To Local Payment
       |WordPath|
       |SGD-USD |
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath|
@@ -88,7 +98,7 @@ Feature: receipt and payment service
       |windows Title            |WordPath|
       |AA Arrangement - SIT GLDB|SGD-USD |
 
-  @Payment_Own_Transfer_SGD-SGD_UAT
+  @Payment_Own_Transfer_Single_Auth_SGD-SGD_UAT
    #SGD->SGD
   Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
@@ -100,6 +110,11 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
       |WordPath|
       |SGD-SGD |
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath|
@@ -114,7 +129,7 @@ Feature: receipt and payment service
       |windows Title            |WordPath|
       |AA Arrangement - SIT GLDB|SGD-SGD |
 
-  @Payment_Own_Transfer_USD-USD_UAT
+  @Payment_Own_Transfer_Single_Auth_USD-USD_UAT
     #USD->USD
   Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
@@ -126,6 +141,11 @@ Feature: receipt and payment service
     Then My account has been transferred successfully
       |WordPath|
       |USD-USD |
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button To Local Payment
       |search content           |windows Title        |WordPath|
@@ -140,7 +160,7 @@ Feature: receipt and payment service
       |windows Title            |WordPath|
       |AA Arrangement - SIT GLDB|USD-USD |
 
-  @Payment_Local_Fund_Transfer_MEPS/FAST/PayNow_UAT
+  @Payment_Local_Fund_Transfer_Single_Auth_MEPS/FAST/PayNow_UAT
     #境内转账-跨行转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
@@ -156,6 +176,11 @@ Feature: receipt and payment service
     Then I will compare all the data on same Currency Payment
       |WordPath                   |
       |Local Fund Payment SGD-SGD |
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath                   |
@@ -182,7 +207,7 @@ Feature: receipt and payment service
       |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
 
     #境外转账
-  @Payment_Overseas_Transfer_USD-SGD_UAT
+  @Payment_Overseas_Transfer_Single_Auth_USD-SGD_UAT
   Scenario:Positive process of overseas transfer Bic Is DBS(USD--USD)
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
@@ -212,6 +237,11 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath          |
       |Bic is DBS USD-USD|
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
@@ -238,7 +268,7 @@ Feature: receipt and payment service
       |AA Arrangement - SIT GLDB|Bic is DBS USD-USD |
 
       #境外转账
-  @Payment_Overseas_Transfer_SGD-USD_UAT
+  @Payment_Overseas_Transfer_Single_Auth_SGD-USD_UAT
   Scenario:Positive process of overseas transfer Bic Is DBS(SGD--USD)
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
@@ -268,6 +298,11 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment
       |WordPath          |
       |Bic is DBS SGD-USD|
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button
       |search content           |windows Title        |WordPath          |
@@ -300,7 +335,7 @@ Feature: receipt and payment service
       |AA Arrangement - SIT GLDB|Bic is DBS SGD-USD |
 
 
-  @Payment_Overseas_Transfer_USD-SGD_UAT
+  @Payment_Overseas_Transfer_Single_Auth_USD-SGD_UAT
   Scenario:Positive process of overseas transfer Bic Is DBS(USD--SGD)
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
@@ -329,6 +364,11 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment Different Currency MX Message
       |WordPath          |
       |Bic is DBS USD-SGD|
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Different Currency
       |search content           |windows Title        |WordPath          |
@@ -360,7 +400,7 @@ Feature: receipt and payment service
       |windows Title            |WordPath           |
       |AA Arrangement - SIT GLDB|Bic is DBS USD-SGD |
 
-  @Payment_Overseas_Transfer_SGD-SGD_UAT
+  @Payment_Overseas_Transfer_Single_Auth_SGD-SGD_UAT
   Scenario:Positive process of overseas transfer Bic Is DBS(SGD--SGD)
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
@@ -389,6 +429,11 @@ Feature: receipt and payment service
     Then I will compare all the data on FX Payment MX Message
       |WordPath          |
       |Bic is DBS SGD-SGD|
+    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
+    When Click My Task to find data for authorization
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
     Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
@@ -431,6 +476,11 @@ Feature: receipt and payment service
 #    Then I will compare all the data on same Currency Payment
 #      |WordPath                   |
 #      |Local Fund Payment SGD-SGD |
+#    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
+#    When Click My Task to find data for authorization
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
 #    Given to verify transaction in T24 using "T24-automation-UAT-login"
 #    When I type in the content and click the search button on Mx Message
 #      |search content           |windows Title        |WordPath                   |
@@ -484,6 +534,11 @@ Feature: receipt and payment service
 #    Then I will compare all the data on FX Payment MX Message
 #      |WordPath                    |
 #      |Bic is Bank of China USD-USD|
+#    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
+#    When Click My Task to find data for authorization
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
 #    Given to verify transaction in T24 using "T24-automation-UAT-login"
 #    When I type in the content and click the search button on Mx Message
 #      |search content           |windows Title        |WordPath                    |
@@ -601,6 +656,11 @@ Feature: receipt and payment service
 #    Then I will compare all the data on FX Payment Different Currency MX Message
 #      |WordPath                    |
 #      |Bic is Bank of China USD-SGD|
+#    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
+#    When Click My Task to find data for authorization
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
 #    Given to verify transaction in T24 using "T24-automation-UAT-login"
 #    When I type in the content and click the search button on Different Currency
 #      |search content           |windows Title        |WordPath                    |
@@ -661,6 +721,11 @@ Feature: receipt and payment service
 #    Then I will compare all the data on FX Payment MX Message
 #      |WordPath                    |
 #      |Bic is Bank of China SGD-SGD|
+#    Given to verify transaction in T24 using "T24-automation-UAT-login-Auth"
+#    When Click My Task to find data for authorization
+#    Then TC code is then required for Vkey authentication
+#    When I get the TC code and click Next
+#    When I typed TC Code and click Authenticate Now
 #    Given to verify transaction in T24 using "T24-automation-UAT-login"
 #    When I type in the content and click the search button on Mx Message
 #      |search content           |windows Title        |WordPath                    |

@@ -2,7 +2,7 @@
 Feature: receipt and payment service
 
 #本人互转
-  @SIT_MCY01
+  @Payment_Own_Transfer_MCY_USD-SGD_SIT
    #USD->SGD
   Scenario:I have successfully changed us dollars into Singapore dollars and T24(SIT_MCY)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
@@ -39,7 +39,7 @@ Feature: receipt and payment service
       |search content|user Authorize               |WordPath   |
       |FOREX         |T24-automation-SIT-login-Auth|USD-SGD MCY|
 
-  @SIT_MCY02
+  @Payment_Own_Transfer_MCY_SGD-USD_SIT
   #SGD->USD
   Scenario:I have successfully transferred from Singapore currency to US dollar(SIT_MCY)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
@@ -75,7 +75,9 @@ Feature: receipt and payment service
     When I type FOREX in the search box use to authorize the operationToLocalPayment
       |search content|user Authorize               |WordPath   |
       |FOREX         |T24-automation-SIT-login-Auth|SGD-USD MCY|
-  @SIT_MCY03
+
+
+  @Payment_Own_Transfer_MCY_SGD-SGD_SIT
    #SGD->SGD
   Scenario:I mutual transfer with currency mutual transfer (Singapore dollar) transaction process(SIT_MCY)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
@@ -97,7 +99,9 @@ Feature: receipt and payment service
     Then I will map the page data
       |WordPath   |
       |SGD-SGD MCY|
-  @SIT_MCY04
+
+
+  @Payment_Own_Transfer_MCY_SGD-USD_SIT
     #USD->USD
   Scenario:Oneself mutual turn with currency mutual turn (US dollar) trade flow(SIT_MCY)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
@@ -119,7 +123,9 @@ Feature: receipt and payment service
     Then I will map the page data
       |WordPath   |
       |USD-USD MCY|
-  @SIT_MCY05
+
+
+  @Payment_Local_Fund_Transfer_MCY_MEPS/FAST/PayNow_SIT
     #境内转账-跨行转账时间选择每周一(SGD->SGD)
   Scenario:Transfer time within the line is selected every Monday (SGD->SGD)(SIT_MCY)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
@@ -154,7 +160,7 @@ Feature: receipt and payment service
       |Local Payment SGD-SGD|Local Payment SGD-SGD MCY|
 
     #境外转账
-  @SIT_MCY06
+  @Payment_Overseas_Transfer_MCY_USD-USD_SIT
   Scenario:Positive process of overseas transfer Bic Is DBS(USD-USD)(SIT_MCY)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
@@ -204,7 +210,7 @@ Feature: receipt and payment service
       |Bic is DBS USD-USD MCY|Bic is DBS USD-USD MCY|
 
       #境外转账
-  @SIT_MCY07-
+  @Payment_Overseas_Transfer_MCY_SGD-USD_SIT
   Scenario:Positive process of overseas transfer Bic Is DBS(SGD-USD)(SIT_MCY)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
@@ -257,7 +263,7 @@ Feature: receipt and payment service
       |FOREX         |T24-automation-SIT-login-Auth|Bic is DBS SGD-USD MCY|
 
 
-  @SIT_MCY08
+  @Payment_Overseas_Transfer_MCY_USD-SGD_SIT
   Scenario:Positive process of overseas transfer Bic Is DBS(USD-SGD)(SIT_MCY)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
@@ -308,7 +314,7 @@ Feature: receipt and payment service
       |search content|user Authorize               |WordPath              |
       |FOREX         |T24-automation-SIT-login-Auth|Bic is DBS USD-SGD MCY|
 
-  @SIT_MCY09
+  @Payment_Overseas_Transfer_MCY_SGD-SGD_SIT
   Scenario:Positive process of overseas transfer Bic Is DBS(SGD-SGD)(SIT_MCY)
     Given logon "netSilverEnv_Kevin_SIT" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account

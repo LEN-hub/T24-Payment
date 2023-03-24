@@ -1,19 +1,22 @@
 @Health_Check_INB_UAT
 
 Feature: Health Check INB UAT Test Case
-
+  @INB_To_T24_UAT
   Scenario: INB to t24
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     Then view meps account
 
+  @INB_To_SCF_UAT
   Scenario: INB to SCF
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When jump to SCF
 
+  @INB_To_DFT_UAT
   Scenario:INB to DFT
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When click Download after the file is generated successfully
 
+  @INB_To_IMS_UAT
   Scenario: INB to IMS
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I hover over the loan business
@@ -34,7 +37,7 @@ Feature: Health Check INB UAT Test Case
       |test123                  |12      |1              |0                   |1   |
     When I upload the three required documents
 
-
+  @INB_To_CNP_UAT
   Scenario: INB to CNP
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
@@ -50,25 +53,29 @@ Feature: Health Check INB UAT Test Case
       |email name|
       |2022005   |
 
+  @INB_To_MSP_UAT
   Scenario: INB to MSP
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     Then Domestic transfer MEPS transfer succeeded and the transaction email was received
       |from account|
       |11010002449 |
 
+  @INB_To_EST_UAT
   Scenario:INB to EST
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When click Download after the file is generated successfully
 
+  @INB_To_ESO_UAT
   Scenario: INB to ESO
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     Then I check whether the INB page display is normal
 
+  @INB_To_ISO_UAT
   Scenario: INB to ISO
     Given logon "ISSO-automation-SIT-login" on tube by inputting system online bank
     Then check ISO page information
 
-
+  @INB_To_CPS_UAT
   Scenario:INB to CPS
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I hover over the loan business

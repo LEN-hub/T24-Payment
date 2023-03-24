@@ -307,11 +307,11 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
     public void newProvideEssentialInformation(String applicantName, String emailName, String mobileNumber) {
         bddUtil.sleep(1);
         openAccount_page.inputFullName.sendKeys(applicantName);
-        openAccount_page.clickTrack3ContryCode.click();
+        openAccount_page.clickContactNumberFirstCountry.sendKeys("+65");
         bddUtil.scrollWindowToElement(openAccount_page.getCountryCode).click();
         openAccount_page.inputContactNumber.sendKeys(mobileNumber);
-//        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
-        openAccount_page.inputEmailAddress.sendKeys("3111969204@qq.com");
+        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
+//        openAccount_page.inputEmailAddress.sendKeys("3111969204@qq.com");
         openAccount_page.verifyEmailNew.click();
         bddUtil.sleep(1);
     }

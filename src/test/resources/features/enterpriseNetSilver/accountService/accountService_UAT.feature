@@ -1,7 +1,7 @@
 @accountService_UAT
 Feature: accountService
   @accountService_UAT01
-  Scenario:process for uerying the account list_UAT
+  Scenario:process for querying the account list_UAT
     Given logon "netSilverEnv_Kevin" on enterprise net silver
     When click the Account Details menu in the account
   @accountService_UAT02
@@ -42,7 +42,7 @@ Feature: accountService
     When personal center online banking transaction query submission time selection nearly seven days
 
 
-#    @accountServices
+#   @accountService_UAT12
 #  Scenario:Authorization Center
 #    Given logon "netSilverEnv_Kevin" on enterprise net silver
 #    When I click My Tasks button on the logon page
@@ -53,7 +53,7 @@ Feature: accountService
 ##    When I click next to continue
 #
 #
-#  @accountServices1234
+#  @accountService_UAT13
 #  Scenario:Authorization Center2
 ###    Given logon "EnrollerAccount" on enterprise net silver
 ##    Given logon second "Level1AuthorizedAccount" on enterprise net silver
