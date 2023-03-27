@@ -346,7 +346,25 @@ public class creatCustomers_step extends ScenarioSteps {
         CommonUtil.waiting(2000);
 //        邮箱链接暂时失效，需要手动打开。
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
-      //  webdriver.executeScript("window.open(\"http://10.24.7.8:8080/\");");  // SIT链接
+        webdriver.executeScript("window.open(\"http://10.24.7.8:8080/\");");  // SIT链接
+//        webdriver.executeScript("window.open(\"http://10.24.9.126:8080/\");"); // UAT链接
+        bddUtil.sleep(5);
+        bddUtil.switchToWindows();
+//        customers_page.scfLink.click();
+        customers_page.GLDBEmailInput.sendKeys(username);
+        customers_page.GLDBEmailPassword.sendKeys(password);
+        customers_page.sendCodeBtn.click();
+    }
+
+    @Step
+    public void selectFirstEmailAndTakeVCodeOnSUATEvn(){
+        username = bddUtil.scrollWindowToElement(customers_page.userName).getText();
+        password = bddUtil.scrollWindowToElement(customers_page.passWord).getText();
+//        cuString stomers_page.scfLink.isVisible();
+        CommonUtil.waiting(2000);
+//        邮箱链接暂时失效，需要手动打开。
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+//        webdriver.executeScript("window.open(\"http://10.24.7.8:8080/\");");  // SIT链接
         webdriver.executeScript("window.open(\"http://10.24.9.126:8080/\");"); // UAT链接
         bddUtil.sleep(5);
         bddUtil.switchToWindows();
@@ -355,6 +373,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.GLDBEmailPassword.sendKeys(password);
         customers_page.sendCodeBtn.click();
     }
+
     public void iGetUsernameAndPasswordInTheEmail(){
         CommonUtil.waiting(2000);
 //        邮箱链接暂时失效，需要手动打开。

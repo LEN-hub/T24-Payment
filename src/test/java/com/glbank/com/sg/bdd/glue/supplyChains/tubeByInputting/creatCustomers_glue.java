@@ -703,4 +703,9 @@ public class creatCustomers_glue {
     public void iCheckDataStatus() {
         customers_step.checkStatus();
     }
+
+    @When("^I receive mail in my mailbox on scf uat env$")
+    public void iReceiveMailInMyMailboxOnScfUatEnv() {
+        customers_step.selectFirstEmailAndTakeVCodeOnSUATEvn();
+    }
 }

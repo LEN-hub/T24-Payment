@@ -209,7 +209,7 @@ Feature: Sanity Pack SCF UAT Test Case
 #
 ##
 #  #10.BR签署
-#  @sanity_pack_buyer_BR_Signature_SIT
+#  @sanity_pack_buyer_BR_Signature_UAT
 #  Scenario:BR signed_UAT
 #    Given Open Supplier Portal URL UAT
 #    When I input login data and click on the Login Supplier Portal URL
