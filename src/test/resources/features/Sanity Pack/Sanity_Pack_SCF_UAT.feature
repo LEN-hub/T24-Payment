@@ -106,7 +106,7 @@ Feature: Sanity Pack SCF UAT Test Case
 #    When I click Create New Counter button on the page
 #    And I should bind a Supplier information in his upstream
 #    When I close driver
-#
+
      #4.产品设置
   @sanity_pack_supplier_Product_Quotation_Settings_UAT
   Scenario:UAT_ Supply chain_Inner tube_Create product_UAT
@@ -131,83 +131,84 @@ Feature: Sanity Pack SCF UAT Test Case
     Then I click Submit product profile
 #    And Enter login information
     When I close driver
-#
-#  #5.上传历史单据
-#  @sanity_pack_supplier_Upload_Historical_Documents_UAT
-#  Scenario:Upload historical documents_UAT
-#    Given logon "scf_environments_1_tian" on tube by inputting system
-#    When I click Operations button
-#    And I click docs List button
-#    When I upload Historical Documents
-#    Then I should see the uploaded historical documents
-#    When I close driver
-#
-#  #6.创建卖方信用档案
-#  @sanity_pack_supplier_Credit_Supplier_Customer_Profile_UAT
-#  Scenario:create Supplier Credit File_UAT
-#    Given logon "scf_environments_1_tian" on tube by inputting system
-#    When login successfully and click the SCF link to createSupplierCreditFile
-#    And edit Supplier Credit Profile
-##    Then submit Supplier Credit Profile
-#    And to Supplier Credit Profile Review Page
-#    Then Supplier Credit Profile L1 Review
-#    Then I close driver
-#    Given logon "scf_environments_2_tian" on tube by inputting system
-#    And use User L2 to Supplier Review
-#    When I close driver
-##
-#     #7.卖方授信限额
-#  @sanity_pack_supplier_Supplier_Underwriting_UAT
-#  Scenario:Supplier The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained_UAT
-#    Given logon "scf_environments_1_tian" on tube by inputting system
-#    When I click UnderWriting and UnderWriting Approval
-#    Then I should direct to the UnderWriting Approval page
-#    When I click Supplier Test Data Assign to Me button on UnderWriting Approval page
-#    When I click Assign to ME title on the on UnderWriting Approval page
-#    When I should see Supplier Proceed Button and click on the UnderWriting Approval page
-#    When I update Limit for THIS Product
-#    When I click Result button on the UnderWriting Approval page
-#    And I click Approve button and click Submit button on the page
-#    When I click Completed Button on the UnderWriting Approval page
-#    Then I check Underwriting status
-#    When I close driver
-#
-##
-##
-#    #8.创建买方信用档案
-#  @sanity_pack_buyer_Credit_Supplier_Customer_Profile_UAT
-#  Scenario:create Buyer Credit File_UAT
-#    Given logon "scf_environments_1_tian" on tube by inputting system
-#    When login successfully and click the SCF link to createBuyerCreditFile
-#    And edit Buyer Credit Profile
-##    Then submit Buyer Credit Profile
-#    And  to Buyer Credit Profile Review page
-#    Then buyer Credit Profile L1 Review
-#    Then I close driver
-##    And change user To L2 Review
-#    Given logon "scf_environments_2_tian" on tube by inputting system
-#    And use UserL2 to Review
-#    Then I Check buyer Credit file status
-#    When I close driver
-#
-#
-#
-#  # 9.买方授信限额
-#  @sanity_pack_buyer_Supplier_Underwriting_UAT
-#  Scenario:Buyer The operator initiated Buyer Entity Flow & Buyer Entity Public to grant credit to buyer customers, and the credit was successfully granted, and the limit and rating were obtained_UAT
-#    Given logon "scf_environments_1_tian" on tube by inputting system
-#    When I click UnderWriting and UnderWriting Approval
-#    Then I should direct to the UnderWriting Approval page
-#    When I click buyer Test Data Assign to Me button on UnderWriting Approval page
-#    When I click Assign to ME title on the on UnderWriting Approval page
-#    Then I should see Proceed Button on the UnderWriting Approval page
-#    When I update Limit for THIS Product
-#    When I click Result button on the UnderWriting Approval page
-#    And I click Approve button and click Submit button on the page
-#    When I click Completed Button on the UnderWriting Approval page
-#    When I close driver
-#
-##
+
+  #5.上传历史单据
+  @sanity_pack_supplier_Upload_Historical_Documents_UAT
+  Scenario:Upload historical documents_UAT
+    Given logon "scf_environments_1_tian" on tube by inputting system
+    When I click Operations button
+    And I click docs List button
+    When I upload Historical Documents
+    Then I should see the uploaded historical documents
+    When I close driver
+
+  #6.创建卖方信用档案
+  @sanity_pack_supplier_Credit_Supplier_Customer_Profile_UAT
+  Scenario:create Supplier Credit File_UAT
+    Given logon "scf_environments_1_tian" on tube by inputting system
+    When login successfully and click the SCF link to createSupplierCreditFile
+    And edit Supplier Credit Profile
+#    Then submit Supplier Credit Profile
+    And to Supplier Credit Profile Review Page
+    Then Supplier Credit Profile L1 Review
+    Then I close driver
+    Given logon "scf_environments_2_tian" on tube by inputting system
+    And use User L2 to Supplier Review
+    When I check the Credit Supplier status
+    When I close driver
+
+     #7.卖方授信限额
+  @sanity_pack_supplier_Supplier_Underwriting_UAT
+  Scenario:Supplier The operator initiates the supplier's credit, the whole process is approved, the credit is successful, and the limit and rating are obtained_UAT
+    Given logon "scf_environments_1_tian" on tube by inputting system
+    When I click UnderWriting and UnderWriting Approval
+    Then I should direct to the UnderWriting Approval page
+    When I click Supplier Test Data Assign to Me button on UnderWriting Approval page
+    When I click Assign to ME title on the on UnderWriting Approval page
+    When I should see Supplier Proceed Button and click on the UnderWriting Approval page
+    When I update Limit for THIS Product
+    When I click Result button on the UnderWriting Approval page
+    And I click Approve button and click Submit button on the page
+    When I click Completed Button on the UnderWriting Approval page
+    Then I check Underwriting status
+    When I close driver
+
+
+
+    #8.创建买方信用档案
+  @sanity_pack_buyer_Credit_Supplier_Customer_Profile_UAT
+  Scenario:create Buyer Credit File_UAT
+    Given logon "scf_environments_1_tian" on tube by inputting system
+    When login successfully and click the SCF link to createBuyerCreditFile
+    And edit Buyer Credit Profile
+#    Then submit Buyer Credit Profile
+    And  to Buyer Credit Profile Review page
+    Then buyer Credit Profile L1 Review
+    Then I close driver
+#    And change user To L2 Review
+    Given logon "scf_environments_2_tian" on tube by inputting system
+    And use UserL2 to Review
+    Then I Check buyer Credit file status
+    When I close driver
+
+
+
+  # 9.买方授信限额
+  @sanity_pack_buyer_Supplier_Underwriting_UAT
+  Scenario:Buyer The operator initiated Buyer Entity Flow & Buyer Entity Public to grant credit to buyer customers, and the credit was successfully granted, and the limit and rating were obtained_UAT
+    Given logon "scf_environments_1_tian" on tube by inputting system
+    When I click UnderWriting and UnderWriting Approval
+    Then I should direct to the UnderWriting Approval page
+    When I click buyer Test Data Assign to Me button on UnderWriting Approval page
+    When I click Assign to ME title on the on UnderWriting Approval page
+    Then I should see Proceed Button on the UnderWriting Approval page
+    When I update Limit for THIS Product
+    When I click Result button on the UnderWriting Approval page
+    And I click Approve button and click Submit button on the page
+    When I click Completed Button on the UnderWriting Approval page
+    When I close driver
+
+
 #  #10.BR签署
 #  @sanity_pack_buyer_BR_Signature_UAT
 #  Scenario:BR signed_UAT

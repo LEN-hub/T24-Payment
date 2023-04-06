@@ -122,7 +122,7 @@ Feature: test report for scf
     And I click the email icon to send the email
     When open the email browser page
     And I received an email from Green Union Bank on the email page
-    When I receive mail in my mailbox on scf sit env
+    When I receive mail in my mailbox on scf uat env
     And I get the verification code on the email interface
     And I enter Company ID and click Login button
     Then Click login to jump to the Set New Password page

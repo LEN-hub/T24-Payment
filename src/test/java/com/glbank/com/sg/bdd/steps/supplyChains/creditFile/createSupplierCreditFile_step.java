@@ -164,6 +164,16 @@ public class createSupplierCreditFile_step extends PageObject {
     @Step
     public void clickToSupplierCreditProfileReviewPage(){
         createSupplierCreditFile_page.clickSupplierCreditProfileReview.click();
+
+    }
+
+    @Step
+    public void assertCreditProfile(){
+        createSupplierCreditFile_page.SupplierCreditProfileList.click();
+        bddUtil.sleep(3);
+        createSupplierCreditFile_page.companyNameInput.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        createSupplierCreditFile_page.profileListBtn.click();
+        bddUtil.sleep(4);
     }
 
     @Step

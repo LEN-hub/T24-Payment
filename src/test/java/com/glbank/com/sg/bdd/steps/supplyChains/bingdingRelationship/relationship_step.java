@@ -230,22 +230,13 @@ public class relationship_step extends ScenarioSteps {
         String companyDataName = FileUtils.LastReadFileInput3("companyData");
         relationship_page.inputCompanyName.sendKeys(companyDataName);
         bddUtil.clickByJS(relationship_page.find(By.xpath("//span[text()='"+companyDataName+"']")));
-//        bddUtil.find(By.xpath("//span[text()='"+companyDataName+"']")).click();
-//        String [] arry = rtn.split(",");
-//        List<String> fileContent = Arrays.asList(arry);
-//        String value = fileContent.get(fileContent.size()-2);
-//        System.out.println(value);
-//        List<WebElementFacade> textValue = relationship_page.companyNameSelectList;
-//        for (int i = 0; i < textValue.size(); i++) {
-//            if (fileContent.get(fileContent.size()-2).equals(textValue.get(i).getText())){
-//                bddUtil.scrollWindowToElement(textValue.get(i)).click();
-//                relationship_page.upstreamCompanyButton.click();
-//                relationship_page.confirmBtn.click();
-//                break;
-//            }
-//        }
         relationship_page.upstreamCompanyButton.click();
         relationship_page.confirmBtn.click();
+        bddUtil.sleep(4);
+        relationship_page.backBtn.click();
+        bddUtil.sleep(4);
+        relationship_page.searchCompany.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        relationship_page.titleText.click();
         bddUtil.sleep(5);
     }
 

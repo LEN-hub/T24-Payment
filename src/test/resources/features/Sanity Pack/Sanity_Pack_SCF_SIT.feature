@@ -138,6 +138,7 @@ Feature: Sanity Pack SCF SIT Test Case
     And I click docs List button
     When I upload Historical Documents
     Then I should see the uploaded historical documents
+    When I close driver
 
   #6.创建卖方信用档案
   @sanity_pack_supplier_Credit_Supplier_Customer_Profile_SIT
@@ -200,7 +201,7 @@ Feature: Sanity Pack SCF SIT Test Case
     When I click Result button on the UnderWriting Approval page
     And I click Approve button and click Submit button on the page
     When I click Completed Button on the UnderWriting Approval page
-
+    When I close driver
 
   #10.BR签署
   @sanity_pack_supplier_BR_Signature_SIT

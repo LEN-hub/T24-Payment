@@ -435,11 +435,11 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.enterCompanyId.clear();
         customers_page.enterCompanyId.sendKeys(RandomPhoneNumber.randomPhoneNum());
         bddUtil.switchToNewWindow();
-        customers_page.clickEditEmailName.click();
-        bddUtil.sleep(3);
-        customers_page.sendKeysEmailName.clear();
-        customers_page.sendKeysEmailName.sendKeys(FileUtils.LastReadFileInput3("emailData").substring(0,8));
-        customers_page.clickEditEmailName.click();
+//        customers_page.clickEditEmailName.click();
+//        bddUtil.sleep(3);
+//        customers_page.sendKeysEmailName.clear();
+//        customers_page.sendKeysEmailName.sendKeys(FileUtils.LastReadFileInput3("emailData").substring(0,8));
+//        customers_page.clickEditEmailName.click();
         bddUtil.sleep(5);
         bddUtil.switchToNewWindow();
         customers_page.sendCodeBtn.click();

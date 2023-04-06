@@ -88,4 +88,13 @@ public class relationship_page extends PageObject {
 
     @FindBy(xpath = "//div[contains(text(),'Company Name')]/parent::label/following-sibling::div//input")
     public WebElementFacade inputCompanyName;
+
+    @FindBy(xpath = "//span[text()='Back']")
+    public WebElementFacade backBtn;
+
+    @FindBy(xpath = "//input[@placeholder='Search company']")
+    public WebElementFacade searchCompany;
+
+    @FindBy(xpath = "//span[text()='Relationship Management']")
+    public WebElementFacade titleText;
 }

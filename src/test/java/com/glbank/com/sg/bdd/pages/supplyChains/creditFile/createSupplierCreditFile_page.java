@@ -185,6 +185,12 @@ public class createSupplierCreditFile_page extends PageObject {
     @FindBy(xpath = "//div[@class=\"lls-submenu__content\"]//span[text()=\"Supplier Credit Profile Review\"]")
     public WebElementFacade clickSupplierCreditProfileReview;
 
+    @FindBy(xpath = "//div[@class=\"lls-submenu__content\"]//span[text()=\"Supplier Credit Profile List\"]")
+    public WebElementFacade SupplierCreditProfileList;
+
+    @FindBy(xpath = "//label[text()='Company Name']/following-sibling::div//input")
+    public WebElementFacade companyNameInput;
+
     @FindBy(xpath = "//td[@data-key=\"f3mbtifu\"]")
     public List<WebElementFacade> companyNameListToAssignToMe;
 

@@ -250,6 +250,9 @@ public class product_page extends PageObject {
     @FindBy(xpath = "//div[@data-key='f0nqmgp0']//span")
     public WebElementFacade Confirm;
 
+    @FindBy(xpath = "//label[text()='Name']/following-sibling::div//input")
+    public WebElementFacade productNameSelect;
+
     @FindBy(xpath = "//div[@id='main-message']/h1")
     public WebElementFacade errorText;
 

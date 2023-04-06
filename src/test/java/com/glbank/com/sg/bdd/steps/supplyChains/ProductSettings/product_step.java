@@ -440,6 +440,10 @@ public class product_step extends ScenarioSteps {
     public void clickConfirm() {
         productPage.Confirm.click();
         bddUtil.sleep(4);
+        productPage.productNameSelect.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        bddUtil.sleep(2);
+        getDriver().findElement(By.xpath("//div[@x-placement='bottom-start' or @x-placement='top-start' ]")).click();
+        bddUtil.sleep(4);
     }
 
     @Step
