@@ -188,11 +188,28 @@ public class createSupplierCreditFile_step extends PageObject {
         }
     }
 
+    // 校验供应商授信状态
     @Step
     public void checkUnderWritingStatus() throws Exception{
         createSupplierCreditFile_page.underWriting.click();
         createSupplierCreditFile_page.underwritingListBtn.click();
         createSupplierCreditFile_page.applicantInput.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        createSupplierCreditFile_page.applicantBtn.click();
+        bddUtil.sleep(6);
+//      校验状态。
+        if (createSupplierCreditFile_page.underWritingStatus.getText().equals("Approved")){
+            System.out.println("状态通过");
+        }else {
+            throw new Exception("状态校验不通过。");
+        }
+    }
+
+//    校验买方授信状态
+    @Step
+    public void checkUnderWritingStatusOnBuyer() throws Exception{
+        createSupplierCreditFile_page.underWriting.click();
+        createSupplierCreditFile_page.underwritingListBtn.click();
+        createSupplierCreditFile_page.applicantInput.sendKeys(FileUtils.LastReadFileInput3("buer"));
         createSupplierCreditFile_page.applicantBtn.click();
         bddUtil.sleep(6);
 //      校验状态。

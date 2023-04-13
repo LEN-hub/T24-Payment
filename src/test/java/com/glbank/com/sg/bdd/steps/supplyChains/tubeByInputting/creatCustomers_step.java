@@ -531,7 +531,7 @@ public class creatCustomers_step extends ScenarioSteps {
         bddUtil.sleep(5);
         bddUtil.scrollWindowToElement(customers_page.noExpiryDateTitle);
         customers_page.selectDate.click();
-        customers_page.noExpiryDateInput.sendKeys("2024-09-10");
+        customers_page.noExpiryDateInput.sendKeys("1999-09-10");
 //        customers_page.memorandumAndArticlesOfAssLink.click();
         bddUtil.sleep(2);
 //        getDriver().findElement(By.xpath("//label[@for='A0010']//following-sibling::div//input")).sendKeys("C:\\workspace\\DBB_GL_AutoTesting-dev\\src\\test\\resources\\testData\\autopay\\test2.jpg");
@@ -719,7 +719,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.enterIdNo.clear();
         customers_page.enterIdNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.adminIDExpiryDate.click();
-        customers_page.dateOfBirth.sendKeys("2024-09-10");
+        customers_page.dateOfBirth.sendKeys("1999-09-10");
         customers_page.enterNationality.sendKeys("singapore");
         bddUtil.sleep(1);
         customers_page.selectCountry.click();
@@ -749,7 +749,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.enterIdNo2.clear();
         customers_page.enterIdNo2.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.adminIDExpiryDate2.click();
-        customers_page.dateOfBirth2.sendKeys("2024-09-10");
+        customers_page.dateOfBirth2.sendKeys("1999-09-10");
         customers_page.enterNationality2.sendKeys("singapore");
         customers_page.selectCountry.click();
         customers_page.countryOfResidence2.sendKeys("singapore");
@@ -785,7 +785,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.director1SelectIdType.click();
         customers_page.director1IdNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.director1IdExpiryDate.click();
-        customers_page.director1DateOfBirth.sendKeys("2024-09-10");
+        customers_page.director1DateOfBirth.sendKeys("1999-09-10");
         customers_page.director1NationalityDrop.sendKeys("singapore");
         customers_page.selectCountry.click();
         customers_page.director1City.sendKeys("beijing");
@@ -805,7 +805,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.director2SelectIdType.click();
         customers_page.director2IdNumber.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.director2IdExpiryDate.click();
-        customers_page.director2DateOfBirth.sendKeys("2024-09-10");
+        customers_page.director2DateOfBirth.sendKeys("1999-09-10");
         customers_page.director2NationalityDrop.sendKeys("singapore");
         customers_page.selectCountry.click();
         customers_page.director2City.sendKeys("beijing");
@@ -836,7 +836,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.shareholder1IdNo.clear();
         customers_page.shareholder1IdNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.shareholder1NoExpiry.click();
-        customers_page.shareholder1DateOfBirth.sendKeys("2024-09-10");
+        customers_page.shareholder1DateOfBirth.sendKeys("1999-09-10");
         customers_page.shareholder1Nationality.sendKeys("singapore");
         customers_page.selectCountry.click();
         customers_page.shareholder1ResidentialAddress.clear();
@@ -879,7 +879,7 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.shareholder2IdNo.clear();
         customers_page.shareholder2IdNo.sendKeys(RandomPhoneNumber.randomPhoneNum());
         customers_page.shareholder2IDExpiryDate.click();
-        customers_page.shareholder2DateOfBirth.sendKeys("2024-09-10");
+        customers_page.shareholder2DateOfBirth.sendKeys("1999-09-10");
         customers_page.shareholder2Nationality.sendKeys("singapore");
         customers_page.selectCountry.click();
         customers_page.shareholder2ResidentialAddress.sendKeys(RandomNameTool.getName(Language.en, NameType.FULL_NAME));
@@ -1034,7 +1034,8 @@ public class creatCustomers_step extends ScenarioSteps {
         customers_page.clickFourQuestionCheckBox.click();
         customers_page.clickFiveQuestionCheckBox.click();
         getDriver().findElement(By.xpath("//span[text()='Browse']/parent::div/parent::div/following-sibling::input")).sendKeys(fileAddress);
-        bddUtil.sleep(5);
+        bddUtil.sleep(7);
+        bddUtil.scrollWindowToElement(getDriver().findElement(By.xpath("//div[@class='content-submit']/button[3]")));
         customers_page.nextBtnIndustry.click();
     }
 
@@ -1242,7 +1243,10 @@ public class creatCustomers_step extends ScenarioSteps {
 //        bddUtil.scrollWindowToElement(customers_page.relatedPartyCheckBox);
         bddUtil.clickByJS(customers_page.relatedPartyCheckBox);
         bddUtil.sleep(2);
-        customers_page.resultCheckBox.click();
+        // 获取到T24ID，并且 写入txt文件里。
+       String T24ID =  getDriver().findElement(By.xpath("//label[text()='T24 Client No.']/following-sibling::div//input")).getAttribute("value");
+       FileUtils.FileString4("SCF-T24ID",T24ID);
+       customers_page.resultCheckBox.click();
         customers_page.selectApprove.click();
         customers_page.inputBoxComment.sendKeys(JRandomNameTool.getStringRandom(10));
         customers_page.submitBtnOnAssignToMePage.click();

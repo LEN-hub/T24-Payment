@@ -158,7 +158,12 @@ public class payments_steps extends ScenarioSteps {
     }
 
     @Step
-    public void clickAPPROVE(){paymentsPage.APPROVE.click();}
+    public void clickAPPROVE(){
+        // 把放款金额存到TXT文本
+        String  LoanDisbursementAmount = bddUtil.scrollWindowToElement(getDriver().findElement(By.xpath("//div[@data-key='f0jf04hv']/div//input"))).getAttribute("value");
+        FileUtils.FileString4("LoanAmount",LoanDisbursementAmount);
+        paymentsPage.APPROVE.click();
+    }
 
     @Step
     public void validation() {
@@ -358,5 +363,20 @@ public class payments_steps extends ScenarioSteps {
         bddUtil.scrollWindowToElement(paymentsPage.AdjustAmout.get(0));
         bddUtil.scrollWindowToElement(paymentsPage.AdjustAmout.get(0)).sendKeys("0.01");
         bddUtil.sleep(3);
+    }
+
+//    去FinReport查找去核心查询的编号
+    @Step
+    public void clickFinReport(){
+        paymentsPage.operationsList.click();
+        bddUtil.sleep(1);
+        paymentsPage.FinReport.click();
+        bddUtil.sleep(2);
+        paymentsPage.FinIDInput.sendKeys(FileUtils.LastReadFileInput3("FinNo"));
+        paymentsPage.reportBtn.click();
+        bddUtil.sleep(2);
+//        拿到ReferenceId,存入 ReferenceID文件
+        String ReferenceID = paymentsPage.PaymentReferenceID.getText();
+        FileUtils.FileString4("ReferenceID",ReferenceID);
     }
 }

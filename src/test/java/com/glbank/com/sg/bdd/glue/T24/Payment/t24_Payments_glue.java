@@ -5,6 +5,7 @@ import com.glbank.com.sg.bdd.steps.T24.Payment.t24_Payments_step;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
@@ -397,5 +398,41 @@ public class t24_Payments_glue {
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
         t24_payments_step.findInputArrangementLocalFundPaymentUI(title.get(0).get("WordPath"));
+    }
+
+//    在T24查询SCF建档客户信息。
+    @When("^I input customerID on T24 SIT$")
+    public void iInputCustomerIDOnTSIT24() {
+        t24_payments_step.inputCustomerID();
+    }
+
+//    校验T24的Customer Type状态
+    @Then("^I check the status$")
+    public void iCheckTheStatus() throws Exception{
+        t24_payments_step.checkCustomerType();
+    }
+
+//  进入Customer Details页面
+    @Then("^Enter the Customer Details Page$")
+    public void enterTheCustomerDetailsPage() {
+        t24_payments_step.EnterCustomerTails();
+    }
+
+//    校验放款的金额
+    @And("^check Loan Amount$")
+    public void checkLoanAmount() throws Exception{
+        t24_payments_step.checkLoanAmount();
+    }
+
+//    进入到DrillDown页面
+    @When("^Enter the Drilldown Page$")
+    public void enterTheDrilldownPage() {
+        t24_payments_step.enterDrillDown();
+    }
+
+//    校验还款
+    @And("^check Repayment status$")
+    public void checkRepaymentStatus() throws Exception{
+        t24_payments_step.checkRepaymentStatus();
     }
 }

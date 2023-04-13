@@ -1,10 +1,7 @@
 package com.glbank.com.sg.bdd.steps.supplyChains.financingRequest;
 
 import com.glbank.com.sg.bdd.pages.supplyChains.financingRequest.financingRequest_page;
-import com.glbank.com.sg.bdd.utils.BDDUtil;
-import com.glbank.com.sg.bdd.utils.CommonUtil;
-import com.glbank.com.sg.bdd.utils.ModifyExcel;
-import com.glbank.com.sg.bdd.utils.health_check;
+import com.glbank.com.sg.bdd.utils.*;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -84,6 +81,8 @@ public class financingRequest_step extends ScenarioSteps {
         financingRequest_page.clickFrReview.click();
         FinancingNo = financingRequest_page.find(By.xpath("//div[@class='finance']//div[@class='lls-tabs__content']/div[1]/section/div[1]/div[3]//tr[1]/td[3]//span")).getText();
 //        Map<String, Object> map1 = updateAml(FinancingNo);
+        // 将FIN number 存到文件
+        FileUtils.FileString4("FinNo",FinancingNo);
         List<WebElementFacade> requestName = financingRequest_page.requesterName;
         for(int i = 0;i< requestName.size();i++){
             if(requestName.get(i).getText().equals(companyName)){

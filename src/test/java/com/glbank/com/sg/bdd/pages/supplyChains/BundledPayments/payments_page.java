@@ -166,4 +166,16 @@ public class payments_page extends PageObject{
     @FindBy(xpath = "//button[@class='lls-button lls-button--primary']/span")
     public WebElementFacade submitBtn;
 
+    @FindBy(xpath = "//span[text()='Financing Reports']")
+    public WebElementFacade FinReport;
+
+    @FindBy(xpath = "//label[text()='Financing ID']/following-sibling::div//input")
+    public WebElementFacade FinIDInput;
+
+    @FindBy(xpath = "//span[text()='Report']")
+    public WebElementFacade reportBtn;
+
+    @FindBy(xpath = "//td[@data-key='f38lqoae']")
+    public WebElementFacade PaymentReferenceID;
+
 }

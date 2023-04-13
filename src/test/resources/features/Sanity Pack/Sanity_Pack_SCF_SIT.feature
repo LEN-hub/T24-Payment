@@ -66,6 +66,9 @@ Feature: Sanity Pack SCF SIT Test Case
     Then Switch To the Assign To Me page and perform the corresponding operations
     When I Check data status
     When I close driver
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
+    When I input customerID on T24 SIT
+    Then I check the status
 
 
   #2.simple 买方（核心不存在、非自主、无管理员）
@@ -201,6 +204,7 @@ Feature: Sanity Pack SCF SIT Test Case
     When I click Result button on the UnderWriting Approval page
     And I click Approve button and click Submit button on the page
     When I click Completed Button on the UnderWriting Approval page
+    Then I check Underwriting status on buyer
     When I close driver
 
   #10.BR签署
@@ -224,51 +228,59 @@ Feature: Sanity Pack SCF SIT Test Case
     When I click on the first Customers
     And click ContractManagement
     Then Enter the name of the supplier to filter
-#
-#  #12.融资申请
-#  @sanity_pack_supplier_Financing_Request_SIT
-#  Scenario:financing Request_SIT
-#    Given logon "environments_SCF_SIT" test code
-#    When I input login information
-#    When login successfully and click RequestFinancing
-#    Then upload RequestFinancing File
-#    And  logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
-#    Then click Operations to Review
-##    And change user To L2 Review
-#    When logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
-#    And click Operations to Review
-#    Given logon "environments_SCF_SIT" test code
-#    When I input login information
-#    And click Financing Status
-#    When I close driver
 
-##
-#    #13.放款
-#  @sanity_pack_supplier_Loan_SIT
-#  Scenario:UAT_ Supply chain_ Inner tube_ Create payments_SIT
-#    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
-#    When When I hit Operations
-#    And click Request for Disbursement
-#    When I click on Assign To Me
-#    Then I click Submit
-#    When I click on Review Disbursement
-#    And  click proceed
-#    Then Click on the submit APPROVE
-#    When Confirm Disbursement page
-#    When I close driver
-#
-#
-#  # 14.全部还款
-#  @sanity_pack_supplier_Full_Repayment_SIT
-#  Scenario:UAT_supply chain_inner management_repayment_0001UAT_supply chain_inner management_repayment_SIT
-#    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
-#    When I click Operations button
-#    When I click Repayment button
-#    Then I should direct to the Repayment Management page
-##    When I click the Assign to me button of the repayment data
-#    When I click Assign to ME title on the on Repayment Management page
-#    When I click Proceed Button on the Repayment Management Page
-#    Then I should direct to the Repayment Detail page
-#    When I select Repayment Account No on the page
-#    And I enter other parameters in the current page
-#    When I close driver
+  #12.融资申请
+  @sanity_pack_supplier_Financing_Request_SIT
+  Scenario:financing Request_SIT
+    Given logon "environments_SCF_SIT" test code
+    When I input login information
+    When login successfully and click RequestFinancing
+    Then upload RequestFinancing File
+    And  logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
+    Then click Operations to Review
+#    And change user To L2 Review
+    When logon "netSilverEnv_SCF_SIT2" on sit tube by inputting system
+    And click Operations to Review
+    Given logon "environments_SCF_SIT" test code
+    When I input login information
+    And click Financing Status
+    When I close driver
+
+
+    #13.放款
+  @sanity_pack_supplier_Loan_SIT
+  Scenario:UAT_ Supply chain_ Inner tube_ Create payments_SIT
+    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
+    When When I hit Operations
+    And click Request for Disbursement
+    When I click on Assign To Me
+    Then I click Submit
+    When I click on Review Disbursement
+    And  click proceed
+    Then Click on the submit APPROVE
+    When Confirm Disbursement page
+    When I click Financing Reports
+    When I close driver
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
+    Then Enter the Customer Details Page
+    When Enter the Drilldown Page
+    And check Loan Amount
+
+
+  # 14.全部还款
+  @sanity_pack_supplier_Full_Repayment_SIT
+  Scenario:UAT_supply chain_inner management_repayment_0001UAT_supply chain_inner management_repayment_SIT
+    Given logon "netSilverEnv_SCF_SIT1" on sit tube by inputting system
+    When I click Operations button
+    When I click Repayment button
+    Then I should direct to the Repayment Management page
+#    When I click the Assign to me button of the repayment data
+    When I click Assign to ME title on the on Repayment Management page
+    When I click Proceed Button on the Repayment Management Page
+    Then I should direct to the Repayment Detail page
+    When I select Repayment Account No on the page
+    And I enter other parameters in the current page
+    When I close driver
+    Given to verify transaction in T24 using "T24-automation-SIT-login"
+    Then Enter the Customer Details Page
+    And check Repayment status

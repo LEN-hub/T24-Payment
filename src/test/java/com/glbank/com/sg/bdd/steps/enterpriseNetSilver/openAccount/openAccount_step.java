@@ -625,8 +625,8 @@ public void inputEntityDetailsNew() {
         webdriver.executeScript("window.open(\"https://mailtemp.top/mailbox\");");
         bddUtil.sleep(3);
         bddUtil.switchToNewWindow();
-//        openAccount_page.inputEmail.sendKeys(ApplicantEmail);
-        openAccount_page.inputEmail.sendKeys("y5yX6@MailTemp.top");
+        openAccount_page.inputEmail.sendKeys(ApplicantEmail);
+//        openAccount_page.inputEmail.sendKeys("y5yX6@MailTemp.top");
         bddUtil.sleep(5);
         openAccount_page.viewBtn.click();
         bddUtil.sleep(3);

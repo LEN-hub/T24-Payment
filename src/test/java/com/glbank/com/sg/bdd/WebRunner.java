@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features = "src/test/resources/features",
         plugin = {"pretty","html:target/cucumber","json:target/json/cucumber.json"},
-        tags = "@Sanity_Pack_INB_SIT1")
+        tags = "@ISO-003")
 public class WebRunner {
 
 }

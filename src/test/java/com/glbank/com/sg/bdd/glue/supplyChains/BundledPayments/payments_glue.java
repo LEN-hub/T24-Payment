@@ -182,4 +182,9 @@ public class payments_glue {
     public void iEnterOtherParRemetersInTheCurrentPageThree() {
         paymentsStep.inputOtherParameter4();
     }
+
+    @When("^I click Financing Reports$")
+    public void iClickFinancingReports() {
+        paymentsStep.clickFinReport();
+    }
 }

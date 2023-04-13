@@ -49,6 +49,10 @@ public class rpa_page extends PageObject {
     @FindBy(xpath = "//span[text()='Contract Management']")
     public WebElementFacade CompanyNameClickReset;
 
+    @FindBy(xpath = "//span[contains(text(),'Executed')]")
+    public WebElementFacade ExecutedBtn;
+
+
     @FindBy(xpath = "//div[@class='lls-design-table-btn-wrapper']/span[2]//span")
     public WebElementFacade upload;
 

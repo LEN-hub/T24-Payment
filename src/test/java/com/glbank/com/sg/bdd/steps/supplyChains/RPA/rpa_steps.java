@@ -65,6 +65,12 @@ public class rpa_steps extends ScenarioSteps {
         bddUtil.sleep(1);
         rpaPage.clickConfirmBtn.click();
         bddUtil.sleep(5);
+        rpaPage.ExecutedBtn.click();
+        bddUtil.sleep(3);
+        rpaPage.enterCompanyName.sendKeys(FileUtils.LastReadFileInput3("companyData"));
+        bddUtil.sleep(1);
+        rpaPage.ExecutedBtn.click();
+        bddUtil.sleep(5);
     }
 
     @Step

@@ -2100,4 +2100,84 @@ public class t24_Payments_step extends ScenarioSteps {
             System.out.println("金额比对成功！");
         }
     }
+
+//    输入T24ID查询客户状态
+    @Step
+    public void inputCustomerID(){
+        String T24ID = FileUtils.LastReadFileInput3("SCF-T24ID");
+        switchToFirstFrame();
+        t24_payments_page.inputBox.clear();
+        t24_payments_page.inputBox.sendKeys("CUSTOMER");
+        t24_payments_page.searchBtn.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        t24_payments_page.customerIdInput.sendKeys(T24ID);
+        bddUtil.sleep(1);
+        t24_payments_page.selectT24ID.click();
+        bddUtil.sleep(10);
+    }
+
+    @Step
+    public void checkCustomerType() throws Exception{
+        if (t24_payments_page.customerType.getText().equals("Active")){
+            System.out.println("账户信息正确。");
+        }else {
+            throw new Exception("账户状态不对。");
+        }
+    }
+
+//  进入客户详细信息页面
+    @Step
+    public void EnterCustomerTails(){
+        bddUtil.sleep(2);
+        switchToSecondFrame();
+        t24_payments_page.clickUserMenu.click();
+        bddUtil.sleep(1);
+        t24_payments_page.clickProducts.click();
+        bddUtil.sleep(1);
+        t24_payments_page.FindCustomer.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        t24_payments_page.CustomerIDInput.clear();
+        t24_payments_page.CustomerIDInput.sendKeys(FileUtils.LastReadFileInput3("SCF-T24ID"));
+        bddUtil.sleep(1);
+        t24_payments_page.FindBtn.click();
+        getDriver().findElements(By.xpath("//a[@title='Select Drilldown']")).get(0).click();
+        t24_payments_page.viewCustomer.click();
+        bddUtil.sleep(1);
+        t24_payments_page.loansBtn.click();
+        bddUtil.sleep(4);
+//       把AccountID存进AccountID.txt里面
+        FileUtils.FileString4("AccountID",t24_payments_page.AccountID.getText());
+    }
+
+    @Step
+    public void enterDrillDown(){
+        t24_payments_page.SelectDrilldown.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+    }
+
+    @Step
+    public void checkLoanAmount() throws Exception{
+        if (t24_payments_page.LoanAmount.get(0).getText().equals(FileUtils.LastReadFileInput3("LoanAmount"))){
+            System.out.println("放款金额校验成功");
+        }else {
+            throw new Exception("放款金额对比失败");
+        }
+    }
+
+    @Step
+    public void checkRepaymentStatus() throws Exception{
+        String RepaymentID = FileUtils.LastReadFileInput3("AccountID");
+        if (t24_payments_page.repaymentID.getText().equals(RepaymentID)){
+            System.out.println("还款成功");
+        }else {
+            throw new Exception("还款失败");
+        }
+    }
 }

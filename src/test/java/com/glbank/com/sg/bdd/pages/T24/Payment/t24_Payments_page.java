@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.security.cert.X509Certificate;
 import java.util.List;
 
 public class t24_Payments_page extends PageObject {
@@ -455,4 +456,44 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//td[text()='USD']/following-sibling::td[6]//img[@title='Overview']")
     public WebElementFacade getClickMultiCurrencyUSDOverview;
+
+//    CUSTOMER页面输入T24ID
+    @FindBy(xpath = "//div[@id='toolBar']//input[@id='transactionId']")
+    public WebElementFacade customerIdInput;
+
+//    CUSTOMER页面查询T24ID按钮
+    @FindBy(xpath = "//img[@alt='View a contract']")
+    public WebElementFacade selectT24ID;
+
+    //CUSTOMER详情页面 customer type状态
+    @FindBy(xpath = "//tr[@tabid='tab1'][21]//td[3]/span")
+    public WebElementFacade customerType;
+
+    @FindBy(xpath = "//a[text()='Find Customer ']")
+    public WebElementFacade FindCustomer;
+
+    @FindBy(xpath = "//label[text()='Customer ID']/parent::span/parent::td/following-sibling::td[2]/input[1]")
+    public WebElementFacade CustomerIDInput;
+
+    @FindBy(xpath = "//a[text()='Find']")
+    public WebElementFacade FindBtn;
+
+    @FindBy(xpath = "//a[@title='Single Customer View']")
+    public WebElementFacade viewCustomer;
+
+    @FindBy(xpath = "//span[text()='Loans']")
+    public WebElementFacade loansBtn;
+
+    @FindBy(xpath = "//a[@title='Select Drilldown']")
+    public WebElementFacade SelectDrilldown;
+
+    @FindBy(xpath = "//td[text()='Amount']/following-sibling::td[1]")
+    public List<WebElementFacade> LoanAmount;
+
+    @FindBy(xpath = "//table[@summary='Arrangement Search']/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[1]/td[1]")
+    public WebElementFacade AccountID;
+
+    @FindBy(xpath = "//table[@summary='Lending closed Arrangements']/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[1]/td[1]")
+    public WebElementFacade repaymentID;
+
 }

@@ -85,4 +85,8 @@ public class createSupplierCreditFile_glue {
     public void iCheckUnderwritingStatus() throws Exception{
         createSupplierCreditFile_step.checkUnderWritingStatus();
     }
+    @Then("^I check Underwriting status on buyer$")
+    public void iCheckUnderwritingStatusOnBuyer() throws Exception{
+        createSupplierCreditFile_step.checkUnderWritingStatusOnBuyer();
+    }
 }
