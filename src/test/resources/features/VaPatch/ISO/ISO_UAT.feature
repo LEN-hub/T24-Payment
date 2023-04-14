@@ -1,62 +1,66 @@
-@VaPatch_ISO
-Feature: VaPatch_ISO
+@VaPatch_ISO_UAT
+Feature: VaPatch_ISO_UAT
 
-  @ISO-001
-  Scenario:ISO to CNP
+  @ISO-001_UAT
+  Scenario:ISO to CNP_UAT
     Given logon "ISO_UAT" on ISO
     When enter the CNP
 
-  @ISO-002
-  Scenario:ISO to CPS
+  @ISO-002_UAT
+  Scenario:ISO to CPS_UAT
     Given logon "ISO_UAT" on ISO
     When enter the CPS
 
-  @ISO-003
-  Scenario:ISO to DFT
+  @ISO-003_UAT
+  Scenario:ISO to DFT_UAT
     Given logon "ISO_UAT" on ISO
     When enter the DFT
 
-  @ISO-004
-  Scenario:ISO to EBK
+  @ISO-004_UAT
+  Scenario:ISO to EBK_UAT
     Given logon "ISO_UAT" on ISO
     When enter the EBK
 
-  @ISO-005
-  Scenario:ISO to ESC
+  @ISO-005_UAT
+  Scenario:ISO to ESC_UAT
     Given logon "ISO_UAT" on ISO
     When enter the ESC
 
-  @ISO-006
-  Scenario:ISO to EST
+  @ISO-006_UAT
+  Scenario:ISO to EST_UAT
     Given logon "ISO_UAT" on ISO
     When enter the EST
 
-  @ISO-007
-  Scenario:ISO to IMS
+  @ISO-007_UAT
+  Scenario:ISO to IMS_UAT
     Given logon "ISO_UAT" on ISO
     When enter the IMS
 
-  @ISO-008
-  Scenario:ISO to SCF
+  @ISO-008_UAT
+  Scenario:ISO to SCF_UAT
     Given logon "ISO_UAT" on ISO
     When enter the SCF
 
-  @ISO-009
-  Scenario:ISO to SCF-JOB
+  @ISO-009_UAT
+  Scenario:ISO to SCF-JOB_UAT
     Given logon "ISO_UAT" on ISO
     When enter the SCF-JOB
 
-  @ISO-0010
-  Scenario:ISO to SmartBI
+  @ISO-0010_UAT
+  Scenario:ISO to SmartBI_UAT
     Given logon "ISO_UAT" on ISO
     When enter the SmartBI
 
-  @ISO-0011
-  Scenario:ISO to login
+  @ISO-0011_UAT
+  Scenario:ISO to login_UAT
     Given logon "ISO_UAT" on ISO
     When check ISO
 
-  @ISO-0012
-  Scenario:ISO to logout
+  @ISO-0012_UAT
+  Scenario:ISO to logout_UAT
     Given logon "ISO_UAT" on ISO
     When logout ISO
+
+  @ISO-0012_UAT
+  Scenario:ISO to logout_UAT
+    Given logon "ISO_UAT" on ISO
