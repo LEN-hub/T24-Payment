@@ -126,3 +126,101 @@ Feature: VaPatch_ESC_UAT
     Given logon "ISO_UAT" on ISO
     When Enter the AllFiles Page
     Then check batch Download button the Signing In Progress Page
+
+  @ESC-022_UAT
+  Scenario:Signing Completed Page See button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check See button the Signing Completed Page
+
+  @ESC-023_UAT
+  Scenario:Signing Completed Page Download button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check Download button the Signing Completed Page
+
+  @ESC-024_UAT
+  Scenario:Signing Completed Page Search button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check Search button the Signing Completed Page
+
+  @ESC-025_UAT
+  Scenario:Signing Completed Page Reset button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check Reset button the Signing Completed Page
+
+  @ESC-026_UAT
+  Scenario:Signing Completed Page batch Download button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check batch Download button the Signing Completed Page
+
+  @ESC-027_UAT
+  Scenario:Signing Failed Page See button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check See button the Signing Failed Page
+
+  @ESC-028_UAT
+  Scenario:Signing Failed Page Download button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check Download button the Signing Failed Page
+
+  @ESC-029_UAT
+  Scenario:Signing Failed Page Search button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check Search button the Signing Failed Page
+
+  @ESC-030_UAT
+  Scenario:Signing Failed Page Reset button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check Reset button the Signing Failed Page
+
+  @ESC-031_UAT
+  Scenario:Signing Failed Page batch Download button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check batch Download button the Signing Failed Page
+
+  @ESC-034_UAT
+  Scenario:Template Management Page Query button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check Query button the Template Management Page
+
+  @ESC-035_UAT
+  Scenario:Template Management Page Reset button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check Reset button the Template Management Page
+
+  @ESC-036_UAT
+  Scenario:Template Management Page Create button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check create Template on Template Management Page
+    And  check Deactivate button the Template Management Page
+
+  @ESC-037_UAT
+  Scenario:Template Management Page See button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check See button the Template Management Page
+
+  @ESC-038_UAT
+  Scenario:Template Management Page Deactivate button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check create Template on Template Management Page
+    And  check Deactivate button the Template Management Page
+
+  @ESC-041_UAT
+  Scenario:Template Management Page Journal button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check Journal button the Template Management

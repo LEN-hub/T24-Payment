@@ -2,17 +2,24 @@ package com.glbank.com.sg.bdd.steps.VaPatch;
 
 import com.glbank.com.sg.bdd.pages.VaPatch.VaPatch_page;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import com.glbank.com.sg.bdd.utils.FileUtils;
+import com.glbank.com.sg.bdd.utils.JRandomNameTool;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.Random;
 
 public class VaPatch_step extends ScenarioSteps {
     private VaPatch_page vaPatch_page;
     private BDDUtil bddUtil;
     public static String envTag;
+    private static String systemPath = System.getProperty("user.dir");
+    String fileAddress = systemPath + "/src/test/resources/testData/Excel/测试合同123.docx";
 
 //    判断是否进入CNP系统
     @Step
@@ -549,4 +556,533 @@ public class VaPatch_step extends ScenarioSteps {
         }
     }
 
+    @Step
+    public void checkISOBackStage() throws Exception{
+        String isoBackStageTitleText = vaPatch_page.ISOBackStageTitle.getText();
+        bddUtil.sleep(2);
+        if (isoBackStageTitleText.equals("Summary")){
+            System.out.println("ISO后台登录成功");
+        }else {
+            throw new Exception("ISO后台登录失败");
+        }
+    }
+
+    @Step
+    public void logoutISOBackStage(){
+        vaPatch_page.logoutBtn.click();
+        bddUtil.sleep(1);
+        vaPatch_page.logoutBtnConfirm.click();
+        bddUtil.sleep(2);
+    }
+
+    @Step
+    public void checkISOLogoutTitle() throws Exception{
+        String logoutTitleText = vaPatch_page.ISOLogoutTitle.getText();
+        bddUtil.sleep(2);
+        if (logoutTitleText.equals("Login Id")){
+            System.out.println("成功退出IOS 后台");
+        }else {
+            throw new Exception("没有成功退出ISO 后台");
+        }
+    }
+
+//    ISO后台新增用户
+    @Step
+    public void addUser(){
+        vaPatch_page.userSegment.click();
+        bddUtil.sleep(1);
+        vaPatch_page.userTitle.click();
+        bddUtil.sleep(1);
+        vaPatch_page.createUser.click();
+        bddUtil.sleep(1);
+        String userId= JRandomNameTool.getStringRandom(5);
+        FileUtils.FileString4("ISO_AddUser",userId);
+        vaPatch_page.UserId.sendKeys(userId);
+        vaPatch_page.UserName.sendKeys(userId);
+        bddUtil.sleep(1);
+        vaPatch_page.saveBtn.click();
+        bddUtil.sleep(1);
+        vaPatch_page.ResetPwd.click();
+        vaPatch_page.NewPassword.sendKeys("Password1");
+        vaPatch_page.ConfirmNewPassword.sendKeys("Password1");
+        vaPatch_page.saveBtn.click();
+        vaPatch_page.okBtn.click();
+        bddUtil.sleep(1);
+        vaPatch_page.loginAccounts.click();
+        vaPatch_page.editBtn.click();
+        bddUtil.sleep(1);
+        vaPatch_page.ForceChangePwd.click();
+        vaPatch_page.ForceChangeNoBtn.click();
+        bddUtil.sleep(1);
+        vaPatch_page.saveBtn.click();
+        bddUtil.sleep(2);
+    }
+
+//    校验新增用户是否成功UAT环境
+    @Step
+    public void checkNewUserUat() throws Exception{
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"http://10.26.9.74:8080/usoserver/\");");
+        bddUtil.switchToWindows();
+        vaPatch_page.userNameInputbox.sendKeys(FileUtils.LastReadFileInput3("ISO_AddUser"));
+        vaPatch_page.passwordInputbox.sendKeys("Password1");
+        vaPatch_page.clickLogonBtn.click();
+        bddUtil.sleep(4);
+        String ISOTitle = vaPatch_page.ISOTitle.getText();
+        if (ISOTitle.equals("Logout")){
+            System.out.println("登录成功");
+        }else {
+            throw new Exception("登录失败");
+        }
+    }
+
+// 修改ISO用户权限
+    @Step
+    public void changeIsoUser(){
+        vaPatch_page.userSegment.click();
+        bddUtil.sleep(1);
+        vaPatch_page.userTitle.click();
+        bddUtil.sleep(1);
+        vaPatch_page.inputUserId.sendKeys(FileUtils.LastReadFileInput3("ISO_AddUser"));
+        bddUtil.sleep(1);
+        vaPatch_page.search.click();
+        bddUtil.sleep(1);
+        vaPatch_page.clickUserId.click();
+        bddUtil.sleep(1);
+        vaPatch_page.SAMLPage.click();
+        vaPatch_page.editBtn.click();
+        vaPatch_page.addBtn.click();
+        vaPatch_page.SAMLServiceProvider.click();
+        vaPatch_page.SCF_JOB.click();
+        bddUtil.sleep(2);
+        vaPatch_page.okBtn.click();
+        vaPatch_page.saveBtn.click();
+        bddUtil.sleep(2);
+    }
+
+
+//    检验UAT环境 ISO用户权限是否新增成功
+    @Step
+    public void checkChangeISOUserUat() throws Exception {
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"http://10.26.9.74:8080/usoserver/\");");
+        bddUtil.switchToWindows();
+        vaPatch_page.userNameInputbox.sendKeys(FileUtils.LastReadFileInput3("ISO_AddUser"));
+        vaPatch_page.passwordInputbox.sendKeys("Password1");
+        vaPatch_page.clickLogonBtn.click();
+        bddUtil.sleep(3);
+        String text = vaPatch_page.SCFJOBSystem.getText();
+        if (text.equals("Supply Chain Finance-JOB")){
+            System.out.println("权限修改成功");
+        }else {
+            throw new Exception("权限修改失败");
+        }
+    }
+
+//    查找ISO用户
+    @Step
+    public void selectISOUser()throws Exception{
+        vaPatch_page.userSegment.click();
+        bddUtil.sleep(1);
+        vaPatch_page.userTitle.click();
+        bddUtil.sleep(1);
+        vaPatch_page.search.click();
+        bddUtil.sleep(3);
+        String selectTitleText = vaPatch_page.selectTitle.getText();
+        if (selectTitleText.equals("Search User Result")){
+            System.out.println("查询成功");
+        }else {
+            throw new Exception("查询失败");
+        }
+        vaPatch_page.inputUserId.sendKeys(FileUtils.LastReadFileInput3("ISO_AddUser"));
+        bddUtil.sleep(1);
+        vaPatch_page.search.click();
+        bddUtil.sleep(3);
+        if (selectTitleText.equals("Search User Result")){
+            System.out.println("查询成功");
+        }else {
+            throw new Exception("查询失败");
+        }
+    }
+
+    @Step
+    public void DeleteISOUser(){
+        vaPatch_page.userSegment.click();
+        bddUtil.sleep(1);
+        vaPatch_page.userTitle.click();
+        bddUtil.sleep(1);
+        vaPatch_page.inputUserId.sendKeys(FileUtils.LastReadFileInput3("ISO_AddUser"));
+        bddUtil.sleep(1);
+        vaPatch_page.search.click();
+        bddUtil.sleep(3);
+        vaPatch_page.clickUserId.click();
+        bddUtil.sleep(1);
+        vaPatch_page.deleteBtn.click();
+        bddUtil.sleep(1);
+        vaPatch_page.okBtn.click();
+        bddUtil.sleep(3);
+    }
+
+    @Step
+    public void checkDeleteISOUser()throws Exception{
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"http://10.26.9.74:8080/usoserver/\");");
+        bddUtil.switchToWindows();
+        vaPatch_page.userNameInputbox.sendKeys(FileUtils.LastReadFileInput3("ISO_AddUser"));
+        vaPatch_page.passwordInputbox.sendKeys("Password1");
+        vaPatch_page.clickLogonBtn.click();
+        bddUtil.sleep(3);
+        String loginFiledTitleText = vaPatch_page.loginFiledTitle.getText();
+        if (loginFiledTitleText.equals("Login verification failed.")){
+            System.out.println("删除数据成功");
+        }else {
+            throw new Exception("删除数据失败");
+        }
+    }
+
+//    修改新密码为Password123
+    @Step
+    public void resetPassword(){
+        vaPatch_page.userSegment.click();
+        bddUtil.sleep(1);
+        vaPatch_page.userTitle.click();
+        bddUtil.sleep(1);
+        vaPatch_page.inputUserId.sendKeys(FileUtils.LastReadFileInput3("ISO_AddUser"));
+        bddUtil.sleep(1);
+        vaPatch_page.search.click();
+        bddUtil.sleep(3);
+        vaPatch_page.clickUserId.click();
+        bddUtil.sleep(2);
+        vaPatch_page.ResetPwd.click();
+        vaPatch_page.NewPassword.sendKeys("Password123");
+        vaPatch_page.ConfirmNewPassword.sendKeys("Password123");
+        vaPatch_page.saveBtn.click();
+        bddUtil.sleep(3);
+        vaPatch_page.okBtn.click();
+        bddUtil.sleep(1);
+        vaPatch_page.loginAccounts.click();
+        vaPatch_page.editBtn.click();
+        bddUtil.sleep(1);
+        vaPatch_page.ForceChangePwd.click();
+        vaPatch_page.ForceChangeNoBtn.click();
+        bddUtil.sleep(1);
+        vaPatch_page.saveBtn.click();
+        bddUtil.sleep(2);
+    }
+
+//    校验新密码是否可以登录
+    @Step
+    public void checkNewPassword() throws Exception{
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"http://10.26.9.74:8080/usoserver/\");");
+        bddUtil.switchToWindows();
+        vaPatch_page.userNameInputbox.sendKeys(FileUtils.LastReadFileInput3("ISO_AddUser"));
+        vaPatch_page.passwordInputbox.sendKeys("Password123");
+        vaPatch_page.clickLogonBtn.click();
+        bddUtil.sleep(3);
+        String ISOTitle = vaPatch_page.ISOTitle.getText();
+        if (ISOTitle.equals("Logout")){
+            System.out.println("登录成功");
+        }else {
+            throw new Exception("登录失败");
+        }
+    }
+
+//    SigningComplete页面的see按钮
+    @Step
+    public void checkSigningCompletedSeeBtn() throws Exception{
+        vaPatch_page.SigningCompletedBtn.click();
+        bddUtil.sleep(5);
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("arguments[0].click();", getDriver().findElements(By.xpath("//a[text()='See']")).get(0));
+        bddUtil.sleep(2);
+        String seeBtnPageTitleText = vaPatch_page.SeeBtnPageTitle.getText();
+        bddUtil.sleep(5);
+        if (seeBtnPageTitleText.equals("View details")){
+            System.out.println("进入See 页面成功");
+        }else {
+            throw new Exception("进入See 页面失败");
+        }
+    }
+
+    @Step
+    public void checkSigningCompletedDownloadBtn() throws Exception{
+        vaPatch_page.SigningCompletedBtn.click();
+        bddUtil.sleep(5);
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("arguments[0].click();", getDriver().findElements(By.xpath("//a[text()='Download']")).get(0));
+        bddUtil.sleep(2);
+        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+        bddUtil.sleep(5);
+        if (DownloadBtnPageTitle.equals("Download complete!")){
+            System.out.println("下载成功");
+        }else {
+            throw new Exception("下载失败");
+        }
+    }
+
+    //  检查SigningCompleted页面search按钮
+    @Step
+    public void CheckESC_SigningCompletedSearchBtn() throws Exception {
+        bddUtil.sleep(5);
+        vaPatch_page.SigningCompletedBtn.click();
+//        把contractID输入 contractID输入框中，进行查询
+        String contractIDText = vaPatch_page.contractID.getText();
+        vaPatch_page.contractIDInput.sendKeys(contractIDText);
+        bddUtil.sleep(1);
+        vaPatch_page.SearchBtn.click();
+        bddUtil.sleep(2);
+        String contractID = vaPatch_page.contractIDTwo.getText();
+        bddUtil.sleep(5);
+        if (contractID.equals(contractIDText)){
+            System.out.println("查询成功");
+        }else {
+            throw new Exception("查询失败");
+        }
+    }
+
+    //  检查SigningCompleted页面Reset按钮
+    public void CheckESC_SigningCompletedResetBtn() throws Exception {
+        bddUtil.sleep(5);
+        vaPatch_page.SigningCompletedBtn.click();
+//        把contractID输入 contractID输入框中，进行查询
+        String contractIDText = vaPatch_page.contractID.getText();
+        vaPatch_page.contractIDInput.sendKeys(contractIDText);
+        bddUtil.sleep(1);
+        vaPatch_page.SearchBtn.click();
+        bddUtil.sleep(5);
+        vaPatch_page.ResetBtn.click();
+        bddUtil.sleep(2);
+        String SecondContractID = vaPatch_page.SecondContractID.getText();
+        bddUtil.sleep(5);
+        if (SecondContractID.equals(contractIDText)){
+            throw new Exception("Reset按钮出错");
+        }else {
+            System.out.println("Reset按钮正常");
+        }
+    }
+
+    //  检查SigningCompleted页面batch Download按钮
+    public void CheckESC_SigningCompletedBatchDownloadBtn() throws Exception {
+        bddUtil.sleep(5);
+        vaPatch_page.SigningCompletedBtn.click();
+//        选择前两个 进行下载
+        bddUtil.sleep(5);
+        vaPatch_page.checkbox.get(1).click();
+        vaPatch_page.checkbox.get(2).click();
+        vaPatch_page.BatchDownloadBtn.click();
+        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+        bddUtil.sleep(5);
+        if (DownloadBtnPageTitle.equals("Download complete!")){
+            System.out.println("下载成功");
+        }else {
+            throw new Exception("下载失败");
+        }
+    }
+
+    //    SigningFailed页面的see按钮
+    @Step
+    public void checkSigningFailedSeeBtn() throws Exception{
+        vaPatch_page.SigningFailedBtn.click();
+        bddUtil.sleep(5);
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("arguments[0].click();", getDriver().findElements(By.xpath("//a[text()='See']")).get(0));
+        bddUtil.sleep(2);
+        String seeBtnPageTitleText = vaPatch_page.SeeBtnPageTitle.getText();
+        bddUtil.sleep(5);
+        if (seeBtnPageTitleText.equals("View details")){
+            System.out.println("进入See 页面成功");
+        }else {
+            throw new Exception("进入See 页面失败");
+        }
+    }
+
+
+//    SigningFailed 页面Download
+    @Step
+    public void checkSigningFailedDownloadBtn() throws Exception{
+        vaPatch_page.SigningFailedBtn.click();
+        bddUtil.sleep(5);
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("arguments[0].click();", getDriver().findElements(By.xpath("//a[text()='Download']")).get(0));
+        bddUtil.sleep(2);
+        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+        bddUtil.sleep(5);
+        if (DownloadBtnPageTitle.equals("Download complete!")){
+            System.out.println("下载成功");
+        }else {
+            throw new Exception("下载失败");
+        }
+    }
+
+    //  检查Signing Failed页面search按钮
+    @Step
+    public void CheckESC_SigningFailedSearchBtn() throws Exception {
+        bddUtil.sleep(5);
+        vaPatch_page.SigningFailedBtn.click();
+        bddUtil.sleep(4);
+//        把contractID输入 contractID输入框中，进行查询
+        String contractIDText = vaPatch_page.contractID.getText();
+        vaPatch_page.contractIDInput.sendKeys(contractIDText);
+        bddUtil.sleep(1);
+        vaPatch_page.SearchBtn.click();
+        bddUtil.sleep(2);
+        String contractID = vaPatch_page.contractIDTwo.getText();
+        bddUtil.sleep(5);
+        if (contractID.equals(contractIDText)){
+            System.out.println("查询成功");
+        }else {
+            throw new Exception("查询失败");
+        }
+    }
+
+    //  检查SigningFailed页面Reset按钮
+    public void CheckESC_SigningFailedResetBtn() throws Exception {
+        bddUtil.sleep(5);
+        vaPatch_page.SigningFailedBtn.click();
+        bddUtil.sleep(4);
+//        把contractID输入 contractID输入框中，进行查询
+        String contractIDText = vaPatch_page.contractID.getText();
+        vaPatch_page.contractIDInput.sendKeys(contractIDText);
+        bddUtil.sleep(1);
+        vaPatch_page.SearchBtn.click();
+        bddUtil.sleep(5);
+        vaPatch_page.ResetBtn.click();
+        bddUtil.sleep(2);
+        String SecondContractID = vaPatch_page.SecondContractID.getText();
+        bddUtil.sleep(5);
+        if (SecondContractID.equals(contractIDText)){
+            throw new Exception("Reset按钮出错");
+        }else {
+            System.out.println("Reset按钮正常");
+        }
+    }
+
+    //  检查SigningFailed页面batch Download按钮
+    public void CheckESC_SigningFailedBatchDownloadBtn() throws Exception {
+        bddUtil.sleep(5);
+        vaPatch_page.SigningFailedBtn.click();
+//        选择前两个 进行下载
+        bddUtil.sleep(5);
+        vaPatch_page.checkbox.get(1).click();
+        vaPatch_page.checkbox.get(2).click();
+        vaPatch_page.BatchDownloadBtn.click();
+        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+        bddUtil.sleep(5);
+        if (DownloadBtnPageTitle.equals("Download complete!")){
+            System.out.println("下载成功");
+        }else {
+            throw new Exception("下载失败");
+        }
+    }
+
+//    检查Template Management页面的Query按钮
+    @Step
+    public void checkTemplateManagementQueryBtn() throws Exception{
+        vaPatch_page.TemplateManagementBtn.click();
+        bddUtil.sleep(4);
+        String templateNameText = vaPatch_page.TemplateName.getText();
+        vaPatch_page.TemplateNameInput.sendKeys(templateNameText);
+        vaPatch_page.SubmitBtn.click();
+        bddUtil.sleep(4);
+        if (templateNameText.equals(vaPatch_page.TemplateNameInput.getValue())){
+            System.out.println("查找成功");
+        }else {
+            throw new Exception("查找失败");
+        }
+    }
+
+    //    检查Template Management页面的Reset按钮
+    @Step
+    public void checkTemplateManagementResetBtn() throws Exception{
+        vaPatch_page.TemplateManagementBtn.click();
+        bddUtil.sleep(4);
+        String templateNameText = vaPatch_page.TemplateName.getText();
+        vaPatch_page.TemplateNameInput.sendKeys(templateNameText);
+        vaPatch_page.SubmitBtn.click();
+        bddUtil.sleep(3);
+        vaPatch_page.TemplateManagementResetBtn.click();
+        bddUtil.sleep(4);
+        if (templateNameText.equals(vaPatch_page.TemplateNameInput.getValue())){
+            throw new Exception("Reset按钮有问题");
+        }else {
+            System.out.println("Reset按钮正常");
+        }
+    }
+
+    //    检查Template Management页面的See按钮
+    @Step
+    public void checkTemplateManagementSeeBtn() throws Exception{
+        vaPatch_page.TemplateManagementBtn.click();
+        bddUtil.sleep(4);
+        vaPatch_page.TemplateSeeBtn.click();
+        bddUtil.sleep(3);
+        bddUtil.switchToNewWindow();
+        String contractViewText = vaPatch_page.contractView.getText();
+        bddUtil.sleep(2);
+        if (contractViewText.equals("Contract view")){
+            System.out.println("Template页面See按钮正常");
+        }else {
+            throw new Exception("Template页面See按钮按钮有问题");
+        }
+    }
+
+//    Template Management页面create Template
+    @Step
+    public void checkTemplateManagementCreateTemplateBtn() throws Exception{
+        vaPatch_page.TemplateManagementBtn.click();
+        bddUtil.sleep(4);
+        vaPatch_page.createTemplate.click();
+        bddUtil.sleep(3);
+//        上传测试合同
+        getDriver().findElement(By.id("signFile")).sendKeys(fileAddress);
+        bddUtil.sleep(4);
+        vaPatch_page.nextBtn.click();
+        bddUtil.sleep(2);
+        vaPatch_page.confirmTemplateBtn.click();
+        bddUtil.sleep(2);
+        vaPatch_page.EnableNow.click();
+        bddUtil.sleep(5);
+        String createTemplateName = vaPatch_page.TemplateName.getText();
+        if (createTemplateName.equals("测试合同123")){
+            System.out.println("新增合同成功");
+        }else {
+            throw new Exception("新增合同失败");
+        }
+    }
+
+    //    Template Management页面Deactivate校验
+    @Step
+    public void checkTemplateManagementManagementDeactivateBtn() throws Exception{
+        vaPatch_page.DeactivateBtn.click();
+        bddUtil.sleep(2);
+        vaPatch_page.deactivateBtn.click();
+        bddUtil.sleep(4);
+        String deleteBtnText1 = vaPatch_page.templateDeleteBtn.getText();
+        if (deleteBtnText1.equals("Delete")){
+            System.out.println("Deactivate按钮正常");
+        }else {
+            throw new Exception("Deactivate按钮有问题");
+        }
+        vaPatch_page.templateDeleteBtn.click();
+        bddUtil.sleep(2);
+        vaPatch_page.templateConfirmBtn.click();
+        bddUtil.sleep(5);
+    }
+
+//    Template Management 页面 Journal按钮校验
+    @Step
+    public void checkTemplateManagementManagementJournalBtn() throws Exception{
+        vaPatch_page.TemplateManagementBtn.click();
+        bddUtil.sleep(4);
+        vaPatch_page.journalBtn.click();
+        bddUtil.sleep(3);
+        bddUtil.switchToNewWindow();
+        String journalTitleText = vaPatch_page.journalTitle.getText();
+        if (journalTitleText.equals("Serial number")){
+            System.out.println("journal按钮正常");
+        }else {
+            throw new Exception("journal按钮报错");
+        }
+    }
 }

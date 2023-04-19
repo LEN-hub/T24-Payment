@@ -29,8 +29,26 @@ public class logon_step extends ScenarioSteps {
     }
 
     @Step
+    public void enter_username_Iso_BackStage(String envName) {
+        String userName = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".username");
+        login_page.enterUserNameIsoBackStage(userName);
+    }
+
+    @Step
+    public void enter_password_Iso_BackStage(String envName) {
+        String userName = CommonUtil.getEnvironmentSpecificConfiguration("environments." + envName + ".password");
+        login_page.enterPassWordIsoBackStage(userName);
+    }
+
+    @Step
     public void click_login_btn(){
         login_page.clickLogonBtn.click();
+    }
+
+    @Step
+    public void click_ISOBackStage_Login(){
+        login_page.IOSBackStage_LoginBtn.click();
+
     }
 
     @Step

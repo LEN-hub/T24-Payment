@@ -137,4 +137,145 @@ public class VaPatch_page extends PageObject {
 
     @FindBy(xpath = "//span[text()='Batch download']/parent::button")
     public WebElementFacade BatchDownloadBtn;
+
+    @FindBy(xpath = "//div[text()='Summary']")
+    public WebElementFacade ISOBackStageTitle;
+
+    @FindBy(xpath = "//div[text()='Logout']")
+    public WebElementFacade logoutBtn;
+
+    @FindBy(xpath = "//button[text()='Logout']")
+    public WebElementFacade logoutBtnConfirm;
+
+    @FindBy(xpath = "//div[text()='Login Id']")
+    public WebElementFacade ISOLogoutTitle;
+
+    @FindBy(xpath = "//td[text()='User & Segment']")
+    public WebElementFacade userSegment;
+
+    @FindBy(xpath = "//td[text()='User']")
+    public WebElementFacade userTitle;
+
+    @FindBy(xpath = "//button[text()='Create']")
+    public WebElementFacade createUser;
+
+    @FindBy(xpath = "//div[text()='*User Id:']/parent::td/following-sibling::td[1]/input")
+    public WebElementFacade UserId;
+
+    @FindBy(xpath = "//div[text()='*User Id:']/parent::td/following-sibling::td[3]/input")
+    public WebElementFacade UserName;
+
+    @FindBy(xpath = "//button[text()='Save']")
+    public WebElementFacade saveBtn;
+
+    @FindBy(xpath = "//button[text()='Reset Password']")
+    public WebElementFacade ResetPwd;
+
+    @FindBy(xpath = "//div[text()='New Password']/parent::td/parent::tr/following-sibling::tr[1]//input")
+    public WebElementFacade NewPassword;
+
+    @FindBy(xpath = "//div[text()='New Password']/parent::td/parent::tr/following-sibling::tr[3]//input")
+    public WebElementFacade ConfirmNewPassword;
+
+    @FindBy(xpath = "//button[text()='OK']")
+    public WebElementFacade okBtn;
+
+    @FindBy(xpath = "//div[text()='Login Accounts']")
+    public WebElementFacade loginAccounts;
+
+    @FindBy(xpath = "//button[text()='Edit']")
+    public WebElementFacade editBtn;
+
+    @FindBy(xpath = "//td[text()='SystemPasswordBasic']/following-sibling::td[4]/select")
+    public WebElementFacade ForceChangePwd;
+
+    @FindBy(xpath = "//option[text()='No']")
+    public WebElementFacade ForceChangeNoBtn;
+
+    @FindBy(id = "form-username")
+    public WebElementFacade userNameInputbox;
+
+    @FindBy(id = "form-password")
+    public WebElementFacade passwordInputbox;
+
+    @FindBy(xpath = "//tr[@align='center']//button[@type='submit' ]")
+    public WebElementFacade clickLogonBtn;
+
+    @FindBy(xpath = "//tr[@class='EvenRows']//input[@class='gwt-TextBox']")
+    public WebElementFacade inputUserId;
+
+    @FindBy(xpath = "//button[text()='Search']")
+    public WebElementFacade search;
+
+    @FindBy(xpath = "//td[@class='hyperlinklikeText']")
+    public WebElementFacade clickUserId;
+
+    @FindBy(xpath = "//div[text()='SAML Application Privilege']")
+    public WebElementFacade SAMLPage;
+
+    @FindBy(xpath = "//button[text()='Add']")
+    public WebElementFacade addBtn;
+
+    @FindBy(xpath = "//tr[@class='OddRows']//select[@class='gwt-ListBox']")
+    public WebElementFacade SAMLServiceProvider;
+
+    @FindBy(xpath = "//option[text()='SCF-JOB']")
+    public WebElementFacade SCF_JOB;
+
+    @FindBy(xpath = "//div[text()='Search User Result']")
+    public WebElementFacade selectTitle;
+
+    @FindBy(xpath = "//button[text()='Delete']")
+    public WebElementFacade deleteBtn;
+
+    @FindBy(xpath = "//p[text()='Login verification failed.']")
+    public WebElementFacade loginFiledTitle;
+
+    @FindBy(xpath = "//thead[@class='ant-table-thead']/following-sibling::tbody/tr[1]/td[1]//span")
+    public WebElementFacade TemplateName;
+
+    @FindBy(id = "templateName")
+    public WebElementFacade TemplateNameInput;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElementFacade SubmitBtn;
+
+    @FindBy(xpath = "//button[@type='button']")
+    public WebElementFacade TemplateManagementResetBtn;
+
+    @FindBy(xpath = "//thead[@class='ant-table-thead']/following-sibling::tbody/tr[1]/td[5]/span/a[1]")
+    public WebElementFacade TemplateSeeBtn;
+
+    @FindBy(xpath = "//thead[@class='ant-table-thead']/following-sibling::tbody/tr[1]/td[5]/span/a[2]")
+    public WebElementFacade DeactivateBtn;
+
+    @FindBy(xpath = "//thead[@class='ant-table-thead']/following-sibling::tbody/tr[1]/td[5]/span/a[3]")
+    public WebElementFacade templateDeleteBtn;
+
+    @FindBy(xpath = "//thead[@class='ant-table-thead']/following-sibling::tbody/tr[1]/td[5]/span/a[5]")
+    public WebElementFacade journalBtn;
+
+    @FindBy(xpath = "//span[text()='Serial number']")
+    public WebElementFacade journalTitle;
+
+    @FindBy(xpath = "//div[text()='Contract view']")
+    public WebElementFacade contractView;
+
+    @FindBy(xpath = "//span[text()='Create template']/parent::button")
+    public WebElementFacade createTemplate;
+
+    @FindBy(xpath = "//span[text()='Next']/parent::button")
+    public WebElementFacade nextBtn;
+
+    @FindBy(xpath = "//span[text()='confirm submission']/parent::button")
+    public WebElementFacade confirmTemplateBtn;
+
+    @FindBy(xpath = "//span[text()='Enable now']/parent::button")
+    public WebElementFacade EnableNow;
+
+    @FindBy(xpath = "//span[text()='deactivate now']/parent::button")
+    public WebElementFacade deactivateBtn;
+
+    @FindBy(xpath = "//span[text()='confirm']/parent::button")
+    public WebElementFacade templateConfirmBtn;
 }

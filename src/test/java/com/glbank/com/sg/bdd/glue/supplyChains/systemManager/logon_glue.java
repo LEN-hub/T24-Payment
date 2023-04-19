@@ -62,4 +62,17 @@ public class logon_glue {
             bddUtil.sleep(5);
         }
     }
+
+    @When("^logon \"([^\"]*)\" on ISOBackStage$")
+    public void logonOnISOBackStage(String envName) throws Throwable {
+        envTag = envName;
+        if (!envName.isEmpty()) {
+            login_uso_step.open_the_first_dbb_logon_page(envName);
+            bddUtil.sleep(5);
+            login_uso_step.enter_username_Iso_BackStage(envName);
+            login_uso_step.enter_password_Iso_BackStage(envName);
+            login_uso_step.click_ISOBackStage_Login();
+            bddUtil.sleep(5);
+        }
+    }
 }

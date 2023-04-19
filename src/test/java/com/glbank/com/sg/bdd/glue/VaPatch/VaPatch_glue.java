@@ -3,6 +3,7 @@ package com.glbank.com.sg.bdd.glue.VaPatch;
 import com.glbank.com.sg.bdd.steps.VaPatch.VaPatch_step;
 import com.glbank.com.sg.bdd.steps.supplyChains.bingdingRelationship.relationship_step;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -189,5 +190,145 @@ public class VaPatch_glue {
     @Then("^check batch Download button the Signing In Progress Page$")
     public void checkBatchDownloadButtonTheSigningInProgressPage() throws Exception {
         vaPatch_step.CheckESC_SigningInProgressBatchDownloadBtn();
+    }
+
+    @When("^check IOS_BackStage$")
+    public void checkIOS_BackStage() throws Exception {
+        vaPatch_step.checkISOBackStage();
+    }
+
+    @When("^logout ISOBackStage$")
+    public void logoutISOBackStage() {
+        vaPatch_step.logoutISOBackStage();
+    }
+
+    @Then("^check ISOBackStage logout$")
+    public void checkISOBackStageLogout() throws Exception{
+        vaPatch_step.checkISOLogoutTitle();
+    }
+
+    @When("^add IOS user$")
+    public void addIOSUser() {
+        vaPatch_step.addUser();
+    }
+
+    @Then("^check IOS New User Uat$")
+    public void checkIOSNewUserUat() throws Exception{
+        vaPatch_step.checkNewUserUat();
+    }
+
+    @When("^change ISO user$")
+    public void changeISOUser() {
+        vaPatch_step.changeIsoUser();
+    }
+
+    @Then("^check change ISO user$")
+    public void checkChangeISOUser() throws Exception {
+        vaPatch_step.checkChangeISOUserUat();
+    }
+
+    @When("^select ISO user$")
+    public void selectISOUser() throws Exception {
+        vaPatch_step.selectISOUser();
+    }
+
+    @When("^Delete ISO user$")
+    public void deleteISOUser() {
+        vaPatch_step.DeleteISOUser();
+    }
+
+    @Then("^check Delete ISO user$")
+    public void checkDeleteISOUser() throws Exception{
+        vaPatch_step.checkDeleteISOUser();
+    }
+
+    @When("^Reset ISO user password$")
+    public void resetISOUserPassword() {
+        vaPatch_step.resetPassword();
+    }
+
+    @Then("^check Reset ISO user password$")
+    public void checkResetISOUserPassword() throws Exception {
+        vaPatch_step.checkNewPassword();
+    }
+
+    @Then("^check See button the Signing Completed Page$")
+    public void checkSeeButtonTheSigningCompletedPage() throws Exception {
+        vaPatch_step.checkSigningCompletedSeeBtn();
+    }
+
+    @Then("^check Download button the Signing Completed Page$")
+    public void checkDownloadButtonTheSigningCompletedPage() throws Exception {
+        vaPatch_step.checkSigningCompletedDownloadBtn();
+    }
+
+    @Then("^check Search button the Signing Completed Page$")
+    public void checkSearchButtonTheSigningCompletedPage() throws Exception{
+        vaPatch_step.CheckESC_SigningCompletedSearchBtn();
+    }
+
+    @Then("^check Reset button the Signing Completed Page$")
+    public void checkResetButtonTheSigningCompletedPage() throws Exception{
+        vaPatch_step.CheckESC_SigningCompletedResetBtn();
+    }
+
+    @Then("^check batch Download button the Signing Completed Page$")
+    public void checkBatchDownloadButtonTheSigningCompletedPage() throws Exception{
+        vaPatch_step.CheckESC_SigningCompletedBatchDownloadBtn();
+    }
+
+    @Then("^check See button the Signing Failed Page$")
+    public void checkSeeButtonTheSigningFailedPage()throws Exception {
+        vaPatch_step.checkSigningFailedSeeBtn();
+    }
+
+    @Then("^check Download button the Signing Failed Page$")
+    public void checkDownloadButtonTheSigningFailedPage() throws Exception{
+        vaPatch_step.checkSigningFailedDownloadBtn();
+    }
+
+    @Then("^check Search button the Signing Failed Page$")
+    public void checkSearchButtonTheSigningFailedPage() throws Exception{
+        vaPatch_step.CheckESC_SigningFailedSearchBtn();
+    }
+
+    @Then("^check Reset button the Signing Failed Page$")
+    public void checkResetButtonTheSigningFailedPage() throws Exception {
+        vaPatch_step.CheckESC_SigningFailedResetBtn();
+    }
+
+    @Then("^check batch Download button the Signing Failed Page$")
+    public void checkBatchDownloadButtonTheSigningFailedPage() throws Exception {
+        vaPatch_step.CheckESC_SigningFailedBatchDownloadBtn();
+    }
+
+    @Then("^check Query button the Template Management Page$")
+    public void checkQueryButtonTheTemplateManagementPage() throws Exception{
+        vaPatch_step.checkTemplateManagementQueryBtn();
+    }
+
+    @Then("^check Reset button the Template Management Page$")
+    public void checkResetButtonTheTemplateManagementPage() throws Exception{
+        vaPatch_step.checkTemplateManagementResetBtn();
+    }
+
+    @Then("^check See button the Template Management Page$")
+    public void checkSeeButtonTheTemplateManagementPage() throws Exception{
+        vaPatch_step.checkTemplateManagementSeeBtn();
+    }
+
+    @Then("^check create Template on Template Management Page$")
+    public void checkCreateTemplateOnTemplateManagementPage() throws Exception{
+        vaPatch_step.checkTemplateManagementCreateTemplateBtn();
+    }
+
+    @And("^check Deactivate button the Template Management Page$")
+    public void checkDeactivateButtonTheTemplateManagementPage()throws Exception {
+        vaPatch_step.checkTemplateManagementManagementDeactivateBtn();
+    }
+
+    @Then("^check Journal button the Template Management$")
+    public void checkJournalButtonTheTemplateManagement() throws Exception{
+        vaPatch_step.checkTemplateManagementManagementJournalBtn();
     }
 }

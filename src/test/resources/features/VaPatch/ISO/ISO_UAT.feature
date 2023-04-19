@@ -61,6 +61,48 @@ Feature: VaPatch_ISO_UAT
     Given logon "ISO_UAT" on ISO
     When logout ISO
 
-  @ISO-0012_UAT
-  Scenario:ISO to logout_UAT
-    Given logon "ISO_UAT" on ISO
+  @ISO-0013_UAT
+  Scenario:ISOBackStage to login_UAT
+    Given logon "ISO_UAT_BackStage" on ISOBackStage
+    When check IOS_BackStage
+
+  @ISO-0014_UAT
+  Scenario:ISOBackStage to logout_UAT
+    Given logon "ISO_UAT_BackStage" on ISOBackStage
+    When logout ISOBackStage
+    Then check ISOBackStage logout
+
+  @ISO-0015_UAT
+  Scenario:Add ISO users
+    Given logon "ISO_UAT_BackStage" on ISOBackStage
+    When add IOS user
+    Then check IOS New User Uat
+
+  @ISO-0016_UAT
+  Scenario:Change ISO users
+    Given logon "ISO_UAT_BackStage" on ISOBackStage
+    When change ISO user
+    Then check change ISO user
+
+#  先查询 在删除。
+  @ISO-0019_UAT
+  Scenario:Select ISO users
+    Given logon "ISO_UAT_BackStage" on ISOBackStage
+    When select ISO user
+
+#    先重置在删除
+  @ISO-0018_UAT
+  Scenario:Reset ISO user password
+    Given logon "ISO_UAT_BackStage" on ISOBackStage
+    When Reset ISO user password
+    Then check Reset ISO user password
+
+  @ISO-0017_UAT
+  Scenario:Delete ISO users
+    Given logon "ISO_UAT_BackStage" on ISOBackStage
+    When Delete ISO user
+    Then check Delete ISO user
+
+
+
+

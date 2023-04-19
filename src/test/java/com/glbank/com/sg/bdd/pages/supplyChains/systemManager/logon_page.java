@@ -22,11 +22,20 @@ public class logon_page extends PageObject {
     @FindBy(xpath = "//tr[@align='center']//button[@type='submit' ]")
     public WebElementFacade clickLogonBtn;
 
+    @FindBy(xpath = "//button[text()='OK']")
+    public WebElementFacade IOSBackStage_LoginBtn;
+
     @FindBy(xpath = "//p[text()='Supply Chain Finance']")
     public WebElementFacade clickSCFlink;
 
     @FindBy(xpath = "//p[text()='EBK']")
     public WebElementFacade onlineBank;
+
+    @FindBy(xpath = "//input[@class='gwt-TextBox']")
+    public WebElementFacade ISOBackstageUserName;
+
+    @FindBy(xpath = "//input[@class='gwt-PasswordTextBox']")
+    public WebElementFacade ISOBackstagePassWord;
 
     public void enterUserName(String userName){
         withTimeoutOf(10,SECONDS)
@@ -39,6 +48,20 @@ public class logon_page extends PageObject {
     public void enterPassWord(String userName){
         withTimeoutOf(10,SECONDS)
                 .waitFor(passwordInputbox)
+                .waitUntilVisible()
+                .sendKeys(userName);
+    }
+
+    public void enterUserNameIsoBackStage(String userName){
+        withTimeoutOf(10,SECONDS)
+                .waitFor(ISOBackstageUserName)
+                .waitUntilVisible()
+                .sendKeys(userName);
+    }
+
+    public void enterPassWordIsoBackStage(String userName){
+        withTimeoutOf(10,SECONDS)
+                .waitFor(ISOBackstagePassWord)
                 .waitUntilVisible()
                 .sendKeys(userName);
     }
