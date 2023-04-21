@@ -255,6 +255,12 @@ public class VaPatch_page extends PageObject {
     @FindBy(xpath = "//thead[@class='ant-table-thead']/following-sibling::tbody/tr[1]/td[5]/span/a[5]")
     public WebElementFacade journalBtn;
 
+    @FindBy(xpath = "//thead[@class='ant-table-thead']/following-sibling::tbody/tr[1]/td[5]/span/a[3]")
+    public WebElementFacade copyTemplateBtn;
+
+    @FindBy(xpath = "//thead[@class='ant-table-thead']/following-sibling::tbody/tr[1]/td[5]/span/a[4]")
+    public WebElementFacade UseTemplateBtn;
+
     @FindBy(xpath = "//span[text()='Serial number']")
     public WebElementFacade journalTitle;
 
@@ -267,8 +273,20 @@ public class VaPatch_page extends PageObject {
     @FindBy(xpath = "//span[text()='Next']/parent::button")
     public WebElementFacade nextBtn;
 
+    @FindBy(xpath = "//div[@role='tablist']/div[1]/button")
+    public WebElementFacade InitiateContratBtn;
+
+    @FindBy(xpath = "//div[text()='we support Batch initiation contract with template']")
+    public WebElementFacade initiationWithTemplateBtn;
+
     @FindBy(xpath = "//span[text()='confirm submission']/parent::button")
     public WebElementFacade confirmTemplateBtn;
+
+    @FindBy(xpath = "//span[text()='Confirm initiation']/parent::button")
+    public WebElementFacade ConfirmInitiationBtn;
+
+    @FindBy(xpath = "//span[text()='Confirm submission']/parent::button")
+    public WebElementFacade UseTemplateConfirmBtn;
 
     @FindBy(xpath = "//span[text()='Enable now']/parent::button")
     public WebElementFacade EnableNow;
@@ -278,4 +296,20 @@ public class VaPatch_page extends PageObject {
 
     @FindBy(xpath = "//span[text()='confirm']/parent::button")
     public WebElementFacade templateConfirmBtn;
+
+    @FindBy(xpath = "//span[@class='ant-form-item-children']/input")
+    public WebElementFacade CopyTemplateName;
+
+    @FindBy(xpath = "//input[@placeholder='Please enter the signatory name']")
+    public WebElementFacade SignatoryName;
+
+    @FindBy(xpath = "//input[@placeholder='Please enter the signatory email']")
+    public WebElementFacade SignatoryEmail;
+
+    @FindBy(xpath = "//input[@placeholder='Please enter keyword']")
+    public WebElementFacade SignatoryPlace;
+
+    @FindBy(xpath = "//span[text()='Add signatory']/parent::button")
+    public WebElementFacade AddSignatoryBtn;
+
 }

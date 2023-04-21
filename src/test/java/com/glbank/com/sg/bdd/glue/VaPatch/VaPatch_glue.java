@@ -331,4 +331,24 @@ public class VaPatch_glue {
     public void checkJournalButtonTheTemplateManagement() throws Exception{
         vaPatch_step.checkTemplateManagementManagementJournalBtn();
     }
+
+    @And("^check copy Template the Template Management Page$")
+    public void checkCopyTemplateTheTemplateManagementPage() throws Exception{
+        vaPatch_step.checkTemplateManagementManagementCopyTemplateBtn();
+    }
+
+    @Then("^check Use template the Template Management Page$")
+    public void checkUseTemplateTheTemplateManagementPage() throws Exception{
+        vaPatch_step.checkTemplateManagementUseTemplateBtn();
+    }
+
+    @Then("^check Initiate contract button the Contract Management Page$")
+    public void checkInitiateContractButtonTheContractManagementPage() {
+        vaPatch_step.checkInitiateContratBtn();
+    }
+
+    @Then("^upload document the Initiate contract Page$")
+    public void uploadDocumentTheInitiateContractPage() {
+        vaPatch_step.checkInitiateContratUploadBtn();
+    }
 }

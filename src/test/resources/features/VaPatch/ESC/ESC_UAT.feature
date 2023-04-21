@@ -187,6 +187,19 @@ Feature: VaPatch_ESC_UAT
     When Enter the AllFiles Page
     Then check batch Download button the Signing Failed Page
 
+  @ESC-032_UAT
+  Scenario:Contract Management Page Initiate contract button upload check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then upload document the Initiate contract Page
+
+  @ESC-033_UAT
+  Scenario:Contract Management Page Initiate contract button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check Initiate contract button the Contract Management Page
+    Then check Use template the Template Management Page
+
   @ESC-034_UAT
   Scenario:Template Management Page Query button check
     Given logon "ISO_UAT" on ISO
@@ -218,6 +231,19 @@ Feature: VaPatch_ESC_UAT
     When Enter the AllFiles Page
     Then check create Template on Template Management Page
     And  check Deactivate button the Template Management Page
+
+  @ESC-039_UAT
+  Scenario:Template Management Page Copy template button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check create Template on Template Management Page
+    And check copy Template the Template Management Page
+
+  @ESC-040_UAT
+  Scenario:Template Management Page Use template button check
+    Given logon "ISO_UAT" on ISO
+    When Enter the AllFiles Page
+    Then check Use template the Template Management Page
 
   @ESC-041_UAT
   Scenario:Template Management Page Journal button check

@@ -20,6 +20,7 @@ public class VaPatch_step extends ScenarioSteps {
     public static String envTag;
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/Excel/测试合同123.docx";
+    String uploadExcelFile = systemPath + "/src/test/resources/testData/Excel/contract template.xls";
 
 //    判断是否进入CNP系统
     @Step
@@ -121,7 +122,7 @@ public class VaPatch_step extends ScenarioSteps {
         bddUtil.switchToNewWindow();
         String IMSTitle = vaPatch_page.IMSTitle.getText();
         bddUtil.sleep(5);
-        if (IMSTitle.equals("Image Management System")){
+        if (IMSTitle.equals("Favorite")){
             System.out.println("进入IMS成功");
         }else {
             throw new Exception("进入IMS失败");
@@ -1084,5 +1085,94 @@ public class VaPatch_step extends ScenarioSteps {
         }else {
             throw new Exception("journal按钮报错");
         }
+    }
+
+    //    Template Management 页面 copy Template按钮校验
+    @Step
+    public void checkTemplateManagementManagementCopyTemplateBtn() throws Exception{
+        bddUtil.sleep(3);
+        vaPatch_page.copyTemplateBtn.click();
+        bddUtil.sleep(2);
+        // 更改 复制的名字
+        bddUtil.scrollWindowToElement(vaPatch_page.CopyTemplateName).sendKeys("复制版");
+        bddUtil.sleep(3);
+        vaPatch_page.nextBtn.click();
+        bddUtil.sleep(3);
+        vaPatch_page.confirmTemplateBtn.click();
+        bddUtil.sleep(1);
+        vaPatch_page.EnableNow.click();
+        bddUtil.sleep(3);
+        String copyTemplateText = vaPatch_page.TemplateName.getText();
+        if (copyTemplateText.equals("测试合同123复制版")){
+            System.out.println("copyTemplate功能正常");
+        }else {
+            throw new Exception("copyTemplate功能有问题");
+        }
+//        2次for循环 删除上传的合同和 复制的合同
+        for (int i = 0; i < 2; i++) {
+            vaPatch_page.DeactivateBtn.click();
+            bddUtil.sleep(2);
+            vaPatch_page.deactivateBtn.click();
+            bddUtil.sleep(2);
+            vaPatch_page.templateDeleteBtn.click();
+            bddUtil.sleep(2);
+            vaPatch_page.templateConfirmBtn.click();
+            bddUtil.sleep(5);
+        }
+    }
+
+//    检查Template Management页面use template按钮
+    public void checkTemplateManagementUseTemplateBtn() throws Exception{
+        vaPatch_page.TemplateManagementBtn.click();
+        bddUtil.sleep(4);
+        vaPatch_page.TemplateNameInput.sendKeys("个人租房合同协议-2023-2");
+        vaPatch_page.SubmitBtn.click();
+        bddUtil.sleep(2);
+        vaPatch_page.UseTemplateBtn.click();
+        bddUtil.sleep(2);
+        // 上传文件
+        getDriver().findElement(By.xpath("//input[@type='file']")).sendKeys(uploadExcelFile);
+        bddUtil.sleep(2);
+        vaPatch_page.UseTemplateConfirmBtn.click();
+        bddUtil.sleep(5);
+        String text = vaPatch_page.ToBeSignedBtn.getText();
+        bddUtil.sleep(3);
+        if (text.equals("To Be Signed")){
+            System.out.println("Use Template正常");
+        }else {
+            throw new Exception("Use Template功能有问题");
+        }
+    }
+
+//    检查Contract Management页面 Initiate contract按钮
+    public void checkInitiateContratBtn(){
+        vaPatch_page.InitiateContratBtn.click();
+        bddUtil.sleep(2);
+        vaPatch_page.initiationWithTemplateBtn.click();
+        bddUtil.sleep(3);
+    }
+
+    //    检查Contract Management页面 Initiate contract upload按钮
+    public void checkInitiateContratUploadBtn(){
+        bddUtil.sleep(3);
+        vaPatch_page.InitiateContratBtn.click();
+        bddUtil.sleep(2);
+        getDriver().findElement(By.id("signFile")).sendKeys(fileAddress);
+        bddUtil.sleep(3);
+        // 使用JS方法 把页面 滑到最底端。
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        String js = "window.scrollTo(0, document.body.scrollHeight)";
+        webdriver.executeScript(js);
+        bddUtil.sleep(3);
+        // 点击 AddSignatory按钮
+        vaPatch_page.AddSignatoryBtn.click();
+        bddUtil.sleep(2);
+        // 上传的文件里面写什么，这里必须输入什么。务必要和文件里内容一致。
+        vaPatch_page.SignatoryName.sendKeys("田木木");
+        vaPatch_page.SignatoryEmail.sendKeys("1261611781@qq.com");
+        vaPatch_page.SignatoryPlace.sendKeys("123");
+        bddUtil.sleep(1);
+        vaPatch_page.ConfirmInitiationBtn.click();
+        bddUtil.sleep(3);
     }
 }
