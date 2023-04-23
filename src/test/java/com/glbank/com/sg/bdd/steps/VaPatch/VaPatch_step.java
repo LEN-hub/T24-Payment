@@ -1215,6 +1215,7 @@ public class VaPatch_step extends ScenarioSteps {
         bddUtil.sleep(3);
     }
 
+//    根据系统ID来查询
     @Step
     public void inputSystemIDCheckQueryBtn() throws Exception{
         bddUtil.sleep(3);
@@ -1230,6 +1231,142 @@ public class VaPatch_step extends ScenarioSteps {
         } else {
             throw new Exception("Query按钮有问题");
         }
+    }
 
+    //    根据系统Name来查询
+    @Step
+    public void inputSystemNameCheckQueryBtn() throws Exception{
+        bddUtil.sleep(3);
+        vaPatch_page.ProjectManagementBtn.click();
+        bddUtil.sleep(2);
+        String firstSystemNameText = vaPatch_page.FirstSystemName.getText();
+        vaPatch_page.inputSystemName.sendKeys(firstSystemNameText);
+        bddUtil.sleep(1);
+        vaPatch_page.DFTQueryBtn.click();
+        bddUtil.sleep(3);
+        if (firstSystemNameText.equals(vaPatch_page.FirstSystemName.getText())){
+            System.out.println("Query按钮正常");
+        } else {
+            throw new Exception("Query按钮有问题");
+        }
+    }
+
+    //    根据系统Name和ID一起来查询
+    @Step
+    public void inputSystemIDAndNameCheckQueryBtn() throws Exception{
+        bddUtil.sleep(3);
+        vaPatch_page.ProjectManagementBtn.click();
+        bddUtil.sleep(2);
+        String firstSystemIdText = vaPatch_page.FirstSystemId.getText();
+        vaPatch_page.inputSystemId.sendKeys(firstSystemIdText);
+        String firstSystemNameText = vaPatch_page.FirstSystemName.getText();
+        vaPatch_page.inputSystemName.sendKeys(firstSystemNameText);
+        bddUtil.sleep(1);
+        vaPatch_page.DFTQueryBtn.click();
+        bddUtil.sleep(3);
+        if (firstSystemNameText.equals(vaPatch_page.FirstSystemName.getText())){
+            System.out.println("Query按钮正常");
+        } else {
+            throw new Exception("Query按钮有问题");
+        }
+    }
+
+    //    校验Reset按钮是否OK
+    @Step
+    public void inputSystemIDCheckResetBtn() throws Exception{
+        bddUtil.sleep(3);
+        vaPatch_page.ProjectManagementBtn.click();
+        bddUtil.sleep(2);
+        String firstSystemIdText = vaPatch_page.FirstSystemId.getText();
+        vaPatch_page.inputSystemId.sendKeys(firstSystemIdText);
+        bddUtil.sleep(1);
+        vaPatch_page.DFTQueryBtn.click();
+        bddUtil.sleep(3);
+        vaPatch_page.DFTResetBtn.click();
+        bddUtil.sleep(3);
+//      一个反逻辑，通过第二条数据和第一条数据ID对比，如果一样说明报错，如果不一样说明Reset按钮正常
+        if (firstSystemIdText.equals(vaPatch_page.SecondSystemId.getText())){
+            throw new Exception("Reset按钮有问题");
+        } else {
+            System.out.println("Reset按钮正常");
+        }
+    }
+
+//    进入到Transfer Record页面，根据传输ID进行查询
+    @Step
+    public void inputTranIdCheckQueryBtn() throws Exception {
+        bddUtil.sleep(2);
+        vaPatch_page.TransferManagementBtn.click();
+        vaPatch_page.TransferRecordBtn.click();
+        String tranIdText = vaPatch_page.TranId.getText();
+        vaPatch_page.inputTranId.sendKeys(tranIdText);
+        vaPatch_page.queryTranBtn.click();
+        bddUtil.sleep(4);
+        if (tranIdText.equals(vaPatch_page.TranId.getText())){
+            System.out.println("Transfer页面查询按钮正常");
+        }else {
+            throw new Exception("Transfer页面查询按钮有问题");
+        }
+    }
+
+    //    进入到Transfer Record页面，根据发送方进行查询
+    @Step
+    public void inputTransmitLegCheckQueryBtn() throws Exception {
+        bddUtil.sleep(2);
+        vaPatch_page.TransferManagementBtn.click();
+        vaPatch_page.TransferRecordBtn.click();
+        String transmitLegText = vaPatch_page.transmitLeg.getText();
+        vaPatch_page.inputTransmitLeg.sendKeys(transmitLegText);
+        vaPatch_page.queryTranBtn.click();
+        bddUtil.sleep(4);
+        if (transmitLegText.equals(vaPatch_page.transmitLeg.getText())){
+            System.out.println("Transfer页面查询按钮正常");
+        }else {
+            throw new Exception("Transfer页面查询按钮有问题");
+        }
+    }
+
+    //    进入到Transfer Record页面，根据传输ID和发送方进行查询
+    @Step
+    public void inputTranIdAndTransmitLegCheckQueryBtn() throws Exception {
+        bddUtil.sleep(2);
+        vaPatch_page.TransferManagementBtn.click();
+        vaPatch_page.TransferRecordBtn.click();
+//        输入 第一行数据的传输ID
+        String tranIdText = vaPatch_page.TranId.getText();
+        vaPatch_page.inputTranId.sendKeys(tranIdText);
+//        输入 第一行数据的发送方
+        String transmitLegText = vaPatch_page.transmitLeg.getText();
+        vaPatch_page.inputTransmitLeg.sendKeys(transmitLegText);
+        vaPatch_page.queryTranBtn.click();
+        bddUtil.sleep(4);
+        if (transmitLegText.equals(vaPatch_page.transmitLeg.getText())){
+            System.out.println("Transfer页面查询按钮正常");
+        }else {
+            throw new Exception("Transfer页面查询按钮有问题");
+        }
+    }
+
+    //    进入到Transfer Record页面，根据传输ID和发送方进行查询,点击Reset按钮
+    @Step
+    public void CheckResetBtnTheTransferRecordPage() throws Exception {
+        bddUtil.sleep(2);
+        vaPatch_page.TransferManagementBtn.click();
+        vaPatch_page.TransferRecordBtn.click();
+//        输入 第一行数据的传输ID
+        String tranIdText = vaPatch_page.TranId.getText();
+        vaPatch_page.inputTranId.sendKeys(tranIdText);
+//        输入 第一行数据的发送方
+        String transmitLegText = vaPatch_page.transmitLeg.getText();
+        vaPatch_page.inputTransmitLeg.sendKeys(transmitLegText);
+        vaPatch_page.queryTranBtn.click();
+        bddUtil.sleep(4);
+        if (transmitLegText.equals(vaPatch_page.transmitLeg.getText())){
+            System.out.println("Transfer页面查询按钮正常");
+        }else {
+            throw new Exception("Transfer页面查询按钮有问题");
+        }
+        vaPatch_page.ResetTranBtn.click();
+        bddUtil.sleep(4);
     }
 }
