@@ -330,20 +330,55 @@ public class VaPatch_page extends PageObject {
     @FindBy(xpath = "//span[text()='OK']/parent::button")
     public WebElementFacade DFTLogoutOkBtn;
 
-    @FindBy(xpath = "//span[text()='Project Management']")
+    @FindBy(xpath = "//span[text()='Project Management']/parent::a/parent::li")
     public WebElementFacade ProjectManagementBtn;
 
-//    第一个 SystemID定位
+//   定位 第一个SystemID
     @FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr[1]/td[2]")
     public WebElementFacade FirstSystemId;
 
+//    定位第二个SystemID
+    @FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr[2]/td[2]")
+    public WebElementFacade SecondSystemId;
+
+    //   定位 第一个SystemName
+    @FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr[1]/td[3]")
+    public WebElementFacade FirstSystemName;
+
     @FindBy(xpath = "//input[@placeholder='please input system id']")
     public WebElementFacade inputSystemId;
+
+    @FindBy(xpath = "//input[@placeholder='please input syste name']")
+    public WebElementFacade inputSystemName;
 
     @FindBy(xpath = "//span[text()='Query']/parent::button")
     public WebElementFacade DFTQueryBtn;
 
     @FindBy(xpath = "//span[text()='Reset']/parent::button")
     public WebElementFacade DFTResetBtn;
+
+    @FindBy(xpath = "//span[text()='Transfer Management']/parent::span/parent::span/parent::div")
+    public WebElementFacade TransferManagementBtn;
+
+    @FindBy(xpath = "//span[text()='Transfer Record']/parent::a/parent::li/parent::ul")
+    public WebElementFacade TransferRecordBtn;
+
+    @FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr[1]/td[2]")
+    public WebElementFacade TranId;
+
+    @FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr[1]/td[3]")
+    public WebElementFacade transmitLeg;
+
+    @FindBy(xpath = "//input[@placeholder='请输入传输ID']")
+    public WebElementFacade inputTranId;
+
+    @FindBy(xpath = "//input[@placeholder='请输入发送方']")
+    public WebElementFacade inputTransmitLeg;
+
+    @FindBy(xpath = "//span[text()='查 询']/parent::button")
+    public WebElementFacade queryTranBtn;
+
+    @FindBy(xpath = "//span[text()='重 置']/parent::button")
+    public WebElementFacade ResetTranBtn;
 
 }

@@ -372,4 +372,40 @@ public class VaPatch_glue {
     public void inputSystemIDCheckQueryButtonTheDFTSystem() throws Exception{
         vaPatch_step.inputSystemIDCheckQueryBtn();
     }
+
+    //   输入 系统Name 点击Query按钮
+    @Then("^Input SystemName check Query button the DFT System$")
+    public void inputSystemNameCheckQueryButtonTheDFTSystem() throws Exception{
+        vaPatch_step.inputSystemNameCheckQueryBtn();
+    }
+
+    @Then("^Input SystemID And SystemName check Query button the DFT System$")
+    public void inputSystemIDAndSystemNameCheckQueryButtonTheDFTSystem() throws Exception{
+        vaPatch_step.inputSystemIDAndNameCheckQueryBtn();
+    }
+
+    @Then("^Input SystemID check Reset button the DFT System$")
+    public void inputSystemIDCheckResetButtonTheDFTSystem() throws Exception{
+        vaPatch_step.inputSystemIDCheckResetBtn();
+    }
+
+    @Then("^input Transfer Id check Query button the DFT Transfer Record Page$")
+    public void inputTransferIdCheckQueryButtonTheDFTTransferRecordPage() throws Exception{
+        vaPatch_step.inputTranIdCheckQueryBtn();
+    }
+
+    @Then("^input transmit leg check Query button the DFT Transfer Record Page$")
+    public void inputTransmitLegCheckQueryButtonTheDFTTransferRecordPage() throws Exception{
+        vaPatch_step.inputTransmitLegCheckQueryBtn();
+    }
+
+    @Then("^input Transfer Id And transmit leg check Query button the DFT Transfer Record Page$")
+    public void inputTransferIdAndTransmitLegCheckQueryButtonTheDFTTransferRecordPage() throws Exception{
+        vaPatch_step.inputTranIdAndTransmitLegCheckQueryBtn();
+    }
+
+    @Then("^check Reset button the DFT Transfer Record Page$")
+    public void checkResetButtonTheDFTTransferRecordPage() throws Exception {
+        vaPatch_step.CheckResetBtnTheTransferRecordPage();
+    }
 }
