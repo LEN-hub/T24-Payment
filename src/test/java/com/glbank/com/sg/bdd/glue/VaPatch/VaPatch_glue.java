@@ -351,4 +351,25 @@ public class VaPatch_glue {
     public void uploadDocumentTheInitiateContractPage() {
         vaPatch_step.checkInitiateContratUploadBtn();
     }
+
+    @Then("^check Storage Capacity Statistics Date Ranking the DFT System$")
+    public void checkStorageCapacityStatisticsDateRankingTheDFTSystem() throws Exception{
+        vaPatch_step.checkDateRankingStorageCapacityStatisticsPage();
+    }
+
+    @Then("^check Requests Statistics Date Ranking the DFT System$")
+    public void checkRequestsStatisticsDateRankingTheDFTSystem() throws Exception {
+        vaPatch_step.checkDateRankingRequestsStatisticsPage();
+    }
+
+    @Then("^check logout button the DFT System$")
+    public void checkLogoutButtonTheDFTSystem() throws Exception{
+        vaPatch_step.checkLogoutButtonTheHomePage();
+    }
+
+//   输入 系统ID 点击Query按钮
+    @Then("^Input SystemID check Query button the DFT System$")
+    public void inputSystemIDCheckQueryButtonTheDFTSystem() throws Exception{
+        vaPatch_step.inputSystemIDCheckQueryBtn();
+    }
 }

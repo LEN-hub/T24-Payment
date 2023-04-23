@@ -10,6 +10,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
@@ -1174,5 +1175,61 @@ public class VaPatch_step extends ScenarioSteps {
         bddUtil.sleep(1);
         vaPatch_page.ConfirmInitiationBtn.click();
         bddUtil.sleep(3);
+    }
+
+    // 检查Storage Capacity Statistics页面的Date Ranking柱状图
+    @Step
+    public void checkDateRankingStorageCapacityStatisticsPage() throws Exception{
+        bddUtil.sleep(3);
+        if (vaPatch_page.canvas.isVisible()){
+            System.out.println("系统正常");
+        }else {
+            throw new Exception("DFT系统柱状图有问题");
+        }
+    }
+
+    // 检查Requests Statistics页面的Date Ranking柱状图
+    @Step
+    public void checkDateRankingRequestsStatisticsPage() throws Exception{
+        bddUtil.sleep(2);
+        vaPatch_page.RequestsStatistics.click();
+        bddUtil.sleep(3);
+        if (vaPatch_page.RequestsStatisticsCanvas.isVisible()){
+            System.out.println("系统正常");
+        }else {
+            throw new Exception("DFT系统柱状图有问题");
+        }
+    }
+
+    // 检查 logout按钮是否正常
+    @Step
+    public void checkLogoutButtonTheHomePage()throws Exception{
+        bddUtil.sleep(3);
+        vaPatch_page.logoutAgo.click();
+//        鼠标悬浮（暂时用不到）
+//        Actions actions = new Actions(getDriver());
+//        actions.moveToElement(loanApplication_page.loan).build().perform();
+        vaPatch_page.DFTLogoutBtn.click();
+        bddUtil.sleep(1);
+        vaPatch_page.DFTLogoutOkBtn.click();
+        bddUtil.sleep(3);
+    }
+
+    @Step
+    public void inputSystemIDCheckQueryBtn() throws Exception{
+        bddUtil.sleep(3);
+        vaPatch_page.ProjectManagementBtn.click();
+        bddUtil.sleep(2);
+        String firstSystemIdText = vaPatch_page.FirstSystemId.getText();
+        vaPatch_page.inputSystemId.sendKeys(firstSystemIdText);
+        bddUtil.sleep(1);
+        vaPatch_page.DFTQueryBtn.click();
+        bddUtil.sleep(3);
+        if (firstSystemIdText.equals(vaPatch_page.FirstSystemId.getText())){
+            System.out.println("Query按钮正常");
+        } else {
+            throw new Exception("Query按钮有问题");
+        }
+
     }
 }

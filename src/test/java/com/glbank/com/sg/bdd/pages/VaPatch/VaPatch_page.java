@@ -54,7 +54,7 @@ public class VaPatch_page extends PageObject {
     @FindBy(xpath = "//p[text()='Supply Chain Finance']" )
     public WebElementFacade SCFSystem;
 
-    @FindBy(xpath = "//span[text()='Contract Management']")
+    @FindBy(xpath = "//span[text()='Home']")
     public WebElementFacade SCFTitle;
 
     @FindBy(xpath = "//p[text()='Supply Chain Finance-JOB']" )
@@ -311,5 +311,39 @@ public class VaPatch_page extends PageObject {
 
     @FindBy(xpath = "//span[text()='Add signatory']/parent::button")
     public WebElementFacade AddSignatoryBtn;
+
+    @FindBy(id = "canvas_3")
+    public WebElementFacade canvas;
+
+    @FindBy(id = "canvas_4")
+    public WebElementFacade RequestsStatisticsCanvas;
+
+    @FindBy(xpath = "//div[text()='Requests Statistics']")
+    public WebElementFacade RequestsStatistics;
+
+    @FindBy(xpath = "//div[@class='ant-pro-global-header']/div/span[1]/span[1]")
+    public WebElementFacade logoutAgo;
+
+    @FindBy(xpath = "//li[text()='Logout ']")
+    public WebElementFacade DFTLogoutBtn;
+
+    @FindBy(xpath = "//span[text()='OK']/parent::button")
+    public WebElementFacade DFTLogoutOkBtn;
+
+    @FindBy(xpath = "//span[text()='Project Management']")
+    public WebElementFacade ProjectManagementBtn;
+
+//    第一个 SystemID定位
+    @FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr[1]/td[2]")
+    public WebElementFacade FirstSystemId;
+
+    @FindBy(xpath = "//input[@placeholder='please input system id']")
+    public WebElementFacade inputSystemId;
+
+    @FindBy(xpath = "//span[text()='Query']/parent::button")
+    public WebElementFacade DFTQueryBtn;
+
+    @FindBy(xpath = "//span[text()='Reset']/parent::button")
+    public WebElementFacade DFTResetBtn;
 
 }
