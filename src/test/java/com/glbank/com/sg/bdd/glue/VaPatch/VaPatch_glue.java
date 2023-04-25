@@ -408,4 +408,9 @@ public class VaPatch_glue {
     public void checkResetButtonTheDFTTransferRecordPage() throws Exception {
         vaPatch_step.CheckResetBtnTheTransferRecordPage();
     }
+
+    @Then("^input ContractId check$")
+    public void inputContractIdCheck() {
+        vaPatch_step.inputContractId();
+    }
 }

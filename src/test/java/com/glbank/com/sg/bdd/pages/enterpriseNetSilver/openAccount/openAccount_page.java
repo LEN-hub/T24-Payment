@@ -324,7 +324,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//label[@for='isConcact']/following-sibling::div//input")
     public WebElementFacade chooseAdmin;
 
-    @FindBy(xpath = "//li[@class='el-select-dropdown__item hover']")
+    @FindBy(xpath = "//li[@class='el-select-dropdown__item']")
     public WebElementFacade selectAdmin;
 
     @FindBy(xpath = "//div[text()='Verify Email Address']")
@@ -1070,7 +1070,7 @@ public class openAccount_page extends PageObject {
     @FindBy(xpath = "//div[@class='dialog-content']//div[text()='OK']")
     public WebElementFacade clickOkBtn;
 
-    @FindBy(xpath = "//span[text()='Industry']/following-sibling::span//input")
+    @FindBy(xpath = "//span[text()='Primary SSIC']/following-sibling::span//input")
     public WebElementFacade enterIndustry;
 
     @FindBy(xpath = "//span[text()='Registered Address']/following-sibling::span//input")

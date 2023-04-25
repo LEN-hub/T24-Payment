@@ -38,7 +38,7 @@ public class logon_page extends PageObject {
     public WebElementFacade ISOBackstagePassWord;
 
     public void enterUserName(String userName){
-        withTimeoutOf(10,SECONDS)
+        withTimeoutOf(20,SECONDS)
                 .waitFor(userNameInputbox)
                 .waitUntilVisible()
                 .sendKeys(userName);
