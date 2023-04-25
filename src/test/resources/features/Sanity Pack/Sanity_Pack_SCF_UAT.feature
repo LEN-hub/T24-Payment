@@ -26,11 +26,8 @@ Feature: Sanity Pack SCF UAT Test Case
     When I entered new login information and successfully logged in
       |password    |
       |P@ssw0rd_123|
-#      Given logon "environments_3" test code
-#      When I login service agreement window
     When I click agree Service Agreement
     Then I jump to the Tell Us About Your Company page
-#       When I click next Button on the page
     When I entered information on the Tell Us About Your Company page Full KYC
     Then Check whether to jump to the next page after filling in the content of Company page
     When Fill in the administrator information on the People page and click Next to go to the Next page
