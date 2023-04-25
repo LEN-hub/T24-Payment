@@ -606,7 +606,7 @@ public void inputEntityDetailsNew() {
         bddUtil.sleep(3);
         getDriver().findElement(By.xpath("//div[@class='welHandleCon']//span[text()='Trading Center']")).click();
         bddUtil.sleep(3);
-        getDriver().findElements(By.xpath("//div[@class='el-table__fixed-right']//span[text()='Authorization']")).get(0).click();
+        getDriver().findElements(By.xpath("//div[@class='el-table__fixed-right']//span[text()='Authorisor']")).get(0).click();
 //        将申请人邮箱再次确认。
         ApplicantEmail = getDriver().findElement(By.xpath("//span[text()='Email']/following-sibling::span")).getText();
         customerId = getDriver().findElement(By.xpath("//span[text()='Corporate Customer Number']/following-sibling::span")).getText();

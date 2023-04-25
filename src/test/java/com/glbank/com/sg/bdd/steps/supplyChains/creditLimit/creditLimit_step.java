@@ -473,7 +473,7 @@ public class creditLimit_step extends ScenarioSteps {
         bddUtil.sleep(3);
         //点击签约邮件
         driver.findElement(By.xpath("//div[text()='[Green Link Digital Bank] Account Opening - Digital Sign Certified Extract of Board Resolution']")).click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(5);
         //获取签约链接并且在新标签页打开。
         //切入iframe
         driver.switchTo().frame(driver.findElement(By.xpath("//div[@class='flex justify-between']/following-sibling::div/iframe")));
@@ -512,6 +512,10 @@ public class creditLimit_step extends ScenarioSteps {
         bddUtil.sleep(2);
         driver.findElement(By.xpath("//span[text()='Confirm Digital Signature']")).click();
         bddUtil.sleep(6);
+        //获取 当前合同编号存到txt
+        // replace();方法 将字符串中的空格 替换为其他的。
+        String contractId = driver.findElement(By.xpath("//p[@class='success-contract-id']/following-sibling::p")).getText().replace(" ","");
+        FileUtils.FileString4("contractId",contractId);
         //关闭当前浏览器
         driver.quit();
     }

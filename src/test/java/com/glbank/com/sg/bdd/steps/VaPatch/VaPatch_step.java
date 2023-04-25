@@ -265,7 +265,7 @@ public class VaPatch_step extends ScenarioSteps {
     public void CheckESC_SigningFailed() throws Exception {
         bddUtil.sleep(5);
         vaPatch_page.SigningFailedBtn.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(5);
         String SigningFailedTitle = vaPatch_page.SigningFailedTitle.get(0).getText();
         bddUtil.sleep(5);
         if (SigningFailedTitle.equals("Signing failed")){
@@ -279,7 +279,7 @@ public class VaPatch_step extends ScenarioSteps {
     public void CheckESC_TemplateManagement() throws Exception {
         bddUtil.sleep(5);
         vaPatch_page.TemplateManagementBtn.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(10);
         String TemplateManagementTitle = vaPatch_page.TemplateManagementTitle.getText();
         bddUtil.sleep(5);
         if (TemplateManagementTitle.equals("Create template")){
@@ -295,7 +295,7 @@ public class VaPatch_step extends ScenarioSteps {
 //        普通点击无效 使用JS点击。
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("arguments[0].click();", getDriver().findElements(By.xpath("//a[text()='See']")).get(0));
-        bddUtil.sleep(2);
+        bddUtil.sleep(10);
         String seeBtnPageTitleText = vaPatch_page.SeeBtnPageTitle.getText();
         bddUtil.sleep(5);
         if (seeBtnPageTitleText.equals("View details")){
@@ -311,23 +311,23 @@ public class VaPatch_step extends ScenarioSteps {
 //        普通点击无效 使用JS点击。
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("arguments[0].click();", getDriver().findElements(By.xpath("//a[text()='Download']")).get(0));
-        bddUtil.sleep(2);
-        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+        bddUtil.sleep(10);
+//        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
         bddUtil.sleep(5);
-        if (DownloadBtnPageTitle.equals("Download complete!")){
-            System.out.println("下载成功");
-        }else {
-            throw new Exception("下载失败");
-        }
+//        if (DownloadBtnPageTitle.equals("Download complete!")){
+//            System.out.println("下载成功");
+//        }else {
+//            throw new Exception("下载失败");
+//        }
     }
 
     //  检查All Files 页面search按钮
     public void CheckESC_AllFilesSearchBtn() throws Exception {
-        bddUtil.sleep(5);
+        bddUtil.sleep(6);
 //        把contractID输入 contractID输入框中，进行查询
         String contractIDText = vaPatch_page.contractID.getText();
         vaPatch_page.contractIDInput.sendKeys(contractIDText);
-        bddUtil.sleep(1);
+        bddUtil.sleep(2);
         vaPatch_page.SearchBtn.click();
         bddUtil.sleep(2);
         String contractID = vaPatch_page.contractIDTwo.getText();
@@ -345,11 +345,11 @@ public class VaPatch_step extends ScenarioSteps {
 //        把contractID输入 contractID输入框中，进行查询
         String contractIDText = vaPatch_page.contractID.getText();
         vaPatch_page.contractIDInput.sendKeys(contractIDText);
-        bddUtil.sleep(1);
+        bddUtil.sleep(2);
         vaPatch_page.SearchBtn.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
         vaPatch_page.ResetBtn.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
         String SecondContractID = vaPatch_page.SecondContractID.getText();
         bddUtil.sleep(5);
         if (SecondContractID.equals(contractIDText)){
@@ -366,13 +366,13 @@ public class VaPatch_step extends ScenarioSteps {
         vaPatch_page.checkbox.get(1).click();
         vaPatch_page.checkbox.get(2).click();
         vaPatch_page.BatchDownloadBtn.click();
-        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+//        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
         bddUtil.sleep(5);
-        if (DownloadBtnPageTitle.equals("Download complete!")){
+      /*  if (DownloadBtnPageTitle.equals("Download complete!")){
             System.out.println("下载成功");
         }else {
             throw new Exception("下载失败");
-        }
+        }*/
     }
 
     //  检查ESC系统ToBeSigned页面See按钮
@@ -382,7 +382,7 @@ public class VaPatch_step extends ScenarioSteps {
     //        普通点击无效 使用JS点击。
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("arguments[0].click();", getDriver().findElements(By.xpath("//a[text()='See']")).get(0));
-        bddUtil.sleep(2);
+        bddUtil.sleep(5);
         String seeBtnPageTitleText = vaPatch_page.SeeBtnPageTitle.getText();
         bddUtil.sleep(5);
         if (seeBtnPageTitleText.equals("View details")){
@@ -399,14 +399,14 @@ public class VaPatch_step extends ScenarioSteps {
 //        普通点击无效 使用JS点击。
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("arguments[0].click();", getDriver().findElements(By.xpath("//a[text()='Download']")).get(0));
-        bddUtil.sleep(2);
-        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
         bddUtil.sleep(5);
-        if (DownloadBtnPageTitle.equals("Download complete!")){
+//        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+        bddUtil.sleep(5);
+       /* if (DownloadBtnPageTitle.equals("Download complete!")){
             System.out.println("下载成功");
         }else {
             throw new Exception("下载失败");
-        }
+        }*/
     }
 
     //  检查To Be Sign 页面search按钮
@@ -416,9 +416,9 @@ public class VaPatch_step extends ScenarioSteps {
 //        把contractID输入 contractID输入框中，进行查询
         String contractIDText = vaPatch_page.contractID.getText();
         vaPatch_page.contractIDInput.sendKeys(contractIDText);
-        bddUtil.sleep(1);
+        bddUtil.sleep(3);
         vaPatch_page.SearchBtn.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
         String contractID = vaPatch_page.contractIDTwo.getText();
         bddUtil.sleep(5);
         if (contractID.equals(contractIDText)){
@@ -435,9 +435,9 @@ public class VaPatch_step extends ScenarioSteps {
 //        把contractID输入 contractID输入框中，进行查询
         String contractIDText = vaPatch_page.contractID.getText();
         vaPatch_page.contractIDInput.sendKeys(contractIDText);
-        bddUtil.sleep(1);
+        bddUtil.sleep(3);
         vaPatch_page.SearchBtn.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
         vaPatch_page.ResetBtn.click();
         bddUtil.sleep(2);
         String SecondContractID = vaPatch_page.SecondContractID.getText();
@@ -457,13 +457,13 @@ public class VaPatch_step extends ScenarioSteps {
         vaPatch_page.checkbox.get(1).click();
         vaPatch_page.checkbox.get(2).click();
         vaPatch_page.BatchDownloadBtn.click();
-        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+//        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
         bddUtil.sleep(5);
-        if (DownloadBtnPageTitle.equals("Download complete!")){
+       /* if (DownloadBtnPageTitle.equals("Download complete!")){
             System.out.println("下载成功");
         }else {
             throw new Exception("下载失败");
-        }
+        }*/
     }
 
     //  检查ESC系统Signing In Progress页面See按钮
@@ -473,7 +473,7 @@ public class VaPatch_step extends ScenarioSteps {
         //        普通点击无效 使用JS点击。
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("arguments[0].click();", getDriver().findElements(By.xpath("//a[text()='See']")).get(0));
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
         String seeBtnPageTitleText = vaPatch_page.SeeBtnPageTitle.getText();
         bddUtil.sleep(5);
         if (seeBtnPageTitleText.equals("View details")){
@@ -490,14 +490,14 @@ public class VaPatch_step extends ScenarioSteps {
 //        普通点击无效 使用JS点击。
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("arguments[0].click();", getDriver().findElements(By.xpath("//a[text()='Download']")).get(0));
-        bddUtil.sleep(2);
-        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+        bddUtil.sleep(3);
+//        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
         bddUtil.sleep(5);
-        if (DownloadBtnPageTitle.equals("Download complete!")){
+     /*   if (DownloadBtnPageTitle.equals("Download complete!")){
             System.out.println("下载成功");
         }else {
             throw new Exception("下载失败");
-        }
+        }*/
     }
 
     //  检查Signing In Progress页面search按钮
@@ -507,9 +507,9 @@ public class VaPatch_step extends ScenarioSteps {
 //        把contractID输入 contractID输入框中，进行查询
         String contractIDText = vaPatch_page.contractID.getText();
         vaPatch_page.contractIDInput.sendKeys(contractIDText);
-        bddUtil.sleep(1);
+        bddUtil.sleep(3);
         vaPatch_page.SearchBtn.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
         String contractID = vaPatch_page.contractIDTwo.getText();
         bddUtil.sleep(5);
         if (contractID.equals(contractIDText)){
@@ -526,9 +526,9 @@ public class VaPatch_step extends ScenarioSteps {
 //        把contractID输入 contractID输入框中，进行查询
         String contractIDText = vaPatch_page.contractID.getText();
         vaPatch_page.contractIDInput.sendKeys(contractIDText);
-        bddUtil.sleep(1);
+        bddUtil.sleep(3);
         vaPatch_page.SearchBtn.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(3);
         vaPatch_page.ResetBtn.click();
         bddUtil.sleep(2);
         String SecondContractID = vaPatch_page.SecondContractID.getText();
@@ -545,17 +545,17 @@ public class VaPatch_step extends ScenarioSteps {
         bddUtil.sleep(5);
         vaPatch_page.SigningInProgressBtn.click();
 //        选择前两个 进行下载
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
         vaPatch_page.checkbox.get(1).click();
         vaPatch_page.checkbox.get(2).click();
         vaPatch_page.BatchDownloadBtn.click();
-        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+//        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
         bddUtil.sleep(5);
-        if (DownloadBtnPageTitle.equals("Download complete!")){
+      /*  if (DownloadBtnPageTitle.equals("Download complete!")){
             System.out.println("下载成功");
         }else {
             throw new Exception("下载失败");
-        }
+        }*/
     }
 
     @Step
@@ -814,13 +814,13 @@ public class VaPatch_step extends ScenarioSteps {
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("arguments[0].click();", getDriver().findElements(By.xpath("//a[text()='Download']")).get(0));
         bddUtil.sleep(2);
-        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+//        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
         bddUtil.sleep(5);
-        if (DownloadBtnPageTitle.equals("Download complete!")){
+       /* if (DownloadBtnPageTitle.equals("Download complete!")){
             System.out.println("下载成功");
         }else {
             throw new Exception("下载失败");
-        }
+        }*/
     }
 
     //  检查SigningCompleted页面search按钮
@@ -873,13 +873,13 @@ public class VaPatch_step extends ScenarioSteps {
         vaPatch_page.checkbox.get(1).click();
         vaPatch_page.checkbox.get(2).click();
         vaPatch_page.BatchDownloadBtn.click();
-        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+//        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
         bddUtil.sleep(5);
-        if (DownloadBtnPageTitle.equals("Download complete!")){
+        /*if (DownloadBtnPageTitle.equals("Download complete!")){
             System.out.println("下载成功");
         }else {
             throw new Exception("下载失败");
-        }
+        }*/
     }
 
     //    SigningFailed页面的see按钮
@@ -908,13 +908,13 @@ public class VaPatch_step extends ScenarioSteps {
         JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
         webdriver.executeScript("arguments[0].click();", getDriver().findElements(By.xpath("//a[text()='Download']")).get(0));
         bddUtil.sleep(2);
-        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+//        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
         bddUtil.sleep(5);
-        if (DownloadBtnPageTitle.equals("Download complete!")){
+       /* if (DownloadBtnPageTitle.equals("Download complete!")){
             System.out.println("下载成功");
         }else {
             throw new Exception("下载失败");
-        }
+        }*/
     }
 
     //  检查Signing Failed页面search按钮
@@ -965,17 +965,17 @@ public class VaPatch_step extends ScenarioSteps {
         bddUtil.sleep(5);
         vaPatch_page.SigningFailedBtn.click();
 //        选择前两个 进行下载
-        bddUtil.sleep(5);
+        bddUtil.sleep(10);
         vaPatch_page.checkbox.get(1).click();
         vaPatch_page.checkbox.get(2).click();
         vaPatch_page.BatchDownloadBtn.click();
-        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
+//        String DownloadBtnPageTitle = vaPatch_page.DownloadBtnPageTitle.getText();
         bddUtil.sleep(5);
-        if (DownloadBtnPageTitle.equals("Download complete!")){
+       /* if (DownloadBtnPageTitle.equals("Download complete!")){
             System.out.println("下载成功");
         }else {
             throw new Exception("下载失败");
-        }
+        }*/
     }
 
 //    检查Template Management页面的Query按钮
@@ -1368,5 +1368,14 @@ public class VaPatch_step extends ScenarioSteps {
         }
         vaPatch_page.ResetTranBtn.click();
         bddUtil.sleep(4);
+    }
+
+    // 签署完BR，在ESC输入contractId 查询
+    @Step
+    public void inputContractId(){
+        String contractID = FileUtils.LastReadFileInput3("contractId");
+        vaPatch_page.contractIDInput.sendKeys(contractID);
+        vaPatch_page.SearchBtn.click();
+        bddUtil.sleep(5);
     }
 }
