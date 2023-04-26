@@ -1246,4 +1246,16 @@ public class openAccount_page extends PageObject {
 
     @FindBy(xpath = "//label[@for='operatePersonEmail']/following-sibling::div//input")
     public WebElementFacade enterEmailInput;
+
+    @FindBy(id = "switcher_plogin")
+    public WebElementFacade usePasswordLogin;
+
+    @FindBy(xpath = "//form[@id='loginform']/div[1]/div/input")
+    public WebElementFacade inputQQ;
+
+    @FindBy(xpath = "//form[@id='loginform']/div[2]/div/input")
+    public WebElementFacade inputQQPasswrod;
+
+    @FindBy(id = "login_button")
+    public WebElementFacade loginQQ;
 }

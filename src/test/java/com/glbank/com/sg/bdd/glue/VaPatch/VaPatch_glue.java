@@ -26,6 +26,7 @@ public class VaPatch_glue {
         vaPatch_step.clickCNPSystem();
     }
 
+
     @When("^enter the CPS$")
     public void enterTheCPS() throws Exception{
         vaPatch_step.clickCPSSystem();
@@ -412,5 +413,10 @@ public class VaPatch_glue {
     @Then("^input ContractId check$")
     public void inputContractIdCheck() {
         vaPatch_step.inputContractId();
+    }
+
+    @When("^enter the CNP resend Short message SIT$")
+    public void enterTheCNPResendShortMessageSIT() {
+        vaPatch_step.resendShortMessageSit();
     }
 }

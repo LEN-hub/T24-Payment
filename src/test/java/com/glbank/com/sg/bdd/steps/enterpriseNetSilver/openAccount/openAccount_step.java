@@ -41,6 +41,8 @@ public class openAccount_step extends ScenarioSteps {
     public static String mobileNumber = RandomPhoneNumber.randomPhoneNum();
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/autopay/test.jpg";
+    public String QQAccount = "2365553495@qq.com";
+    public String QQPassword = "ty147258.";
 
     public void joinOpenAccount(){
         openAccount_page.clickOpenAccount.click();
@@ -306,12 +308,15 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
 //    在线开户 新流程。
     public void newProvideEssentialInformation(String applicantName, String emailName, String mobileNumber) {
         bddUtil.sleep(1);
-        openAccount_page.inputFullName.sendKeys(applicantName);
+        openAccount_page.inputFullName.sendKeys("PRODIGIES THOROUGHBRED RACING GROUP PTE. LTD.");
+//        openAccount_page.inputFullName.sendKeys(applicantName);
         openAccount_page.clickContactNumberFirstCountry.sendKeys("+65");
         openAccount_page.selectSingaporeCountryCode.click();
         openAccount_page.inputContactNumber.sendKeys(mobileNumber);
-        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
-//        openAccount_page.inputEmailAddress.sendKeys("3111969204@qq.com");
+//        一次性邮件
+//        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
+//        使用QQ邮箱
+        openAccount_page.inputEmailAddress.sendKeys(QQAccount);
         openAccount_page.verifyEmailNew.click();
         bddUtil.sleep(1);
     }
@@ -519,6 +524,7 @@ public void inputEntityDetailsNew() {
         bddUtil.sleep(3);
         openAccount_page.confirmNew.click();
         bddUtil.sleep(5);
+
 }
 
 //进入后管补充信息。
@@ -579,8 +585,9 @@ public void inputEntityDetailsNew() {
         openAccount_page.adressNew.sendKeys(address);
         openAccount_page.cityNew.sendKeys(address.toString().substring(2,5));
 //        openAccount_page.emailNew.sendKeys(emailNew+"@MailTemp.top");
-        openAccount_page.emailNew.sendKeys("LL3111969204@163.com");
-        FileUtils.FileString4(""+"openAccountNew"+"","关联人邮箱：" + emailNew+"@MailTemp.top");
+//        董事 填写自己邮箱
+        openAccount_page.emailNew.sendKeys(QQAccount);
+        FileUtils.FileString4(""+"openAccountNew"+"","董事邮箱："+"2365553495@qq.com");
         bddUtil.sleep(1);
         openAccount_page.determine.click();
         openAccount_page.directorNew.click();
@@ -617,7 +624,7 @@ public void inputEntityDetailsNew() {
         bddUtil.sleep(3);
         bddUtil.scrollWindowToElement(getDriver().findElement(By.xpath("//div[text()='Submit']")));
         getDriver().findElement(By.xpath("//div[text()='Submit']")).click();
-
+        bddUtil.sleep(3);
     }
 
     public void enterMailbox(){
@@ -1733,5 +1740,22 @@ public void inputEntityDetailsNew() {
         openAccount_page.enterEmailInput.sendKeys("617558302@qq.com");
         bddUtil.sleep(1);
         openAccount_page.verifyEmailNew.click();
+    }
+
+//    打开track3开户的申请人邮箱
+    @Step
+    public void openTrackThreeEmail(){
+        JavascriptExecutor webdriver = (JavascriptExecutor)getDriver();
+        webdriver.executeScript("window.open(\"https://mail.qq.com/\");");
+        bddUtil.sleep(3);
+        bddUtil.switchToNewWindow();
+        openAccount_page.usePasswordLogin.click();
+        bddUtil.sleep(1);
+//        输入自己的QQ号
+        openAccount_page.inputQQ.sendKeys(QQAccount);
+        openAccount_page.inputQQPasswrod.sendKeys(QQPassword);
+        openAccount_page.loginQQ.click();
+        bddUtil.sleep(3);
+
     }
 }

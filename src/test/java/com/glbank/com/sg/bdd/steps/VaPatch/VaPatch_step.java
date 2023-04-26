@@ -1378,4 +1378,33 @@ public class VaPatch_step extends ScenarioSteps {
         vaPatch_page.SearchBtn.click();
         bddUtil.sleep(5);
     }
+
+//    在SIT的CNP进行短信重发
+    @Step
+    public void resendShortMessageSit(){
+        vaPatch_page.CNP_SIT.click();
+        bddUtil.sleep(5);
+        bddUtil.switchToNewWindow();
+        vaPatch_page.messagePlatformBtn.click();
+        vaPatch_page.messageManagementBtn.click();
+        vaPatch_page.realSendingBtn.click();
+//        模板ID 固定
+        String TemplateId = "107d57f7851149c9b3e89f4d68673890";
+        vaPatch_page.CNPInputTemplateId.sendKeys(TemplateId);
+        bddUtil.sleep(2);
+        vaPatch_page.queryCNP.get(0).click();
+        bddUtil.sleep(2);
+        vaPatch_page.MessageContent.click();
+        bddUtil.sleep(1);
+        vaPatch_page.inputText.clear();
+        vaPatch_page.inputText.sendKeys("[\"777777\"]");
+        bddUtil.sleep(2);
+        vaPatch_page.sendMessage.click();
+        bddUtil.sleep(1);
+//        修改为自己真实手机号
+        vaPatch_page.inputIphone.sendKeys("+8613087521429");
+        bddUtil.sleep(1);
+        vaPatch_page.confirmResendMessage.click();
+        bddUtil.sleep(4);
+    }
 }

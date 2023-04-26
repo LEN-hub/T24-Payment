@@ -261,7 +261,7 @@ public class openAccount_glue {
         System.out.println("---------------申请人电话号码："+ mobileNumber + "----------------------");
         FileUtils.FileString4(""+"openAccountNew"+"","申请人电话号码:" + mobileNumber);
         System.out.println("---------------申请人邮箱地址："+ emailName + "@MailTemp.top"+"----------------------");
-        FileUtils.FileString4(""+"openAccountNew"+"","申请人邮箱地址:" + emailName + "@MailTemp.top");
+        FileUtils.FileString4(""+"openAccountNew"+"","申请人邮箱地址:" + "2365553495@qq.com");
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
         openAccount_step.inputEntityDetailsNew();
@@ -613,5 +613,11 @@ public class openAccount_glue {
         openAccount_step.clickValidationCode();
         openAccount_step.inputValidationCode();
         openAccount_step.inputEntityDetailsHealthCheck();
+    }
+
+//    进入到申请人的QQ邮箱界面
+    @When("^I enter the track3 Applicant Email$")
+    public void iEnterTheTrack3ApplicantEmail() {
+        openAccount_step.openTrackThreeEmail();
     }
 }

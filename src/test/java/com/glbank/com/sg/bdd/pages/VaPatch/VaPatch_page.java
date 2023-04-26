@@ -12,6 +12,39 @@ public class VaPatch_page extends PageObject {
     @FindBy(xpath = "//p[text()='Customer Notification Platform ']" )
     public WebElementFacade CNPSystem;
 
+    @FindBy(xpath = "//p[text()='CNP']")
+    public WebElementFacade CNP_SIT;
+
+    @FindBy(xpath = "//span[text()='Message Platform']/parent::div")
+    public WebElementFacade messagePlatformBtn;
+
+    @FindBy(xpath = "//span[text()='Message Management']/parent::div")
+    public WebElementFacade messageManagementBtn;
+
+    @FindBy(xpath = "//span[text()='Real Sending']/parent::li/parent::div")
+    public WebElementFacade realSendingBtn;
+
+    @FindBy(xpath = "//label[text()='Template ID']/following-sibling::div//input")
+    public WebElementFacade CNPInputTemplateId;
+
+    @FindBy(xpath = "//span[text()='Query']/parent::button")
+    public List<WebElementFacade> queryCNP;
+
+    @FindBy(xpath = "//textarea[@class='el-textarea__inner']")
+    public WebElementFacade inputText;
+
+    @FindBy(xpath = "//span[text()='Message Content']")
+    public WebElementFacade MessageContent;
+
+    @FindBy(xpath = "//span[text()='Send Message']/parent::button")
+    public WebElementFacade sendMessage;
+
+    @FindBy(xpath = "//div[@class='el-message-box']/div[2]//input")
+    public WebElementFacade inputIphone;
+
+    @FindBy(xpath = "//div[@class='el-message-box']/div[3]/button[2]")
+    public WebElementFacade confirmResendMessage;
+
     @FindBy(xpath = "//div[contains(text(),\"Favorite\")]")
     public WebElementFacade CNPTitle;
 
