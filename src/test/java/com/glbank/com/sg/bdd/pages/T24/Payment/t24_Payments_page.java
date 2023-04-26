@@ -466,7 +466,7 @@ public class t24_Payments_page extends PageObject {
     public WebElementFacade selectT24ID;
 
     //CUSTOMER详情页面 customer type状态
-    @FindBy(xpath = //label[@for='fieldName:CUSTOMER.TYPE']/parent::td/following-sibling::td[2]/span")
+    @FindBy(xpath = "//label[@for='fieldName:CUSTOMER.TYPE']/parent::td/following-sibling::td[2]/span")
     public WebElementFacade customerType;
 
     @FindBy(xpath = "//a[text()='Find Customer ']")
