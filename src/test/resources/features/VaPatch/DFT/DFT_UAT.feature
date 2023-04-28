@@ -1,4 +1,4 @@
-@VaPatch_DFT
+@VaPatch_DFT_UAT
 Feature: VaPatch_DFT
 
   @UAT-DFT-001
