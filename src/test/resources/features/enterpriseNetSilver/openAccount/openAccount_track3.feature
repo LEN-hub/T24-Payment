@@ -32,3 +32,22 @@ Feature: openAccount_track3
     Given logon "environments_6" on tube by inputting system online bank
     When I enter the back tube for authorization
     When I enter the mailbox
+
+
+
+
+  @Track3_uat
+    #正常开户新流程——单币种账户——新币
+  Scenario:Track3_UAT
+    Given open "netSilverEnvTian" enterprise net silver page
+    When click open Account New page
+    Then New Fill in information "netSilverEnv_OpenAccount" on Getting Started page
+    And Provide Essential Information New
+      |Entity's Type                                  |Entity Consolidated       |Entity's Industry|date      |chekk      |
+      |Private Limited Co                             |Turnover <= SGD 1 Million |Manufacturing    |14/02/2004|201922558H |
+    Given logon "ISO_UAT" on tube by inputting system online bank
+    When I into the rear tube Supplementary account opening information
+    When I close driver
+    Given logon "ISO_UAT" on tube by inputting system online bank
+    When I enter the back tube for authorization
+    When I enter the mailbox

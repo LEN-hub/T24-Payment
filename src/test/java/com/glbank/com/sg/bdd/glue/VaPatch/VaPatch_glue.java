@@ -419,4 +419,9 @@ public class VaPatch_glue {
     public void enterTheCNPResendShortMessageSIT() {
         vaPatch_step.resendShortMessageSit();
     }
+
+    @Then("^I check IDV link$")
+    public void iCheckIDVLink() {
+        vaPatch_step.checkIDVEmail();
+    }
 }

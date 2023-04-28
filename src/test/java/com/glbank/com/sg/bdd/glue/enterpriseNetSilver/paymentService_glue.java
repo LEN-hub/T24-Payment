@@ -619,5 +619,10 @@ public class paymentService_glue {
         paymentService_step.clickNextBox();
         paymentService_step.checkErrorInformation();
     }
+
+    @When("^I input high-risk data$")
+    public void iInputHighRiskData() {
+        paymentService_step.inputHighRiskData();
+    }
 }
 

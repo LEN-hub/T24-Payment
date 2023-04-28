@@ -13,6 +13,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 
@@ -68,6 +69,8 @@ public class paymentService_step extends ScenarioSteps {
     public static String transferCurrency;
     public static String transferAccount;
     public String randomAccount = RandomPhoneNumber.randomPhoneNum();
+    private static String systemPath = System.getProperty("user.dir");
+    String fileAddress = systemPath + "/src/test/resources/testData/autopay/BR.jpg";
 
     @Step
     public void transferAndRemittanceMenu(){
@@ -2271,6 +2274,7 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.payeeCountriesEnCdBox.click();
         bddUtil.sleep(2);
         paymentService_page.payeeCountries.click();
+        getDriver().findElement(By.xpath("//span[text()='AFGHANISTAN']/parent::li")).click();
     }
     public void remittancePostscriptContent(String remittancePostscriptContent){
         paymentService_page.remittancePostscriptContent.sendKeys(remittancePostscriptContent);}
@@ -2297,6 +2301,33 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.paymentAttributeCdBox.click();
         bddUtil.sleep(3);
         paymentService_page.selectPaymentAttributeCd.click();
+    }
+
+//    为触发AML高风险输入特定的数据。
+    @Step
+    public void inputHighRiskData(){
+        paymentService_page.paymentAttributeCdBox.click();
+        bddUtil.sleep(3);
+        paymentService_page.TradeServices.click();
+        bddUtil.sleep(2);
+        paymentService_page.FreightOptions.click();
+        bddUtil.sleep(2);
+        paymentService_page.Sea.click();
+        paymentService_page.VesselName.sendKeys("SANDINO");
+        paymentService_page.VesselImo.sendKeys("9441178");
+        paymentService_page.PortOfLoading.sendKeys("SDA");
+        paymentService_page.PortOfDelivery.sendKeys("DASD");
+        paymentService_page.GoodInvolved.sendKeys("Rubber");
+        paymentService_page.expenseBox.click();
+        bddUtil.sleep(2);
+        paymentService_page.AllExpensesShal.click();
+//        上传2个文件
+        getDriver().findElement(By.xpath("//label[text()='Invoice']/following-sibling::div//input")).sendKeys(fileAddress);
+        bddUtil.sleep(3);
+        getDriver().findElement(By.xpath("//label[text()='Transport Document']/following-sibling::div//input")).sendKeys(fileAddress);
+        bddUtil.sleep(3);
+        paymentService_page.clickNextBox.click();
+        bddUtil.sleep(5);
     }
 
     public void clickNextBox(){

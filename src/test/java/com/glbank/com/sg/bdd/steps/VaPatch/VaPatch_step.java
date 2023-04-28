@@ -10,6 +10,9 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -22,6 +25,7 @@ public class VaPatch_step extends ScenarioSteps {
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/Excel/测试合同123.docx";
     String uploadExcelFile = systemPath + "/src/test/resources/testData/Excel/contract template.xls";
+    String ChromePath = systemPath+"/src/test/resources/drivers/chromedriver.exe";
 
 //    判断是否进入CNP系统
     @Step
@@ -1406,5 +1410,30 @@ public class VaPatch_step extends ScenarioSteps {
         bddUtil.sleep(1);
         vaPatch_page.confirmResendMessage.click();
         bddUtil.sleep(4);
+    }
+
+//    打开邮件IDV检查
+    public void checkIDVEmail(){
+        //登录第一封邮件进行签约BR
+        System.setProperty("webdriver.chrome.driver",ChromePath);
+        //更换selenium打开浏览器机制
+        ChromeOptions options = new ChromeOptions();
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+        ChromeDriver driver = new ChromeDriver(options);
+        JavascriptExecutor webdriver = (JavascriptExecutor) driver;
+        String directEmail = FileUtils.LastReadFileInput3("directEmail").substring(0,7);
+        String Url = "https://mail.td/zh/mail/"+directEmail+"@uuf.me";
+        driver.get(Url);
+        driver.manage().window().maximize();
+        //开始签约
+        bddUtil.sleep(3);
+        driver.findElement(By.xpath("//div[text()='Green Link Digital Bank - Verify Identity']")).click();
+        bddUtil.sleep(3);
+        driver.switchTo().frame(driver.findElement(By.xpath("//div[@class='flex justify-between']/following-sibling::div/iframe")));
+        driver.findElement(By.xpath("//button[text()='Face Recognition']")).click();
+        bddUtil.sleep(5);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(10);
+        getDriver().quit();
     }
 }

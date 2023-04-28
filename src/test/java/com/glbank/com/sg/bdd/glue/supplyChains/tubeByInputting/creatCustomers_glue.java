@@ -15,7 +15,9 @@ import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.List;
@@ -707,5 +709,33 @@ public class creatCustomers_glue {
     @When("^I receive mail in my mailbox on scf uat env$")
     public void iReceiveMailInMyMailboxOnScfUatEnv() {
         customers_step.selectFirstEmailAndTakeVCodeOnSUATEvn();
+    }
+
+    @Then("^I input check Data Create Customer$")
+    public void iInputCheckDataCreateCustomer(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        customers_step.getClickCreateCustomerBtn();
+        customers_step.getSelectCustomerType();
+        customers_step.getCustomerTypeSupplier();
+        customers_step.getCompanyName(maps.get(0).get("Company Name"));
+        customers_step.getCompanyID(maps.get(0).get("Company Id"));
+//        输入设置的Check数据
+        getDriver().findElement(By.xpath("//label[@for='registryCountry']/following-sibling::div//input")).sendKeys(maps.get(0).get("Country"));
+//      选择check数据的国家
+        getDriver().findElement(By.xpath("//span[text()='"+maps.get(0).get("Country")+"']/parent::li")).click();
+        customers_step.getCompanyNameLeft(JRandomNameTool.getStringRandom(10));
+        customers_step.kycMode(maps.get(0).get("KYC Mode"));
+        customers_step.inputBy(maps.get(0).get("Input by"));
+        customers_step.getCLickNextBtn();
+    }
+
+//    删除特定的check数据
+    @Then("^I delete check Data$")
+    public void iDeleteCheckData(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        getDriver().findElement(By.xpath("//label[text()='Company Name']/following-sibling::div//input")).sendKeys(maps.get(0).get("Company Name"));
+        getDriver().findElements(By.xpath("//span[@data-key='f206ec7t']/button/span")).get(0).click();
+        getDriver().findElements(By.xpath("//span[contains(text(),'Confirm')]/parent::button")).get(1).click();
+        bddUtil.sleep(4);
     }
 }

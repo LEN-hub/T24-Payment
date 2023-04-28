@@ -31,6 +31,9 @@ public class logon_page extends PageObject {
     @FindBy(xpath = "//p[text()='EBK']")
     public WebElementFacade onlineBank;
 
+    @FindBy(xpath = "//p[text()='Online Banking']")
+    public WebElementFacade onlineBankUat;
+
     @FindBy(xpath = "//input[@class='gwt-TextBox']")
     public WebElementFacade ISOBackstageUserName;
 

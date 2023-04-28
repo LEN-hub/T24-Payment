@@ -56,9 +56,17 @@ public class logon_step extends ScenarioSteps {
         login_page.clickSCFlink.click();
     }
 
+
+//    SIT
     @Step
     public void clickOnlineBank(){
         login_page.onlineBank.click();
+    }
+
+//    UAT
+    @Step
+    public void clickOnLineBankUat(){
+        login_page.onlineBankUat.click();
     }
 
 }

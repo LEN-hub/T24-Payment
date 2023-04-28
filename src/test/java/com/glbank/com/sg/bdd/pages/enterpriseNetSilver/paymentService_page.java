@@ -399,7 +399,7 @@ public class paymentService_page extends PageObject {
     public WebElementFacade payeeCountriesEnCdBox;  //收款国家下拉框
 
 
-    @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul/li[1]/span")
+    @FindBy(xpath = "//span[text()='AFGHANISTAN']/parent::li")
     public WebElementFacade payeeCountries; //新加坡
 
     @FindBy(xpath = "//div[@class='el-textarea el-input--medium']/textarea")
@@ -407,6 +407,9 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//label[@for='costFeeAssumeCd']/following-sibling::div//i")
     public WebElementFacade expenseBox; // 费用承担下拉框
+
+    @FindBy(xpath = "//span[text()='All expenses shall be borne by the remitter']/parent::li")
+    public WebElementFacade AllExpensesShal;
 
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul//li")
     public List<WebElementFacade> expense; //费用承担
@@ -419,6 +422,31 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//ul/li[1]/span")
     public WebElementFacade selectPaymentAttributeCd;  //选择付汇性质
+
+    @FindBy(xpath = "//label[@for='transportMethod']/following-sibling::div//i")
+    public WebElementFacade FreightOptions;
+
+    @FindBy(xpath = "//label[@for='shipNm']/following-sibling::div//input")
+    public WebElementFacade VesselName;
+
+    @FindBy(xpath = "//label[@for='shipNo']/following-sibling::div//input")
+    public WebElementFacade VesselImo;
+
+    @FindBy(xpath = "//label[@for='shipmentAddr']/following-sibling::div//input")
+    public WebElementFacade PortOfLoading;
+            ;
+
+    @FindBy(xpath = "//label[@for='trafficAddr']/following-sibling::div//input")
+    public WebElementFacade PortOfDelivery;
+
+    @FindBy(xpath = "//label[@for='goodInvolved']/following-sibling::div//input")
+    public WebElementFacade GoodInvolved;
+
+    @FindBy(xpath = "//span[text()='Trade Services']/parent::li")
+    public WebElementFacade TradeServices;
+
+    @FindBy(xpath = "//span[text()='Sea']/parent::li")
+    public WebElementFacade Sea;
 
     @FindBy(xpath = "//div[text()='Next']")
     public WebElementFacade clickNextButton;
