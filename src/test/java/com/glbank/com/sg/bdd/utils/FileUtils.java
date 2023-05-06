@@ -42,6 +42,33 @@ public class FileUtils {
         return rtn != null && !rtn.equals("") ? rtn.substring(0, rtn.length() - 1) : null;
     }
 
+//    为了xml特意改的方法
+    public static String XMLInput3(String path) {
+        path = systemPath + "/src/test/resources/testData/autopay/" + path + ".xml";
+        StringBuffer buffer = new StringBuffer();
+        try {
+            BufferedReader bufferedReader = new BufferedReader(
+                    new InputStreamReader(new FileInputStream(path), "UTF-8"));
+            String data = null;
+            while ((data = bufferedReader.readLine()) != null) {
+                //buffer.append(data+"\r\n");
+                buffer.append(data+",");
+            }
+            bufferedReader.close();
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        String rtn = buffer.toString();
+        return rtn != null && !rtn.equals("") ? rtn.substring(0, rtn.length() - 1) : null;
+    }
+
     /**
      * 高效读取指定编码格式的文件
      * @param path
@@ -178,6 +205,28 @@ public class FileUtils {
             }
             FileOutputStream outputStream = new FileOutputStream(allPath, true);// 追加写入
             String content = FileInput3(path);
+            data = content != null && !content.equals("") ? "\r\n" + data : "" + data;
+            outputStream.write(data.getBytes());
+            outputStream.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+//    追加写入XML
+    public static void writeXML(String path, String data) {
+        try {
+            String allPath = systemPath + "/src/test/resources/testData/autopay/" + path + ".xml";
+            File file=new File(allPath);
+            if(!file.isFile() && !file.exists()){ //判断文件是否存在
+                file.createNewFile();
+            }
+            FileOutputStream outputStream = new FileOutputStream(allPath, true);// 追加写入
+            String content = XMLInput3(path);
             data = content != null && !content.equals("") ? "\r\n" + data : "" + data;
             outputStream.write(data.getBytes());
             outputStream.close();

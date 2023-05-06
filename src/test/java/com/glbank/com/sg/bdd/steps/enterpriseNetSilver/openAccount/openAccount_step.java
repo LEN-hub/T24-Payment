@@ -310,13 +310,13 @@ public void fillInInformationOnGettingStartedPage2AndLoan(String accountType, St
         bddUtil.sleep(1);
         openAccount_page.inputFullName.sendKeys("PRODIGIES THOROUGHBRED RACING GROUP PTE. LTD.");
 //        openAccount_page.inputFullName.sendKeys(applicantName);
-        openAccount_page.clickContactNumberFirstCountry.sendKeys("+65");
+        openAccount_page.clickContactNumberFirstCountry.sendKeys("+86");
         openAccount_page.selectSingaporeCountryCode.click();
         openAccount_page.inputContactNumber.sendKeys(mobileNumber);
 //        一次性邮件
 //        openAccount_page.inputEmailAddress.sendKeys(emailName + "@MailTemp.top");
 //        使用QQ邮箱
-        openAccount_page.inputEmailAddress.sendKeys("20230003@uuf.me");
+        openAccount_page.inputEmailAddress.sendKeys("20230010@uuf.me");
         openAccount_page.verifyEmailNew.click();
         bddUtil.sleep(1);
     }
@@ -543,7 +543,7 @@ public void inputEntityDetailsNew() {
         bddUtil.sleep(2);
 //        openAccount_page.enterCountryWhere.sendKeys("SINGAPORE");
 //        openAccount_page.select1Type.click();
-        openAccount_page.enterIndustry.sendKeys("56112");
+        openAccount_page.enterIndustry.sendKeys("46900");
         openAccount_page.select1Type.click();
         openAccount_page.enterAddress.sendKeys("beijing");
         openAccount_page.enterCity.sendKeys("beijing");
@@ -554,7 +554,7 @@ public void inputEntityDetailsNew() {
         openAccount_page.businessTurnover.click();
         openAccount_page.thanOneMillion.click();
         openAccount_page.countryOfOperation.clear();
-        openAccount_page.countryOfOperation.sendKeys("TANZANIA");
+        openAccount_page.countryOfOperation.sendKeys("Gibraltar");
         openAccount_page.selectNationality.click();
         openAccount_page.yesBtn.click();
         getDriver().findElement(By.xpath("//span[text()='Payroll']")).click();

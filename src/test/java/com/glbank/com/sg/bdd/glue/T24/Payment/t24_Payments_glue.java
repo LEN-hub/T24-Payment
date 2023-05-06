@@ -3,6 +3,7 @@ package com.glbank.com.sg.bdd.glue.T24.Payment;
 import com.glbank.com.sg.bdd.steps.T24.Logon.T24_Logon_step;
 import com.glbank.com.sg.bdd.steps.T24.Payment.t24_Payments_step;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import com.glbank.com.sg.bdd.utils.createXML;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -11,6 +12,7 @@ import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
 import javax.xml.crypto.Data;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -434,5 +436,92 @@ public class t24_Payments_glue {
     @And("^check Repayment status$")
     public void checkRepaymentStatus() throws Exception{
         t24_payments_step.checkRepaymentStatus();
+    }
+
+//    进入Outgoing ISO Customer Transfer页面
+    @When("^I click Outgoing ISO Customer Transfer$")
+    public void iClickOutgoingISOCustomerTransfer() {
+        t24_payments_step.clickCustomerTransfer();
+    }
+
+    @Then("^I enter Outgoing ISO Customer Transfer Page$")
+    public void iEnterOutgoingISOCustomerTransferPage() {
+        t24_payments_step.enterCustomerTransferPage();
+    }
+
+    @When("^I Input incomplete information on ISO Customer Transfer Page$")
+    public void iInputIncompleteInformationOnISOCustomerTransferPage(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputInformationOnCustomerTransferPage(maps.get(0).get("Instructed Agent Bic"),maps.get(0).get("Transaction Currency"),maps.get(0).get("Transaction Amount"),maps.get(0).get("Debit Account Number"),maps.get(0).get("Debit Account Currency"),maps.get(0).get("Creditor Account"),maps.get(0).get("Creditor Name"));
+
+    }
+
+    @Then("^I click pre-submit button$")
+    public void iClickPreSubmitButton() {
+        t24_payments_step.clickPreSubmit();
+    }
+
+    @When("^I entered the Pending Authorise Payments page$")
+    public void iEnteredThePendingAuthorisePaymentsPage() {
+        t24_payments_step.enterPendingAuthorise();
+    }
+
+    @Then("^I input Debit Acc Number and click Find$")
+    public void iInputDebitAccNumberAndClickFind(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputDebitAccNumber(maps.get(0).get("Debit Acc Number"));
+    }
+
+    @When("^I enter the Payments Enquiry - Transaction wise page$")
+    public void iEnterThePaymentsEnquiryTransactionWisePage() {
+        t24_payments_step.enterPaymentsEnquiryTransactionWisePage();
+    }
+
+    @Then("^I input FTNumber and click Find$")
+    public void iInputFTNumberAndClickFind() {
+        t24_payments_step.inputFTNumberClickFind();
+    }
+
+    @When("^I enter View Page$")
+    public void iEnterViewPage() throws Exception{
+        t24_payments_step.enterView();
+//        查看各个页面的数据
+        t24_payments_step.clickChargeInformation();
+        t24_payments_step.clickRoutingformation();
+        t24_payments_step.clickAdditionalInfo();
+        t24_payments_step.clickErrorInformation();
+        t24_payments_step.clickExtendedDebtorInfo();
+        t24_payments_step.clickExtendedCreditorInfo();
+        t24_payments_step.clickUltimateDebtorInfo();
+        t24_payments_step.clickUltimateCreditorInfo();
+        t24_payments_step.clickRegulatoryReporting();
+        t24_payments_step.clickStructuredRemittanceInfo();
+        t24_payments_step.clickPrevInstrAgents();
+        t24_payments_step.clickChangedFields();
+        t24_payments_step.clickAudit();
+//        查看完详细信息关闭当前窗口
+        bddUtil.closeWindow();
+        bddUtil.sleep(1);
+    }
+
+//    进入放大镜页面
+    @Then("^I enter View Details Page$")
+    public void iEnterViewDetailsPage() throws IOException {
+        t24_payments_step.clickViewDetail();
+        t24_payments_step.switchToFirstFrame();
+        t24_payments_step.selectAccountingEntries();
+        t24_payments_step.selectOutgoingMessage();
+//        将XML报文 提取出来
+//        先调用 创建 XML文件的方法
+        createXML createXML = new createXML();
+        createXML.createPayment_XML();
+//      通过下面的方法将XML报文写入Payment_XML文件
+        t24_payments_step.writeXML();
+        bddUtil.sleep(1);
+    }
+
+    @When("^I click Accept Overrides$")
+    public void iClickAcceptOverrides() {
+        t24_payments_step.clickAcceptOver();
     }
 }

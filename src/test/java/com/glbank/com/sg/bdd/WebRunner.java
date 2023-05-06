@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features = "src/test/resources/features",
         plugin = {"pretty","html:target/cucumber","json:target/json/cucumber.json"},
-        tags = "@ESC-044_UAT")
+        tags = "@Payment_OE_Transfer_SGD-SGD_UAT")
 public class WebRunner {
 
 }

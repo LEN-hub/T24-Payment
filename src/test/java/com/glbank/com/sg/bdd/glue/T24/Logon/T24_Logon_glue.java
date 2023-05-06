@@ -27,7 +27,7 @@ public class T24_Logon_glue {
         }
     }
 
-    @Given("^Use \"([^\"]*)\" to log in to T24 environment$")
+    @Given("^Use \"([^\"]*)\" to login to T24 environment$")
     public void useToLogInEnvironment(String envName) {
         envTag = envName;
         if (!envName.isEmpty()) {

@@ -9,6 +9,7 @@ import com.glbank.com.sg.bdd.utils.BDDUtil;
 import com.glbank.com.sg.bdd.utils.CommonUtil;
 import com.glbank.com.sg.bdd.utils.FileUtils;
 import com.glbank.com.sg.bdd.utils.WordUtils;
+import cucumber.api.DataTable;
 import cucumber.api.java.bs.A;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
@@ -2180,4 +2181,296 @@ public class t24_Payments_step extends ScenarioSteps {
             throw new Exception("还款失败");
         }
     }
+
+    @Step
+    public void clickCustomerTransfer(){
+        bddUtil.sleep(3);
+        switchToSecondFrame();
+        t24_payments_page.clickUserMenu.click();
+        t24_payments_page.clickPayments.click();
+        t24_payments_page.clickPaymentHubMenu.click();
+        t24_payments_page.ISOPaymentTransfer.click();
+        t24_payments_page.OutgoingCustomerTransfer.click();
+        bddUtil.sleep(3);
+    }
+
+    @Step
+    public void enterCustomerTransferPage(){
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+    }
+
+    @Step
+    public void inputInformationOnCustomerTransferPage(String InstructedAgentBic,String TransactionCurrency,String TransactionAmount,String DebitAccountNumber,String DebitAccountCurrency,String CreditorAccount,String CreditorName){
+        t24_payments_page.InstructedAgentBic.sendKeys(InstructedAgentBic);
+        t24_payments_page.TransactionCurrency.sendKeys(TransactionCurrency);
+        t24_payments_page.TransactionAmount.sendKeys(TransactionAmount);
+        t24_payments_page.DebitAccountNumber.sendKeys(DebitAccountNumber);
+        t24_payments_page.DebitAccountCurrency.sendKeys(DebitAccountCurrency);
+        t24_payments_page.CreditorAccount.sendKeys(CreditorAccount);
+        t24_payments_page.CreditorName.sendKeys(CreditorName);
+        bddUtil.sleep(2);
+    }
+
+    @Step
+    public void clickPreSubmit(){
+        bddUtil.sleep(1);
+        t24_payments_page.preSubmit.click();
+        bddUtil.sleep(4);
+        t24_payments_page.Commit.click();
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickAcceptOver(){
+        if (t24_payments_page.clickAcceptOverrides.isVisible()){
+            t24_payments_page.clickAcceptOverrides.click();
+        }
+        bddUtil.sleep(3);
+    }
+
+//    进入一级授权页面
+    @Step
+    public void enterPendingAuthorise(){
+        bddUtil.sleep(3);
+        switchToSecondFrame();
+        t24_payments_page.clickUserMenu.click();
+        t24_payments_page.clickPayments.click();
+        t24_payments_page.clickPaymentHubMenu.click();
+        t24_payments_page.PendingAuthorisePayments.click();
+        bddUtil.sleep(2);
+    }
+
+//  进入Exceptions-Payment Enquiry-Transaction wise页面，点击查询
+    @Step
+    public void enterPaymentsEnquiryTransactionWisePage(){
+        bddUtil.sleep(3);
+        switchToSecondFrame();
+        t24_payments_page.clickUserMenu.click();
+        t24_payments_page.clickPayments.click();
+        t24_payments_page.clickPaymentHubMenu.click();
+        t24_payments_page.clickPaymentInquiriesMenu.click();
+        t24_payments_page.TransactionWise.click();
+        bddUtil.sleep(2);
+    }
+
+//    根据Debit Acc Number进行查询
+    @Step
+    public void inputDebitAccNumber(String DebitAccNumber){
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+//        点击放大镜
+        switchToFirstFrame();
+        t24_payments_page.selectScreen.click();
+        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(t24_payments_page.inputDebitAccNumber).sendKeys(DebitAccNumber);
+        bddUtil.sleep(2);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(2);
+        String FTNumber = t24_payments_page.getGetFtNumber.getText();
+        FileUtils.FileString4("FTNumber",FTNumber);
+        t24_payments_page.Auth.click();
+        bddUtil.sleep(5);
+        switchToDefaultContent();
+//        进入第二个 frame
+        switchToSecondFrame();
+        t24_payments_page.AuthorisesADeal.click();
+        bddUtil.sleep(3);
+    }
+
+//   输入FTNumber进行查询
+    @Step
+    public void inputFTNumberClickFind(){
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        switchToFirstFrame();
+        t24_payments_page.inputFTNumber.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(3);
+    }
+
+//    检验状态是不是677，并且进入详情页面
+    @Step
+    public void enterView() throws Exception{
+        String statusCode = t24_payments_page.statusCode.getText();
+        if (statusCode.equals("677")){
+            System.out.println("状态码正常");
+        }else {
+            throw new Exception("状态码异常");
+        }
+        bddUtil.sleep(2);
+        t24_payments_page.View.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(5);
+    }
+
+    @Step
+    public void clickChargeInformation(){
+        t24_payments_page.ChargeInformation.click();
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickRoutingformation(){
+        t24_payments_page.Routingformation.click();
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickAdditionalInfo(){
+        t24_payments_page.AdditionalInfo.click();
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickErrorInformation(){
+        t24_payments_page.ErrorInformation.click();
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickExtendedDebtorInfo(){
+        t24_payments_page.ExtendedDebtorInfo.click();
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickExtendedCreditorInfo(){
+        t24_payments_page.ExtendedCreditorInfo.click();
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickUltimateDebtorInfo(){
+        t24_payments_page.UltimateDebtorInfo.click();
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickUltimateCreditorInfo(){
+        t24_payments_page.UltimateCreditorInfo.click();
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickRegulatoryReporting(){
+        t24_payments_page.RegulatoryReporting.click();
+//        为了页面能展示左边的数据，下面也同理。
+        bddUtil.scrollWindowToElement(t24_payments_page.BalanceReservation);
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickStructuredRemittanceInfo(){
+        t24_payments_page.StructuredRemittanceInfo.click();
+        bddUtil.scrollWindowToElement(t24_payments_page.BalanceReservation);
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickPrevInstrAgents(){
+        t24_payments_page.PrevInstrAgents.click();
+        bddUtil.scrollWindowToElement(t24_payments_page.BalanceReservation);
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickChangedFields(){
+        t24_payments_page.ChangedFields.click();
+        bddUtil.scrollWindowToElement(t24_payments_page.BalanceReservation);
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickAudit(){
+        t24_payments_page.Audit.click();
+        bddUtil.scrollWindowToElement(t24_payments_page.BalanceReservation);
+        bddUtil.sleep(4);
+    }
+
+//    切入到 ViewDetails页面
+    @Step
+    public void clickViewDetail(){
+        bddUtil.sleep(3);
+        bddUtil.switchToNewWindow();
+        switchToFirstFrame();
+        t24_payments_page.ViewDetails.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(5);
+    }
+
+//    选择Accounting Entries查看详情
+    @Step
+    public void selectAccountingEntries(){
+        t24_payments_page.selectOptions.click();
+        bddUtil.sleep(2);
+        t24_payments_page.AccountingEntries.click();
+        bddUtil.sleep(2);
+        t24_payments_page.iconLink.click();
+        bddUtil.sleep(5);
+    }
+
+//    选择Outgoing message查看详情
+    @Step
+    public void selectOutgoingMessage(){
+        t24_payments_page.selectOptions.click();
+        bddUtil.sleep(2);
+        t24_payments_page.OutgoingMessage.click();
+        bddUtil.sleep(2);
+        t24_payments_page.iconLink.click();
+        bddUtil.sleep(5);
+//       退出第一个frame，进入第二个frame
+        switchToDefaultContent();
+        switchToSecondFrame();
+}
+
+//    将XML报文写入Payment_xml文件
+    @Step
+    public void writeXML(){
+        //        int size = t24_payments_page.xmlText.size();
+//        for (int i = 0; i < size; i++) {
+//            String xmlText = t24_payments_page.xmlText.get(i).getText();
+//            FileUtils.writeXML("Payment_XML",xmlText);
+//            System.out.println("第"+i+"行报文已经写入成功");
+//        }
+//        bddUtil.sleep(1);
+////        判断XML报文 是否还有第二页
+//        t24_payments_page.xmlNext.isVisible();
+//        if (t24_payments_page.xmlNext.isVisible()){
+//            t24_payments_page.xmlNext.click();
+//
+//        }
+        for (int j = 0; j < 5; j++) {
+            int size = t24_payments_page.xmlText.size();
+            if (t24_payments_page.xmlNext.isVisible()){
+                for (int i = 0; i < size; i++) {
+                    String xmlText = t24_payments_page.xmlText.get(i).getText();
+                    FileUtils.writeXML("Payment_XML",xmlText);
+                    System.out.println("第"+i+"行报文已经写入成功");
+                }
+                t24_payments_page.xmlNext.click();
+            }else {
+                for (int i = 0; i < size; i++) {
+                    String xmlText = t24_payments_page.xmlText.get(i).getText();
+                    FileUtils.writeXML("Payment_XML",xmlText);
+                    System.out.println("第"+i+"行报文已经写入成功");
+                }
+//                 return;
+                break;
+            }
+            bddUtil.sleep(2);
+        }
+    }
+
 }

@@ -64,6 +64,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//a[contains(text(),'Party wise')]")
     public WebElementFacade clickPaymentTransactionWiseMenu;
 
+    @FindBy(xpath = "//a[contains(text(),'Transaction wise')]")
+    public WebElementFacade TransactionWise;
+
     @FindBy(xpath = "//label[text()='Processing Date']/parent::span/parent::td/following-sibling::td[2]/input[1]")
     public WebElementFacade inputDate;
 
@@ -495,5 +498,131 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//table[@summary='Lending closed Arrangements']/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[1]/td[1]")
     public WebElementFacade repaymentID;
+
+    @FindBy(xpath = "//span[text()='Initiate ISO Payment Transfer']")
+    public WebElementFacade ISOPaymentTransfer;
+
+    @FindBy(xpath = "//span[text()='Initiate ISO Payment Transfer']/following-sibling::ul/li[2]/a")
+    public WebElementFacade OutgoingCustomerTransfer;
+
+    @FindBy(xpath = "//label[@for='fieldName:ReceiverInstitutionBIC']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade InstructedAgentBic;
+
+    @FindBy(xpath = "//label[@for='fieldName:TransactionCurrency']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade TransactionCurrency;
+
+    @FindBy(xpath = "//label[@for='fieldName:TransactionAmount']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade TransactionAmount;
+
+    @FindBy(xpath = "//label[@for='fieldName:DebitAccountNumber']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade DebitAccountNumber;
+
+    @FindBy(xpath = "//label[@for='fieldName:DebitAccountCurrency']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade DebitAccountCurrency;
+
+    @FindBy(xpath = "//label[@for='fieldName:BeneficiaryAccount']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade CreditorAccount;
+
+    @FindBy(xpath = "//label[@for='fieldName:BeneficiaryName']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade CreditorName;
+
+    @FindBy(xpath = "//a[@title='Validate a deal']/parent::td")
+    public WebElementFacade preSubmit;
+
+    @FindBy(xpath = "//a[@title='Commit the deal']/parent::td")
+    public WebElementFacade Commit;
+
+    @FindBy(xpath = "//a[text()='Pending Authorise Payments ']")
+    public WebElementFacade PendingAuthorisePayments;
+
+    @FindBy(xpath = "//a[@TITLE='Selection Screen']")
+    public WebElementFacade selectScreen;
+
+    @FindBy(xpath = "//label[text()='Debit Acc Number']/parent::span/parent::td/following-sibling::td[2]//input[1]")
+    public WebElementFacade inputDebitAccNumber;
+
+    @FindBy(xpath = "//label[text()='FTNumber']/parent::span/parent::td/following-sibling::td[2]//input[1]")
+    public WebElementFacade inputFTNumber;
+
+    @FindBy(xpath = "//a[text()='Find']")
+    public WebElementFacade Find;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//tr/td[14]")
+    public WebElementFacade statusCode;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//tr/td[18]")
+    public WebElementFacade View;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//tr/td[19]")
+    public WebElementFacade ViewDetails;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//tr/td[10]/a")
+    public WebElementFacade Auth;
+
+    @FindBy(xpath = "//table[@id='goButton']//a[@title='Authorises a deal']/parent::td")
+    public WebElementFacade AuthorisesADeal;
+
+    @FindBy(xpath = "//a[text()='Balance Reservation']/parent::label")
+    public WebElementFacade BalanceReservation;
+
+    @FindBy(xpath = "//span[text()='Debit/Credit Info']")
+    public WebElementFacade CreditInfo;
+
+    @FindBy(xpath = "//span[text()='Charge Information']")
+    public WebElementFacade ChargeInformation;
+
+    @FindBy(xpath = "//span[text()='Routing Information']")
+    public WebElementFacade Routingformation;
+
+    @FindBy(xpath = "//span[text()='Additional Info']")
+    public WebElementFacade AdditionalInfo;
+
+    @FindBy(xpath = "//a//span[text()='Error Information']")
+    public WebElementFacade ErrorInformation;
+
+    @FindBy(xpath = "//a//span[text()='Extended Debtor Info']")
+    public WebElementFacade ExtendedDebtorInfo;
+
+    @FindBy(xpath = "//a//span[text()='Extended Creditor Info']")
+    public WebElementFacade ExtendedCreditorInfo;
+
+    @FindBy(xpath = "//a//span[text()='Ultimate Debtor Info']")
+    public WebElementFacade UltimateDebtorInfo;
+
+    @FindBy(xpath = "//a//span[text()='Ultimate Creditor Info']")
+    public WebElementFacade UltimateCreditorInfo;
+
+    @FindBy(xpath = "//a//span[text()='Regulatory Reporting']")
+    public WebElementFacade RegulatoryReporting;
+
+    @FindBy(xpath = "//a//span[text()='Structured Remittance Info']")
+    public WebElementFacade StructuredRemittanceInfo;
+
+    @FindBy(xpath = "//a//span[text()='Prev Instr Agents']")
+    public WebElementFacade PrevInstrAgents;
+
+    @FindBy(xpath = "//a//span[text()='Changed Fields']")
+    public WebElementFacade ChangedFields;
+
+    @FindBy(xpath = "//a//span[text()='Audit']")
+    public WebElementFacade Audit;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//select")
+    public WebElementFacade selectOptions;
+
+    @FindBy(xpath = "//option[text()='Accounting Entries']")
+    public WebElementFacade AccountingEntries;
+
+    @FindBy(xpath = "//option[text()='Outgoing Message']")
+    public WebElementFacade OutgoingMessage;
+
+    @FindBy(xpath = "//a[@class='iconLink']/parent::td")
+    public WebElementFacade iconLink;
+
+    @FindBy(xpath = "//th[@id='columnHeaderText6']/ancestor::div[@id='enquiryHeadingScroller']/following-sibling::div//tr//td[6]")
+    public List<WebElementFacade> xmlText;
+
+    @FindBy(xpath = "//img[@title='Next Page']//parent::a/parent::td")
+    public WebElementFacade xmlNext;
 
 }

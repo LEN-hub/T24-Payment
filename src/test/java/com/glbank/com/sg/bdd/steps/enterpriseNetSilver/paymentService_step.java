@@ -2178,7 +2178,9 @@ public class paymentService_step extends ScenarioSteps {
 
 //境外转账（SGD--USD）
 
-    public void overseasTransfer(){paymentService_page.overseasTransfer.click();}
+    public void overseasTransfer(){
+        paymentService_page.overseasTransfer.click();
+    }
 
     public void selectPaymentAccount(String selectAccount,String Currency){
         paymentService_page.accountBox.click();
