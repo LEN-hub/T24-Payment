@@ -503,6 +503,9 @@ public class t24_Payments_page extends PageObject {
     public WebElementFacade ISOPaymentTransfer;
 
     @FindBy(xpath = "//span[text()='Initiate ISO Payment Transfer']/following-sibling::ul/li[2]/a")
+    public WebElementFacade OutgoingIsoCustomerTransfer;
+
+    @FindBy(xpath = "//span[text()='Payment Hub']/following-sibling::ul/li[2]/a")
     public WebElementFacade OutgoingCustomerTransfer;
 
     @FindBy(xpath = "//label[@for='fieldName:ReceiverInstitutionBIC']/parent::td/following-sibling::td[2]/input")
@@ -525,6 +528,15 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//label[@for='fieldName:BeneficiaryName']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade CreditorName;
+
+    @FindBy(xpath = "//label[@for='fieldName:CreditorStreetName']/parent::td/following-sibling::td[2]//input")
+    public WebElementFacade StreetName;
+
+    @FindBy(xpath = "//label[@for='fieldName:BeneficiaryTownName']/parent::td/following-sibling::td[2]//input")
+    public WebElementFacade TownName;
+
+    @FindBy(xpath = "//label[@for='fieldName:BeneficiaryCountry']/parent::td/following-sibling::td[2]//input")
+    public WebElementFacade CreditorCountry;
 
     @FindBy(xpath = "//a[@title='Validate a deal']/parent::td")
     public WebElementFacade preSubmit;

@@ -2183,7 +2183,19 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
     @Step
-    public void clickCustomerTransfer(){
+    public void clickISOCustomerTransfer(){
+        bddUtil.sleep(3);
+        switchToSecondFrame();
+        t24_payments_page.clickUserMenu.click();
+        t24_payments_page.clickPayments.click();
+        t24_payments_page.clickPaymentHubMenu.click();
+        t24_payments_page.ISOPaymentTransfer.click();
+        t24_payments_page.OutgoingIsoCustomerTransfer.click();
+        bddUtil.sleep(3);
+    }
+
+    @Step
+    public void clickOutGoingCustomerTransfer(){
         bddUtil.sleep(3);
         switchToSecondFrame();
         t24_payments_page.clickUserMenu.click();
@@ -2191,8 +2203,10 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.clickPaymentHubMenu.click();
         t24_payments_page.ISOPaymentTransfer.click();
         t24_payments_page.OutgoingCustomerTransfer.click();
-        bddUtil.sleep(3);
+        bddUtil.sleep(2);
     }
+
+
 
     @Step
     public void enterCustomerTransferPage(){
@@ -2203,6 +2217,15 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
     @Step
+    public void enterISOCustomerTransferPage(){
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+    }
+
+//    Outgoing SGD-SGD输入信息
+    @Step
     public void inputInformationOnCustomerTransferPage(String InstructedAgentBic,String TransactionCurrency,String TransactionAmount,String DebitAccountNumber,String DebitAccountCurrency,String CreditorAccount,String CreditorName){
         t24_payments_page.InstructedAgentBic.sendKeys(InstructedAgentBic);
         t24_payments_page.TransactionCurrency.sendKeys(TransactionCurrency);
@@ -2211,6 +2234,30 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.DebitAccountCurrency.sendKeys(DebitAccountCurrency);
         t24_payments_page.CreditorAccount.sendKeys(CreditorAccount);
         t24_payments_page.CreditorName.sendKeys(CreditorName);
+        bddUtil.sleep(2);
+    }
+
+    //    Outgoing USD-USD输入信息
+
+    @Step
+    public void inputInformationOnOutgoingCustomerTransferPage(String DebitAccountNumber,String ReceiverInstitutionBIC,String DebitAccountCurrency,String TransactionCurrency,String TransactionAmount,String BeneficiaryAccount,String BeneficiaryName){
+        t24_payments_page.DebitAccountNumber.sendKeys(DebitAccountNumber);
+        t24_payments_page.InstructedAgentBic.sendKeys(ReceiverInstitutionBIC);
+        t24_payments_page.DebitAccountCurrency.sendKeys(DebitAccountCurrency);
+        t24_payments_page.TransactionCurrency.sendKeys(TransactionCurrency);
+        t24_payments_page.TransactionAmount.sendKeys(TransactionAmount);
+        t24_payments_page.CreditorAccount.sendKeys(BeneficiaryAccount);
+        t24_payments_page.CreditorName.sendKeys(BeneficiaryName);
+        bddUtil.sleep(2);
+    }
+
+
+//    输入streetName 、Town Name 、 Creditor Country
+    @Step
+    public void inputStreetName(String StreetName,String TownName,String CreditorCountry){
+        t24_payments_page.StreetName.sendKeys(StreetName);
+        t24_payments_page.TownName.sendKeys(TownName);
+        t24_payments_page.CreditorCountry.sendKeys(CreditorCountry);
         bddUtil.sleep(2);
     }
 

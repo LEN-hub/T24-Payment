@@ -441,11 +441,16 @@ public class t24_Payments_glue {
 //    进入Outgoing ISO Customer Transfer页面
     @When("^I click Outgoing ISO Customer Transfer$")
     public void iClickOutgoingISOCustomerTransfer() {
-        t24_payments_step.clickCustomerTransfer();
+        t24_payments_step.clickISOCustomerTransfer();
     }
 
     @Then("^I enter Outgoing ISO Customer Transfer Page$")
     public void iEnterOutgoingISOCustomerTransferPage() {
+        t24_payments_step.enterISOCustomerTransferPage();
+    }
+
+    @Then("^I enter Outgoing Customer Transfer Page$")
+    public void iEnterOutgoingCustomerTransferPage() {
         t24_payments_step.enterCustomerTransferPage();
     }
 
@@ -523,5 +528,22 @@ public class t24_Payments_glue {
     @When("^I click Accept Overrides$")
     public void iClickAcceptOverrides() {
         t24_payments_step.clickAcceptOver();
+    }
+
+    @Then("^I input Street Name on the ISO Customer Transfer Page$")
+    public void iInputStreetNameOnTheISOCustomerTransferPage(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputStreetName(maps.get(0).get("Street Name"),maps.get(0).get("Town Name"),maps.get(0).get("Creditor Country"));
+    }
+
+    @When("^I click Outgoing Customer Transfer$")
+    public void iClickOutgoingCustomerTransfer() {
+        t24_payments_step.clickOutGoingCustomerTransfer();
+    }
+
+    @When("^I Input incomplete information on Outgoing Customer Transfer Page$")
+    public void iInputIncompleteInformationOnOutgoingCustomerTransferPage(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputInformationOnOutgoingCustomerTransferPage(maps.get(0).get("Debit Account Number"),maps.get(0).get("Receiver Institution BIC"),maps.get(0).get("Debit Account Currency"),maps.get(0).get("Transaction Currency"),maps.get(0).get("Transaction Amount"),maps.get(0).get("Beneficiary Account"),maps.get(0).get("Beneficiary Name"));
     }
 }
