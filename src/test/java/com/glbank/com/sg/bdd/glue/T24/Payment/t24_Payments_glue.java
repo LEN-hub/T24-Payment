@@ -472,9 +472,8 @@ public class t24_Payments_glue {
     }
 
     @Then("^I input Debit Acc Number and click Find$")
-    public void iInputDebitAccNumberAndClickFind(DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputDebitAccNumber(maps.get(0).get("Debit Acc Number"));
+    public void iInputDebitAccNumberAndClickFind() {
+        t24_payments_step.inputDebitAccNumber();
     }
 
     @When("^I enter the Payments Enquiry - Transaction wise page$")
@@ -545,5 +544,140 @@ public class t24_Payments_glue {
     public void iInputIncompleteInformationOnOutgoingCustomerTransferPage(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         t24_payments_step.inputInformationOnOutgoingCustomerTransferPage(maps.get(0).get("Debit Account Number"),maps.get(0).get("Receiver Institution BIC"),maps.get(0).get("Debit Account Currency"),maps.get(0).get("Transaction Currency"),maps.get(0).get("Transaction Amount"),maps.get(0).get("Beneficiary Account"),maps.get(0).get("Beneficiary Name"));
+    }
+
+    @When("^I enter View Page to USD$")
+    public void iEnterViewPageToUSD() throws Exception{
+        t24_payments_step.enterView();
+//        查看各个页面的数据
+        t24_payments_step.clickChargeInformation();
+        t24_payments_step.clickRoutingformation();
+        t24_payments_step.clickAdditionalInfoUSD();
+        t24_payments_step.clickErrorInformation();
+        t24_payments_step.clickChangedFields();
+        t24_payments_step.clickAudit();
+//        查看完详细信息关闭当前窗口
+        bddUtil.closeWindow();
+        bddUtil.sleep(1);
+    }
+
+    @When("^I enter View Page to USD Loan$")
+    public void iEnterViewPageToUSDLoan() throws Exception{
+        t24_payments_step.enterView();
+//        查看各个页面的数据
+        t24_payments_step.clickChargeInformation();
+        t24_payments_step.clickRoutingformation();
+        t24_payments_step.clickAdditionalInfoUSD();
+        t24_payments_step.clickErrorInformation();
+        t24_payments_step.clickChangedFieldsLoan();
+        t24_payments_step.clickAuditLoan();
+//        查看完详细信息关闭当前窗口
+        bddUtil.closeWindow();
+        bddUtil.sleep(1);
+    }
+
+    @When("^I enter View Page to OE Outgoing_Bank_Transfer$")
+    public void iEnterViewPageToOEOutgoing_Bank_Transfer() throws Exception{
+        t24_payments_step.enterView();
+//        查看各个页面的数据
+        t24_payments_step.clickRoutingformation();
+        t24_payments_step.clickAdditionalInfoUSD();
+        t24_payments_step.clickErrorInformation();
+        t24_payments_step.clickExtendedDebtorInfo();
+        t24_payments_step.clickExtendedCreditorInfo();
+        t24_payments_step.clickPrevInstrAgentsOEBank();
+        t24_payments_step.clickChangedFieldsOEBank();
+        t24_payments_step.clickAuditOEBank();
+    }
+
+
+    @When("^I click Outgoing ISO Bank Transfer$")
+    public void iClickOutgoingISOBankTransfer() {
+        t24_payments_step.clickOutgoingISOTransfer();
+    }
+
+    @Then("^I enter Outgoing ISO Bank Transfer Page$")
+    public void iEnterOutgoingISOBankTransferPage() {
+        t24_payments_step.enterISOBankTransferPage();
+    }
+
+    @When("^I Input incomplete information on Outgoing ISO Bank Transfer Page$")
+    public void iInputIncompleteInformationOnOutgoingISOBankTransferPage(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputInformationOnOutgoingISOBankTransfer(maps.get(0).get("Instructed Agent BIC"),maps.get(0).get("Transaction Currency"),maps.get(0).get("Transaction Amount"),maps.get(0).get("Debit Account Number"),maps.get(0).get("Creditor Account"),maps.get(0).get("Creditor Bic"),maps.get(0).get("Creditor Name"));
+    }
+
+    @When("^I Input Sender's Reference on Outgoing ISO Bank Transfer Page$")
+    public void iInputSenderSReferenceOnOutgoingISOBankTransferPage(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputSendersReference(maps.get(0).get("Sender Reference"),maps.get(0).get("End To End Identification"));
+    }
+
+    @Then("^I get OENumber$")
+    public void iGetOENumber() {
+        t24_payments_step.getOENumber();
+    }
+
+//    点击核心的Products按钮，然后点击Loan Transactions按钮
+    @When("^I click Loan Transactions Button$")
+    public void iClickLoanTransactionsButton() {
+        t24_payments_step.clickProductsLoanTransactionsBtn();
+
+    }
+//   选择AA Disbursement External 按钮
+    @Then("^I click AA Disbursement External Button$")
+    public void iClickAADisbursementExternalButton() {
+        t24_payments_step.clickDisbursementExternal();
+    }
+
+    @Then("^I enter input the Disbursement External Page$")
+    public void iEnterInputTheDisbursementExternalPage() {
+        t24_payments_step.enterDisbursementExternalPage();
+    }
+
+    @When("^I input information on the Loan Disbursement External Page$")
+    public void iInputInformationOnTheLoanDisbursementExternalPage(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputLoanDisbursementExternal(maps.get(0).get("Debit Account Number"),maps.get(0).get("Debit Currency"),maps.get(0).get("Payment Currency"),maps.get(0).get("Payment Amount"));
+
+    }
+
+    @Then("^I input information on the Beneficiary Details Page$")
+    public void iInputInformationOnTheBeneficiaryDetailsPage(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputBeneficiaryDetailsPage(maps.get(0).get("Beneficiary Account No"),maps.get(0).get("Beneficiary Name"));
+    }
+
+    @When("^I enter Routing Details Page and added information$")
+    public void iEnterRoutingDetailsPageAndAddedInformation(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.clickRoutingDetails();
+        t24_payments_step.inputInformationOnRoutingDetail(maps.get(0).get("Account with Bank BIC"),maps.get(0).get("Account With Town Name"),maps.get(0).get("Account with Bank Country"));
+    }
+
+    @Then("^I get LoanPINumber$")
+    public void iGetLoanPINumber() {
+        t24_payments_step.getLoanPINumber();
+    }
+
+    @Then("^I click Authorise/Delete Arrangements \\(PO\\) Button$")
+    public void iClickAuthoriseDeleteArrangementsPOButton() {
+        t24_payments_step.clickAuthoriseArrangements();
+    }
+
+    @Then("^I input PI Number and click Find$")
+    public void iInputPINumberAndClickFind() {
+        t24_payments_step.inputPINumber();
+    }
+
+    @Then("^I input LoanPINumber and click Find$")
+    public void iInputLoanPINumberAndClickFind() {
+        t24_payments_step.inputLoanPINumberClickFind();
+    }
+
+    @When("^I Input incomplete information USD on Outgoing ISO Bank Transfer Page$")
+    public void iInputIncompleteInformationUSDOnOutgoingISOBankTransferPage(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputInformationOnOutgoingISOBankTransferUSD(maps.get(0).get("Instructed Agent BIC"),maps.get(0).get("Transaction Currency"),maps.get(0).get("Transaction Amount"),maps.get(0).get("Debit Account Number"),maps.get(0).get("Creditor Bic"));
     }
 }

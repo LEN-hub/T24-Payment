@@ -1,5 +1,6 @@
 package com.glbank.com.sg.bdd.pages.T24.Payment;
 
+import com.glbank.com.sg.bdd.utils.FileUtils;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -33,6 +34,14 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//a[text()='Find Multi Currency ']")
     public WebElementFacade clickFindMCY;
 
+    @FindBy(xpath = "//span[text()='Loan Transactions']")
+    public WebElementFacade LoanTransactions;
+
+    @FindBy(xpath = "//a[text()='AA Disbursement External ']")
+    public WebElementFacade DisbursementExternal;
+
+    @FindBy(xpath = "//span[text()='Loan Transactions']/following-sibling::ul/li[11]/a")
+    public WebElementFacade AuthoriseArrangements;
 
     @FindBy(xpath = "//span[text()='Payments']")
     public WebElementFacade clickPayments;
@@ -505,6 +514,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//span[text()='Initiate ISO Payment Transfer']/following-sibling::ul/li[2]/a")
     public WebElementFacade OutgoingIsoCustomerTransfer;
 
+    @FindBy(xpath = "//span[text()='Initiate ISO Payment Transfer']/following-sibling::ul/li[4]/a")
+    public WebElementFacade OutgoingIsoBankTransfer;
+
     @FindBy(xpath = "//span[text()='Payment Hub']/following-sibling::ul/li[2]/a")
     public WebElementFacade OutgoingCustomerTransfer;
 
@@ -528,6 +540,15 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//label[@for='fieldName:BeneficiaryName']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade CreditorName;
+
+    @FindBy(xpath = "//label[@for='fieldName:SendersReferenceNumber']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade SenderReference;
+
+    @FindBy(xpath = "//label[@for='fieldName:RelatedReference']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade EndToEndIdentification;
+
+    @FindBy(xpath = "//label[@for='fieldName:BeneficiaryIdentifierCode']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade CreditorBic;
 
     @FindBy(xpath = "//label[@for='fieldName:CreditorStreetName']/parent::td/following-sibling::td[2]//input")
     public WebElementFacade StreetName;
@@ -553,8 +574,14 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//label[text()='Debit Acc Number']/parent::span/parent::td/following-sibling::td[2]//input[1]")
     public WebElementFacade inputDebitAccNumber;
 
+    @FindBy(xpath = "//label[text()='@ID']/parent::span/parent::td/following-sibling::td[2]//input[1]")
+    public WebElementFacade inputOENumber;
+
     @FindBy(xpath = "//label[text()='FTNumber']/parent::span/parent::td/following-sibling::td[2]//input[1]")
     public WebElementFacade inputFTNumber;
+
+    @FindBy(xpath = "//label[text()='FileSendersReference']/parent::span/parent::td/following-sibling::td[2]//input[1]")
+    public WebElementFacade inputFileSendersReference;
 
     @FindBy(xpath = "//a[text()='Find']")
     public WebElementFacade Find;
@@ -580,6 +607,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//span[text()='Debit/Credit Info']")
     public WebElementFacade CreditInfo;
 
+    @FindBy(xpath = "//td[@id='dealtitle']/following-sibling::td[1]//span")
+    public WebElementFacade OENumber;
+
     @FindBy(xpath = "//span[text()='Charge Information']")
     public WebElementFacade ChargeInformation;
 
@@ -588,6 +618,9 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//span[text()='Additional Info']")
     public WebElementFacade AdditionalInfo;
+
+    @FindBy(xpath = "//a//span[text()='Additional Information']")
+    public WebElementFacade AdditionalInfoUSD;
 
     @FindBy(xpath = "//a//span[text()='Error Information']")
     public WebElementFacade ErrorInformation;
@@ -636,5 +669,38 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//img[@title='Next Page']//parent::a/parent::td")
     public WebElementFacade xmlNext;
+
+//    Loan Disbursement External页面的字段
+
+    @FindBy(xpath = "//label[@for='fieldName:DEBIT.ACCOUNT']/parent::td/following-sibling::td[2]//input")
+    public WebElementFacade DebitAccountNumberLoan;
+
+    @FindBy(id = "fieldName:DEBIT.CCY")
+    public WebElementFacade LoanDebitCurrency;
+
+    @FindBy(id = "fieldName:PAYMENT.CURRENCY")
+    public WebElementFacade LoanPaymentCurrency;
+
+    @FindBy(id = "fieldName:PAYMENT.AMOUNT")
+    public WebElementFacade LoanPaymentAmount;
+
+    @FindBy(id = "fieldName:BENEFICIARY.ACCOUNT.NO")
+    public WebElementFacade BeneficiaryAccountNo;
+
+    @FindBy(id = "fieldName:BENEFICIARY.NAME")
+    public WebElementFacade BeneficiaryName;
+
+    @FindBy(xpath = "//span[text()='Routing Details']/parent::a")
+    public WebElementFacade LoanRoutingDetails;
+
+    @FindBy(xpath = "//span[text()='Creditor Agent Details']/parent::td/parent::tr/following-sibling::tr[2]//input")
+    public WebElementFacade inputLoanAccountWithBankBIC;
+
+    @FindBy(xpath = "//span[text()='Creditor Agent Details']/parent::td/parent::tr/following-sibling::tr[10]//input")
+    public WebElementFacade inputLoanAccountWithTownName;
+
+    @FindBy(xpath = "//span[text()='Creditor Agent Details']/parent::td/parent::tr/following-sibling::tr[11]//input")
+    public WebElementFacade inputLoanAccountWithBankCountry;
+
 
 }

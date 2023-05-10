@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features = "src/test/resources/features",
         plugin = {"pretty","html:target/cucumber","json:target/json/cucumber.json"},
-        tags = "@Payment_OE_Transfer_USD-USD_UAT_Amount<250K")
+        tags = "@Payment_OE_Outgoing_Bank_Transfer_USD-USD_UAT_Amount<250K")
 public class WebRunner {
 
 }
