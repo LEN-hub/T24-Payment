@@ -2293,6 +2293,14 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(3);
     }
 
+    @Step
+    public void enterDisbursementSGMEPSPage(){
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+    }
+
     //    Outgoing SGD-SGD输入信息
     @Step
     public void inputInformationOnCustomerTransferPage(String InstructedAgentBic, String TransactionCurrency, String TransactionAmount, String DebitAccountNumber, String DebitAccountCurrency, String CreditorAccount, String CreditorName) {
@@ -2401,9 +2409,9 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
     }
 
-    //    根据FTNumber Number进行查询
+    //    根据OENumber Number进行查询 审批
     @Step
-    public void inputDebitAccNumber() {
+    public void inputOEbitAccNumber() {
         bddUtil.switchToNewWindow();
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
@@ -2427,6 +2435,34 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.AuthorisesADeal.click();
         bddUtil.sleep(3);
     }
+
+    //    根据FTNumber Number进行查询 审批
+    @Step
+    public void inputFTNumberAuthorise() {
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+//        点击放大镜
+        switchToFirstFrame();
+        t24_payments_page.selectScreen.click();
+        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(t24_payments_page.inputFTNumber).sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+//        bddUtil.scrollWindowToElement(t24_payments_page.inputDebitAccNumber).sendKeys(DebitAccNumber);
+        bddUtil.sleep(2);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(2);
+        String FTNumber = t24_payments_page.getGetFtNumber.getText();
+        FileUtils.FileString4("FTNumber", FTNumber);
+        t24_payments_page.Auth.click();
+        bddUtil.sleep(5);
+        switchToDefaultContent();
+//        进入第二个 frame
+        switchToSecondFrame();
+        t24_payments_page.AuthorisesADeal.click();
+        bddUtil.sleep(3);
+    }
+
 
     //    根据PI Number进行查询
     @Step
@@ -2465,6 +2501,7 @@ public class t24_Payments_step extends ScenarioSteps {
         getDriver().manage().window().maximize();
         bddUtil.sleep(3);
         switchToFirstFrame();
+        bddUtil.sleep(1);
         t24_payments_page.inputFTNumber.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
         bddUtil.sleep(3);
         t24_payments_page.Find.click();
@@ -2485,6 +2522,55 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(3);
     }
 
+//    改变状态为235的数据
+    @Step
+    public void changeStatusCode(){
+        String FTNumber = t24_payments_page.getFTNumber.getText();
+        FileUtils.FileString4("FTNumber",FTNumber);
+        bddUtil.closeWindow();
+        bddUtil.switchToNewWindow();
+        switchToSecondFrame();
+        bddUtil.sleep(1);
+//        在首页进行 状态更改。
+        t24_payments_page.PendingRepairPayments.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        switchToFirstFrame();
+        t24_payments_page.selectScreen.click();
+        bddUtil.sleep(1);
+        t24_payments_page.inputFTNumber.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+//        t24_payments_page.inputFTNumber.sendKeys("SGL22164BDLF0JDF");
+        bddUtil.sleep(3);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(2);
+        t24_payments_page.Modify.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        t24_payments_page.getClickChargeInformation.click();
+        String value = t24_payments_page.WaiveCreditCharges.getAttribute("value");
+        String value1 = t24_payments_page.RepairFee.getAttribute("value");
+        if (value.equals("on")){
+            t24_payments_page.WaiveCreditCharges.click();
+        }else {
+            System.out.println("数据正常");
+        }
+        if (value1.equals("on")){
+            t24_payments_page.RepairFee.click();
+        }else {
+            System.out.println("数据正常");
+        }
+        t24_payments_page.preSubmit.click();
+        bddUtil.sleep(4);
+        t24_payments_page.Commit.click();
+        bddUtil.sleep(4);
+    }
+
     //    检验状态是不是677，并且进入详情页面
     @Step
     public void enterView() throws Exception {
@@ -2492,7 +2578,7 @@ public class t24_Payments_step extends ScenarioSteps {
         if (statusCode.equals("677")) {
             System.out.println("状态码正常");
         } else {
-            throw new Exception("状态码异常");
+            throw new Exception("状态码异常:"+statusCode);
         }
         bddUtil.sleep(2);
         t24_payments_page.View.click();
@@ -2523,6 +2609,12 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void clickAdditionalInfoUSD() {
         t24_payments_page.AdditionalInfoUSD.click();
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickAdditionalInfoSGMEPS(){
+        t24_payments_page.AdditionalInfo.click();
         bddUtil.sleep(4);
     }
 
@@ -2565,6 +2657,14 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
     @Step
+    public void clickRegulatoryReportingSGMEPS() {
+        t24_payments_page.RegulatoryReporting.click();
+//        为了页面能展示左边的数据，下面也同理。
+        bddUtil.scrollWindowToElement(t24_payments_page.SGMEPSTitle);
+        bddUtil.sleep(4);
+    }
+
+    @Step
     public void clickStructuredRemittanceInfo() {
         t24_payments_page.StructuredRemittanceInfo.click();
         bddUtil.scrollWindowToElement(t24_payments_page.BalanceReservation);
@@ -2572,9 +2672,23 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
     @Step
+    public void clickStructuredRemittanceInfoSGMEPS() {
+        t24_payments_page.StructuredRemittanceInfo.click();
+        bddUtil.scrollWindowToElement(t24_payments_page.SGMEPSTitle);
+        bddUtil.sleep(4);
+    }
+
+    @Step
     public void clickPrevInstrAgents() {
         t24_payments_page.PrevInstrAgents.click();
         bddUtil.scrollWindowToElement(t24_payments_page.BalanceReservation);
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickPrevInstrAgentsSGMEPS() {
+        t24_payments_page.PrevInstrAgents.click();
+        bddUtil.scrollWindowToElement(t24_payments_page.SGMEPSTitle);
         bddUtil.sleep(4);
     }
 
@@ -2590,6 +2704,13 @@ public class t24_Payments_step extends ScenarioSteps {
     public void clickChangedFields() {
         t24_payments_page.ChangedFields.click();
         bddUtil.scrollWindowToElement(t24_payments_page.BalanceReservation);
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickChangedFieldsSGMEPS() {
+        t24_payments_page.ChangedFields.click();
+        bddUtil.scrollWindowToElement(t24_payments_page.SGMEPSTitle);
         bddUtil.sleep(4);
     }
 
@@ -2610,6 +2731,13 @@ public class t24_Payments_step extends ScenarioSteps {
     public void clickAudit() {
         t24_payments_page.Audit.click();
         bddUtil.scrollWindowToElement(t24_payments_page.BalanceReservation);
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void clickAuditSGMEPS() {
+        t24_payments_page.Audit.click();
+        bddUtil.scrollWindowToElement(t24_payments_page.SGMEPSTitle);
         bddUtil.sleep(4);
     }
 
@@ -2719,6 +2847,12 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(1);
     }
 
+    @Step
+    public void clickDisbursementSGMEPS(){
+        t24_payments_page.DisbursementSGMEPS.click();
+        bddUtil.sleep(1);
+    }
+
     //    补充LoanDisbursement External	页面的信息
     @Step
     public void inputLoanDisbursementExternal(String LoanDebitAccountNumber, String LoanDebitCurrency, String LoanPaymentCurrency, String LoanPaymentAmount) {
@@ -2729,12 +2863,41 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(1);
     }
 
+    //    补充LoanDisbursement SGMEPS	页面的信息
+    @Step
+    public void inputLoanDisbursementSGMEPS(String DebitAccountNumber_SGMEPS,String DebitCurrency_SGMEPS,String PaymentCurrency_SGMEPS,String PaymentAmount_SGMEPS,String BeneficiaryAccountNo_SGMEPS,String BeneficiaryBankBIC_SGMEPS,String BeneficiaryName_SGMEPS){
+        bddUtil.sleep(1);
+        t24_payments_page.newDeal.click();
+        bddUtil.sleep(2);
+        t24_payments_page.DebitAccountNumber_SGMEPS.sendKeys(DebitAccountNumber_SGMEPS);
+        t24_payments_page.DebitCurrency_SGMEPS.sendKeys(DebitCurrency_SGMEPS);
+        t24_payments_page.PaymentCurrency_SGMEPS.sendKeys(PaymentCurrency_SGMEPS);
+        t24_payments_page.PaymentAmount_SGMEPS.sendKeys(PaymentAmount_SGMEPS);
+        t24_payments_page.BeneficiaryAccountNo_SGMEPS.sendKeys(BeneficiaryAccountNo_SGMEPS);
+        t24_payments_page.BeneficiaryBankBIC_SGMEPS.sendKeys(BeneficiaryBankBIC_SGMEPS);
+        t24_payments_page.BeneficiaryName_SGMEPS.sendKeys(BeneficiaryName_SGMEPS);
+        bddUtil.scrollWindowToElement(t24_payments_page.PaymentOrderProductTitle);
+        bddUtil.sleep(3);
+    }
+
     //    补充Beneficiary Details Page的详细信息
     @Step
     public void inputBeneficiaryDetailsPage(String BeneficiaryAccountNo, String BeneficiaryName) {
         t24_payments_page.BeneficiaryAccountNo.sendKeys(BeneficiaryAccountNo);
         t24_payments_page.BeneficiaryName.sendKeys(BeneficiaryName);
         bddUtil.sleep(1);
+    }
+
+    @Step
+    public void inputBeneficiaryDetailsOnSGMEPS(String BeneficiaryStreetName,String BeneficiaryPostCode,String BeneficiaryTownName,String BeneficiaryCountry,String BeneficiaryResidenceCountry){
+        t24_payments_page.BeneficiaryStreetName_SGMEPS.sendKeys(BeneficiaryStreetName);
+        t24_payments_page.BeneficiaryPostCode_SGMEPS.sendKeys(BeneficiaryPostCode);
+        t24_payments_page.BeneficiaryTownName_SGMEPS.sendKeys(BeneficiaryTownName);
+        t24_payments_page.BeneficiaryCountry_SGMEPS.sendKeys(BeneficiaryCountry);
+        t24_payments_page.BeneficiaryResidenceCountry_SGMEPS.sendKeys(BeneficiaryResidenceCountry);
+        bddUtil.scrollWindowToElement(t24_payments_page.BeneficiaryBICTitle);
+        bddUtil.sleep(3);
+
     }
 
     //    进入RoutingDetails页面

@@ -18,11 +18,11 @@ Feature: Outgoing Customer Transfer
     And I close driver
     Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
     When I entered the Pending Authorise Payments page
-    Then I input Debit Acc Number and click Find
+    Then I input OE Number and click Find Authorise
     And I close driver
     Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
     When I entered the Pending Authorise Payments page
-    Then I input Debit Acc Number and click Find
+    Then I input OE Number and click Find Authorise
     And I close driver
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
@@ -46,11 +46,11 @@ Feature: Outgoing Customer Transfer
     And I close driver
     Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
     When I entered the Pending Authorise Payments page
-    Then I input Debit Acc Number and click Find
+    Then I input OE Number and click Find Authorise
     And I close driver
     Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
     When I entered the Pending Authorise Payments page
-    Then I input Debit Acc Number and click Find
+    Then I input OE Number and click Find Authorise
     And I close driver
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
@@ -77,11 +77,11 @@ Feature: Outgoing Customer Transfer
     And I close driver
     Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
     When I entered the Pending Authorise Payments page
-    Then I input Debit Acc Number and click Find
+    Then I input OE Number and click Find Authorise
     And I close driver
     Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
     When I entered the Pending Authorise Payments page
-    Then I input Debit Acc Number and click Find
+    Then I input OE Number and click Find Authorise
     And I close driver
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
@@ -107,11 +107,11 @@ Feature: Outgoing Customer Transfer
     And I close driver
     Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
     When I entered the Pending Authorise Payments page
-    Then I input Debit Acc Number and click Find
+    Then I input OE Number and click Find Authorise
     And I close driver
     Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
     When I entered the Pending Authorise Payments page
-    Then I input Debit Acc Number and click Find
+    Then I input OE Number and click Find Authorise
     And I close driver
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page

@@ -3,7 +3,7 @@
 <Revision>2.0.12</Revision>
 <Header>
 <Message>
-<SenderReference>23130Z519C88356</SenderReference>
+<SenderReference>23131T764T16541</SenderReference>
 <MessageIdentifier>pacs.008.001.08</MessageIdentifier>
 <Format>MX</Format>
 <SubFormat>Input</SubFormat>
@@ -14,7 +14,7 @@
 <DN>ou=xxx,o=dbsssgsg,o=swift</DN>
 </Receiver>
 <InterfaceInfo>
-<UserReference>23130Z519C88356</UserReference>
+<UserReference>23131T764T16541</UserReference>
 </InterfaceInfo>
 <NetworkInfo>
 <IsNotificationRequested>false</IsNotificationRequested>
@@ -41,17 +41,17 @@
 </FinInstnId>
 </FIId>
 </To>
-<BizMsgIdr>SBD-SGL23130CFDCMBFK</BizMsgIdr>
+<BizMsgIdr>SBD-SGL23131DJKFBLGK</BizMsgIdr>
 <MsgDefIdr>pacs.008.001.08</MsgDefIdr>
 <BizSvc>swift.cbprplus.02</BizSvc>
-<CreDt>2023-05-10T16:21:59+08:00</CreDt>
+<CreDt>2023-05-11T19:05:23+08:00</CreDt>
 <Prty>NORM</Prty>
 </AppHdr>
 <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <FIToFICstmrCdtTrf>
 <GrpHdr>
-<MsgId>SBD-SGL23130CFDCMBFK</MsgId>
-<CreDtTm>2023-05-10T16:21:59+08:00</CreDtTm>
+<MsgId>SBD-SGL23131DJKFBLGK</MsgId>
+<CreDtTm>2023-05-11T19:05:23+08:00</CreDtTm>
 <NbOfTxs>1</NbOfTxs>
 <SttlmInf>
 <SttlmMtd>INDA</SttlmMtd>
@@ -66,16 +66,16 @@
 </GrpHdr>
 <CdtTrfTxInf>
 <PmtId>
-<InstrId>SGL23130CFDCMBFK</InstrId>
+<InstrId>SGL23131DJKFBLGK</InstrId>
 <EndToEndId>NOTPROVIDED</EndToEndId>
-<TxId>SFD-SGL23130CFDCMBFK</TxId>
-<UETR>7e866037-54f6-43d5-bdda-5ec1a52f5a33</UETR>
+<TxId>SFD-SGL23131DJKFBLGK</TxId>
+<UETR>01a467ae-5146-4fc6-8ae5-2ecb24b2e69e</UETR>
 </PmtId>
 <PmtTpInf>
 <InstrPrty>NORM</InstrPrty>
 </PmtTpInf>
-<IntrBkSttlmAmt Ccy="USD">8.00</IntrBkSttlmAmt>
-<IntrBkSttlmDt>2023-05-10</IntrBkSttlmDt>
+<IntrBkSttlmAmt Ccy="USD">250002.00</IntrBkSttlmAmt>
+<IntrBkSttlmDt>2023-05-11</IntrBkSttlmDt>
 <ChrgBr>SHAR</ChrgBr>
 <InstgAgt>
 <FinInstnId>
@@ -88,9 +88,9 @@
 </FinInstnId>
 </InstdAgt>
 <Dbtr>
-<Nm>FINE GEMS & STONE PTE. LTD.</Nm>
+<Nm>2737379KSG20221130163607</Nm>
 <PstlAdr>
-<PstCd>238839</PstCd>
+<PstCd>345679</PstCd>
 <TwnNm>SINGAPORE</TwnNm>
 <Ctry>SG</Ctry>
 </PstlAdr>
@@ -99,7 +99,7 @@
 <DbtrAcct>
 <Id>
 <Othr>
-<Id>18000001527</Id>
+<Id>18500002891</Id>
 </Othr>
 </Id>
 </DbtrAcct>

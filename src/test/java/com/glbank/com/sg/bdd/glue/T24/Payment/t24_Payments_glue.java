@@ -471,9 +471,9 @@ public class t24_Payments_glue {
         t24_payments_step.enterPendingAuthorise();
     }
 
-    @Then("^I input Debit Acc Number and click Find$")
-    public void iInputDebitAccNumberAndClickFind() {
-        t24_payments_step.inputDebitAccNumber();
+    @Then("^I input OE Number and click Find Authorise$")
+    public void iInputOENumberAndClickFindAuthorise() {
+        t24_payments_step.inputOEbitAccNumber();
     }
 
     @When("^I enter the Payments Enquiry - Transaction wise page$")
@@ -484,6 +484,11 @@ public class t24_Payments_glue {
     @Then("^I input FTNumber and click Find$")
     public void iInputFTNumberAndClickFind() {
         t24_payments_step.inputFTNumberClickFind();
+    }
+
+    @Then("^I input FTNumber and click Find Authorise$")
+    public void iInputFTNumberAndClickFindAuthorise() {
+        t24_payments_step.inputFTNumberAuthorise();
     }
 
     @When("^I enter View Page$")
@@ -574,6 +579,30 @@ public class t24_Payments_glue {
 //        查看完详细信息关闭当前窗口
         bddUtil.closeWindow();
         bddUtil.sleep(1);
+    }
+
+//    查看SGMEPS的  详情页面信息
+    @When("^I enter View Page to USD Loan SGMEPS$")
+    public void iEnterViewPageToUSDLoanSGMEPS() throws Exception{
+        t24_payments_step.enterView();
+//        查看各个页面的数据
+        t24_payments_step.clickChargeInformation();
+        t24_payments_step.clickRoutingformation();
+        t24_payments_step.clickAdditionalInfoSGMEPS();
+        t24_payments_step.clickErrorInformation();
+        t24_payments_step.clickExtendedDebtorInfo();
+        t24_payments_step.clickExtendedCreditorInfo();
+        t24_payments_step.clickUltimateDebtorInfo();
+        t24_payments_step.clickUltimateCreditorInfo();
+        t24_payments_step.clickRegulatoryReportingSGMEPS();
+        t24_payments_step.clickStructuredRemittanceInfoSGMEPS();
+        t24_payments_step.clickPrevInstrAgentsSGMEPS();
+        t24_payments_step.clickChangedFieldsSGMEPS();
+        t24_payments_step.clickAuditSGMEPS();
+//        查看完详细信息关闭当前窗口
+        bddUtil.closeWindow();
+        bddUtil.sleep(1);
+
     }
 
     @When("^I enter View Page to OE Outgoing_Bank_Transfer$")
@@ -679,5 +708,33 @@ public class t24_Payments_glue {
     public void iInputIncompleteInformationUSDOnOutgoingISOBankTransferPage(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         t24_payments_step.inputInformationOnOutgoingISOBankTransferUSD(maps.get(0).get("Instructed Agent BIC"),maps.get(0).get("Transaction Currency"),maps.get(0).get("Transaction Amount"),maps.get(0).get("Debit Account Number"),maps.get(0).get("Creditor Bic"));
+    }
+
+    @Then("^I click AA AA Disbursement \\(SGMEPS\\) Button$")
+    public void iClickAAAADisbursementSGMEPSButton() {
+        t24_payments_step.clickDisbursementSGMEPS();
+    }
+
+    @Then("^I enter input the Disbursement SGMEPS Page$")
+    public void iEnterInputTheDisbursementSGMEPSPage() {
+        t24_payments_step.enterDisbursementSGMEPSPage();
+    }
+
+    @When("^I input information on the Loan Disbursement SGMEPS Page$")
+    public void iInputInformationOnTheLoanDisbursementSGMEPSPage(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputLoanDisbursementSGMEPS(maps.get(0).get("Debit Account Number"),maps.get(0).get("Debit Currency"),maps.get(0).get("Payment Currency"),maps.get(0).get("Payment Amount"),maps.get(0).get("Beneficiary Account No"),maps.get(0).get("Beneficiary Bank BIC"),maps.get(0).get("Beneficiary Name"));
+    }
+
+    @Then("^I input information on the SGMEPS Beneficiary Details Page$")
+    public void iInputInformationOnTheSGMEPSBeneficiaryDetailsPage(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputBeneficiaryDetailsOnSGMEPS(maps.get(0).get("Beneficiary Street Name"),maps.get(0).get("Beneficiary Post Code"),maps.get(0).get("Beneficiary Town Name"),maps.get(0).get("Beneficiary Country"),maps.get(0).get("Beneficiary Residence Country"));
+    }
+
+
+    @When("^I change status code$")
+    public void iChangeStatusCode() {
+        t24_payments_step.changeStatusCode();
     }
 }

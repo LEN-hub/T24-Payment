@@ -40,6 +40,54 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//a[text()='AA Disbursement External ']")
     public WebElementFacade DisbursementExternal;
 
+    @FindBy(xpath = "//a[text()='AA Disbursement (SGMEPS) ']")
+    public WebElementFacade DisbursementSGMEPS;
+
+    @FindBy(xpath = "//td[@id='dealtitle']/following-sibling::td[1]//td[6]/a")
+    public WebElementFacade newDeal;
+
+    @FindBy(id = "fieldName:DEBIT.ACCOUNT")
+    public WebElementFacade DebitAccountNumber_SGMEPS;
+
+    @FindBy(id = "fieldName:DEBIT.CCY")
+    public WebElementFacade DebitCurrency_SGMEPS;
+
+    @FindBy(id = "fieldName:PAYMENT.CURRENCY")
+    public WebElementFacade PaymentCurrency_SGMEPS;
+
+    @FindBy(id = "fieldName:PAYMENT.AMOUNT")
+    public WebElementFacade PaymentAmount_SGMEPS;
+
+    @FindBy(id = "fieldName:BENEFICIARY.ACCOUNT.NO")
+    public WebElementFacade BeneficiaryAccountNo_SGMEPS;
+
+    @FindBy(id = "fieldName:ACCT.WITH.BANK.BIC")
+    public WebElementFacade BeneficiaryBankBIC_SGMEPS;
+
+    @FindBy(id = "fieldName:BENEFICIARY.NAME")
+    public WebElementFacade BeneficiaryName_SGMEPS;
+
+    @FindBy(id = "fieldCaption:PAYMENT.ORDER.PRODUCT")
+    public WebElementFacade PaymentOrderProductTitle;
+
+    @FindBy(id = "fieldName:BENEFICIARY.STREET.NAME")
+    public WebElementFacade BeneficiaryStreetName_SGMEPS;
+
+    @FindBy(id = "fieldName:BENEFICIARY.POST.CODE")
+    public WebElementFacade BeneficiaryPostCode_SGMEPS;
+
+    @FindBy(id = "fieldName:BENEFICIARY.TOWN.NAME")
+    public WebElementFacade BeneficiaryTownName_SGMEPS;
+
+    @FindBy(id = "fieldName:BENEFICIARY.COUNTRY.CODE")
+    public WebElementFacade BeneficiaryCountry_SGMEPS;
+
+    @FindBy(id = "fieldName:BENEFICIARY.RESIDENCE.CTRY")
+    public WebElementFacade BeneficiaryResidenceCountry_SGMEPS;
+
+    @FindBy(id = "fieldCaption:BENEFICIARY.BIC")
+    public WebElementFacade BeneficiaryBICTitle;
+
     @FindBy(xpath = "//span[text()='Loan Transactions']/following-sibling::ul/li[11]/a")
     public WebElementFacade AuthoriseArrangements;
 
@@ -565,6 +613,12 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//a[@title='Commit the deal']/parent::td")
     public WebElementFacade Commit;
 
+    @FindBy(id = "CheckBox:fieldName:WaiveCreditCharges")
+    public WebElementFacade WaiveCreditCharges;
+
+    @FindBy(id = "CheckBox:fieldName:DebitRepairFee")
+    public WebElementFacade RepairFee;
+
     @FindBy(xpath = "//a[text()='Pending Authorise Payments ']")
     public WebElementFacade PendingAuthorisePayments;
 
@@ -603,6 +657,9 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//a[text()='Balance Reservation']/parent::label")
     public WebElementFacade BalanceReservation;
+
+    @FindBy(id = "fieldCaption:ReceiverInstitutionBIC")
+    public WebElementFacade SGMEPSTitle;
 
     @FindBy(xpath = "//span[text()='Debit/Credit Info']")
     public WebElementFacade CreditInfo;
@@ -645,6 +702,15 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//a//span[text()='Prev Instr Agents']")
     public WebElementFacade PrevInstrAgents;
+
+    @FindBy(xpath = "//table[@id='datadisplay']//tr/td[2]")
+    public WebElementFacade getFTNumber;
+
+    @FindBy(xpath = "//a[text()='Pending Repair Payments ']")
+    public WebElementFacade PendingRepairPayments;
+
+    @FindBy(xpath = "//a[@title='Modify']")
+    public WebElementFacade Modify;
 
     @FindBy(xpath = "//a//span[text()='Changed Fields']")
     public WebElementFacade ChangedFields;
