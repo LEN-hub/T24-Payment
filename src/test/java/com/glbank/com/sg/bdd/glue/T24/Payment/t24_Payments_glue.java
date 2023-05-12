@@ -605,6 +605,22 @@ public class t24_Payments_glue {
 
     }
 
+    //    Internal  详情页面信息
+    @When("^I enter View Page to USD Loan Internal$")
+    public void iEnterViewPageToUSDLoanInternal() throws Exception{
+        t24_payments_step.enterView();
+//        查看各个页面的数据
+        t24_payments_step.clickErrorInformation();
+        t24_payments_step.clickChargeInformation();
+        t24_payments_step.clickRoutingformation();
+        t24_payments_step.clickAdditionalInfoUSD();
+        t24_payments_step.clickAuditLoan();
+        t24_payments_step.clickChangedFieldsLoan();
+//        查看完详细信息关闭当前窗口
+        bddUtil.closeWindow();
+        bddUtil.sleep(1);
+    }
+
     @When("^I enter View Page to OE Outgoing_Bank_Transfer$")
     public void iEnterViewPageToOEOutgoing_Bank_Transfer() throws Exception{
         t24_payments_step.enterView();
@@ -733,8 +749,29 @@ public class t24_Payments_glue {
     }
 
 
-    @When("^I change status code$")
-    public void iChangeStatusCode() {
-        t24_payments_step.changeStatusCode();
+    @When("^I change status code SGD$")
+    public void iChangeStatusCodeSGD() {
+        t24_payments_step.changeStatusCodeSGD();
     }
+
+
+    @When("^I change status code USD$")
+    public void iChangeStatusCodeUSD() {
+        t24_payments_step.changeStatusCodeUSD();
+    }
+
+
+    @When("^I click Loan Transactions$")
+    public void iClickLoanTransactions() {
+        t24_payments_step.ClickLoanTransactions();
+    }
+
+
+    @When("^I Input incomplete information on AA Disbursement Internal page$")
+    public void iInputIncompleteInformationOnAADisbursementInternalPage(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputInformationOnAADisbursementInternalPage(maps.get(0).get("Debit Account Number"),maps.get(0).get("Debit Currency"),maps.get(0).get("Payment Amount"),maps.get(0).get("Payment Currency"),maps.get(0).get("Creditor Account"));
+    }
+
+
 }

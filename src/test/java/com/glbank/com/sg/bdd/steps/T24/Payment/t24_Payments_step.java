@@ -2522,9 +2522,58 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(3);
     }
 
-//    改变状态为235的数据
+//    改变状态为235的数据,USD要点击2个按钮，SGD不点击
     @Step
-    public void changeStatusCode(){
+    public void changeStatusCodeSGD(){
+        String FTNumber = t24_payments_page.getFTNumber.getText();
+        FileUtils.FileString4("FTNumber",FTNumber);
+        bddUtil.closeWindow();
+        bddUtil.switchToNewWindow();
+        switchToSecondFrame();
+        bddUtil.sleep(1);
+//        在首页进行 状态更改。
+        t24_payments_page.PendingRepairPayments.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        switchToFirstFrame();
+        t24_payments_page.selectScreen.click();
+        bddUtil.sleep(1);
+        t24_payments_page.inputFTNumber.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+//        t24_payments_page.inputFTNumber.sendKeys("SGL22164BDLF0JDF");
+        bddUtil.sleep(3);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(2);
+        t24_payments_page.Modify.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        t24_payments_page.getClickChargeInformation.click();
+        String value = t24_payments_page.WaiveCreditCharges.getAttribute("value");
+        String value1 = t24_payments_page.RepairFee.getAttribute("value");
+//        if (value.equals("on")){
+//            t24_payments_page.WaiveCreditCharges.click();
+//        }else {
+//            System.out.println("数据正常");
+//        }
+//        if (value1.equals("on")){
+//            t24_payments_page.RepairFee.click();
+//        }else {
+//            System.out.println("数据正常");
+//        }
+        t24_payments_page.preSubmit.click();
+        bddUtil.sleep(4);
+        t24_payments_page.Commit.click();
+        bddUtil.sleep(4);
+    }
+
+    //    改变状态为235的数据,USD要点击2个按钮，SGD不点击
+    @Step
+    public void changeStatusCodeUSD(){
         String FTNumber = t24_payments_page.getFTNumber.getText();
         FileUtils.FileString4("FTNumber",FTNumber);
         bddUtil.closeWindow();
@@ -2575,7 +2624,7 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void enterView() throws Exception {
         String statusCode = t24_payments_page.statusCode.getText();
-        if (statusCode.equals("677")) {
+        if (statusCode.equals("677") | statusCode.equals("999")) {
             System.out.println("状态码正常");
         } else {
             throw new Exception("状态码异常:"+statusCode);
@@ -2922,4 +2971,28 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.AuthoriseArrangements.click();
         bddUtil.sleep(1);
     }
+
+    public void ClickLoanTransactions() {
+        bddUtil.sleep(2);
+        switchToSecondFrame();
+        t24_payments_page.clickUserMenu.click();
+        t24_payments_page.clickProducts.click();
+        t24_payments_page.clickLoanTransactions.click();
+        bddUtil.sleep(3);
+        t24_payments_page.clickDisbursementInternal.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+    }
+
+    public void inputInformationOnAADisbursementInternalPage(String DebitAccountNumber, String DebitCurrency, String PaymentAmount, String PaymentCurrency, String CreditorAccount) {
+        t24_payments_page.InternalDebitAccountNumber.sendKeys(DebitAccountNumber);
+        t24_payments_page.DebitCurrency.sendKeys(DebitCurrency);
+        t24_payments_page.PaymentAmount.sendKeys(PaymentAmount);
+        t24_payments_page.PaymentCurrency.sendKeys(PaymentCurrency);
+        t24_payments_page.InternalCreditorAccount.sendKeys(CreditorAccount);
+        bddUtil.sleep(2);
+    }
+
 }

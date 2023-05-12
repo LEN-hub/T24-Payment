@@ -580,11 +580,26 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//label[@for='fieldName:DebitAccountNumber']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade DebitAccountNumber;
 
+    @FindBy(id = "fieldName:DEBIT.ACCOUNT")
+    public WebElementFacade InternalDebitAccountNumber;
+
+    @FindBy(xpath = "//input[@id='fieldName:DEBIT.CCY']")
+    public WebElementFacade DebitCurrency;
+
+    @FindBy(xpath = "//input[@id='fieldName:PAYMENT.AMOUNT']")
+    public WebElementFacade PaymentAmount;
+
+    @FindBy(xpath = "//input[@id='fieldName:PAYMENT.CURRENCY']")
+    public WebElementFacade PaymentCurrency;
+
     @FindBy(xpath = "//label[@for='fieldName:DebitAccountCurrency']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade DebitAccountCurrency;
 
     @FindBy(xpath = "//label[@for='fieldName:BeneficiaryAccount']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade CreditorAccount;
+
+    @FindBy(id = "fieldName:CREDIT.ACCOUNT")
+    public WebElementFacade InternalCreditorAccount;
 
     @FindBy(xpath = "//label[@for='fieldName:BeneficiaryName']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade CreditorName;
@@ -768,5 +783,10 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//span[text()='Creditor Agent Details']/parent::td/parent::tr/following-sibling::tr[11]//input")
     public WebElementFacade inputLoanAccountWithBankCountry;
 
+    @FindBy(xpath = "//span[text()='Loan Transactions']")
+    public WebElementFacade clickLoanTransactions;
+
+    @FindBy(xpath = "//a[text()='AA Disbursement Internal ']")
+    public WebElementFacade clickDisbursementInternal;
 
 }
