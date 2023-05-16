@@ -110,7 +110,7 @@ Feature: Payment Order(Loan Disbursement)
     Then I enter input the Disbursement SGMEPS Page
     When I input information on the Loan Disbursement SGMEPS Page
       |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Account No|Beneficiary Bank BIC|Beneficiary Name|
-      |18500002905         |SGD           |SGD             |250008        |345665                |CITISGS0            |lei             |
+      |18500002905         |SGD           |SGD             |250007        |345665                |CITISGS0            |lei             |
     Then I input information on the SGMEPS Beneficiary Details Page
       |Beneficiary Street Name|Beneficiary Post Code|Beneficiary Town Name|Beneficiary Country|Beneficiary Residence Country|
       |teselei                |1234                 |SINGRORE             |SG                  |SG                          |

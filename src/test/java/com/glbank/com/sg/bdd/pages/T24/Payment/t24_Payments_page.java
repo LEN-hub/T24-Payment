@@ -580,6 +580,12 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//label[@for='fieldName:DebitAccountNumber']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade DebitAccountNumber;
 
+    @FindBy(id = "fieldName:BeneficiaryAddress1")
+    public WebElementFacade BeneficiaryAddress;
+
+    @FindBy(id = "fieldName:BeneficiaryAddress2")
+    public WebElementFacade BeneficiaryAddressTwo;
+
     @FindBy(id = "fieldName:DEBIT.ACCOUNT")
     public WebElementFacade InternalDebitAccountNumber;
 
@@ -742,6 +748,18 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//option[text()='Outgoing Message']")
     public WebElementFacade OutgoingMessage;
 
+    @FindBy(xpath = "//option[text()='Audit trail']")
+    public WebElementFacade AuditTrail;
+
+    @FindBy(xpath = "//option[text()='Received Message']")
+    public WebElementFacade ReceivedMessage;
+
+    @FindBy(xpath = "//option[text()='Posting Lines']")
+    public WebElementFacade PostingLines;
+
+    @FindBy(xpath = "//option[text()='Fees Applied']")
+    public WebElementFacade FeesApplied;
+
     @FindBy(xpath = "//a[@class='iconLink']/parent::td")
     public WebElementFacade iconLink;
 
@@ -788,5 +806,14 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//a[text()='AA Disbursement Internal ']")
     public WebElementFacade clickDisbursementInternal;
+
+    @FindBy(xpath = "//input[@id='value:1:1:1']")
+    public WebElementFacade InputArrangement;
+
+    @FindBy(xpath = "//a[@title='Run Selection']")
+    public WebElementFacade clickFindButt1;
+
+    @FindBy(xpath = "//a[@title='Overview']")
+    public WebElementFacade clickFindButt2;
 
 }

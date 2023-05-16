@@ -320,6 +320,7 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.switchToNewWindow();
         bddUtil.closeWindow();
         switchToSecondFrame();
+        bddUtil.sleep(1);
     }
 
     @Step
@@ -2328,6 +2329,15 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
     }
 
+//    Outgoing USD-USD输入Beneficiary Address和 	Beneficiary Town
+    @Step
+    public void inputBeneficiaryAddress(String BeneficiaryAddress,String BeneficiaryAddressTwo){
+        bddUtil.scrollWindowToElement(t24_payments_page.BeneficiaryAddress).sendKeys(BeneficiaryAddress);
+        t24_payments_page.BeneficiaryAddressTwo.sendKeys(BeneficiaryAddressTwo);
+        bddUtil.sleep(3);
+    }
+
+
 
     //    输入streetName 、Town Name 、 Creditor Country
     @Step
@@ -2507,6 +2517,22 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.Find.click();
         bddUtil.sleep(3);
     }
+
+//    在Incoming页面用表格 的方式 输入FTNumber
+    @Step
+    public void inputFTNumberClickFindOnIncoming(String FTNumber) {
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        switchToFirstFrame();
+        bddUtil.sleep(1);
+        t24_payments_page.inputFTNumber.sendKeys(FTNumber);
+        bddUtil.sleep(3);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(3);
+}
+
 
     //   输入LoanPINumber进行查询
     @Step
@@ -2841,6 +2867,65 @@ public class t24_Payments_step extends ScenarioSteps {
         switchToSecondFrame();
     }
 
+    //    选择Audit trail查看详情
+    @Step
+    public void selectAuditTrail() {
+        t24_payments_page.selectOptions.click();
+        bddUtil.sleep(2);
+        t24_payments_page.AuditTrail.click();
+        bddUtil.sleep(2);
+        t24_payments_page.iconLink.click();
+        bddUtil.sleep(5);
+//       退出第一个frame，进入第二个frame
+        switchToDefaultContent();
+        switchToSecondFrame();
+//        判断是否是最后一页
+        for (int i = 0; i < 5; i++) {
+            if (t24_payments_page.xmlNext.isVisible()) {
+                t24_payments_page.xmlNext.click();
+                bddUtil.sleep(1);
+            }
+        }
+//       退出第二个frame，进入第一个frame
+        switchToDefaultContent();
+        switchToFirstFrame();
+    }
+
+//    选择进入Posting  Lines页面
+     @Step
+     public void selectPostingLines(){
+         t24_payments_page.selectOptions.click();
+         bddUtil.sleep(2);
+         t24_payments_page.PostingLines.click();
+         bddUtil.sleep(2);
+         t24_payments_page.iconLink.click();
+         bddUtil.sleep(5);
+     }
+
+    //    选择进入Received Message页面
+    @Step
+    public void selectReceivedMessage(){
+        t24_payments_page.selectOptions.click();
+        bddUtil.sleep(2);
+        t24_payments_page.ReceivedMessage.click();
+        bddUtil.sleep(2);
+        t24_payments_page.iconLink.click();
+        bddUtil.sleep(5);
+    }
+
+    //    选择进入Fees Applied页面
+    @Step
+    public void selectFeesApplied(){
+        t24_payments_page.selectOptions.click();
+        bddUtil.sleep(2);
+        t24_payments_page.FeesApplied.click();
+        bddUtil.sleep(2);
+        t24_payments_page.iconLink.click();
+        bddUtil.sleep(5);
+    }
+
+
+
     //    将XML报文写入Payment_xml文件
     @Step
     public void writeXML() {
@@ -2877,6 +2962,9 @@ public class t24_Payments_step extends ScenarioSteps {
             }
             bddUtil.sleep(2);
         }
+        //       退出第二个frame，进入第一个frame
+        switchToDefaultContent();
+        switchToFirstFrame();
     }
 
     //    点击核心的Products按钮，然后点击Loan Transactions按钮
@@ -2993,6 +3081,33 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.PaymentCurrency.sendKeys(PaymentCurrency);
         t24_payments_page.InternalCreditorAccount.sendKeys(CreditorAccount);
         bddUtil.sleep(2);
+    }
+
+    @Step
+    public void ClickFindAccount() {
+        bddUtil.sleep(2);
+        t24_payments_page.clickProducts.click();
+        bddUtil.sleep(2);
+        t24_payments_page.clickFindAccount.click();
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(5);
+    }
+
+    public void InputArrangement(String arrangement) {
+        bddUtil.sleep(2);
+        t24_payments_page.InputArrangement.clear();
+        t24_payments_page.InputArrangement.sendKeys(arrangement);
+    }
+
+    public void ClickFindButt() {
+        bddUtil.sleep(1);
+        t24_payments_page.clickFindButt1.click();
+        t24_payments_page.clickFindButt2.click();
+        bddUtil.sleep(3);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(5);
     }
 
 }

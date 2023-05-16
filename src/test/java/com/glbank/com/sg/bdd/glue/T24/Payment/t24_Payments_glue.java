@@ -486,6 +486,13 @@ public class t24_Payments_glue {
         t24_payments_step.inputFTNumberClickFind();
     }
 
+    @Then("^I input FTNumber and click Find On Incoming$")
+    public void iInputFTNumberAndClickFindOnIncoming(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputFTNumberClickFindOnIncoming(maps.get(0).get("FTNumber"));
+
+    }
+
     @Then("^I input FTNumber and click Find Authorise$")
     public void iInputFTNumberAndClickFindAuthorise() {
         t24_payments_step.inputFTNumberAuthorise();
@@ -518,7 +525,15 @@ public class t24_Payments_glue {
     public void iEnterViewDetailsPage() throws IOException {
         t24_payments_step.clickViewDetail();
         t24_payments_step.switchToFirstFrame();
+//        查看Audit Trail页面
+        t24_payments_step.selectAuditTrail();
+//        查看进入Posting Lines页面
+        t24_payments_step.selectPostingLines();
+//        查看进入AccountingEntries页面
         t24_payments_step.selectAccountingEntries();
+//        查看进入Received Message页面
+        t24_payments_step.selectReceivedMessage();
+//        查看进入OutgoingMessage页面
         t24_payments_step.selectOutgoingMessage();
 //        将XML报文 提取出来
 //        先调用 创建 XML文件的方法
@@ -526,6 +541,9 @@ public class t24_Payments_glue {
         createXML.createPayment_XML();
 //      通过下面的方法将XML报文写入Payment_XML文件
         t24_payments_step.writeXML();
+        bddUtil.sleep(1);
+//        查看进入FeesApplied页面
+        t24_payments_step.selectFeesApplied();
         bddUtil.sleep(1);
     }
 
@@ -572,9 +590,9 @@ public class t24_Payments_glue {
 //        查看各个页面的数据
         t24_payments_step.clickChargeInformation();
         t24_payments_step.clickRoutingformation();
-        t24_payments_step.clickAdditionalInfoUSD();
-        t24_payments_step.clickErrorInformation();
-        t24_payments_step.clickChangedFieldsLoan();
+//        t24_payments_step.clickAdditionalInfoUSD();
+//        t24_payments_step.clickErrorInformation();
+//        t24_payments_step.clickChangedFieldsLoan();
         t24_payments_step.clickAuditLoan();
 //        查看完详细信息关闭当前窗口
         bddUtil.closeWindow();
@@ -771,6 +789,29 @@ public class t24_Payments_glue {
     public void iInputIncompleteInformationOnAADisbursementInternalPage(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         t24_payments_step.inputInformationOnAADisbursementInternalPage(maps.get(0).get("Debit Account Number"),maps.get(0).get("Debit Currency"),maps.get(0).get("Payment Amount"),maps.get(0).get("Payment Currency"),maps.get(0).get("Creditor Account"));
+    }
+
+
+    @Then("^I Input Beneficiary Address and Beneficiary Town$")
+    public void iInputBeneficiaryAddressAndBeneficiaryTown(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputBeneficiaryAddress(maps.get(0).get("Beneficiary Address"),maps.get(0).get("Beneficiary Town"));
+    }
+
+    @When("^I click find account$")
+    public void iClickFindAccount() {
+        t24_payments_step.ClickFindAccount();
+    }
+
+    @When("^I input Arrangement$")
+    public void iInputArrangement(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.InputArrangement(maps.get(0).get("Arrangement"));
+    }
+
+    @When("^I click Find Butt$")
+    public void iClickFindButt() {
+        t24_payments_step.ClickFindButt();
     }
 
 
