@@ -1,36 +1,33 @@
-2023-3-24 18:3:53:331
-ChannelReferenceID:230324000000198
-ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
-ChannelDebitAccountCurrency:USD
-ChannelDebitAccountNumber:11010000489
+2023-5-19 16:4:16:592
+ChannelReferenceID:230517000000050
+ChannelDebitAccountName:COMPUTERCITY SINGAPORE PTE. LTD.
+ChannelDebitAccountCurrency:SGD
+ChannelDebitAccountNumber:11010003453
 ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
-ChannelDetailPayeeName:lucky
-ChannelDetailAccountCurrency:USD
-ChannelDetailPayeeAccountNum:667812798
-ChannelDetailTransactionAmount:324.05
-ChannelDetailBeneficiaryBankBIC:DBSSSGS0LAO
-ChannelDetailPayeeAddress:countries
-ChannelDetailEstimatedProcessingFee:0.00
-ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
-ChannelDetailPurposeOfTransfer:Business Expenses
-2023-3-24 18:5:54:640
-ID:230324000000198
-TransactionReference:PI230830N7S4ZJ9T
-t24FtNumber:SGL23083B0CKMHHH
+ChannelDetailPayeeName:Abel
+ChannelDetailAccountCurrency:SGD
+ChannelCreditAccountCurrency:SGD
+ChannelCreditAccountNumber:11010001426
+ChannelTransactionAmount:519.53
+ChannelPurposeOfTransfer:Business Expenses
+2023-5-19 16:7:40:283
+ID:230517000000050
+TransactionReference:PI2313902L3P7P0D
+t24FtNumber:SGL23139HGCFDKFB
 getStatus:677
-getTransactionReferenceNum:SGL23083B0CKMHHH
-getSenderReferenceNum:PI230830N7S4ZJ9T
-getTransactionCurrency:USD
-getTransactionCurrency:USD
-getTransactionAmount:324.05
+getTransactionReferenceNum:SGL23139HGCFDKFB
+getSenderReferenceNum:PI2313902L3P7P0D
+getTransactionCurrency:SGD
+getTransactionCurrency:SGD
+getTransactionAmount:519.53
 getChargeOption:SHA
-getDebitAccountNum:11010000489
-getDebitAccountCurrency:USD
-getOrderingAccount:11010000489
-getOrderingName:WATERHOUSE INVESTMENT PTE. LTD.
-getOrderingAddress:SINGAPORE
+getDebitAccountNum:11010003453
+getDebitAccountCurrency:SGD
+getOrderingAccount:11010003453
+getOrderingName:COMPUTERCITY SINGAPORE
+getOrderingAddress:COMPUTERCITY SINGAPORE.
 getOrderingTown:SG
-getCreditAccountNum:15000000242
-getCreditAccountCurrency:USD
-getBeneficiaryAccount:667812798
-getBeneficiaryName:lucky
+getCreditAccountNum:15000000153
+getCreditAccountCurrency:SGD
+getBeneficiaryAccount:11010001426
+getBeneficiaryName:Abel

@@ -150,6 +150,11 @@ public class Logon_step extends ScenarioSteps {
 //        if (driver.findElement(By.xpath("//android.widget.Button[ends-with(@text,'OK')]")).isDisplayed()){
 //            driver.findElementByXPath("//android.widget.Button[ends-with(@text,'OK')]").click();
 //        }
+                String testPage = driver.getPageSource();
+        System.out.println(testPage);
+        if (driver.findElementByXPath("//android.widget.Button [ends-with(@resource-id,'android:id/button1')]").isDisplayed()){
+                driver.findElementByXPath("//android.widget.Button [ends-with(@resource-id,'android:id/button1')]").click();
+            }
         if (driver.findElementByXPath("//android.widget.LinearLayout [ends-with(@resource-id,'btn_otp')]/child::android.widget.TextView[2]").getText().equals("一次性\n密码")) {
           test.getVcode();
         }else {

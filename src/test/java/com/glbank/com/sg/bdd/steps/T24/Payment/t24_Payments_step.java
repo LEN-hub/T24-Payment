@@ -3094,6 +3094,17 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(5);
     }
 
+    @Step
+    public void clickFindMultiCurrency(){
+        bddUtil.sleep(2);
+        t24_payments_page.clickProducts.click();
+        bddUtil.sleep(2);
+        t24_payments_page.FindMultiCurrency.click();
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(5);
+    }
+
     public void InputArrangement(String arrangement) {
         bddUtil.sleep(2);
         t24_payments_page.InputArrangement.clear();
@@ -3104,6 +3115,24 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(1);
         t24_payments_page.clickFindButt1.click();
         t24_payments_page.clickFindButt2.click();
+        bddUtil.sleep(3);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(5);
+    }
+
+    @Step
+    public void clickUSDOverView(){
+        t24_payments_page.USDOverView.click();
+        bddUtil.sleep(3);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(5);
+    }
+
+    @Step
+    public void clickSGDOverView(){
+        t24_payments_page.SGDOverView.click();
         bddUtil.sleep(3);
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();

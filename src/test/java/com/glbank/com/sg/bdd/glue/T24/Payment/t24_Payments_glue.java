@@ -815,4 +815,18 @@ public class t24_Payments_glue {
     }
 
 
+    @Then("^I click Find Multi Currency$")
+    public void iClickFindMultiCurrency() {
+        t24_payments_step.clickFindMultiCurrency();
+    }
+
+    @Then("^I click USD Overview$")
+    public void iClickUSDOverview() {
+        t24_payments_step.clickUSDOverView();
+    }
+
+    @Then("^I click SGD Overview$")
+    public void iClickSGDOverview() {
+        t24_payments_step.clickSGDOverView();
+    }
 }

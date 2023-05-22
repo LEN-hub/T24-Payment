@@ -32,6 +32,9 @@ public class t24_Payments_page extends PageObject {
     public WebElementFacade clickFindAccount;
 
     @FindBy(xpath = "//a[text()='Find Multi Currency ']")
+    public WebElementFacade FindMultiCurrency;
+
+    @FindBy(xpath = "//a[text()='Find Multi Currency ']")
     public WebElementFacade clickFindMCY;
 
     @FindBy(xpath = "//span[text()='Loan Transactions']")
@@ -815,5 +818,12 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//a[@title='Overview']")
     public WebElementFacade clickFindButt2;
+
+    @FindBy(xpath = "//td[text()='USD']/following-sibling::td[6]/a")
+    public WebElementFacade USDOverView;
+
+    @FindBy(xpath = "//td[text()='SGD']/following-sibling::td[6]/a")
+    public WebElementFacade SGDOverView;
+
 
 }

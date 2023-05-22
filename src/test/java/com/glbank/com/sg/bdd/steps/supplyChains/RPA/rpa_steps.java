@@ -332,11 +332,11 @@ public class rpa_steps extends ScenarioSteps {
     public void jumpToInbLink() throws Exception{
         bddUtil.switchToNewWindow();
         // 获取当前URL
-        String url = getDriver().getCurrentUrl();
+      /*  String url = getDriver().getCurrentUrl();
         // 拼接成新URL
         String newUrl = "https://inb-sit.intranet.glbank.com/"+url.substring(34,url.length());
         System.out.println(newUrl);
-        getDriver().get(newUrl);
+        getDriver().get(newUrl);*/
 //        if (rpaPage.clickSeniorBtn.isVisible()){
 //            rpaPage.clickSeniorBtn.click();
 //            rpaPage.getJumpToInbLink.click();
