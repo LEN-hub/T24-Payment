@@ -28,6 +28,7 @@ public class userManagement_glue {
     @When("^I click on the Enterprise Administration as well user administration$")
     public void iClickOnTheEnterpriseAdministrationAsWellUserAdministration() {
         userManagement_steps.clickEnterpriseManagementDesk();
+        userManagement_steps.clickAccountManagements();
     }
 
     //修改手机号

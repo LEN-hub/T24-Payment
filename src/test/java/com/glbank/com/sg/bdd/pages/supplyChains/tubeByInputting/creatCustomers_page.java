@@ -1605,7 +1605,7 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//label[@for='comment']/following-sibling::div//textarea")
     public WebElementFacade inputCommentText;
 
-    @FindBy(xpath = "//span[text()='Home']/parent::div/following-sibling::div[4]/div[1]/span[text()='Underwriting']")
+    @FindBy(xpath = "//div[text()='Underwriting']")
     public WebElementFacade clickUnderwritingMenu;
 
     @FindBy(xpath = "//span[text()='Underwriting Approval']")

@@ -2365,6 +2365,7 @@ public class paymentService_step extends ScenarioSteps {
         getDriver().switchTo().alert().accept();
         paymentService_page.inputVerificationCode.sendKeys(loginOtp);
         paymentService_page.clickOkBtn.click();
+        bddUtil.sleep(2);
     }
 
     @Step
@@ -2382,6 +2383,9 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.inputMailBox.sendKeys(emailName);
         paymentService_page.clickCreateBtn.click();
         paymentService_page.getClickRefreshBtn.click();
+        bddUtil.sleep(2);
+        paymentService_page.getClickRefreshBtn.click();
+        bddUtil.sleep(2);
         Assert.assertEquals("Green Link Digital Bank Pte. Ltd message notification",paymentService_page.emailTitle.getText());
     }
     @Step
@@ -2970,7 +2974,7 @@ public class paymentService_step extends ScenarioSteps {
         action.moveToElement(paymentService_page.clickThreePoint).perform();
         paymentService_page.clickLocalFundsTransfer.click();
         bddUtil.sleep(2);
-        Assert.assertEquals(paymentService_page.localFundsTransferTitle.getText(),"Make Local Fund Transfer");
+        Assert.assertEquals(paymentService_page.localFundsTransferTitle.getText(),"Local Fund Transfer");
     }
 
     @Step

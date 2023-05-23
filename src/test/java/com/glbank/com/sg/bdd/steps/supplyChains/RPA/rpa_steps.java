@@ -364,11 +364,11 @@ public class rpa_steps extends ScenarioSteps {
                 bddUtil.sleep(2);
             }
             rpaPage.jumpToInbLinkCheck.click();
-        }else {
+        }/*else {
             rpaPage.jumpToInbLinkCheck.click();
-        }
+        }*/
         //断言是否进入INB系统
-        if (getDriver().findElement(By.xpath("//div[text()='Select the option that best describes your situation:']")).getText().equals("Select the option that best describes your situation:")){
+        if (getDriver().findElement(By.xpath("//span[text()='Tips']")).getText().equals("Tips")){
             System.out.println("成功进入系统");
         }else {
             throw new Exception("INB系统进入失败");

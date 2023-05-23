@@ -432,7 +432,7 @@ Feature: Sanity Pack INB SIT Test Case
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I fill in the transfer information on the page
       |From Account |To Account   |
-      |11010002414  |11010002430  |
+      |11010000470  |11010000438  |
     Then I checked the transfer success in My transactions
 
     @sanity_pack_Fixed_Deposit_One_Month_SIT
@@ -453,7 +453,7 @@ Feature: Sanity Pack INB SIT Test Case
     When I click View eStatements Btn
     When I click select box
       |select       |
-      |11010003747  |
+      |11010000608  |
     And I click search button
     Then I should see Account List
 
@@ -758,7 +758,7 @@ Feature: Sanity Pack INB SIT Test Case
     When Click My Settings and select Manage security settings to modify the password
     When Vkey authorization for Payment transactions in the SIT environment
     When I click Confirm Button on the change password page
-    When Vkey authorization for Payment transactions in the SIT environment
+#    When Vkey authorization for Payment transactions in the SIT environment
     Then Password modified successfully check the status
     Given logon "INB-automation-SIT-change-password" in SIT environment and change password
 
@@ -786,7 +786,7 @@ Feature: Sanity Pack INB SIT Test Case
     When I click modify info menu
       |emailAddress         |
       |bg@263.net           |
-    When Vkey authorization for Payment transactions in the SIT environment
+#    When Vkey authorization for Payment transactions in the SIT environment
 
   @sanity_pack_Account_List_SGD_Query
 #    账户列表SGD查询正流程

@@ -633,7 +633,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//label[@for='payeeInfo']/following-sibling::div//span[@class='el-input__suffix-inner']")
     public WebElementFacade clickToAccountDownDropBox;
 
-    @FindBy(xpath = "//div[@x-placement=\"top-start\" or @x-placement=\"bottom-start\"]//span")
+    @FindBy(xpath = "//div[@x-placement=\"top-start\" or @x-placement=\"bottom-start\"]//span/parent::li")
     public List<WebElementFacade> selectFromAccountNum;
 
     @FindBy(xpath = "//label[@for='tradeAmont']/following-sibling::div//input")
@@ -819,7 +819,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Local Funds Transfer']")
     public WebElementFacade clickLocalFundsTransfer;
 
-    @FindBy(xpath = "//div[contains(text(),'Make Local Fund Transfer')]")
+    @FindBy(xpath = "//div[contains(text(),'Local Fund Transfer')]")
     public WebElementFacade localFundsTransferTitle;
 
     @FindBy(xpath = "//div[@x-placement=\"bottom\" or @x-placement=\"top\"]//div[text()='Place Fixed Deposits']")
