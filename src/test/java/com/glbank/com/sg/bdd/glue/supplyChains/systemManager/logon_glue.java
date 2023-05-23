@@ -40,8 +40,8 @@ public class logon_glue {
             login_uso_step.enter_username_into_box(envName);
             login_uso_step.enter_password_into_box(envName);
             login_uso_step.click_login_btn();
-            login_uso_step.clickOnLineBankUat();
-//            login_uso_step.clickOnlineBank();
+//            login_uso_step.clickOnLineBankUat();
+            login_uso_step.clickOnlineBank();
             bddUtil.switchToNewWindow();
         }
     }
