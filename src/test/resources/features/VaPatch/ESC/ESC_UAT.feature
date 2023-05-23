@@ -3,7 +3,7 @@ Feature: VaPatch_ESC_UAT
 
   @ESC-001_UAT
   Scenario:All Files page check UAT
-    Given logon "ISO_UAT" on ISO
+    Given logon "ISO_SIT" on ISO
     When Enter the AllFiles Page
     Then check AllFiles Data
     Then I close driver

@@ -211,6 +211,13 @@ public class VaPatch_step extends ScenarioSteps {
         bddUtil.switchToNewWindow();
     }
 
+    @Step
+    public void enterAllFilesPageSit(){
+        vaPatch_page.ESCSIT.click();
+        bddUtil.sleep(4);
+        bddUtil.switchToNewWindow();
+    }
+
     //  判断是否进入ESC系统首页
     public void CheckESCSystem() throws Exception {
         bddUtil.sleep(5);

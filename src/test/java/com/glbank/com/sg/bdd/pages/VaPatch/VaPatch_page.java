@@ -69,6 +69,9 @@ public class VaPatch_page extends PageObject {
     @FindBy(xpath = "//p[text()='E-Signature and Contract Management System']" )
     public WebElementFacade ESCSystem;
 
+    @FindBy(xpath = "//p[text()='ESC']")
+    public WebElementFacade ESCSIT;
+
     @FindBy(xpath = "//span[text()='Contract Management']")
     public WebElementFacade ESCTitle;
 

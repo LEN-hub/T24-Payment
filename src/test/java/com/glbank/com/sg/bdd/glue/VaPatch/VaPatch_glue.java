@@ -88,6 +88,11 @@ public class VaPatch_glue {
         vaPatch_step.enterAllFilesPage();
     }
 
+    @When("^Enter the AllFiles Page SIT$")
+    public void enterTheAllFilesPageSIT() {
+        vaPatch_step.enterAllFilesPageSit();
+    }
+
     @Then("^check AllFiles Data$")
     public void checkAllFilesData() throws Exception{
         vaPatch_step.CheckESCSystem();
@@ -424,4 +429,5 @@ public class VaPatch_glue {
     public void iCheckIDVLink() {
         vaPatch_step.checkIDVEmail();
     }
+
 }
