@@ -8,7 +8,7 @@ Feature: Outgoing Customer Transfer
     Then I enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
     |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |
-    |DBSSSGS0            |SGD                 |11110               |11010001981         |SGD                   |56456465        |LEI           |
+    |DBSSSGS0            |SGD                 |10               |11010001981         |SGD                   |56456465        |LEI           |
     Then I input Street Name on the ISO Customer Transfer Page
     |Street Name|Town Name |Creditor Country|
     |liyukang   |testabc   |SG              |
