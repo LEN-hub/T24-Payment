@@ -1608,6 +1608,9 @@ public class creatCustomers_page extends PageObject {
     @FindBy(xpath = "//div[text()='Underwriting']")
     public WebElementFacade clickUnderwritingMenu;
 
+    @FindBy(xpath = "//span[text()='Home']/parent::div/following-sibling::div[4]/div[1]/span[text()='Underwriting']")
+    public WebElementFacade clickUnderwritingMenuTtile;
+
     @FindBy(xpath = "//span[text()='Underwriting Approval']")
     public WebElementFacade clickUnderwritingApproval;
 

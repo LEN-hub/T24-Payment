@@ -348,6 +348,11 @@ public class VaPatch_glue {
         vaPatch_step.checkTemplateManagementUseTemplateBtn();
     }
 
+    @Then("^check Use template the Template Management Page SIT$")
+    public void checkUseTemplateTheTemplateManagementPageSIT() throws Exception{
+        vaPatch_step.checkTemplateManagementUseTemplateBtnSIT();
+    }
+
     @Then("^check Initiate contract button the Contract Management Page$")
     public void checkInitiateContractButtonTheContractManagementPage() {
         vaPatch_step.checkInitiateContratBtn();
@@ -429,5 +434,6 @@ public class VaPatch_glue {
     public void iCheckIDVLink() {
         vaPatch_step.checkIDVEmail();
     }
+
 
 }

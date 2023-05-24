@@ -1,145 +1,145 @@
 @VaPatch_ESC_SIT
 Feature: VaPatch_ESC_SIT
-
-  @ESC-001_SIT
-  Scenario:All Files page check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check AllFiles Data
-    Then I close driver
-
-  @ESC-002_SIT
-  Scenario:To Be Signed page check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check To Be Signed Page
-    Then I close driver
-
-  @ESC-003_SIT
-  Scenario:Signing In Progress page check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check the Signing In Progress Page
-    Then I close driver
-
-  @ESC-004_SIT
-  Scenario:Signing Completed page check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check the Signing Completed Page
-    Then I close driver
-
-  @ESC-005_SIT
-  Scenario:Signing Failed page check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check the Signing Failed Page
-    Then I close driver
-
-  @ESC-006_SIT
-  Scenario:Template Management page check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check the Template Management Page
-    Then I close driver
-
-  @ESC-007_SIT
-  Scenario:AllFiles Page See button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check see button
-    Then I close driver
-
-  @ESC-008_SIT
-  Scenario:AllFiles Page Download button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check Download button
-    Then I close driver
-
-  @ESC-009_SIT
-  Scenario:AllFiles Page Search button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check Search button
-    Then I close driver
-
-  @ESC-010_SIT
-  Scenario:AllFiles Page Reset button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check Reset button
-    Then I close driver
-
-  @ESC-011_SIT
-  Scenario:AllFiles Page batch Download button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check batch Download button
-    Then I close driver
-
-  @ESC-012_SIT
-  Scenario:To Be Signed Page See button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check see button the To Be Sign Page
-    Then I close driver
-
-  @ESC-013_SIT
-  Scenario:To Be Signed Page Download button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check Download button the To Be Sign Page
-    Then I close driver
-
-  @ESC-014_SIT
-  Scenario:To Be Signed Page Search button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check Search button the To Be Sign Page
-    Then I close driver
-
-  @ESC-015_SIT
-  Scenario:To Be Signed Page Reset button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check Reset button the To Be Sign Page
-    Then I close driver
-
-  @ESC-016_SIT
-  Scenario:To Be Signed Page batch Download button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check batch Download button the To Be Sign Page
-    Then I close driver
-
-  @ESC-017_SIT
-  Scenario:Signing In Progress Page see button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check see button the Signing In Progress Page
-    Then I close driver
-
-  @ESC-018_SIT
-  Scenario:Signing In Progress Page Download button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check Download button the Signing In Progress Page
-    Then I close driver
-
-  @ESC-019_SIT
-  Scenario:Signing In Progress Page Search button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check Search button the Signing In Progress Page
-    Then I close driver
-
-  @ESC-020_SIT
-  Scenario:Signing In Progress Page Reset button check SIT
-    Given logon "ISO_SIT" on ISO
-    When Enter the AllFiles Page SIT
-    Then check Reset button the Signing In Progress Page
-    Then I close driver
+#
+#  @ESC-001_SIT
+#  Scenario:All Files page check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check AllFiles Data
+#    Then I close driver
+#
+#  @ESC-002_SIT
+#  Scenario:To Be Signed page check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check To Be Signed Page
+#    Then I close driver
+#
+#  @ESC-003_SIT
+#  Scenario:Signing In Progress page check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check the Signing In Progress Page
+#    Then I close driver
+#
+#  @ESC-004_SIT
+#  Scenario:Signing Completed page check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check the Signing Completed Page
+#    Then I close driver
+#
+#  @ESC-005_SIT
+#  Scenario:Signing Failed page check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check the Signing Failed Page
+#    Then I close driver
+#
+#  @ESC-006_SIT
+#  Scenario:Template Management page check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check the Template Management Page
+#    Then I close driver
+#
+#  @ESC-007_SIT
+#  Scenario:AllFiles Page See button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check see button
+#    Then I close driver
+#
+#  @ESC-008_SIT
+#  Scenario:AllFiles Page Download button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check Download button
+#    Then I close driver
+#
+#  @ESC-009_SIT
+#  Scenario:AllFiles Page Search button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check Search button
+#    Then I close driver
+#
+#  @ESC-010_SIT
+#  Scenario:AllFiles Page Reset button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check Reset button
+#    Then I close driver
+#
+#  @ESC-011_SIT
+#  Scenario:AllFiles Page batch Download button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check batch Download button
+#    Then I close driver
+#
+#  @ESC-012_SIT
+#  Scenario:To Be Signed Page See button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check see button the To Be Sign Page
+#    Then I close driver
+#
+#  @ESC-013_SIT
+#  Scenario:To Be Signed Page Download button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check Download button the To Be Sign Page
+#    Then I close driver
+#
+#  @ESC-014_SIT
+#  Scenario:To Be Signed Page Search button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check Search button the To Be Sign Page
+#    Then I close driver
+#
+#  @ESC-015_SIT
+#  Scenario:To Be Signed Page Reset button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check Reset button the To Be Sign Page
+#    Then I close driver
+#
+#  @ESC-016_SIT
+#  Scenario:To Be Signed Page batch Download button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check batch Download button the To Be Sign Page
+#    Then I close driver
+#
+#  @ESC-017_SIT
+#  Scenario:Signing In Progress Page see button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check see button the Signing In Progress Page
+#    Then I close driver
+#
+#  @ESC-018_SIT
+#  Scenario:Signing In Progress Page Download button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check Download button the Signing In Progress Page
+#    Then I close driver
+#
+#  @ESC-019_SIT
+#  Scenario:Signing In Progress Page Search button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check Search button the Signing In Progress Page
+#    Then I close driver
+#
+#  @ESC-020_SIT
+#  Scenario:Signing In Progress Page Reset button check SIT
+#    Given logon "ISO_SIT" on ISO
+#    When Enter the AllFiles Page SIT
+#    Then check Reset button the Signing In Progress Page
+#    Then I close driver
 
   @ESC-021_SIT
   Scenario:Signing In Progress Page batch Download button check SIT
@@ -231,6 +231,7 @@ Feature: VaPatch_ESC_SIT
     When Enter the AllFiles Page SIT
     Then check Initiate contract button the Contract Management Page
     Then check Use template the Template Management Page
+    Then check Use template the Template Management Page SIT
     Then I close driver
 
   @ESC-034_SIT

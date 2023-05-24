@@ -1149,8 +1149,13 @@ public class creatCustomers_step extends ScenarioSteps {
 
     @Step
     public void UnderWritingMenu(){
-        customers_page.clickMoreMenu.click();
-        customers_page.clickUnderwritingMenu.click();
+        if(customers_page.clickUnderwritingMenuTtile.isVisible()){
+            customers_page.clickUnderwritingMenuTtile.click();
+        }else {
+            customers_page.clickMoreMenu.click();
+            bddUtil.sleep(1);
+            customers_page.clickUnderwritingMenu.click();
+        }
         customers_page.clickUnderwritingApproval.click();
         customers_page.clickAssignedToMeBtn.click();
     }

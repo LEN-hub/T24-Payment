@@ -1156,6 +1156,29 @@ public class VaPatch_step extends ScenarioSteps {
         }
     }
 
+    //    检查Template Management页面use template按钮
+    public void checkTemplateManagementUseTemplateBtnSIT() throws Exception{
+        vaPatch_page.TemplateManagementBtn.click();
+        bddUtil.sleep(4);
+        vaPatch_page.TemplateNameInput.sendKeys("个人租房合同协议-2023-2");
+        vaPatch_page.SubmitBtn.click();
+        bddUtil.sleep(2);
+        vaPatch_page.UseTemplateBtn.click();
+        bddUtil.sleep(2);
+        // 上传文件
+        getDriver().findElement(By.xpath("//input[@type='file']")).sendKeys(uploadExcelFile);
+        bddUtil.sleep(2);
+        vaPatch_page.UseTemplateConfirmBtn.click();
+        bddUtil.sleep(5);
+        String text = vaPatch_page.ToBeSignedBtn.getText();
+        bddUtil.sleep(3);
+        if (text.equals("To Be Signed")){
+            System.out.println("Use Template正常");
+        }else {
+            throw new Exception("Use Template功能有问题");
+        }
+    }
+
 //    检查Contract Management页面 Initiate contract按钮
     public void checkInitiateContratBtn(){
         vaPatch_page.InitiateContratBtn.click();
