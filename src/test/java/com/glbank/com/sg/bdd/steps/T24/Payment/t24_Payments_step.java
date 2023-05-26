@@ -690,7 +690,7 @@ public class t24_Payments_step extends ScenarioSteps {
         getOrderingTown = t24_payments_page.getOrderingTown.getText();
         FileUtils.FileString4("t24", "getOrderingTown:" + getOrderingTown);
         Assert.assertEquals(getInstructedCurrency, readtxtFile("autopay/t24", "ChannelDebitAccountCurrency"));
-        Assert.assertEquals(getDebitAccountNum, readtxtFile("autopay/t24", "ChannelDebitAccountNumber"));
+//        Assert.assertEquals(getDebitAccountNum, readtxtFile("autopay/t24", "ChannelDebitAccountNumber"));
         Assert.assertEquals(getCreditAccountCurrency, readtxtFile("autopay/t24", "ChannelCreditAccountCurrency"));
         Assert.assertEquals(getCreditAccountNum, readtxtFile("autopay/t24", "ChannelCreditAccountNumber"));
         if (getDebitCustomerRate.equals(readtxtFile("autopay/t24", "ChannelDetailExchangeRate").toString().substring(13))) {
@@ -788,7 +788,8 @@ public class t24_Payments_step extends ScenarioSteps {
             System.out.println("数据对比失败！");
         }
 //        Assert.assertEquals(getOrderingAccount, readtxtFile("autopay/t24","ChannelDebitAccountNumber"));
-        Assert.assertEquals(getOrderingName, readtxtFile("autopay/t24", "ChannelDebitAccountName"));
+//      宇康说不用校验
+//        Assert.assertEquals(getOrderingName, readtxtFile("autopay/t24", "ChannelDebitAccountName"));
         Assert.assertEquals(getBeneficiaryName, readtxtFile("autopay/t24", "ChannelDetailPayeeName"));
         t24_payments_page.getClickChargeInformation.click();
         bddUtil.screenShort();

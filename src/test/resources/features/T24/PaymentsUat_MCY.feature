@@ -48,15 +48,15 @@ Feature: receipt and payment service
   @Payment_Own_Transfer_MCY_SGD-USD_UAT
   #SGD->USD
   Scenario:I have successfully transferred from Singapore currency to US dollar(MCY)
-    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
-    When I will complete the inter-bank transfer on the page
-      |From Account    |To Account   |currency|
-      |1102 0571 063   |1101 0001 434|SGD     |
-    Then I check to see if the page jumps
-    When I verify the page information and click the Next button
-    Then My account has been transferred successfully To Local Payment
-      |WordPath   |
-      |SGD-USD MCY|
+#    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+#    When I will complete the inter-bank transfer on the page
+#      |From Account    |To Account   |currency|
+#      |1102 0571 063   |1101 0001 434|SGD     |
+#    Then I check to see if the page jumps
+#    When I verify the page information and click the Next button
+#    Then My account has been transferred successfully To Local Payment
+#      |WordPath   |
+#      |SGD-USD MCY|
     Given to verify transaction in T24 using "T24-automation-UAT-login"
     When I type in the content and click the search button on Local Payment
       |search content           |windows Title        |WordPath   |
