@@ -74,7 +74,7 @@ Feature: Payment Order(Loan Disbursement)
 
 
 
-  @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount=100M
+  @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount=1M
   Scenario:AA Disbursement (SGMEPS) SGD-SGDAmount=100M
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Loan Transactions Button
