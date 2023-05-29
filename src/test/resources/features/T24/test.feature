@@ -1,9 +1,6 @@
 @PaymentTest_IncomingAndT24
 Feature: PaymentTest_IncomingAndT24
-
-  @PaymentUat_OE
-  Feature: Outgoing Customer Transfer
-
+  
   @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_UAT_Amount<250K
   Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount<250K
     Given Use "T24-automation-UAT-login" to login to T24 environment
