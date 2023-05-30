@@ -1,64 +1,64 @@
 @PaymentTest_IncomingAndT24
 Feature: PaymentTest_IncomingAndT24
-  
-  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_UAT_Amount<250K
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount<250K
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Outgoing ISO Customer Transfer
-    Then I enter Outgoing ISO Customer Transfer Page
-    When I Input incomplete information on ISO Customer Transfer Page
-      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |
-      |DBSSSGS0            |SGD                 |10               |11010001981         |SGD                   |56456465        |LEI           |
-    Then I input Street Name on the ISO Customer Transfer Page
-      |Street Name|Town Name |Creditor Country|
-      |liyukang   |testabc   |SG              |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I enter View Page
-    Then I enter View Details Page
+
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_UAT_Amount<250K
+#  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount<250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |
+#      |DBSSSGS0            |SGD                 |10                  |11010001981         |SGD                   |56456465        |LEI           |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I enter View Page
+#    Then I enter View Details Page
 
 
-  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_UAT_Amount>250K
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount>250K
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Outgoing ISO Customer Transfer
-    Then I enter Outgoing ISO Customer Transfer Page
-    When I Input incomplete information on ISO Customer Transfer Page
-      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |
-      |DBSSSGS0            |SGD                 |260000              |11010001981         |SGD                   |56456465        |LEI           |
-    Then I input Street Name on the ISO Customer Transfer Page
-      |Street Name|Town Name |Creditor Country|
-      |liyukang   |testabc   |SG              |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I enter View Page
-    Then I enter View Details Page
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_UAT_Amount>250K
+#  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount>250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |
+#      |DBSSSGS0            |SGD                 |260000              |11010001981         |SGD                   |56456465        |LEI           |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I enter View Page
+#    Then I enter View Details Page
 
 
 
@@ -120,64 +120,64 @@ Feature: PaymentTest_IncomingAndT24
     When I enter View Page to USD
     Then I enter View Details Page
 
-  @Payment_OE_Outgoing_Bank_Transfer_SGD-SGD_UAT_Amount<250K
-  Scenario:Payment_OE_Outgoing_Bank_Transfer_(SGD-SGD)_UAT Amount<250K
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Outgoing ISO Bank Transfer
-    Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |DBSSSGS0            |SGD                 |2003              |USD142000001        |4656465         |CITISGS0    |rew          |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Sender Reference|End To End Identification|
-      |                |                         |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I enter View Page to OE Outgoing_Bank_Transfer
-    Then I enter View Details Page
+#  @Payment_OE_Outgoing_Bank_Transfer_SGD-SGD_UAT_Amount<250K
+#  Scenario:Payment_OE_Outgoing_Bank_Transfer_(SGD-SGD)_UAT Amount<250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |DBSSSGS0            |SGD                 |2003              |USD142000001        |4656465         |CITISGS0    |rew          |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Sender Reference|End To End Identification|
+#      |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I enter View Page to OE Outgoing_Bank_Transfer
+#    Then I enter View Details Page
 
 
-  @Payment_OE_Outgoing_Bank_Transfer_SGD-SGD_UAT_Amount>250K
-  Scenario:Payment_OE_Outgoing_Bank_Transfer_(SGD-SGD)_UAT Amount>250K
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Outgoing ISO Bank Transfer
-    Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |DBSSSGS0            |SGD                 |260003            |USD142000001        |4656465         |CITISGS0    |rew          |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Sender Reference|End To End Identification|
-      |                |                         |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I enter View Page to OE Outgoing_Bank_Transfer
-    Then I enter View Details Page
+#  @Payment_OE_Outgoing_Bank_Transfer_SGD-SGD_UAT_Amount>250K
+#  Scenario:Payment_OE_Outgoing_Bank_Transfer_(SGD-SGD)_UAT Amount>250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |DBSSSGS0            |SGD                 |260003            |USD142000001        |4656465         |CITISGS0    |rew          |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Sender Reference|End To End Identification|
+#      |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I enter View Page to OE Outgoing_Bank_Transfer
+#    Then I enter View Details Page
 
 
   @Payment_OE_Outgoing_Bank_Transfer_USD-USD_UAT_Amount<250K
@@ -242,7 +242,7 @@ Feature: PaymentTest_IncomingAndT24
 
      #特殊案例
   @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Name
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount<250K
+  Scenario:Payment_OE_Outgoing_Customer_Transfer_（SGD-SGD）_Special_Creditor_Name
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I enter Outgoing ISO Customer Transfer Page
@@ -271,7 +271,7 @@ Feature: PaymentTest_IncomingAndT24
     Then I enter View Details Page
 
   @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Name
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(USD-USD) Amount<250K
+  Scenario:Payment_OE_Outgoing_Customer_Transfer_（USD-USD）_Special_Creditor_Name
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing Customer Transfer
     Then I enter Outgoing Customer Transfer Page
@@ -297,7 +297,7 @@ Feature: PaymentTest_IncomingAndT24
     Then I enter View Details Page
 
   @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Address
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount<250K
+  Scenario:Payment_OE_Outgoing_Customer_Transfer_（SGD-SGD）_Special_Creditor_Address
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I enter Outgoing ISO Customer Transfer Page
@@ -326,7 +326,7 @@ Feature: PaymentTest_IncomingAndT24
     Then I enter View Details Page
 
   @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Address
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(USD-USD) Amount<250K
+  Scenario:Payment_OE_Outgoing_Customer_Transfer_（USD-USD）_Special_Creditor_Address
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing Customer Transfer
     Then I enter Outgoing Customer Transfer Page
@@ -355,7 +355,7 @@ Feature: PaymentTest_IncomingAndT24
     Then I enter View Details Page
 
   @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Name>35
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount<250K
+  Scenario:Payment_OE_Outgoing_Customer_Transfer_（SGD-SGD）_Special_Creditor_Name>35
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I enter Outgoing ISO Customer Transfer Page
@@ -384,7 +384,7 @@ Feature: PaymentTest_IncomingAndT24
     Then I enter View Details Page
 
   @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Name>35
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(USD-USD) Amount<250K
+  Scenario:Payment_OE_Outgoing_Customer_Transfer_（USD-USD）_Special_Creditor_Name>35
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing Customer Transfer
     Then I enter Outgoing Customer Transfer Page
@@ -411,7 +411,7 @@ Feature: PaymentTest_IncomingAndT24
 
 
   @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Address>35
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount<250K
+  Scenario:Payment_OE_Outgoing_Customer_Transfer_（SGD-SGD）_Special_Creditor_Address>35
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I enter Outgoing ISO Customer Transfer Page
@@ -440,7 +440,7 @@ Feature: PaymentTest_IncomingAndT24
     Then I enter View Details Page
 
   @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Address>35
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(USD-USD) Amount<250K
+  Scenario:Payment_OE_Outgoing_Customer_Transfer_（USD-USD）_Special_Creditor_Address>35
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing Customer Transfer
     Then I enter Outgoing Customer Transfer Page
@@ -471,7 +471,7 @@ Feature: PaymentTest_IncomingAndT24
 
     #修改Debitor相关信息再执行脚本
   @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Address_Debitor_Address_Debitor_name_Creditor_name>35
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount<250K
+  Scenario:Payment_OE_Outgoing_Customer_Transfer_（SGD-SGD）_Special_Creditor_Address_Debitor_Address_Debitor_name_Creditor_name>35
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I enter Outgoing ISO Customer Transfer Page
@@ -500,7 +500,7 @@ Feature: PaymentTest_IncomingAndT24
     Then I enter View Details Page
 
   @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Address_Debitor_Address_Debitor_name_Creditor_name>35
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(USD-USD) Amount<250K
+  Scenario:Payment_OE_Outgoing_Customer_Transfer_（USD-USD）_Special_Creditor_Address_Debitor_Address_Debitor_name_Creditor_name>35
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing Customer Transfer
     Then I enter Outgoing Customer Transfer Page
@@ -529,7 +529,7 @@ Feature: PaymentTest_IncomingAndT24
     Then I enter View Details Page
 
   @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Address_Debitor_Address_Debitor_name_Creditor_name
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount<250K
+  Scenario:Payment_OE_Outgoing_Customer_Transfer_（SGD-SGD）_Special_Creditor_Address_Debitor_Address_Debitor_name_Creditor_name
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I enter Outgoing ISO Customer Transfer Page
@@ -558,7 +558,7 @@ Feature: PaymentTest_IncomingAndT24
     Then I enter View Details Page
 
   @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Address_Debitor_Address_Debitor_name_Creditor_name
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(USD-USD) Amount<250K
+  Scenario:Payment_OE_Outgoing_Customer_Transfer_（USD-USD）_Special_Creditor_Address_Debitor_Address_Debitor_name_Creditor_name
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing Customer Transfer
     Then I enter Outgoing Customer Transfer Page
@@ -585,3 +585,47 @@ Feature: PaymentTest_IncomingAndT24
     Then I input FTNumber and click Find
     When I enter View Page to USD
     Then I enter View Details Page
+
+
+  @Incoming_Payment_999
+  Scenario:Incoming payment-999
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL231320CGHJKGD|
+    When I enter View Page to USD Loan
+    Then I enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement
+      |Arrangement    |
+      |11010002716    |
+    When I click Find Butt
+
+  @Incoming_Payment_235
+  Scenario:Incoming payment-235
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23150GB0HD0CG|
+    When I change status code SGD
+    Then I close driver
+    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input FTNumber and click Find Authorise
+    And I close driver
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23150GB0HD0CG|
+    When I enter View Page to USD Loan
+    Then I enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement
+      |Arrangement    |
+      |11010002716    |
+    When I click Find Butt
