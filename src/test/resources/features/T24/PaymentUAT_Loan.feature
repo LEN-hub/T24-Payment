@@ -7,6 +7,7 @@ Feature: Payment Order(Loan Disbursement)
     When I click Loan Transactions Button
     Then I click AA Disbursement External Button
     Then I enter input the Disbursement External Page
+    Then Assert enter Disbursement External Page
     When I input information on the Loan Disbursement External Page
       |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|
       |18000001527         |USD           |USD             |8            |
@@ -19,17 +20,19 @@ Feature: Payment Order(Loan Disbursement)
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
+    Then Assert Result whether Successful
     And I close driver
     Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
     When I click Loan Transactions Button
     Then I click Authorise/Delete Arrangements (PO) Button
     Then I input PI Number and click Find
+    Then Assert Result whether Successful
     And I close driver
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input LoanPINumber and click Find
-    When I enter View Page to USD Loan
-    Then I enter View Details Page
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
 
 
   @Payment_Loan_Disbursement_External_USD-USD_Amount>250K
@@ -38,6 +41,7 @@ Feature: Payment Order(Loan Disbursement)
     When I click Loan Transactions Button
     Then I click AA Disbursement External Button
     Then I enter input the Disbursement External Page
+    Then Assert enter Disbursement External Page
     When I input information on the Loan Disbursement External Page
       |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|
       |18500002891         |USD           |USD             |250007        |
@@ -50,11 +54,13 @@ Feature: Payment Order(Loan Disbursement)
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
+    Then Assert Result whether Successful
     And I close driver
     Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
     When I click Loan Transactions Button
     Then I click Authorise/Delete Arrangements (PO) Button
     Then I input PI Number and click Find
+    Then Assert Result whether Successful
     And I close driver
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
@@ -64,12 +70,13 @@ Feature: Payment Order(Loan Disbursement)
     Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
     When I entered the Pending Authorise Payments page
     Then I input FTNumber and click Find Authorise
+    Then Assert Result whether Successful
     And I close driver
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find
-    When I enter View Page to USD Loan
-    Then I enter View Details Page
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
 
 
 
@@ -89,17 +96,19 @@ Feature: Payment Order(Loan Disbursement)
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
+    Then Assert Result whether Successful
     And I close driver
     Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
     When I click Loan Transactions Button
     Then I click Authorise/Delete Arrangements (PO) Button
     Then I input PI Number and click Find
+    Then Assert Result whether Successful
     And I close driver
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input LoanPINumber and click Find
-    When I enter View Page to USD Loan SGMEPS
-    Then I enter View Details Page
+    When I Assert enter View Page to USD Loan SGMEPS
+    Then I Assert enter View Details Page
 
 
   @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount>250K
@@ -117,6 +126,7 @@ Feature: Payment Order(Loan Disbursement)
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
+    Then Assert Result whether Successful
     And I close driver
     Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
     When I click Loan Transactions Button
@@ -135,8 +145,8 @@ Feature: Payment Order(Loan Disbursement)
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find
-    When I enter View Page to USD Loan SGMEPS
-    Then I enter View Details Page
+    When I Assert enter View Page to USD Loan SGMEPS
+    Then I Assert enter View Details Page
 
 
 #    AA Disbursement Internal USD-USD
@@ -150,6 +160,7 @@ Feature: Payment Order(Loan Disbursement)
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
+    Then Assert Result whether Successful
     And I close driver
     Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
     When I click Loan Transactions Button
@@ -159,8 +170,8 @@ Feature: Payment Order(Loan Disbursement)
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input LoanPINumber and click Find
-    When I enter View Page to USD Loan Internal
-    Then I enter View Details Page
+    When I Assert enter View Page to USD Loan Internal
+    Then I Assert enter View Details Page
 
   @AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<250K
   Scenario: AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<250K
@@ -172,6 +183,7 @@ Feature: Payment Order(Loan Disbursement)
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
+    Then Assert Result whether Successful
     And I close driver
     Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
     When I click Loan Transactions Button
@@ -181,5 +193,5 @@ Feature: Payment Order(Loan Disbursement)
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input LoanPINumber and click Find
-    When I enter View Page to USD Loan Internal
-    Then I enter View Details Page
+    When I Assert enter View Page to USD Loan Internal
+    Then I Assert enter View Details Page

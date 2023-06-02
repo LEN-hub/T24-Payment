@@ -85,7 +85,7 @@ public class accountChange_steps extends ScenarioSteps {
         }
         String testPage = driver.getPageSource();
         System.out.println(testPage);
-        if (MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout [ends-with(@resource-id,'btn_otp')]/child::android.widget.TextView[2]").getText().equals("一次性\n密码")) {
+       if (MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout [ends-with(@resource-id,'btn_otp')]/child::android.widget.TextView[2]").getText().equals("一次性\n密码")) {
             test.transactionCode();
         }else {
             test.clickSystemPopupWindows();

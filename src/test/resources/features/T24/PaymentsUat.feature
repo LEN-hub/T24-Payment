@@ -182,7 +182,7 @@ Feature: receipt and payment service
       |AA Arrangement - SIT GLDB|Local Fund Payment SGD-SGD |
 
     #境外转账
-  @Payment_Overseas_Transfer_USD-SGD_UAT
+  @Payment_Overseas_Transfer_USD-USD_UAT
   Scenario:Positive process of overseas transfer Bic Is DBS(USD--USD)
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account

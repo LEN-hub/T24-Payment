@@ -350,7 +350,7 @@ public class t24_Payments_glue {
     public void iCheckTheDeductionAmountOnTheFindAccountPageOnLocalPayment(DataTable data) {
         t24_payments_step.closeTabJumpToHomePage();
         t24_payments_step.clickProductsMenu();
-        t24_payments_step.clickFindAccountMenu();
+        t24_payments_step.clickFindMultiCurrencyS();
         t24_payments_step.switchToDefaultContent();
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
@@ -374,7 +374,8 @@ public class t24_Payments_glue {
         bddUtil.switchToNewWindow();
         t24_payments_step.switchToSecondFrame();
         t24_payments_step.clickProductsMenu();
-        t24_payments_step.clickFindAccountMenu();
+//        t24_payments_step.clickFindAccountMenu();
+        t24_payments_step.clickFindMultiCurrencyS();
         t24_payments_step.switchToDefaultContent();
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
@@ -444,9 +445,9 @@ public class t24_Payments_glue {
         t24_payments_step.clickISOCustomerTransfer();
     }
 
-    @Then("^I enter Outgoing ISO Customer Transfer Page$")
-    public void iEnterOutgoingISOCustomerTransferPage() {
-        t24_payments_step.enterISOCustomerTransferPage();
+    @Then("^I Assertion enter Outgoing ISO Customer Transfer Page$")
+    public void iAssertionEnterOutgoingISOCustomerTransferPage() {
+        t24_payments_step.AssertionEnterISOCustomerTransferPage();
     }
 
     @Then("^I enter Outgoing Customer Transfer Page$")
@@ -498,9 +499,11 @@ public class t24_Payments_glue {
         t24_payments_step.inputFTNumberAuthorise();
     }
 
-    @When("^I enter View Page$")
-    public void iEnterViewPage() throws Exception{
+    @When("^I Assert enter View Page$")
+    public void iAssertEnterViewPage() throws Exception{
         t24_payments_step.enterView();
+//        断言是否进入EnterViewPage
+        t24_payments_step.assertEnterViewPage();
 //        查看各个页面的数据
         t24_payments_step.clickChargeInformation();
         t24_payments_step.clickRoutingformation();
@@ -521,10 +524,12 @@ public class t24_Payments_glue {
     }
 
 //    进入放大镜页面
-    @Then("^I enter View Details Page$")
-    public void iEnterViewDetailsPage() throws IOException {
+    @Then("^I Assert enter View Details Page$")
+    public void iAssertEnterViewDetailsPage() throws IOException {
         t24_payments_step.clickViewDetail();
         t24_payments_step.switchToFirstFrame();
+//        断言是否View Details Page进入页面
+        t24_payments_step.AssertEnterViewDetailsPage();
 //        查看Audit Trail页面
         t24_payments_step.selectAuditTrail();
 //        查看进入Posting Lines页面
@@ -569,9 +574,11 @@ public class t24_Payments_glue {
         t24_payments_step.inputInformationOnOutgoingCustomerTransferPage(maps.get(0).get("Debit Account Number"),maps.get(0).get("Receiver Institution BIC"),maps.get(0).get("Debit Account Currency"),maps.get(0).get("Transaction Currency"),maps.get(0).get("Transaction Amount"),maps.get(0).get("Beneficiary Account"),maps.get(0).get("Beneficiary Name"));
     }
 
-    @When("^I enter View Page to USD$")
-    public void iEnterViewPageToUSD() throws Exception{
+    @When("^I Assert enter View Page to USD$")
+    public void iAssertEnterViewPageToUSD() throws Exception{
         t24_payments_step.enterView();
+        //        断言是否进入EnterViewPage
+        t24_payments_step.assertEnterViewPage();
 //        查看各个页面的数据
         t24_payments_step.clickChargeInformation();
         t24_payments_step.clickRoutingformation();
@@ -584,9 +591,11 @@ public class t24_Payments_glue {
         bddUtil.sleep(1);
     }
 
-    @When("^I enter View Page to USD Loan$")
-    public void iEnterViewPageToUSDLoan() throws Exception{
+    @When("^I Assert enter View Page to USD Loan$")
+    public void iAssertEnterViewPageToUSDLoan() throws Exception{
         t24_payments_step.enterView();
+        //        断言是否进入EnterViewPage
+        t24_payments_step.assertLoanEnterViewPage();
 //        查看各个页面的数据
         t24_payments_step.clickChargeInformation();
         t24_payments_step.clickRoutingformation();
@@ -600,9 +609,11 @@ public class t24_Payments_glue {
     }
 
 //    查看SGMEPS的  详情页面信息
-    @When("^I enter View Page to USD Loan SGMEPS$")
-    public void iEnterViewPageToUSDLoanSGMEPS() throws Exception{
+    @When("^I Assert enter View Page to USD Loan SGMEPS$")
+    public void iAssertEnterViewPageToUSDLoanSGMEPS() throws Exception{
         t24_payments_step.enterView();
+        //        断言是否进入EnterViewPage
+        t24_payments_step.assertEnterViewPage();
 //        查看各个页面的数据
         t24_payments_step.clickChargeInformation();
         t24_payments_step.clickRoutingformation();
@@ -624,9 +635,11 @@ public class t24_Payments_glue {
     }
 
     //    Internal  详情页面信息
-    @When("^I enter View Page to USD Loan Internal$")
-    public void iEnterViewPageToUSDLoanInternal() throws Exception{
+    @When("^I Assert enter View Page to USD Loan Internal$")
+    public void iAssertEnterViewPageToUSDLoanInternal() throws Exception{
         t24_payments_step.enterView();
+        //        断言是否进入EnterViewPage
+        t24_payments_step.assertLoanEnterViewPage();
 //        查看各个页面的数据
         t24_payments_step.clickErrorInformation();
         t24_payments_step.clickChargeInformation();
@@ -639,9 +652,11 @@ public class t24_Payments_glue {
         bddUtil.sleep(1);
     }
 
-    @When("^I enter View Page to OE Outgoing_Bank_Transfer$")
-    public void iEnterViewPageToOEOutgoing_Bank_Transfer() throws Exception{
+    @When("^I Assert enter View Page to OE Outgoing_Bank_Transfer$")
+    public void iAssertEnterViewPageToOEOutgoing_Bank_Transfer() throws Exception{
         t24_payments_step.enterView();
+        //        断言是否进入EnterViewPage
+        t24_payments_step.assertEnterViewPage();
 //        查看各个页面的数据
         t24_payments_step.clickRoutingformation();
         t24_payments_step.clickAdditionalInfoUSD();
@@ -828,5 +843,25 @@ public class t24_Payments_glue {
     @Then("^I click SGD Overview$")
     public void iClickSGDOverview() {
         t24_payments_step.clickSGDOverView();
+    }
+
+    @Then("^Assert Result whether Successful$")
+    public void assertResultWhetherSuccessful() {
+        t24_payments_step.assertResultSuccessful();
+    }
+
+    @Then("^Assert enter Disbursement External Page$")
+    public void assertEnterDisbursementExternalPage() {
+        t24_payments_step.AssertEnterLoanDisbursementPage();
+    }
+
+    @Then("^Assert enter Account Details Page$")
+    public void assertEnterAccountDetailsPage() {
+        t24_payments_step.AssertEnterAccountDetailsPage();
+    }
+
+    @Then("^Close the current$")
+    public void closeTheCurrent() {
+        t24_payments_step.closetheCurrent();
     }
 }

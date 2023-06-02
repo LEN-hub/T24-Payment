@@ -2289,10 +2289,10 @@ public class paymentService_step extends ScenarioSteps {
             if (expense.equals("SHA") && "The expenses shall be borne by each party".equals(bears.get(i).getText())){
                 bears.get(i).click();
                 break;
-            }else if (expense.equals("BEN") && "All expenses shall be borne by the remitter".equals(bears.get(i).getText())){
+            }else if (expense.equals("BEN") && "All expenses shall be borne by the payee".equals(bears.get(i).getText())){
                 bears.get(i).click();
                 break;
-            } else if (expense.equals("OUR") && "All expenses shall be borne by the payee".equals(bears.get(i).getText())) {
+            } else if (expense.equals("OUR") && "All expenses shall be borne by the remitter".equals(bears.get(i).getText())) {
                 bears.get(i).click();
                 break;
             }
