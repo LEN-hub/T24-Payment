@@ -3,7 +3,7 @@
 <Revision>2.0.12</Revision>
 <Header>
 <Message>
-<SenderReference>23136985CD84533</SenderReference>
+<SenderReference>23132QYGXD12993</SenderReference>
 <MessageIdentifier>pacs.008.001.08</MessageIdentifier>
 <Format>MX</Format>
 <SubFormat>Input</SubFormat>
@@ -14,7 +14,7 @@
 <DN>ou=xxx,o=citisgs0,o=swift</DN>
 </Receiver>
 <InterfaceInfo>
-<UserReference>23136985CD84533</UserReference>
+<UserReference>23132QYGXD12993</UserReference>
 </InterfaceInfo>
 <NetworkInfo>
 <IsNotificationRequested>false</IsNotificationRequested>
@@ -41,17 +41,17 @@
 </FinInstnId>
 </FIId>
 </To>
-<BizMsgIdr>SBD-SGL23136MDHJDDKF</BizMsgIdr>
+<BizMsgIdr>SBD-SGL231320CGHJKGD</BizMsgIdr>
 <MsgDefIdr>pacs.008.001.08</MsgDefIdr>
 <BizSvc>mas.mep.01</BizSvc>
-<CreDt>2023-05-16T14:21:40+08:00</CreDt>
+<CreDt>2023-05-12T14:01:11+08:00</CreDt>
 <Prty>NORM</Prty>
 </AppHdr>
 <Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08">
 <FIToFICstmrCdtTrf>
 <GrpHdr>
-<MsgId>SBD-SGL23136MDHJDDKF</MsgId>
-<CreDtTm>2023-05-16T14:21:40+08:00</CreDtTm>
+<MsgId>SBD-SGL231320CGHJKGD</MsgId>
+<CreDtTm>2023-05-12T14:01:11+08:00</CreDtTm>
 <NbOfTxs>1</NbOfTxs>
 <SttlmInf>
 <SttlmMtd>CLRG</SttlmMtd>
@@ -62,10 +62,10 @@
 </GrpHdr>
 <CdtTrfTxInf>
 <PmtId>
-<InstrId>SGL23136MDHJDDKF</InstrId>
+<InstrId>SGL231320CGHJKGD</InstrId>
 <EndToEndId>NOTPROVIDED</EndToEndId>
-<TxId>SFD-SGL23136MDHJDDKF</TxId>
-<UETR>2de83d19-1fc4-4ab8-8fb2-135e3f5ffbe5</UETR>
+<TxId>SFD-SGL231320CGHJKGD</TxId>
+<UETR>c47f96a2-e627-4a78-9527-c9a4fa258312</UETR>
 </PmtId>
 <PmtTpInf>
 <InstrPrty>NORM</InstrPrty>
@@ -73,9 +73,9 @@
 <Prtry>CRED</Prtry>
 </LclInstrm>
 </PmtTpInf>
-<IntrBkSttlmAmt Ccy="SGD">250007.0</IntrBkSttlmAmt>
-<IntrBkSttlmDt>2023-05-16</IntrBkSttlmDt>
-<InstdAmt Ccy="SGD">250007.0</InstdAmt>
+<IntrBkSttlmAmt Ccy="SGD">250008.0</IntrBkSttlmAmt>
+<IntrBkSttlmDt>2023-05-12</IntrBkSttlmDt>
+<InstdAmt Ccy="SGD">250008.0</InstdAmt>
 <ChrgBr>SHAR</ChrgBr>
 <ChrgsInf>
 <Amt Ccy="SGD">0</Amt>

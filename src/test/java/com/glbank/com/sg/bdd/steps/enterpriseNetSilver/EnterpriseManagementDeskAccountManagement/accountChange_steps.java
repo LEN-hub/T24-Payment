@@ -80,8 +80,12 @@ public class accountChange_steps extends ScenarioSteps {
         MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
         test.testMobile();
         bddUtil.sleep(15);
-        
-        if (MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout [ends-with(@resource-id,'btn_otp')]/child::android.widget.TextView[2]").getText().equals("一次性\n密码")) {
+        if (driver.findElementByXPath("//android.widget.Button [ends-with(@resource-id,'android:id/button1')]").isDisplayed()){
+            driver.findElementByXPath("//android.widget.Button [ends-with(@resource-id,'android:id/button1')]").click();
+        }
+        String testPage = driver.getPageSource();
+        System.out.println(testPage);
+       if (MobileConfig.driver.findElementByXPath("//android.widget.LinearLayout [ends-with(@resource-id,'btn_otp')]/child::android.widget.TextView[2]").getText().equals("一次性\n密码")) {
             test.transactionCode();
         }else {
             test.clickSystemPopupWindows();

@@ -826,5 +826,26 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//td[text()='SGD']/following-sibling::td[6]/a")
     public WebElementFacade SGDOverView;
 
+    @FindBy(xpath = "//a[text()='Order Entry Outgoing ISO Transfer (CTR)']")
+    public WebElementFacade OutgoingISOTransferTitle;
+
+    @FindBy(xpath = "//td[@class='message']")
+    public WebElementFacade message;
+
+    @FindBy(xpath = "//td[@id='dealtitle']/a")
+    public WebElementFacade ViewPageTitle;
+
+    @FindBy(xpath = "//td[@id='dealtitle']/a")
+    public WebElementFacade LoanViewPageTitle;
+
+    @FindBy(xpath = "//td[text()='Options']")
+    public WebElementFacade ViewDetailsPageTitle;
+
+    @FindBy(xpath = "//a[text()='AA Loan Disbursement External']")
+    public WebElementFacade LoanDisbursementTitle;
+
+    @FindBy(xpath = "//td[text()='Account Details']")
+    public WebElementFacade AccountDetailsTitle;
+
 
 }
