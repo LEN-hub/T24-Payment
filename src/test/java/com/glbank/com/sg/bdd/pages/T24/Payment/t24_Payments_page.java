@@ -787,6 +787,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(id = "fieldName:PAYMENT.AMOUNT")
     public WebElementFacade LoanPaymentAmount;
 
+    @FindBy(id = "fieldName:BENEFICIARY.COUNTRY.CODE")
+    public WebElementFacade LoanBeneficiaryCountryCode;
+
     @FindBy(id = "fieldName:BENEFICIARY.ACCOUNT.NO")
     public WebElementFacade BeneficiaryAccountNo;
 

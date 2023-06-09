@@ -2720,14 +2720,14 @@ public class t24_Payments_step extends ScenarioSteps {
     public void assertEnterViewPage(){
         String ViewPageTitle = t24_payments_page.ViewPageTitle.getText();
 //      判断 标题是Repair ie Screen OR View Screen
-        Assert.assertTrue(StringUtils.equalsAny(ViewPageTitle, "Repair ie Screen", "View Screen"));
+        Assert.assertTrue(StringUtils.equalsAny(ViewPageTitle, "Repair View Screen", "View Screen"));
     }
 
     @Step
     public void assertLoanEnterViewPage(){
         String LoanViewPageTitle = t24_payments_page.LoanViewPageTitle.getText();
 //      判断 标题是Repair ie Screen OR View Screen
-        Assert.assertTrue(StringUtils.equalsAny(LoanViewPageTitle, "Repair ie Screen", "View Screen"));
+        Assert.assertTrue(StringUtils.equalsAny(LoanViewPageTitle, "Repair View Screen", "View Screen"));
         bddUtil.sleep(1);
     }
 
@@ -2938,6 +2938,7 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void AssertEnterViewDetailsPage(){
         String EnterViewDetailsTitle = t24_payments_page.ViewDetailsPageTitle.getText();
+        bddUtil.sleep(3);
         Assert.assertEquals(EnterViewDetailsTitle,"Options");
     }
 
@@ -3066,11 +3067,12 @@ public class t24_Payments_step extends ScenarioSteps {
 
     //    补充LoanDisbursement External	页面的信息
     @Step
-    public void inputLoanDisbursementExternal(String LoanDebitAccountNumber, String LoanDebitCurrency, String LoanPaymentCurrency, String LoanPaymentAmount) {
+    public void inputLoanDisbursementExternal(String LoanDebitAccountNumber, String LoanDebitCurrency, String LoanPaymentCurrency, String LoanPaymentAmount,String LoanBeneficiaryCountryCode) {
         t24_payments_page.DebitAccountNumberLoan.sendKeys(LoanDebitAccountNumber);
         t24_payments_page.LoanDebitCurrency.sendKeys(LoanDebitCurrency);
         t24_payments_page.LoanPaymentCurrency.sendKeys(LoanPaymentCurrency);
         t24_payments_page.LoanPaymentAmount.sendKeys(LoanPaymentAmount);
+        t24_payments_page.LoanBeneficiaryCountryCode.sendKeys(LoanBeneficiaryCountryCode);
         bddUtil.sleep(1);
     }
 

@@ -716,7 +716,7 @@ public class t24_Payments_glue {
     @When("^I input information on the Loan Disbursement External Page$")
     public void iInputInformationOnTheLoanDisbursementExternalPage(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputLoanDisbursementExternal(maps.get(0).get("Debit Account Number"),maps.get(0).get("Debit Currency"),maps.get(0).get("Payment Currency"),maps.get(0).get("Payment Amount"));
+        t24_payments_step.inputLoanDisbursementExternal(maps.get(0).get("Debit Account Number"),maps.get(0).get("Debit Currency"),maps.get(0).get("Payment Currency"),maps.get(0).get("Payment Amount"),maps.get(0).get("Beneficiary Country Code"));
 
     }
 
