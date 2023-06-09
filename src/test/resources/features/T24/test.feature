@@ -10,7 +10,7 @@ Feature: Auto_Test
     Then Assert enter Disbursement External Page
     When I input information on the Loan Disbursement External Page
       |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Country Code|
-      |18000000490         |USD           |USD             |1999          |HK                      |
+      |18000000490         |USD           |USD             |1995          |HK                      |
     Then I input information on the Beneficiary Details Page
       |Beneficiary Account No|Beneficiary Name|
       |3242343               |kang            |
@@ -43,7 +43,7 @@ Feature: Auto_Test
     Then Assert enter Disbursement External Page
     When I input information on the Loan Disbursement External Page
       |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Country Code|
-      |18000000490         |USD           |USD             |1998          |US                      |
+      |18000000490         |USD           |USD             |1994          |US                      |
     Then I input information on the Beneficiary Details Page
       |Beneficiary Account No|Beneficiary Name|
       |3242343               |kang            |
@@ -75,7 +75,7 @@ Feature: Auto_Test
     Then I enter input the Disbursement SGMEPS Page
     When I input information on the Loan Disbursement SGMEPS Page
       |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Account No|Beneficiary Bank BIC|Beneficiary Name|
-      |18500001089         |SGD           |SGD             |1997          |345665                |CITISGS0            |lei             |
+      |18500001089         |SGD           |SGD             |1993          |345665                |CITISGS0            |lei             |
     Then I input information on the SGMEPS Beneficiary Details Page
       |Beneficiary Street Name|Beneficiary Post Code|Beneficiary Town Name|Beneficiary Country|Beneficiary Residence Country|
       |teselei                |1234                 |SINGRORE             |HK                 |HK                           |
@@ -105,7 +105,7 @@ Feature: Auto_Test
     Then I enter input the Disbursement SGMEPS Page
     When I input information on the Loan Disbursement SGMEPS Page
       |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Account No|Beneficiary Bank BIC|Beneficiary Name|
-      |18500001089         |SGD           |SGD             |1996          |345665                |CITISGS0            |lei             |
+      |18500001089         |SGD           |SGD             |1992          |345665                |CITISGS0            |lei             |
     Then I input information on the SGMEPS Beneficiary Details Page
       |Beneficiary Street Name|Beneficiary Post Code|Beneficiary Town Name|Beneficiary Country|Beneficiary Residence Country|
       |teselei                |1234                 |SINGRORE             |US                 |US                           |
