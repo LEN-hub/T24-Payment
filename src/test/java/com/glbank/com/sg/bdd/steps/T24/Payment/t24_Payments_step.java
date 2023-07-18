@@ -2351,7 +2351,7 @@ public class t24_Payments_step extends ScenarioSteps {
 
     //    Outgoing SGD-SGD输入信息
     @Step
-    public void inputInformationOnCustomerTransferPage(String InstructedAgentBic, String TransactionCurrency, String TransactionAmount, String DebitAccountNumber, String DebitAccountCurrency, String CreditorAccount, String CreditorName) {
+    public void inputInformationOnCustomerTransferPage(String InstructedAgentBic, String TransactionCurrency, String TransactionAmount, String DebitAccountNumber, String DebitAccountCurrency, String CreditorAccount, String CreditorName, String ChargeOption) {
         t24_payments_page.InstructedAgentBic.sendKeys(InstructedAgentBic);
         t24_payments_page.TransactionCurrency.sendKeys(TransactionCurrency);
         t24_payments_page.TransactionAmount.sendKeys(TransactionAmount);
@@ -2359,13 +2359,15 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.DebitAccountCurrency.sendKeys(DebitAccountCurrency);
         t24_payments_page.CreditorAccount.sendKeys(CreditorAccount);
         t24_payments_page.CreditorName.sendKeys(CreditorName);
+        t24_payments_page.ChargeOption.click();
+        getDriver().findElement(By.xpath("//option[text()='"+ChargeOption+"']")).click();
         bddUtil.sleep(2);
     }
 
     //    Outgoing USD-USD输入信息
 
     @Step
-    public void inputInformationOnOutgoingCustomerTransferPage(String DebitAccountNumber, String ReceiverInstitutionBIC, String DebitAccountCurrency, String TransactionCurrency, String TransactionAmount, String BeneficiaryAccount, String BeneficiaryName) {
+    public void inputInformationOnOutgoingCustomerTransferPage(String DebitAccountNumber, String ReceiverInstitutionBIC, String DebitAccountCurrency, String TransactionCurrency, String TransactionAmount, String BeneficiaryAccount, String BeneficiaryName, String ChargeOption) {
         t24_payments_page.DebitAccountNumber.sendKeys(DebitAccountNumber);
         t24_payments_page.InstructedAgentBic.sendKeys(ReceiverInstitutionBIC);
         t24_payments_page.DebitAccountCurrency.sendKeys(DebitAccountCurrency);
@@ -2373,6 +2375,8 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.TransactionAmount.sendKeys(TransactionAmount);
         t24_payments_page.CreditorAccount.sendKeys(BeneficiaryAccount);
         t24_payments_page.CreditorName.sendKeys(BeneficiaryName);
+        t24_payments_page.ChargeOption.click();
+        getDriver().findElement(By.xpath("//option[text()='"+ChargeOption+"']")).click();
         bddUtil.sleep(2);
     }
 

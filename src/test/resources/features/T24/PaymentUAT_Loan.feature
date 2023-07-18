@@ -1,7 +1,7 @@
 @PaymentUat_Loan
 Feature: Payment Order(Loan Disbursement)
 
-  @Payment_Loan_AA_Disbursement_External_USD-USD_Amount<250K
+  @Payment_Loan_AA_Disbursement_External_USD-USD_Amount<threshold
   Scenario:AA Disbursement External USD-USD Amount<250K
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Loan Transactions Button
@@ -35,7 +35,7 @@ Feature: Payment Order(Loan Disbursement)
     Then I Assert enter View Details Page
 
 
-  @Payment_Loan_Disbursement_External_USD-USD_Amount>250K
+  @Payment_Loan_Disbursement_External_USD-USD_Amount>threshold
   Scenario:AA Disbursement External USD-USD Amount>250K
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Loan Transactions Button
@@ -81,7 +81,7 @@ Feature: Payment Order(Loan Disbursement)
 
 
 
-  @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount<250K
+  @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount<threshold
   Scenario:AA Disbursement (SGMEPS) SGD-SGDAmount<250K
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Loan Transactions Button
@@ -111,7 +111,7 @@ Feature: Payment Order(Loan Disbursement)
     Then I Assert enter View Details Page
 
 
-  @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount>250K
+  @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount>threshold
   Scenario:AA Disbursement (SGMEPS) SGD-SGDAmount>250K
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Loan Transactions Button

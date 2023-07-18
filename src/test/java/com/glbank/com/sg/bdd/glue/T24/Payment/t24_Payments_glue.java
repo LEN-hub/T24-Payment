@@ -458,7 +458,7 @@ public class t24_Payments_glue {
     @When("^I Input incomplete information on ISO Customer Transfer Page$")
     public void iInputIncompleteInformationOnISOCustomerTransferPage(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputInformationOnCustomerTransferPage(maps.get(0).get("Instructed Agent Bic"),maps.get(0).get("Transaction Currency"),maps.get(0).get("Transaction Amount"),maps.get(0).get("Debit Account Number"),maps.get(0).get("Debit Account Currency"),maps.get(0).get("Creditor Account"),maps.get(0).get("Creditor Name"));
+        t24_payments_step.inputInformationOnCustomerTransferPage(maps.get(0).get("Instructed Agent Bic"),maps.get(0).get("Transaction Currency"),maps.get(0).get("Transaction Amount"),maps.get(0).get("Debit Account Number"),maps.get(0).get("Debit Account Currency"),maps.get(0).get("Creditor Account"),maps.get(0).get("Creditor Name"),maps.get(0).get("Charge Option"));
 
     }
 
@@ -571,7 +571,7 @@ public class t24_Payments_glue {
     @When("^I Input incomplete information on Outgoing Customer Transfer Page$")
     public void iInputIncompleteInformationOnOutgoingCustomerTransferPage(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputInformationOnOutgoingCustomerTransferPage(maps.get(0).get("Debit Account Number"),maps.get(0).get("Receiver Institution BIC"),maps.get(0).get("Debit Account Currency"),maps.get(0).get("Transaction Currency"),maps.get(0).get("Transaction Amount"),maps.get(0).get("Beneficiary Account"),maps.get(0).get("Beneficiary Name"));
+        t24_payments_step.inputInformationOnOutgoingCustomerTransferPage(maps.get(0).get("Debit Account Number"),maps.get(0).get("Receiver Institution BIC"),maps.get(0).get("Debit Account Currency"),maps.get(0).get("Transaction Currency"),maps.get(0).get("Transaction Amount"),maps.get(0).get("Beneficiary Account"),maps.get(0).get("Beneficiary Name"),maps.get(0).get("Charge Option"));
     }
 
     @When("^I Assert enter View Page to USD$")

@@ -1,127 +1,251 @@
 @Auto_Test
 Feature: Auto_Test
 
-  @Payment_Loan_AA_Disbursement_External_USD-USD_Amount<250K_Beneficiary_Country_Code=HK
-  Scenario:AA Disbursement External USD-USD Amount<250K Beneficiary Country Code=HK
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click AA Disbursement External Button
-    Then I enter input the Disbursement External Page
-    Then Assert enter Disbursement External Page
-    When I input information on the Loan Disbursement External Page
-      |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Country Code|
-      |18500002891         |USD           |USD             |2150          |HK                      |
-    Then I input information on the Beneficiary Details Page
-      |Beneficiary Account No|Beneficiary Name|
-      |3242343               |kang            |
-    When I enter Routing Details Page and added information
-      |Account with Bank BIC |Account With Town Name|Account with Bank Country|
-      |CITISGS0              |SINGAPORE             |SG                       |
-    Then I get LoanPINumber
+  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_UAT_Amount<threshold1
+  Scenario:Regression-Outgoing_T24-0005
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page
+      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+      |DBSSSGS0            |SGD                 |1001                |11010000438         |SGD                   |56456465        |LEI           |SHAR         |
+    Then I input Street Name on the ISO Customer Transfer Page
+      |Street Name|Town Name |Creditor Country|
+      |liyukang   |testabc   |SG              |
+    Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click Authorise/Delete Arrangements (PO) Button
-    Then I input PI Number and click Find
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input LoanPINumber and click Find
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+
+
+  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_UAT_Amount<threshold2
+  Scenario:Regression-Outgoing_T24-0006
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page
+      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+      |DBSSSGS0            |SGD                 |1002                |11010000438         |SGD                   |56456465        |LEI           |CRED         |
+    Then I input Street Name on the ISO Customer Transfer Page
+      |Street Name|Town Name |Creditor Country|
+      |liyukang   |testabc   |SG              |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+
+
+  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_UAT_Amount<threshold3
+  Scenario:Regression-Outgoing_T24-0007
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page
+      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+      |DBSSSGS0            |SGD                 |1003                |11010000438         |SGD                   |56456465        |LEI           |DEBT         |
+    Then I input Street Name on the ISO Customer Transfer Page
+      |Street Name|Town Name |Creditor Country|
+      |liyukang   |testabc   |SG              |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+
+
+  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_UAT_Amount<threshold4
+  Scenario:Regression-Outgoing_T24-0001
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11010000489         |DBSSSGS0                |USD                   |USD                 |1004              |56456465           |LEI             |SHA          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+
+
+  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_UAT_Amount<threshold5
+  Scenario:Regression-Outgoing_T24-0002
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11010000489         |DBSSSGS0                |USD                   |USD                 |1005              |56456465           |LEI             |BEN          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+
+
+  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_UAT_Amount<threshold6
+  Scenario:Regression-Outgoing_T24-0003
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11010000489         |DBSSSGS0                |USD                   |USD                 |1006              |56456465           |LEI             |OUR          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+
+
+  @Incoming_Payment_999_1
+  Scenario:Regression-Incoming-0001
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23199FJJFCKJC|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement
+      |Arrangement    |
+      |11010002716    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
 
-  @Payment_Loan_AA_Disbursement_External_USD-USD_Amount<250K_Beneficiary_Country_Code=US
-  Scenario:AA Disbursement External USD-USD Amount<250K Beneficiary Country Code=US
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click AA Disbursement External Button
-    Then I enter input the Disbursement External Page
-    Then Assert enter Disbursement External Page
-    When I input information on the Loan Disbursement External Page
-      |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Country Code|
-      |18500002891         |USD           |USD             |2160          |US                      |
-    Then I input information on the Beneficiary Details Page
-      |Beneficiary Account No|Beneficiary Name|
-      |3242343               |kang            |
-    When I enter Routing Details Page and added information
-      |Account with Bank BIC |Account With Town Name|Account with Bank Country|
-      |CITISGS0              |SINGAPORE             |SG                       |
-    Then I get LoanPINumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click Authorise/Delete Arrangements (PO) Button
-    Then I input PI Number and click Find
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
+  @Incoming_Payment_999_2
+  Scenario:Regression-Incoming-0003
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input LoanPINumber and click Find
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23199HJMBBF0B|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement
+      |Arrangement    |
+      |11010002716    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
 
-  @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount<250K_Beneficiary_Country_Code=HK
-  Scenario:AA Disbursement (SGMEPS) SGD-SGDAmount<250K Beneficiary Country Code=HK
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click AA AA Disbursement (SGMEPS) Button
-    Then I enter input the Disbursement SGMEPS Page
-    When I input information on the Loan Disbursement SGMEPS Page
-      |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Account No|Beneficiary Bank BIC|Beneficiary Name|
-      |18000001608         |SGD           |SGD             |2200          |345665                |CITISGS0            |lei             |
-    Then I input information on the SGMEPS Beneficiary Details Page
-      |Beneficiary Street Name|Beneficiary Post Code|Beneficiary Town Name|Beneficiary Country|Beneficiary Residence Country|
-      |teselei                |1234                 |SINGRORE             |HK                 |HK                           |
-    Then I get LoanPINumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click Authorise/Delete Arrangements (PO) Button
-    Then I input PI Number and click Find
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
+  @Incoming_Payment_999_3
+  Scenario:Regression-Incoming-0013
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input LoanPINumber and click Find
-    When I Assert enter View Page to USD Loan SGMEPS
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23199KJLG0DLC|
+    When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
-
-
-  @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount<250K_Beneficiary_Country_Code=US
-  Scenario:AA Disbursement (SGMEPS) SGD-SGDAmount<250K Beneficiary Country Code=US
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click AA AA Disbursement (SGMEPS) Button
-    Then I enter input the Disbursement SGMEPS Page
-    When I input information on the Loan Disbursement SGMEPS Page
-      |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Account No|Beneficiary Bank BIC|Beneficiary Name|
-      |18000001608         |SGD           |SGD             |2180          |345665                |CITISGS0            |lei             |
-    Then I input information on the SGMEPS Beneficiary Details Page
-      |Beneficiary Street Name|Beneficiary Post Code|Beneficiary Town Name|Beneficiary Country|Beneficiary Residence Country|
-      |teselei                |1234                 |SINGRORE             |US                 |US                           |
-    Then I get LoanPINumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click Authorise/Delete Arrangements (PO) Button
-    Then I input PI Number and click Find
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input LoanPINumber and click Find
-    When I Assert enter View Page to USD Loan SGMEPS
-    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement
+      |Arrangement    |
+      |11020233869    |
+    When I click Find Butt
+    Then Assert enter Account Details Page

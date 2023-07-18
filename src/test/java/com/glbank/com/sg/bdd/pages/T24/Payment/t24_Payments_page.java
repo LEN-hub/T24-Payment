@@ -614,6 +614,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//label[@for='fieldName:BeneficiaryName']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade CreditorName;
 
+    @FindBy(id = "fieldName:ChargeOption")
+    public WebElementFacade ChargeOption;
+
     @FindBy(xpath = "//label[@for='fieldName:SendersReferenceNumber']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade SenderReference;
 
