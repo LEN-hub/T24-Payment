@@ -10,7 +10,7 @@ Feature: Payment Order(Loan Disbursement)
     Then Assert enter Disbursement External Page
     When I input information on the Loan Disbursement External Page
       |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Country Code|
-      |18500002891         |USD           |USD             |8             |HK                      |
+      |17100007089         |USD           |USD             |100             |HK                    |
     Then I input information on the Beneficiary Details Page
       |Beneficiary Account No|Beneficiary Name|
       |3242343               |kang            |

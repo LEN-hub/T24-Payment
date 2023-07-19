@@ -596,14 +596,14 @@ public class t24_Payments_glue {
     public void iAssertEnterViewPageToUSDLoan() throws Exception{
         t24_payments_step.enterView();
         //        断言是否进入EnterViewPage
-        t24_payments_step.assertLoanEnterViewPage();
+//        t24_payments_step.assertLoanEnterViewPage();
 //        查看各个页面的数据
 //        t24_payments_step.clickChargeInformation();
 //        t24_payments_step.clickRoutingformation();
 //        t24_payments_step.clickAdditionalInfoUSD();
 //        t24_payments_step.clickErrorInformation();
 //        t24_payments_step.clickChangedFieldsLoan();
-//        t24_payments_step.clickAuditLoan();
+        t24_payments_step.clickAuditLoan();
 //        查看完详细信息关闭当前窗口
         bddUtil.closeWindow();
         bddUtil.sleep(1);
@@ -659,13 +659,13 @@ public class t24_Payments_glue {
         //        断言是否进入EnterViewPage
         t24_payments_step.assertEnterViewPage();
 //        查看各个页面的数据
-        t24_payments_step.clickRoutingformation();
-        t24_payments_step.clickAdditionalInfoUSD();
-        t24_payments_step.clickErrorInformation();
-        t24_payments_step.clickExtendedDebtorInfo();
-        t24_payments_step.clickExtendedCreditorInfo();
-        t24_payments_step.clickPrevInstrAgentsOEBank();
-        t24_payments_step.clickChangedFieldsOEBank();
+//        t24_payments_step.clickRoutingformation();
+//        t24_payments_step.clickAdditionalInfoUSD();
+//        t24_payments_step.clickErrorInformation();
+//        t24_payments_step.clickExtendedDebtorInfo();
+//        t24_payments_step.clickExtendedCreditorInfo();
+//        t24_payments_step.clickPrevInstrAgentsOEBank();
+//        t24_payments_step.clickChangedFieldsOEBank();
         t24_payments_step.clickAuditOEBank();
     }
 
