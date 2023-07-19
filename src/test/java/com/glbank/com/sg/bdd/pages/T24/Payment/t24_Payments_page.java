@@ -853,5 +853,6 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//td[text()='Account Details']")
     public WebElementFacade AccountDetailsTitle;
 
-
+    @FindBy(xpath = "//span[text()='Audit']")
+    public WebElementFacade getAudit;
 }

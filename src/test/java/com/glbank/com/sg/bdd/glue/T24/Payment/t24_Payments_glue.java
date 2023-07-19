@@ -350,7 +350,8 @@ public class t24_Payments_glue {
     public void iCheckTheDeductionAmountOnTheFindAccountPageOnLocalPayment(DataTable data) {
         t24_payments_step.closeTabJumpToHomePage();
         t24_payments_step.clickProductsMenu();
-        t24_payments_step.clickFindMultiCurrencyS();
+        t24_payments_step.clickFindAccountMenu();
+//        t24_payments_step.clickFindMultiCurrencyS();
         t24_payments_step.switchToDefaultContent();
         List<Map<String, String>> title = data.asMaps(String.class, String.class);
         t24_payments_step.jumpNewWindows(title.get(0).get("windows Title"));
@@ -580,11 +581,11 @@ public class t24_Payments_glue {
         //        断言是否进入EnterViewPage
         t24_payments_step.assertEnterViewPage();
 //        查看各个页面的数据
-        t24_payments_step.clickChargeInformation();
-        t24_payments_step.clickRoutingformation();
-        t24_payments_step.clickAdditionalInfoUSD();
-        t24_payments_step.clickErrorInformation();
-        t24_payments_step.clickChangedFields();
+//        t24_payments_step.clickChargeInformation();
+//        t24_payments_step.clickRoutingformation();
+//        t24_payments_step.clickAdditionalInfoUSD();
+//        t24_payments_step.clickErrorInformation();
+//        t24_payments_step.clickChangedFields();
         t24_payments_step.clickAudit();
 //        查看完详细信息关闭当前窗口
         bddUtil.closeWindow();
@@ -597,12 +598,12 @@ public class t24_Payments_glue {
         //        断言是否进入EnterViewPage
         t24_payments_step.assertLoanEnterViewPage();
 //        查看各个页面的数据
-        t24_payments_step.clickChargeInformation();
-        t24_payments_step.clickRoutingformation();
+//        t24_payments_step.clickChargeInformation();
+//        t24_payments_step.clickRoutingformation();
 //        t24_payments_step.clickAdditionalInfoUSD();
 //        t24_payments_step.clickErrorInformation();
 //        t24_payments_step.clickChangedFieldsLoan();
-        t24_payments_step.clickAuditLoan();
+//        t24_payments_step.clickAuditLoan();
 //        查看完详细信息关闭当前窗口
         bddUtil.closeWindow();
         bddUtil.sleep(1);

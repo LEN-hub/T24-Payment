@@ -18,7 +18,7 @@ public class JenkinsReportData {
 //creating a constructor of file class and parsing an XML file
             int startIndex = systemPath.indexOf("workspace\\")+10;
             String fileName = systemPath.substring(startIndex);
-            File file = new File("C:/Users/CyberArk/.jenkins/workspace/"+fileName+"/target/failsafe-reports/failsafe-summary.xml");
+            File file = new File("D:/JenkinsData/workspace/"+fileName+"/target/failsafe-reports/failsafe-summary.xml");
 //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 //an instance of builder to parse the specified xml file
@@ -60,7 +60,7 @@ public class JenkinsReportData {
     public static void writeFile(String path) throws Exception{
         int startIndex = systemPath.indexOf("workspace\\")+10;
         String fileName = systemPath.substring(startIndex);
-        String allPath = "C:/Users/CyberArk/.jenkins/workspace/"+fileName+"/src/test/resources/testData/autopay/" + path + ".txt";
+        String allPath = "D:/JenkinsData/workspace/"+fileName+"/src/test/resources/testData/autopay/" + path + ".txt";
         File f = new File (allPath);
         FileWriter fw = new FileWriter (f);
         fw.write("");
@@ -72,7 +72,7 @@ public class JenkinsReportData {
         int startIndex = systemPath.indexOf("workspace\\")+10;
         String fileName = systemPath.substring(startIndex);
         try {
-            String allPath = "C:/Users/CyberArk/.jenkins/workspace/"+fileName+"/src/test/resources/testData/autopay/" + path + ".txt";
+            String allPath = "D:/JenkinsData/workspace/"+fileName+"/src/test/resources/testData/autopay/" + path + ".txt";
             File file=new File(allPath);
             if(!file.isFile() && !file.exists()){ //判断文件是否存在
                 file.createNewFile();
@@ -94,7 +94,7 @@ public class JenkinsReportData {
     public static String FileInput3(String path) {
         int startIndex = systemPath.indexOf("workspace\\")+10;
         String fileName = systemPath.substring(startIndex);
-        path = "C:/Users/CyberArk/.jenkins/workspace/"+fileName+"/src/test/resources/testData/autopay/" + path + ".txt";
+        path = "D:/JenkinsData/workspace/"+fileName+"/src/test/resources/testData/autopay/" + path + ".txt";
         StringBuffer buffer = new StringBuffer();
         try {
             BufferedReader bufferedReader = new BufferedReader(

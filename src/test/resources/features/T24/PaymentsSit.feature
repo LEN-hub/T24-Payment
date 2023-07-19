@@ -7,8 +7,8 @@ Feature: T24 Payment transaction
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |
-      |1101 0000 438 |The expenses shall be borne by each party|
+      |Account Number|Payment Mode for Charges |
+      |1101 0000 470 |OUR                      |
     And I choose the payment currency
       |Currency|
       |USD     |
@@ -18,7 +18,7 @@ Feature: T24 Payment transaction
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBSSSGS0LAO     |
+      |DBSSSGS0DOD     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -28,20 +28,20 @@ Feature: T24 Payment transaction
     When I choose to submit the transfer information
     When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on FX Payment
-      |WordPath           |
-      |Bic is DBS SGD-USD |
+      |WordPath          |
+      |Bic is DBS SGD-USD|
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button
-      |search content           |windows Title        |WordPath           |
-      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-USD |
+      |search content           |windows Title        |WordPath          |
+      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-USD|
     When I expand the User Menu menu on the page
     When I expand the User Payments menu on the page
     When I expand the Payment Hub menu on the page
     When I expand the Payment Inquiries and Exceptions menu on the page
     When I expand the Payments Enquiry Transaction wise menu on the page
     When I jump to a newly opened page
-      |windows Title                            |WordPath           |
-      |Pending and Processed Payments - SIT GLDB|Bic is DBS SGD-USD |
+      |windows Title                            |WordPath          |
+      |Pending and Processed Payments - UAT GLDB|Bic is DBS SGD-USD|
     Then I do field mapping for Channel and T24 in FX Payment
       |WordPath          |
       |Bic is DBS SGD-USD|
@@ -52,26 +52,32 @@ Feature: T24 Payment transaction
       |WordPath          |Name              |
       |Bic is DBS SGD-USD|Bic is DBS SGD-USD|
     When I type FOREX in the search box use to authorize the operation
-      |search content|user Authorize                 |Name              |
-      |FOREX         |T24-automation-SIT-login-Auth|Bic is DBS SGD-USD|
+      |search content|user Authorize                 |WordPath          |
+      |FOREX         |T24-automation-SIT-login-Auth  |Bic is DBS SGD-USD|
+    When I view the exchange rate in the Payment Order RFQ Rate Audit menu On Oversea Payment MT
+      |WordPath          |
+      |Bic is DBS SGD-USD|
+    When I check the deduction amount on the Find Account page On overseas transfer Payment
+      |windows Title            |WordPath           |
+      |AA Arrangement - SIT GLDB|Bic is DBS SGD-USD |
+
 
   @Payment_Overseas_Transfer_USD-SGD_SIT
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(USD->SGD)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |
-      |1101 0000 489 |The expenses shall be borne by each party|
+      |Account Number|Payment Mode for Charges |
+      |1101 0000 489 |SHA                      |
     And I choose the payment currency
       |Currency|
       |SGD     |
     When I enter the payee information
       |Payee's Account Number|Payee's Name|
       |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBSSSGS0LAO     |
+      |DBSSSGS0DOD     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -94,7 +100,7 @@ Feature: T24 Payment transaction
     When I expand the Payments Enquiry Transaction wise menu on the page
     When I jump to a newly opened page for Different Currency
       |windows Title                            |WordPath          |
-      |Pending and Processed Payments - SIT GLDB|Bic is DBS USD-SGD|
+      |Pending and Processed Payments - UAT GLDB|Bic is DBS USD-SGD|
     Then I do field mapping for Channel and T24 in FX Payment for Different Currency
       |WordPath          |
       |Bic is DBS USD-SGD|
@@ -105,8 +111,14 @@ Feature: T24 Payment transaction
       |WordPath          |Name              |
       |Bic is DBS USD-SGD|Bic is DBS USD-SGD|
     When I type FOREX in the search box use to authorize the operation for Different Currency
-      |search content|user Authorize                 |Name              |
-      |FOREX         |T24-automation-SIT-login-Auth|Bic is DBS USD-SGD|
+      |search content|user Authorize                 |WordPath          |
+      |FOREX         |T24-automation-SIT-login-Auth  |Bic is DBS USD-SGD|
+    When I view the exchange rate in the Payment Order RFQ Rate Audit menu On Oversea Payment MX
+      |WordPath          |
+      |Bic is DBS USD-SGD|
+    When I check the deduction amount on the Find Account page On overseas transfer Payment
+      |windows Title            |WordPath           |
+      |AA Arrangement - SIT GLDB|Bic is DBS USD-SGD |
 #    When Use "T24-automation-SIT-login-Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 
@@ -115,18 +127,17 @@ Feature: T24 Payment transaction
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges                 |
-      |1101 0000 438 |The expenses shall be borne by each party|
+      |Account Number|Payment Mode for Charges|
+      |1101 0000 470 |SHA                     |
     And I choose the payment currency
       |Currency|
       |SGD     |
     When I enter the payee information
       |Payee's Account Number|Payee's Name|
       |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBSSSGS0LAO     |
+      |DBSSSGS0DOD     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -149,7 +160,7 @@ Feature: T24 Payment transaction
     When I expand the Payments Enquiry Transaction wise menu on the page
     When I jump to a newly opened page on Mx Message
       |windows Title                            |WordPath          |
-      |Pending and Processed Payments - SIT GLDB|Bic is DBS SGD-SGD|
+      |Pending and Processed Payments - UAT GLDB|Bic is DBS SGD-SGD|
     Then I do field mapping for Channel and T24 in same currency
       |WordPath          |
       |Bic is DBS SGD-SGD|
@@ -159,24 +170,27 @@ Feature: T24 Payment transaction
     When I compare the data generated by Outgoing Message MX Message is correct
       |WordPath          |Name              |
       |Bic is DBS SGD-SGD|Bic is DBS SGD-SGD|
+    When I check the deduction amount on the Find Account page On overseas transfer Payment
+      |windows Title            |WordPath           |
+      |AA Arrangement - SIT GLDB|Bic is DBS SGD-SGD |
 
   @Payment_Overseas_Transfer_USD-USD_SIT
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(USD->USD)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges |
-      |1101 0000 489 |SHA                      |
+      |Account Number|Payment Mode for Charges|
+      |1101 0000 489 |SHA                     |
     And I choose the payment currency
-      |Currency|
-      |USD     |
+      |Currency   |
+      |USD        |
     When I enter the payee information
       |Payee's Account Number|Payee's Name|
       |667812798             |lucky       |
 #    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
-      |DBSSSGS0LAO     |
+      |DBSSSGS0VEC     |
     When I choose the recipient country
       |Payee's Address |Payee's Country|Comments For Payee|
       |countries       |UNITED STATES  |ok                |
@@ -206,9 +220,6 @@ Feature: T24 Payment transaction
     When I compare the amount is normal on Mx Message
       |WordPath          |
       |Bic is DBS USD-USD|
-    When I compare the data generated by Outgoing Message MX Message is correct
-      |WordPath          |Name              |
-      |Bic is DBS SGD-SGD|Bic is DBS USD-USD|
     When I compare the data generated by Outgoing Message MX Message is correct
       |WordPath          |Name              |
       |Bic is DBS USD-USD|Bic is DBS USD-USD|
@@ -436,18 +447,21 @@ Feature: T24 Payment transaction
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
-      |WordPath                  |
-      |Internal Transfer SGD-SGD |
+      |WordPath|
+      |SGD-SGD |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button To Local Payment
-      |search content           |windows Title        |WordPath                  |
-      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Internal Transfer SGD-SGD |
+      |search content           |windows Title        |WordPath|
+      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|SGD-SGD |
     When I jump to the home page and enter FUNDS.TRANSFER for data mapping
-      |search content|WordPath                  |
-      |FUNDS.TRANSFER|Internal Transfer SGD-SGD |
+      |search content|WordPath|
+      |FUNDS.TRANSFER|SGD-SGD |
     Then I will map the page data
-      |WordPath                  |
-      |Internal Transfer SGD-SGD |
+      |WordPath|
+      |SGD-SGD |
+    When I check the deduction amount on the Find Account page On Local Payment
+      |windows Title            |WordPath|
+      |AA Arrangement - SIT GLDB|SGD-SGD |
 
   @Payment_Own_Transfer_USD-USD_SIT
   Scenario:Local Payment Data Mapping FX Payment (USD->USD)
@@ -458,54 +472,64 @@ Feature: T24 Payment transaction
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
-      |WordPath                  |
-      |Internal Transfer USD-USD |
+      |WordPath|
+      |USD-USD |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button To Local Payment
-      |search content           |windows Title        |WordPath                  |
-      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Internal Transfer USD-USD |
+      |search content           |windows Title        |WordPath|
+      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|USD-USD |
     When I jump to the home page and enter FUNDS.TRANSFER for data mapping
-      |search content|WordPath                  |
-      |FUNDS.TRANSFER|Internal Transfer USD-USD |
+      |search content|WordPath|
+      |FUNDS.TRANSFER|USD-USD |
     Then I will map the page data
-      |WordPath                  |
-      |Internal Transfer USD-USD |
+      |WordPath|
+      |USD-USD |
+    When I check the deduction amount on the Find Account page On Local Payment
+      |windows Title            |WordPath|
+      |AA Arrangement - SIT GLDB|USD-USD |
+
 
   @Payment_Own_Transfer_USD-SGD_SIT
   Scenario:Local Payment Data Mapping FX Payment (USD->SGD)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
-      |1101 0000 489   |1101 0000 438|
+      |1101 0000 489   |1101 0000 470|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully To Local Payment
-      |WordPath                  |
-      |Internal Transfer USD-SGD |
+      |WordPath|
+      |USD-SGD |
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Local Payment
-      |search content           |windows Title        |WordPath                  |
-      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Internal Transfer USD-SGD |
+      |search content           |windows Title        |WordPath|
+      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|USD-SGD |
     When I expand the User Menu menu on the page
     When I expand the User Payments menu on the page
     When I expand the Payment Hub menu on the page
     When I expand the Payment Inquiries and Exceptions menu on the page
     When I expand the Payments Enquiry Transaction wise menu on the page
     When I jump to a newly opened page On Local Payment
-      |windows Title                            |WordPath                  |
-      |Pending and Processed Payments - SIT GLDB|Internal Transfer USD-SGD |
+      |windows Title                            |WordPath|
+      |Pending and Processed Payments - SIT GLDB|USD-SGD |
     Then I do field mapping for Channel and T24 in Own FX Payment
-      |WordPath                  |
-      |Internal Transfer USD-SGD |
+      |WordPath|
+      |USD-SGD |
     When I compare the amount is normal To Local Payment
-      |WordPath                  |
-      |Internal Transfer USD-SGD |
+      |WordPath|
+      |USD-SGD |
     When I compare the data generated by Outgoing Message is correct On Local Payment
       |Name                      |
       |Internal Transfer USD-SGD |
     When I type FOREX in the search box use to authorize the operationToLocalPayment
-      |search content|user Authorize                 |Name                      |
-      |FOREX         |T24-automation-SIT-login-Auth|Internal Transfer USD-SGD |
+      |search content|user Authorize                 |WordPath|
+      |FOREX         |T24-automation-SIT-login-Auth  |USD-SGD |
+    When I view the exchange rate in the Payment Order RFQ Rate Audit menu On Local Payment
+      |WordPath|
+      |USD-SGD |
+    When I check the deduction amount on the Find Account page On Local Payment
+      |windows Title            |WordPath|
+      |AA Arrangement - SIT GLDB|USD-SGD |
 #    When Use "T24-automation-SIT-login-Auth" to log in to T24 environment
 #    When I enter the Unauthorized Forex Deals Menu page to authorize the operation
 

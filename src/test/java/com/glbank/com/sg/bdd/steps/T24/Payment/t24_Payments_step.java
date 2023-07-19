@@ -623,27 +623,28 @@ public class t24_Payments_step extends ScenarioSteps {
 //        Assert.assertEquals(getOrderingAccount, readtxtFile("autopay/t24","ChannelDebitAccountNumber"));
 //        Assert.assertEquals(getOrderingName, readtxtFile("autopay/t24","ChannelDebitAccountName"));
         Assert.assertEquals(getBeneficiaryName, readtxtFile("autopay/t24", "ChannelDetailPayeeName"));
-        t24_payments_page.getClickChargeInformation.click();
+//        t24_payments_page.getClickChargeInformation.click();
         bddUtil.screenShort();
         if (WordPath.equals("Bic is DBS USD-USD") || WordPath.equals("Bic is Bank of China USD-USD")) {
             WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
         } else {
             WordUtils.photoStorageToFXPaymentMX(WordPath);
         }
-        t24_payments_page.getRoutingInformation.click();
+//        t24_payments_page.getRoutingInformation.click();
         bddUtil.screenShort();
         if (WordPath.equals("Bic is DBS USD-USD") || WordPath.equals("Bic is Bank of China USD-USD")) {
             WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
         } else {
             WordUtils.photoStorageToFXPaymentMX(WordPath);
         }
-        t24_payments_page.getAdditionalInformation.click();
+//        t24_payments_page.getAdditionalInformation.click();
         bddUtil.screenShort();
         if (WordPath.equals("Bic is DBS USD-USD") || WordPath.equals("Bic is Bank of China USD-USD")) {
             WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
         } else {
             WordUtils.photoStorageToFXPaymentMX(WordPath);
         }
+        t24_payments_page.getAudit.click();
         bddUtil.closeWindow();
         bddUtil.switchToNewWindow();
         switchToDefaultContent();
@@ -804,13 +805,14 @@ public class t24_Payments_step extends ScenarioSteps {
 //      宇康说不用校验
 //        Assert.assertEquals(getOrderingName, readtxtFile("autopay/t24", "ChannelDebitAccountName"));
         Assert.assertEquals(getBeneficiaryName, readtxtFile("autopay/t24", "ChannelDetailPayeeName"));
-        t24_payments_page.getClickChargeInformation.click();
+//        t24_payments_page.getClickChargeInformation.click();
         bddUtil.screenShort();
         WordUtils.photoStorageToFxPaymentMT(WordPath);
-        t24_payments_page.getRoutingInformation.click();
+//        t24_payments_page.getRoutingInformation.click();
         bddUtil.screenShort();
         WordUtils.photoStorageToFxPaymentMT(WordPath);
-        t24_payments_page.getAdditionalInformation.click();
+//        t24_payments_page.getAdditionalInformation.click();
+        t24_payments_page.getAudit.click();
         bddUtil.screenShort();
         WordUtils.photoStorageToFxPaymentMT(WordPath);
         bddUtil.closeWindow();
@@ -895,13 +897,14 @@ public class t24_Payments_step extends ScenarioSteps {
 //        Assert.assertEquals(getOrderingAccount, readtxtFile("autopay/t24","ChannelDebitAccountNumber"));
 //        Assert.assertEquals(getOrderingName, readtxtFile("autopay/t24","ChannelDebitAccountName"));
         Assert.assertEquals(getBeneficiaryName, readtxtFile("autopay/t24", "ChannelDetailPayeeName"));
-        t24_payments_page.getClickChargeInformation.click();
+//        t24_payments_page.getClickChargeInformation.click();
         bddUtil.screenShort();
         WordUtils.photoStorageToFxPaymentDifferentCurrencyMX(WordPath);
-        t24_payments_page.getRoutingInformation.click();
+//        t24_payments_page.getRoutingInformation.click();
         bddUtil.screenShort();
         WordUtils.photoStorageToFxPaymentDifferentCurrencyMX(WordPath);
-        t24_payments_page.getAdditionalInformation.click();
+//        t24_payments_page.getAdditionalInformation.click();
+        t24_payments_page.getAudit.click();
         bddUtil.screenShort();
         WordUtils.photoStorageToFxPaymentDifferentCurrencyMX(WordPath);
         bddUtil.closeWindow();
