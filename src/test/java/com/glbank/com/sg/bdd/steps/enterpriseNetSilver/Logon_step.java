@@ -143,8 +143,8 @@ public class Logon_step extends ScenarioSteps {
     public static void vkeyAppVcode() throws MalformedURLException, InterruptedException {
         try{
         MobileConfig test = new MobileConfig();
-        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
-        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
+//        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
+//        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
         test.testMobile();
         Thread.sleep(20000);
 //        if (driver.findElement(By.xpath("//android.widget.Button[ends-with(@text,'OK')]")).isDisplayed()){
@@ -152,9 +152,9 @@ public class Logon_step extends ScenarioSteps {
 //        }
         String testPage = driver.getPageSource();
         System.out.println(testPage);
-        if (driver.findElementByXPath("//android.widget.Button [ends-with(@resource-id,'android:id/button1')]").isDisplayed()){
-                driver.findElementByXPath("//android.widget.Button [ends-with(@resource-id,'android:id/button1')]").click();
-            }
+//        if (driver.findElementByXPath("//android.widget.Button [ends-with(@resource-id,'android:id/button1')]").isDisplayed()){
+//                driver.findElementByXPath("//android.widget.Button [ends-with(@resource-id,'android:id/button1')]").click();
+//            }
         if (driver.findElementByXPath("//android.widget.LinearLayout [ends-with(@resource-id,'btn_otp')]/child::android.widget.TextView[2]").getText().equals("一次性\n密码")) {
           test.getVcode();
         }else {
@@ -172,8 +172,8 @@ public class Logon_step extends ScenarioSteps {
 
     public void secondVkeyAppVcode() throws MalformedURLException, InterruptedException {
         MobileConfig test = new MobileConfig();
-        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
-        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
+//        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
+//        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
         test.testSecondMobile();
         Thread.sleep(5000);
         if (driver.findElementByXPath("//android.widget.TextView[ends-with(@resource-id,'permission_message')]").isDisplayed()) {

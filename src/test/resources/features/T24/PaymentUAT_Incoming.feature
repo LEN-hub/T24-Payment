@@ -48,7 +48,7 @@ Feature: Payment InComing
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23150BHMF0MHD|
+      |SGL23201KD0BKH0H|
     When I change status code SGD
     Then I close driver
     Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
@@ -59,14 +59,14 @@ Feature: Payment InComing
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23136MDHJDDKF|
+      |SGL23201KD0BKH0H|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
     Then I click find account
     When I input Arrangement
       |Arrangement    |
-      |11010002716    |
+      |11010003267    |
     When I click Find Butt
     Then Assert enter Account Details Page
 

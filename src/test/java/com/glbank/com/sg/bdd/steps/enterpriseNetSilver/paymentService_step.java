@@ -1702,7 +1702,8 @@ public class paymentService_step extends ScenarioSteps {
         }
 //        paymentService_page.secondCurrencySelectUSD.click();
         bddUtil.scrollWindowToElement(paymentService_page.clickNextBtn);
-        paymentService_page.enterMoney.sendKeys(GenerateDate.today()+"."+randomTwoNum());
+//        paymentService_page.enterMoney.sendKeys(GenerateDate.today()+"."+randomTwoNum());
+        paymentService_page.enterAmount.sendKeys("250001");
         paymentService_page.transferPurpose.click();
         bddUtil.sleep(1);
         paymentService_page.selectTransferPurpose.click();

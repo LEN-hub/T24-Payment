@@ -1,22 +1,16 @@
-2023-7-19 15:4:31:846
-ChannelReferenceID:230719000000056
-ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
-ChannelDebitAccountCurrency:USD
-ChannelDebitAccountNumber:11010000489
+2023-7-19 18:35:8:917
+ChannelReferenceID:230718000000078
+ChannelDebitAccountName:Nails Wehi
+ChannelDebitAccountCurrency:SGD
+ChannelDebitAccountNumber:11021029157
 ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:WATERHOUSE INVESTMENT PTE. LTD.
-ChannelCreditAccountCurrency:USD
-ChannelCreditAccountNumber:11010005332
+ChannelCreditAccountName:Current test
+ChannelCreditAccountCurrency:SGD
+ChannelCreditAccountNumber:11010001981
 ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelTransactionAmount:719.25
+ChannelTransactionAmount:719.40
 ChannelPurposeOfTransfer:Business Expenses
-2023-7-19 15:6:30:895
-ID:230719000000056
-TransactionReference:FT23200RZDQ5
-getStatus:null
-getDebitAccountNum:11010000489
-getDebitAccountCurrency:USD
-getCreditAccountCurrency:USD
-getCreditAccountNum:11010005332
-getDebitAmount:USD719.25
-getCreditAmount:USD719.25
+2023-7-19 18:37:9:48
+ID:230718000000078
+TransactionReference:FT232000JP36
+t24FtNumber:
