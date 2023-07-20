@@ -180,7 +180,7 @@ Feature: T24 Payment transaction
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges|
-      |1101 0000 489 |SHA                     |
+      |1101 0000 489 |OUR                     |
     And I choose the payment currency
       |Currency   |
       |USD        |

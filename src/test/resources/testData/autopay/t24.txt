@@ -1,16 +1,36 @@
-2023-7-19 18:35:8:917
-ChannelReferenceID:230718000000078
-ChannelDebitAccountName:Nails Wehi
-ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11021029157
-ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:Current test
-ChannelCreditAccountCurrency:SGD
-ChannelCreditAccountNumber:11010001981
-ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelTransactionAmount:719.40
-ChannelPurposeOfTransfer:Business Expenses
-2023-7-19 18:37:9:48
-ID:230718000000078
-TransactionReference:FT232000JP36
-t24FtNumber:
+2023-7-20 16:21:2:863
+ChannelReferenceID:230720000000221
+ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
+ChannelDebitAccountCurrency:USD
+ChannelDebitAccountNumber:11010000489
+ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
+ChannelDetailPayeeName:lucky
+ChannelDetailAccountCurrency:USD
+ChannelDetailPayeeAccountNum:667812798
+ChannelDetailTransactionAmount:720.85
+ChannelDetailBeneficiaryBankBIC:DBSSSGS0VEC
+ChannelDetailPayeeAddress:countries
+ChannelDetailEstimatedProcessingFee:0.00
+ChannelDetailPaymentModeForCharges:All expenses shall be borne by the remitter
+ChannelDetailPurposeOfTransfer:Business Expenses
+2023-7-20 16:22:59:175
+ID:230720000000221
+TransactionReference:PI232010RC3LS12P
+t24FtNumber:SGL23201KGMJHGGC
+getStatus:677
+getTransactionReferenceNum:SGL23201KGMJHGGC
+getSenderReferenceNum:PI232010RC3LS12P
+getTransactionCurrency:USD
+getTransactionCurrency:USD
+getTransactionAmount:720.85
+getChargeOption:OUR
+getDebitAccountNum:11010000489
+getDebitAccountCurrency:USD
+getOrderingAccount:11010000489
+getOrderingName:WATERHOUSE INVESTMENT PTE. LTD.
+getOrderingAddress:SINGAPORE
+getOrderingTown:SG
+getCreditAccountNum:15000000242
+getCreditAccountCurrency:USD
+getBeneficiaryAccount:667812798
+getBeneficiaryName:lucky
