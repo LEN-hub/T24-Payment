@@ -2638,9 +2638,9 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
         bddUtil.sleep(3);
-        t24_payments_page.getClickChargeInformation.click();
-        String value = t24_payments_page.WaiveCreditCharges.getAttribute("value");
-        String value1 = t24_payments_page.RepairFee.getAttribute("value");
+//        t24_payments_page.getClickChargeInformation.click();
+//        String value = t24_payments_page.WaiveCreditCharges.getAttribute("value");
+//        String value1 = t24_payments_page.RepairFee.getAttribute("value");
 //        if (value.equals("on")){
 //            t24_payments_page.WaiveCreditCharges.click();
 //        }else {
