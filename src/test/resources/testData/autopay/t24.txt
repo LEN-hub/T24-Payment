@@ -1,36 +1,36 @@
-2023-7-21 9:44:22:547
-ChannelReferenceID:230721000000019
-ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
+2023-7-21 13:15:35:967
+ChannelReferenceID:230720000000038
+ChannelDebitAccountName:TTR
 ChannelDebitAccountCurrency:USD
-ChannelDebitAccountNumber:11010000489
+ChannelDebitAccountNumber:11010004530
 ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
 ChannelDetailPayeeName:lucky
 ChannelDetailAccountCurrency:USD
 ChannelDetailPayeeAccountNum:667812798
-ChannelDetailTransactionAmount:721.43
+ChannelDetailTransactionAmount:721.40
 ChannelDetailBeneficiaryBankBIC:DBSSSGS0VEC
 ChannelDetailPayeeAddress:countries
-ChannelDetailEstimatedProcessingFee:0.00
-ChannelDetailPaymentModeForCharges:All expenses shall be borne by the remitter
+ChannelDetailEstimatedProcessingFee:--
+ChannelDetailPaymentModeForCharges:All expenses shall be borne by the payee
 ChannelDetailPurposeOfTransfer:Business Expenses
-2023-7-21 9:46:26:130
-ID:230721000000019
-TransactionReference:PI2320214JLL0D00
-t24FtNumber:SGL23202BDK0BBGB
+2023-7-21 13:18:29:917
+ID:230720000000038
+TransactionReference:PI232020Y4DJP9GJ
+t24FtNumber:SGL23202HDGDLLMF
 getStatus:677
-getTransactionReferenceNum:SGL23202BDK0BBGB
-getSenderReferenceNum:PI2320214JLL0D00
+getTransactionReferenceNum:SGL23202HDGDLLMF
+getSenderReferenceNum:PI232020Y4DJP9GJ
 getTransactionCurrency:USD
 getTransactionCurrency:USD
-getTransactionAmount:721.43
-getChargeOption:OUR
-getDebitAccountNum:11010000489
+getTransactionAmount:721.40
+getChargeOption:BEN
+getDebitAccountNum:11010004530
 getDebitAccountCurrency:USD
-getOrderingAccount:11010000489
-getOrderingName:WATERHOUSE INVESTMENT PTE. LTD.
+getOrderingAccount:11010004530
+getOrderingName:2737379KSG20221130163607
 getOrderingAddress:SINGAPORE
 getOrderingTown:SG
-getCreditAccountNum:15000000242
+getCreditAccountNum:15000000749
 getCreditAccountCurrency:USD
 getBeneficiaryAccount:667812798
 getBeneficiaryName:lucky
