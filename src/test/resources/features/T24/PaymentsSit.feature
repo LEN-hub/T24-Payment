@@ -443,7 +443,7 @@ Feature: T24 Payment transaction
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
-      |1101 0000 438   |1101 0000 470|
+      |1101 0000 470   |1101 0000 438|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
