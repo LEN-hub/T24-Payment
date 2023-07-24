@@ -204,30 +204,30 @@ Feature: Auto_Test
 
 
   @Incoming_Payment_999-1
-  Scenario:Regression-Incoming-0001-1，3
+  Scenario:Regression-Incoming-0011-2，3
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23205BHHLLHGM|
+      |SGL23205DJDLFGGD|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
     Then I click find account
     When I input Arrangement
       |Arrangement    |
-      |11010002716    |
+      |11010000314    |
     When I click Find Butt
     Then Assert enter Account Details Page
 
 
   @Incoming_Payment_999-2
-  Scenario:Regression-Incoming-0007-1，3
+  Scenario:Regression-Incoming-0012-2，3
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23205JDMCMBM0|
+      |SGL23205DKKDK0CH|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
@@ -240,12 +240,12 @@ Feature: Auto_Test
 
 
   @Incoming_Payment_999-3
-  Scenario:Regression-Incoming-0010-2,3
+  Scenario:Regression-Incoming-0013-2，3
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23205M0LCJJJL|
+      |SGL23205FBDJBJBB|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
