@@ -3,7 +3,7 @@
 <Revision>2.0.12</Revision>
 <Header>
 <Message>
-<SenderReference>23205R59CY19742</SenderReference>
+<SenderReference>23205W021524631</SenderReference>
 <MessageIdentifier>pacs.008.001.08</MessageIdentifier>
 <Format>MX</Format>
 <SubFormat>Input</SubFormat>
@@ -14,7 +14,7 @@
 <DN>ou=xxx,o=citisgs0,o=swift</DN>
 </Receiver>
 <InterfaceInfo>
-<UserReference>23205R59CY19742</UserReference>
+<UserReference>23205W021524631</UserReference>
 </InterfaceInfo>
 <NetworkInfo>
 <IsNotificationRequested>false</IsNotificationRequested>
@@ -41,17 +41,17 @@
 </FinInstnId>
 </FIId>
 </To>
-<BizMsgIdr>SBD-SGL23205HKKCMB0H</BizMsgIdr>
+<BizMsgIdr>SBD-SGL23205MHDKFHKM</BizMsgIdr>
 <MsgDefIdr>pacs.008.001.08</MsgDefIdr>
 <BizSvc>mas.mep.01</BizSvc>
-<CreDt>2023-07-24T16:16:38+08:00</CreDt>
+<CreDt>2023-07-24T16:55:22+08:00</CreDt>
 <Prty>NORM</Prty>
 </AppHdr>
 <Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08">
 <FIToFICstmrCdtTrf>
 <GrpHdr>
-<MsgId>SBD-SGL23205HKKCMB0H</MsgId>
-<CreDtTm>2023-07-24T16:16:38+08:00</CreDtTm>
+<MsgId>SBD-SGL23205MHDKFHKM</MsgId>
+<CreDtTm>2023-07-24T16:55:22+08:00</CreDtTm>
 <NbOfTxs>1</NbOfTxs>
 <SttlmInf>
 <SttlmMtd>CLRG</SttlmMtd>
@@ -62,10 +62,10 @@
 </GrpHdr>
 <CdtTrfTxInf>
 <PmtId>
-<InstrId>SGL23205HKKCMB0H</InstrId>
+<InstrId>SGL23205MHDKFHKM</InstrId>
 <EndToEndId>NOTPROVIDED</EndToEndId>
-<TxId>SFD-SGL23205HKKCMB0H</TxId>
-<UETR>c37aedc9-6884-4fe3-96fa-9022f4758b15</UETR>
+<TxId>SFD-SGL23205MHDKFHKM</TxId>
+<UETR>21533796-cc62-4990-8df5-3bdddf48799f</UETR>
 </PmtId>
 <PmtTpInf>
 <InstrPrty>NORM</InstrPrty>
@@ -73,9 +73,9 @@
 <Prtry>CRED</Prtry>
 </LclInstrm>
 </PmtTpInf>
-<IntrBkSttlmAmt Ccy="SGD">12.0</IntrBkSttlmAmt>
+<IntrBkSttlmAmt Ccy="SGD">250007.0</IntrBkSttlmAmt>
 <IntrBkSttlmDt>2023-07-24</IntrBkSttlmDt>
-<InstdAmt Ccy="SGD">12.0</InstdAmt>
+<InstdAmt Ccy="SGD">250007.0</InstdAmt>
 <ChrgBr>SHAR</ChrgBr>
 <ChrgsInf>
 <Amt Ccy="SGD">0</Amt>
@@ -96,18 +96,18 @@
 </FinInstnId>
 </InstdAgt>
 <Dbtr>
-<Nm>TRINEXIS CONSULTANTS PTE. LTD.</Nm>
+<Nm>Nails Wehi</Nm>
 <PstlAdr>
-<PstCd>308900</PstCd>
+<PstCd>34741</PstCd>
 <TwnNm>SINGAPORE</TwnNm>
 <Ctry>SG</Ctry>
 </PstlAdr>
-<CtryOfRes>SG</CtryOfRes>
+<CtryOfRes>CN</CtryOfRes>
 </Dbtr>
 <DbtrAcct>
 <Id>
 <Othr>
-<Id>13600000284</Id>
+<Id>18500003189</Id>
 </Othr>
 </Id>
 </DbtrAcct>
@@ -119,7 +119,6 @@
 </DbtrAgt>
 <CdtrAgt>
 <FinInstnId>
-<BICFI>CITISGS0</BICFI>
 <PstlAdr>
 <TwnNm>SG</TwnNm>
 <Ctry>SG</Ctry>
