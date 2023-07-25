@@ -256,14 +256,89 @@ Feature: Auto_Test
 #    Then I Assert enter View Details Page
 #
 #
-#
-  @AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount>threshold3
-  Scenario: Regression-Outgoing- T24-LOAN Disbursement-0003-1,4
+
+
+  @Incoming_Payment_999-1
+  Scenario:Regression-Incoming-0004-1，4
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23205HCK0HF00|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement
+      |Arrangement    |
+      |11010002228    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+
+
+
+  @Incoming_Payment_999-2
+  Scenario:Regression-Incoming-0005-1，4
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23205JBF0M0MD|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement
+      |Arrangement    |
+      |11010001981    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+
+
+  @Incoming_Payment_999-3
+  Scenario:Regression-Incoming-0012-1，4
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23205LFFCMFBF|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement
+      |Arrangement    |
+      |11010002716    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+
+
+  @Incoming_Payment_999-4
+  Scenario:Regression-Incoming-0013-1，4
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23205DLJCHLML|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement
+      |Arrangement    |
+      |11010000314    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+
+
+
+  @AAPayment_Loan_Disbursement_Internal_USD-USD_Amount<250K-1
+  Scenario: Regression-Outgoing- T24-LOAN Disbursement-0004-1,3
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Loan Transactions
     When I Input incomplete information on AA Disbursement Internal page
       |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
-      |18500003189         |SGD           |250010          |SGD             |11010002716     |
+      |18000001802         |USD           |1000005         |USD             |11010002228     |
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -282,235 +357,25 @@ Feature: Auto_Test
 
 
 
-  @Incoming_Payment_999-1
-  Scenario:Regression-Incoming-0011-1,4
+  @AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<250K-2
+  Scenario: Regression-Outgoing- T24-LOAN Disbursement-0003-1,3
     Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL232050BDMGBLC|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement
-      |Arrangement    |
-      |11010002228    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-
-
-  @Incoming_Payment_999-4
-  Scenario:Regression-Incoming-0001-1，4
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205GKJD0MMC|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement
-      |Arrangement    |
-      |11010002716    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-
-
-  @Incoming_Payment_999-5
-  Scenario:Regression-Incoming-0007-2，4
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205HLBB0JKD|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement
-      |Arrangement    |
-      |11010002716    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-
-
-
-  @Incoming_Payment_235-2
-  Scenario:Regression-Incoming-0004-1,4
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205HCK0HF00|
-    When I change status code SGD
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input FTNumber and click Find Authorise
+    When I click Loan Transactions
+    When I Input incomplete information on AA Disbursement Internal page
+      |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
+      |18500003189         |SGD           |1000002         |SGD             |11010002716     |
+    Then I get LoanPINumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I click Loan Transactions Button
+    Then I click Authorise/Delete Arrangements (PO) Button
+    Then I input PI Number and click Find
     And I close driver
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205HCK0HF00|
-    When I Assert enter View Page to USD Loan
+    Then I input LoanPINumber and click Find
+    When I Assert enter View Page to USD Loan Internal
     Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement
-      |Arrangement    |
-      |11010002228    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-
-
-  @Incoming_Payment_235-3
-  Scenario:Regression-Incoming-0005-1,4
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205JBF0M0MD|
-    When I change status code SGD
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input FTNumber and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205JBF0M0MD|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement
-      |Arrangement    |
-      |11010001981    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-
-
-
-
-  @Incoming_Payment_235-6
-  Scenario:Regression-Incoming-0002-1，4
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205DM0H0HMG|
-    When I change status code SGD
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input FTNumber and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205DM0H0HMG|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement
-      |Arrangement    |
-      |11010000314    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-
-
-
-  @Incoming_Payment_235-7
-  Scenario:Regression-Incoming-0008-1,4
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205GBKMMFJF|
-    When I change status code SGD
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input FTNumber and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205GBKMMFJF|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement
-      |Arrangement    |
-      |11010000314    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-
-
-  @Incoming_Payment_235-8
-  Scenario:Regression-Incoming-0009-1,4
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205LM0KBKMB|
-    When I change status code SGD
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input FTNumber and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205LM0KBKMB|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement
-      |Arrangement    |
-      |11010002716    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-
-
-
-
-  @Incoming_Payment_235-9
-  Scenario:Regression-Incoming-0010-1,4
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205C0LLLJKK|
-    When I change status code SGD
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input FTNumber and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205C0LLLJKK|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement
-      |Arrangement    |
-      |11010000314    |
-    When I click Find Butt
-    Then Assert enter Account Details Page

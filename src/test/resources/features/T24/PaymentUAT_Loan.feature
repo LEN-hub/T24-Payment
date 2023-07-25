@@ -179,7 +179,7 @@ Feature: Payment Order(Loan Disbursement)
     When I click Loan Transactions
     When I Input incomplete information on AA Disbursement Internal page
       |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
-      |18000000040         |SGD           |9               |USD             |11010002228     |
+      |18500003189         |SGD           |9               |SGD             |11010001981     |
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
