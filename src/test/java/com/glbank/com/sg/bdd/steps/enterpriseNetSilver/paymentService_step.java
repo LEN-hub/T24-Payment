@@ -2225,8 +2225,8 @@ public class paymentService_step extends ScenarioSteps {
 
 
     public void enterAmount(){
-//        paymentService_page.enterAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
-        paymentService_page.enterAmount.sendKeys("1000001");
+        paymentService_page.enterAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
+//        paymentService_page.enterAmount.sendKeys("230003");
     }
 
     public void largeAmount(){

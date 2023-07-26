@@ -244,7 +244,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges |
-      |1101 0003 208 |OUR                      |
+      |1101 0003 208 |BEN                      |
     And I choose the payment currency
       |Currency|
       |USD     |
