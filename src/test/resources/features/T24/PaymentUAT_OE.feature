@@ -109,7 +109,7 @@ Feature: Outgoing Customer Transfer
     Then I enter Outgoing ISO Bank Transfer Page
     When I Input incomplete information USD on Outgoing ISO Bank Transfer Page
       |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Bic|
-      |CITIUS30            |USD                 |1998              |USD142000001        |CITISGS0    |
+      |CITIUS30            |USD                 |250001            |USD142000001        |DBSSSGS0    |
     When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
       |Sender Reference|End To End Identification|
       |                |                         |

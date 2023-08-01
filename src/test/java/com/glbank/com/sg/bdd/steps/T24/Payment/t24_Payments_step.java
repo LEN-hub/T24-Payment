@@ -275,6 +275,7 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.fileSendersReferenceInput.clear();
 //        t24_payments_page.fileSendersReferenceInput.sendKeys("PI230440MV9HWBC5");
         t24_payments_page.fileSendersReferenceInput.sendKeys(t24TransactionReference);
+        FileUtils.FileString4("t24", "FTNumber:" + t24FtNumber);
         t24_payments_page.getClickFindBtn.click();
     }
 
@@ -2556,6 +2557,8 @@ public class t24_Payments_step extends ScenarioSteps {
         String oeNumber = t24_payments_page.OENumber.getText();
         FileUtils.FileString4("OENumber", oeNumber);
     }
+
+
 
     @Step
     public void getLoanPINumber() {

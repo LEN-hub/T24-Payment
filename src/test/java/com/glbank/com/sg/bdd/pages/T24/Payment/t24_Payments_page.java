@@ -696,6 +696,7 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//td[@id='dealtitle']/following-sibling::td[1]//span")
     public WebElementFacade OENumber;
 
+
     @FindBy(xpath = "//span[text()='Charge Information']")
     public WebElementFacade ChargeInformation;
 

@@ -1,0 +1,81 @@
+2023-7-28 14:1:30:115
+ChannelReferenceID:230726000000188
+ChannelDebitAccountName:TTR
+ChannelDebitAccountCurrency:USD
+ChannelDebitAccountNumber:11010004530
+ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
+ChannelDetailPayeeName:lucky
+ChannelDetailAccountCurrency:USD
+ChannelDetailPayeeAccountNum:667812798
+ChannelDetailTransactionAmount:728.26
+ChannelDetailBeneficiaryBankBIC:DBSSSGS0VEC
+ChannelDetailPayeeAddress:countries
+ChannelDetailEstimatedProcessingFee:--
+ChannelDetailPaymentModeForCharges:All expenses shall be borne by the payee
+ChannelDetailPurposeOfTransfer:Business Expenses
+2023-7-28 14:8:24:355
+ID:230726000000188
+TransactionReference:PI232090X3C4SSP8
+t24FtNumber:SGL23209FBCDK0LB
+getStatus:999
+getTransactionReferenceNum:SGL23209FBCDK0LB
+getSenderReferenceNum:PI232090X3C4SSP8
+getTransactionCurrency:USD
+getTransactionCurrency:USD
+getTransactionAmount:728.26
+getChargeOption:BEN
+getDebitAccountNum:11010004530
+getDebitAccountCurrency:USD
+getOrderingAccount:11010004530
+getOrderingName:2737379KSG20221130163607
+getOrderingAddress:SINGAPORE
+getOrderingTown:SG
+getCreditAccountNum:15000000749
+getCreditAccountCurrency:USD
+getBeneficiaryAccount:667812798
+getBeneficiaryName:lucky
+2023-7-28 14:15:23:806
+ID:230726000000188
+TransactionReference:PI232090X3C4SSP8
+2023-7-28 14:16:14:603
+ID:230726000000188
+TransactionReference:PI232090X3C4SSP8
+t24FtNumber:SGL23209FBCDK0LB
+2023-7-28 14:18:27:606
+ID:230726000000188
+TransactionReference:PI232090X3C4SSP8
+t24FtNumber:SGL23209FBCDK0LB
+2023-7-28 14:33:37:783
+ID:230726000000188
+TransactionReference:PI232090X3C4SSP8
+t24FtNumber:SGL23209FBCDK0LB
+2023-7-28 14:44:18:489
+ID:230726000000188
+TransactionReference:PI232090X3C4SSP8
+t24FtNumber:SGL23209FBCDK0LB
+2023-7-28 15:2:21:585
+ID:230726000000188
+TransactionReference:PI232090X3C4SSP8
+t24FtNumber:SGL23209FBCDK0LB
+2023-7-28 15:10:58:724
+ID:230726000000188
+TransactionReference:PI232090X3C4SSP8
+t24FtNumber:SGL23209FBCDK0LB
+2023-7-28 15:12:15:206
+ID:230726000000188
+TransactionReference:PI232090X3C4SSP8
+2023-7-28 15:19:14:416
+ID:230726000000188
+TransactionReference:PI232090X3C4SSP8
+FTNumber:null
+t24FtNumber:SGL23209FBCDK0LB
+2023-7-28 15:20:54:453
+ID:230726000000188
+TransactionReference:PI232090X3C4SSP8
+FTNumber:null
+t24FtNumber:SGL23209FBCDK0LB
+2023-7-28 15:25:12:329
+ID:230726000000188
+TransactionReference:PI232090X3C4SSP8
+FTNumber:null
+t24FtNumber:SGL23209FBCDK0LB

@@ -3,6 +3,7 @@ package com.glbank.com.sg.bdd.glue.T24.Payment;
 import com.glbank.com.sg.bdd.steps.T24.Logon.T24_Logon_step;
 import com.glbank.com.sg.bdd.steps.T24.Payment.t24_Payments_step;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
+import com.glbank.com.sg.bdd.utils.FileUtils;
 import com.glbank.com.sg.bdd.utils.createXML;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
@@ -656,9 +657,9 @@ public class t24_Payments_glue {
     @When("^I Assert enter View Page to OE Outgoing_Bank_Transfer$")
     public void iAssertEnterViewPageToOEOutgoing_Bank_Transfer() throws Exception{
         t24_payments_step.enterView();
-        //        断言是否进入EnterViewPage
+//              //  断言是否进入EnterViewPage
 //        t24_payments_step.assertEnterViewPage();
-//        查看各个页面的数据
+//       // 查看各个页面的数据
 //        t24_payments_step.clickRoutingformation();
 //        t24_payments_step.clickAdditionalInfoUSD();
 //        t24_payments_step.clickErrorInformation();
@@ -696,6 +697,8 @@ public class t24_Payments_glue {
     public void iGetOENumber() {
         t24_payments_step.getOENumber();
     }
+
+
 
 //    点击核心的Products按钮，然后点击Loan Transactions按钮
     @When("^I click Loan Transactions Button$")

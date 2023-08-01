@@ -188,7 +188,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges |Currency|
-      |1102 0571 063 |BEN                      |USD     |
+      |1102 1162 884 |OUR                      |USD     |
     And I choose the payment currency
       |Currency   |
       |USD        |
@@ -244,7 +244,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges|Currency|
-      |1102 0571 063 |SHA                     |SGD     |
+      |1102 1162 884 |OUR                     |SGD     |
     And I choose the payment currency
       |Currency|
       |USD     |
@@ -303,7 +303,7 @@ Feature: receipt and payment service
   Scenario:Positive process of overseas transfer Bic Is DBS(USD--SGD)(MCY)
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
-    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+    When I select the paym239174ent account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges |Currency|
       |1102 0571 063 |SHA                      |USD     |
     And I choose the payment currency
