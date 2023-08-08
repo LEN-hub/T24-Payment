@@ -11,7 +11,7 @@ Feature: Amount
     Then I click Account Transfer
     When I Input Transfer Information
       |Debit Account|Debit Amount|Debit Currency|Credit Account|Credit Currency|Ordering Bank          |
-      |11010001647	|1           |USD           |11010003267   |USD            |DBS SINGAPORE TEST     |
+      |11010001647	|100000      |USD           |11150004754   |SGD            |DBS SINGAPORE TEST     |
     Then I click pre-submit button
     When I click Accept Overrides
     Then Assert Result whether Successful
@@ -23,7 +23,7 @@ Feature: Amount
     Then I click search but
     Then I input Credit Account No
       |Credit Account No|
-      |11010003267      |
+      |11150004754      |
     When I click find
     Then I click Authorize But
 
@@ -59,6 +59,10 @@ Feature: Amount
       Then I click search butt
       Then I input LimitID And click Find
       Then I click Authorize Butt
+      Given Use "T24-automation-SIT-login" to login to T24 environment
+      Then I input LIMIT and find
+      Then I FIND
+
 
 
 
@@ -111,6 +115,22 @@ Feature: Amount
     Then I click Unauthorized AAA records
     Then I input Arrangement and Find
     Then I click improve butt
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click User Menu
+    Then I click products
+    Then I click Find Loan
+    Then I input Arrangementl and Find
+    Then I click Find Loan Overview
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click User Menu
+    Then I click Account
+    Then I input Account and Find
+      |AccountNo      |
+      |SGD148050007   |
+
+
+
+
 
 
 

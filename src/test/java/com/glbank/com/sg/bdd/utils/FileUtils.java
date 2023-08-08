@@ -105,6 +105,37 @@ public class FileUtils {
         }
         return null;
     }
+
+    public static String LastReadFileInput4(String path) {
+        path = systemPath + "/src/test/resources/testData/autopay/" + path + ".txt";
+        StringBuffer buffer = new StringBuffer();
+        try {
+            BufferedReader bufferedReader = new BufferedReader(
+                    new InputStreamReader(new FileInputStream(path), "UTF-8"));
+            String data = null;
+            while ((data = bufferedReader.readLine()) != null) {
+                //buffer.append(data+"\r\n");
+                buffer.append(data+",");
+            }
+            bufferedReader.close();
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        String rtn = buffer.toString();
+        rtn = rtn != null && !rtn.equals("") ? rtn.substring(0, rtn.length() - 1) : null;
+        if(rtn != null){
+            String[] content = rtn.split(",");
+            return content[content.length - 2];
+        }
+        return null;
+    }
     /**
      * 删除指定文件夹下的全部内容
      * @param file

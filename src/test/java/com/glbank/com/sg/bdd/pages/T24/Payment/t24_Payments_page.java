@@ -14,6 +14,7 @@ import java.util.List;
 
 public class t24_Payments_page extends PageObject {
 
+
     @FindBy(xpath = "//title[contains(text(),'GLDB')]/parent::head/following-sibling::frameset/frame[2]")
     public WebElementFacade switchToSecondFrame;
 
@@ -1106,4 +1107,37 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[14]/select")
     public WebElementFacade Margin;
+
+    @FindBy(xpath = "//a[text()='Find Loan ']")
+    public WebElementFacade ClickFindLoan;
+
+    @FindBy(xpath = "//img[@title='Overview']")
+    public WebElementFacade ClickFindLoanOverview;
+
+    @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[2]/table/tbody/tr[4]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr/td[7]/a")
+    public WebElementFacade clickschedule;
+
+    @FindBy(xpath = "//img[@alt='Account']")
+    public WebElementFacade ClickAccount;
+
+    @FindBy(xpath = "//span[text()='Account Entries']")
+    public WebElementFacade clickAccountEntries;
+
+    @FindBy(xpath = "//a[text()='Entries for Today ']")
+    public WebElementFacade clickEntriesForToday;
+
+    @FindBy(xpath = "//input[@name='commandValue']")
+    public WebElementFacade LIMIT;
+
+    @FindBy(xpath = "//img[@title='Go']")
+    public WebElementFacade duihao;
+
+    @FindBy(xpath = "//input[@class='idbox idbox_LIMIT']")
+    public WebElementFacade LIMITINPUT;
+
+    @FindBy(xpath = "//img[@title='View a contract']")
+    public WebElementFacade fangdajing;
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[2]/td/table/tbody/tr[37]/td[1]/label/a")
+    public WebElementFacade zuihou;
 }

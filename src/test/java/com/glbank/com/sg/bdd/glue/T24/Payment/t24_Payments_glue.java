@@ -1093,4 +1093,42 @@ public class t24_Payments_glue {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         t24_payments_step.iInputSchedule(maps.get(0).get("StartTime"),maps.get(0).get("EndTime"));
     }
+
+
+    @Then("^I click Find Loan$")
+    public void iClickFindLoan() {
+        t24_payments_step.ClickFindLoan();
+    }
+
+    @Then("^I input Arrangementl and Find$")
+    public void iInputArrangementlAndFind() {
+        t24_payments_step.InputArrangement2AndFind();
+    }
+
+    @Then("^I click Find Loan Overview$")
+    public void iClickFindLoanOverview() {
+        t24_payments_step.ClickFindLoanOverview();
+    }
+
+    @Then("^I click Account$")
+    public void iClickAccount() {
+        t24_payments_step.ClickAccount();
+    }
+
+    @Then("^I input Account and Find$")
+    public void iInputAccountAndFind(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.InputAccountAndFind(maps.get(0).get("AccountNo"));
+    }
+
+    @Then("^I input LIMIT and find$")
+    public void iInputLIMITAndFind() {
+        t24_payments_step.switchToFirstFrame();
+        t24_payments_step.InputLIMITAndFind();
+    }
+
+    @Then("^I FIND$")
+    public void iFIND() {
+        t24_payments_step.FIND();
+    }
 }

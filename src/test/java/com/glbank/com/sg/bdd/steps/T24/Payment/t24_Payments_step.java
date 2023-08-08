@@ -11,6 +11,7 @@ import com.glbank.com.sg.bdd.utils.FileUtils;
 import com.glbank.com.sg.bdd.utils.WordUtils;
 import cucumber.api.DataTable;
 import cucumber.api.java.bs.A;
+import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
@@ -3539,5 +3540,69 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.startTime.sendKeys(startTime);
         t24_payments_page.endTime.sendKeys(endTime);
         bddUtil.sleep(1);
+    }
+
+
+    public void ClickFindLoan() {
+        t24_payments_page.ClickFindLoan.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(1);
+    }
+
+    public void InputArrangement2AndFind() {
+        t24_payments_page.Limit_ID.clear();
+        String Active = FileUtils.LastReadFileInput4("LoanPINumber");
+        t24_payments_page.Limit_ID.sendKeys(Active);
+        bddUtil.sleep(1);
+        t24_payments_page.Find.click();
+    }
+
+    public void ClickFindLoanOverview() {
+        t24_payments_page.ClickFindLoanOverview.click();
+        bddUtil.sleep(3);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+        t24_payments_page.clickschedule.click();
+        bddUtil.sleep(5);
+
+    }
+
+    public void ClickAccount() {
+        t24_payments_page.ClickAccount.click();
+        t24_payments_page.clickAccountEntries.click();
+        t24_payments_page.clickEntriesForToday.click();
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+    }
+
+    public void InputAccountAndFind(String accountNo) {
+        t24_payments_page.Limit_ID.clear();
+        t24_payments_page.Limit_ID.sendKeys(accountNo);
+        bddUtil.sleep(1);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(4);
+    }
+
+    public void InputLIMITAndFind() {
+        t24_payments_page.LIMIT.sendKeys("LIMIT");
+        bddUtil.sleep(1);
+        t24_payments_page.duihao.click();
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+    }
+
+    public void FIND() {
+        String Active = FileUtils.LastReadFileInput3("LoanPINumber");
+        t24_payments_page.LIMITINPUT.sendKeys(Active);
+        bddUtil.sleep(1);
+        t24_payments_page.fangdajing.click();
+        bddUtil.sleep(3);
+        bddUtil.scrollWindowToElement(t24_payments_page.zuihou);
+        bddUtil.sleep(5);
     }
 }
