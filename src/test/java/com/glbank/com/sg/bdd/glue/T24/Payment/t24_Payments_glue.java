@@ -868,4 +868,229 @@ public class t24_Payments_glue {
     public void closeTheCurrent() {
         t24_payments_step.closetheCurrent();
     }
+
+    @When("^I click User Menu$")
+    public void iClickUserMenu() {t24_payments_step.clickUserMenu();
+    }
+
+    @Then("^I click payments$")
+    public void iClickPayments() {t24_payments_step.clickPaymentsMenu();
+    }
+
+    @When("^I click payment hup$")
+    public void iClickPaymentHup() {t24_payments_step.clickPaymentHubMenu();
+    }
+
+    @Then("^I click Account Transfer$")
+    public void iClickAccountTransfer() {t24_payments_step.clickAccountTransfer();
+    }
+
+    @When("^I Input Transfer Information$")
+    public void iInputTransferInformation(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.InputTransferInformation(maps.get(0).get("Debit Account"),maps.get(0).get("Debit Amount"),maps.get(0).get("Debit Currency"),maps.get(0).get("Credit Account"),maps.get(0).get("Credit Currency"),maps.get(0).get("Ordering Bank"));
+    }
+
+    @Then("^I click Authorise/Delete FT transactions$")
+    public void iClickAuthoriseDeleteFTTransactions() {
+        t24_payments_step.clickAuthoriseDeleteFTTransactions();
+    }
+
+    @Then("^I click search but$")
+    public void iClickSearchBut() {t24_payments_step.clickSearchBut();
+    }
+
+    @Then("^I input Credit Account No$")
+    public void iInputCreditAccountNo(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.InputCreditAccountNo(maps.get(0).get("Credit Account No"));
+    }
+
+    @When("^I click find$")
+    public void iClickFind() {t24_payments_step.clickFind();
+    }
+
+    @Then("^I click Authorize But$")
+    public void iClickAuthorizeBut1() {t24_payments_step.clickAuthorizeBut1();
+    }
+
+    @Then("^I click Risk Management$")
+    public void iClickRiskManagement() {
+        t24_payments_step.ClickRiskManagement();
+    }
+
+    @Then("^I click Limits$")
+    public void iClickLimits() {
+        t24_payments_step.clickLimits();
+    }
+
+    @Then("^I click Limit Menu$")
+    public void iClickLimitMenu() {t24_payments_step.ClickLimitMenu();
+    }
+
+    @Then("^I click Create Unsecured Limit$")
+    public void iClickCreateUnsecuredLimit() {t24_payments_step.ClickCreateUnsecuredLimit();
+    }
+
+    @When("^I click New Deal$")
+    public void iClickNewDeal() {t24_payments_step.ClickNewDeal();
+    }
+
+    @Then("^I input Limit Details$")
+    public void iInputLimitDetails(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.InputLimitDetails(maps.get(0).get("customer_number"),maps.get(0).get("limit_product"),maps.get(0).get("serial_no"),maps.get(0).get("currency"),maps.get(0).get("internal_amount"));
+    }
+
+    @Then("^I click Other Details$")
+    public void iClickOtherDetails() {t24_payments_step.ClickOtherDetails();
+    }
+
+    @Then("^I input Other Details$")
+    public void iInputOtherDetails(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.iInputOtherDetails(maps.get(0).get("AllowedCcy"));
+    }
+
+    @When("^I click Loan Details$")
+    public void iClickLoanDetails(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.iClickLoanDetails(maps.get(0).get("Loan_Interest_Rate"),maps.get(0).get("Loan_Tenor"),maps.get(0).get("Settlement_Account"));
+    }
+
+    @Then("^I click Authorise/Delete/Reject Limit$")
+    public void iClickAuthoriseDeleteRejectLimit() {
+        t24_payments_step.ClickAuthoriseDeleteRejectLimit();
+    }
+
+
+
+    @Then("^I get LimitID$")
+    public void iGetLimitID() {
+        t24_payments_step.GetLimitID();
+    }
+
+    @Then("^I input LimitID And click Find$")
+    public void iInputLimitIDAndClickFind() {
+        t24_payments_step.InputLimitIDAndClickFind();
+    }
+
+    @Then("^I click Authorize Butt$")
+    public void iClickAuthorizeButt() {t24_payments_step.ClickAuthorizeButt();
+
+    }
+
+    @Then("^I click search butt$")
+    public void iClickSearchButt() {
+        t24_payments_step.ClickSearchButt();
+    }
+
+    @Then("^I Click Product Catalog$")
+    public void iClickProductCatalog() {
+        t24_payments_step.ClickProductCatalog();
+    }
+
+    @Then("^I click products$")
+    public void iClickProducts() {
+        t24_payments_step.ClickProducts();
+    }
+
+    @When("^I Click Lending$")
+    public void iClickLending() {
+        t24_payments_step.ClickLending();
+    }
+
+    @Then("^I click Syndicated Loans$")
+    public void iClickSyndicatedLoans() {
+        t24_payments_step.ClickSyndicatedLoans();
+    }
+
+    @Then("^I click New Arrangement$")
+    public void iClickNewArrangement() {
+        t24_payments_step.ClickNewArrangement();
+    }
+
+    @When("^I input Customer and Currency$")
+    public void iInputCustomerAndCurrency(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.iInputCustomerAndCurrency(maps.get(0).get("Customer"),maps.get(0).get("Currency1"));
+    }
+
+    @Then("^I click Submit(\\d+)$")
+    public void iClickSubmit(int arg0) {
+        t24_payments_step.ClickSubmit();
+    }
+
+    @Then("^I input limit$")
+    public void iInputLimit(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.iInputLimit(maps.get(0).get("Limit_Id"));
+    }
+
+    @Then("^I input Commitment$")
+    public void iInputCommitment(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.iInputCommitment(maps.get(0).get("Amount1"),maps.get(0).get("Term"),maps.get(0).get("Maturity_Date"));
+    }
+
+    @When("^I input Principal Interest$")
+    public void iInputPrincipalInterest(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.InputPrincipalInterest(maps.get(0).get("Fixed"),maps.get(0).get("MinMaxRate"));
+    }
+
+    @Then("^I get Arrangement$")
+    public void iGetArrangement() {
+        t24_payments_step.GetArrangement();
+    }
+
+    @Then("^I clcik CCY Reference and input$")
+    public void iClcikCCYReferenceAndInput(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.ClcikCCYReferenceAndInput(maps.get(0).get("Currency2"),maps.get(0).get("FixedFloating"),maps.get(0).get("RateIndex"));
+    }
+
+    @Then("^I input Penalty Interest$")
+    public void iInputPenaltyInterest(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.InputPenaltyInterest(maps.get(0).get("MinMaxRate"),maps.get(0).get("Currency3"),maps.get(0).get("FixedFloating3"),maps.get(0).get("RateIndex3"));
+    }
+
+    @Then("^I input Settlement Instructions$")
+    public void iInputSettlementInstructions(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.InputSettlementInstructions(maps.get(0).get("Settlement1"),maps.get(0).get("Settlement2"),maps.get(0).get("Active1"),maps.get(0).get("Active2"));
+    }
+
+    @Then("^I click Unauthorized AAA records$")
+    public void iClickUnauthorizedAAARecords() {
+        t24_payments_step.ClickUnauthorizedAAARecords();
+    }
+
+    @Then("^I input Arrangement and Find$")
+    public void iInputArrangementAndFind() {
+        t24_payments_step.InputArrangementAndFind();
+    }
+
+    @Then("^I click improve butt$")
+    public void iClickImproveButt() {
+        t24_payments_step.ClickImproveButt();
+    }
+
+    @Then("^I get Active$")
+    public void iGetActive() {
+        t24_payments_step.GetActive();
+    }
+
+    @Then("^I input Facility Fees Amortised and STF Participation Fee$")
+    public void iInputFacilityFeesAmortisedAndSTFParticipationFee(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.InputFacilityFeesAmortisedAndSTFParticipationFee(maps.get(0).get("rate"),maps.get(0).get("FixedAmount"));
+    }
+
+    @Then("^I input Schedule$")
+    public void iInputSchedule(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.iInputSchedule(maps.get(0).get("StartTime"),maps.get(0).get("EndTime"));
+    }
 }

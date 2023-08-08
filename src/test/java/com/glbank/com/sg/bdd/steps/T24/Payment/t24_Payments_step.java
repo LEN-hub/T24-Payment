@@ -3232,4 +3232,312 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
 
+    @Step
+    public void clickAccountTransfer() {
+        t24_payments_page.clickAccountTransfer.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+    }
+
+    public void InputTransferInformation(String debit_account, String debit_amount, String debit_currency, String credit_account, String credit_currency, String ordering_bank) {
+        t24_payments_page.debit_account.sendKeys(debit_account);
+        t24_payments_page.debit_amount.sendKeys(debit_amount);
+        t24_payments_page.debit_currency.sendKeys(debit_currency);
+        t24_payments_page.credit_account.sendKeys(credit_account);
+        t24_payments_page.credit_currency.sendKeys(credit_currency);
+        t24_payments_page.ordering_bank.sendKeys(ordering_bank);
+    }
+
+    public void clickAuthoriseDeleteFTTransactions() {
+        t24_payments_page.clickAuthoriseDeleteFTTransactions.click();
+        bddUtil.sleep(1);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+    }
+
+    public void clickSearchBut() {
+        switchToFirstFrame();
+        t24_payments_page.clickSerchBut.click();
+        bddUtil.sleep(1);
+    }
+
+    public void InputCreditAccountNo(String credit_account_no) {
+        t24_payments_page.credit_account_no.sendKeys(credit_account_no);
+    }
+
+    public void clickFind() {
+        t24_payments_page.clicFind.click();
+    }
+
+    public void clickAuthorizeBut1() {
+        t24_payments_page.clickAuthorizeBut1.click();
+        bddUtil.sleep(2);
+        switchToDefaultContent();
+//        进入第二个 frame
+        switchToSecondFrame();
+        t24_payments_page.clickAuthorizeBut2.click();
+    }
+
+
+    public void ClickRiskManagement() {
+        t24_payments_page.ClickRiskManagement.click();
+    }
+
+    public void clickLimits() {
+        t24_payments_page.clickLimits.click();
+    }
+
+    public void ClickLimitMenu() {
+        t24_payments_page.ClickLimitMenu.click();
+    }
+
+    public void ClickCreateUnsecuredLimit() {
+        t24_payments_page.ClickCreateUnsecuredLimit.click();
+        bddUtil.sleep(1);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+
+    }
+
+    public void ClickNewDeal() {
+        t24_payments_page.ClickNewDeal.click();
+    }
+
+    public void InputLimitDetails(String customer_number, String limit_product, String serial_no, String currency, String internal_amount) {
+        t24_payments_page.customer_number.sendKeys(customer_number);
+        t24_payments_page.limit_product.sendKeys(limit_product);
+        t24_payments_page.serial_no.sendKeys(serial_no);
+        t24_payments_page.currency.sendKeys(currency);
+        t24_payments_page.internal_amount.sendKeys(internal_amount);
+        t24_payments_page.AvailableMarker.click();
+        bddUtil.sleep(3);
+    }
+
+    public void ClickOtherDetails() {
+        t24_payments_page.ClickOtherDetails.click();
+        bddUtil.sleep(1);
+    }
+
+    public void iInputOtherDetails(String AllowedCcy) {
+        t24_payments_page.AllowedCcy.sendKeys(AllowedCcy);
+    }
+
+    public void iClickLoanDetails(String loan_interest_rate, String loan_tenor, String settlement_account) {
+        t24_payments_page.LoanDetails.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Loan_Interest_Type.click();
+        t24_payments_page.loan_interest_rate.sendKeys(loan_interest_rate);
+        t24_payments_page.loan_tenor.sendKeys(loan_tenor);
+        t24_payments_page.settlement_account.sendKeys(settlement_account);
+        t24_payments_page.Loan_Tenor_Unit.click();
+        bddUtil.sleep(5);
+    }
+
+    public void ClickAuthoriseDeleteRejectLimit() {
+        t24_payments_page.ClickAuthoriseDeleteRejectLimit.click();
+        bddUtil.sleep(1);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+    }
+
+
+
+    public void GetLimitID() {
+        String LimitID = t24_payments_page.LimitID.getText();
+        FileUtils.FileString4("LoanPINumber", LimitID);
+
+    }
+
+    public void InputLimitIDAndClickFind() {
+        bddUtil.sleep(3);
+        //    拼接PI号  根据对应的Limit号 去授权
+        String LimitID = FileUtils.LastReadFileInput3("LoanPINumber");
+        t24_payments_page.Limit_ID.sendKeys(LimitID);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(4);
+    }
+
+    public void ClickAuthorizeButt() {
+        t24_payments_page.clickAuthorizeBut1.click();
+        bddUtil.sleep(2);
+        t24_payments_page.clickAuthorizeBut2.click();
+    }
+
+    public void ClickSearchButt() {
+        t24_payments_page.clickSerchBut.click();
+        bddUtil.sleep(1);
+    }
+
+    public void ClickProductCatalog() {
+        t24_payments_page.ClickProductCatalog.click();
+        bddUtil.sleep(1);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+    }
+
+    public void ClickProducts() {
+        t24_payments_page.clickProducts.click();
+    }
+
+    public void ClickLending() {
+//        switchToThirdFrame();
+        getDriver().switchTo().frame(t24_payments_page.switchToThirdFrame);
+        t24_payments_page.ClickLending.click();
+    }
+
+    public void ClickSyndicatedLoans() {
+        t24_payments_page.ClickSyndicatedLoans.click();
+    }
+
+    public void ClickNewArrangement() {
+        switchToDefaultContent();
+        getDriver().switchTo().frame(t24_payments_page.switchToFourFrame);
+        t24_payments_page.ClickNewArrangement.click();
+        bddUtil.sleep(1);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+    }
+
+    public void iInputCustomerAndCurrency(String customer, String currency1) {
+        t24_payments_page.customer.sendKeys(customer);
+        t24_payments_page.currency1.sendKeys(currency1);
+        bddUtil.sleep(2);
+    }
+
+    public void ClickSubmit() {
+        bddUtil.sleep(1);
+        t24_payments_page.preSubmit.click();
+    }
+
+    public void iInputLimit(String limit_id) {
+        bddUtil.sleep(1);
+        t24_payments_page.InputLimit.sendKeys(limit_id);
+        bddUtil.sleep(1);
+    }
+
+    public void iInputCommitment(String amount1, String term, String maturity_date) {
+        t24_payments_page.amount1.sendKeys(amount1);
+        t24_payments_page.term.sendKeys(term);
+        t24_payments_page.maturity_date.sendKeys(maturity_date);
+        bddUtil.sleep(1);
+    }
+
+    public void InputPrincipalInterest(String fixed,String MinMaxRate) {
+        t24_payments_page.Fixed.sendKeys(fixed);
+        bddUtil.sleep(1);
+        //    拼接PI号  根据对应的AA号
+        String Arrangement = FileUtils.LastReadFileInput3("LoanPINumber");
+        t24_payments_page.LinkedArrangement.sendKeys(Arrangement);
+        t24_payments_page.Add.click();
+        getDriver().findElement(By.xpath("/html/body/div[5]/fieldset[7]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[14]/select/option[2]")).click();
+        t24_payments_page.single.click();
+        getDriver().findElement(By.xpath("/html/body/div[5]/fieldset[7]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[16]/select/option[4]")).click();
+        t24_payments_page.MinMaxRate.sendKeys(MinMaxRate);
+    }
+
+    public void GetArrangement() {
+        String Arrangement = t24_payments_page.Arrangement.getText();
+        FileUtils.FileString4("LoanPINumber", Arrangement);
+    }
+
+    public void ClcikCCYReferenceAndInput(String currency2, String fixedFloating, String rateIndex) {
+        t24_payments_page.CCYReference.click();
+        bddUtil.sleep(1);
+        t24_payments_page.currency2.sendKeys(currency2);
+        t24_payments_page.fixedFloating.sendKeys(fixedFloating);
+        t24_payments_page.rateIndex.sendKeys(rateIndex);
+        bddUtil.sleep(5);
+    }
+
+    public void InputPenaltyInterest(String MinMaxRate2,String Currency3,String FixedFloating3,String RateIndex3) {
+        String Arrangement = FileUtils.LastReadFileInput3("LoanPINumber");
+        t24_payments_page.LinkedArrangement2.sendKeys(Arrangement);
+        t24_payments_page.spread.click();
+        getDriver().findElement(By.xpath("/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[10]/select/option[1]")).click();
+        t24_payments_page.Add2.click();
+        getDriver().findElement(By.xpath("/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[14]/select/option[2]")).click();
+        t24_payments_page.single2.click();
+        t24_payments_page.MinMaxRate2.sendKeys(MinMaxRate2);
+        t24_payments_page.LinkedProperty.clear();
+        t24_payments_page.LinkedProperty.sendKeys("PRINCIPALINT");
+        bddUtil.sleep(2);
+        t24_payments_page.CCYReference2.click();
+        t24_payments_page.Currency3.sendKeys(Currency3);
+        t24_payments_page.FixedFloating3.sendKeys(FixedFloating3);
+        t24_payments_page.RateIndex3.sendKeys(RateIndex3);
+    }
+
+    public void InputSettlementInstructions(String settlement1, String settlement2,String Active1,String Active2) {
+        t24_payments_page.Active1.click();
+        getDriver().findElement(By.xpath("/html/body/div[5]/fieldset[20]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[3]/td[2]/select/option[3]")).click();
+        t24_payments_page.Active2.click();
+        getDriver().findElement(By.xpath("/html/body/div[5]/fieldset[20]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[8]/td[2]/select/option[3]")).click();
+        t24_payments_page.settlement1.sendKeys(settlement1);
+        t24_payments_page.settlement2.sendKeys(settlement2);
+        bddUtil.sleep(2);
+        t24_payments_page.PayIn.click();
+        t24_payments_page.Rule.clear();
+        t24_payments_page.Rule.sendKeys("FULL");
+    }
+
+    public void ClickUnauthorizedAAARecords() {
+        t24_payments_page.ClickUnauthorizedAAARecords.click();
+        bddUtil.sleep(1);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(1);
+    }
+
+    public void InputArrangementAndFind() {
+        t24_payments_page.Limit_ID.clear();
+        String Active = FileUtils.LastReadFileInput3("LoanPINumber");
+        t24_payments_page.Limit_ID.sendKeys(Active);
+        bddUtil.sleep(1);
+        t24_payments_page.Find.click();
+    }
+
+    public void ClickImproveButt() {
+        t24_payments_page.clickAuthorizeBut1.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(1);
+        t24_payments_page.clickAuthorizeBut3.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(1);
+        t24_payments_page.clickAuthorizeBut2.click();
+    }
+
+    public void GetActive() {
+        String GetActive = t24_payments_page.Active.getText();
+        FileUtils.FileString4("LoanPINumber", GetActive);
+    }
+
+    public void InputFacilityFeesAmortisedAndSTFParticipationFee(String rate,String FixedAmount) {
+        bddUtil.sleep(1);
+        t24_payments_page.rate.clear();
+        t24_payments_page.rate.sendKeys(rate);
+        bddUtil.sleep(1);
+        t24_payments_page.FixedAmount.clear();
+        bddUtil.sleep(1);
+        t24_payments_page.FixedAmount.sendKeys(FixedAmount);
+    }
+
+    public void iInputSchedule(String startTime, String endTime) {
+        bddUtil.sleep(1);
+        t24_payments_page.type.clear();
+        t24_payments_page.type.sendKeys("INTEREST");
+        t24_payments_page.startTime.sendKeys(startTime);
+        t24_payments_page.endTime.sendKeys(endTime);
+        bddUtil.sleep(1);
+    }
 }

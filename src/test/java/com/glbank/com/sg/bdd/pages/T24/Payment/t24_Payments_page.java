@@ -1,10 +1,13 @@
 package com.glbank.com.sg.bdd.pages.T24.Payment;
 
+import cn.hutool.setting.GroupedMap;
 import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.glbank.com.sg.bdd.utils.FileUtils;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.serenitybdd.core.pages.WebElementFacadeImpl;
+import net.thucydides.core.webdriver.stubs.WebElementFacadeStub;
 
 import java.security.cert.X509Certificate;
 import java.util.List;
@@ -16,6 +19,12 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//title[contains(text(),'GLDB')]/parent::head/following-sibling::frameset/frame[1]")
     public WebElementFacade switchToFirstFrame;
+
+    @FindBy(xpath = "//frame[2]")
+    public WebElementFacade switchToThirdFrame;
+
+    @FindBy(xpath = "//frameset[1]//frameset[2]//frameset[2]//frame[2]")
+    public WebElementFacade switchToFourFrame;
 
     @FindBy(id = "commandValue")
     public WebElementFacade inputBox;
@@ -857,4 +866,244 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//span[text()='Audit']")
     public WebElementFacade getAudit;
+
+    @FindBy(xpath = "//a[text()='Account Transfer ']")
+    public WebElementFacade clickAccountTransfer;
+
+    @FindBy(xpath = "//input[@name='fieldName:DEBIT.ACCT.NO']")
+    public WebElementFacade debit_account;
+
+    @FindBy(xpath = "//input[@name='fieldName:DEBIT.AMOUNT']")
+    public WebElementFacade debit_amount;
+
+    @FindBy(xpath = "//input[@name='fieldName:DEBIT.CURRENCY']")
+    public WebElementFacade debit_currency;
+
+    @FindBy(xpath = "//input[@name='fieldName:CREDIT.ACCT.NO']")
+    public WebElementFacade credit_account;
+
+    @FindBy(xpath = "//input[@name='fieldName:CREDIT.CURRENCY']")
+    public WebElementFacade credit_currency;
+
+    @FindBy(xpath = "//input[@name='fieldName:ORDERING.BANK:1']")
+    public WebElementFacade ordering_bank;
+
+    @FindBy(xpath = "//a[text()='Authorise/Delete FT transactions ']")
+    public WebElementFacade clickAuthoriseDeleteFTTransactions;
+
+    @FindBy(xpath = "//a[@title='Selection Screen']")
+    public WebElementFacade clickSerchBut;
+
+    @FindBy(xpath = "//input[@name='value:2:1:1']")
+    public WebElementFacade credit_account_no;
+
+    @FindBy(xpath = "//a[@title='Run Selection']")
+    public WebElementFacade clicFind;
+
+    @FindBy(xpath = "//a[@title='Authorise']")
+    public WebElementFacade clickAuthorizeBut1;
+
+    @FindBy(xpath = "//a[@title='Authorises a deal']")
+    public WebElementFacade clickAuthorizeBut2;
+
+    @FindBy(xpath = "//span[text()='Risk Management']")
+    public WebElementFacade ClickRiskManagement;
+
+    @FindBy(xpath = "//span[text()='Limits']")
+    public WebElementFacade clickLimits;
+
+    @FindBy(xpath = "//span[text()='Limit Menu']")
+    public WebElementFacade ClickLimitMenu;
+
+    @FindBy(xpath = "//a[text()='Create Unsecured Limit ']")
+    public WebElementFacade ClickCreateUnsecuredLimit;
+
+    @FindBy(xpath = "//a[@title='New Deal']")
+    public WebElementFacade ClickNewDeal;
+
+    @FindBy(xpath = "//input[@name='fieldName:CUSTOMER.NUMBER:1']")
+    public WebElementFacade customer_number;
+
+    @FindBy(xpath = "//input[@name='fieldName:LIMIT.PRODUCT']")
+    public WebElementFacade limit_product;
+
+    @FindBy(xpath = "//input[@name='fieldName:SERIAL.NUMBER']")
+    public WebElementFacade serial_no;
+
+    @FindBy(xpath = "//input[@name='fieldName:LIMIT.CURRENCY']")
+    public WebElementFacade currency;
+
+    @FindBy(xpath = "//input[@name='fieldName:INTERNAL.AMOUNT']")
+    public WebElementFacade internal_amount;
+
+    @FindBy(xpath = "//input[@value='Y']")
+    public WebElementFacade AvailableMarker;
+
+    @FindBy(xpath = "//a//span[text()='Other Details']")
+    public WebElementFacade ClickOtherDetails;
+
+   @FindBy(xpath = "//input[@name='fieldName:ALLOWED.CCY:1']")
+    public WebElementFacade AllowedCcy;
+
+    @FindBy(xpath = "//input[@id='fieldName:L.INT.TYPE']/following-sibling::table//tr/td[2]/input")
+    public WebElementFacade Loan_Interest_Type;
+
+   @FindBy(xpath = "//input[@name='fieldName:L.ACT.RATE']")
+    public WebElementFacade loan_interest_rate;
+
+    @FindBy(xpath = "//input[@name='fieldName:L.TENOR']")
+    public WebElementFacade loan_tenor;
+
+    @FindBy(xpath = "//input[@name='fieldName:L.SETTLE.ACC']")
+    public WebElementFacade settlement_account;
+
+    @FindBy(xpath = "//td[2]//input[@name='radio:tab5:L.TENOR.UNIT']")
+    public WebElementFacade Loan_Tenor_Unit;
+
+    @FindBy(xpath = "//a//span[text()='Loan Details']")
+    public WebElementFacade LoanDetails;
+
+    @FindBy(xpath ="//a[text()='Authorise/Delete/Reject Limit ']" )
+    public WebElementFacade ClickAuthoriseDeleteRejectLimit;
+
+    @FindBy(xpath ="//span[@tabindex]" )
+    public WebElementFacade LimitID;
+
+    @FindBy(xpath ="//span[@id='disabled_ARRANGEMENT']" )
+    public WebElementFacade Arrangement;
+
+    @FindBy(xpath = "//input[@name='value:1:1:1']")
+    public WebElementFacade Limit_ID;
+
+    @FindBy(xpath = "//a[text()='Product Catalog ']")
+    public WebElementFacade ClickProductCatalog;
+
+    @FindBy(xpath = "//img[@id='treestop6']")
+    public WebElementFacade ClickLending;
+
+    @FindBy(xpath = "//td[text()='Syndicated Loans']/following-sibling::td[2]/a")
+    public WebElementFacade ClickSyndicatedLoans;
+
+    @FindBy(xpath = "//img[@title='New Arrangement']")
+    public WebElementFacade ClickNewArrangement;
+
+    @FindBy(xpath = "//input[@name='fieldName:CUSTOMER:1']")
+    public WebElementFacade customer;
+
+    @FindBy(xpath = "//input[@name='fieldName:CURRENCY']")
+    public WebElementFacade currency1;
+
+    @FindBy(xpath = "//input[@name='fieldName:LIMIT']")
+    public WebElementFacade InputLimit;
+
+    @FindBy(xpath = "//input[@name='fieldName:AMOUNT']")
+    public WebElementFacade amount1;
+
+    @FindBy(xpath = "//input[@name='fieldName:TERM']")
+    public WebElementFacade term;
+
+    @FindBy(xpath = "//input[@name='fieldName:MATURITY.DATE']")
+    public WebElementFacade maturity_date;
+
+    @FindBy(xpath = "//input[@name='fieldName:FIXED.RATE:1'][1]")
+    public WebElementFacade Fixed;
+
+    @FindBy(xpath = "//input[@name='fieldName:LINKED.ARRANGEMENT'][1]")
+    public WebElementFacade LinkedArrangement;
+
+    @FindBy(xpath = "//a//span[text()='CCY Reference'][1]")
+    public WebElementFacade CCYReference;
+
+    @FindBy(xpath = "//input[@name='fieldName:CUSTOM.TYPE:1'][1]")
+    public WebElementFacade currency2;
+
+    @FindBy(xpath = "//input[@name='fieldName:CUSTOM.NAME:1'][1]")
+    public WebElementFacade fixedFloating;
+
+    @FindBy(xpath = "//input[@name='fieldName:CUSTOM.VALUE:1'][1]")
+    public WebElementFacade rateIndex;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[4]/td[3]/input")
+    public WebElementFacade LinkedArrangement2;
+
+    @FindBy(xpath = "//select[@id='fieldName:PAYIN.SETTLEMENT:1']")
+    public WebElementFacade Active1;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[20]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[8]/td[2]/select")
+    public WebElementFacade Active2;
+
+    @FindBy(xpath = "//input[@id='fieldName:PAYIN.ACCOUNT:1:1']")
+    public WebElementFacade settlement1;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[20]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[8]/td[5]/input")
+    public WebElementFacade settlement2;
+
+    @FindBy(xpath = "//a[text()='Unauthorized AAA records ']")
+    public WebElementFacade ClickUnauthorizedAAARecords;
+
+    @FindBy(xpath = "//img[@alt='Select Drilldown']")
+    public WebElementFacade clickAuthorizeBut3;
+
+    @FindBy(xpath = "//span[@class='iddisplay iddisplay_AAARRANGEMENTACTIVITY iddisplay_AAARRANGEMENTACTIVITY_AANEW']")
+    public WebElementFacade Active;
+
+    @FindBy(xpath = "//select[@name='fieldName:MARGIN.OPER:1:1']")
+    public WebElementFacade Add;
+
+    @FindBy(xpath = "//select[@name='fieldName:MARGIN.TYPE:1:1']")
+    public WebElementFacade single;
+
+    @FindBy(xpath = "//input[@name='fieldName:MARGIN.RATE:1:1']")
+    public WebElementFacade MinMaxRate;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[10]/select")
+    public WebElementFacade spread;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[14]/select")
+    public WebElementFacade Add2;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[16]/select/option[4]")
+    public WebElementFacade single2;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[4]/td[7]/input")
+    public WebElementFacade LinkedProperty;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[18]/input")
+    public WebElementFacade MinMaxRate2;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[2]/td/table/tbody/tr/td[5]/a/span")
+    public WebElementFacade CCYReference2;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[5]/tbody/tr[2]/td[3]/input")
+    public WebElementFacade Currency3;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[5]/tbody/tr[2]/td[6]/input")
+    public WebElementFacade FixedFloating3;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[5]/tbody/tr[2]/td[8]/input")
+    public WebElementFacade RateIndex3;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[12]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[7]/td[10]/input")
+    public WebElementFacade rate;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[13]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[3]/td[3]/input")
+    public WebElementFacade FixedAmount;
+
+    @FindBy(xpath = "//input[@name='fieldName:PAYMENT.TYPE:2']")
+    public WebElementFacade type;
+
+    @FindBy(xpath = "//input[@name='fieldName:START.DATE:2:1']")
+    public WebElementFacade startTime;
+
+    @FindBy(xpath = "//input[@name='fieldName:END.DATE:2:1']")
+    public WebElementFacade endTime;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[20]/div/div/form[1]/div[3]/table/tbody/tr[2]/td/table/tbody/tr/td[2]/a/span")
+    public WebElementFacade PayIn;
+
+    @FindBy(xpath = "//input[@name='fieldName:PAYIN.AC.DB.RULE:1']")
+    public WebElementFacade Rule;
+
+    @FindBy(xpath = "/html/body/div[5]/fieldset[8]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[14]/select")
+    public WebElementFacade Margin;
 }
