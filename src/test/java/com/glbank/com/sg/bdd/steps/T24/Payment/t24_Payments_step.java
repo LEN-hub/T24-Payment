@@ -646,7 +646,10 @@ public class t24_Payments_step extends ScenarioSteps {
         } else {
             WordUtils.photoStorageToFXPaymentMX(WordPath);
         }
+        t24_payments_page.getClickChargeInformation.click();
+        bddUtil.sleep(3);
         t24_payments_page.getAudit.click();
+        bddUtil.sleep(2);
         bddUtil.closeWindow();
         bddUtil.switchToNewWindow();
         switchToDefaultContent();
@@ -3605,4 +3608,6 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.scrollWindowToElement(t24_payments_page.zuihou);
         bddUtil.sleep(5);
     }
+
+
 }

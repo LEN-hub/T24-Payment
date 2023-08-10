@@ -1,5 +1,5 @@
-@Auto_Test
-Feature: Auto_Test
+@Auto_Test1
+Feature: Auto_Test1
 
 
   @Payment_OE_Outgoing_Bank_Transfer_USD-USD_UAT_Amount<threshold

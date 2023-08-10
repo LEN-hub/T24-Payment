@@ -2203,7 +2203,78 @@ public class paymentService_step extends ScenarioSteps {
                 }
             }
         }
+        bddUtil.sleep(2);
+    }
+
+    public void selectPaymentAccountEUR(String selectAccount,String Currency){
+        paymentService_page.accountBox.click();
         bddUtil.sleep(3);
+        List<WebElementFacade> Acc = paymentService_page.selectAccount;
+        for (int i = 0; i < Acc.size(); i++){
+            if (selectAccount.equals(Acc.get(i).getText())){
+                Acc.get(i).click();
+                break;
+            }
+        }
+        if (selectAccount.substring(0,4).toString().equals("1102")){
+            paymentService_page.overseasClickCurrencyBox.click();
+            bddUtil.sleep(2);
+            List<WebElementFacade> current1 = paymentService_page.selectAccount;
+            for (int i = 0; i < current1.size(); i+=2) {
+                if (current1.get(i).getText().equals(Currency)){
+                    current1.get(i).click();
+                }
+            }
+        }
+        bddUtil.sleep(2);
+    }
+
+
+    public void selectPaymentAccountCNY(String selectAccount,String Currency){
+        paymentService_page.accountBox.click();
+        bddUtil.sleep(3);
+        List<WebElementFacade> Acc = paymentService_page.selectAccount;
+        for (int i = 0; i < Acc.size(); i++){
+            if (selectAccount.equals(Acc.get(i).getText())){
+                Acc.get(i).click();
+                break;
+            }
+        }
+        if (selectAccount.substring(0,4).toString().equals("1102")){
+            paymentService_page.overseasClickCurrencyBox.click();
+            bddUtil.sleep(2);
+            List<WebElementFacade> current1 = paymentService_page.selectAccount;
+            for (int i = 0; i < current1.size(); i+=3) {
+                if (current1.get(i).getText().equals(Currency)){
+                    current1.get(i).click();
+                }
+            }
+        }
+        bddUtil.sleep(2);
+    }
+
+
+    public void selectPaymentAccountHKD(String selectAccount,String Currency){
+        paymentService_page.accountBox.click();
+        bddUtil.sleep(3);
+        List<WebElementFacade> Acc = paymentService_page.selectAccount;
+        for (int i = 0; i < Acc.size(); i++){
+            if (selectAccount.equals(Acc.get(i).getText())){
+                Acc.get(i).click();
+                break;
+            }
+        }
+        if (selectAccount.substring(0,4).toString().equals("1102")){
+            paymentService_page.overseasClickCurrencyBox.click();
+            bddUtil.sleep(2);
+            List<WebElementFacade> current1 = paymentService_page.selectAccount;
+            for (int i = 0; i < current1.size(); i+=4) {
+                if (current1.get(i).getText().equals(Currency)){
+                    current1.get(i).click();
+                }
+            }
+        }
+        bddUtil.sleep(2);
     }
 //    public void clickCurrency(String payeeCurrency){
 //        paymentService_page.clickCurrencyBox.click();

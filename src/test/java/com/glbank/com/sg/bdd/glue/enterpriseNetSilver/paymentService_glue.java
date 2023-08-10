@@ -143,6 +143,45 @@ public class paymentService_glue {
     }
 
 
+    @When("^I select the payment account, enter the payment currency and the payment amount and the cost commitmentEUR$")
+    public void iSelectThePaymentAccountEnterThePaymentCurrencyAndThePaymentAmountAndTheCostCommitmentEUR(DataTable payDetail) {
+        List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
+        paymentService_step.selectPaymentAccountEUR(payToInfo.get(0).get("Account Number"), payToInfo.get(0).get("Currency"));
+//        List<Map<String, String>> payToInfoN = payDetail.asMaps(String.class, String.class);
+//        paymentService_step.clickCurrency(payToInfoN.get(0).get("payeeCurrency"));
+        List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
+        paymentService_step.enterAmount();
+        List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
+        paymentService_step.expense(payToI.get(0).get("Payment Mode for Charges"));
+    }
+
+
+    @When("^I select the payment account, enter the payment currency and the payment amount and the cost commitmentCNY$")
+    public void iSelectThePaymentAccountEnterThePaymentCurrencyAndThePaymentAmountAndTheCostCommitmentCNY(DataTable payDetail) {
+        List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
+        paymentService_step.selectPaymentAccountCNY(payToInfo.get(0).get("Account Number"), payToInfo.get(0).get("Currency"));
+//        List<Map<String, String>> payToInfoN = payDetail.asMaps(String.class, String.class);
+//        paymentService_step.clickCurrency(payToInfoN.get(0).get("payeeCurrency"));
+        List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
+        paymentService_step.enterAmount();
+        List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
+        paymentService_step.expense(payToI.get(0).get("Payment Mode for Charges"));
+    }
+
+
+
+    @When("^I select the payment account, enter the payment currency and the payment amount and the cost commitmentHKD$")
+    public void iSelectThePaymentAccountEnterThePaymentCurrencyAndThePaymentAmountAndTheCostCommitmentHKD(DataTable payDetail) {
+        List<Map<String, String>> payToInfo = payDetail.asMaps(String.class, String.class);
+        paymentService_step.selectPaymentAccountHKD(payToInfo.get(0).get("Account Number"), payToInfo.get(0).get("Currency"));
+//        List<Map<String, String>> payToInfoN = payDetail.asMaps(String.class, String.class);
+//        paymentService_step.clickCurrency(payToInfoN.get(0).get("payeeCurrency"));
+        List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
+        paymentService_step.enterAmount();
+        List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
+        paymentService_step.expense(payToI.get(0).get("Payment Mode for Charges"));
+    }
+
 
     @And("^I choose the payment currency$")
     public void iChooseThePaymentCurrency(DataTable payDetail) {
@@ -191,6 +230,7 @@ public class paymentService_glue {
     @When("^I choose to submit the transfer information$")
     public void iChooseToSubmitTheTransferInformation() {
         paymentService_step.clickNextBox();
+        bddUtil.sleep(3);
 //        paymentService_step.beginValidation();
         paymentService_step.staging();
         paymentService_step.selectSumB();
