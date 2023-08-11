@@ -2348,7 +2348,7 @@ public class paymentService_step extends ScenarioSteps {
         paymentService_page.payeeCountriesEnCdBox.click();
         bddUtil.sleep(2);
         paymentService_page.payeeCountries.click();
-        getDriver().findElement(By.xpath("//span[text()='AFGHANISTAN']/parent::li")).click();
+//        getDriver().findElement(By.xpath("//span[text()='AFGHANISTAN']/parent::li")).click();
     }
     public void remittancePostscriptContent(String remittancePostscriptContent){
         paymentService_page.remittancePostscriptContent.sendKeys(remittancePostscriptContent);}
