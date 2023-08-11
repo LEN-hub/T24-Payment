@@ -110,7 +110,7 @@ Feature: Auto_Test6
 
 
 
-  @Payment_Overseas_Transfer_MCY_Auth_CNY-CNY_SIT-3
+  @Payment_Overseas_Transfer_MCY_Auth_CNY-CNY_SIT-5
   Scenario:Positive process of overseas transfer Bic Is DBS(CNY--CNY)(SIT_MCY_Auth)-3
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
