@@ -1,5 +1,5 @@
-2023-8-10 16:50:48:988
-ChannelReferenceID:230810000000101
+2023-8-11 10:22:46:872
+ChannelReferenceID:230811000000040
 ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
 ChannelDebitAccountCurrency:CNY
 ChannelDebitAccountNumber:11020931868
@@ -7,23 +7,23 @@ ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
 ChannelDetailPayeeName:lucky
 ChannelDetailAccountCurrency:CNY
 ChannelDetailPayeeAccountNum:667812798
-ChannelDetailTransactionAmount:810.43
+ChannelDetailTransactionAmount:811.58
 ChannelDetailBeneficiaryBankBIC:DBSSSGS0VEC
 ChannelDetailPayeeAddress:countries
 ChannelDetailEstimatedProcessingFee:0.00
 ChannelDetailPaymentModeForCharges:All expenses shall be borne by the remitter
 ChannelDetailPurposeOfTransfer:Business Expenses
-2023-8-10 16:52:53:332
-ID:230810000000101
-TransactionReference:PI232220XDVZTTPK
+2023-8-11 10:25:58:869
+ID:230811000000040
+TransactionReference:PI232230CHLYCC2K
 FTNumber:null
-t24FtNumber:SGL23222GJCBKMJM
+t24FtNumber:SGL23223JGJJDG0B
 getStatus:677
-getTransactionReferenceNum:SGL23222GJCBKMJM
-getSenderReferenceNum:PI232220XDVZTTPK
+getTransactionReferenceNum:SGL23223JGJJDG0B
+getSenderReferenceNum:PI232230CHLYCC2K
 getTransactionCurrency:CNY
 getTransactionCurrency:CNY
-getTransactionAmount:810.43
+getTransactionAmount:811.58
 getChargeOption:OUR
 getDebitAccountNum:11020931906
 getDebitAccountCurrency:CNY

@@ -90,15 +90,15 @@ public class fixedDeposit_step extends ScenarioSteps {
         bddUtil.sleep(3);
         bddUtil.scrollWindowToElement(fixedDeposit_page.cickApproveBtn).click();
         fixedDeposit_page.clickSubmitBtn.click();
-        bddUtil.sleep(10);
-        try {
-           if (fixedDeposit_page.clickFinishBtn.isVisible()){
-               fixedDeposit_page.clickFinishBtn.click();
-           }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
+        bddUtil.sleep(2);
+//        try {
+//           if (fixedDeposit_page.clickFinishBtn.isVisible()){
+//               fixedDeposit_page.clickFinishBtn.click();
+//           }
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//
     }
 
 }

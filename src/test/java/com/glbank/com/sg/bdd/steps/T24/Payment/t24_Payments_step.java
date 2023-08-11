@@ -3610,4 +3610,7 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
 
+    public void WaitAMount() {
+        bddUtil.sleep(3);
+    }
 }

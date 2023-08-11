@@ -1133,4 +1133,8 @@ public class t24_Payments_glue {
     }
 
 
+    @Then("^I wait a mount$")
+    public void iWaitAMount() {
+        t24_payments_step.WaitAMount();
+    }
 }

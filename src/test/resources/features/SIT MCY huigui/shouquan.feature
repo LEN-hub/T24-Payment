@@ -1,9 +1,9 @@
-@Auto_Test5
-Feature: Auto_Test5
+@Auto_Test6
+Feature: Auto_Test6
 
 
-  @Payment_Overseas_Transfer_MCY_USD-USD_SIT-1
-  Scenario:Positive process of overseas transfer Bic Is DBS(USD-USD)(SIT_MCY)-1
+  @Payment_Overseas_Transfer_MCY_Auth_USD-USD_SIT-1
+  Scenario:Positive process of overseas transfer Bic Is DBS(USD--USD)(SIT_MCY_Auth)-1
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
@@ -15,7 +15,6 @@ Feature: Auto_Test5
     When I enter the payee information
       |Payee's Account Number|Payee's Name|
       |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
       |DBSSSGS0VEC     |
@@ -26,10 +25,13 @@ Feature: Auto_Test5
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on FX Payment MX Message
-      |WordPath          |
-      |Bic is DBS USD-USD|
+      |WordPath              |
+      |Bic is DBS USD-USD MCY|
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
+    When Vkey authorization for Payment transactions in the SIT environment
+    Then I wait a mount
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
@@ -54,20 +56,19 @@ Feature: Auto_Test5
 
 
 
-  @Payment_Overseas_Transfer_MCY_EUR-EUR_SIT-2
-  Scenario:Positive process of overseas transfer Bic Is DBS(EUR-EUR)(SIT_MCY)-2
+  @Payment_Overseas_Transfer_MCY_Auth_EUR-EUR_SIT-2
+  Scenario:Positive process of overseas transfer Bic Is DBS(EUR--EUR)(SIT_MCY_Auth)-2
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitmentEUR
       |Account Number|Payment Mode for Charges |Currency|
       |1102 0931 868 |OUR                      |EUR     |
     And I choose the payment currency
-      |Currency|
-      |EUR     |
+      |Currency   |
+      |EUR        |
     When I enter the payee information
       |Payee's Account Number|Payee's Name|
       |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
       |DBSSSGS0VEC     |
@@ -78,10 +79,13 @@ Feature: Auto_Test5
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on FX Payment MX Message
-      |WordPath          |
-      |Bic is DBS USD-USD|
+      |WordPath              |
+      |Bic is DBS USD-USD MCY|
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
+    When Vkey authorization for Payment transactions in the SIT environment
+    Then I wait a mount
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
@@ -105,20 +109,20 @@ Feature: Auto_Test5
       |Bic is DBS USD-USD|Bic is DBS USD-USD|
 
 
-  @Payment_Overseas_Transfer_MCY_CNY-CNY_SIT-3
-  Scenario:Positive process of overseas transfer Bic Is DBS(CNY-CNY)(SIT_MCY)-3
+
+  @Payment_Overseas_Transfer_MCY_Auth_CNY-CNY_SIT-3
+  Scenario:Positive process of overseas transfer Bic Is DBS(CNY--CNY)(SIT_MCY_Auth)-3
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitmentCNY
       |Account Number|Payment Mode for Charges |Currency|
       |1102 0931 868 |OUR                      |CNY     |
     And I choose the payment currency
-      |Currency|
-      |CNY     |
+      |Currency   |
+      |CNY        |
     When I enter the payee information
       |Payee's Account Number|Payee's Name|
       |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
       |DBSSSGS0VEC     |
@@ -129,10 +133,13 @@ Feature: Auto_Test5
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on FX Payment MX Message
-      |WordPath          |
-      |Bic is DBS USD-USD|
+      |WordPath              |
+      |Bic is DBS USD-USD MCY|
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
+    When Vkey authorization for Payment transactions in the SIT environment
+    Then I wait a mount
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
@@ -157,21 +164,19 @@ Feature: Auto_Test5
 
 
 
-
-  @Payment_Overseas_Transfer_MCY_HKD-HKD_SIT-4
-  Scenario:Positive process of overseas transfer Bic Is DBS(HKD-HKD)(SIT_MCY)-4
+  @Payment_Overseas_Transfer_MCY_Auth_HKD-HKD_SIT-4
+  Scenario:Positive process of overseas transfer Bic Is DBS(HKD--HKD)(SIT_MCY_Auth)-4
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitmentHKD
       |Account Number|Payment Mode for Charges |Currency|
       |1102 0931 868 |OUR                      |HKD     |
     And I choose the payment currency
-      |Currency|
-      |HKD     |
+      |Currency   |
+      |HKD        |
     When I enter the payee information
       |Payee's Account Number|Payee's Name|
       |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
     When I choose the receiving bank
       |Beneficiary Bank|
       |DBSSSGS0VEC     |
@@ -182,10 +187,13 @@ Feature: Auto_Test5
       |Purpose of Transfer|
       |Commission         |
     When I choose to submit the transfer information
-    When Vkey authorization for Payment transactions in the SIT environment
     Then I will compare all the data on FX Payment MX Message
-      |WordPath          |
-      |Bic is DBS USD-USD|
+      |WordPath              |
+      |Bic is DBS USD-USD MCY|
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
+    When Click My Task to find data for authorization
+    When Vkey authorization for Payment transactions in the SIT environment
+    Then I wait a mount
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |
