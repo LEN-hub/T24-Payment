@@ -462,6 +462,14 @@ public class t24_Payments_step extends ScenarioSteps {
         }
     }
 
+    @Step
+    public void getFtNumberOnMxMessage22(String WordPath) {
+        bddUtil.sleep(2);
+        t24FtNumber = t24_payments_page.getFtNumber.getText();
+        FileUtils.FileString4("t24", "t24FtNumber:" + t24FtNumber);
+        getDriver().manage().window().maximize();
+    }
+
     public void useToLogInToTSITEnvironment(String envName) {
         envTag = envName;
         if (!envName.isEmpty()) {
@@ -2751,6 +2759,14 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(4);
     }
 
+
+    @Step
+    public void clickChargeInformation2() {
+        t24_payments_page.ChargeInformation2.click();
+        bddUtil.sleep(4);
+    }
+
+
     @Step
     public void clickRoutingformation() {
         t24_payments_page.Routingformation.click();
@@ -3613,4 +3629,6 @@ public class t24_Payments_step extends ScenarioSteps {
     public void WaitAMount() {
         bddUtil.sleep(3);
     }
+
+
 }

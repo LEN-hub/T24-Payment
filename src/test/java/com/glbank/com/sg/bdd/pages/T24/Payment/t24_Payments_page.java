@@ -707,8 +707,11 @@ public class t24_Payments_page extends PageObject {
     public WebElementFacade OENumber;
 
 
-    @FindBy(xpath = "//span[text()='Charge Information']")
+    @FindBy(xpath = "//span[text()='Charge Info']")
     public WebElementFacade ChargeInformation;
+
+    @FindBy(xpath = "//span[text()='Charge Information']")
+    public WebElementFacade ChargeInformation2;
 
     @FindBy(xpath = "//span[text()='Routing Information']")
     public WebElementFacade Routingformation;
@@ -1140,5 +1143,6 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[2]/td/table/tbody/tr[37]/td[1]/label/a")
     public WebElementFacade zuihou;
+
 
 }
