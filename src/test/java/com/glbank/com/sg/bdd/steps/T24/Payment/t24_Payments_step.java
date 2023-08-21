@@ -2937,7 +2937,7 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
-        bddUtil.sleep(5);
+        bddUtil.sleep(2);
     }
 
     //    选择Accounting Entries查看详情
@@ -2948,7 +2948,7 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.AccountingEntries.click();
         bddUtil.sleep(2);
         t24_payments_page.iconLink.click();
-        bddUtil.sleep(5);
+        bddUtil.sleep(3);
     }
 
     //    选择Outgoing message查看详情
@@ -2968,7 +2968,7 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void AssertEnterViewDetailsPage(){
         String EnterViewDetailsTitle = t24_payments_page.ViewDetailsPageTitle.getText();
-        bddUtil.sleep(3);
+        bddUtil.sleep(2);
         Assert.assertEquals(EnterViewDetailsTitle,"Options");
     }
 
@@ -2980,7 +2980,7 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.AuditTrail.click();
         bddUtil.sleep(2);
         t24_payments_page.iconLink.click();
-        bddUtil.sleep(5);
+        bddUtil.sleep(3);
 //       退出第一个frame，进入第二个frame
         switchToDefaultContent();
         switchToSecondFrame();
