@@ -2683,7 +2683,7 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(1);
 //        在首页进行 状态更改。
         t24_payments_page.PendingRepairPayments.click();
-        bddUtil.sleep(2);
+        bddUtil.sleep(30);
         bddUtil.switchToNewWindow();
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
