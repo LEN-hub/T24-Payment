@@ -3102,7 +3102,7 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.LoanDebitCurrency.sendKeys(LoanDebitCurrency);
         t24_payments_page.LoanPaymentCurrency.sendKeys(LoanPaymentCurrency);
         t24_payments_page.LoanPaymentAmount.sendKeys(LoanPaymentAmount);
-        t24_payments_page.LoanBeneficiaryCountryCode.sendKeys(LoanBeneficiaryCountryCode);
+//        t24_payments_page.LoanBeneficiaryCountryCode.sendKeys(LoanBeneficiaryCountryCode);
         bddUtil.sleep(1);
     }
 

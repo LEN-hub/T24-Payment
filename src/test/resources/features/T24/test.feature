@@ -72,7 +72,7 @@ Feature: Auto_Test1
 
 
 
-  
+
 
 
 
@@ -121,18 +121,45 @@ Feature: Auto_Test1
 
 
 
-  @T24-LOAN_Disbursement-0002-Before
-  Scenario:T24-LOAN_Disbursement-0002-Before
+#  @T24-LOAN_Disbursement-0002-Before
+#  Scenario:T24-LOAN_Disbursement-0002-Before
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Loan Transactions Button
+#    Then I click AA AA Disbursement (SGMEPS) Button
+#    Then I enter input the Disbursement SGMEPS Page
+#    When I input information on the Loan Disbursement SGMEPS Page
+#      |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Account No|Beneficiary Bank BIC|Beneficiary Name|
+#      |19900000048         |SGD           |SGD             |10            |345665                |CITISGS0            |lei             |
+#    Then I input information on the SGMEPS Beneficiary Details Page
+#      |Beneficiary Street Name|Beneficiary Post Code|Beneficiary Town Name|Beneficiary Country|Beneficiary Residence Country|
+#      |teselei                |1234                 |SINGRORE             |SG                  |SG                          |
+#    Then I get LoanPINumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I click Loan Transactions Button
+#    Then I click Authorise/Delete Arrangements (PO) Button
+#    Then I input PI Number and click Find
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input LoanPINumber and click Find
+#    When I Assert enter View Page to USD Loan SGMEPS
+#    Then I Assert enter View Details Page
+
+
+
+
+  @T24-LOAN_Disbursement-0003-Before
+  Scenario: T24-LOAN_Disbursement-0003-Before
     Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click AA AA Disbursement (SGMEPS) Button
-    Then I enter input the Disbursement SGMEPS Page
-    When I input information on the Loan Disbursement SGMEPS Page
-      |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Account No|Beneficiary Bank BIC|Beneficiary Name|
-      |19900000048         |SGD           |SGD             |10            |345665                |CITISGS0            |lei             |
-    Then I input information on the SGMEPS Beneficiary Details Page
-      |Beneficiary Street Name|Beneficiary Post Code|Beneficiary Town Name|Beneficiary Country|Beneficiary Residence Country|
-      |teselei                |1234                 |SINGRORE             |SG                  |SG                          |
+    When I click Loan Transactions
+    When I Input incomplete information on AA Disbursement Internal page
+      |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
+      |19900000048         |SGD           |280006          |SGD             |11010000470     |
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -142,18 +169,48 @@ Feature: Auto_Test1
     When I click Loan Transactions Button
     Then I click Authorise/Delete Arrangements (PO) Button
     Then I input PI Number and click Find
-    Then Assert Result whether Successful
     And I close driver
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input LoanPINumber and click Find
-    When I Assert enter View Page to USD Loan SGMEPS
+    When I change status code USD
+    Then I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input FTNumber and click Find Authorise
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input LoanPINumber and click Find
+    When I Assert enter View Page to USD Loan Internal
     Then I Assert enter View Details Page
 
 
 
 
 
+  @T24-LOAN_Disbursement-0004-Before
+  Scenario: T24-LOAN_Disbursement-0004-Before
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Loan Transactions
+    When I Input incomplete information on AA Disbursement Internal page
+      |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
+      |13110000083         |USD           |9               |USD             |11010000489     |
+    Then I get LoanPINumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I click Loan Transactions Button
+    Then I click Authorise/Delete Arrangements (PO) Button
+    Then I input PI Number and click Find
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input LoanPINumber and click Find
+    When I Assert enter View Page to USD Loan Internal
+    Then I Assert enter View Details Page
 
 
 
