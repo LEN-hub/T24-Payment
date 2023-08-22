@@ -84,7 +84,7 @@ Feature: Auto_Test1
     Then Assert enter Disbursement External Page
     When I input information on the Loan Disbursement External Page
       |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|
-      |18000000490         |USD           |USD             |250008        |
+      |18000000490         |USD           |USD             |1000008       |
     Then I input information on the Beneficiary Details Page
       |Beneficiary Account No|Beneficiary Name|
       |3242343               |kang            |
@@ -158,7 +158,7 @@ Feature: Auto_Test1
     When I click Loan Transactions
     When I Input incomplete information on AA Disbursement Internal page
       |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
-      |18500001089         |SGD           |280007          |SGD             |11010000470     |
+      |18500001089         |SGD           |1000050         |SGD             |11010000470     |
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
