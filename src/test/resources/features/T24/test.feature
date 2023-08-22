@@ -184,16 +184,16 @@ Feature: Auto_Test1
 #    When I close all tabs and jump to the home page
 #
 #
-  @Regression-Incoming-0005-Before
-  Scenario:Regression-Incoming-0005-Before
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23234GCCKM0DK|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
+#  @Regression-Incoming-0005-Before
+#  Scenario:Regression-Incoming-0005-Before
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23234GCCKM0DK|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
 #
 #
 #  @Regression-Incoming-0011-Before
@@ -276,6 +276,44 @@ Feature: Auto_Test1
 #    Then I input FTNumber and click Find
 #    When I Assert enter View Page to USD Loan
 #    Then I Assert enter View Details Page
+
+
+
+
+
+  @Regression-Incoming-0012-Before
+  Scenario:Regression-Incoming-0012-Before
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23234DL0CKBHG|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+
+
+  @Regression-Incoming-0001-Before
+  Scenario:Regression-Incoming-0001-Before
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23234J0GMGBDJ|
+    When I change status code SGD
+    Then I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input FTNumber and click Find Authorise
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23234J0GMGBDJ|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
 
 
 
