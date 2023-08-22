@@ -77,23 +77,12 @@ Feature: Auto_Test1
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23234BJBJLDJH|
+      |SGL23234DGF0LDF0|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
 
 
-
-  @Regression-Incoming-0005-After
-  Scenario:Regression-Incoming-0005-After
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23234GLCMHLJL|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
 
 
 
