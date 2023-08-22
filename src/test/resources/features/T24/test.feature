@@ -300,7 +300,7 @@ Feature: Auto_Test1
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
       |SGL23234J0GMGBDJ|
-    When I change status code USD
+    When I change status code SGD
     Then I close driver
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I entered the Pending Authorise Payments page
