@@ -71,14 +71,32 @@ Feature: Auto_Test1
 #    Then I Assert enter View Details Page
 
 
+  @Regression-Incoming-0004-After
+  Scenario:Regression-Incoming-0004-After
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23234BJBJLDJH|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
 
 
 
+  @Regression-Incoming-0005-After
+  Scenario:Regression-Incoming-0005-After
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23234GLCMHLJL|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
 
 
-
-
-
+    
 
 
   @T24-LOAN_Disbursement-0004-After
@@ -120,52 +138,6 @@ Feature: Auto_Test1
 
 
 
-
-  @Regression-Incoming-0004-After
-  Scenario:Regression-Incoming-0004-After
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23234BJBJLDJH|
-    When I change status code SGD
-    Then I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input FTNumber and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23234BJBJLDJH|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-
-
-
-  @Regression-Incoming-0005-After
-  Scenario:Regression-Incoming-0005-After
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23234GLCMHLJL|
-    When I change status code SGD
-    Then I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input FTNumber and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23234GLCMHLJL|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
 
 
 
