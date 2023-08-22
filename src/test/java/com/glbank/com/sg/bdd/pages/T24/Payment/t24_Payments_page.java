@@ -237,8 +237,8 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//a[text()='Ordering Town/PostalC - 2']/parent::label/parent::td/following-sibling::td[2]/span")
     public WebElementFacade getOrderingTown;
 
-    @FindBy(xpath = "//span[text()='Charge Information']")
-//    @FindBy(xpath = "//span[text()='Charge Info']")
+//    @FindBy(xpath = "//span[text()='Charge Information']")
+    @FindBy(xpath = "//span[text()='Charge Info']")
     public WebElementFacade getClickChargeInformation;
 
     @FindBy(xpath = "//span[text()='Routing Information']")
