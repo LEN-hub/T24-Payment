@@ -176,7 +176,7 @@ Feature: T24 Payment transaction
 
   @Payment_Overseas_Transfer_USD-USD_SIT
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(USD->USD)
-    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges|
