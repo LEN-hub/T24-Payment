@@ -1,41 +1,41 @@
-2023-8-23 13:49:39:812
-ChannelReferenceID:230823000000030
+2023-8-23 14:29:32:617
+ChannelReferenceID:230823000000041
 ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
 ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11010000470
+ChannelDebitAccountNumber:11020327162
 ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
 ChannelDetailPayeeName:lucky
 ChannelDetailAccountCurrency:USD
 ChannelDetailPayeeAccountNum:667812798
 ChannelDetailExchangeRate:USD 1 ≈ SGD 1.3763
-ChannelDetailTransactionAmount:823.85
+ChannelDetailTransactionAmount:823.21
 ChannelDetailBeneficiaryBankBIC:DBSSSGS0DOD
 ChannelDetailPayeeAddress:countries
 ChannelDetailEstimatedProcessingFee:0.00
 ChannelDetailPaymentModeForCharges:All expenses shall be borne by the remitter
 ChannelDetailPurposeOfTransfer:Business Expenses
-2023-8-23 13:51:5:467
-ID:230823000000030
-TransactionReference:PI232350YCRZHDJ3
+2023-8-23 14:31:5:45
+ID:230823000000041
+TransactionReference:PI232350YCRZRFV5
 FTNumber:null
-t24FtNumber:SGL23235FH0JGLJK
+t24FtNumber:SGL23235FGBFHDMH
 getStatus:677
-getTransactionReferenceNum:SGL23235FH0JGLJK
-getSenderReferenceNum:PI232350YCRZHDJ3
+getTransactionReferenceNum:SGL23235FGBFHDMH
+getSenderReferenceNum:PI232350YCRZRFV5
 getTransactionCurrency:USD
 getInstructedCurrency:SGD
-getTransactionAmount:598.60
-getInstructedAmount:823.85
+getTransactionAmount:598.13
+getInstructedAmount:823.21
 getChargeOption:OUR
-getDebitAccountNum:11010000470
+getDebitAccountNum:11020327170
 getCreditAccountNum:15000000242
 getDebitAccountCurrency:SGD
 getCreditAccountCurrency:USD
-getDebitAmount:823.85
-getCreditAmount:598.60
+getDebitAmount:823.21
+getCreditAmount:598.13
 getDebitCustomerRate:1.3763
 getDebitTreasuryRate:1.3753
-getOrderingAccount:11010000470
+getOrderingAccount:11020327170
 getBeneficiaryAccount:667812798
 getOrderingName:WATERHOUSE INVESTMENT PTE. LTD.
 getBeneficiaryName:lucky
