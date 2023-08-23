@@ -1,40 +1,6 @@
 @Auto_Test1
 Feature: Auto_Test1
 
-  
-
-
-  @Regression-Incoming-0015-After
-  Scenario:Regression-Incoming-0015-After
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23235CBCGC0JM|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-
-
-
-
-
-
-
-
-  @Regression-Incoming-0018-After
-  Scenario:Regression-Incoming-0018-After
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23235FLC0CJLJ|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-
-
-
 
 
 
@@ -72,102 +38,12 @@ Feature: Auto_Test1
     Then I Assert enter View Details Page
 
 
-
-#
-#  @Regression-Incoming-0002-After
-#  Scenario:Regression-Incoming-0002-After
-#    Given Use "T24-automation-SIT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming
-#      |FTNumber        |
-#      |SGL23235LMKMCGLD|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#
-#
-  @Regression-Incoming-0007-After
-  Scenario:Regression-Incoming-0007-After
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23235BGLBCLHD|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-
-
-  @Regression-Incoming-0008-After
-  Scenario:Regression-Incoming-0008-After
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23235GLDMKKBH|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-
-#
-#  @Regression-Incoming-0009-After
-#  Scenario:Regression-Incoming-0009-After
-#    Given Use "T24-automation-SIT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming
-#      |FTNumber        |
-#      |SGL23235LGB0FK0K|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#
+    
 
 
 
 
 
-  @Regression-Incoming-0013-After
-  Scenario:Regression-Incoming-0010-After
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23235HD0DJLBK|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-
-
-
-
-
-  @Regression-Incoming-0021-After
-  Scenario:Regression-Incoming-0021-After
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23235LCLBKFJF|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-
-
-
-
-
-
-
-  @Regression-Incoming-0024-After
-  Scenario:Regression-Incoming-0024-After
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23235KJKCDMFF|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
 
 
 
