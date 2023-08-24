@@ -3105,7 +3105,4 @@ public class paymentService_step extends ScenarioSteps {
         }
     }
 
-    public void AMOUNT(String amount) {
-        paymentService_page.AMOUNT.click();
-    }
 }

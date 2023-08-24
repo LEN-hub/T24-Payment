@@ -173,9 +173,6 @@ Feature: Auto_Test108
     When I select the payment account, enter the payment currency and the payment amount and the cost commitmentEUR
       |Account Number|Payment Mode for Charges |Currency|
       |1102 0931 868 |BEN                      |EUR     |
-    Then I enter Amount
-      |AMOUNT |
-      |100    |
     And I choose the payment currency
       |Currency|
       |EUR     |

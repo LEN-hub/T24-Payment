@@ -149,19 +149,14 @@ public class paymentService_glue {
         paymentService_step.selectPaymentAccountEUR(payToInfo.get(0).get("Account Number"), payToInfo.get(0).get("Currency"));
 //        List<Map<String, String>> payToInfoN = payDetail.asMaps(String.class, String.class);
 //        paymentService_step.clickCurrency(payToInfoN.get(0).get("payeeCurrency"));
-
-    }
-
-
-
-    @Then("^I enter Amount$")
-    public void iEnterAmount(DataTable payDetail) {
-        List<Map<String, String>> payToInfokang = payDetail.asMaps(String.class, String.class);
-        paymentService_step.AMOUNT(payToInfokang.get(0).get("AMOUNT"));
         List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
+        paymentService_step.enterAmount();
         List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
         paymentService_step.expense(payToI.get(0).get("Payment Mode for Charges"));
+
     }
+
+
 
     @When("^I select the payment account, enter the payment currency and the payment amount and the cost commitmentCNY$")
     public void iSelectThePaymentAccountEnterThePaymentCurrencyAndThePaymentAmountAndTheCostCommitmentCNY(DataTable payDetail) {
