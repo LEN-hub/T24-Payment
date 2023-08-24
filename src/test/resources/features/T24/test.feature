@@ -583,16 +583,6 @@ Feature: Auto_Test1
 
 
 
-  @Regression-Incoming-0020-Before
-  Scenario:Regression-Incoming-0020-Before
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL232360G00GHK0|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
 
 
 
@@ -602,7 +592,7 @@ Feature: Auto_Test1
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges |Currency|
-      |1102 0327 162 |BEN                      |SGD     |
+      |1102 0931 868 |BEN                      |SGD     |
     And I choose the payment currency
       |Currency|
       |USD     |
