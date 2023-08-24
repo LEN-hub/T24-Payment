@@ -5,10 +5,6 @@ Feature: Auto_Test108
 
 
 
-
-
-
-
     #Amount>1M
 
   @Regression-Outgoing-Channel0006-Before
@@ -172,11 +168,14 @@ Feature: Auto_Test108
 
   @Regression-Outgoing-Channel0014-2-Before
   Scenario:Regression-Outgoing-Channel0014-2-Before
-    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitmentEUR
       |Account Number|Payment Mode for Charges |Currency|
       |1102 0931 868 |BEN                      |EUR     |
+    Then I enter Amount
+      |AMOUNT |
+      |100    |
     And I choose the payment currency
       |Currency|
       |EUR     |

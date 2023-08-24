@@ -2296,9 +2296,10 @@ public class paymentService_step extends ScenarioSteps {
 
 
     public void enterAmount(){
-        paymentService_page.enterAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
-//        paymentService_page.enterAmount.sendKeys("1500005");
+//        paymentService_page.enterAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
+        paymentService_page.enterAmount.sendKeys("1000005");
     }
+
 
     public void largeAmount(){
         paymentService_page.enterAmount.sendKeys("310000");
@@ -3102,5 +3103,9 @@ public class paymentService_step extends ScenarioSteps {
                 System.out.println("账号不存在，案例成功！");
             }
         }
+    }
+
+    public void AMOUNT(String amount) {
+        paymentService_page.AMOUNT.click();
     }
 }

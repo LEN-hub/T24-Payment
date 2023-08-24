@@ -842,4 +842,7 @@ public class paymentService_page extends PageObject {
 
     @FindBy(xpath = "//div[@class='sizes']/div[1]")
     public WebElementFacade checkSizes;
+
+    @FindBy(xpath = "//div[@class='el-form-item is-success is-required el-form-item--medium']/following-sibling::div[3]//input")
+    public WebElementFacade AMOUNT;
 }

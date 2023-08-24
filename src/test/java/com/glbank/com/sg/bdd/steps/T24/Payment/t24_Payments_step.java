@@ -2725,7 +2725,6 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void enterView() throws Exception {
         String statusCode = t24_payments_page.statusCode.getText();
-        bddUtil.sleep(30);
         if (statusCode.equals("677") | statusCode.equals("999")) {
             System.out.println("状态码正常");
         } else {
