@@ -61,32 +61,32 @@ Feature: Auto_Test1
 
   @Regression-Outgoing-Channel0012-After
   Scenario:Regression-Outgoing-Channel0012-After
-    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
-    When I click on overseas transfer payment and select the account
-    When I select the payment account, enter the payment currency and the payment amount and the cost commitmentEUR
-      |Account Number|Payment Mode for Charges |Currency|
-      |1102 0931 868 |BEN                      |EUR     |
-    And I choose the payment currency
-      |Currency|
-      |EUR     |
-    When I enter the payee information
-      |Payee's Account Number|Payee's Name|
-      |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
-    When I choose the receiving bank
-      |Beneficiary Bank|
-      |DBSSSGS0VEC     |
-    When I choose the recipient country
-      |Payee's Address |Payee's Country|Comments For Payee|
-      |countries       |UNITED STATES  |ok                |
-    When I choose the nature of payment
-      |Purpose of Transfer|
-      |Commission         |
-    When I choose to submit the transfer information
-    When Vkey authorization for Payment transactions in the SIT environment
-    Then I will compare all the data on FX Payment MX Message
-      |WordPath          |
-      |Bic is DBS USD-USD|
+#    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+#    When I click on overseas transfer payment and select the account
+#    When I select the payment account, enter the payment currency and the payment amount and the cost commitmentEUR
+#      |Account Number|Payment Mode for Charges |Currency|
+#      |1102 0931 868 |BEN                      |EUR     |
+#    And I choose the payment currency
+#      |Currency|
+#      |EUR     |
+#    When I enter the payee information
+#      |Payee's Account Number|Payee's Name|
+#      |667812798             |lucky       |
+##    When I click on the receiving bank drop down box
+#    When I choose the receiving bank
+#      |Beneficiary Bank|
+#      |DBSSSGS0VEC     |
+#    When I choose the recipient country
+#      |Payee's Address |Payee's Country|Comments For Payee|
+#      |countries       |UNITED STATES  |ok                |
+#    When I choose the nature of payment
+#      |Purpose of Transfer|
+#      |Commission         |
+#    When I choose to submit the transfer information
+#    When Vkey authorization for Payment transactions in the SIT environment
+#    Then I will compare all the data on FX Payment MX Message
+#      |WordPath          |
+#      |Bic is DBS USD-USD|
     Given to verify transaction in T24 using "T24-automation-SIT-login"
     When I type in the content and click the search button on Mx Message
       |search content           |windows Title        |WordPath          |

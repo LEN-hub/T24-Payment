@@ -42,3 +42,8 @@ getBeneficiaryName:lucky
 getOrderingAddress:SINGAPORE
 getBeneficiaryAddress:countries
 getOrderingTown:SG
+2023-8-24 16:29:19:168
+ID:230823000000041
+TransactionReference:PI232350YCRZRFV5
+FTNumber:null
+t24FtNumber:SGL23235FGBFHDMH

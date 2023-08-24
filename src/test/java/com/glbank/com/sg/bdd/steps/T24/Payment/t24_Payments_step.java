@@ -544,6 +544,7 @@ public class t24_Payments_step extends ScenarioSteps {
     public void channelAndT24DataFieldMappingSameCurrency(String WordPath) {
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
         bddUtil.screenShort();
         if (WordPath.equals("Bic is DBS USD-USD") || WordPath.equals("Bic is Bank of China USD-USD")) {
             WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
