@@ -165,7 +165,7 @@ public class paymentService_glue {
 //        List<Map<String, String>> payToInfoN = payDetail.asMaps(String.class, String.class);
 //        paymentService_step.clickCurrency(payToInfoN.get(0).get("payeeCurrency"));
         List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
-        paymentService_step.enterAmount();
+        paymentService_step.enterAmount2();
         List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
         paymentService_step.expense(payToI.get(0).get("Payment Mode for Charges"));
     }
@@ -179,7 +179,7 @@ public class paymentService_glue {
 //        List<Map<String, String>> payToInfoN = payDetail.asMaps(String.class, String.class);
 //        paymentService_step.clickCurrency(payToInfoN.get(0).get("payeeCurrency"));
         List<Map<String, String>> payToInfoU = payDetail.asMaps(String.class, String.class);
-        paymentService_step.enterAmount();
+        paymentService_step.enterAmount3();
         List<Map<String, String>> payToI = payDetail.asMaps(String.class, String.class);
         paymentService_step.expense(payToI.get(0).get("Payment Mode for Charges"));
     }
