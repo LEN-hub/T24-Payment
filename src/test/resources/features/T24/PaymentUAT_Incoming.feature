@@ -39,6 +39,7 @@ Feature: Payment InComing
     Then Close the current
     Then I click SGD Overview
     Then Assert enter Account Details Page
+    And I close driver
 
 
 
