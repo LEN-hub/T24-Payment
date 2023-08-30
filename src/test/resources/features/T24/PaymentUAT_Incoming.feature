@@ -69,6 +69,7 @@ Feature: Payment InComing
       |11010003267    |
     When I click Find Butt
     Then Assert enter Account Details Page
+    And I close driver
 
   @Incoming_Payment_235Multi_Currency
   Scenario:Incoming payment-235Multi_Currency
