@@ -7,14 +7,14 @@ Feature: Payment InComing
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
     |FTNumber        |
-    |SGL231320CGHJKGD|
+    |SGL23237HFFCBKBB|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
     Then I click find account
     When I input Arrangement
       |Arrangement    |
-      |11010002716    |
+      |11020931884    |
     When I click Find Butt
     Then Assert enter Account Details Page
 
