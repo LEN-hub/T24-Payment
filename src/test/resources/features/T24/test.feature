@@ -1,115 +1,69 @@
 @Auto_Test1
 Feature: Auto_Test1
 
-  @Incoming_Payment_999_0001_Before
+  @Incoming_Payment_235_999_0002_Before
   Scenario:Incoming payment-999
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23242CBDCGFBK|
+      |SGL23242HMC0LDKM|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
 
-  @Incoming_Payment_999_0003_Before
+  @Incoming_Payment_999_0007_Before
   Scenario:Incoming payment-999
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23242HDGC0FCJ|
+      |SGL23242DJ0CD0M0|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
 
-  @Incoming_Payment_235_999_0004_Before
+  @Incoming_Payment_235_999_0008_Before
   Scenario:Incoming payment-999
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23242GGH0MMHB|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-
-
-  @Incoming_Payment_235_999_0005_Before
-  Scenario:Incoming payment-999
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23242J0CHDCCG|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-
-  @Incoming_Payment_999_0006_Before
-  Scenario:Incoming payment-999
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23242HCJLCJFB|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-
-  @Incoming_Payment_999_0011_Before
-  Scenario:Incoming payment-999
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL232420C0KKFHH|
+      |SGL23242DDD0JDGM|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
 
 
-  @Incoming_Payment_999_0014_Before
+  @Incoming_Payment_235_999_0009_Before
   Scenario:Incoming payment-999
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23242HMKDCM0G|
+      |SGL23242CHMKFMMK|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
 
-  @Incoming_Payment_999_0016_Before
+  @Incoming_Payment_999_0010_Before
   Scenario:Incoming payment-999
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL232420MHFLFLH|
+      |SGL23242GHFJ0HFL|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
 
-  @Incoming_Payment_999_0017_Before
+  @Incoming_Payment_999_0012_Before
   Scenario:Incoming payment-999
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23242DLGGKKDG|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-
-
-  @Incoming_Payment_999_0019_Before
-  Scenario:Incoming payment-999
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL232420BCMJHCG|
+      |SGL23242JCFJCJ0K|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
