@@ -2756,7 +2756,7 @@ public class t24_Payments_step extends ScenarioSteps {
 
     @Step
     public void clickChargeInformation() {
-        t24_payments_page.ChargeInformation.click();
+        t24_payments_page.ChargeInformation2.click();
         bddUtil.sleep(4);
     }
 
