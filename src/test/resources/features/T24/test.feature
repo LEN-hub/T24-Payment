@@ -123,8 +123,8 @@ Feature: Auto_Test1
 #    When I Assert enter View Page to USD Loan
 #    Then I Assert enter View Details Page
 
-  @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount>threshold_after002
-  Scenario:AA_Disbursement_(SGMEPS)_SGD-SGD_Amount>threshold_after002
+  @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount>threshold_after_002
+  Scenario:AA_Disbursement_(SGMEPS)_SGD-SGD_Amount>threshold_after_002
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Loan Transactions Button
     Then I click AA AA Disbursement (SGMEPS) Button
@@ -160,8 +160,8 @@ Feature: Auto_Test1
     When I Assert enter View Page to USD Loan SGMEPS
     Then I Assert enter View Details Page
 
-  @AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<threshold_after003
-  Scenario: AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<threshold_after003
+  @AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<threshold_after_003
+  Scenario: AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<threshold_after_003
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Loan Transactions
     When I Input incomplete information on AA Disbursement Internal page
