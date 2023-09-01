@@ -1,49 +1,37 @@
-2023-8-23 14:29:32:617
-ChannelReferenceID:230823000000041
-ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
-ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11020327162
+2023-9-1 15:31:29:800
+ChannelReferenceID:230831000000076
+ChannelDebitAccountName:TTR
+ChannelDebitAccountCurrency:USD
+ChannelDebitAccountNumber:11010004530
 ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
 ChannelDetailPayeeName:lucky
 ChannelDetailAccountCurrency:USD
 ChannelDetailPayeeAccountNum:667812798
-ChannelDetailExchangeRate:USD 1 ≈ SGD 1.3763
-ChannelDetailTransactionAmount:823.21
-ChannelDetailBeneficiaryBankBIC:DBSSSGS0DOD
+ChannelDetailTransactionAmount:901.27
+ChannelDetailBeneficiaryBankBIC:DBSSSGS0VEC
 ChannelDetailPayeeAddress:countries
-ChannelDetailEstimatedProcessingFee:0.00
-ChannelDetailPaymentModeForCharges:All expenses shall be borne by the remitter
+ChannelDetailEstimatedProcessingFee:--
+ChannelDetailPaymentModeForCharges:All expenses shall be borne by the payee
 ChannelDetailPurposeOfTransfer:Business Expenses
-2023-8-23 14:31:5:45
-ID:230823000000041
-TransactionReference:PI232350YCRZRFV5
+2023-9-1 15:34:23:678
+ID:230831000000076
+TransactionReference:PI232440J25WR2VQ
 FTNumber:null
-t24FtNumber:SGL23235FGBFHDMH
+t24FtNumber:SGL23244KKKDJDBK
 getStatus:677
-getTransactionReferenceNum:SGL23235FGBFHDMH
-getSenderReferenceNum:PI232350YCRZRFV5
+getTransactionReferenceNum:SGL23244KKKDJDBK
+getSenderReferenceNum:PI232440J25WR2VQ
 getTransactionCurrency:USD
-getInstructedCurrency:SGD
-getTransactionAmount:598.13
-getInstructedAmount:823.21
-getChargeOption:OUR
-getDebitAccountNum:11020327170
-getCreditAccountNum:15000000242
-getDebitAccountCurrency:SGD
-getCreditAccountCurrency:USD
-getDebitAmount:823.21
-getCreditAmount:598.13
-getDebitCustomerRate:1.3763
-getDebitTreasuryRate:1.3753
-getOrderingAccount:11020327170
-getBeneficiaryAccount:667812798
-getOrderingName:WATERHOUSE INVESTMENT PTE. LTD.
-getBeneficiaryName:lucky
+getTransactionCurrency:USD
+getTransactionAmount:901.27
+getChargeOption:BEN
+getDebitAccountNum:11010004530
+getDebitAccountCurrency:USD
+getOrderingAccount:11010004530
+getOrderingName:2737379KSG20221130163607
 getOrderingAddress:SINGAPORE
-getBeneficiaryAddress:countries
 getOrderingTown:SG
-2023-8-24 16:29:19:168
-ID:230823000000041
-TransactionReference:PI232350YCRZRFV5
-FTNumber:null
-t24FtNumber:SGL23235FGBFHDMH
+getCreditAccountNum:15000000749
+getCreditAccountCurrency:USD
+getBeneficiaryAccount:667812798
+getBeneficiaryName:lucky

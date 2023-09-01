@@ -94,7 +94,7 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |
-      |1101 0001 256   |1101 0001 426|
+      |1101 0003 208   |1101 0004 298|
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -146,7 +146,7 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I fill in the transfer information of domestic transfer bank
       |Payee's Bank           |Payee's Account Number|Purpose of Transfer |From Account  |Payment Type|PayNow Type|PayNow Content|
-      |BANK OF CHINA LIMITED  |11010001426           |Business Expenses   |1101 0003 453 |FAST        |VPA        |UEN123321001  |
+      |BANK OF CHINA LIMITED  |11010005448           |Business Expenses   |11010003453   |MEPS        |           |              |
     When I click next button on the domestic transfer bank page
     Then I verify the information on the next page
     When I click Next to go to the verification page
