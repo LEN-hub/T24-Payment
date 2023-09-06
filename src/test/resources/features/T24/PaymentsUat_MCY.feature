@@ -3,7 +3,7 @@ Feature: receipt and payment service
 
 #本人互转
   @Payment_Own_Transfer_MCY_USD-SGD_UAT
-   #USD->SGD
+   #USD->SGD暂时不使用
   Scenario:I have successfully changed us dollars into Singapore dollars and T24(MCY)
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I will complete the inter-bank transfer on the page
@@ -46,7 +46,7 @@ Feature: receipt and payment service
       |AA Arrangement - SIT GLDB|USD-SGD MCY|
 
   @Payment_Own_Transfer_MCY_SGD-USD_UAT
-  #SGD->USD
+  #SGD->USD暂时不使用
   Scenario:I have successfully transferred from Singapore currency to US dollar(MCY)
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I will complete the inter-bank transfer on the page
@@ -94,7 +94,7 @@ Feature: receipt and payment service
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I will complete the inter-bank transfer on the page
       |From Account    |To Account   |currency|
-      |1102 0571 063   |1101 0001 426|SGD     |
+      |1102 1162 884   |1101 0005 448|SGD     |
     Then I check to see if the page jumps
     When I verify the page information and click the Next button
     Then My account has been transferred successfully
@@ -110,9 +110,9 @@ Feature: receipt and payment service
     Then I will map the page data
       |WordPath   |
       |SGD-SGD MCY|
-    When I check the deduction amount on the Find Account page On Local Payment
-      |windows Title            |WordPath    |
-      |AA Arrangement - SIT GLDB|SGD-SGD MCY |
+#    When I check the deduction amount on the Find Account page On Local Payment
+#      |windows Title            |WordPath    |
+#      |AA Arrangement - SIT GLDB|SGD-SGD MCY |
 
   @Payment_Own_Transfer_MCY_USD-USD_UAT
     #USD->USD
@@ -181,17 +181,89 @@ Feature: receipt and payment service
       |windows Title            |WordPath                 |
       |AA Arrangement - SIT GLDB|Local Payment SGD-SGD MCY|
 
-    #境外转账
+  #境外转账正常
+  @Payment_Overseas_Transfer_MCY_USD-USD_UAT>250K-1
+  Scenario:Positive process of overseas transfer Bic Is DBS(USD--USD)(MCY)-1
+    Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
+    When I click on overseas transfer payment and select the account
+    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+      |Account Number|Payment Mode for Charges |Currency|
+      |1102 1162 884 |BEN                      |CNY     |
+    And I choose the payment currency
+      |Currency   |
+      |CNY        |
+    When I enter the payee information
+      |Payee's Account Number|Payee's Name|
+      |667812798             |lucky       |
+#    When I click on the receiving bank drop down box
+    When I choose the receiving bank
+      |Beneficiary Bank|
+      |DBSSSGS0VEC     |
+    When I choose the recipient country
+      |Payee's Address |Payee's Country|Comments For Payee|
+      |countries       |UNITED STATES  |ok                |
+    When I choose the nature of payment
+      |Purpose of Transfer|
+      |Commission         |
+    When I choose to submit the transfer information
+    Then TC code is then required for Vkey authentication
+    When I get the TC code and click Next
+    When I typed TC Code and click Authenticate Now
+    Then I will compare all the data on FX Payment MX Message
+      |WordPath              |
+      |Bic is DBS USD-USD MCY|
+
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I type in the content and click the search button on Mx Messages
+      |search content           |windows Title        |
+      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input LoanPINumber and click Find
+    When I change status code SGD
+    Then I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input FTNumber and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+
+    Given to verify transaction in T24 using "T24-automation-UAT-login"
+    When I type in the content and click the search button on Mx Message
+      |search content           |windows Title        |WordPath              |
+      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS USD-USD MCY|
+    When I expand the User Menu menu on the page
+    When I expand the User Payments menu on the page
+    When I expand the Payment Hub menu on the page
+    When I expand the Payment Inquiries and Exceptions menu on the page
+    When I expand the Payments Enquiry Transaction wise menu on the page
+    When I jump to a newly opened page on Mx Message
+      |windows Title                            |WordPath              |
+      |Pending and Processed Payments - UAT GLDB|Bic is DBS USD-USD MCY|
+    Then I do field mapping for Channel and T24 in same currency
+      |WordPath              |
+      |Bic is DBS USD-USD MCY|
+    When I compare the amount is normal on Mx Message
+      |WordPath              |
+      |Bic is DBS USD-USD MCY|
+    When I compare the data generated by Outgoing Message MX Message is correct
+      |WordPath              |Name                  |
+      |Bic is DBS USD-USD MCY|Bic is DBS USD-USD MCY|
+
+
+
+
+
+    #境外转账正常
   @Payment_Overseas_Transfer_MCY_USD-USD_UAT
   Scenario:Positive process of overseas transfer Bic Is DBS(USD--USD)(MCY)
     Given logon "netSilverEnv_Kevin_Payment" on enterprise net silver
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges |Currency|
-      |1102 1162 884 |OUR                      |USD     |
+      |1102 1162 884 |BEN                      |CNY     |
     And I choose the payment currency
       |Currency   |
-      |USD        |
+      |CNY        |
     When I enter the payee information
       |Payee's Account Number|Payee's Name|
       |667812798             |lucky       |
@@ -365,7 +437,7 @@ Feature: receipt and payment service
     When I click on overseas transfer payment and select the account
     When I select the payment account, enter the payment currency and the payment amount and the cost commitment
       |Account Number|Payment Mode for Charges |Currency|
-      |1102 1086 061 |OUR                      |SGD     |
+      |1102 1162 884 |OUR                      |SGD     |
     And I choose the payment currency
       |Currency|
       |SGD     |

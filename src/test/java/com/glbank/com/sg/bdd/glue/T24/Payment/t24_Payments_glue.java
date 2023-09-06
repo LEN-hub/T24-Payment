@@ -51,6 +51,17 @@ public class t24_Payments_glue {
         t24_payments_step.switchToDefaultContent();
     }
 
+    @When("^I type in the content and click the search button on Mx Messages$")
+    public void iTypeInTheContentAndClickTheSearchButtonAndMxMessages(DataTable data) throws Exception {
+        t24_payments_step.switchToFirstFrame();
+        List<Map<String, String>> content = data.asMaps(String.class, String.class);
+        t24_payments_step.inputBox(content.get(0).get("search content"));
+        t24_payments_step.jumpNewWindows(content.get(0).get("windows Title"));
+        t24_payments_step.checkFT();
+        //t24_payments_step.serialNumberQueryingInformationMxMessage(content.get(0).get("WordPath"));
+        //t24_payments_step.switchToDefaultContent();
+    }
+
     @When("^I type in the content and click the search button on Mx Message$")
     public void iTypeInTheContentAndClickTheSearchButtonAndMxMessage(DataTable data) throws Exception {
         t24_payments_step.switchToFirstFrame();

@@ -108,6 +108,8 @@ public class t24_Payments_step extends ScenarioSteps {
         }
     }
 
+
+
     @Step
     public void serialNumberQueryingInformation(String WordPath) throws Exception {
         //清除数据
@@ -145,6 +147,25 @@ public class t24_Payments_step extends ScenarioSteps {
         FileUtils.FileString4("t24", "TransactionReference:" + t24TransactionReference);
         bddUtil.closeWindow();
     }
+
+    @Step
+    public void checkFT()  {
+        //清除数据
+//        FileUtils.writeFile("t24");
+        t24_payments_page.clickCleraSelectionBtn.click();
+        t24_payments_page.inputChannelId.clear();
+        t24_payments_page.inputChannelId.sendKeys(readtxtFile("autopay/t24", "ChannelReferenceID"));
+        bddUtil.sleep(5);
+        t24_payments_page.clickFindBtn.click();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        String t24TransactionReference = t24_payments_page.t24TransactionReference.getText();
+        FileUtils.FileString4("LoanPINumber", t24TransactionReference);
+        bddUtil.closeWindow();
+    }
+
+
+
 
     @Step
     public void serialNumberQueryingInformationOnLocalPayment(String WordPath) throws Exception {

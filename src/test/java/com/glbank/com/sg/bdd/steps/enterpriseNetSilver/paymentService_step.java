@@ -1702,8 +1702,8 @@ public class paymentService_step extends ScenarioSteps {
         }
 //        paymentService_page.secondCurrencySelectUSD.click();
         bddUtil.scrollWindowToElement(paymentService_page.clickNextBtn);
-//        paymentService_page.enterMoney.sendKeys(GenerateDate.today()+"."+randomTwoNum());
-        paymentService_page.enterAmount.sendKeys("1000001");
+        paymentService_page.enterMoney.sendKeys(GenerateDate.today()+"."+randomTwoNum());
+ //      paymentService_page.enterAmount.sendKeys("1000001");
         paymentService_page.transferPurpose.click();
         bddUtil.sleep(1);
         paymentService_page.selectTransferPurpose.click();
@@ -2298,6 +2298,11 @@ public class paymentService_step extends ScenarioSteps {
     public void enterAmount(){
         paymentService_page.enterAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
 //        paymentService_page.enterAmount.sendKeys("1000115");
+    }
+
+    public void enterAmount4(){
+        paymentService_page.enterAmount.sendKeys( "1600"+GenerateDate.today()+"."+randomTwoNum());
+//        paymentService_page.enterAmount.sendKeys("1100115");
     }
 
     public void enterAmount2(){
