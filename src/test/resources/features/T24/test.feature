@@ -11,7 +11,7 @@ Feature: Auto_Test1
       |11010002430         |DBSSSGS0                |SGD                   |USD                 |203              |56456465           |LEI             |OUR          |
     Then I Input Beneficiary Address and Beneficiary Town
       |Beneficiary Address|Beneficiary Town|
-      |xian               |xian            |
+      |xianx              |xianx           |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
