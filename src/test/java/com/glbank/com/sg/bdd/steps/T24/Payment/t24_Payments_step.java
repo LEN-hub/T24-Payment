@@ -2777,7 +2777,7 @@ public class t24_Payments_step extends ScenarioSteps {
 
     @Step
     public void clickChargeInformation() {
-        t24_payments_page.ChargeInformation2.click();
+        t24_payments_page.ChargeInformation.click();
         bddUtil.sleep(4);
     }
 
@@ -3652,5 +3652,31 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(3);
     }
 
+//进入account页面，点击查询
+    public void accountID() {
+        switchToSecondFrame();
+        //bddUtil.sleep(3);
+        t24_payments_page.clickUsermenu.click();
+        t24_payments_page.clickProduct.click();
+        t24_payments_page.account.click();
+        bddUtil.sleep(2);
+    }
 
+    public void inputaccountclickfind(String Arrangement) {
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        t24_payments_page.inputaccount.clear();
+        t24_payments_page.inputaccount.sendKeys(Arrangement);
+        //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(5);
+    }
 }

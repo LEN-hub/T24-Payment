@@ -7,7 +7,9 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.core.pages.WebElementFacadeImpl;
+import net.serenitybdd.screenplay.actions.Click;
 import net.thucydides.core.webdriver.stubs.WebElementFacadeStub;
+import org.w3c.dom.html.HTMLInputElement;
 
 import java.security.cert.X509Certificate;
 import java.util.List;
@@ -1145,4 +1147,24 @@ public class t24_Payments_page extends PageObject {
     public WebElementFacade zuihou;
 
 
+    @FindBy(xpath = "")
+    public WebElementFacade accountID;
+
+    @FindBy(xpath = "//span[text()='User Menu']")
+    public WebElementFacade clickUsermenu;
+
+    @FindBy(xpath = "/html/body/div[3]/ul[1]/li/ul/li[5]/span")
+    public WebElementFacade clickProduct;
+
+    @FindBy(xpath = "/html/body/div[3]/ul[1]/li/ul/li[5]/ul/li[6]/a")
+    public WebElementFacade account;
+
+    @FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[2]/td/div[3]/form/table/tbody/tr/td[2]/table/tbody/tr[3]/td/div/table/tbody/tr[1]/td[3]/input[1]")
+    public WebElementFacade inputaccount;
+
+    @FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[2]/td/div[3]/form/table/tbody/tr/td[2]/table/tbody/tr[1]/td/table/tbody/tr/td[3]/div/table/tbody/tr/td/a")
+    public WebElementFacade find;
+
+    @FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr/td[11]/a/img")
+    public WebElementFacade Details;
 }

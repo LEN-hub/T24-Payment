@@ -8,7 +8,7 @@ Feature: Outgoing Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
     |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-    |DBSSSGS0            |SGD                 |101                 |11010001981         |SGD                   |56456465        |LEI           |DEBT         |
+    |DBSSSGS0            |SGD                 |102                 |11010001981         |SGD                   |56456465        |LEI           |DEBT         |
     Then I input Street Name on the ISO Customer Transfer Page
     |Street Name|Town Name |Creditor Country|
     |liyukang   |testabc   |SG              |
@@ -27,7 +27,7 @@ Feature: Outgoing Customer Transfer
     Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find
     When I Assert enter View Page
@@ -35,14 +35,14 @@ Feature: Outgoing Customer Transfer
 
 
 
-  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_UAT_Amount<threshold
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(USD-USD) Amount<250K
+  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_UAT_Amount<thresholdd
+  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(USD-USD) Amount<2500K
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing Customer Transfer
     Then I enter Outgoing Customer Transfer Page
     When I Input incomplete information on Outgoing Customer Transfer Page
       |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
-      |11010002430         |DBSSSGS0                |SGD                   |USD                 |2000              |56456465           |LEI             |OUR          |
+      |11010002430         |DBSSSGS0                |SGD                   |USD                 |202              |56456465           |LEI             |OUR          |
     Then I Input Beneficiary Address and Beneficiary Town
       |Beneficiary Address|Beneficiary Town|
       |xian               |xian            |
@@ -66,6 +66,13 @@ Feature: Outgoing Customer Transfer
     Then I input FTNumber and click Find
     When I Assert enter View Page to USD
     Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+    |Arrangement|
+    |11010002430|
+
 
 
 

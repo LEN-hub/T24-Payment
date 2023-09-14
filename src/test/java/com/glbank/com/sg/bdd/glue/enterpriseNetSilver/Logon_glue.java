@@ -110,7 +110,7 @@ public class Logon_glue {
     public void logonInSITEnvironmentAndBypassVkey(String envName) {
         bddUtil.getDriver().quit();
         envTag = envName;
-        bddUtil.sleep(10);
+        bddUtil.sleep(2);
         if (!envName.isEmpty()) {
             logon_step.open_the_first_dbb_logon_page(envName);
             logon_step.clickOkButton();

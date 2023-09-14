@@ -574,6 +574,8 @@ public class t24_Payments_glue {
 //        查看进入FeesApplied页面
         t24_payments_step.selectFeesApplied();
         bddUtil.sleep(1);
+        bddUtil.closeWindow();
+        bddUtil.sleep(1);
     }
 
     @When("^I click Accept Overrides$")
@@ -1158,5 +1160,17 @@ public class t24_Payments_glue {
     @Then("^I wait a mount$")
     public void iWaitAMount() {
         t24_payments_step.WaitAMount();
+    }
+
+    @When("^I enter the account ID$")
+    public void iEnterTheAccountID() {
+        t24_payments_step.accountID();
+    }
+
+    @Then("^I find account$")
+    public void iFindAccount(DataTable dataTable) {
+        //t24_payments_step.inputaccountclickfind();
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputaccountclickfind(maps.get(0).get("Arrangement"));
     }
 }

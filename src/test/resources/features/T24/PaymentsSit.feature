@@ -218,6 +218,7 @@ Feature: T24 Payment transaction
 #    When I check the deduction amount on the Find Account page On overseas transfer Payment
 #      |windows Title            |WordPath           |
 #      |AA Arrangement - SIT GLDB|Bic is DBS USD-USD |
+
   #境外转账
   @FxPaymentSGDToUSDBicIsUOB
   Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is UOB(SGD->USD)
