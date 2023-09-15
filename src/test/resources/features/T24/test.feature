@@ -1,17 +1,17 @@
 @Auto_Test1
 Feature: Auto_Test1
 
-  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_SIT_Amount<threshold
-  Scenario:Payment_OE_Outgoing_Customer_Transfer_SIT(USD-USD) Amount<250K
+  @Payment_OE_Outgoing_Customer_USD-USD_SIT_Amount<Threshold-004after
+  Scenario:Payment_OE_Outgoing_Customer_USD-USD_SIT_Amount<threshold-004after
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing Customer Transfer
     Then I enter Outgoing Customer Transfer Page
     When I Input incomplete information on Outgoing Customer Transfer Page
       |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
-      |11010002430         |DBSSSGS0                |SGD                   |USD                 |203              |56456465           |LEI             |OUR          |
+      |11020936592         |DBSSSGS0                |USD                   |USD                 |1004              |56456465           |LEI             |SHA          |
     Then I Input Beneficiary Address and Beneficiary Town
       |Beneficiary Address|Beneficiary Town|
-      |xianx              |xianx           |
+      |xian               |xian            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -37,7 +37,466 @@ Feature: Auto_Test1
     When I enter the account ID
     Then I find account
       |Arrangement|
-      |11010002430|
+      |11020936576|
+
+  @Payment_OE_Outgoing_Customer_USD-USD_SIT_Amount<Threshold-005after
+  Scenario:Payment_OE_Outgoing_Customer_USD-USD_SIT_Amount<threshold-005after
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11020936592         |DBSSSGS0                |USD                   |USD                 |1005              |56456465           |LEI             |BEN          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+      |Arrangement|
+      |11020936576|
+
+  @Payment_OE_Outgoing_Customer_USD-USD_SIT_Amount<Threshold-006after
+  Scenario:Payment_OE_Outgoing_Customer_USD-USD_SIT_Amount<threshold-006after
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11020936592         |DBSSSGS0                |USD                   |USD                 |1006              |56456465           |LEI             |OUR          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+      |Arrangement|
+      |11020936576|
+
+  @Payment_OE_Outgoing_Customer_EUR-EUR_SIT_Amount>Threshold-007after
+  Scenario:Payment_OE_Outgoing_Customer_EUR-EUR_SIT_Amount>threshold-007after
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11020936673         |DBSSSGS0                |EUR                   |EUR                 |6000007           |56456465           |LEI             |SHA          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+      |Arrangement|
+      |11020936622|
+
+  @Payment_OE_Outgoing_Customer_EUR-EUR_SIT_Amount>Threshold-008after
+  Scenario:Payment_OE_Outgoing_Customer_EUR-EUR_SIT_Amount>threshold-008after
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11020936673         |DBSSSGS0                |EUR                   |EUR                 |6000008           |56456465           |LEI             |BEN          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+      |Arrangement|
+      |11020936622|
+
+  @Payment_OE_Outgoing_Customer_EUR-EUR_SIT_Amount>Threshold-009after
+  Scenario:Payment_OE_Outgoing_Customer_EUR-EUR_SIT_Amount>threshold-009after
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11020936673         |DBSSSGS0                |EUR                   |EUR                 |6000009           |56456465           |LEI             |OUR          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+      |Arrangement|
+      |11020936622|
+
+  @Payment_OE_Outgoing_Customer_HKD-HKD_SIT_Amount<Threshold-010after
+  Scenario:Payment_OE_Outgoing_Customer_HKD-HKD_SIT_Amount<threshold-010after
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11020936665         |DBSSSGS0                |HKD                   |HKD                 |1010              |56456465           |LEI             |SHA          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+      |Arrangement|
+      |11020936606|
+
+  @Payment_OE_Outgoing_Customer_HKD-HKD_SIT_Amount<Threshold-011after
+  Scenario:Payment_OE_Outgoing_Customer_HKD-HKD_SIT_Amount<threshold-011after
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11020936665         |DBSSSGS0                |HKD                   |HKD                 |1011              |56456465           |LEI             |BEN          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+      |Arrangement|
+      |11020936606|
+
+  @Payment_OE_Outgoing_Customer_HKD-HKD_SIT_Amount<Threshold-012after
+  Scenario:Payment_OE_Outgoing_Customer_HKD-HKD_SIT_Amount<threshold-012after
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11020936665         |DBSSSGS0                |HKD                   |HKD                 |1012              |56456465           |LEI             |OUR          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+      |Arrangement|
+      |11020936606|
+
+  @Payment_OE_Outgoing_Customer_CNY-CNY_SIT_Amount>Threshold-013after
+  Scenario:Payment_OE_Outgoing_Customer_CNY-CNY_SIT_Amount>threshold-013after
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11020936681         |DBSSSGS0                |CNY                   |CNY                 |6000013           |56456465           |LEI             |SHA          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+      |Arrangement|
+      |11020936649|
+
+  @Payment_OE_Outgoing_Customer_CNY-CNY_SIT_Amount>Threshold-014after
+  Scenario:Payment_OE_Outgoing_Customer_CNY-CNY_SIT_Amount>threshold-014after
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11020936681         |DBSSSGS0                |CNY                   |CNY                 |6000014           |56456465           |LEI             |BEN          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+      |Arrangement|
+      |11020936649|
+
+  @Payment_OE_Outgoing_Customer_CNY-CNY_SIT_Amount>Threshold-015after
+  Scenario:Payment_OE_Outgoing_Customer_CNY-CNY_SIT_Amount>threshold-015after
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11020936681         |DBSSSGS0                |CNY                   |CNY                 |6000015           |56456465           |LEI             |OUR          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+      |Arrangement|
+      |11020936649|
+
+  @Payment_OE_Outgoing_Bank_USD-USD_SIT_Amount>Threshold-017after
+  Scenario:Payment_OE_Outgoing__Bank_USD-USD_SIT_Amount>Threshold-017after
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing ISO Bank Transfer
+    Then I enter Outgoing ISO Bank Transfer Page
+    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+      |DBSSSGS0            |USD                 |6000017           |11020936592         |4656465         |CITISGS0    |rew          |
+    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+      |Sender Reference|End To End Identification|
+      |                |                         |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+      |Arrangement|
+      |11020936576|
+
+
+
 
 
 #  @Incoming_Payment_999_0027_After

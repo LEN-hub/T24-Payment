@@ -3677,6 +3677,15 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.switchToNewWindow();
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
-        bddUtil.sleep(5);
+        bddUtil.sleep(3);
+        t24_payments_page.Details2.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+
     }
+
+
+    //
 }

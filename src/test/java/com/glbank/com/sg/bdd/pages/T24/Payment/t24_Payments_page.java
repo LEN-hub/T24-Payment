@@ -1156,7 +1156,7 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "/html/body/div[3]/ul[1]/li/ul/li[5]/span")
     public WebElementFacade clickProduct;
 
-    @FindBy(xpath = "/html/body/div[3]/ul[1]/li/ul/li[5]/ul/li[6]/a")
+    @FindBy(xpath = "/html/body/div[3]/ul[1]/li/ul/li[5]/ul/li[7]/a")
     public WebElementFacade account;
 
     @FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[2]/td/div[3]/form/table/tbody/tr/td[2]/table/tbody/tr[3]/td/div/table/tbody/tr[1]/td[3]/input[1]")
@@ -1165,6 +1165,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[2]/td/div[3]/form/table/tbody/tr/td[2]/table/tbody/tr[1]/td/table/tbody/tr/td[3]/div/table/tbody/tr/td/a")
     public WebElementFacade find;
 
-    @FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr/td[11]/a/img")
+    @FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr/td[9]/a/img")
     public WebElementFacade Details;
+
+    @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[4]/td[8]/a/img")
+    public WebElementFacade Details2;
 }

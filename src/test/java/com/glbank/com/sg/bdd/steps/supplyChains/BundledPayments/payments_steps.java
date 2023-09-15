@@ -379,4 +379,5 @@ public class payments_steps extends ScenarioSteps {
         String ReferenceID = paymentsPage.PaymentReferenceID.getText();
         FileUtils.FileString4("ReferenceID",ReferenceID);
     }
+
 }

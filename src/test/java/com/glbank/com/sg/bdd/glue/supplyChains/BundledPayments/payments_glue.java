@@ -3,6 +3,7 @@ package com.glbank.com.sg.bdd.glue.supplyChains.BundledPayments;
 import com.glbank.com.sg.bdd.steps.supplyChains.BundledPayments.payments_steps;
 import com.glbank.com.sg.bdd.utils.BDDUtil;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.ManagedPages;
@@ -187,4 +188,5 @@ public class payments_glue {
     public void iClickFinancingReports() {
         paymentsStep.clickFinReport();
     }
+
 }
