@@ -8,7 +8,7 @@ Feature: Outgoing Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
     |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-    |DBSSSGS0            |SGD                 |102                 |11010001981         |SGD                   |56456465        |LEI           |DEBT         |
+    |DBSSSGS0            |SGD                 |99                  |11020236310         |SGD                   |56456465        |LEI           |DEBT         |
     Then I input Street Name on the ISO Customer Transfer Page
     |Street Name|Town Name |Creditor Country|
     |liyukang   |testabc   |SG              |
@@ -32,6 +32,12 @@ Feature: Outgoing Customer Transfer
     Then I input FTNumber and click Find
     When I Assert enter View Page
     Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account
+      |Arrangement|
+      |11020236302|
 
 
 
