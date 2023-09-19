@@ -552,7 +552,7 @@ public class t24_Payments_glue {
     public void iAssertEnterViewDetailsPage() throws IOException {
         t24_payments_step.clickViewDetail();
         t24_payments_step.switchToFirstFrame();
-//        断言是否View Details Page进入页面
+//       断言是否View Details Page进入页面
         t24_payments_step.AssertEnterViewDetailsPage();
 //        查看Audit Trail页面
         t24_payments_step.selectAuditTrail();
@@ -603,8 +603,8 @@ public class t24_Payments_glue {
     @When("^I Assert enter View Page to USD$")
     public void iAssertEnterViewPageToUSD() throws Exception{
         t24_payments_step.enterView();
-        //        断言是否进入EnterViewPage
-        t24_payments_step.assertEnterViewPage();
+        //       断言是否进入EnterViewPage
+       t24_payments_step.assertEnterViewPage();
 //        查看各个页面的数据
         t24_payments_step.clickChargeInformation();
 //        t24_payments_step.clickRoutingformation();
