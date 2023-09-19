@@ -356,7 +356,7 @@ public class paymentService_page extends PageObject {
     @FindBy(xpath = "//div[@x-placement='top-start' or @x-placement='bottom-start']//span")
     public List<WebElementFacade>payeeCurrency; //选择付款币种
 
-    @FindBy(xpath = "/html/body/div[1]/div[2]/div[3]/div/div[2]/div[2]/div/div[1]/div/div/div/form/div[3]/div[2]/div[1]/div/div[1]/input")
+    @FindBy(xpath = "/html/body/div[1]/div[2]/div[3]/div/div[2]/div[2]/div/div[1]/div/div/div/div/div[2]/div/div/div[1]/form/div[1]/div[2]/div[4]/div/div/input")
     public WebElementFacade enterAmount; //输入金额 输入
 
     @FindBy(xpath = "//label[@for='tradeCurrencyTypeCd']/following-sibling::div//i")

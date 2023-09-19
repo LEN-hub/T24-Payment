@@ -1,32 +1,37 @@
-2023-9-6 15:53:1:58
-ChannelReferenceID:230906000000022
-ChannelDebitAccountName:2737379KSG20221130163607
-ChannelDebitAccountCurrency:SGD
-ChannelDebitAccountNumber:11021162884
-ChannelDebitCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelCreditAccountName:720
-ChannelCreditAccountCurrency:SGD
-ChannelCreditAccountNumber:11010005448
-ChannelCreditCompanyName:Green Link Digital Bank Pte. Ltd
-ChannelTransactionAmount:906.02
-ChannelPurposeOfTransfer:Business Expenses
-2023-9-6 15:55:21:603
-ID:230906000000022
-TransactionReference:FT23249B7P5R
-getStatus:null
-getDebitAccountNum:11021162892
-getDebitAccountCurrency:SGD
-getCreditAccountCurrency:SGD
-getCreditAccountNum:11010005448
-getDebitAmount:SGD906.02
-getCreditAmount:SGD906.02
-2023-9-6 15:57:24:804
-ID:230906000000022
-TransactionReference:FT23249B7P5R
-getStatus:null
-getDebitAccountNum:11021162892
-getDebitAccountCurrency:SGD
-getCreditAccountCurrency:SGD
-getCreditAccountNum:11010005448
-getDebitAmount:SGD906.02
-getCreditAmount:SGD906.02
+2023-9-19 17:43:6:330
+ChannelReferenceID:230919000000153
+ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
+ChannelDebitAccountCurrency:HKD
+ChannelDebitAccountNumber:11020931868
+ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
+ChannelDetailPayeeName:lucky
+ChannelDetailAccountCurrency:HKD
+ChannelDetailPayeeAccountNum:667812798
+ChannelDetailTransactionAmount:919.39
+ChannelDetailBeneficiaryBankBIC:DBSSSGS0VEC
+ChannelDetailPayeeAddress:countries
+ChannelDetailEstimatedProcessingFee:0.00
+ChannelDetailPaymentModeForCharges:All expenses shall be borne by the remitter
+ChannelDetailPurposeOfTransfer:Business Expenses
+2023-9-19 17:45:7:202
+ID:230919000000153
+TransactionReference:PI232620LZYTYTJH
+FTNumber:null
+t24FtNumber:SGL23262FFCBBJCJ
+getStatus:677
+getTransactionReferenceNum:SGL23262FFCBBJCJ
+getSenderReferenceNum:PI232620LZYTYTJH
+getTransactionCurrency:HKD
+getTransactionCurrency:HKD
+getTransactionAmount:919.39
+getChargeOption:OUR
+getDebitAccountNum:11020931914
+getDebitAccountCurrency:HKD
+getOrderingAccount:11020931914
+getOrderingName:WATERHOUSE INVESTMENT PTE. LTD.
+getOrderingAddress:SINGAPORE
+getOrderingTown:SG
+getCreditAccountNum:15000000641
+getCreditAccountCurrency:HKD
+getBeneficiaryAccount:667812798
+getBeneficiaryName:lucky
