@@ -253,7 +253,7 @@ Feature: Auto_Test1
     When I click Loan Transactions
     When I Input incomplete information on AA Disbursement Internal page
       |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
-      |18000000148         |SGD           |1113            |SGD             |11010000640     |
+      |18000000148         |SGD           |1003            |SGD             |11010000640     |
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -277,7 +277,7 @@ Feature: Auto_Test1
     When I click Loan Transactions
     When I Input incomplete information on AA Disbursement Internal page
       |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
-      |18000000490         |USD           |2500014         |USD             |11010002015     |
+      |18000000490         |USD           |2500024         |USD             |11010002015     |
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
