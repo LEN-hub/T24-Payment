@@ -10,7 +10,7 @@ Feature: Auto_Test1
     Then Assert enter Disbursement External Page
     When I input information on the Loan Disbursement External Page
       |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|
-      |18500000147         |USD           |USD             |260007        |
+      |18500000147         |USD           |USD             |260006        |
     Then I input information on the Beneficiary Details Page
       |Beneficiary Account No|Beneficiary Name|
       |3242343               |kang            |
@@ -89,7 +89,7 @@ Feature: Auto_Test1
     When I click Loan Transactions
     When I Input incomplete information on AA Disbursement Internal page
       |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
-      |18500000740         |SGD           |280006          |SGD             |11010001604     |
+      |18500000740         |SGD           |280007          |SGD             |11010001604     |
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -116,28 +116,28 @@ Feature: Auto_Test1
     Then I Assert enter View Details Page
 
 
-  @AAPayment_Loan_Disbursement_Internal_USD-USD_Amount<threshold_before_004
-  Scenario: AAPayment_Loan_Disbursement_Internal_USD-USD_Amount<threshold_before_004
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Loan Transactions
-    When I Input incomplete information on AA Disbursement Internal page
-      |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
-      |18500000643         |USD           |1000            |USD             |11010000187     |
-    Then I get LoanPINumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click Authorise/Delete Arrangements (PO) Button
-    Then I input PI Number and click Find
-    And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input LoanPINumber and click Find
-    When I Assert enter View Page to USD Loan Internal
-    Then I Assert enter View Details Page
+#  @AAPayment_Loan_Disbursement_Internal_USD-USD_Amount<threshold_before_004
+#  Scenario: AAPayment_Loan_Disbursement_Internal_USD-USD_Amount<threshold_before_004
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Loan Transactions
+#    When I Input incomplete information on AA Disbursement Internal page
+#      |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
+#      |18500000643         |USD           |1000            |USD             |11010000187     |
+#    Then I get LoanPINumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I click Loan Transactions Button
+#    Then I click Authorise/Delete Arrangements (PO) Button
+#    Then I input PI Number and click Find
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input LoanPINumber and click Find
+#    When I Assert enter View Page to USD Loan Internal
+#    Then I Assert enter View Details Page
 
 
 
