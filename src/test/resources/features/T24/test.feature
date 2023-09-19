@@ -89,7 +89,7 @@ Feature: Auto_Test1
     When I click Loan Transactions
     When I Input incomplete information on AA Disbursement Internal page
       |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
-      |18500001089         |SGD           |280003          |SGD             |11010001965     |
+      |18500001089         |SGD           |2810006         |SGD             |11010001965     |
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -100,7 +100,7 @@ Feature: Auto_Test1
     Then I click Authorise/Delete Arrangements (PO) Button
     Then I input PI Number and click Find
     And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth3" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input LoanPINumber and click Find
     When I change status code USD
