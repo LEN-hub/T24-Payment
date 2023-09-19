@@ -27,7 +27,7 @@ Feature: Outgoing Customer Transfer
     Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find
     When I Assert enter View Page
