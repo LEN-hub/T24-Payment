@@ -430,7 +430,7 @@ Feature: T24 Payment transaction
       |WordPath          |WordPath          |
       |Bic is UOB USD-USD|Bic is UOB USD-USD|
 
-    #本人互转
+    #本人互转123
   @Payment_Own_Transfer_SGD-SGD_SIT
   Scenario:Local Payment Data Mapping FX Payment (SGD->SGD)
     Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
