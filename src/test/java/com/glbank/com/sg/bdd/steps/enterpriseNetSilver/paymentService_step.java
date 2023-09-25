@@ -2296,18 +2296,18 @@ public class paymentService_step extends ScenarioSteps {
 
 
     public void enterAmount(){
-        paymentService_page.enterAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
-     //   paymentService_page.enterAmount.sendKeys("1100115");
+     //   paymentService_page.enterAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
+        paymentService_page.enterAmount.sendKeys("300001");
     }
 
     public void enterAmount4(){
-        paymentService_page.enterAmount.sendKeys( "1600"+GenerateDate.today()+"."+randomTwoNum());
+        paymentService_page.enterAmount.sendKeys( "7000"+GenerateDate.today()+"."+randomTwoNum());
 //        paymentService_page.enterAmount.sendKeys("1100115");
     }
 
     public void enterAmount2(){
-        paymentService_page.enterAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
-//        paymentService_page.enterAmount.sendKeys("10000116");
+  //      paymentService_page.enterAmount.sendKeys(GenerateDate.today()+"."+randomTwoNum());
+       paymentService_page.enterAmount.sendKeys("10001");
     }
 
 
