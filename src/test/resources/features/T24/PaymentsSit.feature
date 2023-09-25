@@ -648,3 +648,4 @@ Feature: T24 Payment transaction
     When I carry out the signing and modification process on the page
       |AccountNu    |
       |1101 0002 449|
+    Then I close driver
