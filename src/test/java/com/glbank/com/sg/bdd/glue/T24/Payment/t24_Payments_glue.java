@@ -1167,10 +1167,24 @@ public class t24_Payments_glue {
         t24_payments_step.accountID();
     }
 
+    @When("^I enter the account IDCA$")
+    public void iEnterTheAccountIDCA() {
+        t24_payments_step.accountIDCA();
+    }
+
+
     @Then("^I find account$")
     public void iFindAccount(DataTable dataTable) {
         //t24_payments_step.inputaccountclickfind();
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         t24_payments_step.inputaccountclickfind(maps.get(0).get("Arrangement"));
     }
-}
+
+    @Then("^I find account CASGD$")
+    public void iFindAccountCASGD(DataTable dataTable) {
+        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+        t24_payments_step.inputaccountclickfindSGD(maps.get(0).get("Arrangement"),maps.get(0).get("Currency"));
+    }
+
+    }
+

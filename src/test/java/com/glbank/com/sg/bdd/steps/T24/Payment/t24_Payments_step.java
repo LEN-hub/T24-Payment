@@ -349,8 +349,8 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.closeWindow();
         bddUtil.switchToNewWindow();
         bddUtil.closeWindow();
-        switchToSecondFrame();
-        bddUtil.sleep(1);
+      //  switchToSecondFrame();
+      //  bddUtil.sleep(1);
     }
 
     @Step
@@ -655,7 +655,7 @@ public class t24_Payments_step extends ScenarioSteps {
 //        Assert.assertEquals(getOrderingAccount, readtxtFile("autopay/t24","ChannelDebitAccountNumber"));
 //        Assert.assertEquals(getOrderingName, readtxtFile("autopay/t24","ChannelDebitAccountName"));
         Assert.assertEquals(getBeneficiaryName, readtxtFile("autopay/t24", "ChannelDetailPayeeName"));
-//        t24_payments_page.getClickChargeInformation.click();
+ //      t24_payments_page.getClickChargeInformation.click();
         bddUtil.screenShort();
         if (WordPath.equals("Bic is DBS USD-USD") || WordPath.equals("Bic is Bank of China USD-USD")) {
             WordUtils.photoStorageToFXPaymentMXUSDToUSD(WordPath);
@@ -2397,8 +2397,8 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.DebitAccountCurrency.sendKeys(DebitAccountCurrency);
         t24_payments_page.CreditorAccount.sendKeys(CreditorAccount);
         t24_payments_page.CreditorName.sendKeys(CreditorName);
-        t24_payments_page.ChargeOption.click();
-        getDriver().findElement(By.xpath("//option[text()='"+ChargeOption+"']")).click();
+        //t24_payments_page.ChargeOption.click();
+       //getDriver().findElement(By.xpath("//option[text()='"+ChargeOption+"']")).click();
         bddUtil.sleep(2);
     }
 
@@ -2413,8 +2413,8 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.TransactionAmount.sendKeys(TransactionAmount);
         t24_payments_page.CreditorAccount.sendKeys(BeneficiaryAccount);
         t24_payments_page.CreditorName.sendKeys(BeneficiaryName);
-        t24_payments_page.ChargeOption.click();
-        getDriver().findElement(By.xpath("//option[text()='"+ChargeOption+"']")).click();
+//        t24_payments_page.ChargeOption.click();
+        // getDriver().findElement(By.xpath("//option[text()='"+ChargeOption+"']")).click();
         bddUtil.sleep(2);
     }
 
@@ -2747,7 +2747,7 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void enterView() throws Exception {
         String statusCode = t24_payments_page.statusCode.getText();
-        if (statusCode.equals("49") | statusCode.equals("999")) {
+        if (statusCode.equals("677") | statusCode.equals("999")) {
             System.out.println("状态码正常");
         } else {
             throw new Exception("状态码异常:"+statusCode);
@@ -3657,12 +3657,44 @@ public class t24_Payments_step extends ScenarioSteps {
         switchToSecondFrame();
         //bddUtil.sleep(3);
         t24_payments_page.clickUsermenu.click();
+
         t24_payments_page.clickProduct.click();
-        t24_payments_page.account.click();
+        t24_payments_page.accountA.click();
+        bddUtil.sleep(2);
+    }
+
+    public void accountIDCA() {
+        switchToSecondFrame();
+        //bddUtil.sleep(3);
+        t24_payments_page.clickUsermenu.click();
+
+        t24_payments_page.clickProduct.click();
+        t24_payments_page.accountB.click();
         bddUtil.sleep(2);
     }
 
     public void inputaccountclickfind(String Arrangement) {
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        t24_payments_page.inputaccount.clear();
+        t24_payments_page.inputaccount.sendKeys(Arrangement);
+        //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details1.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+
+    }
+
+    public void inputaccountclickfindSGD(String Arrangement, String Currency) {
         bddUtil.switchToNewWindow();
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
@@ -3678,14 +3710,33 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
         bddUtil.sleep(3);
-        t24_payments_page.Details1.click();
+        if (Currency.equals("SGD")){
+            t24_payments_page.CASGD.click();
+            bddUtil.sleep(5);
+        }
+        else if (Currency.equals("USD")){
+            t24_payments_page.CAUSD.click();
+            bddUtil.sleep(5);
+        }
+        else if (Currency.equals("CNY")){
+            t24_payments_page.CACNY.click();
+            bddUtil.sleep(5);
+        }
+        else if (Currency.equals("HKD")) {
+            t24_payments_page.CAHKD.click();
+            bddUtil.sleep(5);
+        }
+        else if (Currency.equals("AUD")) {
+            t24_payments_page.CAAUD.click();
+            bddUtil.sleep(5);
+        }
+        else  {
+            t24_payments_page.CAEUR.click();
+            bddUtil.sleep(5);
+        }
         bddUtil.switchToNewWindow();
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
         bddUtil.sleep(6);
-
     }
-
-
-    //
 }

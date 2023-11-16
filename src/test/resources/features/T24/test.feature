@@ -1,23 +1,546 @@
 @Auto_Test1
 Feature: Auto_Test1
 
-#  @Payment_Overseas_Transfer_MCY_USD-USD_SIT
-#  Scenario:Positive process of overseas transfer Bic Is DBS(USD-USD)(SIT_MCY)
+ #UAT GLDBCR-1054 before
+
+
+  @Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-009before
+  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-009before
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11010006320         |ANZBAU30                |AUD                   |AUD                 |50009             |56456465           |LEI             |SHA          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account IDCA
+    Then I find account
+      |Arrangement|
+      |11010006320|
+
+
+
+  @Payment_OE_PACS008_AUD-AUD_UAT_Amount>threshold_T24-010before
+  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount>threshold_T24-010before
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11021209775         |ANZBAU30                |AUD                   |AUD                 |5000010           |56456465           |LEI             |OUR          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11021162884|AUD        |
+
+
+
+  @Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-011before
+  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-011before
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I click Outgoing Customer Transfer
+    Then I enter Outgoing Customer Transfer Page
+    When I Input incomplete information on Outgoing Customer Transfer Page
+      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+      |11010006320         |ANZBAU30                |AUD                   |AUD                 |50011             |56456465           |LEI             |BEN          |
+    Then I Input Beneficiary Address and Beneficiary Town
+      |Beneficiary Address|Beneficiary Town|
+      |xian               |xian            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to USD
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account IDCA
+    Then I find account
+      |Arrangement|
+      |11010006320|
+
+    #特殊字符检查202234
+
+#  @Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-012before
+#  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-012before
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+#      |11010961147         |ANZBAU30                |AUD                   |AUD                 |50012             |56456465           |LEI             |BEN          |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address|Beneficiary Town|
+#      |xian               |xian            |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010003208|
+
+#案例继续
+
+  @Payment_OE_PACS009_AUD-AUD_UAT_Amount<threshold_T24-016before
+  Scenario:Payment_OE_PACS009_AUD-AUD_UAT_Amount<threshold_T24-016before
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I click Outgoing ISO Bank Transfer
+    Then I enter Outgoing ISO Bank Transfer Page
+    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+      |ANZBAU30            |AUD                 |50016             |11010006320         |4656465         |CITISGS0    |rew          |
+    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+      |Sender Reference|End To End Identification|
+      |                |                         |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account IDCA
+    Then I find account
+      |Arrangement|
+      |11010006320|
+
+
+
+  @Payment_OE_PACS009_AUD-AUD_UAT_Amount<threshold_T24-017before
+  Scenario:Payment_OE_PACS009_AUD-AUD_UAT_Amount<threshold_T24-017before
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I click Outgoing ISO Bank Transfer
+    Then I enter Outgoing ISO Bank Transfer Page
+    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+      |ANZBAU30            |AUD                 |50017             |11021209775         |4656465         |CITISGS0    |rew          |
+    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+      |Sender Reference|End To End Identification|
+      |                |                         |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+    Then I Assert enter View Details Page
+    And I close driver
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11021162884|AUD        |
+
+
+
+#incoming
+#  @Incoming_Payment_999_009_before
+#  Scenario:Incoming_Payment_999_009_before
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23255FDM0GB0L|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162205|USD        |
+#
+#  @Incoming_Payment_999_010_before
+#  Scenario:Incoming_Payment_999_010_before
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23255FDM0GB0L|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010003208|
+
+
+
+#UAT GLDBCR-1054 after
+
+
+#  @Payment_OE_PACS008_AUD-AUD_UAT_Amount>threshold_T24-009after
+#  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount>threshold_T24-009after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+#      |11020961147         |ANZBAU30                |AUD                   |AUD                 |690009            |56456465           |LEI             |SHA          |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address|Beneficiary Town|
+#      |xian               |xian            |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010003208|
+#
+#
+#
+#  @Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-010after
+#  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-010after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+#      |11020961147         |ANZBAU30                |AUD                   |AUD                 |6910              |56456465           |LEI             |OUR          |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address|Beneficiary Town|
+#      |xian               |xian            |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020880570|AUD        |
+#
+#
+#
+#  @Payment_OE_PACS008_AUD-AUD_UAT_Amount>threshold_T24-011after
+#  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount>threshold_T24-011after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+#      |11020961147         |ANZBAU30                |AUD                   |AUD                 |690011            |56456465           |LEI             |BEN          |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address|Beneficiary Town|
+#      |xian               |xian            |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010003208|
+#
+#    #特殊字符检查
+#
+#  @Payment_OE_PACS008_AUD-AUD_UAT_Amount>threshold_T24-012after
+#  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount>threshold_T24-012after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+#      |11020961147         |ANZBAU30                |AUD                   |AUD                 |690012            |56456465           |LEI             |BEN          |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address|Beneficiary Town|
+#      |xian               |xian            |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020880570|AUD        |
+#
+#
+#  @Payment_OE_PACS009_AUD-AUD_UAT_Amount>threshold_T24-016after
+#  Scenario:Payment_OE_PACS009_AUD-AUD_UAT_Amount>threshold_T24-016after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |ANZBAU30            |AUD                 |690016            |11020936681         |4656465         |CITISGS0    |rew          |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Sender Reference|End To End Identification|
+#      |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010003208|
+#
+#  @Payment_OE_PACS009_AUD-AUD_UAT_Amount>threshold_T24-017after
+#  Scenario:Payment_OE_PACS009_AUD-AUD_UAT_Amount>threshold_T24-017after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |ANZBAU30            |AUD                 |690017            |11020936681         |4656465         |CITISGS0    |rew          |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Sender Reference|End To End Identification|
+#      |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020880570|AUD        |
+
+
+
+
+
+
+
+ # SIT GLDBCR-1040
+
+#  @Ordering_Customer_Name>35char_INB_Overseas_Test001_SGD-SGD
+#  Scenario:Ordering Customer Name>35char INB Overseas Test001 SGD-SGD
 #    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
 #    When I click on overseas transfer payment and select the account
 #    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-#      |Account Number|Payment Mode for Charges |Currency|
-#      |1102 0927 720 |OUR                      |USD     |
+#      |Account Number|Payment Mode for Charges|
+#      |1101 0003 321 |SHA                     |
 #    And I choose the payment currency
-#      |Currency   |
-#      |USD        |
+#      |Currency|
+#      |SGD     |
 #    When I enter the payee information
 #      |Payee's Account Number|Payee's Name|
 #      |667812798             |lucky       |
-##    When I click on the receiving bank drop down box
 #    When I choose the receiving bank
 #      |Beneficiary Bank|
-#      |DBSSSGS0VEC     |
+#      |DBSSSGS0DOD     |
 #    When I choose the recipient country
 #      |Payee's Address |Payee's Country|Comments For Payee|
 #      |countries       |UNITED STATES  |ok                |
@@ -28,7 +551,419 @@ Feature: Auto_Test1
 #    When Vkey authorization for Payment transactions in the SIT environment
 #    Then I will compare all the data on FX Payment MX Message
 #      |WordPath          |
-#      |Bic is DBS USD-USD|
+#      |Bic is DBS SGD-SGD|
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
+#    When I type in the content and click the search button on Mx Message
+#      |search content           |windows Title        |WordPath          |
+#      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-SGD|
+#    When I expand the User Menu menu on the page
+#    When I expand the User Payments menu on the page
+#    When I expand the Payment Hub menu on the page
+#    When I expand the Payment Inquiries and Exceptions menu on the page
+#    When I expand the Payments Enquiry Transaction wise menu on the page
+#    When I jump to a newly opened page on Mx Message
+#      |windows Title                            |WordPath          |
+#      |Pending and Processed Payments - UAT GLDB|Bic is DBS SGD-SGD|
+#    Then I do field mapping for Channel and T24 in same currency
+#      |WordPath          |
+#      |Bic is DBS SGD-SGD|
+#    When I compare the amount is normal on Mx Message
+#      |WordPath          |
+#      |Bic is DBS SGD-SGD|
+#    When I compare the data generated by Outgoing Message MX Message is correct
+#      |WordPath          |Name              |
+#      |Bic is DBS SGD-SGD|Bic is DBS SGD-SGD|
+#    When I check the deduction amount on the Find Account page On overseas transfer Payment
+#      |windows Title            |WordPath           |
+#      |AA Arrangement - SIT GLDB|Bic is DBS SGD-SGD |
+
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Debitor_Name_001
+#  Scenario:Payment_OE_pacs008_Special_Debitor_Name_SIT(SGD-SGD)Amount>threshold-001
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
+#      |DBSSSGS0            |SGD                 |2500001             |11010003321         |SGD                   |56456465        |Best & Good etc|
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Debitor_Name_001
+#  Scenario:Payment_OE_pacs008_Special_Debitor_Name_SIT(USD-USD)_Amount>threshold-001
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938773         |DBSSSGS0                |USD                   |USD                 |2500002           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_EUR-EUR_Special_Debitor_Name_001
+#  Scenario:Payment_OE_pacs008_Special_Debitor_Name_SIT(EUR-EUR)_Amount>threshold-001
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938781         |DBSSSGS0                |EUR                   |EUR                 |2500003           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_HKD-HKD_Special_Debitor_Name_001
+#  Scenario:Payment_OE_pacs008_Special_Debitor_Name_SIT(HKD-HKD)_Amount>threshold-001
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938803         |DBSSSGS0                |HKD                   |HKD                 |2500004           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_CNY-CNY_Special_Debitor_Name_001
+#  Scenario:Payment_OE_pacs008_Special_Debitor_Name_SIT(CNY-CNY)_Amount>threshold-001
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938811         |DBSSSGS0                |CNY                   |CNY                 |2500005           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Debitor_Name_002
+#  Scenario:Payment_OE_pacs008_Special_Debitor_Name_SIT(SGD-SGD)Amount>threshold-002
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
+#      |DBSSSGS0            |SGD                 |25001               |11020883472         |SGD                   |56456465        |Best & Good etc|
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Debitor_Name_002
+#  Scenario:Payment_OE_pacs008_Special_Debitor_Name_SIT(USD-USD)_Amount>threshold-002
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020883537         |DBSSSGS0                |USD                   |USD                 |25002             |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_EUR-EUR_Special_Debitor_Name_002
+#  Scenario:Payment_OE_pacs008_Special_Debitor_Name_SIT(EUR-EUR)_Amount>threshold-002
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938838         |DBSSSGS0                |EUR                   |EUR                 |25003             |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_HKD-HKD_Special_Debitor_Name_002
+#  Scenario:Payment_OE_pacs008_Special_Debitor_Name_SIT(HKD-HKD)_Amount>threshold-002
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938846         |DBSSSGS0                |HKD                   |HKD                 |25004             |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_CNY-CNY_Special_Debitor_Name_002
+#  Scenario:Payment_OE_pacs008_Special_Debitor_Name_SIT(CNY-CNY)_Amount>threshold-002
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938854         |DBSSSGS0                |CNY                   |CNY                 |25005             |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+##网银案例
+#
+#
+#  @Payment_Overseas_Transfer_SGD-SGD_SIT
+#  Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(SGD->SGD)
+##    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+##    When I click on overseas transfer payment and select the account
+##    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+##      |Account Number|Payment Mode for Charges|
+##      |1101 0003 321 |SHA                     |
+##    And I choose the payment currency
+##      |Currency|
+##      |SGD     |
+##    When I enter the payee information
+##      |Payee's Account Number|Payee's Name|
+##      |667812798             |lucky       |
+##    When I choose the receiving bank
+##      |Beneficiary Bank|
+##      |DBSSSGS0DOD     |
+##    When I choose the recipient country
+##      |Payee's Address |Payee's Country|Comments For Payee|
+##      |countries & len |UNITED STATES  |ok                |
+##    When I choose the nature of payment
+##      |Purpose of Transfer|
+##      |Commission         |
+##    When I choose to submit the transfer information
+##    When Vkey authorization for Payment transactions in the SIT environment
+##    Then I will compare all the data on FX Payment MX Message
+##      |WordPath          |
+##      |Bic is DBS SGD-SGD|
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
+#    When I type in the content and click the search button on Mx Message
+#      |search content           |windows Title        |WordPath          |
+#      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-SGD|
+#    When I expand the User Menu menu on the page
+#    When I expand the User Payments menu on the page
+#    When I expand the Payment Hub menu on the page
+#    When I expand the Payment Inquiries and Exceptions menu on the page
+#    When I expand the Payments Enquiry Transaction wise menu on the page
+#    When I jump to a newly opened page on Mx Message
+#      |windows Title                            |WordPath          |
+#      |Pending and Processed Payments - UAT GLDB|Bic is DBS SGD-SGD|
+#    Then I do field mapping for Channel and T24 in same currency
+#      |WordPath          |
+#      |Bic is DBS SGD-SGD|
+#    When I compare the amount is normal on Mx Message
+#      |WordPath          |
+#      |Bic is DBS SGD-SGD|
+#    When I compare the data generated by Outgoing Message MX Message is correct
+#      |WordPath          |Name              |
+#      |Bic is DBS SGD-SGD|Bic is DBS SGD-SGD|
+#    When I check the deduction amount on the Find Account page On overseas transfer Payment
+#      |windows Title            |WordPath           |
+#      |AA Arrangement - SIT GLDB|Bic is DBS SGD-SGD |
+#
+#
+#
+#  @Payment_Overseas_Transfer_MCY_USD-USD_SIT
+#  Scenario:Positive process of overseas transfer Bic Is DBS(USD-USD)(SIT_MCY)
+##    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+##    When I click on overseas transfer payment and select the account
+##    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+##      |Account Number|Payment Mode for Charges |Currency|
+##      |1102 0938 757 |OUR                      |USD     |
+##    And I choose the payment currency
+##      |Currency   |
+##      |USD        |
+##    When I enter the payee information
+##      |Payee's Account Number|Payee's Name|
+##      |667812798             |lucky       |
+###    When I click on the receiving bank drop down box
+##    When I choose the receiving bank
+##      |Beneficiary Bank|
+##      |DBSSSGS0VEC     |
+##    When I choose the recipient country
+##      |Payee's Address |Payee's Country|Comments For Payee|
+##      |countries       |UNITED STATES  |ok                |
+##    When I choose the nature of payment
+##      |Purpose of Transfer|
+##      |Commission         |
+##    When I choose to submit the transfer information
+##    When Vkey authorization for Payment transactions in the SIT environment
+##    Then I will compare all the data on FX Payment MX Message
+##      |WordPath          |
+##      |Bic is DBS USD-USD|
 #    Given to verify transaction in T24 using "T24-automation-SIT-login"
 #    When I type in the content and click the search button on Mx Message
 #      |search content           |windows Title        |WordPath          |
@@ -161,256 +1096,2076 @@ Feature: Auto_Test1
 #      |Bic is DBS EUR-EUR|Bic is DBS EUR-EUR|
 #
 #
-  @Payment_Overseas_Transfer_MCY_CNY-CNY_SIT_0024before
-  Scenario:Positive process of overseas transfer Bic Is DBS(CNY-CNY)(SIT_MCY)_0024before
-    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
-    When I click on overseas transfer payment and select the account
-    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges |Currency|
-      |1102 0931 868 |BEN                      |CNY     |
-    And I choose the payment currency
-      |Currency   |
-      |CNY        |
-    When I enter the payee information
-      |Payee's Account Number|Payee's Name|
-      |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
-    When I choose the receiving bank
-      |Beneficiary Bank|
-      |DBSSSGS0VEC     |
-    When I choose the recipient country
-      |Payee's Address |Payee's Country|Comments For Payee|
-      |countries       |UNITED STATES  |ok                |
-    When I choose the nature of payment
-      |Purpose of Transfer|
-      |Commission         |
-    When I choose to submit the transfer information
-    When Vkey authorization for Payment transactions in the SIT environment
-    Then I will compare all the data on FX Payment MX Message
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    Given to verify transaction in T24 using "T24-automation-SIT-login"
-    When I type in the content and click the search button on Mx Message
-      |search content           |windows Title        |WordPath          |
-      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS CNY-CNY|
-    When I expand the User Menu menu on the page
-    When I expand the User Payments menu on the page
-    When I expand the Payment Hub menu on the page
-    When I expand the Payment Inquiries and Exceptions menu on the page
-    When I expand the Payments Enquiry Transaction wise menu on the page
-    When I jump to a newly opened page on Mx Message
-      |windows Title                            |WordPath          |
-      |Pending and Processed Payments - SIT GLDB|Bic is DBS CNY-CNY|
-    Then I do field mapping for Channel and T24 in same currency
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    When I compare the amount is normal on Mx Message
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    When I compare the data generated by Outgoing Message MX Message is correct
-      |WordPath          |Name              |
-      |Bic is DBS CNY-CNY|Bic is DBS CNY-CNY|
+#  @Payment_Overseas_Transfer_MCY_CNY-CNY_SIT_0024before
+#  Scenario:Positive process of overseas transfer Bic Is DBS(CNY-CNY)(SIT_MCY)_0024before
+#    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+#    When I click on overseas transfer payment and select the account
+#    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+#      |Account Number|Payment Mode for Charges |Currency|
+#      |1102 0931 868 |BEN                      |CNY     |
+#    And I choose the payment currency
+#      |Currency   |
+#      |CNY        |
+#    When I enter the payee information
+#      |Payee's Account Number|Payee's Name|
+#      |667812798             |lucky       |
+##    When I click on the receiving bank drop down box
+#    When I choose the receiving bank
+#      |Beneficiary Bank|
+#      |DBSSSGS0VEC     |
+#    When I choose the recipient country
+#      |Payee's Address |Payee's Country|Comments For Payee|
+#      |countries       |UNITED STATES  |ok                |
+#    When I choose the nature of payment
+#      |Purpose of Transfer|
+#      |Commission         |
+#    When I choose to submit the transfer information
+#    When Vkey authorization for Payment transactions in the SIT environment
+#    Then I will compare all the data on FX Payment MX Message
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
+#    When I type in the content and click the search button on Mx Message
+#      |search content           |windows Title        |WordPath          |
+#      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS CNY-CNY|
+#    When I expand the User Menu menu on the page
+#    When I expand the User Payments menu on the page
+#    When I expand the Payment Hub menu on the page
+#    When I expand the Payment Inquiries and Exceptions menu on the page
+#    When I expand the Payments Enquiry Transaction wise menu on the page
+#    When I jump to a newly opened page on Mx Message
+#      |windows Title                            |WordPath          |
+#      |Pending and Processed Payments - SIT GLDB|Bic is DBS CNY-CNY|
+#    Then I do field mapping for Channel and T24 in same currency
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    When I compare the amount is normal on Mx Message
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    When I compare the data generated by Outgoing Message MX Message is correct
+#      |WordPath          |Name              |
+#      |Bic is DBS CNY-CNY|Bic is DBS CNY-CNY|
+#
+#
+#
+#
+#
+#
+##第二次跑
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Debitor_address_003
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_SIT(SGD-SGD)Amount>threshold-003
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
+#      |DBSSSGS0            |SGD                 |2600001             |11010003321         |SGD                   |56456465        |Best & Good etc|
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Debitor_address_003
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_SIT(USD-USD)_Amount>threshold-003
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938773         |DBSSSGS0                |USD                   |USD                 |2600002           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_EUR-EUR_Special_Debitor_address_003
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_SIT(EUR-EUR)_Amount>threshold-003
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938781         |DBSSSGS0                |EUR                   |EUR                 |2600003           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_HKD-HKD_Special_Debitor_address_003
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_SIT(HKD-HKD)_Amount>threshold-003
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938803         |DBSSSGS0                |HKD                   |HKD                 |2600004           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_CNY-CNY_Special_Debitor_address_003
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_SIT(CNY-CNY)_Amount>threshold-003
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938811         |DBSSSGS0                |CNY                   |CNY                 |2600005           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Debitor_address_004
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_SIT(SGD-SGD)Amount>threshold-004
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
+#      |DBSSSGS0            |SGD                 |2601                |11020883472         |SGD                   |56456465        |Best & Good etc|
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Debitor_address_004
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_SIT(USD-USD)_Amount>threshold-004
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020883537         |DBSSSGS0                |USD                   |USD                 |2602              |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_EUR-EUR_Special_Debitor_address_004
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_SIT(EUR-EUR)_Amount>threshold-004
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938838         |DBSSSGS0                |EUR                   |EUR                 |2603              |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_HKD-HKD_Special_Debitor_address_004
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_SIT(HKD-HKD)_Amount>threshold-004
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938846         |DBSSSGS0                |HKD                   |HKD                 |2604              |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_CNY-CNY_Special_Debitor_address_004
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_SIT(CNY-CNY)_Amount>threshold-004
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938854         |DBSSSGS0                |CNY                   |CNY                 |2605              |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+##第三次跑
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Debitor_address_Name_005
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_Name_SIT(SGD-SGD)Amount>threshold-005
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
+#      |DBSSSGS0            |SGD                 |2700001             |11020883472         |SGD                   |56456465        |Best & Good etc|
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Debitor_address_Name_005
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_Name_SIT(USD-USD)_Amount>threshold-005
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020883537         |DBSSSGS0                |USD                   |USD                 |2700002           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_EUR-EUR_Special_Debitor_address_Name_005
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_Name_SIT(EUR-EUR)_Amount>threshold-005
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938838         |DBSSSGS0                |EUR                   |EUR                 |2700003           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_HKD-HKD_Special_Debitor_address_Name_005
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_Name_SIT(HKD-HKD)_Amount>threshold-005
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938846         |DBSSSGS0                |HKD                   |HKD                 |2700004           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_CNY-CNY_Special_Debitor_address_Name_005
+#  Scenario:Payment_OE_pacs008_Special_Debitor_address_Name_SIT(CNY-CNY)_Amount>threshold-005
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938854         |DBSSSGS0                |CNY                   |CNY                 |2700005           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+##第四次跑，需要特殊的多币种账户，账户名称特殊，替换里面的账户
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Debitor_account_Name_006
+#  Scenario:Payment_OE_pacs008_Special_Debitor_account_Name_SIT(SGD-SGD)Amount>threshold-006
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
+#      |DBSSSGS0            |SGD                 |2710001             |11020883472         |SGD                   |56456465        |Best & Good etc|
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Debitor_account_Name_006
+#  Scenario:Payment_OE_pacs008_Special_Debitor_account_Name_SIT(USD-USD)_Amount>threshold-006
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020883537         |DBSSSGS0                |USD                   |USD                 |2710002           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_EUR-EUR_Special_Debitor_account_Name_006
+#  Scenario:Payment_OE_pacs008_Special_Debitor_account_Name_SIT(EUR-EUR)_Amount>threshold-006
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938838         |DBSSSGS0                |EUR                   |EUR                 |2710003           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_HKD-HKD_Special_Debitor_account_Name_006
+#  Scenario:Payment_OE_pacs008_Special_Debitor_account_Name_SIT(HKD-HKD)_Amount>threshold-006
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938846         |DBSSSGS0                |HKD                   |HKD                 |2710004           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_CNY-CNY_Special_Debitor_account_Name_006
+#  Scenario:Payment_OE_pacs008_Special_Debitor_account_Name_SIT(CNY-CNY)_Amount>threshold-006
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938854         |DBSSSGS0                |CNY                   |CNY                 |2710005           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+##第5次跑
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Name_007
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Name_SIT(SGD-SGD)Amount>threshold-007
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name                                                           |
+#      |DBSSSGS0            |SGD                 |2501                |11010003321         |SGD                   |56456465        |Best & Good etc #/！%（）*1234567890ABCDEFJ999999999888888887777777666666|
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Name_007
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Name_SIT(USD-USD)_Amount>threshold-007
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name                                                        |
+#      |11020938773         |DBSSSGS0                |USD                   |USD                 |2502              |56456465           |Best & Good etc #/！%（）*1234567890ABCDEFJ999999999888888887777777666666|
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_EUR-EUR_Special_Creditor_Name_007
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Name_SIT(EUR-EUR)_Amount>threshold-007
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name                                                         |
+#      |11020938781         |DBSSSGS0                |EUR                   |EUR                 |2503              |56456465           |Best & Good etc #/！%（）*1234567890ABCDEFJ999999999888888887777777666666 |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_HKD-HKD_Special_Creditor_Name_007
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Name_SIT(HKD-HKD)_Amount>threshold-007
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name                                                         |
+#      |11020938803         |DBSSSGS0                |HKD                   |HKD                 |2504              |56456465           |Best & Good etc #/！%（）*1234567890ABCDEFJ999999999888888887777777666666 |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_CNY-CNY_Special_Creditor_Name_007
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Name_SIT(CNY-CNY)_Amount>threshold-007
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name                                                    |
+#      |11020938811         |DBSSSGS0                |CNY                   |CNY                 |2505              |56456465           |Best & Good etc 1Best & Good etc 999999999888888881234567890ABCDEFJ |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Name_008
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Name_SIT(SGD-SGD)Amount>threshold-008
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
+#      |DBSSSGS0            |SGD                 |2800001             |11020883472         |SGD                   |56456465        |Best & Good etc|
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Name_008
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Name_SIT(USD-USD)_Amount>threshold-008
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020883537         |DBSSSGS0                |USD                   |USD                 |2800002           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_EUR-EUR_Special_Creditor_Name_008
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Name_SIT(EUR-EUR)_Amount>threshold-008
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938838         |DBSSSGS0                |EUR                   |EUR                 |2800003           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_HKD-HKD_Special_Creditor_Name_008
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Name_SIT(HKD-HKD)_Amount>threshold-008
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938846         |DBSSSGS0                |HKD                   |HKD                 |2800004           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_CNY-CNY_Special_Creditor_Name_008
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Name_SIT(CNY-CNY)_Amount>threshold-008
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938854         |DBSSSGS0                |CNY                   |CNY                 |2800005           |56456465           |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#
+## 第6次跑收款账户的地址
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Address_009
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Address_SIT(SGD-SGD)_Amount<threshold-009
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
+#      |DBSSSGS0            |SGD                 |2601                |11020938765         |SGD                   |56456465        |Kang           |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name                                                                      |Town Name                                                     |Creditor Country|
+#      |Best & Good etc 12345678901234567890123456666666777777777777999999999222222111111|Best & Good etc 12345678901234567890123456666666777777788888  |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#    #收款账户地址大于35会报错并强制为35以内
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Address_009
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Address_SIT(USD-USD)_Amount<threshold-009
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938773         |DBSSSGS0                |USD                   |USD                 |100               |56456465           |Kang            |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address                                                              |Beneficiary Town                                             |
+#      |Best & Good etc 12345678901234567890123456666666777777777777999999999222222111111|Best & Good etc 12345678901234567890123456666666777777788888 |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_EUR-EUR_Special_Creditor_Address_009
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Address_SIT(EUR-EUR)_Amount<threshold-009
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938781         |DBSSSGS0                |EUR                   |EUR                 |1003              |56456465           |Kang            |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address                                                              |Beneficiary Town                                             |
+#      |Best & Good etc 12345678901234567890123456666666777777777777999999999222222111111|Best & Good etc 12345678901234567890123456666666777777788888 |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_HKD-HKD_Special_Creditor_Address_009
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Address_SIT(HKD-HKD)_Amount<threshold-009
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938803         |DBSSSGS0                |HKD                   |HKD                 |1004              |56456465           |Kang            |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address                                                              |Beneficiary Town                                             |
+#      |Best & Good etc 12345678901234567890123456666666777777777777999999999222222111111|Best & Good etc 12345678901234567890123456666666777777788888 |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_CNY-CNY_Special_Creditor_Address_009
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Address_SIT(CNY-CNY)_Amount<threshold-009
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938811         |DBSSSGS0                |CNY                   |CNY                 |1005              |56456465           |Kang            |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address                                                              |Beneficiary Town                                             |
+#      |Best & Good etc 12345678901234567890123456666666777777777777999999999222222111111|Best & Good etc 12345678901234567890123456666666777777788888 |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Address_010
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Address_SIT(SGD-SGD)_Amount>threshold-010
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
+#      |DBSSSGS0            |SGD                 |2900001             |11020938765         |SGD                   |56456465        |Kang           |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name        |Town Name                |Creditor Country|
+#      |Best & Good etc#*  |Best & Good etc 123456#* |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#    #收款账户地址大于35会报错并强制为35以内
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Address_010
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Address_SIT(USD-USD)_Amount>threshold-010
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938773         |DBSSSGS0                |USD                   |USD                 |2900002           |56456465           |Kang            |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address|Beneficiary Town        |
+#      |Best & Good etc#*  |Best & Good etc 123456#*|
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_EUR-EUR_Special_Creditor_Address_010
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Address_SIT(EUR-EUR)_Amount>threshold-010
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938781         |DBSSSGS0                |EUR                   |EUR                 |2900003           |56456465           |Kang            |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address|Beneficiary Town        |
+#      |Best & Good etc#*  |Best & Good etc 123456#*|
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_HKD-HKD_Special_Creditor_Address_010
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Address_SIT(HKD-HKD)_Amount>threshold-010
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938803         |DBSSSGS0                |HKD                   |HKD                 |2900004           |56456465           |Kang            |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address|Beneficiary Town        |
+#      |Best & Good etc#*  |Best & Good etc 123456#*|
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_CNY-CNY_Special_Creditor_Address_010
+#  Scenario:Payment_OE_pacs008_Special_Creditor_Address_SIT(CNY-CNY)_Amount>threshold-010
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11020938811         |DBSSSGS0                |CNY                   |CNY                 |2900005           |56456465           |Kang            |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address|Beneficiary Town        |
+#      |Best & Good etc#*  |Best & Good etc 123456#*|
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#   #结束
+#
+#
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Name>35
+#  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount<250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name                                                     |
+#      |DBSSSGS0            |SGD                 |200                 |11010001981         |SGD                   |56456465        |Kangewqeqewqeqeqweqweqeqewwqeqwewqewqweewqeqweeqwdsdaff           |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name       |Town Name         |Creditor Country|
+#      |SINGAPORE         |WANGKUNG          |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Name>35
+#  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(USD-USD) Amount<250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name                                                   |
+#      |11010003267         |DBSSSGS0                |USD                   |USD                 |100               |56456465           |Kangewqeqewqeqeqweqweqeqewwqeqwewqewqweewqeqweeqwdsdaff            |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Address>35
+#  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount<250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
+#      |DBSSSGS0            |SGD                 |200                 |11010001981         |SGD                   |56456465        |Kang           |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name                                               |Town Name                                                 |Creditor Country|
+#      |Kangewqeqewqeqeqweqweqeqewwqeqwewqewqweewqeqweeqwdsdaff   |Kangewqeqewqeqeqweqweqeqewwqeqwewqewqweewqeqweeqwdsdaff   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Address>35
+#  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(USD-USD) Amount<250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|
+#      |11010003267         |DBSSSGS0                |USD                   |USD                 |100               |56456465           |Kang            |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address                                        |Beneficiary Town                                        |
+#      |Kangewqeqewqeqeqweqweqeqewwqeqwewqewqweewqeqweeqwdsdaff    |Kangewqeqewqeqeqweqweqeqewwqeqwewqewqweewqeqweeqwdsdaff |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
+#    #修改Debitor相关信息再执行脚本
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Address_Debitor_Address_Debitor_name_Creditor_name>35
+#  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount<250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name                                                     |
+#      |DBSSSGS0            |SGD                 |200                 |11010001981         |SGD                   |56456465        |Kangewqeqewqeqeqweqweqeqewwqeqwewqewqweewqeqweeqwdsdaff           |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name                                               |Town Name                                                 |Creditor Country|
+#      |Kangewqeqewqeqeqweqweqeqewwqeqwewqewqweewqeqweeqwdsdaff   |Kangewqeqewqeqeqweqweqeqewwqeqwewqewqweewqeqweeqwdsdaff   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Address_Debitor_Address_Debitor_name_Creditor_name>35
+#  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(USD-USD) Amount<250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name                                                   |
+#      |11010003267         |DBSSSGS0                |USD                   |USD                 |100               |56456465           |Kangewqeqewqeqeqweqweqeqewwqeqwewqewqweewqeqweeqwdsdaff            |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address                                        |Beneficiary Town                                        |
+#      |Kangewqeqewqeqeqweqweqeqewwqeqwewqewqweewqeqweeqwdsdaff    |Kangewqeqewqeqeqweqweqeqewwqeqwewqewqweewqeqweeqwdsdaff |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_SGD-SGD_Special_Creditor_Address_Debitor_Address_Debitor_name_Creditor_name
+#  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(SGD--SGD) Amount<250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name             |
+#      |DBSSSGS0            |SGD                 |200                 |11010001981         |SGD                   |56456465        |Best & Good etc           |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name       |Town Name         |Creditor Country|
+#      |Best & Good etc   |Best & Good etc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#
+#  @Payment_OE_Outgoing_Customer_Transfer_USD-USD_Special_Creditor_Address_Debitor_Address_Debitor_name_Creditor_name
+#  Scenario:Payment_OE_Outgoing_Customer_Transfer_UAT(USD-USD) Amount<250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name           |
+#      |11010003267         |DBSSSGS0                |USD                   |USD                 |100               |56456465           |Best & Good etc            |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address|Beneficiary Town|
+#      |Best & Good etc    |Best & Good etc |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#
+#
 
-  @Payment_Overseas_Transfer_MCY_CNY-CNY_SIT_0025before
-  Scenario:Positive process of overseas transfer Bic Is DBS(CNY-CNY)(SIT_MCY)_0025before
-    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
-    When I click on overseas transfer payment and select the account
-    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges |Currency|
-      |1102 0931 868 |OUR                      |CNY     |
-    And I choose the payment currency
-      |Currency   |
-      |CNY        |
-    When I enter the payee information
-      |Payee's Account Number|Payee's Name|
-      |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
-    When I choose the receiving bank
-      |Beneficiary Bank|
-      |DBSSSGS0VEC     |
-    When I choose the recipient country
-      |Payee's Address |Payee's Country|Comments For Payee|
-      |countries       |UNITED STATES  |ok                |
-    When I choose the nature of payment
-      |Purpose of Transfer|
-      |Commission         |
-    When I choose to submit the transfer information
-    When Vkey authorization for Payment transactions in the SIT environment
-    Then I will compare all the data on FX Payment MX Message
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    Given to verify transaction in T24 using "T24-automation-SIT-login"
-    When I type in the content and click the search button on Mx Message
-      |search content           |windows Title        |WordPath          |
-      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS CNY-CNY|
-    When I expand the User Menu menu on the page
-    When I expand the User Payments menu on the page
-    When I expand the Payment Hub menu on the page
-    When I expand the Payment Inquiries and Exceptions menu on the page
-    When I expand the Payments Enquiry Transaction wise menu on the page
-    When I jump to a newly opened page on Mx Message
-      |windows Title                            |WordPath          |
-      |Pending and Processed Payments - SIT GLDB|Bic is DBS CNY-CNY|
-    Then I do field mapping for Channel and T24 in same currency
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    When I compare the amount is normal on Mx Message
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    When I compare the data generated by Outgoing Message MX Message is correct
-      |WordPath          |Name              |
-      |Bic is DBS CNY-CNY|Bic is DBS CNY-CNY|
 
 
-  @Payment_Overseas_Transfer_MCY_CNY-CNY_SIT_0026before
-  Scenario:Positive process of overseas transfer Bic Is DBS(CNY-CNY)(SIT_MCY)0026before
-    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
-    When I click on overseas transfer payment and select the account
-    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges |Currency|
-      |1102 0931 868 |SHA                      |CNY     |
-    And I choose the payment currency
-      |Currency   |
-      |CNY        |
-    When I enter the payee information
-      |Payee's Account Number|Payee's Name|
-      |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
-    When I choose the receiving bank
-      |Beneficiary Bank|
-      |DBSSSGS0VEC     |
-    When I choose the recipient country
-      |Payee's Address |Payee's Country|Comments For Payee|
-      |countries       |UNITED STATES  |ok                |
-    When I choose the nature of payment
-      |Purpose of Transfer|
-      |Commission         |
-    When I choose to submit the transfer information
-    When Vkey authorization for Payment transactions in the SIT environment
-    Then I will compare all the data on FX Payment MX Message
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    Given to verify transaction in T24 using "T24-automation-SIT-login"
-    When I type in the content and click the search button on Mx Message
-      |search content           |windows Title        |WordPath          |
-      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS CNY-CNY|
-    When I expand the User Menu menu on the page
-    When I expand the User Payments menu on the page
-    When I expand the Payment Hub menu on the page
-    When I expand the Payment Inquiries and Exceptions menu on the page
-    When I expand the Payments Enquiry Transaction wise menu on the page
-    When I jump to a newly opened page on Mx Message
-      |windows Title                            |WordPath          |
-      |Pending and Processed Payments - SIT GLDB|Bic is DBS CNY-CNY|
-    Then I do field mapping for Channel and T24 in same currency
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    When I compare the amount is normal on Mx Message
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    When I compare the data generated by Outgoing Message MX Message is correct
-      |WordPath          |Name              |
-      |Bic is DBS CNY-CNY|Bic is DBS CNY-CNY|
 
-  @Payment_Overseas_Transfer_MCY_CNY-CNY_SIT_0027before
-  Scenario:Positive process of overseas transfer Bic Is DBS(CNY-CNY)(SIT_MCY) 0027before
-    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
-    When I click on overseas transfer payment and select the account
-    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges |Currency|
-      |1102 0931 868 |BEN                      |CNY     |
-    And I choose the payment currency
-      |Currency   |
-      |CNY        |
-    When I enter the payee information
-      |Payee's Account Number|Payee's Name|
-      |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
-    When I choose the receiving bank
-      |Beneficiary Bank|
-      |DBSSSGS0VEC     |
-    When I choose the recipient country
-      |Payee's Address |Payee's Country|Comments For Payee|
-      |countries       |UNITED STATES  |ok                |
-    When I choose the nature of payment
-      |Purpose of Transfer|
-      |Commission         |
-    When I choose to submit the transfer information
-    When Vkey authorization for Payment transactions in the SIT environment
-    Then I will compare all the data on FX Payment MX Message
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    Given to verify transaction in T24 using "T24-automation-SIT-login"
-    When I type in the content and click the search button on Mx Message
-      |search content           |windows Title        |WordPath          |
-      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS CNY-CNY|
-    When I expand the User Menu menu on the page
-    When I expand the User Payments menu on the page
-    When I expand the Payment Hub menu on the page
-    When I expand the Payment Inquiries and Exceptions menu on the page
-    When I expand the Payments Enquiry Transaction wise menu on the page
-    When I jump to a newly opened page on Mx Message
-      |windows Title                            |WordPath          |
-      |Pending and Processed Payments - SIT GLDB|Bic is DBS CNY-CNY|
-    Then I do field mapping for Channel and T24 in same currency
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    When I compare the amount is normal on Mx Message
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    When I compare the data generated by Outgoing Message MX Message is correct
-      |WordPath          |Name              |
-      |Bic is DBS CNY-CNY|Bic is DBS CNY-CNY|
 
-  @Payment_Overseas_Transfer_MCY_CNY-CNY_SIT_0028before
-  Scenario:Positive process of overseas transfer Bic Is DBS(CNY-CNY)(SIT_MCY) 0028before
-    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
-    When I click on overseas transfer payment and select the account
-    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges |Currency|
-      |1102 0931 868 |OUR                      |CNY     |
-    And I choose the payment currency
-      |Currency   |
-      |CNY        |
-    When I enter the payee information
-      |Payee's Account Number|Payee's Name|
-      |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
-    When I choose the receiving bank
-      |Beneficiary Bank|
-      |DBSSSGS0VEC     |
-    When I choose the recipient country
-      |Payee's Address |Payee's Country|Comments For Payee|
-      |countries       |UNITED STATES  |ok                |
-    When I choose the nature of payment
-      |Purpose of Transfer|
-      |Commission         |
-    When I choose to submit the transfer information
-    When Vkey authorization for Payment transactions in the SIT environment
-    Then I will compare all the data on FX Payment MX Message
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    Given to verify transaction in T24 using "T24-automation-SIT-login"
-    When I type in the content and click the search button on Mx Message
-      |search content           |windows Title        |WordPath          |
-      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS CNY-CNY|
-    When I expand the User Menu menu on the page
-    When I expand the User Payments menu on the page
-    When I expand the Payment Hub menu on the page
-    When I expand the Payment Inquiries and Exceptions menu on the page
-    When I expand the Payments Enquiry Transaction wise menu on the page
-    When I jump to a newly opened page on Mx Message
-      |windows Title                            |WordPath          |
-      |Pending and Processed Payments - SIT GLDB|Bic is DBS CNY-CNY|
-    Then I do field mapping for Channel and T24 in same currency
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    When I compare the amount is normal on Mx Message
-      |WordPath          |
-      |Bic is DBS CNY-CNY|
-    When I compare the data generated by Outgoing Message MX Message is correct
-      |WordPath          |Name              |
-      |Bic is DBS CNY-CNY|Bic is DBS CNY-CNY|
+
+
+
+# UAT GLDBCR-1025
+
+#  @Payment_OE_Outgoing_ISO_Customer_SGD-SGD_UAT_berore-001
+#  Scenario:Payment_OE_Outgoing_ISO_Customer_SGD-SGD_UAT_berore-001
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |DBSSSGS0            |SGD                 |100                 |11010005898         |SGD                   |56456465        |LEI           |CRED         |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency|
+#      |11021162884|SGD     |
+
+
+
+
+
+
+#  @Payment_OE_Outgoing_ISO_Customer_SGD-SGD_UAT_Amount>Threshold-001
+#  Scenario:Payment_OE_Outgoing_ISO_Customer_UAT(SGD-SGD)_Amount>threshold-001
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |DBSSSGS0            |SGD                 |9000001             |11021162892         |SGD                   |56456465        |LEI           |CRED         |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account
+#      |Arrangement|
+#      |11020936576|
+
+
+
+
+
+
+#  @Payment_Overseas_Transfer_MCY_USD-USD_SIT
+#  Scenario:Positive process of overseas transfer Bic Is DBS(USD-USD)(SIT_MCY)
+#    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+#    When I click on overseas transfer payment and select the account
+#    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+#      |Account Number|Payment Mode for Charges |Currency|
+#      |1102 0927 720 |OUR                      |USD     |
+#    And I choose the payment currency
+#      |Currency   |
+#      |USD        |
+#    When I enter the payee information
+#      |Payee's Account Number|Payee's Name|
+#      |667812798             |lucky       |
+##    When I click on the receiving bank drop down box
+#    When I choose the receiving bank
+#      |Beneficiary Bank|
+#      |DBSSSGS0VEC     |
+#    When I choose the recipient country
+#      |Payee's Address |Payee's Country|Comments For Payee|
+#      |countries       |UNITED STATES  |ok                |
+#    When I choose the nature of payment
+#      |Purpose of Transfer|
+#      |Commission         |
+#    When I choose to submit the transfer information
+#    When Vkey authorization for Payment transactions in the SIT environment
+#    Then I will compare all the data on FX Payment MX Message
+#      |WordPath          |
+#      |Bic is DBS USD-USD|
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
+#    When I type in the content and click the search button on Mx Message
+#      |search content           |windows Title        |WordPath          |
+#      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS USD-USD|
+#    When I expand the User Menu menu on the page
+#    When I expand the User Payments menu on the page
+#    When I expand the Payment Hub menu on the page
+#    When I expand the Payment Inquiries and Exceptions menu on the page
+#    When I expand the Payments Enquiry Transaction wise menu on the page
+#    When I jump to a newly opened page on Mx Message
+#      |windows Title                            |WordPath          |
+#      |Pending and Processed Payments - SIT GLDB|Bic is DBS USD-USD|
+#    Then I do field mapping for Channel and T24 in same currency
+#      |WordPath          |
+#      |Bic is DBS USD-USD|
+#    When I compare the amount is normal on Mx Message
+#      |WordPath          |
+#      |Bic is DBS USD-USD|
+#    When I compare the data generated by Outgoing Message MX Message is correct
+#      |WordPath          |Name              |
+#      |Bic is DBS USD-USD|Bic is DBS USD-USD|
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account
+#      |Arrangement|
+#      |11020936754|
+
+#
+#
+#  @Payment_Overseas_Transfer_MCY_HKD-HKD_SIT
+#  Scenario:Positive process of overseas transfer Bic Is DBS(HKD-HKD)(SIT_MCY)
+#    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+#    When I click on overseas transfer payment and select the account
+#    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+#      |Account Number|Payment Mode for Charges |Currency|
+#      |1102 0931 868 |OUR                      |HKD     |
+#    And I choose the payment currency
+#      |Currency   |
+#      |HKD        |
+#    When I enter the payee information
+#      |Payee's Account Number|Payee's Name|
+#      |667812798             |lucky       |
+##    When I click on the receiving bank drop down box
+#    When I choose the receiving bank
+#      |Beneficiary Bank|
+#      |DBSSSGS0VEC     |
+#    When I choose the recipient country
+#      |Payee's Address |Payee's Country|Comments For Payee|
+#      |countries       |UNITED STATES  |ok                |
+#    When I choose the nature of payment
+#      |Purpose of Transfer|
+#      |Commission         |
+#    When I choose to submit the transfer information
+#    When Vkey authorization for Payment transactions in the SIT environment
+#    Then I will compare all the data on FX Payment MX Message
+#      |WordPath          |
+#      |Bic is DBS HKD-HKD|
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
+#    When I type in the content and click the search button on Mx Message
+#      |search content           |windows Title        |WordPath          |
+#      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS HKD-HKD|
+#    When I expand the User Menu menu on the page
+#    When I expand the User Payments menu on the page
+#    When I expand the Payment Hub menu on the page
+#    When I expand the Payment Inquiries and Exceptions menu on the page
+#    When I expand the Payments Enquiry Transaction wise menu on the page
+#    When I jump to a newly opened page on Mx Message
+#      |windows Title                            |WordPath          |
+#      |Pending and Processed Payments - SIT GLDB|Bic is DBS HKD-HKD|
+#    Then I do field mapping for Channel and T24 in same currency
+#      |WordPath          |
+#      |Bic is DBS HKD-HKD|
+#    When I compare the amount is normal on Mx Message
+#      |WordPath          |
+#      |Bic is DBS HKD-HKD|
+#    When I compare the data generated by Outgoing Message MX Message is correct
+#      |WordPath          |Name              |
+#      |Bic is DBS HKD-HKD|Bic is DBS HKD-HKD|
+#
+#
+#
+#  @Payment_Overseas_Transfer_MCY_EUR-EUR_SIT
+#  Scenario:Positive process of overseas transfer Bic Is DBS(EUR-EUR)(SIT_MCY)
+#    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+#    When I click on overseas transfer payment and select the account
+#    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+#      |Account Number|Payment Mode for Charges |Currency|
+#      |1102 0931 868 |OUR                      |EUR     |
+#    And I choose the payment currency
+#      |Currency   |
+#      |EUR        |
+#    When I enter the payee information
+#      |Payee's Account Number|Payee's Name|
+#      |667812798             |lucky       |
+##    When I click on the receiving bank drop down box
+#    When I choose the receiving bank
+#      |Beneficiary Bank|
+#      |DBSSSGS0VEC     |
+#    When I choose the recipient country
+#      |Payee's Address |Payee's Country|Comments For Payee|
+#      |countries       |UNITED STATES  |ok                |
+#    When I choose the nature of payment
+#      |Purpose of Transfer|
+#      |Commission         |
+#    When I choose to submit the transfer information
+#    When Vkey authorization for Payment transactions in the SIT environment
+#    Then I will compare all the data on FX Payment MX Message
+#      |WordPath          |
+#      |Bic is DBS EUR-EUR|
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
+#    When I type in the content and click the search button on Mx Message
+#      |search content           |windows Title        |WordPath          |
+#      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS EUR-EUR|
+#    When I expand the User Menu menu on the page
+#    When I expand the User Payments menu on the page
+#    When I expand the Payment Hub menu on the page
+#    When I expand the Payment Inquiries and Exceptions menu on the page
+#    When I expand the Payments Enquiry Transaction wise menu on the page
+#    When I jump to a newly opened page on Mx Message
+#      |windows Title                            |WordPath          |
+#      |Pending and Processed Payments - SIT GLDB|Bic is DBS EUR-EUR|
+#    Then I do field mapping for Channel and T24 in same currency
+#      |WordPath          |
+#      |Bic is DBS EUR-EUR|
+#    When I compare the amount is normal on Mx Message
+#      |WordPath          |
+#      |Bic is DBS EUR-EUR|
+#    When I compare the data generated by Outgoing Message MX Message is correct
+#      |WordPath          |Name              |
+#      |Bic is DBS EUR-EUR|Bic is DBS EUR-EUR|
+#
+#
+#  @Payment_Overseas_Transfer_MCY_CNY-CNY_SIT_0024before
+#  Scenario:Positive process of overseas transfer Bic Is DBS(CNY-CNY)(SIT_MCY)_0024before
+#    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+#    When I click on overseas transfer payment and select the account
+#    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+#      |Account Number|Payment Mode for Charges |Currency|
+#      |1102 0931 868 |BEN                      |CNY     |
+#    And I choose the payment currency
+#      |Currency   |
+#      |CNY        |
+#    When I enter the payee information
+#      |Payee's Account Number|Payee's Name|
+#      |667812798             |lucky       |
+##    When I click on the receiving bank drop down box
+#    When I choose the receiving bank
+#      |Beneficiary Bank|
+#      |DBSSSGS0VEC     |
+#    When I choose the recipient country
+#      |Payee's Address |Payee's Country|Comments For Payee|
+#      |countries       |UNITED STATES  |ok                |
+#    When I choose the nature of payment
+#      |Purpose of Transfer|
+#      |Commission         |
+#    When I choose to submit the transfer information
+#    When Vkey authorization for Payment transactions in the SIT environment
+#    Then I will compare all the data on FX Payment MX Message
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
+#    When I type in the content and click the search button on Mx Message
+#      |search content           |windows Title        |WordPath          |
+#      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS CNY-CNY|
+#    When I expand the User Menu menu on the page
+#    When I expand the User Payments menu on the page
+#    When I expand the Payment Hub menu on the page
+#    When I expand the Payment Inquiries and Exceptions menu on the page
+#    When I expand the Payments Enquiry Transaction wise menu on the page
+#    When I jump to a newly opened page on Mx Message
+#      |windows Title                            |WordPath          |
+#      |Pending and Processed Payments - SIT GLDB|Bic is DBS CNY-CNY|
+#    Then I do field mapping for Channel and T24 in same currency
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    When I compare the amount is normal on Mx Message
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    When I compare the data generated by Outgoing Message MX Message is correct
+#      |WordPath          |Name              |
+#      |Bic is DBS CNY-CNY|Bic is DBS CNY-CNY|
+#
+#  @Payment_Overseas_Transfer_MCY_CNY-CNY_SIT_0025before
+#  Scenario:Positive process of overseas transfer Bic Is DBS(CNY-CNY)(SIT_MCY)_0025before
+#    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+#    When I click on overseas transfer payment and select the account
+#    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+#      |Account Number|Payment Mode for Charges |Currency|
+#      |1102 0931 868 |OUR                      |CNY     |
+#    And I choose the payment currency
+#      |Currency   |
+#      |CNY        |
+#    When I enter the payee information
+#      |Payee's Account Number|Payee's Name|
+#      |667812798             |lucky       |
+##    When I click on the receiving bank drop down box
+#    When I choose the receiving bank
+#      |Beneficiary Bank|
+#      |DBSSSGS0VEC     |
+#    When I choose the recipient country
+#      |Payee's Address |Payee's Country|Comments For Payee|
+#      |countries       |UNITED STATES  |ok                |
+#    When I choose the nature of payment
+#      |Purpose of Transfer|
+#      |Commission         |
+#    When I choose to submit the transfer information
+#    When Vkey authorization for Payment transactions in the SIT environment
+#    Then I will compare all the data on FX Payment MX Message
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
+#    When I type in the content and click the search button on Mx Message
+#      |search content           |windows Title        |WordPath          |
+#      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS CNY-CNY|
+#    When I expand the User Menu menu on the page
+#    When I expand the User Payments menu on the page
+#    When I expand the Payment Hub menu on the page
+#    When I expand the Payment Inquiries and Exceptions menu on the page
+#    When I expand the Payments Enquiry Transaction wise menu on the page
+#    When I jump to a newly opened page on Mx Message
+#      |windows Title                            |WordPath          |
+#      |Pending and Processed Payments - SIT GLDB|Bic is DBS CNY-CNY|
+#    Then I do field mapping for Channel and T24 in same currency
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    When I compare the amount is normal on Mx Message
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    When I compare the data generated by Outgoing Message MX Message is correct
+#      |WordPath          |Name              |
+#      |Bic is DBS CNY-CNY|Bic is DBS CNY-CNY|
+#
+#
+#  @Payment_Overseas_Transfer_MCY_CNY-CNY_SIT_0026before
+#  Scenario:Positive process of overseas transfer Bic Is DBS(CNY-CNY)(SIT_MCY)0026before
+#    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+#    When I click on overseas transfer payment and select the account
+#    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+#      |Account Number|Payment Mode for Charges |Currency|
+#      |1102 0931 868 |SHA                      |CNY     |
+#    And I choose the payment currency
+#      |Currency   |
+#      |CNY        |
+#    When I enter the payee information
+#      |Payee's Account Number|Payee's Name|
+#      |667812798             |lucky       |
+##    When I click on the receiving bank drop down box
+#    When I choose the receiving bank
+#      |Beneficiary Bank|
+#      |DBSSSGS0VEC     |
+#    When I choose the recipient country
+#      |Payee's Address |Payee's Country|Comments For Payee|
+#      |countries       |UNITED STATES  |ok                |
+#    When I choose the nature of payment
+#      |Purpose of Transfer|
+#      |Commission         |
+#    When I choose to submit the transfer information
+#    When Vkey authorization for Payment transactions in the SIT environment
+#    Then I will compare all the data on FX Payment MX Message
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
+#    When I type in the content and click the search button on Mx Message
+#      |search content           |windows Title        |WordPath          |
+#      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS CNY-CNY|
+#    When I expand the User Menu menu on the page
+#    When I expand the User Payments menu on the page
+#    When I expand the Payment Hub menu on the page
+#    When I expand the Payment Inquiries and Exceptions menu on the page
+#    When I expand the Payments Enquiry Transaction wise menu on the page
+#    When I jump to a newly opened page on Mx Message
+#      |windows Title                            |WordPath          |
+#      |Pending and Processed Payments - SIT GLDB|Bic is DBS CNY-CNY|
+#    Then I do field mapping for Channel and T24 in same currency
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    When I compare the amount is normal on Mx Message
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    When I compare the data generated by Outgoing Message MX Message is correct
+#      |WordPath          |Name              |
+#      |Bic is DBS CNY-CNY|Bic is DBS CNY-CNY|
+#
+#  @Payment_Overseas_Transfer_MCY_CNY-CNY_SIT_0027before
+#  Scenario:Positive process of overseas transfer Bic Is DBS(CNY-CNY)(SIT_MCY) 0027before
+#    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+#    When I click on overseas transfer payment and select the account
+#    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+#      |Account Number|Payment Mode for Charges |Currency|
+#      |1102 0931 868 |BEN                      |CNY     |
+#    And I choose the payment currency
+#      |Currency   |
+#      |CNY        |
+#    When I enter the payee information
+#      |Payee's Account Number|Payee's Name|
+#      |667812798             |lucky       |
+##    When I click on the receiving bank drop down box
+#    When I choose the receiving bank
+#      |Beneficiary Bank|
+#      |DBSSSGS0VEC     |
+#    When I choose the recipient country
+#      |Payee's Address |Payee's Country|Comments For Payee|
+#      |countries       |UNITED STATES  |ok                |
+#    When I choose the nature of payment
+#      |Purpose of Transfer|
+#      |Commission         |
+#    When I choose to submit the transfer information
+#    When Vkey authorization for Payment transactions in the SIT environment
+#    Then I will compare all the data on FX Payment MX Message
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
+#    When I type in the content and click the search button on Mx Message
+#      |search content           |windows Title        |WordPath          |
+#      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS CNY-CNY|
+#    When I expand the User Menu menu on the page
+#    When I expand the User Payments menu on the page
+#    When I expand the Payment Hub menu on the page
+#    When I expand the Payment Inquiries and Exceptions menu on the page
+#    When I expand the Payments Enquiry Transaction wise menu on the page
+#    When I jump to a newly opened page on Mx Message
+#      |windows Title                            |WordPath          |
+#      |Pending and Processed Payments - SIT GLDB|Bic is DBS CNY-CNY|
+#    Then I do field mapping for Channel and T24 in same currency
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    When I compare the amount is normal on Mx Message
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    When I compare the data generated by Outgoing Message MX Message is correct
+#      |WordPath          |Name              |
+#      |Bic is DBS CNY-CNY|Bic is DBS CNY-CNY|
+#
+#  @Payment_Overseas_Transfer_MCY_CNY-CNY_SIT_0028before
+#  Scenario:Positive process of overseas transfer Bic Is DBS(CNY-CNY)(SIT_MCY) 0028before
+#    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+#    When I click on overseas transfer payment and select the account
+#    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+#      |Account Number|Payment Mode for Charges |Currency|
+#      |1102 0931 868 |OUR                      |CNY     |
+#    And I choose the payment currency
+#      |Currency   |
+#      |CNY        |
+#    When I enter the payee information
+#      |Payee's Account Number|Payee's Name|
+#      |667812798             |lucky       |
+##    When I click on the receiving bank drop down box
+#    When I choose the receiving bank
+#      |Beneficiary Bank|
+#      |DBSSSGS0VEC     |
+#    When I choose the recipient country
+#      |Payee's Address |Payee's Country|Comments For Payee|
+#      |countries       |UNITED STATES  |ok                |
+#    When I choose the nature of payment
+#      |Purpose of Transfer|
+#      |Commission         |
+#    When I choose to submit the transfer information
+#    When Vkey authorization for Payment transactions in the SIT environment
+#    Then I will compare all the data on FX Payment MX Message
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
+#    When I type in the content and click the search button on Mx Message
+#      |search content           |windows Title        |WordPath          |
+#      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS CNY-CNY|
+#    When I expand the User Menu menu on the page
+#    When I expand the User Payments menu on the page
+#    When I expand the Payment Hub menu on the page
+#    When I expand the Payment Inquiries and Exceptions menu on the page
+#    When I expand the Payments Enquiry Transaction wise menu on the page
+#    When I jump to a newly opened page on Mx Message
+#      |windows Title                            |WordPath          |
+#      |Pending and Processed Payments - SIT GLDB|Bic is DBS CNY-CNY|
+#    Then I do field mapping for Channel and T24 in same currency
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    When I compare the amount is normal on Mx Message
+#      |WordPath          |
+#      |Bic is DBS CNY-CNY|
+#    When I compare the data generated by Outgoing Message MX Message is correct
+#      |WordPath          |Name              |
+#      |Bic is DBS CNY-CNY|Bic is DBS CNY-CNY|
 
 
 #  @Payment_Loan_AA_Disbursement_External_USD-USD_Amount<threshold_001after
@@ -448,22 +3203,22 @@ Feature: Auto_Test1
 #
 #  @AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<threshold_003after
 #  Scenario: AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<threshold_003after
-#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
 #    When I click Loan Transactions
 #    When I Input incomplete information on AA Disbursement Internal page
 #      |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
-#      |18000000148         |SGD           |1003            |SGD             |11010000640     |
+#      |18500003294         |SGD           |100000.00       |SGD             |11021162892     |
 #    Then I get LoanPINumber
 #    Then I click pre-submit button
 #    When I click Accept Overrides
 #    Then Assert Result whether Successful
 #    And I close driver
-#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
 #    When I click Loan Transactions Button
 #    Then I click Authorise/Delete Arrangements (PO) Button
 #    Then I input PI Number and click Find
 #    And I close driver
-#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
 #    When I enter the Payments Enquiry - Transaction wise page
 #    Then I input LoanPINumber and click Find
 #    When I Assert enter View Page to USD Loan Internal
@@ -503,112 +3258,112 @@ Feature: Auto_Test1
 #    When I Assert enter View Page to USD Loan Internal
 #    Then I Assert enter View Details Page
 
-  @Payment_Overseas_Transfer_SGD-USD_SIT_0005before
-  Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(SGD->USD)_0005before
-    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
-    When I click on overseas transfer payment and select the account
-    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges |
-      |1101 0000 470 |BEN                      |
-    And I choose the payment currency
-      |Currency|
-      |USD     |
-    When I enter the payee information
-      |Payee's Account Number|Payee's Name|
-      |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
-    When I choose the receiving bank
-      |Beneficiary Bank|
-      |DBSSSGS0DOD     |
-    When I choose the recipient country
-      |Payee's Address |Payee's Country|Comments For Payee|
-      |countries       |UNITED STATES  |ok                |
-    When I choose the nature of payment
-      |Purpose of Transfer|
-      |Commission         |
-    When I choose to submit the transfer information
-    When Vkey authorization for Payment transactions in the SIT environment
-    Then I will compare all the data on FX Payment
-      |WordPath          |
-      |Bic is DBS SGD-USD|
-    Given to verify transaction in T24 using "T24-automation-SIT-login"
-    When I type in the content and click the search button
-      |search content           |windows Title        |WordPath          |
-      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-USD|
-    When I expand the User Menu menu on the page
-    When I expand the User Payments menu on the page
-    When I expand the Payment Hub menu on the page
-    When I expand the Payment Inquiries and Exceptions menu on the page
-    When I expand the Payments Enquiry Transaction wise menu on the page
-    When I jump to a newly opened page
-      |windows Title                            |WordPath          |
-      |Pending and Processed Payments - UAT GLDB|Bic is DBS SGD-USD|
-    Then I do field mapping for Channel and T24 in FX Payment
-      |WordPath          |
-      |Bic is DBS SGD-USD|
-    When I compare the amount is normal
-      |WordPath          |
-      |Bic is DBS SGD-USD|
-    When I compare the data generated by Outgoing Message is correct
-      |WordPath          |Name              |
-      |Bic is DBS SGD-USD|Bic is DBS SGD-USD|
-    When I check the deduction amount on the Find Account page On overseas transfer Payment
-      |windows Title            |WordPath           |
-      |AA Arrangement - SIT GLDB|Bic is DBS SGD-USD |
-
-
-  @Payment_Overseas_Transfer_USD-USD_SIT_0007before
-  Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(USD->USD)_0007before
-    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
-    When I click on overseas transfer payment and select the account
-    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
-      |Account Number|Payment Mode for Charges|
-      |1101 0005 332 |SHA                     |
-    And I choose the payment currency
-      |Currency   |
-      |USD        |
-    When I enter the payee information
-      |Payee's Account Number|Payee's Name|
-      |667812798             |lucky       |
-#    When I click on the receiving bank drop down box
-    When I choose the receiving bank
-      |Beneficiary Bank|
-      |DBSSSGS0VEC     |
-    When I choose the recipient country
-      |Payee's Address |Payee's Country|Comments For Payee|
-      |countries       |UNITED STATES  |ok                |
-    When I choose the nature of payment
-      |Purpose of Transfer|
-      |Commission         |
-    When I choose to submit the transfer information
-    When Vkey authorization for Payment transactions in the SIT environment
-    Then I will compare all the data on FX Payment MX Message
-      |WordPath          |
-      |Bic is DBS USD-USD|
-    Given to verify transaction in T24 using "T24-automation-SIT-login"
-    When I type in the content and click the search button on Mx Message
-      |search content           |windows Title        |WordPath          |
-      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS USD-USD|
-    When I expand the User Menu menu on the page
-    When I expand the User Payments menu on the page
-    When I expand the Payment Hub menu on the page
-    When I expand the Payment Inquiries and Exceptions menu on the page
-    When I expand the Payments Enquiry Transaction wise menu on the page
-    When I jump to a newly opened page on Mx Message
-      |windows Title                            |WordPath          |
-      |Pending and Processed Payments - SIT GLDB|Bic is DBS USD-USD|
-    Then I do field mapping for Channel and T24 in same currency
-      |WordPath          |
-      |Bic is DBS USD-USD|
-    When I compare the amount is normal on Mx Message
-      |WordPath          |
-      |Bic is DBS USD-USD|
-    When I compare the data generated by Outgoing Message MX Message is correct
-      |WordPath          |Name              |
-      |Bic is DBS USD-USD|Bic is DBS USD-USD|
-    When I check the deduction amount on the Find Account page On overseas transfer Payment
-      |windows Title            |WordPath           |
-      |AA Arrangement - SIT GLDB|Bic is DBS USD-USD |
+#  @Payment_Overseas_Transfer_SGD-USD_SIT_0005before
+#  Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(SGD->USD)_0005before
+#    Given logon "INB-automation-SIT-login" in SIT environment and bypass Vkey
+#    When I click on overseas transfer payment and select the account
+#    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+#      |Account Number|Payment Mode for Charges |
+#      |1101 0000 470 |BEN                      |
+#    And I choose the payment currency
+#      |Currency|
+#      |USD     |
+#    When I enter the payee information
+#      |Payee's Account Number|Payee's Name|
+#      |667812798             |lucky       |
+##    When I click on the receiving bank drop down box
+#    When I choose the receiving bank
+#      |Beneficiary Bank|
+#      |DBSSSGS0DOD     |
+#    When I choose the recipient country
+#      |Payee's Address |Payee's Country|Comments For Payee|
+#      |countries       |UNITED STATES  |ok                |
+#    When I choose the nature of payment
+#      |Purpose of Transfer|
+#      |Commission         |
+#    When I choose to submit the transfer information
+#    When Vkey authorization for Payment transactions in the SIT environment
+#    Then I will compare all the data on FX Payment
+#      |WordPath          |
+#      |Bic is DBS SGD-USD|
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
+#    When I type in the content and click the search button
+#      |search content           |windows Title        |WordPath          |
+#      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS SGD-USD|
+#    When I expand the User Menu menu on the page
+#    When I expand the User Payments menu on the page
+#    When I expand the Payment Hub menu on the page
+#    When I expand the Payment Inquiries and Exceptions menu on the page
+#    When I expand the Payments Enquiry Transaction wise menu on the page
+#    When I jump to a newly opened page
+#      |windows Title                            |WordPath          |
+#      |Pending and Processed Payments - UAT GLDB|Bic is DBS SGD-USD|
+#    Then I do field mapping for Channel and T24 in FX Payment
+#      |WordPath          |
+#      |Bic is DBS SGD-USD|
+#    When I compare the amount is normal
+#      |WordPath          |
+#      |Bic is DBS SGD-USD|
+#    When I compare the data generated by Outgoing Message is correct
+#      |WordPath          |Name              |
+#      |Bic is DBS SGD-USD|Bic is DBS SGD-USD|
+#    When I check the deduction amount on the Find Account page On overseas transfer Payment
+#      |windows Title            |WordPath           |
+#      |AA Arrangement - SIT GLDB|Bic is DBS SGD-USD |
+#
+#
+#  @Payment_Overseas_Transfer_USD-USD_SIT_0007before
+#  Scenario:FX Payment Data Mapping Positive process of overseas transfer Bic is DBS SINGAPORE(USD->USD)_0007before
+#    Given logon "INB-automation-SIT-login2" in SIT environment and bypass Vkey
+#    When I click on overseas transfer payment and select the account
+#    When I select the payment account, enter the payment currency and the payment amount and the cost commitment
+#      |Account Number|Payment Mode for Charges|
+#      |1101 0005 332 |SHA                     |
+#    And I choose the payment currency
+#      |Currency   |
+#      |USD        |
+#    When I enter the payee information
+#      |Payee's Account Number|Payee's Name|
+#      |667812798             |lucky       |
+##    When I click on the receiving bank drop down box
+#    When I choose the receiving bank
+#      |Beneficiary Bank|
+#      |DBSSSGS0VEC     |
+#    When I choose the recipient country
+#      |Payee's Address |Payee's Country|Comments For Payee|
+#      |countries       |UNITED STATES  |ok                |
+#    When I choose the nature of payment
+#      |Purpose of Transfer|
+#      |Commission         |
+#    When I choose to submit the transfer information
+#    When Vkey authorization for Payment transactions in the SIT environment
+#    Then I will compare all the data on FX Payment MX Message
+#      |WordPath          |
+#      |Bic is DBS USD-USD|
+#    Given to verify transaction in T24 using "T24-automation-SIT-login"
+#    When I type in the content and click the search button on Mx Message
+#      |search content           |windows Title        |WordPath          |
+#      |ENQ ST.API.ITF.GLDB.2.0.0|ST.API.ITF.GLDB.2.0.0|Bic is DBS USD-USD|
+#    When I expand the User Menu menu on the page
+#    When I expand the User Payments menu on the page
+#    When I expand the Payment Hub menu on the page
+#    When I expand the Payment Inquiries and Exceptions menu on the page
+#    When I expand the Payments Enquiry Transaction wise menu on the page
+#    When I jump to a newly opened page on Mx Message
+#      |windows Title                            |WordPath          |
+#      |Pending and Processed Payments - SIT GLDB|Bic is DBS USD-USD|
+#    Then I do field mapping for Channel and T24 in same currency
+#      |WordPath          |
+#      |Bic is DBS USD-USD|
+#    When I compare the amount is normal on Mx Message
+#      |WordPath          |
+#      |Bic is DBS USD-USD|
+#    When I compare the data generated by Outgoing Message MX Message is correct
+#      |WordPath          |Name              |
+#      |Bic is DBS USD-USD|Bic is DBS USD-USD|
+#    When I check the deduction amount on the Find Account page On overseas transfer Payment
+#      |windows Title            |WordPath           |
+#      |AA Arrangement - SIT GLDB|Bic is DBS USD-USD |
 
 
 
@@ -622,7 +3377,7 @@ Feature: Auto_Test1
 #    Then I enter Outgoing Customer Transfer Page
 #    When I Input incomplete information on Outgoing Customer Transfer Page
 #      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
-#      |11020936770         |DBSSSGS0                |USD                   |USD                 |82422             |56456465           |LEI             |SHA          |
+#      |11020327189         |DBSSSGS0                |USD                   |USD                 |1000              |56456465           |LEI             |SHA          |
 #    Then I Input Beneficiary Address and Beneficiary Town
 #      |Beneficiary Address|Beneficiary Town|
 #      |xian               |xian            |
@@ -644,14 +3399,14 @@ Feature: Auto_Test1
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I enter the Payments Enquiry - Transaction wise page
 #    Then I input FTNumber and click Find
-##    When I Assert enter View Page to USD
-##    Then I Assert enter View Details Page
-##    And I close driver
-##    Given Use "T24-automation-SIT-login" to login to T24 environment
-##    When I enter the account ID
-##    Then I find account
-##      |Arrangement|
-##      |11020936754|
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account
+#      |Arrangement|
+#      |11020936754|
 #
 #
 #  @Payment_OE_Outgoing_Customer_EUR-EUR_SIT-023before
@@ -732,12 +3487,12 @@ Feature: Auto_Test1
 #
 #  @Payment_OE_Outgoing_Customer_CNY-CNY_SIT-025before
 #  Scenario:Payment_OE_Outgoing_Customer_CNY-CNY_SIT-025before
-#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
 #    When I click Outgoing Customer Transfer
 #    Then I enter Outgoing Customer Transfer Page
 #    When I Input incomplete information on Outgoing Customer Transfer Page
 #      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
-#      |11020936681         |DBSSSGS0                |CNY                   |CNY                 |2025              |56456465           |LEI             |SHA          |
+#      |11021200638         |DBSSSGS0                |CNY                   |CNY                 |2025              |56456465           |LEI             |SHA          |
 #    Then I Input Beneficiary Address and Beneficiary Town
 #      |Beneficiary Address|Beneficiary Town|
 #      |xian               |xian            |
@@ -746,28 +3501,28 @@ Feature: Auto_Test1
 #    When I click Accept Overrides
 #    Then Assert Result whether Successful
 #    And I close driver
-#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
 #    When I entered the Pending Authorise Payments page
 #    Then I input OE Number and click Find Authorise
 #    Then Assert Result whether Successful
 #    And I close driver
-#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
 #    When I entered the Pending Authorise Payments page
 #    Then I input OE Number and click Find Authorise
 #    Then Assert Result whether Successful
 #    And I close driver
-#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
 #    When I enter the Payments Enquiry - Transaction wise page
 #    Then I input FTNumber and click Find
-##    When I Assert enter View Page to USD
-##    Then I Assert enter View Details Page
-##    And I close driver
-##    Given Use "T24-automation-SIT-login" to login to T24 environment
-##    When I enter the account ID
-##    Then I find account
-##      |Arrangement|
-##      |11020936649|
-#
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account
+#      |Arrangement|
+#      |11020936649|
+
 #
 #  @Payment_OE_Outgoing_Bank_USD-USD_SIT-027before
 #  Scenario:Payment_OE_Outgoing__Bank_USD-USD_SIT-027before
@@ -923,34 +3678,34 @@ Feature: Auto_Test1
 #
 #
 #
-  @Payment_OE_Outgoing_Customer_SGD-SGD_SIT-021before
-  Scenario:Payment_OE_Outgoing_Customer_SIT(SGD-SGD)_021before
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Outgoing ISO Customer Transfer
-    Then I Assertion enter Outgoing ISO Customer Transfer Page
-    When I Input incomplete information on ISO Customer Transfer Page
-      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |DBSSSGS0            |SGD                 |40                  |11010000438         |SGD                   |56456465        |LEI           |SHAR         |
-    Then I input Street Name on the ISO Customer Transfer Page
-      |Street Name|Town Name |Creditor Country|
-      |liyukang   |testabc   |SG              |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
+#  @Payment_OE_Outgoing_Customer_SGD-SGD_SIT-021before
+#  Scenario:Payment_OE_Outgoing_Customer_SIT(SGD-SGD)_021before
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |DBSSSGS0            |SGD                 |40                  |SGD140200001        |SGD                   |56456465        |LEI           |SHAR         |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
 #    Then I input FTNumber and click Find
 #    When I Assert enter View Page
 #    Then I Assert enter View Details Page

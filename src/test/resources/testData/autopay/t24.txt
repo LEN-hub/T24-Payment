@@ -1,20 +1,46 @@
-2023-9-20 15:14:34:661
-ChannelReferenceID:230920000000051
-ChannelDebitAccountName:WATERHOUSE INVESTMENT PTE. LTD.
-ChannelDebitAccountCurrency:CNY
-ChannelDebitAccountNumber:11020931868
+2023-11-2 11:22:6:969
+ChannelReferenceID:231102000000079
+ChannelDebitAccountName:SINGCAPITAL PTE. LTD.&...Absolu
+ChannelDebitAccountCurrency:USD
+ChannelDebitAccountNumber:11020938757
 ChannelDetailBankName:Green Link Digital Bank Pte. Ltd
 ChannelDetailPayeeName:lucky
-ChannelDetailAccountCurrency:CNY
+ChannelDetailAccountCurrency:USD
 ChannelDetailPayeeAccountNum:667812798
-ChannelDetailTransactionAmount:7,000,920.10
+ChannelDetailTransactionAmount:1,102.18
 ChannelDetailBeneficiaryBankBIC:DBSSSGS0VEC
 ChannelDetailPayeeAddress:countries
 ChannelDetailEstimatedProcessingFee:0.00
-ChannelDetailPaymentModeForCharges:The expenses shall be borne by each party
+ChannelDetailPaymentModeForCharges:All expenses shall be borne by the remitter
 ChannelDetailPurposeOfTransfer:Business Expenses
-2023-9-20 15:16:36:997
-ID:230920000000051
-TransactionReference:PI232630460PNX3G
+2023-11-2 11:24:19:681
+ID:231102000000079
+TransactionReference:PI233060NTK84TKK
 FTNumber:null
-t24FtNumber:SGL23263KFLLKLLH
+t24FtNumber:SGL23306D0CJHKGD
+getStatus:677
+getTransactionReferenceNum:SGL23306D0CJHKGD
+getSenderReferenceNum:PI233060NTK84TKK
+getTransactionCurrency:USD
+getTransactionCurrency:USD
+getTransactionAmount:1,102.18
+getChargeOption:DEBT
+getDebitAccountNum:11020938773
+getDebitAccountCurrency:USD
+getOrderingAccount:11020938773
+2023-11-2 13:33:1:80
+ID:231102000000079
+TransactionReference:PI233060NTK84TKK
+FTNumber:null
+t24FtNumber:SGL23306D0CJHKGD
+getStatus:677
+getTransactionReferenceNum:SGL23306D0CJHKGD
+getSenderReferenceNum:PI233060NTK84TKK
+getTransactionCurrency:USD
+getTransactionCurrency:USD
+getTransactionAmount:1,102.18
+getChargeOption:DEBT
+getDebitAccountNum:11020938773
+getDebitAccountCurrency:USD
+getOrderingAccount:11020938773
+getOrderingName:SINGCAPITAL PTE. LTD.#&Absolute FM Services1234567890
