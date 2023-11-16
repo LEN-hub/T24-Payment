@@ -11,7 +11,7 @@ Feature: Auto_Test1
     Then I enter Outgoing Customer Transfer Page
     When I Input incomplete information on Outgoing Customer Transfer Page
       |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
-      |11010006320         |ANZBAU30                |AUD                   |AUD                 |50009             |56456465           |LEI             |SHA          |
+      |11010006320         |ANZBAU30                |AUD                   |AUD                 |6009             |56456465           |LEI             |SHA          |
     Then I Input Beneficiary Address and Beneficiary Town
       |Beneficiary Address|Beneficiary Town|
       |xian               |xian            |
@@ -51,7 +51,7 @@ Feature: Auto_Test1
     Then I enter Outgoing Customer Transfer Page
     When I Input incomplete information on Outgoing Customer Transfer Page
       |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
-      |11021209775         |ANZBAU30                |AUD                   |AUD                 |5000010           |56456465           |LEI             |OUR          |
+      |11021209775         |ANZBAU30                |AUD                   |AUD                 |6000010           |56456465           |LEI             |OUR          |
     Then I Input Beneficiary Address and Beneficiary Town
       |Beneficiary Address|Beneficiary Town|
       |xian               |xian            |
@@ -91,7 +91,7 @@ Feature: Auto_Test1
     Then I enter Outgoing Customer Transfer Page
     When I Input incomplete information on Outgoing Customer Transfer Page
       |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
-      |11010006320         |ANZBAU30                |AUD                   |AUD                 |50011             |56456465           |LEI             |BEN          |
+      |11010006320         |ANZBAU30                |AUD                   |AUD                 |60011             |56456465           |LEI             |BEN          |
     Then I Input Beneficiary Address and Beneficiary Town
       |Beneficiary Address|Beneficiary Town|
       |xian               |xian            |
@@ -171,7 +171,7 @@ Feature: Auto_Test1
     Then I enter Outgoing ISO Bank Transfer Page
     When I Input incomplete information on Outgoing ISO Bank Transfer Page
       |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |ANZBAU30            |AUD                 |50016             |11010006320         |4656465         |CITISGS0    |rew          |
+      |ANZBAU30            |AUD                 |60016             |11010006320         |4656465         |CITISGS0    |rew          |
     When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
       |Sender Reference|End To End Identification|
       |                |                         |
@@ -211,7 +211,7 @@ Feature: Auto_Test1
     Then I enter Outgoing ISO Bank Transfer Page
     When I Input incomplete information on Outgoing ISO Bank Transfer Page
       |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |ANZBAU30            |AUD                 |50017             |11021209775         |4656465         |CITISGS0    |rew          |
+      |ANZBAU30            |AUD                 |60017             |11021209775         |4656465         |CITISGS0    |rew          |
     When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
       |Sender Reference|End To End Identification|
       |                |                         |
