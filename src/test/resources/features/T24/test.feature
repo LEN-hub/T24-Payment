@@ -248,7 +248,7 @@ Feature: Auto_Test1
 #incoming
 
   @Incoming_Payment_999_001_before
-  Scenario:Incoming_Payment_999_002_before
+  Scenario:Incoming_Payment_999_001_before
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
@@ -265,7 +265,7 @@ Feature: Auto_Test1
 
 
   @Incoming_Payment_999_002_before
-  Scenario:Incoming_Payment_999_001_before
+  Scenario:Incoming_Payment_999_002_before
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
@@ -282,7 +282,7 @@ Feature: Auto_Test1
 
 
   @Incoming_Payment_999_003_before
-  Scenario:Incoming_Payment_999_001_before
+  Scenario:Incoming_Payment_999_003_before
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
@@ -298,7 +298,7 @@ Feature: Auto_Test1
       |11021162884|AUD        |
 
   @Incoming_Payment_999_004_before
-  Scenario:Incoming_Payment_999_002_before
+  Scenario:Incoming_Payment_999_004_before
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
@@ -315,7 +315,7 @@ Feature: Auto_Test1
 
 
   @Incoming_Payment_999_007_before
-  Scenario:Incoming_Payment_999_002_before
+  Scenario:Incoming_Payment_999_007_before
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
@@ -331,7 +331,7 @@ Feature: Auto_Test1
       |11010006320|
 
   @Incoming_Payment_999_008_before
-  Scenario:Incoming_Payment_999_001_before
+  Scenario:Incoming_Payment_999_008_before
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
@@ -346,7 +346,69 @@ Feature: Auto_Test1
       |Arrangement|Currency   |
       |11021162884|AUD        |
 
+  @Incoming_Payment_999_013_before
+  Scenario:Incoming_Payment_999_013_before
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324LDHDDCMK|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account IDCA
+    Then I find account
+      |Arrangement|
+      |11010006320|
 
+  @Incoming_Payment_999_014_before
+  Scenario:Incoming_Payment_999_014_before
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324LCHLCBJD|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11021162884|AUD        |
+
+  @Incoming_Payment_999_019_before
+  Scenario:Incoming_Payment_999_019_before
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324FMCLDCFK|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account IDCA
+    Then I find account
+      |Arrangement|
+      |11010006320|
+
+  @Incoming_Payment_999_020_before
+  Scenario:Incoming_Payment_999_020_before
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324MCKGK0HB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11021162884|AUD        |
 
 
 #UAT GLDBCR-1054 after
