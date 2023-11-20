@@ -4,123 +4,123 @@ Feature: Auto_Test1
  #UAT GLDBCR-1054 before
 
 
-  @Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-009before
-  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-009before
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Outgoing Customer Transfer
-    Then I enter Outgoing Customer Transfer Page
-    When I Input incomplete information on Outgoing Customer Transfer Page
-      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
-      |11010006320         |ANZBAU30                |AUD                   |AUD                 |6009             |56456465           |LEI             |SHA          |
-    Then I Input Beneficiary Address and Beneficiary Town
-      |Beneficiary Address|Beneficiary Town|
-      |xian               |xian            |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page to USD
-    Then I Assert enter View Details Page
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the account IDCA
-    Then I find account
-      |Arrangement|
-      |11010006320|
-
-
-
-  @Payment_OE_PACS008_AUD-AUD_UAT_Amount>threshold_T24-010before
-  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount>threshold_T24-010before
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Outgoing Customer Transfer
-    Then I enter Outgoing Customer Transfer Page
-    When I Input incomplete information on Outgoing Customer Transfer Page
-      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
-      |11021209775         |ANZBAU30                |AUD                   |AUD                 |6000010           |56456465           |LEI             |OUR          |
-    Then I Input Beneficiary Address and Beneficiary Town
-      |Beneficiary Address|Beneficiary Town|
-      |xian               |xian            |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page to USD
-    Then I Assert enter View Details Page
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11021162884|AUD        |
-
-
-
-  @Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-011before
-  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-011before
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Outgoing Customer Transfer
-    Then I enter Outgoing Customer Transfer Page
-    When I Input incomplete information on Outgoing Customer Transfer Page
-      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
-      |11010006320         |ANZBAU30                |AUD                   |AUD                 |60011             |56456465           |LEI             |BEN          |
-    Then I Input Beneficiary Address and Beneficiary Town
-      |Beneficiary Address|Beneficiary Town|
-      |xian               |xian            |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page to USD
-    Then I Assert enter View Details Page
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the account IDCA
-    Then I find account
-      |Arrangement|
-      |11010006320|
+#  @Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-009before
+#  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-009before
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+#      |11010006320         |ANZBAU30                |AUD                   |AUD                 |6009             |56456465           |LEI             |SHA          |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address|Beneficiary Town|
+#      |xian               |xian            |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010006320|
+#
+#
+#
+#  @Payment_OE_PACS008_AUD-AUD_UAT_Amount>threshold_T24-010before
+#  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount>threshold_T24-010before
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+#      |11021209767         |ANZBAU30                |AUD                   |AUD                 |110           |56456465           |LEI             |OUR          |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address|Beneficiary Town|
+#      |xian               |xian            |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|AUD        |
+#
+#
+#
+#  @Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-011before
+#  Scenario:Payment_OE_PACS008_AUD-AUD_UAT_Amount<threshold_T24-011before
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing Customer Transfer
+#    Then I enter Outgoing Customer Transfer Page
+#    When I Input incomplete information on Outgoing Customer Transfer Page
+#      |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
+#      |11010006320         |ANZBAU30                |AUD                   |AUD                 |60011             |56456465           |LEI             |BEN          |
+#    Then I Input Beneficiary Address and Beneficiary Town
+#      |Beneficiary Address|Beneficiary Town|
+#      |xian               |xian            |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010006320|
 
     #特殊字符检查202234
 
@@ -164,38 +164,99 @@ Feature: Auto_Test1
 
 #案例继续
 
-  @Payment_OE_PACS009_AUD-AUD_UAT_Amount<threshold_T24-016before
-  Scenario:Payment_OE_PACS009_AUD-AUD_UAT_Amount<threshold_T24-016before
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Outgoing ISO Bank Transfer
-    Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |ANZBAU30            |AUD                 |60016             |11010006320         |4656465         |CITISGS0    |rew          |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Sender Reference|End To End Identification|
-      |                |                         |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
+#  @Payment_OE_PACS009_AUD-AUD_UAT_Amount<threshold_T24-016before
+#  Scenario:Payment_OE_PACS009_AUD-AUD_UAT_Amount<threshold_T24-016before
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |ANZBAU30            |AUD                 |60016             |11010006320         |4656465         |CITISGS0    |rew          |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Sender Reference|End To End Identification|
+#      |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010006320|
+#
+#
+#
+#  @Payment_OE_PACS009_AUD-AUD_UAT_Amount<threshold_T24-017before
+#  Scenario:Payment_OE_PACS009_AUD-AUD_UAT_Amount<threshold_T24-017before
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |ANZBAU30            |AUD                 |60017             |11021209775         |4656465         |CITISGS0    |rew          |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Sender Reference|End To End Identification|
+#      |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+#    Then I Assert enter View Details Page
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|AUD        |
+#
+#
+#
+
+#incoming
+
+  @Incoming_Payment_999_001_before
+  Scenario:Incoming_Payment_999_002_before
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324BBJJDHFK|
+    When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
-    And I close driver
+    When I close all tabs and jump to the home page
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the account IDCA
     Then I find account
@@ -203,39 +264,16 @@ Feature: Auto_Test1
       |11010006320|
 
 
-
-  @Payment_OE_PACS009_AUD-AUD_UAT_Amount<threshold_T24-017before
-  Scenario:Payment_OE_PACS009_AUD-AUD_UAT_Amount<threshold_T24-017before
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Outgoing ISO Bank Transfer
-    Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |ANZBAU30            |AUD                 |60017             |11021209775         |4656465         |CITISGS0    |rew          |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Sender Reference|End To End Identification|
-      |                |                         |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
+  @Incoming_Payment_999_002_before
+  Scenario:Incoming_Payment_999_001_before
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324GGDCDLDC|
+    When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
-    And I close driver
+    When I close all tabs and jump to the home page
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the account ID
     Then I find account CASGD
@@ -243,39 +281,71 @@ Feature: Auto_Test1
       |11021162884|AUD        |
 
 
+  @Incoming_Payment_999_003_before
+  Scenario:Incoming_Payment_999_001_before
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL233240DBB00BG|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11021162884|AUD        |
 
-#incoming
-#  @Incoming_Payment_999_009_before
-#  Scenario:Incoming_Payment_999_009_before
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming
-#      |FTNumber        |
-#      |SGL23255FDM0GB0L|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the account ID
-#    Then I find account CASGD
-#      |Arrangement|Currency   |
-#      |11021162205|USD        |
-#
-#  @Incoming_Payment_999_010_before
-#  Scenario:Incoming_Payment_999_010_before
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming
-#      |FTNumber        |
-#      |SGL23255FDM0GB0L|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the account IDCA
-#    Then I find account
-#      |Arrangement|
-#      |11010003208|
+  @Incoming_Payment_999_004_before
+  Scenario:Incoming_Payment_999_002_before
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324FDKBHDKB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account IDCA
+    Then I find account
+      |Arrangement|
+      |11010006320|
+
+
+  @Incoming_Payment_999_007_before
+  Scenario:Incoming_Payment_999_002_before
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL233240JMD0HH0|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account IDCA
+    Then I find account
+      |Arrangement|
+      |11010006320|
+
+  @Incoming_Payment_999_008_before
+  Scenario:Incoming_Payment_999_001_before
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324HBBLGLHM|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11021162884|AUD        |
+
 
 
 
@@ -486,7 +556,7 @@ Feature: Auto_Test1
 #    Then I enter Outgoing ISO Bank Transfer Page
 #    When I Input incomplete information on Outgoing ISO Bank Transfer Page
 #      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-#      |ANZBAU30            |AUD                 |690017            |11020936681         |4656465         |CITISGS0    |rew          |
+#      |ANZBAU30            |AUD                 |690017            |11021209775         |4656465         |CITISGS0    |rew          |
 #    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
 #      |Sender Reference|End To End Identification|
 #      |                |                         |
@@ -515,8 +585,8 @@ Feature: Auto_Test1
 #    When I enter the account ID
 #    Then I find account CASGD
 #      |Arrangement|Currency   |
-#      |11020880570|AUD        |
-
+#      |11021162884 |AUD        |
+#
 
 
 

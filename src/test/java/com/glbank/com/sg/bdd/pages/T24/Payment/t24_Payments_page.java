@@ -1181,7 +1181,7 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[8]/td[9]/a/img")
     public WebElementFacade CAHKD;
 
-    @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[6]/td[9]/a/img")
+    @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[12]/td[9]/a/img")
     public WebElementFacade CAAUD;
 
     @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[10]/td[9]/a/img")

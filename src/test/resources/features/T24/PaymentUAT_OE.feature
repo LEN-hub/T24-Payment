@@ -81,7 +81,7 @@ Feature: Outgoing Customer Transfer
     Then I enter Outgoing Customer Transfer Page
     When I Input incomplete information on Outgoing Customer Transfer Page
       |Debit Account Number|Receiver Institution BIC|Debit Account Currency|Transaction Currency|Transaction Amount|Beneficiary Account|Beneficiary Name|Charge Option|
-      |11020961147         |DBSSSGS0                |USD                   |USD                 |300                |56456465           |LEI             |OUR          |
+      |11021207527         |DBSSSGS0                |EUR                   |EUR                 |3000              |56456465           |LEI             |OUR          |
     Then I Input Beneficiary Address and Beneficiary Town
       |Beneficiary Address|Beneficiary Town|
       |xian               |xian            |
