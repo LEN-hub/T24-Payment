@@ -410,150 +410,150 @@ Feature: Auto_Test1
 #      |Arrangement|Currency   |
 #      |11021162884|AUD        |
 
-  @Incoming_Payment_999_025_after
-  Scenario:Incoming_Payment_999_025_after
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23324HHCMM0MF|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11021162884|SGD        |
-
-  @Incoming_Payment_999_026_after
-  Scenario:Incoming_Payment_999_026_after
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23324HBL0FFFM|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11021162884|USD        |
-
-  @Incoming_Payment_999_027_after
-  Scenario:Incoming_Payment_999_027_after
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23324HBLGDD0L|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11021162884|HKD        |
-
-  @Incoming_Payment_999_028_after
-  Scenario:Incoming_Payment_999_028_after
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23324BBKKFLH0|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11021162884|EUR        |
-
-  @Incoming_Payment_999_029_after
-  Scenario:Incoming_Payment_999_029_after
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23324GCJ0JDHK|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11021162884|CNY        |
-
-  @Incoming_Payment_999_030_after
-  Scenario:Incoming_Payment_999_030_after
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23324LDK0HCKB|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11021162884|SGD        |
-
-  @Incoming_Payment_999_031_after
-  Scenario:Incoming_Payment_999_031_after
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23324FKFK0MHJ|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11021162884|USD        |
-
-
-  @Incoming_Payment_999_032_after
-  Scenario:Incoming_Payment_999_032_after
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23324LG0JJJHG|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11021162884|HKD        |
-
-  @Incoming_Payment_999_033_after
-  Scenario:Incoming_Payment_999_033_after
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23324GCJKCHMH|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11021162884|EUR        |
+#  @Incoming_Payment_999_025_after
+#  Scenario:Incoming_Payment_999_025_after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23324HHCMM0MF|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|SGD        |
+#
+#  @Incoming_Payment_999_026_after
+#  Scenario:Incoming_Payment_999_026_after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23324HBL0FFFM|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|USD        |
+#
+#  @Incoming_Payment_999_027_after
+#  Scenario:Incoming_Payment_999_027_after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23324HBLGDD0L|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|HKD        |
+#
+#  @Incoming_Payment_999_028_after
+#  Scenario:Incoming_Payment_999_028_after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23324BBKKFLH0|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|EUR        |
+#
+#  @Incoming_Payment_999_029_after
+#  Scenario:Incoming_Payment_999_029_after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23324GCJ0JDHK|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|CNY        |
+#
+#  @Incoming_Payment_999_030_after
+#  Scenario:Incoming_Payment_999_030_after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23324LDK0HCKB|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|SGD        |
+#
+#  @Incoming_Payment_999_031_after
+#  Scenario:Incoming_Payment_999_031_after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23324FKFK0MHJ|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|USD        |
+#
+#
+#  @Incoming_Payment_999_032_after
+#  Scenario:Incoming_Payment_999_032_after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23324LG0JJJHG|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|HKD        |
+#
+#  @Incoming_Payment_999_033_after
+#  Scenario:Incoming_Payment_999_033_after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23324GCJKCHMH|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|EUR        |
 
   @Incoming_Payment_999_034_after
   Scenario:Incoming_Payment_999_034_after
@@ -572,13 +572,45 @@ Feature: Auto_Test1
       |11021162884|CNY        |
 
 
-  @Incoming_Payment_999_035_after
-  Scenario:Incoming_Payment_999_035_after
+#  @Incoming_Payment_999_035_after
+#  Scenario:Incoming_Payment_999_035_after
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23324CHMH0DBJ|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|SGD        |
+
+  @Incoming_Payment_999_036_after
+  Scenario:Incoming_Payment_999_036_after
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23324CHMH0DBJ|
+      |SGL23324DC0CMJLF|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account IDCA
+    Then I find account
+      |Arrangement|
+      |11010004336|
+
+  @Incoming_Payment_999_037_after
+  Scenario:Incoming_Payment_999_037_after
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324DDCHKMJK|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
@@ -589,6 +621,135 @@ Feature: Auto_Test1
       |11021162884|SGD        |
 
 
+  @Incoming_Payment_999_038_after
+  Scenario:Incoming_Payment_999_038_after
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324BBHDGBKL|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account IDCA
+    Then I find account
+      |Arrangement|
+      |11010004328|
+
+
+  @Incoming_Payment_999_039_after
+  Scenario:Incoming_Payment_999_039_after
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324MJC0JBDK|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11021162884|HKD        |
+
+  @Incoming_Payment_999_040_after
+  Scenario:Incoming_Payment_999_040_after
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL233240LFJMMG0|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11021162884|EUR        |
+
+
+  @Incoming_Payment_999_041_after
+  Scenario:Incoming_Payment_999_041_after
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324BCMHMFMM|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11021162884|CNY        |
+
+  @Incoming_Payment_999_042_after
+  Scenario:Incoming_Payment_999_042_after
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL233240LFCGDJJ|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account IDCA
+    Then I find account
+      |Arrangement|
+      |11010004328|
+
+  @Incoming_Payment_999_043_after
+  Scenario:Incoming_Payment_999_043_after
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324BGBJL0FK|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11021162884|HKD        |
+
+  @Incoming_Payment_999_044_after
+  Scenario:Incoming_Payment_999_044_after
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324CHHFJMHD|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11021162884|EUR        |
+
+  @Incoming_Payment_999_045_after
+  Scenario:Incoming_Payment_999_045_after
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming
+      |FTNumber        |
+      |SGL23324BJKLLKDF|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11021162884|CNY        |
 
 #UAT GLDBCR-1054 after
 
