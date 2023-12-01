@@ -637,6 +637,10 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//label[@for='fieldName:RelatedReference']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade EndToEndIdentification;
 
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[13]/td[3]/input[1]")
+    public WebElementFacade clickimposeinformation;
+
+
     @FindBy(xpath = "//label[@for='fieldName:BeneficiaryIdentifierCode']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade CreditorBic;
 
@@ -648,6 +652,29 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "//label[@for='fieldName:BeneficiaryCountry']/parent::td/following-sibling::td[2]//input")
     public WebElementFacade CreditorCountry;
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[16]/td[6]/input")
+    public WebElementFacade CreditorName1;
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[20]/td[7]/input")
+    public WebElementFacade PostCode;
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[16]/td[3]/input")
+    public WebElementFacade DebitName;
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[17]/td[3]/input")
+    public WebElementFacade StreetName1;
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[20]/td[3]/input")
+    public WebElementFacade PostCode1;
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[21]/td[3]/input")
+    public WebElementFacade TownName1;
+
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[22]/td[3]/input")
+    public WebElementFacade DebtorCountry;
+
 
     @FindBy(xpath = "//a[@title='Validate a deal']/parent::td")
     public WebElementFacade preSubmit;

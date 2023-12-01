@@ -2430,10 +2430,23 @@ public class t24_Payments_step extends ScenarioSteps {
 
     //    输入streetName 、Town Name 、 Creditor Country
     @Step
-    public void inputStreetName(String StreetName, String TownName, String CreditorCountry) {
+    public void clickDetails() {
+        t24_payments_page.clickimposeinformation.click();
+    }
+
+
+    @Step
+    public void inputStreetName(String StreetName, String TownName, String CreditorCountry, String CreditorName1,String PostCode,String DebitName,String StreetName1,String PostCode1,String TownName1,String DebtorCountry) {
         t24_payments_page.StreetName.sendKeys(StreetName);
         t24_payments_page.TownName.sendKeys(TownName);
         t24_payments_page.CreditorCountry.sendKeys(CreditorCountry);
+        t24_payments_page.CreditorName1.sendKeys(CreditorName1);
+        t24_payments_page.PostCode.sendKeys(PostCode);
+        t24_payments_page.DebitName.sendKeys(DebitName);
+        t24_payments_page.StreetName1.sendKeys(StreetName1);
+        t24_payments_page.PostCode1.sendKeys(PostCode1);
+        t24_payments_page.TownName1.sendKeys(TownName1);
+        t24_payments_page.DebtorCountry.sendKeys(DebtorCountry);
         bddUtil.sleep(2);
     }
 
@@ -3710,27 +3723,22 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
         bddUtil.sleep(3);
-        if (Currency.equals("SGD")){
+        if (Currency.equals("SGD")) {
             t24_payments_page.CASGD.click();
             bddUtil.sleep(5);
-        }
-        else if (Currency.equals("USD")){
+        } else if (Currency.equals("USD")) {
             t24_payments_page.CAUSD.click();
             bddUtil.sleep(5);
-        }
-        else if (Currency.equals("CNY")){
+        } else if (Currency.equals("CNY")) {
             t24_payments_page.CACNY.click();
             bddUtil.sleep(5);
-        }
-        else if (Currency.equals("HKD")) {
+        } else if (Currency.equals("HKD")) {
             t24_payments_page.CAHKD.click();
             bddUtil.sleep(5);
-        }
-        else if (Currency.equals("AUD")) {
+        } else if (Currency.equals("AUD")) {
             t24_payments_page.CAAUD.click();
             bddUtil.sleep(5);
-        }
-        else  {
+        } else {
             t24_payments_page.CAEUR.click();
             bddUtil.sleep(5);
         }
@@ -3740,3 +3748,5 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(6);
     }
 }
+
+

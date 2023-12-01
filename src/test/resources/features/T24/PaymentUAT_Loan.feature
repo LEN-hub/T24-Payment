@@ -175,22 +175,22 @@ Feature: Payment Order(Loan Disbursement)
 
   @AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<250K
   Scenario: AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<250K
-    Given Use "T24-automation-UAT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Loan Transactions
     When I Input incomplete information on AA Disbursement Internal page
       |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
-      |18500003189         |SGD           |9               |SGD             |11010001981     |
+      |18000000563         |SGD           |3000            |SGD             |11010004255     |
     Then I get LoanPINumber
     Then I click pre-submit button
     When I click Accept Overrides
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
     When I click Loan Transactions Button
     Then I click Authorise/Delete Arrangements (PO) Button
     Then I input PI Number and click Find
     And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input LoanPINumber and click Find
     When I Assert enter View Page to USD Loan Internal

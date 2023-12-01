@@ -586,7 +586,8 @@ public class t24_Payments_glue {
     @Then("^I input Street Name on the ISO Customer Transfer Page$")
     public void iInputStreetNameOnTheISOCustomerTransferPage(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputStreetName(maps.get(0).get("Street Name"),maps.get(0).get("Town Name"),maps.get(0).get("Creditor Country"));
+        t24_payments_step.clickDetails();
+        t24_payments_step.inputStreetName(maps.get(0).get("Street Name"),maps.get(0).get("Town Name"),maps.get(0).get("Creditor Country"),maps.get(0).get("Creditor Name1"),maps.get(0).get("Post Code"),maps.get(0).get("Debit Name"),maps.get(0).get("Street Name1"),maps.get(0).get("Post Code1"),maps.get(0).get("Town Name1"),maps.get(0).get("Debtor Country"));
     }
 
     @When("^I click Outgoing Customer Transfer$")
