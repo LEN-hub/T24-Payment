@@ -631,8 +631,21 @@ public class t24_Payments_page extends PageObject {
     @FindBy(id = "fieldName:ChargeOption")
     public WebElementFacade ChargeOption;
 
+
     @FindBy(xpath = "//label[@for='fieldName:SendersReferenceNumber']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade SenderReference;
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[16]/td[7]/input")
+    public WebElementFacade StreetName2;
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[19]/td[7]/input")
+    public WebElementFacade PostCode2;
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[20]/td[7]/input")
+    public WebElementFacade TownName3;
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[21]/td[7]/input")
+    public WebElementFacade CreditorCountry3;
 
     @FindBy(xpath = "//label[@for='fieldName:RelatedReference']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade EndToEndIdentification;
@@ -653,11 +666,14 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//label[@for='fieldName:BeneficiaryCountry']/parent::td/following-sibling::td[2]//input")
     public WebElementFacade CreditorCountry;
 
-    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[16]/td[6]/input")
-    public WebElementFacade CreditorName1;
+  //  @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[16]/td[6]/input")
+   // public WebElementFacade CreditorName1;
 
     @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[20]/td[7]/input")
     public WebElementFacade PostCode;
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[14]/td[3]/input")
+    public WebElementFacade DebitAccountNumber1;
 
     @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[1]/tbody/tr[16]/td[3]/input")
     public WebElementFacade DebitName;
@@ -1210,6 +1226,9 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[12]/td[9]/a/img")
     public WebElementFacade CAAUD;
+
+    @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[14]/td[9]/a/img")
+    public WebElementFacade CAAED;
 
     @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[10]/td[9]/a/img")
     public WebElementFacade CAEUR;

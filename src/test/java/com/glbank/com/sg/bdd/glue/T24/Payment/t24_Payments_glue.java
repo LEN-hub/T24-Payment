@@ -587,7 +587,7 @@ public class t24_Payments_glue {
     public void iInputStreetNameOnTheISOCustomerTransferPage(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         t24_payments_step.clickDetails();
-        t24_payments_step.inputStreetName(maps.get(0).get("Street Name"),maps.get(0).get("Town Name"),maps.get(0).get("Creditor Country"),maps.get(0).get("Creditor Name1"),maps.get(0).get("Post Code"),maps.get(0).get("Debit Name"),maps.get(0).get("Street Name1"),maps.get(0).get("Post Code1"),maps.get(0).get("Town Name1"),maps.get(0).get("Debtor Country"));
+        t24_payments_step.inputStreetName(maps.get(0).get("Street Name"),maps.get(0).get("Town Name"),maps.get(0).get("Creditor Country"),maps.get(0).get("Post Code"),maps.get(0).get("Debit Account Number1"),maps.get(0).get("Debit Name"),maps.get(0).get("Street Name1"),maps.get(0).get("Post Code1"),maps.get(0).get("Town Name1"),maps.get(0).get("Debtor Country"));
     }
 
     @When("^I click Outgoing Customer Transfer$")
@@ -715,7 +715,7 @@ public class t24_Payments_glue {
     @When("^I Input Sender's Reference on Outgoing ISO Bank Transfer Page$")
     public void iInputSenderSReferenceOnOutgoingISOBankTransferPage(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputSendersReference(maps.get(0).get("Sender Reference"),maps.get(0).get("End To End Identification"));
+        t24_payments_step.inputSendersReference(maps.get(0).get("Street Name2"),maps.get(0).get("Post Code2"),maps.get(0).get("Town Name3"),maps.get(0).get("Creditor Country3"),maps.get(0).get("Sender Reference"),maps.get(0).get("End To End Identification"));
     }
 
     @Then("^I get OENumber$")

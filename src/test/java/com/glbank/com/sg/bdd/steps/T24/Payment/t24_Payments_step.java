@@ -2436,12 +2436,12 @@ public class t24_Payments_step extends ScenarioSteps {
 
 
     @Step
-    public void inputStreetName(String StreetName, String TownName, String CreditorCountry, String CreditorName1,String PostCode,String DebitName,String StreetName1,String PostCode1,String TownName1,String DebtorCountry) {
+    public void inputStreetName(String StreetName, String TownName, String CreditorCountry, String PostCode,String DebitAccountNumber1,String DebitName,String StreetName1,String PostCode1,String TownName1,String DebtorCountry) {
         t24_payments_page.StreetName.sendKeys(StreetName);
         t24_payments_page.TownName.sendKeys(TownName);
         t24_payments_page.CreditorCountry.sendKeys(CreditorCountry);
-        t24_payments_page.CreditorName1.sendKeys(CreditorName1);
         t24_payments_page.PostCode.sendKeys(PostCode);
+        t24_payments_page.DebitAccountNumber1.sendKeys(DebitAccountNumber1);
         t24_payments_page.DebitName.sendKeys(DebitName);
         t24_payments_page.StreetName1.sendKeys(StreetName1);
         t24_payments_page.PostCode1.sendKeys(PostCode1);
@@ -2473,7 +2473,11 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
     @Step
-    public void inputSendersReference(String SenderReference, String EndToEndIdentification) {
+    public void inputSendersReference(String StreetName2,String PostCode2,String TownName3,String CreditorCountry3,String SenderReference, String EndToEndIdentification) {
+        t24_payments_page.StreetName2.sendKeys(StreetName2);
+        t24_payments_page.PostCode2.sendKeys(PostCode2);
+        t24_payments_page.TownName3.sendKeys(TownName3);
+        t24_payments_page.CreditorCountry3.sendKeys(CreditorCountry3);
         t24_payments_page.SenderReference.sendKeys(SenderReference);
         t24_payments_page.EndToEndIdentification.sendKeys(EndToEndIdentification);
         bddUtil.sleep(2);
@@ -3737,6 +3741,9 @@ public class t24_Payments_step extends ScenarioSteps {
             bddUtil.sleep(5);
         } else if (Currency.equals("AUD")) {
             t24_payments_page.CAAUD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("AED")) {
+            t24_payments_page.CAAED.click();
             bddUtil.sleep(5);
         } else {
             t24_payments_page.CAEUR.click();
