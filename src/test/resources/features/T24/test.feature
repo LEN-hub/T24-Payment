@@ -11,10 +11,10 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |EBILAEA0            |AED                 |9001                |11010006320         |AED                   |56456465        |LEI           |SHAR         |
+      |EBILAEA0            |AED                 |9001                |11010006762         |AED                   |56456465        |LEI           |SHAR         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-      |liyukang   |testabc   |SG              |12345    |11021162906          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -40,7 +40,7 @@ Feature: Auto_Test1
     When I enter the account IDCA
     Then I find account
       |Arrangement|
-      |11010006320|
+      |11010006762|
 
   @Payment_OE_Outgoing_Customer_Transfer_AED-AED_UAT_T24-002before
   Scenario:Payment_OE_Outgoing_Customer_Transfer_AED-AED_UAT_T24-002before
@@ -49,10 +49,10 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |EBILAEA0            |AED                 |900002              |11010006320         |AED                   |56456465        |LEI           |DEBT         |
+      |EBILAEA0            |AED                 |900002              |11021210463         |AED                   |56456465        |LEI           |DEBT         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-      |liyukang   |testabc   |SG              |12345    |11021162906          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+      |liyukang   |testabc   |SG              |12345    |11021210463          |LEN&DEB   |honghai     |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -87,10 +87,10 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |EBILAEA0            |AED                 |9003                |11010006320         |AED                   |56456465        |LEI           |CRED         |
+      |EBILAEA0            |AED                 |9003                |11010006762         |AED                   |56456465        |LEI           |CRED         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-      |liyukang   |testabc   |SG              |12345    |11021162906          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -116,7 +116,7 @@ Feature: Auto_Test1
     When I enter the account IDCA
     Then I find account
       |Arrangement|
-      |11010006320|
+      |11010006762|
 
   @Payment_OE_Outgoing_Customer_Transfer_AED-AED_UAT_T24-004before
   Scenario:Payment_OE_Outgoing_Customer_Transfer_AED-AED_UAT_T24-004before
@@ -125,10 +125,10 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |EBILAEA0            |AED                 |9004                |11010006320         |AED                   |56456465        |LEI           |CRED         |
+      |EBILAEA0            |AED                 |9004                |11010006762         |AED                   |56456465        |LEI           |CRED         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1 |Post Code1|Town Name1|Debtor Country|
-      |liyukang   |testabc   |SG              |12345    |11021162906          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
+      |liyukang   |testabc   |SG              |12345    |11010006762          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -154,7 +154,7 @@ Feature: Auto_Test1
     When I enter the account IDCA
     Then I find account
       |Arrangement|
-      |11010006320|
+      |11010006762|
 
   @Payment_OE_Outgoing_Customer_Transfer_AED-AED_UAT_T24-005before
   Scenario:Payment_OE_Outgoing_Customer_Transfer_AED-AED_UAT_T24-005before
@@ -163,10 +163,10 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |EBILAEA0            |AED                 |900005              |11010006320         |AED                   |56456465        |LEI&(1)'.,    |DEBT         |
+      |EBILAEA0            |AED                 |900005              |11021210463         |AED                   |56456465        |LEI&(1)'.,    |DEBT         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-      |Hai&13,.()'|testabc   |SG              |12345    |11021162906          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+      |Hai&13,.()'|testabc   |SG              |12345    |11021210463          |LEN&DEB   |honghai     |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -201,7 +201,7 @@ Feature: Auto_Test1
     Then I enter Outgoing ISO Bank Transfer Page
     When I Input incomplete information on Outgoing ISO Bank Transfer Page
       |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |EBILAEA0            |AED                 |9008              |11010006320         |4656465         |CITISGS0    |New&(2)',.e  |
+      |EBILAEA0            |AED                 |9008              |11010006762         |4656465         |CITISGS0    |New&(2)',.e  |
     When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
       |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
       |jia&(1)',.1H|123       |FR        |SG               |                |                         |
@@ -230,7 +230,7 @@ Feature: Auto_Test1
     When I enter the account IDCA
     Then I find account
       |Arrangement|
-      |11010006320|
+      |11010006762|
 
   @Payment_OE_Outgoing_Bank_Transfer_AED-AED_UAT_T24-009before
   Scenario:Payment_OE_Outgoing_Bank_Transfer_AED-AED_UAT_T24-009before
@@ -239,7 +239,7 @@ Feature: Auto_Test1
     Then I enter Outgoing ISO Bank Transfer Page
     When I Input incomplete information on Outgoing ISO Bank Transfer Page
       |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |EBILAEA0            |AED                 |9009              |11010006320         |4656465         |CITISGS0    |New&(2)',.e  |
+      |EBILAEA0            |AED                 |9009              |11021210463         |4656465         |CITISGS0    |New&(2)',.e  |
     When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
       |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
       |jia&(1)',.1H|123       |FR        |SG               |                |                         |
