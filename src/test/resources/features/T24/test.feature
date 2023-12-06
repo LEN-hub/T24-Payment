@@ -854,10 +854,10 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |DBSSSGS0            |SGD                 |9012                |11010006320         |SGD                   |56456465        |LEI           |SHAR         |
+      |DBSSSGS0            |SGD                 |9012                |11010005898         |SGD                   |56456465        |LEI           |SHAR         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1 |Post Code1|Town Name1|Debtor Country|
-      |liyukang   |testabc   |SG              |12345    |11021162906          |Le12      |Hai          |23456     |teste     |SG            |
+      |liyukang   |testabc   |SG              |12345    |11010005898          |Le12      |Hai          |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -883,7 +883,7 @@ Feature: Auto_Test1
     When I enter the account IDCA
     Then I find account
       |Arrangement|
-      |11010006320|
+      |11010005898|
 
   @Payment_OE_Outgoing_Customer_Transfer_USD-USD_UAT_T24-013after
   Scenario:Payment_OE_Outgoing_Customer_Transfer_USD-USD_UAT_T24-013after
@@ -892,7 +892,7 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |DBSSSGS0            |USD                 |9013                |11010006320         |USD                   |56456465        |LEI&13,.()'   |CRED         |
+      |DBSSSGS0            |USD                 |9013                |11021162906         |USD                   |56456465        |LEI&13,.()'   |CRED         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1 |Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11021162906          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
@@ -930,10 +930,10 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |DBSSSGS0            |USD                 |9014                |11021162906         |USD                   |56456465        |LE            |SHAR         |
+      |DBSSSGS0            |USD                 |9014                |11010004956         |USD                   |56456465        |LE            |SHAR         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1 |Post Code1|Town Name1|Debtor Country|
-      |li&12,.()' |test      |SG              |12345    |11021162906          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
+      |li&12,.()' |test      |SG              |12345    |11010004956          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -959,7 +959,7 @@ Feature: Auto_Test1
     When I enter the account IDCA
     Then I find account
       |Arrangement|
-      |11010006320|
+      |11010004956|
 
   @Payment_OE_Outgoing_Customer_Transfer_HKD-HKD_UAT_T24-015after
   Scenario:Payment_OE_Outgoing_Customer_Transfer_HKD-HKD_UAT_T24-015after
@@ -968,10 +968,10 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |DBSSSGS0            |HKD                 |9000015             |11021162906         |HKD                   |56456465        |LE            |DEBT         |
+      |DBSSSGS0            |HKD                 |9000015             |11021200646         |HKD                   |56456465        |LE            |DEBT         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1 |Post Code1|Town Name1|Debtor Country|
-      |li&12,.()' |test      |SG              |12345    |11021162906          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
+      |li&12,.()' |test      |SG              |12345    |11021200646          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -1007,10 +1007,10 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |DBSSSGS0            |EUR                 |9000016             |11021162906         |EUR                   |56456465        |LE&           |SHAR         |
+      |DBSSSGS0            |EUR                 |9000016             |11021200662         |EUR                   |56456465        |LE&           |SHAR         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1 |Post Code1|Town Name1|Debtor Country|
-      |li&12,.()' |test      |SG              |12345    |11021162906          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
+      |li&12,.()' |test      |SG              |12345    |11021200662          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -1046,10 +1046,10 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |DBSSSGS0            |CNY                 |9017                |11021162906         |CNY                   |56456465        |LE&           |CRED         |
+      |DBSSSGS0            |CNY                 |9017                |11021200638         |CNY                   |56456465        |LE&           |CRED         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1 |Post Code1|Town Name1|Debtor Country|
-      |li&12,.()' |test      |SG              |12345    |11021162906          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
+      |li&12,.()' |test      |SG              |12345    |11021200638          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -1084,10 +1084,10 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |ANZBAU30            |AUD                 |9018                |11021162906         |AUD                   |56456465        |LE&           |SHAR         |
+      |ANZBAU30            |AUD                 |9018                |11010006320         |AUD                   |56456465        |LE&           |SHAR         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1 |Post Code1|Town Name1|Debtor Country|
-      |li&12,.()' |test      |SG              |12345    |11021162906          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
+      |li&12,.()' |test      |SG              |12345    |11010006320          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -1122,10 +1122,10 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |ANZBAU30            |AUD                 |9019                |11021162906         |AUD                   |56456465        |LE&           |CRED         |
+      |ANZBAU30            |AUD                 |9019                |11021209775         |AUD                   |56456465        |LE&           |CRED         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1 |Post Code1|Town Name1|Debtor Country|
-      |li&12,.()' |test      |SG              |12345    |11021162906          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
+      |li&12,.()' |test      |SG              |12345    |11021209775          |Le&12,.()'|Hai&13,.()'  |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
