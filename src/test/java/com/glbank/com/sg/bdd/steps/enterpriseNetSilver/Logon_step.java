@@ -146,7 +146,7 @@ public class Logon_step extends ScenarioSteps {
 //        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server");
 //        MobileConfig.exeCmd("adb uninstall io.appium.uiautomator2.server.test");
         test.testMobile();
-        Thread.sleep(20000);
+        Thread.sleep(5000);
 //        if (driver.findElement(By.xpath("//android.widget.Button[ends-with(@text,'OK')]")).isDisplayed()){
 //            driver.findElementByXPath("//android.widget.Button[ends-with(@text,'OK')]").click();
 //        }

@@ -17,7 +17,7 @@ import java.util.Set;
 public class RedisUtil {
     public static String cookie;
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver","D:\\workspace\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","D:\\workspace\\DBB_GL_AutoTestting-dev\\src\\test\\resources\\drivers\\chromedriver1.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://10.24.7.88/");
         driver.navigate().refresh();

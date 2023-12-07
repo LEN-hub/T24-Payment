@@ -25,7 +25,7 @@ public class VaPatch_step extends ScenarioSteps {
     private static String systemPath = System.getProperty("user.dir");
     String fileAddress = systemPath + "/src/test/resources/testData/Excel/测试合同123.docx";
     String uploadExcelFile = systemPath + "/src/test/resources/testData/Excel/contract template.xls";
-    String ChromePath = systemPath+"/src/test/resources/drivers/chromedriver.exe";
+    String ChromePath = systemPath+"/src/test/resources/drivers/chromedriver1.exe";
 
 //    判断是否进入CNP系统
     @Step
