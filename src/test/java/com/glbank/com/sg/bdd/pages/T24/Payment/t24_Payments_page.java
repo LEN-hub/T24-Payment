@@ -1212,25 +1212,25 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[2]/td/div[3]/form/table/tbody/tr/td[2]/table/tbody/tr[3]/td/div/table/tbody/tr[1]/td[3]/input[1]")
     public WebElementFacade inputaccount;
 
-    @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[2]/td[9]/a/img")
+    @FindBy(xpath = "//td[text()='SGD']/following-sibling::td/a")
     public WebElementFacade CASGD;
 
-    @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[4]/td[9]/a/img")
+    @FindBy(xpath = "//td[text()='USD']/following-sibling::td/a")
     public WebElementFacade CAUSD;
 
-    @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[6]/td[9]/a/img")
+    @FindBy(xpath = "//td[text()='CNY']/following-sibling::td/a")
     public WebElementFacade CACNY;
 
-    @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[8]/td[9]/a/img")
+    @FindBy(xpath = "//td[text()='HKD']/following-sibling::td/a")
     public WebElementFacade CAHKD;
 
-    @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[12]/td[9]/a/img")
+    @FindBy(xpath = "//td[text()='AUD']/following-sibling::td/a")
     public WebElementFacade CAAUD;
 
-    @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[14]/td[9]/a/img")
+    @FindBy(xpath = "//td[text()='AED']/following-sibling::td/a")
     public WebElementFacade CAAED;
 
-    @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[10]/td[9]/a/img")
+    @FindBy(xpath = "//td[text()='EUR']/following-sibling::td/a")
     public WebElementFacade CAEUR;
 
     @FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[2]/td/div[3]/form/table/tbody/tr/td[2]/table/tbody/tr[1]/td/table/tbody/tr/td[3]/div/table/tbody/tr/td/a")
