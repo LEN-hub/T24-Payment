@@ -9,6 +9,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.core.pages.WebElementFacadeImpl;
 import net.serenitybdd.screenplay.actions.Click;
 import net.thucydides.core.webdriver.stubs.WebElementFacadeStub;
+import org.openqa.selenium.interactions.Actions;
 import org.w3c.dom.html.HTMLInputElement;
 
 import java.security.cert.X509Certificate;
@@ -1203,11 +1204,12 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "/html/body/div[3]/ul[1]/li/ul/li[5]/ul/li[7]/a")
     public WebElementFacade account;
 
+    @FindBy(xpath = "/html/body/div[3]/ul[1]/li/ul/li[5]/ul/li[6]/a")
+    public WebElementFacade accountB;
+
     @FindBy(xpath = "/html/body/div[3]/ul[1]/li/ul/li[5]/ul/li[7]/a")
     public WebElementFacade accountA;
 
-    @FindBy(xpath = "/html/body/div[3]/ul[1]/li/ul/li[5]/ul/li[6]/a")
-    public WebElementFacade accountB;
 
     @FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[2]/td/div[3]/form/table/tbody/tr/td[2]/table/tbody/tr[3]/td/div/table/tbody/tr[1]/td[3]/input[1]")
     public WebElementFacade inputaccount;
@@ -1244,4 +1246,15 @@ public class t24_Payments_page extends PageObject {
 
     @FindBy(xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/table/tbody/tr[10]/td/table/tbody/tr[2]/td/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[2]/td[8]/a/img")
     public WebElementFacade Details2;
+
+    @FindBy(id = "moreactions" )
+    public WebElementFacade selectListLiveFile;
+
+    @FindBy(xpath = "//option[text( )='List Live File']")
+    public WebElementFacade ListLiveFile;
+
+    @FindBy(xpath = "//img[@title='Go']")
+    public WebElementFacade Listgo;
+
+
 }

@@ -299,9 +299,20 @@ public class t24_Payments_glue {
         t24_payments_step.transactionDetailsCheckUSD_USD(title.get(0).get("Charge Option"));
     }
 
+    @When("^I close all tabs and jump to the home$")
+    public void iCloseAllTabsAndJumpToTheHome() {
+        t24_payments_step.closeAllTabJumpToHome();
+    }
+
     @When("^I close all tabs and jump to the home page$")
     public void iCloseAllTabsAndJumpToTheHomePage() {
         t24_payments_step.closeAllTabJumpToHomePage();
+    }
+
+
+    @When("^I close all tabs and jump to the page$")
+    public void iCloseAllTabsAndJumpToThePage() {
+        t24_payments_step.closeAllTabJumpToPage();
     }
     @Then("^Verify Bene currency$")
     public void iCheckTheTransferOutCurrencyOnThePage() {
@@ -523,16 +534,16 @@ public class t24_Payments_glue {
         t24_payments_step.inputFTNumberAuthorise();
     }
 
-    @When("^I Assert enter View Page$")
-    public void iAssertEnterViewPage() throws Exception{
+    @When("^I Assert enter View Page NFee$")
+    public void iAssertEnterViewPageNFee() throws Exception{
         t24_payments_step.enterView();
 //        断言是否进入EnterViewPage
         t24_payments_step.assertEnterViewPage();
 //        查看各个页面的数据
-        t24_payments_step.clickChargeInformation2();
+ //       t24_payments_step.clickChargeInformation2();
 //        t24_payments_step.clickRoutingformation();
 //        t24_payments_step.clickAdditionalInfo();
-//        t24_payments_step.clickErrorInformation();
+ //       t24_payments_step.clickErrorInformation();
 //        t24_payments_step.clickExtendedDebtorInfo();
 //        t24_payments_step.clickExtendedCreditorInfo();
 //        t24_payments_step.clickUltimateDebtorInfo();
@@ -546,6 +557,33 @@ public class t24_Payments_glue {
         bddUtil.closeWindow();
         bddUtil.sleep(1);
     }
+
+    @When("^I Assert enter View Page$")
+    public void iAssertEnterViewPage() throws Exception{
+        t24_payments_step.enterView();
+//        断言是否进入EnterViewPage
+        t24_payments_step.assertEnterViewPage();
+//        查看各个页面的数据
+        t24_payments_step.clickChargeInformation2();
+//        t24_payments_step.clickRoutingformation();
+//        t24_payments_step.clickAdditionalInfo();
+        //       t24_payments_step.clickErrorInformation();
+//        t24_payments_step.clickExtendedDebtorInfo();
+//        t24_payments_step.clickExtendedCreditorInfo();
+//        t24_payments_step.clickUltimateDebtorInfo();
+//        t24_payments_step.clickUltimateCreditorInfo();
+//        t24_payments_step.clickRegulatoryReporting();
+//        t24_payments_step.clickStructuredRemittanceInfo();
+//        t24_payments_step.clickPrevInstrAgents();
+//        t24_payments_step.clickChangedFields();
+        t24_payments_step.clickAudit();
+//        查看完详细信息关闭当前窗口
+        bddUtil.closeWindow();
+        bddUtil.sleep(1);
+    }
+
+
+
 
 //    进入放大镜页面
     @Then("^I Assert enter View Details Page$")
@@ -624,7 +662,7 @@ public class t24_Payments_glue {
         //        断言是否进入EnterViewPage
 //        t24_payments_step.assertLoanEnterViewPage();
 //        查看各个页面的数据
-//        t24_payments_step.clickChargeInformation();
+        t24_payments_step.clickChargeInformation();
 //        t24_payments_step.clickRoutingformation();
 //        t24_payments_step.clickAdditionalInfoUSD();
 //        t24_payments_step.clickErrorInformation();
@@ -1167,6 +1205,14 @@ public class t24_Payments_glue {
     public void iEnterTheAccountID() {
         t24_payments_step.accountID();
     }
+
+
+    @When("^I enter the Currency Rates List$")
+    public void iEnterTheCurrencyRatesList() {
+        t24_payments_step.CurrencyRatesList();
+    }
+
+
 
     @When("^I enter the account IDCA$")
     public void iEnterTheAccountIDCA() {

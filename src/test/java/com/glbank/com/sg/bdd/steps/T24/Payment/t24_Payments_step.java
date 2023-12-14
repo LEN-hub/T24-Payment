@@ -345,12 +345,28 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
     @Step
-    public void closeAllTabJumpToHomePage() {
-        bddUtil.closeWindow();
+    public void closeAllTabJumpToHome() {
         bddUtil.switchToNewWindow();
         bddUtil.closeWindow();
-      //  switchToSecondFrame();
-      //  bddUtil.sleep(1);
+        switchToSecondFrame();
+        bddUtil.sleep(1);
+    }
+
+    @Step
+    public void closeAllTabJumpToPage() {
+        bddUtil.switchToNewWindow();
+        bddUtil.closeWindow();
+        switchToSecondFrame();
+        bddUtil.sleep(1);
+    }
+
+
+    @Step
+    public void closeAllTabJumpToHomePage() {
+        bddUtil.switchToNewWindow();
+        bddUtil.closeWindow();
+        switchToFirstFrame();
+       bddUtil.sleep(1);
     }
 
     @Step
@@ -2636,15 +2652,15 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void inputFTNumberClickFindOnIncoming(String FTNumber) {
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(2);
+        bddUtil.sleep(1);
         getDriver().manage().window().maximize();
-        bddUtil.sleep(3);
+        bddUtil.sleep(1);
         switchToFirstFrame();
         bddUtil.sleep(1);
         t24_payments_page.inputFTNumber.sendKeys(FTNumber);
-        bddUtil.sleep(3);
+        bddUtil.sleep(1);
         t24_payments_page.Find.click();
-        bddUtil.sleep(3);
+        bddUtil.sleep(1);
 }
 
 
@@ -2774,7 +2790,7 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
         bddUtil.switchToNewWindow();
         getDriver().manage().window().maximize();
-        bddUtil.sleep(5);
+        bddUtil.sleep(3);
     }
 
     @Step
@@ -2795,14 +2811,14 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void clickChargeInformation() {
         t24_payments_page.ChargeInformation.click();
-        bddUtil.sleep(4);
+        bddUtil.sleep(3);
     }
 
 
     @Step
     public void clickChargeInformation2() {
         t24_payments_page.ChargeInformation2.click();
-        bddUtil.sleep(4);
+        bddUtil.sleep(3);
     }
 
 
@@ -2956,7 +2972,7 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void clickAuditLoan() {
         t24_payments_page.Audit.click();
-        bddUtil.sleep(4);
+        bddUtil.sleep(2);
     }
 
     //    OE Outgoing Bank Transfer的按钮
@@ -3023,13 +3039,25 @@ public class t24_Payments_step extends ScenarioSteps {
 //       退出第一个frame，进入第二个frame
         switchToDefaultContent();
         switchToSecondFrame();
+        String src = getDriver().findElement(By.xpath("//img[@title='Next Page']")).getAttribute("src");
+        System.out.println("未置灰" + src);
 //        判断是否是最后一页
         for (int i = 0; i < 5; i++) {
             if (t24_payments_page.xmlNext.isVisible()) {
-                t24_payments_page.xmlNext.click();
+               t24_payments_page.xmlNext.click();
                 bddUtil.sleep(1);
+            } else {
+                break;
             }
         }
+//        判断是否是最后一页
+        String src2 = getDriver().findElement(By.xpath("//img[@title='Next Page']")).getAttribute("src");
+        System.out.println("置灰" + src2);
+//        if (src.equals("../plaf/images/default/tools/right dis.gif")){
+//           }else{
+//        break；
+//    }
+
 //       退出第二个frame，进入第一个frame
         switchToDefaultContent();
         switchToFirstFrame();
@@ -3043,7 +3071,7 @@ public class t24_Payments_step extends ScenarioSteps {
          t24_payments_page.PostingLines.click();
          bddUtil.sleep(2);
          t24_payments_page.iconLink.click();
-         bddUtil.sleep(5);
+         bddUtil.sleep(3);
      }
 
     //    选择进入Received Message页面
@@ -3054,7 +3082,7 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.ReceivedMessage.click();
         bddUtil.sleep(2);
         t24_payments_page.iconLink.click();
-        bddUtil.sleep(5);
+        bddUtil.sleep(3);
     }
 
     //    选择进入Fees Applied页面
@@ -3671,19 +3699,42 @@ public class t24_Payments_step extends ScenarioSteps {
 
 //进入account页面，点击查询
     public void accountID() {
-        switchToSecondFrame();
+       // switchToSecondFrame();
         //bddUtil.sleep(3);
-        t24_payments_page.clickUsermenu.click();
+        //t24_payments_page.clickUsermenu.click();
 
         t24_payments_page.clickProduct.click();
         t24_payments_page.accountA.click();
         bddUtil.sleep(2);
     }
 
+
+    public void CurrencyRatesList() {
+        //输入值CURRENCY查询
+        t24_payments_page.inputBox.sendKeys("CURRENCY");
+        t24_payments_page.duihao.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        t24_payments_page.selectListLiveFile.click();
+        t24_payments_page.ListLiveFile.click();
+        t24_payments_page.Listgo.click();
+        bddUtil.sleep(1);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+    }
+
+
+
+
+
     public void accountIDCA() {
-        switchToSecondFrame();
+//        switchToSecondFrame();
         //bddUtil.sleep(3);
-        t24_payments_page.clickUsermenu.click();
+      //  t24_payments_page.clickUsermenu.click();
 
         t24_payments_page.clickProduct.click();
         t24_payments_page.accountB.click();
