@@ -44,6 +44,7 @@ Feature: Outgoing Customer Transfer
     Then I find account
       |Arrangement|
       |11010006762|
+    And I close driver
 
 
   @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA
@@ -84,6 +85,7 @@ Feature: Outgoing Customer Transfer
     Then I find account CASGD
       |Arrangement|Currency   |
       |11021162884|AED        |
+    And I close driver
 
 
   @Payment_OE_Outgoing_ISO_Bank_Transfer_CA
@@ -124,6 +126,7 @@ Feature: Outgoing Customer Transfer
     Then I find account
       |Arrangement|
       |11010006762|
+    And I close driver
 
   @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA
   Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA
@@ -163,6 +166,7 @@ Feature: Outgoing Customer Transfer
     Then I find account CASGD
       |Arrangement|Currency   |
       |11021162884|AED        |
+    And I close driver
 
 
   #旧得OE payment案例

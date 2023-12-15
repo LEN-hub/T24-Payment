@@ -11,11 +11,12 @@ Feature: Payment InComing
       |SGL233410LBMLG00|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
+    When I close all tabs and jump to the page
     When I enter the account IDCA
     Then I find account
       |Arrangement|
       |11010006762|
+    And I close driver
 
   @Incoming_Payment_999_MCA
   Scenario:Incoming payment-999 MCA
@@ -26,11 +27,12 @@ Feature: Payment InComing
       |SGL233410LBMLG00|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
+    When I close all tabs and jump to the page
     When I enter the account ID
     Then I find account CASGD
       |Arrangement|Currency   |
       |11021162884|AED        |
+    And I close driver
 
 
   @Incoming_Payment_235_CA
@@ -53,11 +55,12 @@ Feature: Payment InComing
       |SGL23205HFBG00LG|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
+    When I close all tabs and jump to the page
     When I enter the account IDCA
     Then I find account
       |Arrangement|
       |11010006762|
+    And I close driver
 
 
   @Incoming_Payment_235Multi_Currency
@@ -80,11 +83,12 @@ Feature: Payment InComing
       |SGL23136MDHJDDKF|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
+    When I close all tabs and jump to the page
     When I enter the account ID
     Then I find account CASGD
       |Arrangement|Currency   |
       |11021162884|AED        |
+    And I close driver
 
 
 
