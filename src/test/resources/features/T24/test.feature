@@ -155,6 +155,7 @@ Feature: Auto_Test1
     Then I find account CASGD
       |Arrangement|Currency   |
       |11020931868|AUD        |
+    And I close driver
 
 #  @Incoming_Payment_999_017after
 #  Scenario:Incoming paymen_017after
@@ -335,6 +336,7 @@ Feature: Auto_Test1
     Then I find account
       |Arrangement|
       |11010006622|
+    And I close driver
 
 #  @Incoming_Payment_999_029after
 #  Scenario:Incoming paymen_029after
@@ -456,6 +458,7 @@ Feature: Auto_Test1
     Then I find account CASGD
       |Arrangement|Currency   |
       |11020931868|EUR        |
+    And I close driver
 
 #  @Incoming_Payment_999_039after
 #  Scenario:Incoming paymen_039after
