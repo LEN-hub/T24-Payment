@@ -31,7 +31,7 @@ Feature: Auto_Test1
     When I enter the account IDCA
     Then I find account
       |Arrangement|
-      |11010000609|
+      |11010000608|
 
   @Incoming_Payment_999_009after
   Scenario:Incoming paymen_009after
