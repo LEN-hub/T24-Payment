@@ -3,8 +3,8 @@ Feature: Auto_Test1
 
 #SIT-1137
 
-#  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after007
-#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after007
+#  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before007
+#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before007
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I click Outgoing ISO Customer Transfer
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
@@ -42,16 +42,16 @@ Feature: Auto_Test1
 #      |Arrangement|
 #      |11010005456|
 #    And I close driver
-
 #
-#  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after008
-#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after008
+#
+#  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before008
+#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before008
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I click Outgoing ISO Customer Transfer
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |DBSSSGS0            |USD                 |0.41                |11010003186         |USD                   |56456465        |LEI           |CRED         |
+#      |DBSSSGS0            |USD                 |0.41                |11010003186         |USD                   |56456465        |LEI           |DEBT         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11010003186          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -83,9 +83,9 @@ Feature: Auto_Test1
 #      |Arrangement|
 #      |11010005456|
 #    And I close driver
-
-#  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after009
-#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after009
+#
+#  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before009
+#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before009
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I click Outgoing ISO Customer Transfer
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page

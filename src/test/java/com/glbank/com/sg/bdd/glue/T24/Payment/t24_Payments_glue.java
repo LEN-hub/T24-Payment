@@ -662,7 +662,7 @@ public class t24_Payments_glue {
         //        断言是否进入EnterViewPage
 //        t24_payments_step.assertLoanEnterViewPage();
 //        查看各个页面的数据
-        t24_payments_step.clickChargeInformation();
+        t24_payments_step.clickChargeInformation2();
 //        t24_payments_step.clickRoutingformation();
 //        t24_payments_step.clickAdditionalInfoUSD();
 //        t24_payments_step.clickErrorInformation();
