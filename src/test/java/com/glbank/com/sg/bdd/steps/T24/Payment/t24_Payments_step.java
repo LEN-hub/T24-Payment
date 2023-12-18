@@ -2413,8 +2413,8 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.DebitAccountCurrency.sendKeys(DebitAccountCurrency);
         t24_payments_page.CreditorAccount.sendKeys(CreditorAccount);
         t24_payments_page.CreditorName.sendKeys(CreditorName);
-        //t24_payments_page.ChargeOption.click();
-       //getDriver().findElement(By.xpath("//option[text()='"+ChargeOption+"']")).click();
+        t24_payments_page.ChargeOption.click();
+       getDriver().findElement(By.xpath("//option[text()='"+ChargeOption+"']")).click();
         bddUtil.sleep(2);
     }
 
