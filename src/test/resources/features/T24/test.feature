@@ -1601,13 +1601,13 @@ Feature: Auto_Test1
 #    And I close driver
 
 #
-#  @Incoming_Payment_999_077before
-#  Scenario:Incoming paymen_077before
+#  @Incoming_Payment_999_077after
+#  Scenario:Incoming paymen_077after
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I enter the Payments Enquiry - Transaction wise page
 #    Then I input FTNumber and click Find On Incoming
 #      |FTNumber        |
-#      |SGL23352JCCBMCJC|
+#      |SGL23353LK0BMLDB|
 #    When I Assert enter View Page to USD Loan
 #    Then I Assert enter View Details Page
 #    When I close all tabs and jump to the page
@@ -1618,13 +1618,13 @@ Feature: Auto_Test1
 #    And I close driver
 #
 #
-#  @Incoming_Payment_999_078before
-#  Scenario:Incoming paymen_078before
+#  @Incoming_Payment_999_078after
+#  Scenario:Incoming paymen_078after
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I enter the Payments Enquiry - Transaction wise page
 #    Then I input FTNumber and click Find On Incoming
 #      |FTNumber        |
-#      |SGL23352HCDGDCLD|
+#      |SGL23353BFBGCGLF|
 #    When I Assert enter View Page to USD Loan
 #    Then I Assert enter View Details Page
 #    When I close all tabs and jump to the page
@@ -1635,13 +1635,13 @@ Feature: Auto_Test1
 #    And I close driver
 #
 #
-#  @Incoming_Payment_999_079before
-#  Scenario:Incoming paymen_079before
+#  @Incoming_Payment_999_079after
+#  Scenario:Incoming paymen_079after
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I enter the Payments Enquiry - Transaction wise page
 #    Then I input FTNumber and click Find On Incoming
 #      |FTNumber        |
-#      |SGL23352BMKJBJ0D|
+#      |SGL23353CFJM0FHJ|
 #    When I Assert enter View Page to USD Loan
 #    Then I Assert enter View Details Page
 #    When I close all tabs and jump to the page
@@ -1652,13 +1652,13 @@ Feature: Auto_Test1
 #    And I close driver
 
 
-#  @Incoming_Payment_999_080before
-#  Scenario:Incoming paymen_080before
+#  @Incoming_Payment_999_080after
+#  Scenario:Incoming paymen_080after
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I enter the Payments Enquiry - Transaction wise page
 #    Then I input FTNumber and click Find On Incoming
 #      |FTNumber        |
-#      |SGL23352KD0GJKKB|
+#      |SGL233530JDGFBFC|
 #    When I Assert enter View Page to USD Loan
 #    Then I Assert enter View Details Page
 #    When I close all tabs and jump to the page
@@ -1669,13 +1669,13 @@ Feature: Auto_Test1
 #    And I close driver
 #
 #
-#  @Incoming_Payment_999_081before
-#  Scenario:Incoming paymen_081before
+#  @Incoming_Payment_999_081after
+#  Scenario:Incoming paymen_081after
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I enter the Payments Enquiry - Transaction wise page
 #    Then I input FTNumber and click Find On Incoming
 #      |FTNumber        |
-#      |SGL233520CGDCDD0|
+#      |SGL23353HMGLGDJB|
 #    When I Assert enter View Page to USD Loan
 #    Then I Assert enter View Details Page
 #    When I close all tabs and jump to the page
@@ -1686,13 +1686,13 @@ Feature: Auto_Test1
 #    And I close driver
 #
 #
-#  @Incoming_Payment_999_082before
-#  Scenario:Incoming paymen_082before
+#  @Incoming_Payment_999_082after
+#  Scenario:Incoming paymen_082after
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I enter the Payments Enquiry - Transaction wise page
 #    Then I input FTNumber and click Find On Incoming
 #      |FTNumber        |
-#      |SGL23352FMKLFBKK|
+#      |SGL23353CJCJDCLH|
 #    When I Assert enter View Page to USD Loan
 #    Then I Assert enter View Details Page
 #    When I close all tabs and jump to the page
@@ -1703,13 +1703,13 @@ Feature: Auto_Test1
 #    And I close driver
 #
 #
-#  @Incoming_Payment_999_083before
-#  Scenario:Incoming paymen_083before
+#  @Incoming_Payment_999_083after
+#  Scenario:Incoming paymen_083after
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I enter the Payments Enquiry - Transaction wise page
 #    Then I input FTNumber and click Find On Incoming
 #      |FTNumber        |
-#      |SGL23352C0DKCJCF|
+#      |SGL23353GFLGCFDK|
 #    When I Assert enter View Page to USD Loan
 #    Then I Assert enter View Details Page
 #    When I close all tabs and jump to the page
@@ -1719,29 +1719,62 @@ Feature: Auto_Test1
 #      |11020931868|HKD        |
 #    And I close driver
 
-  @Incoming_Payment_999_084before
-  Scenario:Incoming paymen_084before
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23353GGDGBKC0|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the page
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11020931868|CNY        |
-    And I close driver
+#  @Incoming_Payment_999_084after
+#  Scenario:Incoming paymen_084after
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23353KDHBGCML|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the page
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020931868|CNY        |
+#    And I close driver
+#
+#  @Incoming_Payment_999_085before
+#  Scenario:Incoming paymen_085before
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23353LBM0KMFL|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the page
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010006002|
+#    And I close driver
+#
+#
+#  @Incoming_Payment_999_086before
+#  Scenario:Incoming paymen_086before
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23353HGBLKJ0C|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the page
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020931868|AUD        |
+#    And I close driver
 
-  @Incoming_Payment_999_085before
-  Scenario:Incoming paymen_085before
+  @Incoming_Payment_999_093after
+  Scenario:Incoming paymen_093after
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23353LBM0KMFL|
+      |SGL23353DHMGCK0L|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the page
@@ -1752,46 +1785,13 @@ Feature: Auto_Test1
     And I close driver
 
 
-  @Incoming_Payment_999_086before
-  Scenario:Incoming paymen_086before
+  @Incoming_Payment_999_094after
+  Scenario:Incoming paymen_094after
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |
-      |SGL23353HGBLKJ0C|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the page
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11020931868|AUD        |
-    And I close driver
-
-  @Incoming_Payment_999_093before
-  Scenario:Incoming paymen_093before
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23353MCB00GBK|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the page
-    When I enter the account IDCA
-    Then I find account
-      |Arrangement|
-      |11010006002|
-    And I close driver
-
-
-  @Incoming_Payment_999_094before
-  Scenario:Incoming paymen_094before
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL233530CBL0CGD|
+      |SGL23353JGJDFBJK|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the page
