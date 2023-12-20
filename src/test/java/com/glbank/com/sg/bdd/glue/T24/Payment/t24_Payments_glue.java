@@ -721,7 +721,7 @@ public class t24_Payments_glue {
     public void iAssertEnterViewPageToOEOutgoing_Bank_Transfer() throws Exception{
         t24_payments_step.enterView();
 //              //  断言是否进入EnterViewPage
-//        t24_payments_step.assertEnterViewPage();
+ //       t24_payments_step.assertEnterViewPage();
 //       // 查看各个页面的数据
 //        t24_payments_step.clickRoutingformation();
 //        t24_payments_step.clickAdditionalInfoUSD();
