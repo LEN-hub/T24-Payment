@@ -10,22 +10,22 @@ Feature: Amount
     When I click payment hup
     Then I click Account Transfer
     When I Input Transfer Information
-      |Debit Account|Debit Amount|Debit Currency|Credit Account|Credit Currency|Ordering Bank          |
-      |USD14020001  |1000000000  |USD           |11020939559   |AUD            |DBS SINGAPORE TEST     |
+      |Debit Account|Debit Amount   |Debit Currency|Credit Account|Credit Currency|Ordering Bank          |
+      |USD14020001  |1000           |USD           |11020943807   |AED            |DBS SINGAPORE TEST     |
     Then I click pre-submit button
     When I click Accept Overrides
     Then Assert Result whether Successful
-#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-#    When I click User Menu
-#    Then I click payments
-#    When I click payment hup
-#    Then I click Authorise/Delete FT transactions
-#    Then I click search but
-#    Then I input Credit Account No
-#      |Credit Account No|
-#      |11020883537      |
-#    When I click find
-#    Then I click Authorize But
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click User Menu
+    Then I click payments
+    When I click payment hup
+    Then I click Authorise/Delete FT transactions
+    Then I click search but
+    Then I input Credit Account No
+      |Credit Account No|
+      |11020943807      |
+    When I click find
+    Then I click Authorize But
 
 
 
