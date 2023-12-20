@@ -2958,7 +2958,7 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void clickAudit() {
         t24_payments_page.Audit.click();
-        bddUtil.scrollWindowToElement(t24_payments_page.BalanceReservation);
+  //      bddUtil.scrollWindowToElement(t24_payments_page.BalanceReservation);
         bddUtil.sleep(4);
     }
 

@@ -9,7 +9,7 @@ Feature: Auto_Test1
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |DBSSSGS0            |USD                 |100047              |11010005715         |USD                   |56456465        |LEI           |SHAR         |
+      |DBSSSGS0            |USD                 |100147              |11010005715         |USD                   |56456465        |LEI           |SHAR         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11010005715          |LEN&DEB   |honghai     |23456     |teste     |SG            |
