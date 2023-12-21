@@ -2,139 +2,17 @@
 Feature: Auto_Test1
 
 #SIT-1137
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_SHA_047
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_SHA_047
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Outgoing ISO Customer Transfer
-    Then I Assertion enter Outgoing ISO Customer Transfer Page
-    When I Input incomplete information on ISO Customer Transfer Page
-      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |DBSSSGS0            |USD                 |9.47                |11010005715         |USD                   |56456465        |LEI           |SHAR         |
-    Then I input Street Name on the ISO Customer Transfer Page
-      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-      |liyukang   |testabc   |SG              |12345    |11010005715          |LEN&DEB   |honghai     |23456     |teste     |SG            |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
-    When I enter the account IDCA
-    Then I find account
-      |Arrangement|
-      |11010005715|
-    And I close driver
-
-
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_OUR_047
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_OUR_047
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Outgoing ISO Customer Transfer
-    Then I Assertion enter Outgoing ISO Customer Transfer Page
-    When I Input incomplete information on ISO Customer Transfer Page
-      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |DBSSSGS0            |USD                 |9.47                |11010002627         |USD                   |56456465        |LEI           |DEBT         |
-    Then I input Street Name on the ISO Customer Transfer Page
-      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-      |liyukang   |testabc   |SG              |12345    |11010002627          |LEN&DEB   |honghai     |23456     |teste     |SG            |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
-    When I enter the account IDCA
-    Then I find account
-      |Arrangement|
-      |11010002627|
-    And I close driver
-
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_BEN_047
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_BEN_047
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Outgoing ISO Customer Transfer
-    Then I Assertion enter Outgoing ISO Customer Transfer Page
-    When I Input incomplete information on ISO Customer Transfer Page
-      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |DBSSSGS0            |USD                 |9.47                |11010003364         |USD                   |56456465        |LEI           |CRED         |
-    Then I input Street Name on the ISO Customer Transfer Page
-      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-      |liyukang   |testabc   |SG              |12345    |11010003364          |LEN&DEB   |honghai     |23456     |teste     |SG            |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
-    When I enter the account IDCA
-    Then I find account
-      |Arrangement|
-      |11010003364|
-    And I close driver
-
-
-#  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_SHA_048
-#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_SHA_048
+#  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_SHA_047
+#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_SHA_047
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I click Outgoing ISO Customer Transfer
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |DBSSSGS0            |USD                 |7820.48             |11020002182         |USD                   |56456465        |LEI           |SHAR         |
+#      |DBSSSGS0            |USD                 |9.47                |11010005715         |USD                   |56456465        |LEI           |SHAR         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-#      |liyukang   |testabc   |SG              |12345    |11020002182          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+#      |liyukang   |testabc   |SG              |12345    |11010005715          |LEN&DEB   |honghai     |23456     |teste     |SG            |
 #    Then I get OENumber
 #    Then I click pre-submit button
 #    When I click Accept Overrides
@@ -158,24 +36,24 @@ Feature: Auto_Test1
 #    When I close all tabs and jump to the home page
 #    When I enter the Currency Rates List
 #    Then I close all tabs and jump to the home
-#    When I enter the account ID
-#    Then I find account CASGD
-#      |Arrangement|Currency   |
-#      |11020002166|USD        |
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010005715|
 #    And I close driver
 #
 #
-#  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_OUR_048
-#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_OUR_048
+#  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_OUR_047
+#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_OUR_047
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I click Outgoing ISO Customer Transfer
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |DBSSSGS0            |USD                 |40010.48            |11020943491         |USD                   |56456465        |LEI           |DEBT         |
+#      |DBSSSGS0            |USD                 |9.47                |11010002627         |USD                   |56456465        |LEI           |DEBT         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-#      |liyukang   |testabc   |SG              |12345    |11020943491          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+#      |liyukang   |testabc   |SG              |12345    |11010002627          |LEN&DEB   |honghai     |23456     |teste     |SG            |
 #    Then I get OENumber
 #    Then I click pre-submit button
 #    When I click Accept Overrides
@@ -199,23 +77,23 @@ Feature: Auto_Test1
 #    When I close all tabs and jump to the home page
 #    When I enter the Currency Rates List
 #    Then I close all tabs and jump to the home
-#    When I enter the account ID
-#    Then I find account CASGD
-#      |Arrangement|Currency   |
-#      |11020943475|USD        |
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010002627|
 #    And I close driver
 #
-#  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_BEN_048
-#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_BEN_048
+#  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_BEN_047
+#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_BEN_047
 #    Given Use "T24-automation-SIT-login" to login to T24 environment
 #    When I click Outgoing ISO Customer Transfer
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |DBSSSGS0            |USD                 |266450.48           |11020287713         |USD                   |56456465        |LEI           |CRED         |
+#      |DBSSSGS0            |USD                 |9.47                |11010003364         |USD                   |56456465        |LEI           |CRED         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-#      |liyukang   |testabc   |SG              |12345    |11020287713          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+#      |liyukang   |testabc   |SG              |12345    |11010003364          |LEN&DEB   |honghai     |23456     |teste     |SG            |
 #    Then I get OENumber
 #    Then I click pre-submit button
 #    When I click Accept Overrides
@@ -239,12 +117,134 @@ Feature: Auto_Test1
 #    When I close all tabs and jump to the home page
 #    When I enter the Currency Rates List
 #    Then I close all tabs and jump to the home
-#    When I enter the account ID
-#    Then I find account CASGD
-#      |Arrangement|Currency   |
-#      |11020287691|USD        |
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010003364|
 #    And I close driver
-#
+
+
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_SHA_048
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_SHA_048
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page
+      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+      |DBSSSGS0            |USD                 |9.48                |11020002182         |USD                   |56456465        |LEI           |SHAR         |
+    Then I input Street Name on the ISO Customer Transfer Page
+      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+      |liyukang   |testabc   |SG              |12345    |11020002182          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    When I enter the Currency Rates List
+    Then I close all tabs and jump to the home
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11020002166|USD        |
+    And I close driver
+
+
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_OUR_048
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_OUR_048
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page
+      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+      |DBSSSGS0            |USD                 |9.48                |11020943491         |USD                   |56456465        |LEI           |DEBT         |
+    Then I input Street Name on the ISO Customer Transfer Page
+      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+      |liyukang   |testabc   |SG              |12345    |11020943491          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    When I enter the Currency Rates List
+    Then I close all tabs and jump to the home
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11020943475|USD        |
+    And I close driver
+
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_BEN_048
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_BEN_048
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page
+      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+      |DBSSSGS0            |USD                 |9.48                |11020287713         |USD                   |56456465        |LEI           |CRED         |
+    Then I input Street Name on the ISO Customer Transfer Page
+      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+      |liyukang   |testabc   |SG              |12345    |11020287713          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    When I enter the Currency Rates List
+    Then I close all tabs and jump to the home
+    When I enter the account ID
+    Then I find account CASGD
+      |Arrangement|Currency   |
+      |11020287691|USD        |
+    And I close driver
+
 #
 #
 #  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_SHA_049
@@ -254,7 +254,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |DBSSSGS0            |EUR                 |681760.82           |11020936673         |EUR                   |56456465        |LEI           |SHAR         |
+#      |DBSSSGS0            |EUR                 |9.49                |11020936673         |EUR                   |56456465        |LEI           |SHAR         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020936673          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -295,7 +295,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |DBSSSGS0            |EUR                 |2111.67             |11020931698         |EUR                   |56456465        |LEI           |DEBT         |
+#      |DBSSSGS0            |EUR                 |9.49                |11020931698         |EUR                   |56456465        |LEI           |DEBT         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020931698          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -335,7 +335,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |DBSSSGS0            |EUR                 |91350.42            |11020931647         |EUR                   |56456465        |LEI           |CRED         |
+#      |DBSSSGS0            |EUR                 |9.49                |11020931647         |EUR                   |56456465        |LEI           |CRED         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020931647          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -376,7 +376,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |DBSSSGS0            |HKD                 |29050.24            |11020939036         |HKD                   |56456465        |LEI           |SHAR         |
+#      |DBSSSGS0            |HKD                 |9.50                |11020939036         |HKD                   |56456465        |LEI           |SHAR         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020939036          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -417,7 +417,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |DBSSSGS0            |HKD                 |26979.29            |11020938935         |HKD                   |56456465        |LEI           |DEBT         |
+#      |DBSSSGS0            |HKD                 |9.50                |11020938935         |HKD                   |56456465        |LEI           |DEBT         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020938935          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -457,7 +457,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |DBSSSGS0            |HKD                 |5374.87             |11020937955         |HKD                   |56456465        |LEI           |CRED         |
+#      |DBSSSGS0            |HKD                 |9.50                |11020937955         |HKD                   |56456465        |LEI           |CRED         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020937955          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -497,7 +497,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |DBSSSGS0            |CNY                 |3010.39             |11020938943         |CNY                   |56456465        |LEI           |SHAR         |
+#      |DBSSSGS0            |CNY                 |9.51                |11020938943         |CNY                   |56456465        |LEI           |SHAR         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020938943          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -538,7 +538,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |DBSSSGS0            |CNY                 |26091.96            |11020939044         |CNY                   |56456465        |LEI           |DEBT         |
+#      |DBSSSGS0            |CNY                 |9.51            |11020939044         |CNY                   |56456465        |LEI           |DEBT         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020939044          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -578,7 +578,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |DBSSSGS0            |CNY                 |1680.28             |11020937947         |CNY                   |56456465        |LEI           |CRED         |
+#      |DBSSSGS0            |CNY                 |9.51                |11020937947         |CNY                   |56456465        |LEI           |CRED         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020937947          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -618,7 +618,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |ANZBAU30            |AUD                 |901                 |11020943815         |AUD                   |56456465        |LEI           |SHAR         |
+#      |ANZBAU30            |AUD                 |9.52                |11020943815         |AUD                   |56456465        |LEI           |SHAR         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020943815          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -659,7 +659,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |ANZBAU30            |AUD                 |902                 |11020943831         |AUD                   |56456465        |LEI           |DEBT         |
+#      |ANZBAU30            |AUD                 |9.52                |11020943831         |AUD                   |56456465        |LEI           |DEBT         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020943831          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -699,7 +699,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |ANZBAU30            |AUD                 |903                 |11020943866         |AUD                   |56456465        |LEI           |CRED         |
+#      |ANZBAU30            |AUD                 |9.52                |11020943866         |AUD                   |56456465        |LEI           |CRED         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020943866          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -743,7 +743,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |ANZBAU30            |AUD                 |1001                |11010006800         |AUD                   |56456465        |LEI           |SHAR         |
+#      |ANZBAU30            |AUD                 |9.53                |11010006800         |AUD                   |56456465        |LEI           |SHAR         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11010006800          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -784,7 +784,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |ANZBAU30            |AUD                 |1002                |11010006819         |AUD                   |56456465        |LEI           |DEBT         |
+#      |ANZBAU30            |AUD                 |9.53                |11010006819         |AUD                   |56456465        |LEI           |DEBT         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11010006819          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -824,7 +824,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |ANZBAU30            |AUD                 |1003                |11010006827         |AUD                   |56456465        |LEI           |CRED         |
+#      |ANZBAU30            |AUD                 |9.53                |11010006827         |AUD                   |56456465        |LEI           |CRED         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11010006827          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -866,7 +866,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |EBILAEA0            |AED                 |901                 |11020943823         |AED                   |56456465        |LEI           |SHAR         |
+#      |EBILAEA0            |AED                 |9.54                |11020943823         |AED                   |56456465        |LEI           |SHAR         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020943823          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -907,7 +907,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |EBILAEA0            |AED                 |902                 |11020943858         |AED                   |56456465        |LEI           |DEBT         |
+#      |EBILAEA0            |AED                 |9.54                |11020943858         |AED                   |56456465        |LEI           |DEBT         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020943858          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -947,7 +947,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |EBILAEA0            |AED                 |903                 |11020943874         |AED                   |56456465        |LEI           |CRED         |
+#      |EBILAEA0            |AED                 |9.54                |11020943874         |AED                   |56456465        |LEI           |CRED         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11020943874          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -991,7 +991,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |EBILAEA0            |AED                 |1001                |11010006770         |AED                   |56456465        |LEI           |SHAR         |
+#      |EBILAEA0            |AED                 |9.55                |11010006770         |AED                   |56456465        |LEI           |SHAR         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11010006770          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -1032,7 +1032,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |EBILAEA0            |AED                 |1002                |11010006835         |AED                   |56456465        |LEI           |DEBT         |
+#      |EBILAEA0            |AED                 |9.55                |11010006835         |AED                   |56456465        |LEI           |DEBT         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11010006835          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -1072,7 +1072,7 @@ Feature: Auto_Test1
 #    Then I Assertion enter Outgoing ISO Customer Transfer Page
 #    When I Input incomplete information on ISO Customer Transfer Page
 #      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-#      |EBILAEA0            |AED                 |1003                |11010006843         |AED                   |56456465        |LEI           |CRED         |
+#      |EBILAEA0            |AED                 |9.55                |11010006843         |AED                   |56456465        |LEI           |CRED         |
 #    Then I input Street Name on the ISO Customer Transfer Page
 #      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
 #      |liyukang   |testabc   |SG              |12345    |11010006843          |LEN&DEB   |honghai     |23456     |teste     |SG            |
