@@ -611,18 +611,142 @@ Feature: Auto_Test1
 #      |11020937904|CNY        |
 #    And I close driver
 
+#  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_SHA_052
+#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_SHA_052
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |ANZBAU30            |AUD                 |3010.39             |11020938943         |AUD                   |56456465        |LEI           |SHAR         |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+#      |liyukang   |testabc   |SG              |12345    |11020938943          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020938862|AUD        |
+#    And I close driver
+#
+#
+#  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_OUR_052
+#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_OUR_052
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |ANZBAU30            |AUD                 |26091.96            |11020939044         |AUD                   |56456465        |LEI           |DEBT         |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+#      |liyukang   |testabc   |SG              |12345    |11020939044          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020938897|AUD        |
+#    And I close driver
+#
+#  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_BEN_052
+#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_BEN_052
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Customer Transfer
+#    Then I Assertion enter Outgoing ISO Customer Transfer Page
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |ANZBAU30            |AUD                 |1680.28             |11020937947         |AUD                   |56456465        |LEI           |CRED         |
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+#      |liyukang   |testabc   |SG              |12345    |11020937947          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020937904|AUD        |
+#    And I close driver
+#
 
-  @Payment_OE_Outgoing_ISO_Bank_Transfer_CA_036after
-  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_CA_036after
+
+
+
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_SHA_053
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_SHA_053
     Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Outgoing ISO Bank Transfer
-    Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |DBSSSGS0            |USD                 |9000036           |11010005456         |4656465         |CITISGS0    |New&(2)',.e  |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
-      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page
+      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+      |ANZBAU30            |AUD                 |1001                |11010006800         |AUD                   |56456465        |LEI           |SHAR         |
+    Then I input Street Name on the ISO Customer Transfer Page
+      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+      |liyukang   |testabc   |SG              |12345    |11010006800          |LEN&DEB   |honghai     |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -638,10 +762,10 @@ Feature: Auto_Test1
     Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find
-    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+    When I Assert enter View Page
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
     When I enter the Currency Rates List
@@ -649,20 +773,21 @@ Feature: Auto_Test1
     When I enter the account IDCA
     Then I find account
       |Arrangement|
-      |11010005456|
+      |11010006800|
     And I close driver
 
-  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_037after
-  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_037after
+
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_OUR_0053
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_OUR_0053
     Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Outgoing ISO Bank Transfer
-    Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |DBSSSGS0            |USD                 |9037              |11020883537         |4656465         |CITISGS0    |New&(2)',.e  |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
-      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page
+      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+      |ANZBAU30            |AUD                 |1002                |11010006819         |AUD                   |56456465        |LEI           |DEBT         |
+    Then I input Street Name on the ISO Customer Transfer Page
+      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+      |liyukang   |testabc   |SG              |12345    |11010006819          |LEN&DEB   |honghai     |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -678,212 +803,10 @@ Feature: Auto_Test1
     Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page to OE Outgoing_Bank_Transfer
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11020880570|USD        |
-    And I close driver
-
-  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_038after
-  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_038after
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Outgoing ISO Bank Transfer
-    Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |DBSSSGS0            |EUR                 |9000038           |11020938838         |4656465         |CITISGS0    |New&(2)',.e  |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
-      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
     Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find
-    When I Assert enter View Page to OE Outgoing_Bank_Transfer
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11020880570|EUR        |
-    And I close driver
-
-  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_039after
-  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_039after
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Outgoing ISO Bank Transfer
-    Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |DBSSSGS0            |HKD                 |9039              |11020938846         |4656465         |CITISGS0    |New&(2)',.e  |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
-      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page to OE Outgoing_Bank_Transfer
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11020880570|HKD        |
-    And I close driver
-
-  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_040after
-  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_040after
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Outgoing ISO Bank Transfer
-    Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |DBSSSGS0            |CNY                 |9000040           |11020938854         |4656465         |CITISGS0    |New&(2)',.e  |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
-      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page to OE Outgoing_Bank_Transfer
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11020880570|CNY        |
-    And I close driver
-
-  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_041after
-  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_041after
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Outgoing ISO Bank Transfer
-    Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |ANZBAU30            |AUD                 |9041              |11020939559         |4656465         |CITISGS0    |New&(2)',.e  |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
-      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page to OE Outgoing_Bank_Transfer
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11020880570|AUD        |
-    And I close driver
-
-
-
-  @Payment_OE_Outgoing_ISO_Bank_Transfer_CA_042after
-  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_CA_042after
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Outgoing ISO Bank Transfer
-    Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |ANZBAU30            |AUD                 |9000042           |11010006053         |4656465         |CITISGS0    |New&(2)',.e  |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
-      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+    When I Assert enter View Page
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
     When I enter the Currency Rates List
@@ -891,20 +814,20 @@ Feature: Auto_Test1
     When I enter the account IDCA
     Then I find account
       |Arrangement|
-      |11010006053|
+      |11010006819|
     And I close driver
 
-  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_043after
-  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_043after
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_BEN_0053
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_BEN_0053
     Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Outgoing ISO Bank Transfer
-    Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |EBILAEA0            |AED                 |9043              |11020943602         |4656465         |CITISGS0    |New&(2)',.e  |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
-      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page
+      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+      |ANZBAU30            |AUD                 |1003                |11010006827         |AUD                   |56456465        |LEI           |CRED         |
+    Then I input Street Name on the ISO Customer Transfer Page
+      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+      |liyukang   |testabc   |SG              |12345    |11010006827          |LEN&DEB   |honghai     |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -920,52 +843,10 @@ Feature: Auto_Test1
     Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page to OE Outgoing_Bank_Transfer
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
-    When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11020880570|AED        |
-    And I close driver
-
-
-
-  @Payment_OE_Outgoing_ISO_Bank_Transfer_CA_044after
-  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_CA_044after
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Outgoing ISO Bank Transfer
-    Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |EBILAEA0            |AED                 |9000044           |11010006614         |4656465         |CITISGS0    |New&(2)',.e  |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
-      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
-    Then I get OENumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
     Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find
-    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+    When I Assert enter View Page
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
     When I enter the Currency Rates List
@@ -973,8 +854,377 @@ Feature: Auto_Test1
     When I enter the account IDCA
     Then I find account
       |Arrangement|
-      |11010006614|
+      |11010006827|
     And I close driver
+
+
+
+
+
+
+#  @Payment_OE_Outgoing_ISO_Bank_Transfer_CA_036after
+#  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_CA_036after
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |DBSSSGS0            |USD                 |9000036           |11010005456         |4656465         |CITISGS0    |New&(2)',.e  |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
+#      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010005456|
+#    And I close driver
+#
+#  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_037after
+#  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_037after
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |DBSSSGS0            |USD                 |9037              |11020883537         |4656465         |CITISGS0    |New&(2)',.e  |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
+#      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020880570|USD        |
+#    And I close driver
+#
+#  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_038after
+#  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_038after
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |DBSSSGS0            |EUR                 |9000038           |11020938838         |4656465         |CITISGS0    |New&(2)',.e  |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
+#      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020880570|EUR        |
+#    And I close driver
+#
+#  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_039after
+#  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_039after
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |DBSSSGS0            |HKD                 |9039              |11020938846         |4656465         |CITISGS0    |New&(2)',.e  |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
+#      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020880570|HKD        |
+#    And I close driver
+#
+#  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_040after
+#  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_040after
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |DBSSSGS0            |CNY                 |9000040           |11020938854         |4656465         |CITISGS0    |New&(2)',.e  |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
+#      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020880570|CNY        |
+#    And I close driver
+#
+#  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_041after
+#  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_041after
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |ANZBAU30            |AUD                 |9041              |11020939559         |4656465         |CITISGS0    |New&(2)',.e  |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
+#      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020880570|AUD        |
+#    And I close driver
+#
+#
+#
+#  @Payment_OE_Outgoing_ISO_Bank_Transfer_CA_042after
+#  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_CA_042after
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |ANZBAU30            |AUD                 |9000042           |11010006053         |4656465         |CITISGS0    |New&(2)',.e  |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
+#      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010006053|
+#    And I close driver
+#
+#  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_043after
+#  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_043after
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |EBILAEA0            |AED                 |9043              |11020943602         |4656465         |CITISGS0    |New&(2)',.e  |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
+#      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account ID
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11020880570|AED        |
+#    And I close driver
+#
+#
+#
+#  @Payment_OE_Outgoing_ISO_Bank_Transfer_CA_044after
+#  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_CA_044after
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Outgoing ISO Bank Transfer
+#    Then I enter Outgoing ISO Bank Transfer Page
+#    When I Input incomplete information on Outgoing ISO Bank Transfer Page
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |EBILAEA0            |AED                 |9000044           |11010006614         |4656465         |CITISGS0    |New&(2)',.e  |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+#      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
+#      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+#    Then I get OENumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to OE Outgoing_Bank_Transfer
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account IDCA
+#    Then I find account
+#      |Arrangement|
+#      |11010006614|
+#    And I close driver
 
 #  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before007
 #  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before007
