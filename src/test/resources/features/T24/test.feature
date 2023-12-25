@@ -2442,14 +2442,14 @@ Feature: Auto_Test1
 #      |11020880570|USD        |
 #    And I close driver
 
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_after022
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_after022
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_before022
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_before022
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |ANZBAU30            |AUD                 |9022                |11020939559         |AUD                   |56456465        |LEI           |SHAR         |
+      |ANZBAU30            |AUD                 |9000022             |11020939559         |AUD                   |56456465        |LEI           |SHAR         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11020939559          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -2483,14 +2483,14 @@ Feature: Auto_Test1
     And I close driver
 
 
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_after0023
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_after0023
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_before0023
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_before0023
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |ANZBAU30            |AUD                 |9023                |11020939559         |AUD                   |56456465        |LEI           |DEBT         |
+      |ANZBAU30            |AUD                 |9000023             |11020939559         |AUD                   |56456465        |LEI           |DEBT         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11020939559          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -2523,14 +2523,14 @@ Feature: Auto_Test1
       |11020880570|AUD        |
     And I close driver
 
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_after024
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_after024
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_before024
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_before024
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |ANZBAU30            |AUD                 |9024                |11020939559         |AUD                   |56456465        |LEI           |CRED         |
+      |ANZBAU30            |AUD                 |9000024             |11020939559         |AUD                   |56456465        |LEI           |CRED         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11020939559          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -2563,14 +2563,14 @@ Feature: Auto_Test1
       |11020880570|AUD        |
     And I close driver
 
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after025
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after025
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before025
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before025
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |ANZBAU30            |AUD                 |9000025             |11010006053         |AUD                   |56456465        |LEI           |SHAR         |
+      |ANZBAU30            |AUD                 |9025                |11010006053         |AUD                   |56456465        |LEI           |SHAR         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11010006053          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -2604,14 +2604,14 @@ Feature: Auto_Test1
     And I close driver
 
 
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after026
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after026
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before026
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before026
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |ANZBAU30            |AUD                 |9000026             |11010006053         |AUD                   |56456465        |LEI           |DEBT         |
+      |ANZBAU30            |AUD                 |9026                |11010006053         |AUD                   |56456465        |LEI           |DEBT         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11010006053          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -2644,14 +2644,14 @@ Feature: Auto_Test1
       |11010006053|
     And I close driver
 
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after027
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after027
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before027
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before027
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |ANZBAU30            |AUD                 |9000027             |11010006053         |AUD                   |56456465        |LEI           |CRED         |
+      |ANZBAU30            |AUD                 |9027                |11010006053         |AUD                   |56456465        |LEI           |CRED         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11010006053          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -2684,14 +2684,14 @@ Feature: Auto_Test1
       |11010006053|
     And I close driver
 
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_after028
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_after028
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_before028
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_before028
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |EBILAEA0            |AED                 |9028                |11020943602         |AED                   |56456465        |LEI           |SHAR         |
+      |EBILAEA0            |AED                 |9000028             |11020943602         |AED                   |56456465        |LEI           |SHAR         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11020943602          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -2725,14 +2725,14 @@ Feature: Auto_Test1
     And I close driver
 
 
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_after0029
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_after0029
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_before0029
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_before0029
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |EBILAEA0            |AED                 |9029                |11020943602         |AED                   |56456465        |LEI           |DEBT         |
+      |EBILAEA0            |AED                 |9000029             |11020943602         |AED                   |56456465        |LEI           |DEBT         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11020943602          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -2765,14 +2765,14 @@ Feature: Auto_Test1
       |11020880570|AED        |
     And I close driver
 
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_after030
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_after030
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_before030
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA_before030
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |EBILAEA0            |AED                 |9030                |11020943602         |AED                   |56456465        |LEI           |CRED         |
+      |EBILAEA0            |AED                 |9000030             |11020943602         |AED                   |56456465        |LEI           |CRED         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11020943602          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -2805,14 +2805,14 @@ Feature: Auto_Test1
       |11020880570|AED        |
     And I close driver
 
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after031
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after031
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before031
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before031
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |EBILAEA0            |AED                 |9000031             |11010006614         |AED                   |56456465        |LEI           |SHAR         |
+      |EBILAEA0            |AED                 |9031                |11010006614         |AED                   |56456465        |LEI           |SHAR         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11010006614          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -2846,14 +2846,14 @@ Feature: Auto_Test1
     And I close driver
 
 
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after032
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after032
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before032
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before032
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |EBILAEA0            |AED                 |9000032             |11010006614         |AED                   |56456465        |LEI           |DEBT         |
+      |EBILAEA0            |AED                 |9032                |11010006614         |AED                   |56456465        |LEI           |DEBT         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11010006614          |LEN&DEB   |honghai     |23456     |teste     |SG            |
@@ -2886,14 +2886,14 @@ Feature: Auto_Test1
       |11010006614|
     And I close driver
 
-  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after033
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_after033
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before033
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA_before033
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
       |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |EBILAEA0            |AED                 |9000033             |11010006614         |AED                   |56456465        |LEI           |CRED         |
+      |EBILAEA0            |AED                 |9033                |11010006614         |AED                   |56456465        |LEI           |CRED         |
     Then I input Street Name on the ISO Customer Transfer Page
       |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
       |liyukang   |testabc   |SG              |12345    |11010006614          |LEN&DEB   |honghai     |23456     |teste     |SG            |
