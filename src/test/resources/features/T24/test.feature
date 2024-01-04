@@ -1347,14 +1347,14 @@ Feature: Auto_Test1
 #    And I close driver
 
 
-  @Payment_OE_Outgoing_ISO_Bank_Transfer_CA_034before
-  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_CA_034before
+  @Payment_OE_Outgoing_ISO_Bank_Transfer_CA_034after
+  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_CA_034after
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Bank Transfer
     Then I enter Outgoing ISO Bank Transfer Page
     When I Input incomplete information on Outgoing ISO Bank Transfer Page
       |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |DBSSSGS0            |SGD                 |934               |11010004964         |4656465         |CITISGS0    |New&(2)',.e  |
+      |DBSSSGS0            |SGD                 |3000034           |11010004964         |4656465         |CITISGS0    |New&(2)',.e  |
     When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
       |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
       |jia&(1)',.1H|123       |FR        |SG               |                |                         |
@@ -1387,14 +1387,14 @@ Feature: Auto_Test1
       |11010004964|
     And I close driver
 
-  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_035before
-  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_035before
+  @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_035after
+  Scenario:Payment_OE_Outgoing_ISO_Bank_Transfer_MCA_035after
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Outgoing ISO Bank Transfer
     Then I enter Outgoing ISO Bank Transfer Page
     When I Input incomplete information on Outgoing ISO Bank Transfer Page
       |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |DBSSSGS0            |SGD                 |3000035           |11020883472         |4656465         |CITISGS0    |New&(2)',.e  |
+      |DBSSSGS0            |SGD                 |3035              |11020883472         |4656465         |CITISGS0    |New&(2)',.e  |
     When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
       |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
       |jia&(1)',.1H|123       |FR        |SG               |                |                         |
