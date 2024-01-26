@@ -1256,5 +1256,11 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//img[@title='Go']")
     public WebElementFacade Listgo;
 
+    @FindBy(xpath = "//label[@for='fieldName:OutputChannel']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade OutputChannel;
+
+    @FindBy(xpath = "//a[text()='BIC']/parent::label/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade BICInput;
+
 
 }

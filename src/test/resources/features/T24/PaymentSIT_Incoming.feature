@@ -5,16 +5,18 @@ Feature: Payment InComing
   Scenario:Incoming payment-999
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-    |FTNumber        |
-    |SGL23237HFFCBKBB|
+    Then I input FTNumber and click Find On Incoming "1"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
     Then I click find account
-    When I input Arrangement
-      |Arrangement    |
-      |11020931884    |
+    When I input Arrangement "1"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020931884    |
     When I click Find Butt
     Then Assert enter Account Details Page
 
@@ -46,9 +48,10 @@ Feature: Payment InComing
   Scenario:Incoming payment-235
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205HFBG00LG|
+    Then I input FTNumber and click Find On Incoming "1"
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23205HFBG00LG|
     When I change status code SGD
     Then I close driver
     Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
@@ -57,16 +60,18 @@ Feature: Payment InComing
     And I close driver
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
-      |FTNumber        |
-      |SGL23205HFBG00LG|
+    Then I input FTNumber and click Find On Incoming "1"
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL23205HFBG00LG|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
     Then I click find account
-    When I input Arrangement
-      |Arrangement    |
-      |11010003267    |
+    When I input Arrangement "1"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11010003267    |
     When I click Find Butt
     Then Assert enter Account Details Page
 
@@ -74,7 +79,7 @@ Feature: Payment InComing
   Scenario:Incoming payment-235Multi_Currency
     Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming
+    Then I input FTNumber and click Find On Incoming "1"
       |FTNumber        |
       |SGL23136MDHJDDKF|
     When I change status code SGD

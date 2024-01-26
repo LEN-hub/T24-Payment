@@ -11,12 +11,14 @@ Feature: Outgoing Customer Transfer
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
-    When I Input incomplete information on ISO Customer Transfer Page
-      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |EBILAEA0            |AED                 |906                 |11010006762         |AED                   |56456465        |LEI           |SHAR         |
-    Then I input Street Name on the ISO Customer Transfer Page
-      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+    When I Input incomplete information on ISO Customer Transfer Page "1"
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |EBILAEA0            |AED                 |906                 |11010006762         |AED                   |56456465        |LEI           |SHAR         |
+    Then I input Street Name on the ISO Customer Transfer Page "1"
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+#      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -41,7 +43,8 @@ Feature: Outgoing Customer Transfer
     When I enter the Currency Rates List
     Then I close all tabs and jump to the home
     When I enter the account IDCA
-    Then I find account
+    Then I find account "1"
+#    Then I find account
       |Arrangement|
       |11010006762|
     And I close driver
@@ -52,12 +55,12 @@ Feature: Outgoing Customer Transfer
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
-    When I Input incomplete information on ISO Customer Transfer Page
-      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-      |EBILAEA0            |AED                 |90                  |11010006762         |AED                   |56456465        |LEI           |SHAR         |
-    Then I input Street Name on the ISO Customer Transfer Page
-      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+    When I Input incomplete information on ISO Customer Transfer Page "1"
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |EBILAEA0            |AED                 |90                  |11010006762         |AED                   |56456465        |LEI           |SHAR         |
+    Then I input Street Name on the ISO Customer Transfer Page "1"
+#      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+#      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -82,9 +85,10 @@ Feature: Outgoing Customer Transfer
     When I enter the Currency Rates List
     Then I close all tabs and jump to the home
     When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11021162884|AED        |
+    Then I find account CASGD "1"
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|AED        |
     And I close driver
 
 
@@ -93,12 +97,13 @@ Feature: Outgoing Customer Transfer
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing ISO Bank Transfer
     Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |EBILAEA0            |AED                 |901               |11010006762         |4656465         |CITISGS0    |New&(2)',.e  |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
-      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+    When I Input incomplete information on Outgoing ISO Bank Transfer Page "1"
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |EBILAEA0            |AED                 |901               |11010006762         |4656465         |CITISGS0    |New&(2)',.e  |
+#    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
+    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page "1"
+#      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
+#      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -123,9 +128,10 @@ Feature: Outgoing Customer Transfer
     When I enter the Currency Rates List
     Then I close all tabs and jump to the home
     When I enter the account IDCA
-    Then I find account
-      |Arrangement|
-      |11010006762|
+    Then I find account ISO Bank "1"
+#    Then I find account ISO Bank
+#      |Arrangement|
+#      |11010006762|
     And I close driver
 
   @Payment_OE_Outgoing_ISO_Bank_Transfer_MCA
@@ -133,12 +139,12 @@ Feature: Outgoing Customer Transfer
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing ISO Bank Transfer
     Then I enter Outgoing ISO Bank Transfer Page
-    When I Input incomplete information on Outgoing ISO Bank Transfer Page
-      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
-      |EBILAEA0            |AED                 |901               |11010006762         |4656465         |CITISGS0    |New&(2)',.e  |
-    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page
-      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
-      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
+    When I Input incomplete information on Outgoing ISO Bank Transfer Page "1"
+#      |Instructed Agent BIC|Transaction Currency|Transaction Amount|Debit Account Number|Creditor Account|Creditor Bic|Creditor Name|
+#      |EBILAEA0            |AED                 |901               |11010006762         |4656465         |CITISGS0    |New&(2)',.e  |
+    When I Input Sender's Reference on Outgoing ISO Bank Transfer Page "1"
+#      |Street Name2|Post Code2|Town Name3|Creditor Country3|Sender Reference|End To End Identification|
+#      |jia&(1)',.1H|123       |FR        |SG               |                |                         |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -163,9 +169,10 @@ Feature: Outgoing Customer Transfer
     When I enter the Currency Rates List
     Then I close all tabs and jump to the home
     When I enter the account ID
-    Then I find account CASGD
-      |Arrangement|Currency   |
-      |11021162884|AED        |
+    Then I find account CASGD ISO Bank "1"
+#    Then I find account CASGD ISO Bank
+#      |Arrangement|Currency   |
+#      |11021162884|AED        |
     And I close driver
 
 
@@ -362,12 +369,12 @@ Feature: Outgoing Customer Transfer
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
-    When I Input incomplete information on ISO Customer Transfer Page
-      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
-      |DBSSSGS0            |SGD                 |200                 |11010001981         |SGD                   |56456465        |Best & Good etc|
-    Then I input Street Name on the ISO Customer Transfer Page
-      |Street Name|Town Name |Creditor Country|
-      |liyukang   |testabc   |SG              |
+    When I Input incomplete information on ISO Customer Transfer Page "1"
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
+#      |DBSSSGS0            |SGD                 |200                 |11010001981         |SGD                   |56456465        |Best & Good etc|
+    Then I input Street Name on the ISO Customer Transfer Page "1"
+#      |Street Name|Town Name |Creditor Country|
+#      |liyukang   |testabc   |SG              |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
@@ -423,12 +430,12 @@ Feature: Outgoing Customer Transfer
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
-    When I Input incomplete information on ISO Customer Transfer Page
-      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
-      |DBSSSGS0            |SGD                 |200                 |11010001981         |SGD                   |56456465        |Kang           |
-    Then I input Street Name on the ISO Customer Transfer Page
-      |Street Name       |Town Name         |Creditor Country|
-      |Best & Good etc   |Best & Good etc   |SG              |
+    When I Input incomplete information on ISO Customer Transfer Page "1"
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name  |
+#      |DBSSSGS0            |SGD                 |200                 |11010001981         |SGD                   |56456465        |Kang           |
+    Then I input Street Name on the ISO Customer Transfer Page "1"
+#      |Street Name       |Town Name         |Creditor Country|
+#      |Best & Good etc   |Best & Good etc   |SG              |
     Then I get OENumber
     Then I click pre-submit button
     When I click Accept Overrides
