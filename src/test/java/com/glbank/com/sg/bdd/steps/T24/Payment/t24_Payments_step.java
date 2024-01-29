@@ -4236,10 +4236,14 @@ public class t24_Payments_step extends ScenarioSteps {
         } else if (Currency.equals("AED")) {
             t24_payments_page.CAAED.click();
             bddUtil.sleep(5);
+<<<<<<< HEAD
         }else if (Currency.equals("GBP")) {
             t24_payments_page.CAGBP.click();
             bddUtil.sleep(5);
         }  else {
+=======
+        } else {
+>>>>>>> 57e22a67a767266cf3215e58637ac94857cd934f
             t24_payments_page.CAEUR.click();
             bddUtil.sleep(5);
         }
