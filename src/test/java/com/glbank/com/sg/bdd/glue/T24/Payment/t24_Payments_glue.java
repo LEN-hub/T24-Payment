@@ -22,6 +22,7 @@ public class t24_Payments_glue {
     private t24_Payments_step t24_payments_step;
     public static String envTag;
     public BDDUtil bddUtil;
+    public static int count;
 
     @When("^I expand the User Menu menu on the page$")
     public void iExpandTheUserMenuMenuOnThePage() {
@@ -491,10 +492,14 @@ public class t24_Payments_glue {
     }
 
     @When("^I Input incomplete information on ISO Customer Transfer Page$")
-    public void iInputIncompleteInformationOnISOCustomerTransferPage(DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputInformationOnCustomerTransferPage(maps.get(0).get("Instructed Agent Bic"),maps.get(0).get("Transaction Currency"),maps.get(0).get("Transaction Amount"),maps.get(0).get("Debit Account Number"),maps.get(0).get("Debit Account Currency"),maps.get(0).get("Creditor Account"),maps.get(0).get("Creditor Name"),maps.get(0).get("Charge Option"));
+    public void iInputIncompleteInformationOnISOCustomerTransferPage() {
+        //参数化Excel
+        t24_payments_step.inputInformationOnCustomerTransferPage();
+    }
 
+    @When("^I Input incomplete information on ISO Customer Transfer Page \"([^\"]*)\"$")
+    public void iInputIncompleteInformationOnISOCustomerTransferPage(int arg0) {
+        t24_payments_step.inputInformationOnCustomerTransferPageTest(arg0);
     }
 
     @Then("^I click pre-submit button$")
@@ -526,7 +531,11 @@ public class t24_Payments_glue {
     public void iInputFTNumberAndClickFindOnIncoming(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         t24_payments_step.inputFTNumberClickFindOnIncoming(maps.get(0).get("FTNumber"));
+    }
 
+    @Then("^I input FTNumber and click Find On Incoming \"([^\"]*)\"$")
+    public void iInputFTNumberAndClickFindOnIncoming(int arg0){
+        t24_payments_step.inputFTNumberClickFindOnIncomingTest(arg0);
     }
 
     @Then("^I input FTNumber and click Find Authorise$")
@@ -622,10 +631,17 @@ public class t24_Payments_glue {
     }
 
     @Then("^I input Street Name on the ISO Customer Transfer Page$")
-    public void iInputStreetNameOnTheISOCustomerTransferPage(DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+    public void iInputStreetNameOnTheISOCustomerTransferPage() {
         t24_payments_step.clickDetails();
-        t24_payments_step.inputStreetName(maps.get(0).get("Street Name"),maps.get(0).get("Town Name"),maps.get(0).get("Creditor Country"),maps.get(0).get("Post Code"),maps.get(0).get("Debit Account Number1"),maps.get(0).get("Debit Name"),maps.get(0).get("Street Name1"),maps.get(0).get("Post Code1"),maps.get(0).get("Town Name1"),maps.get(0).get("Debtor Country"));
+        //参数化Excel
+        t24_payments_step.inputStreetName();
+    }
+
+    @Then("^I input Street Name on the ISO Customer Transfer Page \"([^\"]*)\"$")
+    public void iInputStreetNameOnTheISOCustomerTransferPage(int arg0) throws Throwable {
+        t24_payments_step.clickDetails();
+        //参数化Excel
+        t24_payments_step.inputStreetNameTest(arg0);
     }
 
     @When("^I click Outgoing Customer Transfer$")
@@ -745,15 +761,25 @@ public class t24_Payments_glue {
     }
 
     @When("^I Input incomplete information on Outgoing ISO Bank Transfer Page$")
-    public void iInputIncompleteInformationOnOutgoingISOBankTransferPage(DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputInformationOnOutgoingISOBankTransfer(maps.get(0).get("Instructed Agent BIC"),maps.get(0).get("Transaction Currency"),maps.get(0).get("Transaction Amount"),maps.get(0).get("Debit Account Number"),maps.get(0).get("Creditor Account"),maps.get(0).get("Creditor Bic"),maps.get(0).get("Creditor Name"));
+    public void iInputIncompleteInformationOnOutgoingISOBankTransferPage() {
+        t24_payments_step.inputInformationOnOutgoingISOBankTransfer();
+    }
+
+    @When("^I Input incomplete information on Outgoing ISO Bank Transfer Page \"([^\"]*)\"$")
+    public void iInputIncompleteInformationOnOutgoingISOBankTransferPage(int count) {
+        // Write code here that turns the phrase above into concrete actions
+        t24_payments_step.inputInformationOnOutgoingISOBankTransferTest(count);
+
     }
 
     @When("^I Input Sender's Reference on Outgoing ISO Bank Transfer Page$")
-    public void iInputSenderSReferenceOnOutgoingISOBankTransferPage(DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputSendersReference(maps.get(0).get("Street Name2"),maps.get(0).get("Post Code2"),maps.get(0).get("Town Name3"),maps.get(0).get("Creditor Country3"),maps.get(0).get("Sender Reference"),maps.get(0).get("End To End Identification"));
+    public void iInputSenderSReferenceOnOutgoingISOBankTransferPage() {
+        t24_payments_step.inputSendersReference();
+    }
+
+    @When("^I Input Sender's Reference on Outgoing ISO Bank Transfer Page \"([^\"]*)\"$")
+    public void iInputSenderSReferenceOnOutgoingISOBankTransferPage(int count) {
+        t24_payments_step.inputSendersReferenceTest(count);
     }
 
     @Then("^I get OENumber$")
@@ -781,23 +807,35 @@ public class t24_Payments_glue {
     }
 
     @When("^I input information on the Loan Disbursement External Page$")
-    public void iInputInformationOnTheLoanDisbursementExternalPage(DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputLoanDisbursementExternal(maps.get(0).get("Debit Account Number"),maps.get(0).get("Debit Currency"),maps.get(0).get("Payment Currency"),maps.get(0).get("Payment Amount"),maps.get(0).get("Beneficiary Country Code"));
+    public void iInputInformationOnTheLoanDisbursementExternalPage() {
+        t24_payments_step.inputLoanDisbursementExternal();
+    }
 
+    @When("^I input information on the Loan Disbursement External Page \"([^\"]*)\"$")
+    public void iInputInformationOnTheLoanDisbursementExternalPage(int arg0) {
+        t24_payments_step.inputLoanDisbursementExternalTest(arg0);
     }
 
     @Then("^I input information on the Beneficiary Details Page$")
-    public void iInputInformationOnTheBeneficiaryDetailsPage(DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputBeneficiaryDetailsPage(maps.get(0).get("Beneficiary Account No"),maps.get(0).get("Beneficiary Name"));
+    public void iInputInformationOnTheBeneficiaryDetailsPage() {
+        t24_payments_step.inputBeneficiaryDetailsPage();
+    }
+
+    @Then("^I input information on the Beneficiary Details Page \"([^\"]*)\"$")
+    public void iInputInformationOnTheBeneficiaryDetailsPage(int arg0)  {
+        t24_payments_step.inputBeneficiaryDetailsPageTest(arg0);
     }
 
     @When("^I enter Routing Details Page and added information$")
-    public void iEnterRoutingDetailsPageAndAddedInformation(DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
+    public void iEnterRoutingDetailsPageAndAddedInformation() {
         t24_payments_step.clickRoutingDetails();
-        t24_payments_step.inputInformationOnRoutingDetail(maps.get(0).get("Account with Bank BIC"),maps.get(0).get("Account With Town Name"),maps.get(0).get("Account with Bank Country"));
+        t24_payments_step.inputInformationOnRoutingDetail();
+    }
+
+    @When("^I enter Routing Details Page and added information \"([^\"]*)\"$")
+    public void iEnterRoutingDetailsPageAndAddedInformation(int arg0)  {
+        t24_payments_step.clickRoutingDetails();
+        t24_payments_step.inputInformationOnRoutingDetailTest(arg0);
     }
 
     @Then("^I get LoanPINumber$")
@@ -837,15 +875,23 @@ public class t24_Payments_glue {
     }
 
     @When("^I input information on the Loan Disbursement SGMEPS Page$")
-    public void iInputInformationOnTheLoanDisbursementSGMEPSPage(DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputLoanDisbursementSGMEPS(maps.get(0).get("Debit Account Number"),maps.get(0).get("Debit Currency"),maps.get(0).get("Payment Currency"),maps.get(0).get("Payment Amount"),maps.get(0).get("Beneficiary Account No"),maps.get(0).get("Beneficiary Bank BIC"),maps.get(0).get("Beneficiary Name"));
+    public void iInputInformationOnTheLoanDisbursementSGMEPSPage() {
+        t24_payments_step.inputLoanDisbursementSGMEPS();
+    }
+
+    @When("^I input information on the Loan Disbursement SGMEPS Page \"([^\"]*)\"$")
+    public void iInputInformationOnTheLoanDisbursementSGMEPSPage(int arg0)  {
+        t24_payments_step.inputLoanDisbursementSGMEPSTest(arg0);
     }
 
     @Then("^I input information on the SGMEPS Beneficiary Details Page$")
-    public void iInputInformationOnTheSGMEPSBeneficiaryDetailsPage(DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputBeneficiaryDetailsOnSGMEPS(maps.get(0).get("Beneficiary Street Name"),maps.get(0).get("Beneficiary Post Code"),maps.get(0).get("Beneficiary Town Name"),maps.get(0).get("Beneficiary Country"),maps.get(0).get("Beneficiary Residence Country"));
+    public void iInputInformationOnTheSGMEPSBeneficiaryDetailsPage() {
+        t24_payments_step.inputBeneficiaryDetailsOnSGMEPS();
+    }
+
+    @Then("^I input information on the SGMEPS Beneficiary Details Page \"([^\"]*)\"$")
+    public void iInputInformationOnTheSGMEPSBeneficiaryDetailsPage(int arg0)  {
+        t24_payments_step.inputBeneficiaryDetailsOnSGMEPSTest(arg0);
     }
 
 
@@ -868,9 +914,13 @@ public class t24_Payments_glue {
 
 
     @When("^I Input incomplete information on AA Disbursement Internal page$")
-    public void iInputIncompleteInformationOnAADisbursementInternalPage(DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputInformationOnAADisbursementInternalPage(maps.get(0).get("Debit Account Number"),maps.get(0).get("Debit Currency"),maps.get(0).get("Payment Amount"),maps.get(0).get("Payment Currency"),maps.get(0).get("Creditor Account"));
+    public void iInputIncompleteInformationOnAADisbursementInternalPage() {
+        t24_payments_step.inputInformationOnAADisbursementInternalPage();
+    }
+
+    @When("^I Input incomplete information on AA Disbursement Internal page \"([^\"]*)\"$")
+    public void iInputIncompleteInformationOnAADisbursementInternalPage(int arg0) {
+        t24_payments_step.inputInformationOnAADisbursementInternalPageTest(arg0);
     }
 
 
@@ -889,6 +939,11 @@ public class t24_Payments_glue {
     public void iInputArrangement(DataTable dataTable) {
         List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
         t24_payments_step.InputArrangement(maps.get(0).get("Arrangement"));
+    }
+
+    @When("^I input Arrangement \"([^\"]*)\"$")
+    public void iInputArrangement(int arg0){
+        t24_payments_step.InputArrangementTest(arg0);
     }
 
     @When("^I click Find Butt$")
@@ -1221,17 +1276,48 @@ public class t24_Payments_glue {
 
 
     @Then("^I find account$")
-    public void iFindAccount(DataTable dataTable) {
+    public void iFindAccount() {
         //t24_payments_step.inputaccountclickfind();
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputaccountclickfind(maps.get(0).get("Arrangement"));
+        t24_payments_step.inputaccountclickfind();
+    }
+
+    @Then("^I find account \"([^\"]*)\"$")
+    public void iFindAccount(int arg0) {
+        t24_payments_step.inputaccountclickfindTest(arg0);
+    }
+
+    @Then("^I find account ISO Bank$")
+    public void iFindAccountISOBank() {
+        //t24_payments_step.inputaccountclickfind();
+        t24_payments_step.inputaccountclickfindIsoBank();
+    }
+
+    @Then("^I find account ISO Bank \"([^\"]*)\"$")
+    public void iFindAccountISOBank(int acount)  {
+      t24_payments_step.inputaccountclickfindIsoBankTest(acount);
     }
 
     @Then("^I find account CASGD$")
-    public void iFindAccountCASGD(DataTable dataTable) {
-        List<Map<String, String>> maps = dataTable.asMaps(String.class, String.class);
-        t24_payments_step.inputaccountclickfindSGD(maps.get(0).get("Arrangement"),maps.get(0).get("Currency"));
+    public void iFindAccountCASGD() {
+        t24_payments_step.inputaccountclickfindSGD();
     }
 
+    @Then("^I find account CASGD \"([^\"]*)\"$")
+    public void iFindAccountCASGD(int arg0) {
+        t24_payments_step.inputaccountclickfindSGDTest(arg0);
     }
+
+    @Then("^I find account CASGD ISO Bank$")
+    public void iFindAccountCASGDISOBank() {
+        t24_payments_step.inputaccountclickfindSGDISOBank();
+    }
+
+    @Then("^I find account CASGD ISO Bank \"([^\"]*)\"$")
+    public void iFindAccountCASGDISOBank(int arg0){
+        t24_payments_step.inputaccountclickfindSGDISOBankTest(arg0);
+    }
+
+
+
+}
 

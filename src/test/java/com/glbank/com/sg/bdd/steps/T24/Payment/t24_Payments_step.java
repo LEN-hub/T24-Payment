@@ -5,10 +5,7 @@ import com.glbank.com.sg.bdd.pages.T24.Payment.t24_Payments_page;
 import com.glbank.com.sg.bdd.steps.T24.Logon.T24_Logon_step;
 import com.glbank.com.sg.bdd.steps.enterpriseNetSilver.paymentService_step;
 import com.glbank.com.sg.bdd.steps.supplyChains.tubeByInputting.creatCustomers_step;
-import com.glbank.com.sg.bdd.utils.BDDUtil;
-import com.glbank.com.sg.bdd.utils.CommonUtil;
-import com.glbank.com.sg.bdd.utils.FileUtils;
-import com.glbank.com.sg.bdd.utils.WordUtils;
+import com.glbank.com.sg.bdd.utils.*;
 import cucumber.api.DataTable;
 import cucumber.api.java.bs.A;
 import net.serenitybdd.core.pages.PageObject;
@@ -86,6 +83,10 @@ public class t24_Payments_step extends ScenarioSteps {
     public Double doubleTransactionAmount;
 
     public String getStatus;
+    public static String systemPath = System.getProperty("user.dir");
+    String OEExcel = systemPath + "/src/test/resources/testData/T24Excel/OE.xlsx";
+    String LoanExcel = systemPath + "/src/test/resources/testData/T24Excel/LOAN.xlsx";
+    String InComingExcel = systemPath + "/src/test/resources/testData/T24Excel/InComing.xlsx";
 
 
     public void switchToFirstFrame() {
@@ -2405,7 +2406,16 @@ public class t24_Payments_step extends ScenarioSteps {
 
     //    Outgoing SGD-SGD输入信息
     @Step
-    public void inputInformationOnCustomerTransferPage(String InstructedAgentBic, String TransactionCurrency, String TransactionAmount, String DebitAccountNumber, String DebitAccountCurrency, String CreditorAccount, String CreditorName, String ChargeOption) {
+    public void inputInformationOnCustomerTransferPage() {
+        // 从Excel里读取数据
+        String InstructedAgentBic = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Instructed Agent Bic", 1);
+        String TransactionCurrency = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Transaction Currency", 1);
+        String TransactionAmount = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Transaction Amount", 1);
+        String DebitAccountNumber = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Debit Account Number", 1);
+        String DebitAccountCurrency = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Debit Account Currency", 1);
+        String CreditorAccount = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Creditor Account", 1);
+        String CreditorName = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Creditor Name", 1);
+        String ChargeOption = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Charge Option", 1);
         t24_payments_page.InstructedAgentBic.sendKeys(InstructedAgentBic);
         t24_payments_page.TransactionCurrency.sendKeys(TransactionCurrency);
         t24_payments_page.TransactionAmount.sendKeys(TransactionAmount);
@@ -2416,6 +2426,54 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.ChargeOption.click();
        getDriver().findElement(By.xpath("//option[text()='"+ChargeOption+"']")).click();
         bddUtil.sleep(2);
+        //新增的字段Output Channel选择，填写BIC
+        String BIC = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "BIC", 1);
+        String outputChannel = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "output Channel", 1);
+        bddUtil.sleep(1);
+        if (!outputChannel.equals("")){
+            t24_payments_page.OutputChannel.sendKeys("NOSTRO");
+        }
+        if (!BIC.equals("")){
+            t24_payments_page.getRoutingInformation.click();
+            t24_payments_page.BICInput.sendKeys(BIC);
+            bddUtil.sleep(1);
+        }
+    }
+
+    //    Outgoing SGD-SGD输入信息
+    @Step
+    public void inputInformationOnCustomerTransferPageTest(int a) {
+        // 从Excel里读取数据
+        String InstructedAgentBic = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Instructed Agent Bic", a);
+        String TransactionCurrency = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Transaction Currency", a);
+        String TransactionAmount = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Transaction Amount", a);
+        String DebitAccountNumber = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Debit Account Number", a);
+        String DebitAccountCurrency = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Debit Account Currency", a);
+        String CreditorAccount = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Creditor Account", a);
+        String CreditorName = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Creditor Name", a);
+        String ChargeOption = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Charge Option", a);
+        t24_payments_page.InstructedAgentBic.sendKeys(InstructedAgentBic);
+        t24_payments_page.TransactionCurrency.sendKeys(TransactionCurrency);
+        t24_payments_page.TransactionAmount.sendKeys(TransactionAmount);
+        t24_payments_page.DebitAccountNumber.sendKeys(DebitAccountNumber);
+        t24_payments_page.DebitAccountCurrency.sendKeys(DebitAccountCurrency);
+        t24_payments_page.CreditorAccount.sendKeys(CreditorAccount);
+        t24_payments_page.CreditorName.sendKeys(CreditorName);
+        t24_payments_page.ChargeOption.click();
+        getDriver().findElement(By.xpath("//option[text()='"+ChargeOption+"']")).click();
+        bddUtil.sleep(2);
+        //新增的字段Output Channel选择，填写BIC
+        String BIC = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "BIC", a);
+        String outputChannel = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "output Channel", a);
+        bddUtil.sleep(1);
+        if (!outputChannel.equals("")){
+            t24_payments_page.OutputChannel.sendKeys("NOSTRO");
+        }
+        if (!BIC.equals("")){
+            t24_payments_page.getRoutingInformation.click();
+            t24_payments_page.BICInput.sendKeys(BIC);
+            bddUtil.sleep(1);
+        }
     }
 
     //    Outgoing USD-USD输入信息
@@ -2452,7 +2510,17 @@ public class t24_Payments_step extends ScenarioSteps {
 
 
     @Step
-    public void inputStreetName(String StreetName, String TownName, String CreditorCountry, String PostCode,String DebitAccountNumber1,String DebitName,String StreetName1,String PostCode1,String TownName1,String DebtorCountry) {
+    public void inputStreetName() {
+        String StreetName = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Street Name", 1);
+        String TownName = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Town Name", 1);
+        String CreditorCountry = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Creditor Country", 1);
+        String PostCode = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Post Code", 1);
+        String DebitAccountNumber1 = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Debit Account Number1", 1);
+        String DebitName = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Debit Name", 1);
+        String StreetName1 = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Street Name1", 1);
+        String PostCode1 = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Post Code1", 1);
+        String TownName1 = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Town Name1", 1);
+        String DebtorCountry = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Debtor Country", 1);
         t24_payments_page.StreetName.sendKeys(StreetName);
         t24_payments_page.TownName.sendKeys(TownName);
         t24_payments_page.CreditorCountry.sendKeys(CreditorCountry);
@@ -2467,7 +2535,40 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
     @Step
-    public void inputInformationOnOutgoingISOBankTransfer(String InstructedAgentBIC, String TransactionCurrency, String TransactionAmount, String DebitAccountNumber, String CreditorAccount, String CreditorBic, String CreditorName) {
+    public void inputStreetNameTest(int a) {
+        String StreetName = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Street Name", a);
+        String TownName = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Town Name", a);
+        String CreditorCountry = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Creditor Country", a);
+        String PostCode = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Post Code", a);
+        String DebitAccountNumber1 = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Debit Account Number1", a);
+        String DebitName = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Debit Name", a);
+        String StreetName1 = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Street Name1", a);
+        String PostCode1 = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Post Code1", a);
+        String TownName1 = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Town Name1", a);
+        String DebtorCountry = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Debtor Country", a);
+        t24_payments_page.StreetName.sendKeys(StreetName);
+        t24_payments_page.TownName.sendKeys(TownName);
+        t24_payments_page.CreditorCountry.sendKeys(CreditorCountry);
+        t24_payments_page.PostCode.sendKeys(PostCode);
+        t24_payments_page.DebitAccountNumber1.sendKeys(DebitAccountNumber1);
+        t24_payments_page.DebitName.sendKeys(DebitName);
+        t24_payments_page.StreetName1.sendKeys(StreetName1);
+        t24_payments_page.PostCode1.sendKeys(PostCode1);
+        t24_payments_page.TownName1.sendKeys(TownName1);
+        t24_payments_page.DebtorCountry.sendKeys(DebtorCountry);
+        bddUtil.sleep(2);
+    }
+
+    @Step
+    public void inputInformationOnOutgoingISOBankTransfer() {
+        //从Excel读取数据
+        String InstructedAgentBIC = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Instructed Agent BIC", 1);
+        String TransactionCurrency = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Transaction Currency", 1);
+        String TransactionAmount = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Transaction Amount", 1);
+        String DebitAccountNumber = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Debit Account Number", 1);
+        String CreditorAccount = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Creditor Account", 1);
+        String CreditorBic = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Creditor Bic", 1);
+        String CreditorName = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Creditor Name", 1);
         t24_payments_page.InstructedAgentBic.sendKeys(InstructedAgentBIC);
         t24_payments_page.TransactionCurrency.sendKeys(TransactionCurrency);
         t24_payments_page.TransactionAmount.sendKeys(TransactionAmount);
@@ -2476,6 +2577,48 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.CreditorBic.sendKeys(CreditorBic);
         t24_payments_page.CreditorName.sendKeys(CreditorName);
         bddUtil.sleep(2);
+        //新增的字段Output Channel选择，填写BIC
+        String BIC = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "BIC", 1);
+        String outputChannel = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "output Channel", 1);
+        if (!outputChannel.equals("")){
+            t24_payments_page.OutputChannel.sendKeys("NOSTRO");
+        }
+        bddUtil.sleep(1);
+        if (!BIC.equals("")){
+            t24_payments_page.BICInput.sendKeys(BIC);
+            bddUtil.sleep(1);
+        }
+    }
+
+    @Step
+    public void inputInformationOnOutgoingISOBankTransferTest(int a) {
+        //从Excel读取数据
+        String InstructedAgentBIC = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Instructed Agent BIC", a);
+        String TransactionCurrency = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Transaction Currency", a);
+        String TransactionAmount = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Transaction Amount", a);
+        String DebitAccountNumber = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Debit Account Number", a);
+        String CreditorAccount = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Creditor Account", a);
+        String CreditorBic = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Creditor Bic", a);
+        String CreditorName = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Creditor Name", a);
+        t24_payments_page.InstructedAgentBic.sendKeys(InstructedAgentBIC);
+        t24_payments_page.TransactionCurrency.sendKeys(TransactionCurrency);
+        t24_payments_page.TransactionAmount.sendKeys(TransactionAmount);
+        t24_payments_page.DebitAccountNumber.sendKeys(DebitAccountNumber);
+        t24_payments_page.CreditorAccount.sendKeys(CreditorAccount);
+        t24_payments_page.CreditorBic.sendKeys(CreditorBic);
+        t24_payments_page.CreditorName.sendKeys(CreditorName);
+        bddUtil.sleep(2);
+        //新增的字段Output Channel选择，填写BIC
+        String BIC = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "BIC", a);
+        String outputChannel = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "output Channel", a);
+        if (!outputChannel.equals("")){
+            t24_payments_page.OutputChannel.sendKeys("NOSTRO");
+        }
+        bddUtil.sleep(1);
+        if (!BIC.equals("")){
+            t24_payments_page.BICInput.sendKeys(BIC);
+            bddUtil.sleep(1);
+        }
     }
 
     @Step
@@ -2489,7 +2632,32 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
     @Step
-    public void inputSendersReference(String StreetName2,String PostCode2,String TownName3,String CreditorCountry3,String SenderReference, String EndToEndIdentification) {
+    public void inputSendersReference() {
+        //从Excel里读取数据
+        String StreetName2 = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Street Name2", 1);
+        String PostCode2 = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Post Code2", 1);
+        String TownName3 = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Town Name3", 1);
+        String CreditorCountry3 = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Creditor Country3", 1);
+        String SenderReference = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Sender Reference", 1);
+        String EndToEndIdentification = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "End To End Identification", 1);
+        t24_payments_page.StreetName2.sendKeys(StreetName2);
+        t24_payments_page.PostCode2.sendKeys(PostCode2);
+        t24_payments_page.TownName3.sendKeys(TownName3);
+        t24_payments_page.CreditorCountry3.sendKeys(CreditorCountry3);
+        t24_payments_page.SenderReference.sendKeys(SenderReference);
+        t24_payments_page.EndToEndIdentification.sendKeys(EndToEndIdentification);
+        bddUtil.sleep(2);
+    }
+
+    @Step
+    public void inputSendersReferenceTest(int a) {
+        //从Excel里读取数据
+        String StreetName2 = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Street Name2", a);
+        String PostCode2 = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Post Code2", a);
+        String TownName3 = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Town Name3", a);
+        String CreditorCountry3 = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Creditor Country3", a);
+        String SenderReference = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Sender Reference", a);
+        String EndToEndIdentification = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "End To End Identification", a);
         t24_payments_page.StreetName2.sendKeys(StreetName2);
         t24_payments_page.PostCode2.sendKeys(PostCode2);
         t24_payments_page.TownName3.sendKeys(TownName3);
@@ -2662,6 +2830,21 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.Find.click();
         bddUtil.sleep(1);
 }
+
+    @Step
+    public void inputFTNumberClickFindOnIncomingTest(int a) {
+        String FTNumber = ExcelUtils.readExcel(InComingExcel, "Incoming", "FTNumber", a);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(1);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(1);
+        switchToFirstFrame();
+        bddUtil.sleep(1);
+        t24_payments_page.inputFTNumber.sendKeys(FTNumber);
+        bddUtil.sleep(1);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(1);
+    }
 
 
     //   输入LoanPINumber进行查询
@@ -3164,7 +3347,29 @@ public class t24_Payments_step extends ScenarioSteps {
 
     //    补充LoanDisbursement External	页面的信息
     @Step
-    public void inputLoanDisbursementExternal(String LoanDebitAccountNumber, String LoanDebitCurrency, String LoanPaymentCurrency, String LoanPaymentAmount,String LoanBeneficiaryCountryCode) {
+    public void inputLoanDisbursementExternal() {
+        //Excel作为数据驱动
+        String LoanDebitAccountNumber = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Debit Account Number", 1);
+        String LoanDebitCurrency = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Debit Currency", 1);
+        String LoanPaymentCurrency = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Payment Currency", 1);
+        String LoanPaymentAmount = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Payment Amount", 1);
+        String LoanBeneficiaryCountryCode = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Beneficiary Country Code", 1);
+        t24_payments_page.DebitAccountNumberLoan.sendKeys(LoanDebitAccountNumber);
+        t24_payments_page.LoanDebitCurrency.sendKeys(LoanDebitCurrency);
+        t24_payments_page.LoanPaymentCurrency.sendKeys(LoanPaymentCurrency);
+        t24_payments_page.LoanPaymentAmount.sendKeys(LoanPaymentAmount);
+//        t24_payments_page.LoanBeneficiaryCountryCode.sendKeys(LoanBeneficiaryCountryCode);
+        bddUtil.sleep(1);
+    }
+
+    @Step
+    public void inputLoanDisbursementExternalTest(int a) {
+        //Excel作为数据驱动
+        String LoanDebitAccountNumber = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Debit Account Number", a);
+        String LoanDebitCurrency = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Debit Currency", a);
+        String LoanPaymentCurrency = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Payment Currency", a);
+        String LoanPaymentAmount = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Payment Amount", a);
+        String LoanBeneficiaryCountryCode = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Beneficiary Country Code", a);
         t24_payments_page.DebitAccountNumberLoan.sendKeys(LoanDebitAccountNumber);
         t24_payments_page.LoanDebitCurrency.sendKeys(LoanDebitCurrency);
         t24_payments_page.LoanPaymentCurrency.sendKeys(LoanPaymentCurrency);
@@ -3175,7 +3380,39 @@ public class t24_Payments_step extends ScenarioSteps {
 
     //    补充LoanDisbursement SGMEPS	页面的信息
     @Step
-    public void inputLoanDisbursementSGMEPS(String DebitAccountNumber_SGMEPS,String DebitCurrency_SGMEPS,String PaymentCurrency_SGMEPS,String PaymentAmount_SGMEPS,String BeneficiaryAccountNo_SGMEPS,String BeneficiaryBankBIC_SGMEPS,String BeneficiaryName_SGMEPS){
+    public void inputLoanDisbursementSGMEPS(){
+        //从Excel里读取数据
+        String DebitAccountNumber_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Debit Account Number", 1);
+        String DebitCurrency_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Debit Currency", 1);
+        String PaymentCurrency_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Payment Currency", 1);
+        String PaymentAmount_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Payment Amount", 1);
+        String BeneficiaryAccountNo_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Account No", 1);
+        String BeneficiaryBankBIC_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Bank BIC", 1);
+        String BeneficiaryName_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Name", 1);
+        bddUtil.sleep(1);
+        t24_payments_page.newDeal.click();
+        bddUtil.sleep(2);
+        t24_payments_page.DebitAccountNumber_SGMEPS.sendKeys(DebitAccountNumber_SGMEPS);
+        t24_payments_page.DebitCurrency_SGMEPS.sendKeys(DebitCurrency_SGMEPS);
+        t24_payments_page.PaymentCurrency_SGMEPS.sendKeys(PaymentCurrency_SGMEPS);
+        t24_payments_page.PaymentAmount_SGMEPS.sendKeys(PaymentAmount_SGMEPS);
+        t24_payments_page.BeneficiaryAccountNo_SGMEPS.sendKeys(BeneficiaryAccountNo_SGMEPS);
+        t24_payments_page.BeneficiaryBankBIC_SGMEPS.sendKeys(BeneficiaryBankBIC_SGMEPS);
+        t24_payments_page.BeneficiaryName_SGMEPS.sendKeys(BeneficiaryName_SGMEPS);
+        bddUtil.scrollWindowToElement(t24_payments_page.PaymentOrderProductTitle);
+        bddUtil.sleep(3);
+    }
+
+    @Step
+    public void inputLoanDisbursementSGMEPSTest(int a){
+        //从Excel里读取数据
+        String DebitAccountNumber_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Debit Account Number", a);
+        String DebitCurrency_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Debit Currency", a);
+        String PaymentCurrency_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Payment Currency", a);
+        String PaymentAmount_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Payment Amount", a);
+        String BeneficiaryAccountNo_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Account No", a);
+        String BeneficiaryBankBIC_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Bank BIC", a);
+        String BeneficiaryName_SGMEPS = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Name", a);
         bddUtil.sleep(1);
         t24_payments_page.newDeal.click();
         bddUtil.sleep(2);
@@ -3192,14 +3429,51 @@ public class t24_Payments_step extends ScenarioSteps {
 
     //    补充Beneficiary Details Page的详细信息
     @Step
-    public void inputBeneficiaryDetailsPage(String BeneficiaryAccountNo, String BeneficiaryName) {
+    public void inputBeneficiaryDetailsPage() {
+        //从Excel里读取数据
+        String BeneficiaryAccountNo = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Beneficiary Account No", 1);
+        String BeneficiaryName = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Beneficiary Name", 1);
         t24_payments_page.BeneficiaryAccountNo.sendKeys(BeneficiaryAccountNo);
         t24_payments_page.BeneficiaryName.sendKeys(BeneficiaryName);
         bddUtil.sleep(1);
     }
 
     @Step
-    public void inputBeneficiaryDetailsOnSGMEPS(String BeneficiaryStreetName,String BeneficiaryPostCode,String BeneficiaryTownName,String BeneficiaryCountry,String BeneficiaryResidenceCountry){
+    public void inputBeneficiaryDetailsPageTest(int a) {
+        //从Excel里读取数据
+        String BeneficiaryAccountNo = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Beneficiary Account No", a);
+        String BeneficiaryName = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Beneficiary Name", a);
+        t24_payments_page.BeneficiaryAccountNo.sendKeys(BeneficiaryAccountNo);
+        t24_payments_page.BeneficiaryName.sendKeys(BeneficiaryName);
+        bddUtil.sleep(1);
+    }
+
+    @Step
+    public void inputBeneficiaryDetailsOnSGMEPS(){
+        //从Excel里读取数据
+        String BeneficiaryStreetName = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Street Name", 1);
+        String BeneficiaryPostCode = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Post Code", 1);
+        String BeneficiaryTownName = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Town Name", 1);
+        String BeneficiaryCountry = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Country", 1);
+        String BeneficiaryResidenceCountry = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Residence Country", 1);
+        t24_payments_page.BeneficiaryStreetName_SGMEPS.sendKeys(BeneficiaryStreetName);
+        t24_payments_page.BeneficiaryPostCode_SGMEPS.sendKeys(BeneficiaryPostCode);
+        t24_payments_page.BeneficiaryTownName_SGMEPS.sendKeys(BeneficiaryTownName);
+        t24_payments_page.BeneficiaryCountry_SGMEPS.sendKeys(BeneficiaryCountry);
+        t24_payments_page.BeneficiaryResidenceCountry_SGMEPS.sendKeys(BeneficiaryResidenceCountry);
+        bddUtil.scrollWindowToElement(t24_payments_page.BeneficiaryBICTitle);
+        bddUtil.sleep(3);
+
+    }
+
+    @Step
+    public void inputBeneficiaryDetailsOnSGMEPSTest(int a){
+        //从Excel里读取数据
+        String BeneficiaryStreetName = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Street Name", a);
+        String BeneficiaryPostCode = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Post Code", a);
+        String BeneficiaryTownName = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Town Name", a);
+        String BeneficiaryCountry = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Country", a);
+        String BeneficiaryResidenceCountry = ExcelUtils.readExcel(LoanExcel, "Loan_SGMEPS", "Beneficiary Residence Country", a);
         t24_payments_page.BeneficiaryStreetName_SGMEPS.sendKeys(BeneficiaryStreetName);
         t24_payments_page.BeneficiaryPostCode_SGMEPS.sendKeys(BeneficiaryPostCode);
         t24_payments_page.BeneficiaryTownName_SGMEPS.sendKeys(BeneficiaryTownName);
@@ -3219,7 +3493,23 @@ public class t24_Payments_step extends ScenarioSteps {
 
 //    RoutingDetails页面 补充信息
     @Step
-    public void inputInformationOnRoutingDetail(String AccountWithBankBIC,String AccountWithTownName,String AccountWithBankCountry){
+    public void inputInformationOnRoutingDetail(){
+        //从Excel里读取数据
+        String AccountWithBankBIC = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Account with Bank BIC", 1);
+        String AccountWithTownName = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Account With Town Name", 1);
+        String AccountWithBankCountry = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Account with Bank Country", 1);
+        bddUtil.scrollWindowToElement(t24_payments_page.inputLoanAccountWithBankBIC).sendKeys(AccountWithBankBIC);
+        t24_payments_page.inputLoanAccountWithTownName.sendKeys(AccountWithTownName);
+        t24_payments_page.inputLoanAccountWithBankCountry.sendKeys(AccountWithBankCountry);
+        bddUtil.sleep(2);
+    }
+
+    @Step
+    public void inputInformationOnRoutingDetailTest(int a){
+        //从Excel里读取数据
+        String AccountWithBankBIC = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Account with Bank BIC", a);
+        String AccountWithTownName = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Account With Town Name", a);
+        String AccountWithBankCountry = ExcelUtils.readExcel(LoanExcel, "Loan_External", "Account with Bank Country", a);
         bddUtil.scrollWindowToElement(t24_payments_page.inputLoanAccountWithBankBIC).sendKeys(AccountWithBankBIC);
         t24_payments_page.inputLoanAccountWithTownName.sendKeys(AccountWithTownName);
         t24_payments_page.inputLoanAccountWithBankCountry.sendKeys(AccountWithBankCountry);
@@ -3247,7 +3537,30 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(3);
     }
 
-    public void inputInformationOnAADisbursementInternalPage(String DebitAccountNumber, String DebitCurrency, String PaymentAmount, String PaymentCurrency, String CreditorAccount) {
+    @Step
+    public void inputInformationOnAADisbursementInternalPage() {
+        //从Excel里读取数据
+        String DebitAccountNumber = ExcelUtils.readExcel(LoanExcel, "Loan_Internal", "Debit Account Number", 1);
+        String DebitCurrency = ExcelUtils.readExcel(LoanExcel, "Loan_Internal", "Debit Currency", 1);
+        String PaymentAmount = ExcelUtils.readExcel(LoanExcel, "Loan_Internal", "Payment Amount", 1);
+        String PaymentCurrency = ExcelUtils.readExcel(LoanExcel, "Loan_Internal", "Payment Currency", 1);
+        String CreditorAccount = ExcelUtils.readExcel(LoanExcel, "Loan_Internal", "Creditor Account", 1);
+        t24_payments_page.InternalDebitAccountNumber.sendKeys(DebitAccountNumber);
+        t24_payments_page.DebitCurrency.sendKeys(DebitCurrency);
+        t24_payments_page.PaymentAmount.sendKeys(PaymentAmount);
+        t24_payments_page.PaymentCurrency.sendKeys(PaymentCurrency);
+        t24_payments_page.InternalCreditorAccount.sendKeys(CreditorAccount);
+        bddUtil.sleep(2);
+    }
+
+    @Step
+    public void inputInformationOnAADisbursementInternalPageTest(int a) {
+        //从Excel里读取数据
+        String DebitAccountNumber = ExcelUtils.readExcel(LoanExcel, "Loan_Internal", "Debit Account Number", a);
+        String DebitCurrency = ExcelUtils.readExcel(LoanExcel, "Loan_Internal", "Debit Currency", a);
+        String PaymentAmount = ExcelUtils.readExcel(LoanExcel, "Loan_Internal", "Payment Amount", a);
+        String PaymentCurrency = ExcelUtils.readExcel(LoanExcel, "Loan_Internal", "Payment Currency", a);
+        String CreditorAccount = ExcelUtils.readExcel(LoanExcel, "Loan_Internal", "Creditor Account", a);
         t24_payments_page.InternalDebitAccountNumber.sendKeys(DebitAccountNumber);
         t24_payments_page.DebitCurrency.sendKeys(DebitCurrency);
         t24_payments_page.PaymentAmount.sendKeys(PaymentAmount);
@@ -3279,6 +3592,14 @@ public class t24_Payments_step extends ScenarioSteps {
     }
 
     public void InputArrangement(String arrangement) {
+        bddUtil.sleep(2);
+        t24_payments_page.InputArrangement.clear();
+        t24_payments_page.InputArrangement.sendKeys(arrangement);
+    }
+
+    @Step
+    public void InputArrangementTest(int a) {
+        String arrangement = ExcelUtils.readExcel(InComingExcel, "Incoming", "Arrangement", a);
         bddUtil.sleep(2);
         t24_payments_page.InputArrangement.clear();
         t24_payments_page.InputArrangement.sendKeys(arrangement);
@@ -3741,7 +4062,53 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
     }
 
-    public void inputaccountclickfind(String Arrangement) {
+    @Step
+    public void inputaccountclickfind() {
+        String Arrangement = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Arrangement", 1);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        t24_payments_page.inputaccount.clear();
+        t24_payments_page.inputaccount.sendKeys(Arrangement);
+        //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details1.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+    }
+
+    @Step
+    public void inputaccountclickfindTest(int a) {
+        String Arrangement = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Arrangement", a);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        t24_payments_page.inputaccount.clear();
+        t24_payments_page.inputaccount.sendKeys(Arrangement);
+        //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details1.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+    }
+
+    @Step
+    public void inputaccountclickfindIsoBank() {
+        String Arrangement = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Arrangement", 1);
         bddUtil.switchToNewWindow();
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
@@ -3762,7 +4129,177 @@ public class t24_Payments_step extends ScenarioSteps {
 
     }
 
-    public void inputaccountclickfindSGD(String Arrangement, String Currency) {
+    @Step
+    public void inputaccountclickfindIsoBankTest(int a) {
+        String Arrangement = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Arrangement", a);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        t24_payments_page.inputaccount.clear();
+        t24_payments_page.inputaccount.sendKeys(Arrangement);
+        //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details1.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+
+    }
+
+    @Step
+    public void inputaccountclickfindSGD() {
+        String Arrangement = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Arrangement", 1);
+        String Currency = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Debit Account Currency", 1);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        t24_payments_page.inputaccount.clear();
+        t24_payments_page.inputaccount.sendKeys(Arrangement);
+        //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        if (Currency.equals("SGD")) {
+            t24_payments_page.CASGD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("USD")) {
+            t24_payments_page.CAUSD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("CNY")) {
+            t24_payments_page.CACNY.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("HKD")) {
+            t24_payments_page.CAHKD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("AUD")) {
+            t24_payments_page.CAAUD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("AED")) {
+            t24_payments_page.CAAED.click();
+            bddUtil.sleep(5);
+        } else {
+            t24_payments_page.CAEUR.click();
+            bddUtil.sleep(5);
+        }
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+    }
+
+    @Step
+    public void inputaccountclickfindSGDTest(int a) {
+        String Arrangement = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Arrangement", a);
+        String Currency = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Debit Account Currency", a);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        t24_payments_page.inputaccount.clear();
+        t24_payments_page.inputaccount.sendKeys(Arrangement);
+        //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        if (Currency.equals("SGD")) {
+            t24_payments_page.CASGD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("USD")) {
+            t24_payments_page.CAUSD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("CNY")) {
+            t24_payments_page.CACNY.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("HKD")) {
+            t24_payments_page.CAHKD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("AUD")) {
+            t24_payments_page.CAAUD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("AED")) {
+            t24_payments_page.CAAED.click();
+            bddUtil.sleep(5);
+        }else if (Currency.equals("GBP")) {
+            t24_payments_page.CAGBP.click();
+            bddUtil.sleep(5);
+        }  else {
+            t24_payments_page.CAEUR.click();
+            bddUtil.sleep(5);
+        }
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+    }
+
+    @Step
+    public void inputaccountclickfindSGDISOBank() {
+        String Arrangement = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Arrangement", 1);
+        String Currency = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Transaction Currency", 1);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        t24_payments_page.inputaccount.clear();
+        t24_payments_page.inputaccount.sendKeys(Arrangement);
+        //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        if (Currency.equals("SGD")) {
+            t24_payments_page.CASGD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("USD")) {
+            t24_payments_page.CAUSD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("CNY")) {
+            t24_payments_page.CACNY.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("HKD")) {
+            t24_payments_page.CAHKD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("AUD")) {
+            t24_payments_page.CAAUD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("AED")) {
+            t24_payments_page.CAAED.click();
+            bddUtil.sleep(5);
+        } else {
+            t24_payments_page.CAEUR.click();
+            bddUtil.sleep(5);
+        }
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+    }
+
+    @Step
+    public void inputaccountclickfindSGDISOBankTest(int a) {
+        String Arrangement = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Arrangement", a);
+        String Currency = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Transaction Currency", a);
         bddUtil.switchToNewWindow();
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
