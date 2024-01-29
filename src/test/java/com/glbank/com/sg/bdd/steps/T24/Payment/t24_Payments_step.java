@@ -2462,18 +2462,7 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.ChargeOption.click();
         getDriver().findElement(By.xpath("//option[text()='"+ChargeOption+"']")).click();
         bddUtil.sleep(2);
-        //新增的字段Output Channel选择，填写BIC
-        String BIC = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "BIC", a);
-        String outputChannel = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "output Channel", a);
-        bddUtil.sleep(1);
-        if (!outputChannel.equals("")){
-            t24_payments_page.OutputChannel.sendKeys("NOSTRO");
-        }
-        if (!BIC.equals("")){
-            t24_payments_page.getRoutingInformation.click();
-            t24_payments_page.BICInput.sendKeys(BIC);
-            bddUtil.sleep(1);
-        }
+
     }
 
     //    Outgoing USD-USD输入信息
@@ -2557,6 +2546,18 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.TownName1.sendKeys(TownName1);
         t24_payments_page.DebtorCountry.sendKeys(DebtorCountry);
         bddUtil.sleep(2);
+        //新增的字段Output Channel选择，填写BIC
+        String BIC = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "BIC", a);
+        String outputChannel = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "output Channel", a);
+        bddUtil.sleep(1);
+        if (!outputChannel.equals("")){
+            t24_payments_page.OutputChannel.sendKeys("NOSTRO");
+        }
+        if (!BIC.equals("")){
+            t24_payments_page.getRoutingInformation.click();
+            t24_payments_page.BICInput.sendKeys(BIC);
+            bddUtil.sleep(1);
+        }
     }
 
     @Step
@@ -2963,7 +2964,7 @@ public class t24_Payments_step extends ScenarioSteps {
     @Step
     public void enterView() throws Exception {
         String statusCode = t24_payments_page.statusCode.getText();
-        if (statusCode.equals("677") | statusCode.equals("999")) {
+        if (statusCode.equals("677") | statusCode.equals("999")| statusCode.equals("660")) {
             System.out.println("状态码正常");
         } else {
             throw new Exception("状态码异常:"+statusCode);
@@ -4054,7 +4055,7 @@ public class t24_Payments_step extends ScenarioSteps {
 
     public void accountIDCA() {
 //        switchToSecondFrame();
-        //bddUtil.sleep(3);
+//        bddUtil.sleep(3);
       //  t24_payments_page.clickUsermenu.click();
 
         t24_payments_page.clickProduct.click();
@@ -4091,7 +4092,9 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
         bddUtil.sleep(2);
-        t24_payments_page.inputaccount.clear();
+        //清空所有数值
+        getDriver().findElement(By.xpath("//a[text()='Clear Selection']")).click();
+//        t24_payments_page.inputaccount.clear();
         t24_payments_page.inputaccount.sendKeys(Arrangement);
         //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
         bddUtil.sleep(3);
