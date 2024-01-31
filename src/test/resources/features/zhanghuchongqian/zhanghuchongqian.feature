@@ -11,7 +11,7 @@ Feature: Amount
     Then I click Account Transfer
     When I Input Transfer Information
       |Debit Account|Debit Amount   |Debit Currency|Credit Account|Credit Currency|Ordering Bank          |
-      |SGD14020001  |9000000000     |SGD           |11021212547   |GBP            |DBS SINGAPORE TEST     |
+      |11021212598  |1299700.00     |GBP           |11021162884   |GBP            |DBS SINGAPORE TEST     |
     Then I click pre-submit button
     When I click Accept Overrides
     Then Assert Result whether Successful
@@ -23,7 +23,7 @@ Feature: Amount
     Then I click search but
     Then I input Credit Account No
       |Credit Account No|
-      |11021212547      |
+      |11021162884      |
     When I click find
     Then I click Authorize But
 
