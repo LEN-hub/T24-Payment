@@ -2,7 +2,7 @@
 Feature: Auto_Test1
 
   @Payment_OE_Outgoing_ISO_Customer_Transfer_CA001
-  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA001_SGD_SGMEPS
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA001_GBP
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click Outgoing ISO Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
