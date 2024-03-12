@@ -2617,6 +2617,7 @@ public class t24_Payments_step extends ScenarioSteps {
         }
         bddUtil.sleep(1);
         if (!BIC.equals("")){
+            t24_payments_page.getRoutingInformation.click();
             t24_payments_page.BICInput.sendKeys(BIC);
             bddUtil.sleep(1);
         }
@@ -2652,6 +2653,7 @@ public class t24_Payments_step extends ScenarioSteps {
 
     @Step
     public void inputSendersReferenceTest(int a) {
+        t24_payments_page.getback.click();
         //从Excel里读取数据
         String StreetName2 = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Street Name2", a);
         String PostCode2 = ExcelUtils.readExcel(OEExcel, "ISO_Bank_Transfer", "Post Code2", a);

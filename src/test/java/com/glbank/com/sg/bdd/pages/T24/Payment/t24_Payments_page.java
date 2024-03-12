@@ -248,6 +248,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//span[text()='Routing Information']")
     public WebElementFacade getRoutingInformation;
 
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[2]/td/table/tbody/tr/td[1]/a/span")
+    public WebElementFacade getback;
+
     @FindBy(xpath = "//span[text()='Additional Information']")
     public WebElementFacade getAdditionalInformation;
 
