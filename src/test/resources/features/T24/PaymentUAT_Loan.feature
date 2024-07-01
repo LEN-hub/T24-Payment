@@ -1,6 +1,7 @@
 @PaymentUat_Loan
 Feature: Payment Order(Loan Disbursement)
 
+
   @Payment_Loan_AA_Disbursement_External_USD-USD_Amount<threshold
   Scenario:AA Disbursement External USD-USD Amount<250K
     Given Use "T24-automation-UAT-login" to login to T24 environment

@@ -185,7 +185,7 @@ Feature: Outgoing Customer Transfer
     Then I Assertion enter Outgoing ISO Customer Transfer Page
     When I Input incomplete information on ISO Customer Transfer Page
     |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-    |DBSSSGS0            |SGD                 |100                 |11021083925         |SGD                   |56456465        |LEI           |DEBT         |
+    |SMBCJPJ0            |JPY                 |100                 |11021083925         |JPY                   |56456465        |LEI           |DEBT         |
     Then I input Street Name on the ISO Customer Transfer Page
     |Street Name|Town Name |Creditor Country|
     |liyukang   |testabc   |SG              |

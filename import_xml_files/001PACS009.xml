@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Saa:DataPDU xmlns:Saa="urn:swift:saa:xsd:saa.2.0" xmlns:Sw="urn:swift:snl:ns.Sw" xmlns:SwInt="urn:swift:snl:ns.SwInt" xmlns:SwGbl="urn:swift:snl:ns.SwGbl" xmlns:SwSec="urn:swift:snl:ns.SwSec">
+	<Saa:Revision>2.0.10</Saa:Revision>
+	<Saa:Header>
+		<Saa:Message>
+			<Saa:SenderReference>OTSPABEBBXXX009$2302081891592</Saa:SenderReference>
+			<Saa:MessageIdentifier>pacs.009.001.08</Saa:MessageIdentifier>
+			<Saa:Format>MX</Saa:Format>
+			<Saa:SubFormat>Output</Saa:SubFormat>
+			<Saa:Sender>
+				<Saa:DN>ou=xxx,o=tspabebb,o=swift</Saa:DN>
+				<Saa:FullName>
+					<Saa:X1>DBSSSGS0XXX</Saa:X1>
+					<Saa:X2>xxx</Saa:X2>
+				</Saa:FullName>
+			</Saa:Sender>
+			<Saa:Receiver>
+				<Saa:DN>ou=xxx,o=gldtsgsg,o=swift</Saa:DN>
+				<Saa:FullName>
+					<Saa:X1>GLDTSGSGXXX</Saa:X1>
+					<Saa:X2>xxx</Saa:X2>
+				</Saa:FullName>
+			</Saa:Receiver>
+			<Saa:InterfaceInfo>
+				<Saa:MessageCreator>SWIFTNetInterface</Saa:MessageCreator>
+				<Saa:MessageContext>Copy</Saa:MessageContext>
+				<Saa:MessageNature>Financial</Saa:MessageNature>
+				<Saa:Sumid>1C1CBCDAFFE32312</Saa:Sumid>
+				<Saa:ServiceURI>mp/mx/_ImGiIFKDEeyXX57HMRFmxw</Saa:ServiceURI>
+				<Saa:MessageTypeURI>mp/mx/_ImGiIFKDEeyXX57HMRFmxw/_XC3TJV9CEeyfdsiuljUhuQ</Saa:MessageTypeURI>
+			</Saa:InterfaceInfo>
+			<Saa:NetworkInfo>
+				<Saa:Priority>Normal</Saa:Priority>
+				<Saa:IsPossibleDuplicate>false</Saa:IsPossibleDuplicate>
+				<Saa:Service>swift.finplus!pf</Saa:Service>
+				<Saa:Network>SWIFTNet</Saa:Network>
+				<Saa:SessionNr>000311</Saa:SessionNr>
+				<Saa:SeqNr>000004053</Saa:SeqNr>
+				<Saa:SWIFTNetNetworkInfo>
+					<Saa:RequestType>pacs.009.001.09</Saa:RequestType>
+					<Saa:RequestSubtype>swift.cbprplus.02</Saa:RequestSubtype>
+					<Saa:SWIFTRef>swi99998-2024-01-17T06:33:09.0008.116848Z</Saa:SWIFTRef>
+					<Saa:SNLRef>SNL99998-2024-01-17T06:33:09.0008.081278Z</Saa:SNLRef>
+					<Saa:Reference>2cba7e2c-a695-4a9c-bf3c-d1e554c1e01e</Saa:Reference>
+					<Saa:SnFQueueName>gldtsgsg_generic!p</Saa:SnFQueueName>
+					<Saa:SnFInputTime>0301:2024-01-17T06:33:09</Saa:SnFInputTime>
+					<Saa:SnFDeliveryTime>2024-01-17T06:33:10Z</Saa:SnFDeliveryTime>
+					<Saa:ValidationDescriptor>
+						<SwInt:ValResult>Success</SwInt:ValResult>
+					</Saa:ValidationDescriptor>
+				</Saa:SWIFTNetNetworkInfo>
+			</Saa:NetworkInfo>
+			<Saa:SecurityInfo>
+				<Saa:SWIFTNetSecurityInfo>
+					<Saa:SignatureResult>Success</Saa:SignatureResult>
+					<Saa:SignatureValue>
+						<SwSec:Signature>
+							<SwSec:SignedInfo>
+								<Sw:Reference>
+									<Sw:DigestValue>+AlH3JO0rTe4UtC6LPE3YszynqqfKkmy7Uqy2264/jM=</Sw:DigestValue>
+								</Sw:Reference>
+							</SwSec:SignedInfo>
+							<SwSec:SignatureValue>PEMF@Proc-Type: 4,MIC-ONLY
+Content-Domain: RFC822
+EntrustFile-Version: 2.0
+Originator-DN: cn=%51,cn=test,ou=transaction-signing,ou=transactionmanager,o=swift,o=swift
+Orig-SN: 1650780911
+MIC-Info: SHA256, RSA,
+ gJO+gx2H1TMAKzzOac5eL7yDv8fS1RRSjtY+bEIsO70Jf4wwcpM85Lc5Hqdh7nmA
+ vZrEDK6VLTNM7m5t6Mrk4cj4DdnnKku8An5I401h7n4BteoE2f01L7QfpifuZalU
+ SBs46zqdcbzCI34mXgXSUOvaY+X5uCtzp8bh6qTKO5vcA3TzbEdPYJ/vpQyAwuvF
+ d6e36vvRSsh2UCGnKaODYZS0BWIaELM+1yJoZYYj60bIvPCUUEx6HZvuVam05RwJ
+ HdUhufr4SrC35VMZ+jNmHtOx+73tZyuz8uOJ5fgn3+HE6+F96Ts0fD1FiNnvY6dg
+ XSyhvQ3qPGvYtabxYab2wQ==
+</SwSec:SignatureValue>
+							<SwSec:KeyInfo>
+								<SwSec:SignDN>cn=%51,cn=test,ou=transaction-signing,ou=transactionmanager,o=swift,o=swift</SwSec:SignDN>
+								<SwSec:CertPolicyId>1.3.21.6.3.10.200.4</SwSec:CertPolicyId>
+							</SwSec:KeyInfo>
+							<SwSec:Manifest>
+								<Sw:Reference>
+									<Sw:DigestRef>TRD</Sw:DigestRef>
+									<Sw:DigestValue>DWH/7ilKAtPS9bspbpgbdJQF8OrXzDFnp/eD3XBDiVQ=</Sw:DigestValue>
+								</Sw:Reference>
+								<Sw:Reference>
+									<Sw:DigestRef>Sw.IARequestHeader</Sw:DigestRef>
+									<Sw:DigestValue>VoZnXDDZNw+lqVP58n+tXcTZVv4Y672XnbIsbxD1pOM=</Sw:DigestValue>
+								</Sw:Reference>
+								<Sw:Reference>
+									<Sw:DigestRef>Sw.RequestPayload and RND</Sw:DigestRef>
+									<Sw:DigestValue>KArF3zq1M2a4tC5RfAyXhML79vx9wrQsYYcIKe7+M9k=</Sw:DigestValue>
+								</Sw:Reference>
+							</SwSec:Manifest>
+							<Sw:Object>
+								<Sw:RND>ZWU0OW45J3JBZmRSbShTYWNNLSU=</Sw:RND>
+							</Sw:Object>
+						</SwSec:Signature>
+						<SwSec:Signature>
+							<SwSec:SignedInfo>
+								<Sw:Reference>
+									<Sw:DigestValue>uKY+Fvj74BKje+pxAIZN3PzhhZv01Dcr1jo6Kcdi00s=</Sw:DigestValue>
+								</Sw:Reference>
+							</SwSec:SignedInfo>
+							<SwSec:SignatureValue>PEMF@Proc-Type: 4,MIC-ONLY
+Content-Domain: RFC822
+EntrustFile-Version: 2.0
+Originator-DN: cn=%12,cn=sfm,o=swift,o=swift
+Orig-SN: 1668314820
+MIC-Info: SHA256, RSA,
+ oXgKtw9ubMLiRinjvv9kGkuBsVmnp/WewXiRfoeThiXBgP1qovMtGSQEIwx5bEJJ
+ 2KXM9+rNu2oGrdAA7ItaulhDQeIV2LtYX7bNSmNNhOUZjHIB9/7RJSj0EzBQNZLb
+ kwZ2RLwvglu74+Upr7a1JJlkBryi8adRJz0exbMH5SOmnJdKTgDlTJRqr9vzvRgE
+ 3X/bvKeWEA/kYDVrHFCjwMmy7GIaf9L8cs6wb/9tsy15MWK5kHNAXSVUXtapU9rY
+ y42iyNtzNBJasNbyE4cAbfA10e6kd+oVGDvWDkltFs7II3hr4ZripVURWX1si+iE
+ ewaLMm2w2xkKSq8mTrPmlg==
+</SwSec:SignatureValue>
+							<SwSec:KeyInfo>
+								<SwSec:SignDN>cn=%12,cn=sfm,o=swift,o=swift</SwSec:SignDN>
+								<SwSec:CertPolicyId>1.3.21.6.3.10.100.3</SwSec:CertPolicyId>
+							</SwSec:KeyInfo>
+							<SwSec:Manifest>
+								<Sw:Reference>
+									<Sw:DigestRef>TRD</Sw:DigestRef>
+									<Sw:DigestValue>DWH/7ilKAtPS9bspbpgbdJQF8OrXzDFnp/eD3XBDiVQ=</Sw:DigestValue>
+								</Sw:Reference>
+								<Sw:Reference>
+									<Sw:DigestRef>Sw.IARequestHeader</Sw:DigestRef>
+									<Sw:DigestValue>VoZnXDDZNw+lqVP58n+tXcTZVv4Y672XnbIsbxD1pOM=</Sw:DigestValue>
+								</Sw:Reference>
+								<Sw:Reference>
+									<Sw:DigestRef>Sw.RequestPayload and RND</Sw:DigestRef>
+									<Sw:DigestValue>KArF3zq1M2a4tC5RfAyXhML79vx9wrQsYYcIKe7+M9k=</Sw:DigestValue>
+								</Sw:Reference>
+								<Sw:Reference>
+									<Sw:DigestRef>Translated MT</Sw:DigestRef>
+									<Sw:DigestValue>NO+BjRjqul4LiHs+ROSS0hABwULc5Taiet8BOmY5dOk=</Sw:DigestValue>
+								</Sw:Reference>
+							</SwSec:Manifest>
+							<Sw:Object>
+								<Sw:RND>ZWU0OW45J3JBZmRSbShTYWNNLSU=</Sw:RND>
+							</Sw:Object>
+						</SwSec:Signature>
+					</Saa:SignatureValue>
+				</Saa:SWIFTNetSecurityInfo>
+			</Saa:SecurityInfo>
+			<Saa:ExpiryDateTime>20230208103310</Saa:ExpiryDateTime>
+		</Saa:Message>
+	</Saa:Header>
+	<Saa:Body>
+		<head:AppHdr xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+			<head:Fr>
+				<head:FIId>
+					<head:FinInstnId>
+						<head:BICFI>DBSSSGS0XXX</head:BICFI>
+					</head:FinInstnId>
+				</head:FIId>
+			</head:Fr>
+			<head:To>
+				<head:FIId>
+					<head:FinInstnId>
+						<head:BICFI>GLDTSGS0XXX</head:BICFI>
+					</head:FinInstnId>
+				</head:FIId>
+			</head:To>
+			<head:BizMsgIdr>MXGLCBPR623</head:BizMsgIdr>
+			<head:MsgDefIdr>pacs.009.001.09</head:MsgDefIdr>
+			<head:BizSvc>swift.cbprplus.02</head:BizSvc>
+			<head:CreDt>2024-01-17T07:32:56.691+01:00</head:CreDt>
+			<head:PssblDplct>false</head:PssblDplct>
+		</head:AppHdr>
+		<pacs:Document xmlns:pacs="urn:iso:std:iso:20022:tech:xsd:pacs.009.001.08">
+			<pacs:FICdtTrf>
+				<pacs:GrpHdr>
+					<pacs:MsgId>MXGLCBPR623</pacs:MsgId>
+					<pacs:CreDtTm>2024-01-17T07:32:56.691+01:00</pacs:CreDtTm>
+					<pacs:NbOfTxs>1</pacs:NbOfTxs>
+					<pacs:SttlmInf>
+						<pacs:SttlmMtd>INDA</pacs:SttlmMtd>
+					</pacs:SttlmInf>
+				</pacs:GrpHdr>
+				<pacs:CdtTrfTxInf>
+					<pacs:PmtId>
+						<pacs:InstrId>MXGLCBPR623</pacs:InstrId>
+						<pacs:EndToEndId>MXGLCBPR623</pacs:EndToEndId>
+						<pacs:TxId>MXGLCBPR623</pacs:TxId>
+						<pacs:UETR>ea66cfb7-32fe-4719-b92a-e5a019bc35a2</pacs:UETR>
+					</pacs:PmtId>
+					<pacs:PmtTpInf>
+						<pacs:SvcLvl>
+							<pacs:Cd>G004</pacs:Cd>
+						</pacs:SvcLvl>
+					</pacs:PmtTpInf>
+					<pacs:IntrBkSttlmAmt Ccy="EUR">414111.0</pacs:IntrBkSttlmAmt>
+					<pacs:IntrBkSttlmDt>2024-01-17</pacs:IntrBkSttlmDt>
+					<pacs:InstgAgt>
+						<pacs:FinInstnId>
+							<pacs:BICFI>DBSSSGS0XXX</pacs:BICFI>
+						</pacs:FinInstnId>
+					</pacs:InstgAgt>
+					<pacs:InstdAgt>
+						<pacs:FinInstnId>
+							<pacs:BICFI>GLDTSGS0XXX</pacs:BICFI>
+						</pacs:FinInstnId>
+					</pacs:InstdAgt>
+					<pacs:Dbtr>
+						<pacs:FinInstnId>
+							<pacs:BICFI>DBSSSGS0XXX</pacs:BICFI>
+						</pacs:FinInstnId>
+					</pacs:Dbtr>
+					<pacs:CdtrAgt>
+						<pacs:FinInstnId>
+							<pacs:BICFI>GLDTSGS0XXX</pacs:BICFI>
+						</pacs:FinInstnId>
+					</pacs:CdtrAgt>
+					<pacs:Cdtr>
+						<pacs:FinInstnId>
+							<pacs:BICFI>GLDTSGS0XXX</pacs:BICFI>
+							<pacs:Nm>European Techsavy Bank</pacs:Nm>
+							<pacs:PstlAdr>
+								<pacs:AdrLine>Sample address</pacs:AdrLine>
+							</pacs:PstlAdr>
+						</pacs:FinInstnId>
+					</pacs:Cdtr>
+					<pacs:CdtrAcct>
+						<pacs:Id>
+							<pacs:Othr>
+								<pacs:Id>11021211672</pacs:Id>
+							</pacs:Othr>
+						</pacs:Id>
+					</pacs:CdtrAcct>
+				</pacs:CdtTrfTxInf>
+			</pacs:FICdtTrf>
+		</pacs:Document>
+		<!-- {1:F01GLDTSGS0XXXX0000000000}{2:O2020733230208TSPABEB0XXXX00000000002302081433N}{3:{111:004}{121:7a8f38aa-36b7-4b00-ad0d-842c2b95adc8}{433:/AOK/EXCLUDED}}{4:^~:20:IID/5303.0/92d04^~:21:E2E/5303.0/92d04^~:32A:230209USD1000,^~:52A:TSPABEB0XXX^~:57A:/11010000314^~GLDTSGS0XXX^~:58A:TSPBBEB0XXX^~-}{5:{CHK:75E0EFE42CD3}{TNG:}} -->
+		<!-- TranslationResult=TRAK -->
+		<!-- TranslationInfo version 1.0.0.1
+{
+	"errors": [
+		{
+			"code": "TRAK",
+			"message": "IGNORED.T0000M Input content is ignored.\r\nValue '<TxId>TID/5303.0/92d04</TxId>' has been dropped.\r\nInput path: pacs:Document/pacs:FICdtTrf/pacs:CdtTrfTxInf/pacs:PmtId/pacs:TxId",
+			"path": "MT202"
+		}
+	]
+}
+ -->
+	</Saa:Body>
+</Saa:DataPDU>
