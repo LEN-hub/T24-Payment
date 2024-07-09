@@ -738,7 +738,7 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//table[@id='datadisplay']//tr/td[19]")
     public WebElementFacade ViewDetails;
 
-    @FindBy(xpath = "//table[@id='datadisplay']//tr/td[10]/a")
+    @FindBy(xpath = "/html/body/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr/td[14]/a/img")
     public WebElementFacade Auth;
 
     @FindBy(xpath = "//table[@id='goButton']//a[@title='Authorises a deal']/parent::td")
