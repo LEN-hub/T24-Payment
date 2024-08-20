@@ -21,6 +21,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import static com.glbank.com.sg.bdd.utils.FileUtils.readtxtFile;
@@ -87,7 +89,7 @@ public class t24_Payments_step extends ScenarioSteps {
     String OEExcel = systemPath + "/src/test/resources/testData/T24Excel/OE.xlsx";
     String LoanExcel = systemPath + "/src/test/resources/testData/T24Excel/LOAN.xlsx";
     String InComingExcel = systemPath + "/src/test/resources/testData/T24Excel/InComing.xlsx";
-
+    String TreasuryExcel = systemPath + "/src/test/resources/testData/T24Excel/Treasury.xlsx";
 
     public void switchToFirstFrame() {
         getDriver().switchTo().frame(t24_payments_page.switchToFirstFrame);
@@ -4347,6 +4349,545 @@ public class t24_Payments_step extends ScenarioSteps {
         getDriver().manage().window().maximize();
         bddUtil.sleep(6);
     }
+    @Step
+    public void clickFixedMaturityPlacement() {
+        bddUtil.sleep(3);
+        switchToSecondFrame();
+        t24_payments_page.clickUserMenu.click();
+        t24_payments_page.clickTreasuryMenu.click();
+        t24_payments_page.clickMoneyMarketMenu.click();
+        t24_payments_page.FixedMaturityPlacementContracts.click();
+        bddUtil.sleep(3);
+    }
+
+    @Step
+    public void AssertionEnterPlacementContractsPage() {
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        Assert.assertEquals(t24_payments_page.MMPlacementTitle.getText(),"MM Placement (Loan)-Fixed Maturity");
+    }
+
+    @Step
+    public void inputInformationOnPlacementContractsPage(int a) {
+        // 从Excel里读取数据
+        String DealerDesk = ExcelUtils.readExcel(TreasuryExcel, "MM_Placement", "Dealer Desk", a);
+        String CounterpartyID = ExcelUtils.readExcel(TreasuryExcel, "MM_Placement", "Counterparty", a);
+        String Currency = ExcelUtils.readExcel(TreasuryExcel, "MM_Placement", "Currency", a);
+        String Amount = ExcelUtils.readExcel(TreasuryExcel, "MM_Placement", "Amount", a);
+        String StartDate = ExcelUtils.readExcel(TreasuryExcel, "MM_Placement", "Start Date", a);
+        String MaturityDate = ExcelUtils.readExcel(TreasuryExcel, "MM_Placement", "Maturity Date", a);
+        String InterestRateFixed = ExcelUtils.readExcel(TreasuryExcel, "MM_Placement", "Interest Rate(Fixed)", a);
+        String CreditAccount = ExcelUtils.readExcel(TreasuryExcel, "MM_Placement", "Credit Account", a);
+        String CounterpartyCorresBank1 = ExcelUtils.readExcel(TreasuryExcel, "MM_Placement", "Counterparty Corres Bank.1", a);
+        t24_payments_page.DealerDesk.sendKeys(DealerDesk);
+        t24_payments_page.CounterpartyID.sendKeys(CounterpartyID);
+        t24_payments_page.ContractScreen.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.closeWindow();
+        bddUtil.switchToNewWindow();
+        switchToDefaultContent();
+        bddUtil.sleep(2);
+        t24_payments_page.Currency.sendKeys(Currency);
+        t24_payments_page.Amount.sendKeys(Amount);
+        t24_payments_page.StartDate.sendKeys(StartDate);
+        t24_payments_page.maturity_date.sendKeys(MaturityDate);
+        t24_payments_page.ContractScreen.click();
+        switchToDefaultContent();
+        bddUtil.sleep(2);
+        t24_payments_page.InterestRateFixed.sendKeys(InterestRateFixed);
+        bddUtil.sleep(3);
+        t24_payments_page.PaymentSettlement.click();
+        t24_payments_page.CreditAccount.sendKeys(CreditAccount);
+        t24_payments_page.CounterpartyCorresBank1.sendKeys(CounterpartyCorresBank1);
+        t24_payments_page.PrincipalLiqAcct.sendKeys(CreditAccount);
+        t24_payments_page.InterestLiqAcct.sendKeys(CreditAccount);
+        bddUtil.sleep(2);
+        t24_payments_page.MMPlacementLoanFixedMaturity.click();
+        bddUtil.sleep(2);
+    }
+
+    //    获取当前交易的MM值
+    @Step
+    public void getMMNumber() {
+        String mmNumber = t24_payments_page.MMNumber.getText();
+        // Remove Hyphens
+        String mmNum = mmNumber.replace("-","");
+        FileUtils.FileString4("MMNumber", mmNum);
+    }
+
+    //    进入一级授权页面
+    @Step
+    public void enterUnauthorizedMMTrans() {
+        bddUtil.sleep(3);
+        switchToSecondFrame();
+        t24_payments_page.clickUserMenu.click();
+        t24_payments_page.clickTreasuryMenu.click();
+        t24_payments_page.clickMoneyMarketMenu.click();
+        t24_payments_page.clickUnauthorizedMMTransactionsMenu.click();
+        bddUtil.sleep(2);
+    }
+
+    //    根据MMNumber Number进行查询 审批
+    @Step
+    public void inputMMbitAccNumber() {
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+//        点击放大镜
+        switchToFirstFrame();
+        t24_payments_page.selectScreen.click();
+        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(t24_payments_page.inputTransRef).sendKeys(FileUtils.LastReadFileInput3("MMNumber"));
+//        bddUtil.scrollWindowToElement(t24_payments_page.inputDebitAccNumber).sendKeys(DebitAccNumber);
+        bddUtil.sleep(2);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(2);
+        t24_payments_page.Autho.click();
+        bddUtil.sleep(5);
+        switchToDefaultContent();
+//        进入第二个 frame
+        switchToSecondFrame();
+        t24_payments_page.AuthorisesADeal.click();
+        bddUtil.sleep(3);
+    }
+    @Step
+    public void enterMMPaymentEntry() {
+        bddUtil.sleep(3);
+        switchToSecondFrame();
+        t24_payments_page.clickUserMenu.click();
+        t24_payments_page.clickTreasuryMenu.click();
+        t24_payments_page.clickMoneyMarketMenu.click();
+        t24_payments_page.clickSettlementMenu.click();
+        t24_payments_page.clickMMPaymentEntryMenu.click();
+        bddUtil.sleep(2);
+    }
+    //   输入MMNumber进行查询
+    @Step
+    public void inputMMNumberClickFind() {
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(1);
+        t24_payments_page.inputTransID.sendKeys(FileUtils.LastReadFileInput3("MMNumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.clickViewContractBtn.click();
+        bddUtil.sleep(2);
+        String PINumber = t24_payments_page.PORef.getText();
+        FileUtils.FileString4("MMPINumber", PINumber);
+        bddUtil.closeWindow();
+        bddUtil.sleep(3);
+    }
+    //  进入Exceptions-Payment Enquiry-Transaction wise页面，点击查询
+    @Step
+    public void enterPaymentsEnquiryTransactionWiseStatusPage() {
+        bddUtil.sleep(3);
+        switchToSecondFrame();
+        t24_payments_page.clickPayments.click();
+        t24_payments_page.clickPaymentHubMenu.click();
+        t24_payments_page.clickPaymentInquiriesMenu.click();
+        t24_payments_page.TransactionWise.click();
+        bddUtil.sleep(2);
+    }
+    //   输入MMPINumber进行查询
+    @Step
+    public void inputMMPINumberClickFind() {
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        switchToFirstFrame();
+        t24_payments_page.inputFileSendersReference.sendKeys(FileUtils.LastReadFileInput3("MMPINumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(3);
+        String FTNumber = t24_payments_page.getFTNumber.getText();
+        FileUtils.FileString4("FTNumber", FTNumber);
+    }
+
+    //    检验状态是不是49，并且进入详情页面
+    @Step
+    public void enterViewPage() throws Exception {
+        String statusCode = t24_payments_page.statusCode.getText();
+        if (statusCode.equals("49") | statusCode.equals("235") | statusCode.equals("997")) {
+            System.out.println("状态码异常");
+        } else {
+            throw new Exception("状态码正常:"+statusCode);
+        }
+        bddUtil.scrollWindowToElement(t24_payments_page.View);
+        bddUtil.sleep(2);
+        t24_payments_page.View.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+    }
+
+    //    改变状态为235的数据,USD要点击2个按钮，SGD不点击
+    @Step
+    public void changeStatusCodeTrans() {
+        bddUtil.switchToNewWindow();
+        bddUtil.closeWindow();
+        switchToSecondFrame();
+        bddUtil.sleep(1);
+//        在首页进行 状态更改。
+        t24_payments_page.PendingRepairPayments.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        switchToFirstFrame();
+        t24_payments_page.selectScreen.click();
+        bddUtil.sleep(1);
+        t24_payments_page.inputFTNumber.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+//        t24_payments_page.inputFTNumber.sendKeys("SGL22164BDLF0JDF");
+        bddUtil.sleep(3);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(2);
+        t24_payments_page.Modify.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        t24_payments_page.preSubmit.click();
+        bddUtil.sleep(2);
+        switchToDefaultContent();
+        if (t24_payments_page.ClickErrorMessage.isVisible()) {
+            t24_payments_page.ClickErrorMessage.click();
+            bddUtil.sleep(2);
+            if (!t24_payments_page.inputError.equals("")) {
+                t24_payments_page.inputError.clear();
+            }
+        }
+        bddUtil.sleep(3);
+        String oeNumber = t24_payments_page.OENumber.getText();
+        FileUtils.FileString4("OENumber", oeNumber);
+        t24_payments_page.preSubmit.click();
+        bddUtil.sleep(4);
+        t24_payments_page.Commit.click();
+        bddUtil.sleep(4);
+    }
+    @Step
+    public void clickForexSpotDeal() {
+        bddUtil.sleep(3);
+        switchToSecondFrame();
+        t24_payments_page.clickUserMenu.click();
+        t24_payments_page.clickTreasuryMenu.click();
+        t24_payments_page.clickForexMenu.click();
+        t24_payments_page.clickCaptureForexSpotDeal.click();
+        bddUtil.sleep(3);
+    }
+
+    @Step
+    public void inputInformationOnCustomerForexSpotDealPage(int a) {
+        bddUtil.switchToNewWindow();
+        switchToFirstFrame();
+        bddUtil.sleep(2);
+        t24_payments_page.clickCorporateCustomer.click();
+        Assert.assertEquals(t24_payments_page.FXSpotTradeTitle.getText(),"FX Spot Trade");
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        // 从Excel里读取数据
+        String Counterparty = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Counterparty", a);
+        String CurrencyBought = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Currency Bought", a);
+        String CurrencySold = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Currency Sold", a);
+        String SpotRate = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Spot Rate", a);
+        String BuyAmount = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Buy Amount", a);
+        String SellAmount = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Sell Amount", a);
+        String ValueDateBuy = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Value Date Buy", a);
+        String ValueDateSell = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Value Date Sell", a);
+        String MatureStartDay = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Mature at Start of Day?", a);
+        String SettlementAccSell1 = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Settlement A/c for Sell.1", a);
+        String SettlementAccBuy1 = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Settlement A/c for Buy.1", a);
+        String CounterpartysSSI1 = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Counterparty's SSI.1", a);
+        t24_payments_page.Counterparty.sendKeys(Counterparty);
+        t24_payments_page.ContractScreen.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.closeWindow();
+        bddUtil.switchToNewWindow();
+        switchToFirstFrame();
+        bddUtil.sleep(2);
+        t24_payments_page.CurrencyBought.sendKeys(CurrencyBought);
+        t24_payments_page.CurrencySold.sendKeys(CurrencySold);
+        t24_payments_page.SpotRate.sendKeys(SpotRate);
+        t24_payments_page.BuyAmount.sendKeys(BuyAmount);
+        t24_payments_page.SellAmount.sendKeys(SellAmount);
+        t24_payments_page.ValueDateBuy.sendKeys(ValueDateBuy);
+        t24_payments_page.ValueDateSell.sendKeys(ValueDateSell);
+        if (MatureStartDay.equals("No")) {
+            t24_payments_page.MatureStartDay_No.click();
+        } else if (MatureStartDay.equals("Yes")) {
+            t24_payments_page.MatureStartDay_Yes.click();
+        }
+        bddUtil.sleep(3);
+        t24_payments_page.SettlementInstructions.click();
+        t24_payments_page.SettlementAccSell1.sendKeys(SettlementAccSell1);
+        t24_payments_page.SettlementAccBuy1.sendKeys(SettlementAccBuy1);
+        t24_payments_page.CounterpartysSSI1.sendKeys(CounterpartysSSI1);
+        bddUtil.sleep(2);
+        t24_payments_page.SpotDeal.click();
+        bddUtil.sleep(2);
+    }
+
+    //    获取当前交易的FX值
+    @Step
+    public void getFXNumber() {
+        String fxNumber = t24_payments_page.FXNumber.getText();
+        // Remove Hyphens
+        String fxNum = fxNumber.replace("-","");
+        FileUtils.FileString4("FXNumber", fxNum);
+    }
+
+    //    进入一级授权页面
+    @Step
+    public void enterUnauthorizedFXTrans() {
+        bddUtil.sleep(3);
+        switchToSecondFrame();
+        t24_payments_page.clickUserMenu.click();
+        t24_payments_page.clickTreasuryMenu.click();
+        t24_payments_page.clickForexMenu.click();
+        t24_payments_page.clickUnauthorizedFXTransactionsMenu.click();
+        bddUtil.sleep(2);
+    }
+    //    根据FXNumber Number进行查询 审批
+    @Step
+    public void inputFXbitAccNumber() {
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+//        点击放大镜
+        switchToFirstFrame();
+        t24_payments_page.selectScreen.click();
+        bddUtil.sleep(2);
+        bddUtil.scrollWindowToElement(t24_payments_page.inputTransRef).sendKeys(FileUtils.LastReadFileInput3("FXNumber"));
+//        bddUtil.scrollWindowToElement(t24_payments_page.inputDebitAccNumber).sendKeys(DebitAccNumber);
+        bddUtil.sleep(2);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(2);
+        t24_payments_page.Autho.click();
+        bddUtil.sleep(5);
+        switchToDefaultContent();
+//        进入第二个 frame
+        switchToSecondFrame();
+        t24_payments_page.AuthorisesADeal.click();
+        bddUtil.sleep(3);
+    }
+
+    @Step
+    public void inputDebitandCreditaccountclickfind(int a) {
+        String SettlementAccSell1 = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Settlement A/c for Sell.1", a);
+        String SettlementAccBuy1 = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Settlement A/c for Buy.1", a);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        t24_payments_page.inputaccount.clear();
+        t24_payments_page.inputaccount.sendKeys(SettlementAccSell1);
+        //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details1.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+        bddUtil.closeWindow();
+        bddUtil.switchToNewWindow();
+        bddUtil.closeWindow();
+        switchToSecondFrame();
+        t24_payments_page.accountB.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        t24_payments_page.inputaccount.clear();
+        t24_payments_page.inputaccount.sendKeys(SettlementAccBuy1);
+        bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details1.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+    }
+    @Step
+    public void inputBoxSearchFX(int cmd) {
+        t24_payments_page.inputBox.clear();
+        String command = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Search Content", cmd);
+        t24_payments_page.inputBox.sendKeys(command);
+        t24_payments_page.searchBtn.click();
+        bddUtil.sleep(2);
+    }
+    //   输入FXNumber进行查询
+    @Step
+    public void inputFXNumberClickFind() {
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(1);
+        t24_payments_page.inputTransID.sendKeys(FileUtils.LastReadFileInput3("FXNumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.clickViewContractBtn.click();
+        bddUtil.sleep(2);
+        String PINumber = t24_payments_page.PORef.getText();
+        FileUtils.FileString4("FXPINumber", PINumber);
+        bddUtil.closeWindow();
+        bddUtil.sleep(3);
+    }
+
+    //   输入FXPINumber进行查询
+    @Step
+    public void inputFXPINumberClickFind() {
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        switchToFirstFrame();
+        t24_payments_page.inputFileSendersReference.sendKeys(FileUtils.LastReadFileInput3("FXPINumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(3);
+        String FTNumber = t24_payments_page.getFTNumber.getText();
+        FileUtils.FileString4("FTNumber", FTNumber);
+    }
+    //    改变状态为235的数据,USD要点击2个按钮，SGD不点击
+    @Step
+    public void changeStatusCodeTransFX() {
+        bddUtil.switchToNewWindow();
+        bddUtil.closeWindow();
+        switchToSecondFrame();
+        bddUtil.sleep(1);
+//        在首页进行 状态更改。
+        t24_payments_page.PendingRepairPayments.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        switchToFirstFrame();
+        t24_payments_page.selectScreen.click();
+        bddUtil.sleep(1);
+        t24_payments_page.inputFTNumber.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+//        t24_payments_page.inputFTNumber.sendKeys("SGL22164BDLF0JDF");
+        bddUtil.sleep(3);
+        t24_payments_page.Find.click();
+        bddUtil.sleep(2);
+        t24_payments_page.Modify.click();
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        t24_payments_page.preSubmit.click();
+        bddUtil.sleep(2);
+        switchToDefaultContent();
+        String currentDate =  LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase();
+        if (!t24_payments_page.ProcessingDate.equals("")) {
+            t24_payments_page.ProcessingDate.clear();
+            t24_payments_page.ProcessingDate.sendKeys(currentDate);
+            t24_payments_page.CheckProcessingDate.click();
+        } else {
+            t24_payments_page.ProcessingDate.sendKeys(currentDate);
+            t24_payments_page.CheckProcessingDate.click();
+        }
+        if (!t24_payments_page.DebitValueDate.equals("")) {
+            t24_payments_page.DebitValueDate.clear();
+            t24_payments_page.DebitValueDate.sendKeys(currentDate);
+            t24_payments_page.CheckDebitValueDate.click();
+        } else {
+            t24_payments_page.DebitValueDate.sendKeys(currentDate);
+            t24_payments_page.CheckDebitValueDate.click();
+        }
+        if (!t24_payments_page.CreditValueDate.equals("")) {
+            t24_payments_page.CreditValueDate.clear();
+            t24_payments_page.CreditValueDate.sendKeys(currentDate);
+            t24_payments_page.CheckCreditValueDate.click();
+        } else {
+            t24_payments_page.CreditValueDate.sendKeys(currentDate);
+            t24_payments_page.CheckCreditValueDate.click();
+        }
+        if (t24_payments_page.ClickErrorMessage.isVisible()) {
+            t24_payments_page.ClickErrorMessage.click();
+            bddUtil.sleep(2);
+            if (!t24_payments_page.inputError.equals("")) {
+                t24_payments_page.inputError.clear();
+            }
+        }
+        bddUtil.sleep(3);
+        String oeNumber = t24_payments_page.OENumber.getText();
+        FileUtils.FileString4("OENumber", oeNumber);
+        t24_payments_page.preSubmit.click();
+        bddUtil.sleep(4);
+        t24_payments_page.Commit.click();
+        bddUtil.sleep(4);
+    }
+
+    @Step
+    public void inputInformationOnInterBankForexSpotDealPage(int a) {
+        bddUtil.switchToNewWindow();
+        switchToFirstFrame();
+        bddUtil.sleep(2);
+        t24_payments_page.clickInterBank.click();
+        Assert.assertEquals(t24_payments_page.FXSpotTradeTitle.getText(),"FX Spot Trade");
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        // 从Excel里读取数据
+        String Counterparty = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Counterparty", a);
+        String DealerDesk = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Dealer Desk", a);
+        String CurrencyBought = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Currency Bought", a);
+        String CurrencySold = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Currency Sold", a);
+        String SpotRate = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Spot Rate", a);
+        String BuyAmount = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Buy Amount", a);
+        String SellAmount = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Sell Amount", a);
+        String ValueDateBuy = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Value Date Buy", a);
+        String ValueDateSell = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Value Date Sell", a);
+        String MatureStartDay = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Mature at Start of Day?", a);
+        String Netting = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Netting", a);
+        String SettlementAccSell1 = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Settlement A/c for Sell.1", a);
+        String SettlementAccBuy1 = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Settlement A/c for Buy.1", a);
+        String CounterpartysSSI1 = ExcelUtils.readExcel(TreasuryExcel, "FX_InterBank", "Counterparty's SSI.1", a);
+        t24_payments_page.Counterparty.sendKeys(Counterparty);
+        t24_payments_page.ContractScreen.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.closeWindow();
+        bddUtil.switchToNewWindow();
+        switchToFirstFrame();
+        bddUtil.sleep(2);
+        t24_payments_page.DealerDesk.sendKeys(DealerDesk);
+        t24_payments_page.CurrencyBought.sendKeys(CurrencyBought);
+        t24_payments_page.CurrencySold.sendKeys(CurrencySold);
+        t24_payments_page.SpotRate.sendKeys(SpotRate);
+        t24_payments_page.BuyAmount.sendKeys(BuyAmount);
+        t24_payments_page.SellAmount.sendKeys(SellAmount);
+        t24_payments_page.ValueDateBuy.sendKeys(ValueDateBuy);
+        t24_payments_page.ValueDateSell.sendKeys(ValueDateSell);
+        if (MatureStartDay.equals("No")) {
+            t24_payments_page.MatureStartDay_No.click();
+        } else if (MatureStartDay.equals("Yes")) {
+            t24_payments_page.MatureStartDay_Yes.click();
+        }
+        if (Netting.equals("N")) {
+            t24_payments_page.Netting_No.click();
+        } else if (Netting.equals("Y")) {
+            t24_payments_page.Netting_Yes.click();
+        }
+        bddUtil.sleep(3);
+        t24_payments_page.SettlementInstructions.click();
+        t24_payments_page.SettlementAccSell1.sendKeys(SettlementAccSell1);
+        t24_payments_page.SettlementAccBuy1.sendKeys(SettlementAccBuy1);
+        t24_payments_page.CounterpartysSSI1.sendKeys(CounterpartysSSI1);
+        bddUtil.sleep(2);
+        t24_payments_page.SpotDealdot.click();
+        bddUtil.sleep(2);
+    }
+
 }
 
 

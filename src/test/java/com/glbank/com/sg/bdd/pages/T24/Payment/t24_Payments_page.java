@@ -1269,4 +1269,173 @@ public class t24_Payments_page extends PageObject {
     public WebElementFacade BICInput;
 
 
+    @FindBy(xpath = "//span[text()='Money Market']")
+    public WebElementFacade clickMoneyMarketMenu;
+
+    @FindBy(xpath = "//span[text()='Money Market']/following-sibling::ul/li[1]/a")
+    public WebElementFacade FixedMaturityPlacementContracts;
+
+    @FindBy(xpath = "//a[text()='MM Placement (Loan)-Fixed Maturity']")
+    public WebElementFacade MMPlacementTitle;
+
+    @FindBy(xpath = "//label[@for='fieldName:DEALER.DESK']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade DealerDesk;
+
+    @FindBy(xpath = "//label[@for='fieldName:CUSTOMER.ID']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade CounterpartyID;
+
+    @FindBy(xpath = "//div[@id='contract_screen_div']")
+    public WebElementFacade ContractScreen;
+
+    @FindBy(xpath = "//label[@for='fieldName:CURRENCY']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade Currency;
+
+    @FindBy(xpath = "//label[@for='fieldName:PRINCIPAL']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade Amount;
+
+    @FindBy(xpath = "//label[@for='fieldName:VALUE.DATE']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade StartDate;
+
+    @FindBy(xpath = "//label[@for='fieldName:INTEREST.RATE']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade InterestRateFixed;
+
+    @FindBy(xpath = "//a//span[text()='Payment/Settlement']")
+    public WebElementFacade PaymentSettlement;
+
+    @FindBy(xpath = "//label[@for='fieldName:DRAWDOWN.ACCOUNT']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade CreditAccount;
+
+    @FindBy(xpath = "//label[@for='fieldName:PRIN.BEN.BANK.1']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade CounterpartyCorresBank1;
+
+    @FindBy(xpath = "//label[@for='fieldName:PRIN.LIQ.ACCT']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade PrincipalLiqAcct;
+
+    @FindBy(xpath = "//label[@for='fieldName:INT.LIQ.ACCT']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade InterestLiqAcct;
+
+    @FindBy(xpath = "//a//span[text()='MM Placement/Loan - Fixed Maturity']")
+    public WebElementFacade MMPlacementLoanFixedMaturity;
+
+    @FindBy(xpath = "//td[@id='dealtitle']/following-sibling::td[1]//span")
+    public WebElementFacade MMNumber;
+
+    @FindBy(xpath = "//a[text()='Unauthorized MM Transactions ']")
+    public WebElementFacade clickUnauthorizedMMTransactionsMenu;
+
+    @FindBy(xpath = "//label[text()='Transaction Ref']/parent::span/parent::td/following-sibling::td[2]//input[1]")
+    public WebElementFacade inputTransRef;
+
+    @FindBy(xpath = "//a[@title='Authorise']")
+    public WebElementFacade Autho;
+
+    //@FindBy(xpath = "//span[text()='Settlement']")
+    @FindBy(xpath = "/html/body/div[3]/ul[1]/li/ul/li[7]/ul/li[4]/ul/li[8]/span")
+    public WebElementFacade clickSettlementMenu;
+
+    @FindBy(xpath = "//a[text()='MM.PAYMENT.ENTRY ']")
+    public WebElementFacade clickMMPaymentEntryMenu;
+
+    @FindBy(xpath = "//td[@id='dealtitle']/following-sibling::td[1]//input[@name='transactionId']")
+    public WebElementFacade inputTransID;
+
+    @FindBy(xpath = "//label[@for='fieldName:PO.REFERENCE']/parent::td/following-sibling::td[2]/span")
+    public WebElementFacade PORef;
+
+    @FindBy(xpath = "//span[text()=\"AccountWithInstIdentifierCode\"]")
+    public WebElementFacade ClickErrorMessage;
+
+    @FindBy(xpath = "//input[@id='fieldName:AccountWithInstIdentifierCode']")
+    public WebElementFacade inputError;
+
+    @FindBy(xpath = "//span[text()='Forex']/following-sibling::ul/li[1]/a")
+    public WebElementFacade clickCaptureForexSpotDeal;
+
+    @FindBy(xpath = "//a[text()='Corporate Customer']")
+    public WebElementFacade clickCorporateCustomer;
+
+    @FindBy(xpath = "//a[text()='FX Spot Trade']")
+    public WebElementFacade FXSpotTradeTitle;
+
+    @FindBy(xpath = "//label[@for='fieldName:COUNTERPARTY']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade Counterparty;
+
+    @FindBy(xpath = "//label[@for='fieldName:CURRENCY.BOUGHT']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade CurrencyBought;
+
+    @FindBy(xpath = "//label[@for='fieldName:CURRENCY.SOLD']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade CurrencySold;
+
+    @FindBy(xpath = "//label[@for='fieldName:SPOT.RATE']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade SpotRate;
+
+    @FindBy(xpath = "//label[@for='fieldName:AMOUNT.BOUGHT']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade BuyAmount;
+
+    @FindBy(xpath = "//label[@for='fieldName:AMOUNT.SOLD']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade SellAmount;
+
+    @FindBy(xpath = "//label[@for='fieldName:VALUE.DATE.BUY']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade ValueDateBuy;
+
+    @FindBy(xpath = "//label[@for='fieldName:VALUE.DATE.SELL']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade ValueDateSell;
+
+    @FindBy(xpath = "//td[2]//input[@name='radio:tab1:SOD.MAT' and @value='NO']")
+    public WebElementFacade MatureStartDay_No;
+
+    @FindBy(xpath = "//td[3]//input[@name='radio:tab1:SOD.MAT' and @value='YES']")
+    public WebElementFacade MatureStartDay_Yes;
+
+    @FindBy(xpath = "//a//span[text()='Settlement Instructions']")
+    public WebElementFacade SettlementInstructions;
+
+    @FindBy(xpath = "//label[@for='fieldName:OUR.ACCOUNT.PAY']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade SettlementAccSell1;
+
+    @FindBy(xpath = "//label[@for='fieldName:OUR.ACCOUNT.REC']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade SettlementAccBuy1;
+
+    @FindBy(xpath = "//label[@for='fieldName:CPARTY.CORR.NO']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade CounterpartysSSI1;
+
+    @FindBy(xpath = "//a//span[text()='Spot Deal']")
+    public WebElementFacade SpotDeal;
+
+    @FindBy(xpath = "//td[@id='dealtitle']/following-sibling::td[1]//span")
+    public WebElementFacade FXNumber;
+
+    @FindBy(xpath = "//a[text()='Unauthorized Forex Deals ']")
+    public WebElementFacade clickUnauthorizedFXTransactionsMenu;
+
+    @FindBy(xpath = "//label[@for='fieldName:ProcessingDate']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade ProcessingDate;
+
+    @FindBy(xpath = "//input[@id='CheckBox:fieldName:ProcessingDateImposedFlag']")
+    public WebElementFacade CheckProcessingDate;
+
+    @FindBy(xpath = "//label[@for='fieldName:DebitValueDate']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade DebitValueDate;
+
+    @FindBy(xpath = "//input[@id='CheckBox:fieldName:DebitValueDateImposedFlag']")
+    public WebElementFacade CheckDebitValueDate;
+
+    @FindBy(xpath = "//label[@for='fieldName:CreditValueDate']/parent::td/following-sibling::td[2]/input")
+    public WebElementFacade CreditValueDate;
+
+    @FindBy(xpath = "//input[@id='CheckBox:fieldName:CreditValueDateImposedFlag']")
+    public WebElementFacade CheckCreditValueDate;
+
+    @FindBy(xpath = "//a[text()='Inter Bank']")
+    public WebElementFacade clickInterBank;
+
+    @FindBy(xpath = "//td[2]//input[@name='radio:tab1:NETTING.STATUS' and @value='N']")
+    public WebElementFacade Netting_No;
+
+    @FindBy(xpath = "//td[3]//input[@name='radio:tab1:NETTING.STATUS' and @value='Y']")
+    public WebElementFacade Netting_Yes;
+
+    @FindBy(xpath = "//a//span[text()='Spot Deal.']")
+    public WebElementFacade SpotDealdot;
+
 }

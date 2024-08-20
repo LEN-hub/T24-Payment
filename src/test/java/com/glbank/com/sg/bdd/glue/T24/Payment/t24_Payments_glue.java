@@ -1317,7 +1317,117 @@ public class t24_Payments_glue {
         t24_payments_step.inputaccountclickfindSGDISOBankTest(arg0);
     }
 
+    @When("^I click Fixed Maturity Placement Contracts$")
+    public void iClickFixedMaturityPlacementContracts() {
+        t24_payments_step.clickFixedMaturityPlacement();
+    }
 
+    @Then("^I Assertion enter Fixed Maturity Placement Contracts Page$")
+    public void iAssertionEnterFixedMaturityPlacementContractsPage() {
+        t24_payments_step.AssertionEnterPlacementContractsPage();
+    }
 
+    @When("^I Input incomplete information on Placement Contracts Page \"([^\"]*)\"$")
+    public void iInputIncompleteInformationOnPlacementContractsPage(int arg0) {
+        t24_payments_step.inputInformationOnPlacementContractsPage(arg0);
+    }
+
+    @Then("^I get MMNumber$")
+    public void iGetMMNumber() {
+        t24_payments_step.getMMNumber();
+    }
+    @When("^I entered the Unauthorized MM Transactions page$")
+    public void iEnteredTheUnauthorizedMMTransactionsPage() {
+        t24_payments_step.enterUnauthorizedMMTrans();
+    }
+
+    @Then("^I input MM Number and click Find Authorise$")
+    public void iInputMMNumberAndClickFindAuthorise() {
+        t24_payments_step.inputMMbitAccNumber();
+    }
+    @When("^I enter the MM Payment Entry page$")
+    public void iEnterTheMMPaymentEntryPage() {
+        t24_payments_step.enterMMPaymentEntry();
+    }
+    @Then("^I input MM Number and click Find$")
+    public void iInputMMNumberAndClickFind() {
+        t24_payments_step.inputMMNumberClickFind();
+    }
+    @When("^I enter the Payments Enquiry - Transaction wise status page$")
+    public void iEnterThePaymentsEnquiryTransactionWiseStatusPage() {
+        t24_payments_step.enterPaymentsEnquiryTransactionWiseStatusPage();
+    }
+
+    @Then("^I input MMPINumber and click Find$")
+    public void iInputMMPINumberAndClickFind() {
+        t24_payments_step.inputMMPINumberClickFind();
+    }
+    @When("^I Assert enter View Page Trans$")
+    public void iAssertEnterViewPageTrans() throws Exception{
+        t24_payments_step.enterViewPage();
+//        断言是否进入EnterViewPage
+        t24_payments_step.assertEnterViewPage();
+//        查看各个页面的数据
+        t24_payments_step.clickErrorInformation();
+        t24_payments_step.clickAudit();
+//        查看完详细信息关闭当前窗口
+        bddUtil.closeWindow();
+        bddUtil.sleep(3);
+    }
+
+    @When("^I change status code Trans$")
+    public void iChangeStatusCodeTrans() {
+        t24_payments_step.changeStatusCodeTrans();
+    }
+    @When("^I click Capture Forex Spot Deal$")
+    public void iClickCaptureForexSpotDeal() {
+        t24_payments_step.clickForexSpotDeal();
+    }
+    @When("^I Choose Customer and Input incomplete information on Forex Spot Deal Page \"([^\"]*)\"$")
+    public void iChooseCustomerAndInputIncompleteInformationOnForexSpotDealPage(int arg0) {
+        t24_payments_step.inputInformationOnCustomerForexSpotDealPage(arg0);
+    }
+    @Then("^I get FXNumber$")
+    public void iGetFXNumber() {
+        t24_payments_step.getFXNumber();
+    }
+    @When("^I entered the Unauthorized FX Transactions page$")
+    public void iEnteredTheUnauthorizedFXTransactionsPage() {
+        t24_payments_step.enterUnauthorizedFXTrans();
+    }
+    @Then("^I input FX Number and click Find Authorise$")
+    public void iInputFXNumberAndClickFindAuthorise() {
+        t24_payments_step.inputFXbitAccNumber();
+    }
+
+    @Then("^I find debit and credit account \"([^\"]*)\"$")
+    public void iFindDebitAndCreditAccount(int arg0) {
+        t24_payments_step.inputDebitandCreditaccountclickfind(arg0);
+    }
+    @When("^I type in the content and click the search \"([^\"]*)\"$")
+    public void iTypeInTheContentAndClickTheSearch(int arg0) throws Exception {
+        t24_payments_step.switchToFirstFrame();
+        t24_payments_step.inputBoxSearchFX(arg0);
+    }
+
+    @Then("^I input FX Number and click Find$")
+    public void iInputFXNumberAndClickFind() {
+        t24_payments_step.inputFXNumberClickFind();
+    }
+
+    @Then("^I input FXPINumber and click Find$")
+    public void iInputFXPINumberAndClickFind() {
+        t24_payments_step.inputFXPINumberClickFind();
+    }
+
+    @When("^I change status code Trans FX$")
+    public void iChangeStatusCodeTransFX() {
+        t24_payments_step.changeStatusCodeTransFX();
+    }
+
+    @When("^I Choose InterBank and Input incomplete information on Forex Spot Deal Page \"([^\"]*)\"$")
+    public void iChooseInterBankAndInputIncompleteInformationOnForexSpotDealPage(int arg0) {
+        t24_payments_step.inputInformationOnInterBankForexSpotDealPage(arg0);
+    }
 }
 
