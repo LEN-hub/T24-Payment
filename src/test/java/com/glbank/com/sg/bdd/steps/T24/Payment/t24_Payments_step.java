@@ -3005,7 +3005,7 @@ public class t24_Payments_step extends ScenarioSteps {
 
     @Step
     public void clickChargeInformation2() {
-        t24_payments_page.ChargeInformation2.click();
+        t24_payments_page.ChargeInformation.click();
         bddUtil.sleep(3);
     }
 
@@ -3821,7 +3821,7 @@ public class t24_Payments_step extends ScenarioSteps {
     public void iInputCustomerAndCurrency(String customer, String currency1) {
         t24_payments_page.customer.sendKeys(customer);
         t24_payments_page.currency1.sendKeys(currency1);
-        bddUtil.sleep(2);
+        bddUtil.sleep(10);
     }
 
     public void ClickSubmit() {
@@ -3848,11 +3848,11 @@ public class t24_Payments_step extends ScenarioSteps {
         //    拼接PI号  根据对应的AA号
         String Arrangement = FileUtils.LastReadFileInput3("LoanPINumber");
         t24_payments_page.LinkedArrangement.sendKeys(Arrangement);
-        t24_payments_page.Add.click();
-        getDriver().findElement(By.xpath("/html/body/div[5]/fieldset[7]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[14]/select/option[2]")).click();
-        t24_payments_page.single.click();
-        getDriver().findElement(By.xpath("/html/body/div[5]/fieldset[7]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[16]/select/option[4]")).click();
-        t24_payments_page.MinMaxRate.sendKeys(MinMaxRate);
+//        t24_payments_page.Add.click();
+//        getDriver().findElement(By.xpath("/html/body/div[5]/fieldset[7]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[14]/select/option[2]")).click();
+//        t24_payments_page.single.click();
+//        getDriver().findElement(By.xpath("/html/body/div[5]/fieldset[7]/div/div[3]/div/div/form[1]/div[3]/table/tbody/tr[3]/td/table[1]/tbody/tr[1]/td[16]/select/option[4]")).click();
+//        t24_payments_page.MinMaxRate.sendKeys(MinMaxRate);
     }
 
     public void GetArrangement() {
@@ -3895,9 +3895,9 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.settlement1.sendKeys(settlement1);
         t24_payments_page.settlement2.sendKeys(settlement2);
         bddUtil.sleep(2);
-        t24_payments_page.PayIn.click();
-        t24_payments_page.Rule.clear();
-        t24_payments_page.Rule.sendKeys("FULL");
+//        t24_payments_page.PayIn.click();
+//        t24_payments_page.Rule.clear();
+//        t24_payments_page.Rule.sendKeys("FULL");
     }
 
     public void ClickUnauthorizedAAARecords() {

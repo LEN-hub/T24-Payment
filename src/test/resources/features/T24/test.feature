@@ -1,6 +1,338 @@
 @Auto_Test1
 Feature: Auto_Test1
 
+ # GLDBCR-1521 TEST
+
+#  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved
+#  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Capture Forex Spot Deal
+#    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "1"
+#    Then I get FXNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized FX Transactions page
+#    Then I input FX Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I type in the content and click the search "1"
+#    Then I input FX Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FXPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans FX
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page BN
+#    And I close driver
+
+  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_SGD
+  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_SGD
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Fixed Maturity Placement Contracts
+    Then I Assertion enter Fixed Maturity Placement Contracts Page
+    When I Input incomplete information on Placement Contracts Page "1"
+    Then I get MMNumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Unauthorized MM Transactions page
+    Then I input MM Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the MM Payment Entry page
+    Then I input MM Number and click Find
+    When I enter the Payments Enquiry - Transaction wise status page
+    Then I input MMPINumber and click Find
+    When I Assert enter View Page Trans
+    When I change status code Trans
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    Then I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    When I enter the Currency Rates List
+    Then I close all tabs and jump to the home
+    And I close driver
+
+
+  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_USD
+  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_USD
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Fixed Maturity Placement Contracts
+    Then I Assertion enter Fixed Maturity Placement Contracts Page
+    When I Input incomplete information on Placement Contracts Page "2"
+    Then I get MMNumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Unauthorized MM Transactions page
+    Then I input MM Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the MM Payment Entry page
+    Then I input MM Number and click Find
+    When I enter the Payments Enquiry - Transaction wise status page
+    Then I input MMPINumber and click Find
+    When I Assert enter View Page Trans
+    When I change status code Trans
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    Then I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    When I enter the Currency Rates List
+    Then I close all tabs and jump to the home
+    And I close driver
+
+  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_HKD
+  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_HKD
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Fixed Maturity Placement Contracts
+    Then I Assertion enter Fixed Maturity Placement Contracts Page
+    When I Input incomplete information on Placement Contracts Page "3"
+    Then I get MMNumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Unauthorized MM Transactions page
+    Then I input MM Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the MM Payment Entry page
+    Then I input MM Number and click Find
+    When I enter the Payments Enquiry - Transaction wise status page
+    Then I input MMPINumber and click Find
+    When I Assert enter View Page Trans
+    When I change status code Trans
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    Then I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    When I enter the Currency Rates List
+    Then I close all tabs and jump to the home
+    And I close driver
+
+  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_EUR
+  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_EUR
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Fixed Maturity Placement Contracts
+    Then I Assertion enter Fixed Maturity Placement Contracts Page
+    When I Input incomplete information on Placement Contracts Page "4"
+    Then I get MMNumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Unauthorized MM Transactions page
+    Then I input MM Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the MM Payment Entry page
+    Then I input MM Number and click Find
+    When I enter the Payments Enquiry - Transaction wise status page
+    Then I input MMPINumber and click Find
+    When I Assert enter View Page Trans
+    When I change status code Trans
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    Then I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    When I enter the Currency Rates List
+    Then I close all tabs and jump to the home
+    And I close driver
+
+  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_CNY
+  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_CNY
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Fixed Maturity Placement Contracts
+    Then I Assertion enter Fixed Maturity Placement Contracts Page
+    When I Input incomplete information on Placement Contracts Page "5"
+    Then I get MMNumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Unauthorized MM Transactions page
+    Then I input MM Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the MM Payment Entry page
+    Then I input MM Number and click Find
+    When I enter the Payments Enquiry - Transaction wise status page
+    Then I input MMPINumber and click Find
+    When I Assert enter View Page Trans
+    When I change status code Trans
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    Then I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    When I enter the Currency Rates List
+    Then I close all tabs and jump to the home
+    And I close driver
+
+  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_AED
+  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_AED
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Fixed Maturity Placement Contracts
+    Then I Assertion enter Fixed Maturity Placement Contracts Page
+    When I Input incomplete information on Placement Contracts Page "6"
+    Then I get MMNumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Unauthorized MM Transactions page
+    Then I input MM Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the MM Payment Entry page
+    Then I input MM Number and click Find
+    When I enter the Payments Enquiry - Transaction wise status page
+    Then I input MMPINumber and click Find
+    When I Assert enter View Page Trans
+    When I change status code Trans
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    Then I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    When I enter the Currency Rates List
+    Then I close all tabs and jump to the home
+    And I close driver
+
+
+  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_AUD
+  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_AUD
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I click Fixed Maturity Placement Contracts
+    Then I Assertion enter Fixed Maturity Placement Contracts Page
+    When I Input incomplete information on Placement Contracts Page "7"
+    Then I get MMNumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Unauthorized MM Transactions page
+    Then I input MM Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the MM Payment Entry page
+    Then I input MM Number and click Find
+    When I enter the Payments Enquiry - Transaction wise status page
+    Then I input MMPINumber and click Find
+    When I Assert enter View Page Trans
+    When I change status code Trans
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    Then I close driver
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    When I enter the Currency Rates List
+    Then I close all tabs and jump to the home
+    And I close driver
+
+
+
+
 #  @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount<threshold
 #  Scenario:AA Disbursement (SGMEPS) SGD-SGDAmount<250K
 #    Given Use "T24-automation-UAT-login" to login to T24 environment
@@ -33,126 +365,126 @@ Feature: Auto_Test1
 #    Then I Assert enter View Details Page
 
 
-  @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount>threshold
-  Scenario:AA Disbursement (SGMEPS) SGD-SGDAmount>250K
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click AA AA Disbursement (SGMEPS) Button
-    Then I enter input the Disbursement SGMEPS Page
-    When I input information on the Loan Disbursement SGMEPS Page "1"
-#      |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Account No|Beneficiary Bank BIC|Beneficiary Name|
-#      |18500002905         |SGD           |SGD             |250007        |345665                |CITISGS0            |lei             |
-    Then I input information on the SGMEPS Beneficiary Details Page "1"
-#      |Beneficiary Street Name|Beneficiary Post Code|Beneficiary Town Name|Beneficiary Country|Beneficiary Residence Country|
-#      |teselei                |1234                 |SINGRORE             |SG                  |SG                          |
-    Then I get LoanPINumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click Authorise/Delete Arrangements (PO) Button
-    Then I input PI Number and click Find
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input LoanPINumber and click Find
-    When I change status code SGD
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input FTNumber and click Find Authorise
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page to USD Loan SGMEPS
-    Then I Assert enter View Details Page
-
-
-
-
-
-  @Payment_Loan_AA_Disbursement_External_USD-USD_Amount<threshold
-  Scenario:AA Disbursement External USD-USD Amount<250K
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click AA Disbursement External Button
-    Then I enter input the Disbursement External Page
-    Then Assert enter Disbursement External Page
-    When I input information on the Loan Disbursement External Page "1"
-#    When I input information on the Loan Disbursement External Page
-#      |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Country Code|
-#      |17100007089         |USD           |USD             |100           |HK                    |
-    Then I input information on the Beneficiary Details Page "1"
-#    Then I input information on the Beneficiary Details Page
-#      |Beneficiary Account No|Beneficiary Name|
-#      |3242343               |kang            |
-    When I enter Routing Details Page and added information "1"
-#    When I enter Routing Details Page and added information
-#      |Account with Bank BIC |Account With Town Name|Account with Bank Country|
-#      |CITISGS0              |SINGAPORE             |SG                       |
-    Then I get LoanPINumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click Authorise/Delete Arrangements (PO) Button
-    Then I input PI Number and click Find
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input LoanPINumber and click Find
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-
-
-  @Payment_Loan_Disbursement_External_USD-USD_Amount>threshold
-  Scenario:AA Disbursement External USD-USD Amount>250K
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click AA Disbursement External Button
-    Then I enter input the Disbursement External Page
-    Then Assert enter Disbursement External Page
-    When I input information on the Loan Disbursement External Page "1"
-#      |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|
-#      |18500002891         |USD           |USD             |250007        |
-    Then I input information on the Beneficiary Details Page "1"
-#      |Beneficiary Account No|Beneficiary Name|
-#      |3242343               |kang            |
-    When I enter Routing Details Page and added information "1"
-#      |Account with Bank BIC |Account With Town Name|Account with Bank Country|
-#      |CITISGS0              |SINGAPORE             |SG                       |
-    Then I get LoanPINumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click Authorise/Delete Arrangements (PO) Button
-    Then I input PI Number and click Find
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input LoanPINumber and click Find
-    When I change status code USD
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input FTNumber and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
+#  @Payment_Loan_Disbursement_SGMEPS_SGD-SGD_Amount>threshold
+#  Scenario:AA Disbursement (SGMEPS) SGD-SGDAmount>250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Loan Transactions Button
+#    Then I click AA AA Disbursement (SGMEPS) Button
+#    Then I enter input the Disbursement SGMEPS Page
+#    When I input information on the Loan Disbursement SGMEPS Page "1"
+##      |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Account No|Beneficiary Bank BIC|Beneficiary Name|
+##      |18500002905         |SGD           |SGD             |250007        |345665                |CITISGS0            |lei             |
+#    Then I input information on the SGMEPS Beneficiary Details Page "1"
+##      |Beneficiary Street Name|Beneficiary Post Code|Beneficiary Town Name|Beneficiary Country|Beneficiary Residence Country|
+##      |teselei                |1234                 |SINGRORE             |SG                  |SG                          |
+#    Then I get LoanPINumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I click Loan Transactions Button
+#    Then I click Authorise/Delete Arrangements (PO) Button
+#    Then I input PI Number and click Find
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input LoanPINumber and click Find
+#    When I change status code SGD
+#    Then I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input FTNumber and click Find Authorise
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD Loan SGMEPS
+#    Then I Assert enter View Details Page
+#
+#
+#
+#
+#
+#  @Payment_Loan_AA_Disbursement_External_USD-USD_Amount<threshold
+#  Scenario:AA Disbursement External USD-USD Amount<250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Loan Transactions Button
+#    Then I click AA Disbursement External Button
+#    Then I enter input the Disbursement External Page
+#    Then Assert enter Disbursement External Page
+#    When I input information on the Loan Disbursement External Page "1"
+##    When I input information on the Loan Disbursement External Page
+##      |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|Beneficiary Country Code|
+##      |17100007089         |USD           |USD             |100           |HK                    |
+#    Then I input information on the Beneficiary Details Page "1"
+##    Then I input information on the Beneficiary Details Page
+##      |Beneficiary Account No|Beneficiary Name|
+##      |3242343               |kang            |
+#    When I enter Routing Details Page and added information "1"
+##    When I enter Routing Details Page and added information
+##      |Account with Bank BIC |Account With Town Name|Account with Bank Country|
+##      |CITISGS0              |SINGAPORE             |SG                       |
+#    Then I get LoanPINumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I click Loan Transactions Button
+#    Then I click Authorise/Delete Arrangements (PO) Button
+#    Then I input PI Number and click Find
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input LoanPINumber and click Find
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#
+#
+#  @Payment_Loan_Disbursement_External_USD-USD_Amount>threshold
+#  Scenario:AA Disbursement External USD-USD Amount>250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Loan Transactions Button
+#    Then I click AA Disbursement External Button
+#    Then I enter input the Disbursement External Page
+#    Then Assert enter Disbursement External Page
+#    When I input information on the Loan Disbursement External Page "1"
+##      |Debit Account Number|Debit Currency|Payment Currency|Payment Amount|
+##      |18500002891         |USD           |USD             |250007        |
+#    Then I input information on the Beneficiary Details Page "1"
+##      |Beneficiary Account No|Beneficiary Name|
+##      |3242343               |kang            |
+#    When I enter Routing Details Page and added information "1"
+##      |Account with Bank BIC |Account With Town Name|Account with Bank Country|
+##      |CITISGS0              |SINGAPORE             |SG                       |
+#    Then I get LoanPINumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I click Loan Transactions Button
+#    Then I click Authorise/Delete Arrangements (PO) Button
+#    Then I input PI Number and click Find
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input LoanPINumber and click Find
+#    When I change status code USD
+#    Then I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input FTNumber and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
 
 #  @AAPayment_Loan_Disbursement_Internal_USD-USD_Amount<250K
 #  Scenario: AAPayment_Loan_Disbursement_Internal_USD-USD_Amount<250K
@@ -177,30 +509,30 @@ Feature: Auto_Test1
 #    When I Assert enter View Page to USD Loan Internal
 #    Then I Assert enter View Details Page
 #
-  @AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<250K
-  Scenario: AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<250K
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Loan Transactions
-    When I Input incomplete information on AA Disbursement Internal page "1"
-#    When I Input incomplete information on AA Disbursement Internal page
-#      |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
-#      |18000000563         |SGD           |3000            |SGD             |11010004255     |
-    Then I get LoanPINumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I click Loan Transactions Button
-    Then I click Authorise/Delete Arrangements (PO) Button
-    Then I input PI Number and click Find
-    And I close driver
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input LoanPINumber and click Find
-    When I Assert enter View Page to USD Loan Internal
-    Then I Assert enter View Details Page
-
+#  @AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<250K
+#  Scenario: AAPayment_Loan_Disbursement_Internal_SGD-SGD_Amount<250K
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Loan Transactions
+#    When I Input incomplete information on AA Disbursement Internal page "1"
+##    When I Input incomplete information on AA Disbursement Internal page
+##      |Debit Account Number|Debit Currency|Payment Amount  |Payment Currency|Creditor Account|
+##      |18000000563         |SGD           |3000            |SGD             |11010004255     |
+#    Then I get LoanPINumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I click Loan Transactions Button
+#    Then I click Authorise/Delete Arrangements (PO) Button
+#    Then I input PI Number and click Find
+#    And I close driver
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input LoanPINumber and click Find
+#    When I Assert enter View Page to USD Loan Internal
+#    Then I Assert enter View Details Page
+#
 
 
 #  @AAPayment_Loan_Disbursement_Internal_USD-USD_Amount>250K

@@ -772,7 +772,10 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//a//span[text()='Additional Information']")
     public WebElementFacade AdditionalInfoUSD;
 
-    @FindBy(xpath = "//a//span[text()='Error Information']")
+    //UAT
+//    @FindBy(xpath = "//a//span[text()='Error Information']")
+//    SIT
+    @FindBy(xpath = "//a//span[text()='Error Info']")
     public WebElementFacade ErrorInformation;
 
     @FindBy(xpath = "//a//span[text()='Extended Debtor Info']")
@@ -1035,10 +1038,10 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//img[@id='treestop6']")
     public WebElementFacade ClickLending;
 
-    @FindBy(xpath = "//td[text()='Syndicated Loans']/following-sibling::td[2]/a")
+    @FindBy(xpath = "/html/body/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div/div/table[1]/tbody/tr[9]/td[4]/a/img")
     public WebElementFacade ClickSyndicatedLoans;
 
-    @FindBy(xpath = "//img[@title='New Arrangement']")
+    @FindBy(xpath = "/html/body/div[3]/div/form/div/table/tbody/tr[2]/td[2]/div[2]/div/table[1]/tbody/tr[4]/td[4]/a/img")
     public WebElementFacade ClickNewArrangement;
 
     @FindBy(xpath = "//input[@name='fieldName:CUSTOMER:1']")

@@ -4,18 +4,18 @@ Feature: Amount
 
   @Zhang_Hu_Chong_Qian
   Scenario:T24_Amount
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
     When I click User Menu
     Then I click payments
     When I click payment hup
     Then I click Account Transfer
     When I Input Transfer Information
       |Debit Account|Debit Amount   |Debit Currency|Credit Account|Credit Currency|Ordering Bank          |
-      |SGD14200001  |45000000       |CNY           |11020042982   |CNY            |DBS SINGAPORE TEST     |
+      |SGD14200001  |99086189       |SGD           |11010007114   |SGD            |DBS SINGAPORE TEST     |
     Then I click pre-submit button
     When I click Accept Overrides
     Then Assert Result whether Successful
-    Given Use "T24-automation-SIT-login" to login to T24 environment
+    Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click User Menu
     Then I click payments
     When I click payment hup
@@ -23,7 +23,7 @@ Feature: Amount
     Then I click search but
     Then I input Credit Account No
       |Credit Account No|
-      |11020042982      |
+      |11010007114      |
     When I click find
     Then I click Authorize But
 
@@ -70,7 +70,7 @@ Feature: Amount
 
   @Chuang_Jian_Loan
   Scenario:T24_Creat_Loan
-    Given Use "T24-automation-SIT-login" to login to T24 environment
+    Given Use "T24-automation-UAT-login" to login to T24 environment
     When I click User Menu
     Then I click products
     Then I Click Product Catalog
@@ -79,54 +79,54 @@ Feature: Amount
     Then I click New Arrangement
     When I input Customer and Currency
       |Customer|Currency1|
-      |200510  |SGD      |
+      |202234  |SGD      |
     When I click Submit1
     Then I get Arrangement
     Then I input limit
       |Limit_Id      |
-      |LI23220YNM19  |
+      |LI24236RK441  |
     Then I input Commitment
       |Amount1|Term|Maturity_Date|
-      |200000 |2d  |20230809     |
+      |190000 |2Y  |             |
     When I input Principal Interest
       |Fixed|MinMaxRate|
-      |11.3 |1         |
-    Then I clcik CCY Reference and input
-      |Currency2|FixedFloating|RateIndex|
-      |SGD      |Floating     |SORA     |
-    Then I input Penalty Interest
-      |MinMaxRate|Currency3|FixedFloating3|RateIndex3|
-      |1         |SGD      |Floating      |SORA      |
-    Then I input Facility Fees Amortised and STF Participation Fee
-      |rate      |FixedAmount|
-      |3         |100        |
-    Then I input Schedule
-      |StartTime |EndTime     |
-      |D_20230808|R_MATURITY +|
+      |1.7  |          |
+#    Then I clcik CCY Reference and input
+#      |Currency2|FixedFloating|RateIndex|
+#      |         |             |         |
+#    Then I input Penalty Interest
+#      |MinMaxRate|Currency3|FixedFloating3|RateIndex3|
+#      |          |         |              |          |
+#    Then I input Facility Fees Amortised and STF Participation Fee
+#      |rate      |FixedAmount|
+#      |          |           |
+#    Then I input Schedule
+#      |StartTime |EndTime     |
+#      |          |            |
     Then I input Settlement Instructions
       |Settlement1    |Settlement2 |Active1|Active2|
-      |SGD148050007   |SGD148050007|Yes    |Yes    |
+      |11021083925    |11010005081 |Yes    |Yes    |
     Then I get Active
     Then I click pre-submit button
     When I click Accept Overrides
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
     When I click User Menu
     Then I click products
     Then I click Unauthorized AAA records
     Then I input Arrangement and Find
     Then I click improve butt
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click User Menu
-    Then I click products
-    Then I click Find Loan
-    Then I input Arrangementl and Find
-    Then I click Find Loan Overview
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click User Menu
-    Then I click Account
-    Then I input Account and Find
-      |AccountNo      |
-      |SGD148050007   |
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click User Menu
+#    Then I click products
+#    Then I click Find Loan
+#    Then I input Arrangementl and Find
+#    Then I click Find Loan Overview
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click User Menu
+#    Then I click Account
+#    Then I input Account and Find
+#      |AccountNo      |
+#      |SGD148050007   |
 
 
 
