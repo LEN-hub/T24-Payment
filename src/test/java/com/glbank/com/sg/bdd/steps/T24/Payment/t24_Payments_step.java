@@ -368,7 +368,7 @@ public class t24_Payments_step extends ScenarioSteps {
     public void closeAllTabJumpToHomePage() {
         bddUtil.switchToNewWindow();
         bddUtil.closeWindow();
-        switchToFirstFrame();
+        switchToSecondFrame();
        bddUtil.sleep(1);
     }
 
@@ -4702,28 +4702,18 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(3);
         t24_payments_page.Details1.click();
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(2);
-        getDriver().manage().window().maximize();
         bddUtil.sleep(6);
-        bddUtil.closeWindow();
-        bddUtil.switchToNewWindow();
-        bddUtil.closeWindow();
-        switchToSecondFrame();
-        t24_payments_page.accountB.click();
-        bddUtil.switchToNewWindow();
-        bddUtil.sleep(2);
-        getDriver().manage().window().maximize();
-        bddUtil.sleep(2);
-        t24_payments_page.inputaccount.clear();
-        t24_payments_page.inputaccount.sendKeys(SettlementAccBuy1);
-        bddUtil.sleep(3);
-        t24_payments_page.find.click();
-        bddUtil.sleep(3);
-        t24_payments_page.Details1.click();
-        bddUtil.switchToNewWindow();
-        bddUtil.sleep(2);
-        getDriver().manage().window().maximize();
-        bddUtil.sleep(6);
+//        getDriver().manage().window().maximize();
+//        bddUtil.sleep(6);
+//        bddUtil.closeWindow();
+//        bddUtil.switchToNewWindow();
+//        bddUtil.closeWindow();
+//        switchToSecondFrame();
+//        t24_payments_page.accountB.click();
+//        bddUtil.switchToNewWindow();
+//        bddUtil.sleep(2);
+//        getDriver().manage().window().maximize();
+//        bddUtil.sleep(6);
     }
 
     @Step
