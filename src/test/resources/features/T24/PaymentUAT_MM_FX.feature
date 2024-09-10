@@ -100,7 +100,7 @@
       Then I Assert enter View Details Page
       Then I close all tabs and jump to the home
       When I enter the account IDMCA
-      Then I find debit and credit account "1"
+      Then I find debit and credit accountB "1"
       And I close driver
 
     @Payment_FX_Capture_Forex_Spot_Deal_Customer_235-677_Approved

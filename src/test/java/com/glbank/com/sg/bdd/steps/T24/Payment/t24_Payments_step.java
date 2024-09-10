@@ -4725,6 +4725,49 @@ public class t24_Payments_step extends ScenarioSteps {
         getDriver().manage().window().maximize();
         bddUtil.sleep(6);
     }
+
+    @Step
+    public void inputDebitandCreditaccountclickfindB(int a) {
+        String SettlementAccSell1 = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Settlement A/c for Sell.1", a);
+        String SettlementAccBuy1 = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Settlement A/c for Buy.1", a);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        t24_payments_page.inputaccount.clear();
+        t24_payments_page.inputaccount.sendKeys(SettlementAccSell1);
+        //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+        bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+        bddUtil.closeWindow();
+        bddUtil.switchToNewWindow();
+        bddUtil.closeWindow();
+        switchToSecondFrame();
+        t24_payments_page.accountB.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+        t24_payments_page.inputaccount.clear();
+        t24_payments_page.inputaccount.sendKeys(SettlementAccBuy1);
+        bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details1.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+    }
+
+
+
     @Step
     public void inputBoxSearchFX(int cmd) {
         t24_payments_page.inputBox.clear();

@@ -1409,6 +1409,11 @@ public class t24_Payments_glue {
     public void iFindDebitAndCreditAccount(int arg0) {
         t24_payments_step.inputDebitandCreditaccountclickfind(arg0);
     }
+    @Then("^I find debit and credit accountB \"([^\"]*)\"$")
+    public void iFindDebitAndCreditAccountB(int arg0) {
+        t24_payments_step.inputDebitandCreditaccountclickfindB(arg0);
+    }
+
     @When("^I type in the content and click the search \"([^\"]*)\"$")
     public void iTypeInTheContentAndClickTheSearch(int arg0) throws Exception {
         t24_payments_step.switchToFirstFrame();
