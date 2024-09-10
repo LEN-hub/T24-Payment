@@ -1244,6 +1244,10 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//td[text()='EUR']/following-sibling::td/a")
     public WebElementFacade CAEUR;
 
+    @FindBy(xpath = "//td[text()='JPY']/following-sibling::td/a")
+    public WebElementFacade CAJPY;
+
+
     @FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[2]/td/div[3]/form/table/tbody/tr/td[2]/table/tbody/tr[1]/td/table/tbody/tr/td[3]/div/table/tbody/tr/td/a")
     public WebElementFacade find;
 

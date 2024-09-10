@@ -4695,37 +4695,29 @@ public class t24_Payments_step extends ScenarioSteps {
         getDriver().manage().window().maximize();
         bddUtil.sleep(2);
         t24_payments_page.inputaccount.clear();
-        t24_payments_page.inputaccount.sendKeys(SettlementAccSell1);
+        t24_payments_page.inputaccount.sendKeys(SettlementAccBuy1);
         //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
         bddUtil.sleep(3);
         t24_payments_page.find.click();
         bddUtil.sleep(3);
         t24_payments_page.Details1.click();
         bddUtil.switchToNewWindow();
-        bddUtil.sleep(6);
-//        getDriver().manage().window().maximize();
-//        bddUtil.sleep(6);
-//        bddUtil.closeWindow();
-//        bddUtil.switchToNewWindow();
-//        bddUtil.closeWindow();
-//        switchToSecondFrame();
-//        t24_payments_page.accountB.click();
-//        bddUtil.switchToNewWindow();
-//        bddUtil.sleep(2);
-//        getDriver().manage().window().maximize();
-//        bddUtil.sleep(6);
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
     }
 
     @Step
     public void inputDebitandCreditaccountclickfindB(int a) {
         String SettlementAccSell1 = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Settlement A/c for Sell.1", a);
-        String SettlementAccBuy1 = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Settlement A/c for Buy.1", a);
+        String SettlementAccBuy2 = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Settlement A/c for Buy.2", a);
+        String SettlementAcc = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Currency Bought", a);
         bddUtil.switchToNewWindow();
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
         bddUtil.sleep(2);
         t24_payments_page.inputaccount.clear();
-        t24_payments_page.inputaccount.sendKeys(SettlementAccSell1);
+        t24_payments_page.inputaccount.sendKeys(SettlementAccBuy2);
         //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
         bddUtil.sleep(3);
         t24_payments_page.find.click();
@@ -4734,28 +4726,46 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.switchToNewWindow();
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
-        bddUtil.sleep(6);
-        bddUtil.closeWindow();
-        bddUtil.switchToNewWindow();
-        bddUtil.closeWindow();
-        switchToSecondFrame();
-        t24_payments_page.accountB.click();
+        bddUtil.sleep(3);
+//        t24_payments_page.currency.sendKeys(SettlementAcc);
+//        bddUtil.sleep(3);
+        if (SettlementAcc=="SGD") {
+            t24_payments_page.CASGD.click();
+            bddUtil.sleep(5);
+        } else if (SettlementAcc=="USD") {
+            t24_payments_page.CAUSD.click();
+            bddUtil.sleep(5);
+        } else if (SettlementAcc=="CNY") {
+            t24_payments_page.CACNY.click();
+            bddUtil.sleep(5);
+        } else if (SettlementAcc=="HKD") {
+            t24_payments_page.CAHKD.click();
+            bddUtil.sleep(5);
+        } else if (SettlementAcc=="AUD") {
+            t24_payments_page.CAAUD.click();
+            bddUtil.sleep(5);
+        } else if (SettlementAcc=="AED") {
+            t24_payments_page.CAAED.click();
+            bddUtil.sleep(5);
+        }
+        else if (SettlementAcc=="GBP") {
+            t24_payments_page.CAGBP.click();
+            bddUtil.sleep(5);
+        }
+        else if (SettlementAcc=="JPY") {
+            t24_payments_page.CAJPY.click();
+            bddUtil.sleep(5);
+        }
+        else {
+            t24_payments_page.CAEUR.click();
+            bddUtil.sleep(5);
+        }
         bddUtil.switchToNewWindow();
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
-        bddUtil.sleep(2);
-        t24_payments_page.inputaccount.clear();
-        t24_payments_page.inputaccount.sendKeys(SettlementAccBuy1);
-        bddUtil.sleep(3);
-        t24_payments_page.find.click();
-        bddUtil.sleep(3);
-        t24_payments_page.Details1.click();
-        bddUtil.switchToNewWindow();
-        bddUtil.sleep(2);
-        getDriver().manage().window().maximize();
         bddUtil.sleep(6);
-    }
 
+    }
 
 
     @Step
