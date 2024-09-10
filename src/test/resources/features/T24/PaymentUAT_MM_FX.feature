@@ -76,6 +76,33 @@
       Then I find debit and credit account "1"
       And I close driver
 
+    @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved
+    Scenario:Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved
+      Given Use "T24-automation-UAT-login" to login to T24 environment
+      When I click Capture Forex Spot Deal
+      When I Choose Customer and Input incomplete information on Forex Spot Deal Page "1"
+      Then I get FXNumber
+      Then I click pre-submit button
+      When I click Accept Overrides
+      Then Assert Result whether Successful
+      And I close driver
+      Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+      When I entered the Unauthorized FX Transactions page
+      Then I input FX Number and click Find Authorise
+      Then Assert Result whether Successful
+      And I close driver
+      Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+      When I type in the content and click the search "1"
+      Then I input FX Number and click Find
+      When I enter the Payments Enquiry - Transaction wise page
+      Then I input FXPINumber and click Find
+      When I Assert enter View Page
+      Then I Assert enter View Details Page
+      Then I close all tabs and jump to the home
+      When I enter the account IDMCA
+      Then I find debit and credit account "1"
+      And I close driver
+
     @Payment_FX_Capture_Forex_Spot_Deal_Customer_235-677_Approved
     Scenario:Payment_FX_Capture_Forex_Spot_Deal_Customer_235-677_Approved
       Given Use "T24-automation-UAT-login" to login to T24 environment

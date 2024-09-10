@@ -1274,6 +1274,11 @@ public class t24_Payments_glue {
         t24_payments_step.accountIDCA();
     }
 
+    @When("^I enter the account IDMCA$")
+    public void iEnterTheAccountIDMCA() {
+        t24_payments_step.accountIDMCA();
+    }
+
 
     @Then("^I find account$")
     public void iFindAccount() {

@@ -4063,6 +4063,14 @@ public class t24_Payments_step extends ScenarioSteps {
       //  t24_payments_page.clickUsermenu.click();
 //单币种
         t24_payments_page.clickProduct.click();
+        t24_payments_page.accountB.click();
+        bddUtil.sleep(2);
+    }
+
+
+    public void accountIDMCA() {
+//多币种
+        t24_payments_page.clickProduct.click();
         t24_payments_page.accountA.click();
         bddUtil.sleep(2);
     }
