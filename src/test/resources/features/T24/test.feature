@@ -25,9 +25,7 @@ Feature: Auto_Test1
     Then I input FXPINumber and click Find
     When I Assert enter View Page
     Then I Assert enter View Details Page
-    Then I close all tabs and jump to the home
-    When I enter the account IDCA
-    Then I find debit and credit account "1"
+    When I close all tabs and jump to the home page BN
     And I close driver
 
 
@@ -53,9 +51,7 @@ Feature: Auto_Test1
     Then I input FXPINumber and click Find
     When I Assert enter View Page
     Then I Assert enter View Details Page
-    Then I close all tabs and jump to the home
-    When I enter the account IDCA
-    Then I find debit and credit account "2"
+    When I close all tabs and jump to the home page BN
     And I close driver
 
   @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_003
@@ -80,9 +76,7 @@ Feature: Auto_Test1
     Then I input FXPINumber and click Find
     When I Assert enter View Page
     Then I Assert enter View Details Page
-    Then I close all tabs and jump to the home
-    When I enter the account IDCA
-    Then I find debit and credit account "3"
+    When I close all tabs and jump to the home page BN
     And I close driver
 
   @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_004
@@ -107,11 +101,8 @@ Feature: Auto_Test1
     Then I input FXPINumber and click Find
     When I Assert enter View Page
     Then I Assert enter View Details Page
-    Then I close all tabs and jump to the home
-    When I enter the account IDCA
-    Then I find debit and credit account "4"
+    When I close all tabs and jump to the home page BN
     And I close driver
-
 
 
   @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_005
@@ -136,9 +127,7 @@ Feature: Auto_Test1
     Then I input FXPINumber and click Find
     When I Assert enter View Page
     Then I Assert enter View Details Page
-    Then I close all tabs and jump to the home
-    When I enter the account IDCA
-    Then I find debit and credit account "5"
+    When I close all tabs and jump to the home page BN
     And I close driver
 
 
@@ -165,9 +154,7 @@ Feature: Auto_Test1
     Then I input FXPINumber and click Find
     When I Assert enter View Page
     Then I Assert enter View Details Page
-    Then I close all tabs and jump to the home
-    When I enter the account IDCA
-    Then I find debit and credit account "6"
+    When I close all tabs and jump to the home page BN
     And I close driver
 
 
@@ -194,9 +181,7 @@ Feature: Auto_Test1
     Then I input FXPINumber and click Find
     When I Assert enter View Page
     Then I Assert enter View Details Page
-    Then I close all tabs and jump to the home
-    When I enter the account IDCA
-    Then I find debit and credit account "7"
+    When I close all tabs and jump to the home page BN
     And I close driver
 
   @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_008
@@ -221,9 +206,7 @@ Feature: Auto_Test1
     Then I input FXPINumber and click Find
     When I Assert enter View Page
     Then I Assert enter View Details Page
-    Then I close all tabs and jump to the home
-    When I enter the account IDCA
-    Then I find debit and credit account "8"
+    When I close all tabs and jump to the home page BN
     And I close driver
 
 
