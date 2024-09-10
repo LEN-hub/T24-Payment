@@ -4,18 +4,18 @@ Feature: Amount
 
   @Zhang_Hu_Chong_Qian
   Scenario:T24_Amount
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
     When I click User Menu
     Then I click payments
     When I click payment hup
     Then I click Account Transfer
     When I Input Transfer Information
       |Debit Account|Debit Amount   |Debit Currency|Credit Account|Credit Currency|Ordering Bank          |
-      |SGD14200001  |99086189       |SGD           |11010007114   |SGD            |DBS SINGAPORE TEST     |
+      |SGD14200001  |9908618999     |SGD           |11010006770   |AED            |DBS SINGAPORE TEST     |
     Then I click pre-submit button
     When I click Accept Overrides
     Then Assert Result whether Successful
-    Given Use "T24-automation-UAT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click User Menu
     Then I click payments
     When I click payment hup
@@ -23,7 +23,7 @@ Feature: Amount
     Then I click search but
     Then I input Credit Account No
       |Credit Account No|
-      |11010007114      |
+      |11010006770      |
     When I click find
     Then I click Authorize But
 
