@@ -603,14 +603,14 @@ public class t24_Payments_glue {
         t24_payments_step.AssertEnterViewDetailsPage();
 //        查看Audit Trail页面
 //        t24_payments_step.selectAuditTrail();
-////        查看进入Posting Lines页面
-//        t24_payments_step.selectPostingLines();
-////        查看进入AccountingEntries页面
-//        t24_payments_step.selectAccountingEntries();
-////        查看进入Received Message页面
-//        t24_payments_step.selectReceivedMessage();
-////        查看进入OutgoingMessage页面
-//        t24_payments_step.selectOutgoingMessage();
+//        查看进入Posting Lines页面
+        t24_payments_step.selectPostingLines();
+//        查看进入AccountingEntries页面
+        t24_payments_step.selectAccountingEntries();
+//        查看进入Received Message页面
+        t24_payments_step.selectReceivedMessage();
+//        查看进入OutgoingMessage页面
+        t24_payments_step.selectOutgoingMessage();
 //        将XML报文 提取出来
 //        先调用 创建 XML文件的方法
         createXML createXML = new createXML();
