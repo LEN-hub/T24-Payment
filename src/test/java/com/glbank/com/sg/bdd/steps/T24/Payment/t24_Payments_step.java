@@ -4742,14 +4742,14 @@ public class t24_Payments_step extends ScenarioSteps {
             t24_payments_page.CAHKD.click();
             bddUtil.sleep(5);
         } else if (SettlementAcc=="AUD") {
-            t24_payments_page.CAEUR.click();
+            t24_payments_page.CAAUD.click();
             bddUtil.sleep(5);
         } else if (SettlementAcc=="AED") {
             t24_payments_page.CAAED.click();
             bddUtil.sleep(5);
         }
         else if (SettlementAcc=="GBP") {
-            t24_payments_page.CAGBP.click();
+            t24_payments_page.CAEUR.click();
             bddUtil.sleep(5);
         }
         else if (SettlementAcc=="JPY") {
@@ -4757,7 +4757,7 @@ public class t24_Payments_step extends ScenarioSteps {
             bddUtil.sleep(5);
         }
         else {
-            t24_payments_page.CAAUD.click();
+            t24_payments_page.CAGBP.click();
             bddUtil.sleep(5);
         }
         bddUtil.switchToNewWindow();
