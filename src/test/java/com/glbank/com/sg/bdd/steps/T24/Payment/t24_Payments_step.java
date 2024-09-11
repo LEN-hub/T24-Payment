@@ -4711,13 +4711,13 @@ public class t24_Payments_step extends ScenarioSteps {
     public void inputDebitandCreditaccountclickfindB(int a) {
         String SettlementAccSell1 = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Settlement A/c for Sell.1", a);
         String SettlementAccBuy2 = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Settlement A/c for Buy.2", a);
-        String SettlementAcc = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Currency Bought", a);
+        String SettlementAcc = ExcelUtils.readExcel(TreasuryExcel, "FX_Customer", "Currency Sold", a);
         bddUtil.switchToNewWindow();
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
         bddUtil.sleep(2);
         t24_payments_page.inputaccount.clear();
-        t24_payments_page.inputaccount.sendKeys(SettlementAccBuy2);
+        t24_payments_page.inputaccount.sendKeys(SettlementAccSell1);
         //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
         bddUtil.sleep(3);
         t24_payments_page.find.click();
@@ -4727,7 +4727,7 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
         getDriver().manage().window().maximize();
         bddUtil.sleep(3);
-//        t24_payments_page.currency.sendKeys(SettlementAcc);
+//        t24_payments_page.CURRENCY.sendKeys(SettlementAcc);
 //        bddUtil.sleep(3);
         if (SettlementAcc=="SGD") {
             t24_payments_page.CASGD.click();
@@ -4739,7 +4739,7 @@ public class t24_Payments_step extends ScenarioSteps {
             t24_payments_page.CACNY.click();
             bddUtil.sleep(5);
         } else if (SettlementAcc=="HKD") {
-            t24_payments_page.CAHKD.click();
+            t24_payments_page.CAEUR.click();
             bddUtil.sleep(5);
         } else if (SettlementAcc=="AUD") {
             t24_payments_page.CAAUD.click();
@@ -4757,7 +4757,7 @@ public class t24_Payments_step extends ScenarioSteps {
             bddUtil.sleep(5);
         }
         else {
-            t24_payments_page.CAEUR.click();
+            t24_payments_page.CAHKD.click();
             bddUtil.sleep(5);
         }
         bddUtil.switchToNewWindow();
