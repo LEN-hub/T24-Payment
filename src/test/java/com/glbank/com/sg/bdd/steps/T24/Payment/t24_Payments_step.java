@@ -4730,7 +4730,7 @@ public class t24_Payments_step extends ScenarioSteps {
 //        t24_payments_page.CURRENCY.sendKeys(SettlementAcc);
 //        bddUtil.sleep(3);
         if (SettlementAcc=="SGD") {
-            t24_payments_page.CASGD.click();
+            t24_payments_page.CAEUR.click();
             bddUtil.sleep(5);
         } else if (SettlementAcc=="USD") {
             t24_payments_page.CAUSD.click();
@@ -4749,7 +4749,7 @@ public class t24_Payments_step extends ScenarioSteps {
             bddUtil.sleep(5);
         }
         else if (SettlementAcc=="GBP") {
-            t24_payments_page.CAEUR.click();
+            t24_payments_page.CAGBP.click();
             bddUtil.sleep(5);
         }
         else if (SettlementAcc=="JPY") {
@@ -4757,7 +4757,7 @@ public class t24_Payments_step extends ScenarioSteps {
             bddUtil.sleep(5);
         }
         else {
-            t24_payments_page.CAGBP.click();
+            t24_payments_page.CASGD.click();
             bddUtil.sleep(5);
         }
         bddUtil.switchToNewWindow();
