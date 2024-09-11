@@ -4739,7 +4739,7 @@ public class t24_Payments_step extends ScenarioSteps {
             t24_payments_page.CACNY.click();
             bddUtil.sleep(5);
         } else if (SettlementAcc=="HKD") {
-            t24_payments_page.CAEUR.click();
+            t24_payments_page.CAHKD.click();
             bddUtil.sleep(5);
         } else if (SettlementAcc=="AUD") {
             t24_payments_page.CAAUD.click();
@@ -4757,7 +4757,7 @@ public class t24_Payments_step extends ScenarioSteps {
             bddUtil.sleep(5);
         }
         else {
-            t24_payments_page.CAHKD.click();
+            t24_payments_page.CAEUR.click();
             bddUtil.sleep(5);
         }
         bddUtil.switchToNewWindow();
