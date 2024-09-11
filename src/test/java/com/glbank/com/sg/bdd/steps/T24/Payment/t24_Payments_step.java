@@ -4717,7 +4717,7 @@ public class t24_Payments_step extends ScenarioSteps {
         getDriver().manage().window().maximize();
         bddUtil.sleep(2);
         t24_payments_page.inputaccount.clear();
-        t24_payments_page.inputaccount.sendKeys(SettlementAccSell1);
+        t24_payments_page.inputaccount.sendKeys(SettlementAccBuy2);
         //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
         bddUtil.sleep(3);
         t24_payments_page.find.click();
