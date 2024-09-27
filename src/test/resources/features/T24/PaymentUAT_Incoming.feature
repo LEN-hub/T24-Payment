@@ -4,7 +4,7 @@ Feature: Payment InComing
   #更改得最新incoming案例
   @Incoming_Payment_999_CA
   Scenario:Incoming payment-999 CA
-    Given Use "T24-automation-UAT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming
       |FTNumber        |

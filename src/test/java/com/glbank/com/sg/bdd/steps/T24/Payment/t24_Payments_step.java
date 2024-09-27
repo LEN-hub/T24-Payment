@@ -3608,7 +3608,53 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(2);
         t24_payments_page.InputArrangement.clear();
         t24_payments_page.InputArrangement.sendKeys(arrangement);
+
     }
+
+    @Step
+    public void InputArrangementTest1(int a) {
+        String arrangement = ExcelUtils.readExcel(InComingExcel, "Incoming", "Arrangement", a);
+        String Currency = ExcelUtils.readExcel(InComingExcel, "Incoming", "Currency", a);
+        bddUtil.sleep(2);
+        t24_payments_page.InputArrangement.clear();
+        t24_payments_page.InputArrangement.sendKeys(arrangement);
+        bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        if (Currency.equals("SGD")) {
+            t24_payments_page.CASGD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("USD")) {
+            t24_payments_page.CAUSD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("CNY")) {
+            t24_payments_page.CACNY.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("HKD")) {
+            t24_payments_page.CAHKD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("AUD")) {
+            t24_payments_page.CAAUD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("AED")) {
+            t24_payments_page.CAAED.click();
+            bddUtil.sleep(5);
+        } else {
+            t24_payments_page.CAEUR.click();
+            bddUtil.sleep(5);
+        }
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+    }
+
+
 
     public void ClickFindButt() {
         bddUtil.sleep(1);
@@ -3624,6 +3670,7 @@ public class t24_Payments_step extends ScenarioSteps {
     public void AssertEnterAccountDetailsPage(){
         String text = t24_payments_page.AccountDetailsTitle.getText();
         Assert.assertEquals(text,"Account Details");
+
     }
 
     @Step
@@ -4179,6 +4226,52 @@ public class t24_Payments_step extends ScenarioSteps {
         t24_payments_page.inputaccount.sendKeys(Arrangement);
         //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
         bddUtil.sleep(3);
+        t24_payments_page.find.click();
+        bddUtil.sleep(3);
+        t24_payments_page.Details.click();
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(3);
+        if (Currency.equals("SGD")) {
+            t24_payments_page.CASGD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("USD")) {
+            t24_payments_page.CAUSD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("CNY")) {
+            t24_payments_page.CACNY.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("HKD")) {
+            t24_payments_page.CAHKD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("AUD")) {
+            t24_payments_page.CAAUD.click();
+            bddUtil.sleep(5);
+        } else if (Currency.equals("AED")) {
+            t24_payments_page.CAAED.click();
+            bddUtil.sleep(5);
+        } else {
+            t24_payments_page.CAEUR.click();
+            bddUtil.sleep(5);
+        }
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(6);
+    }
+
+    @Step
+    public void inputaccountclickfindMCA(int a) {
+        String Currency = ExcelUtils.readExcel(InComingExcel, "Incoming", "Currency",a);
+        bddUtil.sleep(2);
+        bddUtil.switchToNewWindow();
+        bddUtil.sleep(2);
+        getDriver().manage().window().maximize();
+        bddUtil.sleep(2);
+//        t24_payments_page.inputaccount.clear();
+        //t24_payments_page.inputaccount.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
+//        bddUtil.sleep(3);
         t24_payments_page.find.click();
         bddUtil.sleep(3);
         t24_payments_page.Details.click();

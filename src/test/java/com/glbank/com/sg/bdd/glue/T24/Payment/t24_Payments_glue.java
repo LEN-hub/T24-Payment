@@ -573,7 +573,9 @@ public class t24_Payments_glue {
 //        断言是否进入EnterViewPage
         t24_payments_step.assertEnterViewPage();
 //        查看各个页面的数据
+        //SIT
         t24_payments_step.clickChargeInformation2();
+        //UAT
 //        t24_payments_step.clickRoutingformation();
 //        t24_payments_step.clickAdditionalInfo();
         //       t24_payments_step.clickErrorInformation();
@@ -946,6 +948,11 @@ public class t24_Payments_glue {
         t24_payments_step.InputArrangementTest(arg0);
     }
 
+    @When("^I input ArrangementMCA \"([^\"]*)\"$")
+    public void iInputArrangement1(int arg0){
+        t24_payments_step.InputArrangementTest1(arg0);
+    }
+
     @When("^I click Find Butt$")
     public void iClickFindButt() {
         t24_payments_step.ClickFindButt();
@@ -1282,7 +1289,7 @@ public class t24_Payments_glue {
 
     @Then("^I find account$")
     public void iFindAccount() {
-        //t24_payments_step.inputaccountclickfind();
+       // t24_payments_step.inputaccountclickfind();
         t24_payments_step.inputaccountclickfind();
     }
 
@@ -1305,6 +1312,11 @@ public class t24_Payments_glue {
     @Then("^I find account CASGD$")
     public void iFindAccountCASGD() {
         t24_payments_step.inputaccountclickfindSGD();
+    }
+
+    @Then("^I find account MCA$")
+    public void iFindAccountMCA(int arg0) {
+        t24_payments_step.inputaccountclickfindMCA(arg0);
     }
 
     @Then("^I find account CASGD \"([^\"]*)\"$")

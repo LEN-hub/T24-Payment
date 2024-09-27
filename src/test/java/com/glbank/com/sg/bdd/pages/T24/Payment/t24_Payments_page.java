@@ -1272,7 +1272,7 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//label[@for='fieldName:OutputChannel']/parent::td/following-sibling::td[2]/input")
     public WebElementFacade OutputChannel;
 
-    @FindBy(xpath = "//a[text()='BIC']/parent::label/parent::td/following-sibling::td[2]/input")
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[3]/tbody/tr[16]/td[3]/input")
     public WebElementFacade BICInput;
 
 
