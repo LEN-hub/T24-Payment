@@ -4341,10 +4341,15 @@ public class t24_Payments_step extends ScenarioSteps {
         } else if (Currency.equals("AUD")) {
             t24_payments_page.CAAUD.click();
             bddUtil.sleep(5);
-        } else if (Currency.equals("AED")) {
-            t24_payments_page.CAAED.click();
+        }
+        else if (Currency.equals("AED")) {
+            t24_payments_page.CANOK.click();
             bddUtil.sleep(5);
-        }else if (Currency.equals("GBP")) {
+        }else if (Currency.equals("JPY")) {
+            t24_payments_page.CAJPY.click();
+            bddUtil.sleep(5);
+        }
+        else if (Currency.equals("GBP")) {
             t24_payments_page.CAGBP.click();
             bddUtil.sleep(5);
         }  else {
