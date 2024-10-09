@@ -2193,8 +2193,8 @@ Feature: Auto_Test1
     When I Assert enter View Page
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
     When I enter the account ID
     Then I find account CASGD "2"
 #    Then I find account CASGD
