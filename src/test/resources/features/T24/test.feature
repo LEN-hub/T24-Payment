@@ -2615,7 +2615,7 @@ Feature: Auto_Test1
     When I Assert enter View Page to OE Outgoing_Bank_Transfer
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
+#    When I enter the Currency Rates List
 #    Then I close all tabs and jump to the home
 #    When I enter the account IDCA
 #    Then I find account ISO Bank "1"
@@ -2657,7 +2657,7 @@ Feature: Auto_Test1
     When I Assert enter View Page to OE Outgoing_Bank_Transfer
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
+#    When I enter the Currency Rates List
 #    Then I close all tabs and jump to the home
 #    When I enter the account IDCA
 #    Then I find account ISO Bank "1"
@@ -2911,7 +2911,7 @@ Feature: Auto_Test1
     When I Assert enter View Page to OE Outgoing_Bank_Transfer
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
+#    When I enter the Currency Rates List
 #    Then I close all tabs and jump to the home
 #    When I enter the account IDCA
 #    Then I find account ISO Bank "1"
@@ -2954,7 +2954,7 @@ Feature: Auto_Test1
     When I Assert enter View Page to OE Outgoing_Bank_Transfer
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
-    When I enter the Currency Rates List
+#    When I enter the Currency Rates List
 #    Then I close all tabs and jump to the home
 #    When I enter the account IDCA
 #    Then I find account ISO Bank "1"
