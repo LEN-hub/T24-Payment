@@ -39,8 +39,8 @@ public class XMLGenerator_PACS008O_v1 {
                 modifyXml(doc.getDocumentElement(), data);
 
                 // Generate output XML file name with sequential number and "xml" extension
-                String currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-                String fileName = "output_xml_files/" +"PT_"+ currentDate + "PACS008."+fileCounter+".xml";
+                //String currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+                String fileName = "output_xml_files/" +"PT_"+ "20241024" + "PACS008."+fileCounter+".ia";
                 fileCounter++;
 
                 // Write modified content to a new file

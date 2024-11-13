@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Saa:DataPDU xmlns:Saa="urn:swift:saa:xsd:saa.2.0" xmlns:Sw="urn:swift:snl:ns.Sw" xmlns:SwInt="urn:swift:snl:ns.SwInt" xmlns:SwGbl="urn:swift:snl:ns.SwGbl" xmlns:SwSec="urn:swift:snl:ns.SwSec">     
-	<Saa:Revision>2.0.10</Saa:Revision>
+<?xml version="1.0" encoding="UTF-8"?><Saa:DataPDU xmlns:Saa="urn:swift:saa:xsd:saa.2.0" xmlns:Sw="urn:swift:snl:ns.Sw" xmlns:SwGbl="urn:swift:snl:ns.SwGbl" xmlns:SwInt="urn:swift:snl:ns.SwInt" xmlns:SwSec="urn:swift:snl:ns.SwSec">     
+	<Saa:Revision>2.0.12</Saa:Revision>
 	<Saa:Header>         
 		<Saa:Message>             
-			<Saa:SenderReference>GLDBR2PT6.2.10</Saa:SenderReference>             
+			<Saa:SenderReference>GLDBPT2507.100</Saa:SenderReference>             
 			<Saa:MessageIdentifier>pacs.009.001.08</Saa:MessageIdentifier>             
 			<Saa:Format>MX</Saa:Format>             
 			<Saa:SubFormat>Input</Saa:SubFormat>             
@@ -14,13 +13,13 @@
 				</Saa:FullName>             
 			</Saa:Sender>             
 			<Saa:Receiver>                 
-				<Saa:DN>ou=xxx,o=sspisgsg,o=swift</Saa:DN>                 
-				<Saa:FullName>                     
-				<Saa:X1>SSPISGSGXXX</Saa:X1>                 
+                <Saa:DN>ou=xxx,o=gxspsgsg,o=swift</Saa:DN>
+                <Saa:FullName>                    
+				<Saa:X1>GXSPSGSGXXX</Saa:X1>                 
 				</Saa:FullName>             
 			</Saa:Receiver>             
 			<Saa:InterfaceInfo>                 
-				<Saa:UserReference>GLDBR2PT6.2.10</Saa:UserReference>             
+				<Saa:UserReference>GLDBPT2507.100</Saa:UserReference>             
 			</Saa:InterfaceInfo>             
 			<Saa:NetworkInfo>                 
 				<Saa:Priority>Normal</Saa:Priority>                 
@@ -44,20 +43,20 @@
 			<To>                 
 				<FIId>                     
 					<FinInstnId>                         
-						<BICFI>SSPISGS0XXX</BICFI>                     
+						<BICFI>GXSPSGS0XXX</BICFI>                     
 					</FinInstnId>                 
 				</FIId>             
 			</To>             
-			<BizMsgIdr>GLDBR2PT6.2.10</BizMsgIdr>             
+			<BizMsgIdr>GLDBPT2507.100</BizMsgIdr>             
 			<MsgDefIdr>pacs.009.001.08</MsgDefIdr>             
 			<BizSvc>mas.mep.01</BizSvc>             
-			<CreDt>2022-07-26T11:45:43+08:00</CreDt>         
+			<CreDt>2024-07-25T11:45:43+09:39</CreDt>         
 		</AppHdr>         
 <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.009.001.08">             
 	<FICdtTrf>                 
 		<GrpHdr>                     
-			<MsgId>GLDBR2PT6.2.10</MsgId>                     
-			<CreDtTm>2022-07-26T11:45:43+08:00</CreDtTm>                     
+			<MsgId>GLDBPT2507.100</MsgId>                     
+			<CreDtTm>2024-07-25T11:45:43+09:39</CreDtTm>                     
 			<NbOfTxs>1</NbOfTxs>                     
 			<SttlmInf>                         
 				<SttlmMtd>CLRG</SttlmMtd>                         
@@ -68,13 +67,13 @@
 		</GrpHdr>                 
 		<CdtTrfTxInf>                     
 			<PmtId>                         
-				<InstrId>GLDBR2PT6.2.10</InstrId>                         
-				<EndToEndId>GLDBR2PT6.2.10</EndToEndId>                         
-				<TxId>GLDBR2PT6.2.10</TxId>                         
-				<UETR>17490035-fd96-4c2f-85f2-6010a7f77a1d</UETR>                     
+				<InstrId>GLDBPT2507.100</InstrId>                         
+				<EndToEndId>GLDBPT2507.100</EndToEndId>                         
+				<TxId>GLDBPT2507.100</TxId>                         
+				<UETR>17490035-fd96-4c2f-85f2-6010a7f76a0d</UETR>                     
 			</PmtId>                     
-			<IntrBkSttlmAmt Ccy="SGD">10.</IntrBkSttlmAmt>                     
-			<IntrBkSttlmDt>2022-07-26</IntrBkSttlmDt>                     
+			<IntrBkSttlmAmt Ccy="SGD">100.</IntrBkSttlmAmt>                     
+			<IntrBkSttlmDt>2024-07-25</IntrBkSttlmDt>                     
 			<InstgAgt>                         
 				<FinInstnId>                             
 					<BICFI>GLDTSGS0XXX</BICFI>                         
@@ -82,7 +81,7 @@
 			</InstgAgt>                     
 			<InstdAgt>                         
 				<FinInstnId>                             
-					<BICFI>SSPISGS0XXX</BICFI>                       
+					<BICFI>GXSPSGS0XXX</BICFI>                       
 				</FinInstnId>                     
 			</InstdAgt>                     
 			<Dbtr>                         
@@ -92,7 +91,7 @@
 			</Dbtr>                     
 			<Cdtr>                         
 				<FinInstnId>                             
-					<BICFI>SSPISGS0XXX</BICFI>                         
+					<BICFI>GXSPSGS0XXX</BICFI>                         
 				</FinInstnId>                     
 			</Cdtr>                 
 		</CdtTrfTxInf>             

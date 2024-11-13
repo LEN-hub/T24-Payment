@@ -2560,6 +2560,8 @@ public class t24_Payments_step extends ScenarioSteps {
             t24_payments_page.BICInput.sendKeys(BIC);
             bddUtil.sleep(1);
         }
+        String IntermediaryBIC = ExcelUtils.readExcel(OEExcel, "ISO_Customer", "Intermediary BIC", a);
+        t24_payments_page.IntermediaryBIC.sendKeys(IntermediaryBIC);
     }
 
     @Step
