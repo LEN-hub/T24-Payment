@@ -225,7 +225,7 @@ Feature: Auto_Test1
 
   @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_002
   Scenario:Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_002
-    Given Use " " to login to T24 environment
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Capture Forex Spot Deal
     When I Choose Customer and Input incomplete information on Forex Spot Deal Page "2"
     Then I get FXNumber
