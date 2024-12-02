@@ -725,6 +725,9 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//label[text()='FTNumber']/parent::span/parent::td/following-sibling::td[2]//input[1]")
     public WebElementFacade inputFTNumber;
 
+    @FindBy(xpath = "/html/body/div[3]/form/table/tbody/tr/td[2]/table/tbody/tr[1]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td/a")
+    public WebElementFacade clear;
+
     @FindBy(xpath = "//label[text()='FileSendersReference']/parent::span/parent::td/following-sibling::td[2]//input[1]")
     public WebElementFacade inputFileSendersReference;
 
