@@ -1969,7 +1969,7 @@ Feature: Auto_Test1
     Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth3" to login to T24 environment
     When I entered the Pending Authorise Payments page
     Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
@@ -2011,7 +2011,7 @@ Feature: Auto_Test1
     Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth3" to login to T24 environment
     When I entered the Pending Authorise Payments page
     Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
@@ -2052,7 +2052,7 @@ Feature: Auto_Test1
     Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth3" to login to T24 environment
     When I entered the Pending Authorise Payments page
     Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
@@ -2094,7 +2094,7 @@ Feature: Auto_Test1
     Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth3" to login to T24 environment
     When I entered the Pending Authorise Payments page
     Then I input OE Number and click Find Authorise
     Then Assert Result whether Successful
