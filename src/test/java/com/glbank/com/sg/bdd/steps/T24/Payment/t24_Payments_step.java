@@ -2849,6 +2849,8 @@ public class t24_Payments_step extends ScenarioSteps {
         bddUtil.sleep(1);
         switchToFirstFrame();
         bddUtil.sleep(1);
+        t24_payments_page.clear.click();
+        bddUtil.sleep(1);
         t24_payments_page.inputFTNumber.sendKeys(FTNumber);
         bddUtil.sleep(1);
         t24_payments_page.Find.click();

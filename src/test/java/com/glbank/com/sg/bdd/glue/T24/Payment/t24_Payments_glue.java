@@ -550,7 +550,7 @@ public class t24_Payments_glue {
         t24_payments_step.assertEnterViewPage();
 //        查看各个页面的数据
  //       t24_payments_step.clickChargeInformation2();
-//        t24_payments_step.clickRoutingformation();
+        t24_payments_step.clickRoutingformation();
 //        t24_payments_step.clickAdditionalInfo();
  //       t24_payments_step.clickErrorInformation();
 //        t24_payments_step.clickExtendedDebtorInfo();
