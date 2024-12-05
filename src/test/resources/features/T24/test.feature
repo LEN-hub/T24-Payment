@@ -55,7 +55,42 @@ Feature: Auto_Test1
 #      |11020614528    |
     And I close driver
 
+  @Incoming_Payment_999Multi_Currency_004
+  Scenario:Incoming payment-999Multi_Currency_004
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "4"
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL231320CGHJKGD|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click Find Multi Currency
+    When I input ArrangementMCA "4"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020614528    |
+    And I close driver
 
+
+  @Incoming_Payment_999Multi_Currency_005
+  Scenario:Incoming payment-999Multi_Currency_005
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "5"
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL231320CGHJKGD|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click Find Multi Currency
+    When I input ArrangementMCA "5"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020614528    |
+    And I close driver
 
  # GLDBCR-1521 TEST
 #FX-CUSTOMER  MCA账户--------------------------------------------------------------------------------------------------
