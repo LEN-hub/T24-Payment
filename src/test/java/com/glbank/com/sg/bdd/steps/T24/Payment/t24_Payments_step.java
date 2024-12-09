@@ -2818,11 +2818,11 @@ public class t24_Payments_step extends ScenarioSteps {
         switchToFirstFrame();
         bddUtil.sleep(1);
         t24_payments_page.clear.click();
-        bddUtil.sleep(1);
+        bddUtil.sleep(5);
         t24_payments_page.inputFTNumber.sendKeys(FileUtils.LastReadFileInput3("FTNumber"));
-        bddUtil.sleep(3);
+        bddUtil.sleep(5);
         t24_payments_page.Find.click();
-        bddUtil.sleep(3);
+        bddUtil.sleep(10);
     }
 
 //    在Incoming页面用表格 的方式 输入FTNumber
