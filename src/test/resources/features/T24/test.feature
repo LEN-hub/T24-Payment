@@ -99,7 +99,7 @@ Feature: Auto_Test1
 #FX-CUSTOMER  MCA账户--------------------------------------------------------------------------------------------------
   @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_003
   Scenario:Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_003
-    Given Use "T24-automation-UAT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Capture Forex Spot Deal
     When I Choose Customer and Input incomplete information on Forex Spot Deal Page "3"
     Then I get FXNumber
@@ -107,12 +107,12 @@ Feature: Auto_Test1
     When I click Accept Overrides
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
     When I entered the Unauthorized FX Transactions page
     Then I input FX Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
     When I type in the content and click the search "3"
     Then I input FX Number and click Find
     When I enter the Payments Enquiry - Transaction wise page
@@ -126,7 +126,7 @@ Feature: Auto_Test1
 
   @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_004
   Scenario:Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_004
-    Given Use "T24-automation-UAT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Capture Forex Spot Deal
     When I Choose Customer and Input incomplete information on Forex Spot Deal Page "4"
     Then I get FXNumber
@@ -134,12 +134,12 @@ Feature: Auto_Test1
     When I click Accept Overrides
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
     When I entered the Unauthorized FX Transactions page
     Then I input FX Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
     When I type in the content and click the search "4"
     Then I input FX Number and click Find
     When I enter the Payments Enquiry - Transaction wise page
@@ -154,7 +154,7 @@ Feature: Auto_Test1
 
   @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_005
   Scenario:Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_005
-    Given Use "T24-automation-UAT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Capture Forex Spot Deal
     When I Choose Customer and Input incomplete information on Forex Spot Deal Page "5"
     Then I get FXNumber
@@ -162,12 +162,12 @@ Feature: Auto_Test1
     When I click Accept Overrides
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
     When I entered the Unauthorized FX Transactions page
     Then I input FX Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
     When I type in the content and click the search "5"
     Then I input FX Number and click Find
     When I enter the Payments Enquiry - Transaction wise page
@@ -182,7 +182,7 @@ Feature: Auto_Test1
 
   @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_006
   Scenario:Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_006
-    Given Use "T24-automation-UAT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Capture Forex Spot Deal
     When I Choose Customer and Input incomplete information on Forex Spot Deal Page "6"
     Then I get FXNumber
@@ -190,12 +190,12 @@ Feature: Auto_Test1
     When I click Accept Overrides
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
     When I entered the Unauthorized FX Transactions page
     Then I input FX Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
     When I type in the content and click the search "6"
     Then I input FX Number and click Find
     When I enter the Payments Enquiry - Transaction wise page
@@ -209,7 +209,7 @@ Feature: Auto_Test1
 
   @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_007
   Scenario:Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_007
-    Given Use "T24-automation-UAT-login" to login to T24 environment
+    Given Use "T24-automation-SIT-login" to login to T24 environment
     When I click Capture Forex Spot Deal
     When I Choose Customer and Input incomplete information on Forex Spot Deal Page "7"
     Then I get FXNumber
@@ -217,12 +217,12 @@ Feature: Auto_Test1
     When I click Accept Overrides
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
     When I entered the Unauthorized FX Transactions page
     Then I input FX Number and click Find Authorise
     Then Assert Result whether Successful
     And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
     When I type in the content and click the search "7"
     Then I input FX Number and click Find
     When I enter the Payments Enquiry - Transaction wise page
