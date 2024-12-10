@@ -658,7 +658,7 @@ public class t24_Payments_page extends PageObject {
     public WebElementFacade clickimposeinformation;
 
 
-    @FindBy(xpath = "//label[@for='fieldName:BeneficiaryIdentifierCode']/parent::td/following-sibling::td[2]/input")
+    @FindBy(xpath = "/html/body/div[3]/div[2]/form[1]/div[4]/table/tbody/tr[3]/td/table[2]/tbody/tr[2]/td[3]/input")
     public WebElementFacade CreditorBic;
 
     @FindBy(xpath = "//label[@for='fieldName:CreditorStreetName']/parent::td/following-sibling::td[2]//input")
