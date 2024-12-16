@@ -1352,6 +1352,9 @@ public class t24_Payments_page extends PageObject {
     public WebElementFacade clickMMPaymentEntryMenu;
 
     @FindBy(xpath = "//td[@id='dealtitle']/following-sibling::td[1]//input[@name='transactionId']")
+    public WebElementFacade FOREX;
+
+    @FindBy(xpath = "//td[@id='dealtitle']/following-sibling::td[1]//input[@name='transactionId']")
     public WebElementFacade inputTransID;
 
     @FindBy(xpath = "//label[@for='fieldName:PO.REFERENCE']/parent::td/following-sibling::td[2]/span")
