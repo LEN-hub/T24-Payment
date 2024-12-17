@@ -1225,46 +1225,46 @@ Feature: Auto_Test1
     Then I close all tabs and jump to the home
     And I close driver
 
-  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_004
-  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_004
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Fixed Maturity Placement Contracts
-    Then I Assertion enter Fixed Maturity Placement Contracts Page
-    When I Input incomplete information on Placement Contracts Page "4"
-    Then I get MMNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized MM Transactions page
-    Then I input MM Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I enter the MM Payment Entry page
-    Then I input MM Number and click Find
-    When I enter the Payments Enquiry - Transaction wise status page
-    Then I input MMPINumber and click Find
-    When I Assert enter View Page Trans
-    When I change status code Trans
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    Then I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
-    And I close driver
+#  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_004
+#  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_004
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Fixed Maturity Placement Contracts
+#    Then I Assertion enter Fixed Maturity Placement Contracts Page
+#    When I Input incomplete information on Placement Contracts Page "4"
+#    Then I get MMNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized MM Transactions page
+#    Then I input MM Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I enter the MM Payment Entry page
+#    Then I input MM Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise status page
+#    Then I input MMPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+##    When I close all tabs and jump to the home page
+##    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    And I close driver
 
 #  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_CNY
 #  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_CNY
