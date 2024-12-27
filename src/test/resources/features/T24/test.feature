@@ -779,200 +779,200 @@ Feature: Auto_Test1
 #    And I close driver
 
 #FX interbank ---------------------------------------------------------------------------------------------------------
-
-  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_001
-  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_001
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Capture Forex Spot Deal
-    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "1"
-    Then I get FXNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized FX Transactions page
-    Then I input FX Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I type in the content and click the search "1"
-    Then I input FX Number and click Find
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FXPINumber and click Find
-    When I Assert enter View Page Trans
-    When I change status code Trans FX
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    Then I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page BN
-    And I close driver
-
-
-  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_002
-  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_002
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Capture Forex Spot Deal
-    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "2"
-    Then I get FXNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized FX Transactions page
-    Then I input FX Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I type in the content and click the search "2"
-    Then I input FX Number and click Find
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FXPINumber and click Find
-    When I Assert enter View Page Trans
-    When I change status code Trans FX
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    Then I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page BN
-    And I close driver
-
-
-  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_003
-  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_003
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Capture Forex Spot Deal
-    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "3"
-    Then I get FXNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized FX Transactions page
-    Then I input FX Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I type in the content and click the search "3"
-    Then I input FX Number and click Find
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FXPINumber and click Find
-    When I Assert enter View Page Trans
-    When I change status code Trans FX
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    Then I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page BN
-    And I close driver
-
-
-  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_004
-  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_004
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Capture Forex Spot Deal
-    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "4"
-    Then I get FXNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized FX Transactions page
-    Then I input FX Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I type in the content and click the search "4"
-    Then I input FX Number and click Find
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FXPINumber and click Find
-    When I Assert enter View Page Trans
-    When I change status code Trans FX
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    Then I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page BN
-    And I close driver
-
-
-  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_005
-  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_005
-    Given Use "T24-automation-SIT-login" to login to T24 environment
-    When I click Capture Forex Spot Deal
-    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "5"
-    Then I get FXNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized FX Transactions page
-    Then I input FX Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I type in the content and click the search "5"
-    Then I input FX Number and click Find
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FXPINumber and click Find
-    When I Assert enter View Page Trans
-    When I change status code Trans FX
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    Then I close driver
-    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page BN
-    And I close driver
+#
+#  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_001
+#  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_001
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Capture Forex Spot Deal
+#    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "1"
+#    Then I get FXNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized FX Transactions page
+#    Then I input FX Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I type in the content and click the search "1"
+#    Then I input FX Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FXPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans FX
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page BN
+#    And I close driver
+#
+#
+#  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_002
+#  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_002
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Capture Forex Spot Deal
+#    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "2"
+#    Then I get FXNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized FX Transactions page
+#    Then I input FX Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I type in the content and click the search "2"
+#    Then I input FX Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FXPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans FX
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page BN
+#    And I close driver
+#
+#
+#  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_003
+#  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_003
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Capture Forex Spot Deal
+#    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "3"
+#    Then I get FXNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized FX Transactions page
+#    Then I input FX Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I type in the content and click the search "3"
+#    Then I input FX Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FXPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans FX
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page BN
+#    And I close driver
+#
+#
+#  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_004
+#  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_004
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Capture Forex Spot Deal
+#    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "4"
+#    Then I get FXNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized FX Transactions page
+#    Then I input FX Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I type in the content and click the search "4"
+#    Then I input FX Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FXPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans FX
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page BN
+#    And I close driver
+#
+#
+#  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_005
+#  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_005
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I click Capture Forex Spot Deal
+#    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "5"
+#    Then I get FXNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized FX Transactions page
+#    Then I input FX Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I type in the content and click the search "5"
+#    Then I input FX Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FXPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans FX
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page BN
+#    And I close driver
 
 #g
 #
@@ -1884,47 +1884,47 @@ Feature: Auto_Test1
 #    And I close driver
 #
 #
-#  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA003_HKD
-#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA003_HKD
-#    Given Use "T24-automation-SIT-login" to login to T24 environment
-#    When I click Outgoing ISO Customer Transfer
-#    Then I Assertion enter Outgoing ISO Customer Transfer Page
-#    When I Input incomplete information on ISO Customer Transfer Page "3"
-##      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-##      |EBILAEA0            |AED                 |90                  |11010006762         |AED                   |56456465        |LEI           |SHAR         |
-#    Then I input Street Name on the ISO Customer Transfer Page "3"
-##      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-##      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
-#    Then I get OENumber
-#    Then I click pre-submit button
-#    When I click Accept Overrides
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-#    When I entered the Pending Authorise Payments page
-#    Then I input OE Number and click Find Authorise
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-#    When I entered the Pending Authorise Payments page
-#    Then I input OE Number and click Find Authorise
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find
-#    When I Assert enter View Page
-#    Then I Assert enter View Details Page
-##    When I close all tabs and jump to the home page
-##    When I enter the Currency Rates List
-#    Then I close all tabs and jump to the home
-#    When I enter the account ID
-#    Then I find account CASGD "3"
-##    Then I find account CASGD
-##      |Arrangement|Currency   |
-##      |11021162884|AED        |
-#    And I close driver
-#
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA003_HKD
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA003_HKD
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page "3"
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |EBILAEA0            |AED                 |90                  |11010006762         |AED                   |56456465        |LEI           |SHAR         |
+    Then I input Street Name on the ISO Customer Transfer Page "3"
+#      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+#      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+    Then I close all tabs and jump to the home
+    When I enter the account ID
+    Then I find account CASGD "3"
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|AED        |
+    And I close driver
+
 #
 #
 ##
@@ -1968,47 +1968,47 @@ Feature: Auto_Test1
 ##      |Arrangement|Currency   |
 ##      |11021162884|AED        |
 #    And I close driver
-#
-#  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA005_EUR
-#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA005_EUR
-#    Given Use "T24-automation-SIT-login" to login to T24 environment
-#    When I click Outgoing ISO Customer Transfer
-#    Then I Assertion enter Outgoing ISO Customer Transfer Page
-#    When I Input incomplete information on ISO Customer Transfer Page "5"
-##      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-##      |EBILAEA0            |AED                 |90                  |11010006762         |AED                   |56456465        |LEI           |SHAR         |
-#    Then I input Street Name on the ISO Customer Transfer Page "5"
-##      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-##      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
-#    Then I get OENumber
-#    Then I click pre-submit button
-#    When I click Accept Overrides
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-#    When I entered the Pending Authorise Payments page
-#    Then I input OE Number and click Find Authorise
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-SIT-login-Auth2" to login to T24 environment
-#    When I entered the Pending Authorise Payments page
-#    Then I input OE Number and click Find Authorise
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-SIT-login-Auth" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find
-#    When I Assert enter View Page
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-##    When I enter the Currency Rates List
-##    Then I close all tabs and jump to the home
-#    When I enter the account ID
-#    Then I find account CASGD "5"
-##    Then I find account CASGD
-##      |Arrangement|Currency   |
-##      |11021162884|AED        |
-#    And I close driver
+
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA005_EUR
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA005_EUR
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page "5"
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |EBILAEA0            |AED                 |90                  |11010006762         |AED                   |56456465        |LEI           |SHAR         |
+    Then I input Street Name on the ISO Customer Transfer Page "5"
+#      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+#      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+    When I enter the account ID
+    Then I find account CASGD "5"
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|AED        |
+    And I close driver
 
 
 
@@ -2141,6 +2141,46 @@ Feature: Auto_Test1
 #    And I close driver
 
 #
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA009_JPY
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA009_JPY
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page "9"
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |EBILAEA0            |AED                 |90                  |11010006762         |AED                   |56456465        |LEI           |SHAR         |
+    Then I input Street Name on the ISO Customer Transfer Page "9"
+#      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+#      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+    When I enter the account ID
+    Then I find account CASGD "9"
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|AED        |
+    And I close driver
 
 
 # # Customer MCA
