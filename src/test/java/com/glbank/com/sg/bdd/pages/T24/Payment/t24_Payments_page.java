@@ -771,16 +771,16 @@ public class t24_Payments_page extends PageObject {
     @FindBy(xpath = "//span[text()='Routing Information']")
     public WebElementFacade Routingformation;
 
-    @FindBy(xpath = "//span[text()='Additional Info']")
+    @FindBy(xpath = "//span[text()='Additional Information']")
     public WebElementFacade AdditionalInfo;
 
     @FindBy(xpath = "//a//span[text()='Additional Information']")
     public WebElementFacade AdditionalInfoUSD;
 
     //UAT
-//    @FindBy(xpath = "//a//span[text()='Error Information']")
+    @FindBy(xpath = "//a//span[text()='Error Information']")
 //    SIT
-    @FindBy(xpath = "//a//span[text()='Error Info']")
+   // @FindBy(xpath = "//a//span[text()='Error Info']")
     public WebElementFacade ErrorInformation;
 
     @FindBy(xpath = "//a//span[text()='Extended Debtor Info']")
