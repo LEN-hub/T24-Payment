@@ -21,6 +21,49 @@ Feature: Payment InComing
     Then Assert enter Account Details Page
     And I close driver
 
+
+
+#  @Incoming_Payment_999Multi_Currency_001
+#  Scenario:Incoming payment-999Multi_Currency_001
+#    Given Use "T24-automation-SIT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "1"
+##    Then I input FTNumber and click Find On Incoming
+##      |FTNumber        |
+##      |SGL231320CGHJKGD|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click Find Multi Currency
+#    When I input ArrangementMCA "1"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020614528    |
+#    And I close driver
+
+
+
+
+  @Incoming_Payment_999
+  Scenario:Incoming payment-999
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "1"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement "1"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020931884    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+    And I close driver
+
   @Incoming_Payment_999Multi_Currency
   Scenario:Incoming payment-999Multi_Currency
     Given Use "T24-automation-SIT-login" to login to T24 environment

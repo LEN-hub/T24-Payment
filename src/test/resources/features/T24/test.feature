@@ -1,22 +1,202 @@
 @Auto_Test1
 Feature: Auto_Test1
-#  @Incoming_Payment_999Multi_Currency_001
-#  Scenario:Incoming payment-999Multi_Currency_001
-#    Given Use "T24-automation-SIT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "1"
-##    Then I input FTNumber and click Find On Incoming
-##      |FTNumber        |
-##      |SGL231320CGHJKGD|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click Find Multi Currency
-#    When I input ArrangementMCA "1"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020614528    |
-#    And I close driver
+
+  @Incoming_Payment_999_T24-MT103-001-1.1
+  Scenario:Incoming payment-999_T24-MT103-001-1.1
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "1"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement "1"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020931884    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+    And I close driver
+
+  @Incoming_Payment_999_T24-MT103-001-1.2
+  Scenario:Incoming payment-999_T24-MT103-001-1.2
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "2"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement "2"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020931884    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+    And I close driver
+
+  @Incoming_Payment_999_T24-MT103-001-1.3
+  Scenario:Incoming payment-999_T24-MT103-001-1.3
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "3"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement "3"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020931884    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+    And I close driver
+
+
+  @Incoming_Payment_999_T24-MT103-001-1.4
+  Scenario:Incoming payment-999_T24-MT103-001-1.4
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "4"
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL231320CGHJKGD|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click Find Multi Currency
+    When I input ArrangementMCA "4"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020614528    |
+    And I close driver
+
+  @Incoming_Payment_999_T24-MT103-001-1.5
+  Scenario:Incoming payment-999_T24-MT103-001-1.5
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "5"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement "5"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020931884    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+    And I close driver
+
+  @Incoming_Payment_999_T24-MT103-001-1.6
+  Scenario:Incoming payment-999_T24-MT103-001-1.6
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "6"
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL231320CGHJKGD|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click Find Multi Currency
+    When I input ArrangementMCA "6"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020614528    |
+    And I close driver
+
+  @Incoming_Payment_999_T24-MT103-001-2.1
+  Scenario:Incoming payment-999_T24-MT103-001-2.1
+    Given Use "T24-automation-SIT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "7"
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL231320CGHJKGD|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click Find Multi Currency
+    When I input ArrangementMCA "7"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020614528    |
+    And I close driver
+
+  @Incoming_Payment_999_T24-MT103-001-2.2
+  Scenario:Incoming payment-999_T24-MT103-001-2.2
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "8"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement "8"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020931884    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+    And I close driver
+
+  @Incoming_Payment_999_T24-MT103-001-2.3
+  Scenario:Incoming payment-999_T24-MT103-001-2.3
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "9"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement "9"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020931884    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+    And I close driver
+
+  @Incoming_Payment_999_T24-MT103-001-1.7
+  Scenario:Incoming payment-999_T24-MT103-001-1.7
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "46"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement "46"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020931884    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+    And I close driver
+
+
 #
 #  @Incoming_Payment_999Multi_Currency_002
 #  Scenario:Incoming payment-999Multi_Currency_002
@@ -779,161 +959,161 @@ Feature: Auto_Test1
 #    And I close driver
 
 #FX interbank ---------------------------------------------------------------------------------------------------------
-
-  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_001
-  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_001
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Capture Forex Spot Deal
-    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "1"
-    Then I get FXNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized FX Transactions page
-    Then I input FX Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I type in the content and click the search "1"
-    Then I input FX Number and click Find
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FXPINumber and click Find
-    When I Assert enter View Page Trans
-    When I change status code Trans FX
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page BN
-    And I close driver
-
-
-  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_002
-  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_002
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Capture Forex Spot Deal
-    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "2"
-    Then I get FXNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized FX Transactions page
-    Then I input FX Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I type in the content and click the search "2"
-    Then I input FX Number and click Find
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FXPINumber and click Find
-    When I Assert enter View Page Trans
-    When I change status code Trans FX
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page BN
-    And I close driver
-
-
-  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_003
-  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_003
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Capture Forex Spot Deal
-    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "3"
-    Then I get FXNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized FX Transactions page
-    Then I input FX Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I type in the content and click the search "3"
-    Then I input FX Number and click Find
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FXPINumber and click Find
-    When I Assert enter View Page Trans
-    When I change status code Trans FX
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page BN
-    And I close driver
-
-
-  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_004
-  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_004
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Capture Forex Spot Deal
-    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "4"
-    Then I get FXNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized FX Transactions page
-    Then I input FX Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I type in the content and click the search "4"
-    Then I input FX Number and click Find
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FXPINumber and click Find
-    When I Assert enter View Page Trans
-    When I change status code Trans FX
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page BN
-    And I close driver
+#
+#  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_001
+#  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_001
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Capture Forex Spot Deal
+#    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "1"
+#    Then I get FXNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized FX Transactions page
+#    Then I input FX Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I type in the content and click the search "1"
+#    Then I input FX Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FXPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans FX
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page BN
+#    And I close driver
+#
+#
+#  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_002
+#  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_002
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Capture Forex Spot Deal
+#    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "2"
+#    Then I get FXNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized FX Transactions page
+#    Then I input FX Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I type in the content and click the search "2"
+#    Then I input FX Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FXPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans FX
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page BN
+#    And I close driver
+#
+#
+#  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_003
+#  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_003
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Capture Forex Spot Deal
+#    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "3"
+#    Then I get FXNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized FX Transactions page
+#    Then I input FX Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I type in the content and click the search "3"
+#    Then I input FX Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FXPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans FX
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page BN
+#    And I close driver
+#
+#
+#  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_004
+#  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_004
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Capture Forex Spot Deal
+#    When I Choose InterBank and Input incomplete information on Forex Spot Deal Page "4"
+#    Then I get FXNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized FX Transactions page
+#    Then I input FX Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I type in the content and click the search "4"
+#    Then I input FX Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FXPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans FX
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page BN
+#    And I close driver
 
 #
 #  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_005
