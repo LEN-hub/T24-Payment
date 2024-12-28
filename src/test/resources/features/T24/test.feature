@@ -64,7 +64,7 @@ Feature: Auto_Test1
 
   @Incoming_Payment_999_T24-MT103-001-1.4
   Scenario:Incoming payment-999_T24-MT103-001-1.4
-    Given Use "T24-automation-SIT-login" to login to T24 environment
+    Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "4"
 #    Then I input FTNumber and click Find On Incoming
@@ -102,7 +102,7 @@ Feature: Auto_Test1
 
   @Incoming_Payment_999_T24-MT103-001-1.6
   Scenario:Incoming payment-999_T24-MT103-001-1.6
-    Given Use "T24-automation-SIT-login" to login to T24 environment
+    Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "6"
 #    Then I input FTNumber and click Find On Incoming
@@ -120,7 +120,7 @@ Feature: Auto_Test1
 
   @Incoming_Payment_999_T24-MT103-001-2.1
   Scenario:Incoming payment-999_T24-MT103-001-2.1
-    Given Use "T24-automation-SIT-login" to login to T24 environment
+    Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "7"
 #    Then I input FTNumber and click Find On Incoming
