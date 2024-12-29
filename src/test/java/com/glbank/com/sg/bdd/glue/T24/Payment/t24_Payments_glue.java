@@ -577,8 +577,8 @@ public class t24_Payments_glue {
 //        t24_payments_step.clickChargeInformation2();
         //UAT
 //        t24_payments_step.clickRoutingformation();
-        t24_payments_step.clickAdditionalInfo();
-        //       t24_payments_step.clickErrorInformation();
+//        t24_payments_step.clickAdditionalInfo();
+              t24_payments_step.clickErrorInformation();
 //        t24_payments_step.clickExtendedDebtorInfo();
 //        t24_payments_step.clickExtendedCreditorInfo();
 //        t24_payments_step.clickUltimateDebtorInfo();

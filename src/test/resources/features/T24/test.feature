@@ -1,203 +1,203 @@
 @Auto_Test1
 Feature: Auto_Test1
 
-  @Incoming_Payment_999_T24-MT202-001-1.1
-  Scenario:Incoming payment-999_T24-MT202-001-1.1
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "10"
-#    Then I input FTNumber and click Find On Incoming
-#    |FTNumber        |
-#    |SGL23237HFFCBKBB|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement "10"
-#    When I input Arrangement
-#      |Arrangement    |
-#      |11020931884    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-    And I close driver
-
-  @Incoming_Payment_999_T24-MT202-001-1.2
-  Scenario:Incoming payment-999_T24-MT202-001-1.2
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "11"
-#    Then I input FTNumber and click Find On Incoming
-#    |FTNumber        |
-#    |SGL23237HFFCBKBB|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement "11"
-#    When I input Arrangement
-#      |Arrangement    |
-#      |11020931884    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-    And I close driver
-
-  @Incoming_Payment_999_T24-MT202-001-1.3
-  Scenario:Incoming payment-999_T24-MT202-001-1.3
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "12"
-#    Then I input FTNumber and click Find On Incoming
-#    |FTNumber        |
-#    |SGL23237HFFCBKBB|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement "12"
-#    When I input Arrangement
-#      |Arrangement    |
-#      |11020931884    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-    And I close driver
-
-
-  @Incoming_Payment_999_T24-MT202-001-1.4
-  Scenario:Incoming payment-999_T24-MT202-001-1.4
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "13"
-#    Then I input FTNumber and click Find On Incoming
-#      |FTNumber        |
-#      |SGL231320CGHJKGD|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click Find Multi Currency
-    When I input ArrangementMCA "13"
-#    When I input Arrangement
-#      |Arrangement    |
-#      |11020614528    |
-    And I close driver
-
-  @Incoming_Payment_999_T24-MT202-001-2.1
-  Scenario:Incoming payment-999_T24-MT202-001-2.1
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "14"
-#    Then I input FTNumber and click Find On Incoming
-#    |FTNumber        |
-#    |SGL23237HFFCBKBB|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement "14"
-#    When I input Arrangement
-#      |Arrangement    |
-#      |11020931884    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-    And I close driver
-
-  @Incoming_Payment_999_T24-MT202-001-2.2
-  Scenario:Incoming payment-999_T24-MT202-001-2.2
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "15"
-#    Then I input FTNumber and click Find On Incoming
-#      |FTNumber        |
-#      |SGL231320CGHJKGD|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click Find Multi Currency
-    When I input ArrangementMCA "15"
-#    When I input Arrangement
-#      |Arrangement    |
-#      |11020614528    |
-    And I close driver
-
-
-  @Incoming_Payment_999_T24-MT202-001-2.3
-  Scenario:Incoming payment-999_T24-MT202-001-2.3
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "16"
-#    Then I input FTNumber and click Find On Incoming
-#    |FTNumber        |
-#    |SGL23237HFFCBKBB|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement "16"
-#    When I input Arrangement
-#      |Arrangement    |
-#      |11020931884    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-    And I close driver
-
-  @Incoming_Payment_999_T24-MT202-001-2.4
-  Scenario:Incoming payment-999_T24-MT202-001-2.4
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "17"
-#    Then I input FTNumber and click Find On Incoming
-#    |FTNumber        |
-#    |SGL23237HFFCBKBB|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement "17"
-#    When I input Arrangement
-#      |Arrangement    |
-#      |11020931884    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-    And I close driver
-
-
-  @Incoming_Payment_999_T24-MT202-001-2.5
-  Scenario:Incoming payment-999_T24-MT202-001-2.5
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "18"
-#    Then I input FTNumber and click Find On Incoming
-#      |FTNumber        |
-#      |SGL231320CGHJKGD|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click Find Multi Currency
-    When I input ArrangementMCA "18"
-#    When I input Arrangement
-#      |Arrangement    |
-#      |11020614528    |
-    And I close driver
-
-
-  @Incoming_Payment_999_T24-MT202-001-1.5
-  Scenario:Incoming payment-999_T24-MT202-001-1.5
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "47"
-#    Then I input FTNumber and click Find On Incoming
-#    |FTNumber        |
-#    |SGL23237HFFCBKBB|
-    When I Assert enter View Page to USD Loan
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    Then I click find account
-    When I input Arrangement "47"
-#    When I input Arrangement
-#      |Arrangement    |
-#      |11020931884    |
-    When I click Find Butt
-    Then Assert enter Account Details Page
-    And I close driver
+#  @Incoming_Payment_999_T24-MT202-001-1.1
+#  Scenario:Incoming payment-999_T24-MT202-001-1.1
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "10"
+##    Then I input FTNumber and click Find On Incoming
+##    |FTNumber        |
+##    |SGL23237HFFCBKBB|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click find account
+#    When I input Arrangement "10"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020931884    |
+#    When I click Find Butt
+#    Then Assert enter Account Details Page
+#    And I close driver
+#
+#  @Incoming_Payment_999_T24-MT202-001-1.2
+#  Scenario:Incoming payment-999_T24-MT202-001-1.2
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "11"
+##    Then I input FTNumber and click Find On Incoming
+##    |FTNumber        |
+##    |SGL23237HFFCBKBB|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click find account
+#    When I input Arrangement "11"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020931884    |
+#    When I click Find Butt
+#    Then Assert enter Account Details Page
+#    And I close driver
+#
+#  @Incoming_Payment_999_T24-MT202-001-1.3
+#  Scenario:Incoming payment-999_T24-MT202-001-1.3
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "12"
+##    Then I input FTNumber and click Find On Incoming
+##    |FTNumber        |
+##    |SGL23237HFFCBKBB|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click find account
+#    When I input Arrangement "12"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020931884    |
+#    When I click Find Butt
+#    Then Assert enter Account Details Page
+#    And I close driver
+#
+#
+#  @Incoming_Payment_999_T24-MT202-001-1.4
+#  Scenario:Incoming payment-999_T24-MT202-001-1.4
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "13"
+##    Then I input FTNumber and click Find On Incoming
+##      |FTNumber        |
+##      |SGL231320CGHJKGD|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click Find Multi Currency
+#    When I input ArrangementMCA "13"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020614528    |
+#    And I close driver
+#
+#  @Incoming_Payment_999_T24-MT202-001-2.1
+#  Scenario:Incoming payment-999_T24-MT202-001-2.1
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "14"
+##    Then I input FTNumber and click Find On Incoming
+##    |FTNumber        |
+##    |SGL23237HFFCBKBB|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click find account
+#    When I input Arrangement "14"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020931884    |
+#    When I click Find Butt
+#    Then Assert enter Account Details Page
+#    And I close driver
+#
+#  @Incoming_Payment_999_T24-MT202-001-2.2
+#  Scenario:Incoming payment-999_T24-MT202-001-2.2
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "15"
+##    Then I input FTNumber and click Find On Incoming
+##      |FTNumber        |
+##      |SGL231320CGHJKGD|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click Find Multi Currency
+#    When I input ArrangementMCA "15"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020614528    |
+#    And I close driver
+#
+#
+#  @Incoming_Payment_999_T24-MT202-001-2.3
+#  Scenario:Incoming payment-999_T24-MT202-001-2.3
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "16"
+##    Then I input FTNumber and click Find On Incoming
+##    |FTNumber        |
+##    |SGL23237HFFCBKBB|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click find account
+#    When I input Arrangement "16"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020931884    |
+#    When I click Find Butt
+#    Then Assert enter Account Details Page
+#    And I close driver
+#
+#  @Incoming_Payment_999_T24-MT202-001-2.4
+#  Scenario:Incoming payment-999_T24-MT202-001-2.4
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "17"
+##    Then I input FTNumber and click Find On Incoming
+##    |FTNumber        |
+##    |SGL23237HFFCBKBB|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click find account
+#    When I input Arrangement "17"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020931884    |
+#    When I click Find Butt
+#    Then Assert enter Account Details Page
+#    And I close driver
+#
+#
+#  @Incoming_Payment_999_T24-MT202-001-2.5
+#  Scenario:Incoming payment-999_T24-MT202-001-2.5
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "18"
+##    Then I input FTNumber and click Find On Incoming
+##      |FTNumber        |
+##      |SGL231320CGHJKGD|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click Find Multi Currency
+#    When I input ArrangementMCA "18"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020614528    |
+#    And I close driver
+#
+#
+#  @Incoming_Payment_999_T24-MT202-001-1.5
+#  Scenario:Incoming payment-999_T24-MT202-001-1.5
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "47"
+##    Then I input FTNumber and click Find On Incoming
+##    |FTNumber        |
+##    |SGL23237HFFCBKBB|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click find account
+#    When I input Arrangement "47"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020931884    |
+#    When I click Find Butt
+#    Then Assert enter Account Details Page
+#    And I close driver
 
 
 #
@@ -962,7 +962,7 @@ Feature: Auto_Test1
 #    And I close driver
 
 #FX interbank ---------------------------------------------------------------------------------------------------------
-#
+
 #  @Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_001
 #  Scenario:Payment_FX_Capture_Forex_Spot_Deal_InterBank_235-677_Approved_001
 #    Given Use "T24-automation-UAT-login" to login to T24 environment
@@ -2111,46 +2111,46 @@ Feature: Auto_Test1
 #
 #
 ##
-#  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA004_CNY
-#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA004_CNY
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I click Outgoing ISO Customer Transfer
-#    Then I Assertion enter Outgoing ISO Customer Transfer Page
-#    When I Input incomplete information on ISO Customer Transfer Page "4"
-##      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-##      |EBILAEA0            |AED                 |90                  |11010006762         |AED                   |56456465        |LEI           |SHAR         |
-#    Then I input Street Name on the ISO Customer Transfer Page "4"
-##      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-##      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
-#    Then I get OENumber
-#    Then I click pre-submit button
-#    When I click Accept Overrides
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-#    When I entered the Pending Authorise Payments page
-#    Then I input OE Number and click Find Authorise
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-#    When I entered the Pending Authorise Payments page
-#    Then I input OE Number and click Find Authorise
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find
-#    When I Assert enter View Page
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-##    When I enter the Currency Rates List
-##    Then I close all tabs and jump to the home
-##    When I enter the account ID
-##    Then I find account CASGD "4"
-##    Then I find account CASGD
-##      |Arrangement|Currency   |
-##      |11021162884|AED        |
-#    And I close driver
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA004_CNY
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA004_CNY
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page "4"
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |EBILAEA0            |AED                 |90                  |11010006762         |AED                   |56456465        |LEI           |SHAR         |
+    Then I input Street Name on the ISO Customer Transfer Page "4"
+#      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+#      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account ID
+    Then I find account CASGD "4"
+    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|AED        |
+    And I close driver
 
 #  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA005_EUR
 #  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA005_EUR
@@ -2194,50 +2194,50 @@ Feature: Auto_Test1
 #    And I close driver
 
 
-#
-#  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA006_AUD
-#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA006_AUD
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I click Outgoing ISO Customer Transfer
-#    Then I Assertion enter Outgoing ISO Customer Transfer Page
-#    When I Input incomplete information on ISO Customer Transfer Page "6"
-##    When I Input incomplete information on ISO Customer Transfer Page
-##      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-##      |EBILAEA0            |AED                 |906                 |11010006762         |AED                   |56456465        |LEI           |SHAR         |
-#    Then I input Street Name on the ISO Customer Transfer Page "6"
-##    Then I input Street Name on the ISO Customer Transfer Page
-##      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-##      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
-#    Then I get OENumber
-#    Then I click pre-submit button
-#    When I click Accept Overrides
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-#    When I entered the Pending Authorise Payments page
-#    Then I input OE Number and click Find Authorise
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-#    When I entered the Pending Authorise Payments page
-#    Then I input OE Number and click Find Authorise
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find
-#    When I Assert enter View Page
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-##    When I enter the Currency Rates List
-##    Then I close all tabs and jump to the home
-##    When I enter the account ID
-##    Then I find account CASGD "6"
-##    Then I find account CASGD
-##      |Arrangement|Currency   |
-##      |11021162884|AED        |
-#    And I close driver
-#
+
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA006_AUD
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA006_AUD
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page "6"
+#    When I Input incomplete information on ISO Customer Transfer Page
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |EBILAEA0            |AED                 |906                 |11010006762         |AED                   |56456465        |LEI           |SHAR         |
+    Then I input Street Name on the ISO Customer Transfer Page "6"
+#    Then I input Street Name on the ISO Customer Transfer Page
+#      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+#      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    When I enter the account ID
+    Then I find account CASGD "6"
+    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|AED        |
+    And I close driver
+
 #  @Payment_OE_Outgoing_ISO_Customer_Transfer_CA007_AED
 #  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_CA007_AED
 #    Given Use "T24-automation-UAT-login" to login to T24 environment
@@ -2368,46 +2368,46 @@ Feature: Auto_Test1
 #
 #
 #
-#  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA010_NOK
-#  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA010_NOK
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I click Outgoing ISO Customer Transfer
-#    Then I Assertion enter Outgoing ISO Customer Transfer Page
-#    When I Input incomplete information on ISO Customer Transfer Page "10"
-##      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
-##      |EBILAEA0            |AED                 |90                  |11010006762         |AED                   |56456465        |LEI           |SHAR         |
-#    Then I input Street Name on the ISO Customer Transfer Page "10"
-##      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
-##      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
-#    Then I get OENumber
-#    Then I click pre-submit button
-#    When I click Accept Overrides
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-#    When I entered the Pending Authorise Payments page
-#    Then I input OE Number and click Find Authorise
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-#    When I entered the Pending Authorise Payments page
-#    Then I input OE Number and click Find Authorise
-#    Then Assert Result whether Successful
-#    And I close driver
-#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find
-#    When I Assert enter View Page
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-##    When I enter the Currency Rates List
-##    Then I close all tabs and jump to the home
-#    When I enter the account ID
-#    Then I find account CASGD "10"
-##    Then I find account CASGD
-##      |Arrangement|Currency   |
-##      |11021162884|AED        |
-#    And I close driver
+  @Payment_OE_Outgoing_ISO_Customer_Transfer_MCA010_NOK
+  Scenario:Payment_OE_Outgoing_ISO_Customer_Transfer_MCA010_NOK
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I click Outgoing ISO Customer Transfer
+    Then I Assertion enter Outgoing ISO Customer Transfer Page
+    When I Input incomplete information on ISO Customer Transfer Page "10"
+#      |Instructed Agent Bic|Transaction Currency|Transaction Amount  |Debit Account Number|Debit Account Currency|Creditor Account|Creditor Name |Charge Option|
+#      |EBILAEA0            |AED                 |90                  |11010006762         |AED                   |56456465        |LEI           |SHAR         |
+    Then I input Street Name on the ISO Customer Transfer Page "10"
+#      |Street Name|Town Name |Creditor Country|Post Code|Debit Account Number1|Debit Name|Street Name1|Post Code1|Town Name1|Debtor Country|
+#      |liyukang   |testabc   |SG              |12345    |11010006762          |LEN&DEB   |honghai     |23456     |teste     |SG            |
+    Then I get OENumber
+    Then I click pre-submit button
+    When I click Accept Overrides
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+    When I entered the Pending Authorise Payments page
+    Then I input OE Number and click Find Authorise
+    Then Assert Result whether Successful
+    And I close driver
+    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find
+    When I Assert enter View Page
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+#    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+    When I enter the account ID
+    Then I find account CASGD "10"
+#    Then I find account CASGD
+#      |Arrangement|Currency   |
+#      |11021162884|AED        |
+    And I close driver
 
 
 # # Customer MCA
