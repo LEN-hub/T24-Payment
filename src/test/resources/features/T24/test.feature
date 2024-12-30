@@ -1,203 +1,197 @@
 @Auto_Test1
 Feature: Auto_Test1
 
-#  @Incoming_Payment_999_T24-MT202-001-1.1
-#  Scenario:Incoming payment-999_T24-MT202-001-1.1
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "10"
-##    Then I input FTNumber and click Find On Incoming
-##    |FTNumber        |
-##    |SGL23237HFFCBKBB|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click find account
-#    When I input Arrangement "10"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020931884    |
-#    When I click Find Butt
-#    Then Assert enter Account Details Page
-#    And I close driver
-#
-#  @Incoming_Payment_999_T24-MT202-001-1.2
-#  Scenario:Incoming payment-999_T24-MT202-001-1.2
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "11"
-##    Then I input FTNumber and click Find On Incoming
-##    |FTNumber        |
-##    |SGL23237HFFCBKBB|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click find account
-#    When I input Arrangement "11"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020931884    |
-#    When I click Find Butt
-#    Then Assert enter Account Details Page
-#    And I close driver
-#
-#  @Incoming_Payment_999_T24-MT202-001-1.3
-#  Scenario:Incoming payment-999_T24-MT202-001-1.3
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "12"
-##    Then I input FTNumber and click Find On Incoming
-##    |FTNumber        |
-##    |SGL23237HFFCBKBB|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click find account
-#    When I input Arrangement "12"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020931884    |
-#    When I click Find Butt
-#    Then Assert enter Account Details Page
-#    And I close driver
-#
-#
-#  @Incoming_Payment_999_T24-MT202-001-1.4
-#  Scenario:Incoming payment-999_T24-MT202-001-1.4
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "13"
-##    Then I input FTNumber and click Find On Incoming
-##      |FTNumber        |
-##      |SGL231320CGHJKGD|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click Find Multi Currency
-#    When I input ArrangementMCA "13"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020614528    |
-#    And I close driver
-#
-#  @Incoming_Payment_999_T24-MT202-001-2.1
-#  Scenario:Incoming payment-999_T24-MT202-001-2.1
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "14"
-##    Then I input FTNumber and click Find On Incoming
-##    |FTNumber        |
-##    |SGL23237HFFCBKBB|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click find account
-#    When I input Arrangement "14"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020931884    |
-#    When I click Find Butt
-#    Then Assert enter Account Details Page
-#    And I close driver
-#
-#  @Incoming_Payment_999_T24-MT202-001-2.2
-#  Scenario:Incoming payment-999_T24-MT202-001-2.2
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "15"
-##    Then I input FTNumber and click Find On Incoming
-##      |FTNumber        |
-##      |SGL231320CGHJKGD|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click Find Multi Currency
-#    When I input ArrangementMCA "15"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020614528    |
-#    And I close driver
-#
-#
-#  @Incoming_Payment_999_T24-MT202-001-2.3
-#  Scenario:Incoming payment-999_T24-MT202-001-2.3
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "16"
-##    Then I input FTNumber and click Find On Incoming
-##    |FTNumber        |
-##    |SGL23237HFFCBKBB|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click find account
-#    When I input Arrangement "16"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020931884    |
-#    When I click Find Butt
-#    Then Assert enter Account Details Page
-#    And I close driver
-#
-#  @Incoming_Payment_999_T24-MT202-001-2.4
-#  Scenario:Incoming payment-999_T24-MT202-001-2.4
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "17"
-##    Then I input FTNumber and click Find On Incoming
-##    |FTNumber        |
-##    |SGL23237HFFCBKBB|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click find account
-#    When I input Arrangement "17"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020931884    |
-#    When I click Find Butt
-#    Then Assert enter Account Details Page
-#    And I close driver
-#
-#
-#  @Incoming_Payment_999_T24-MT202-001-2.5
-#  Scenario:Incoming payment-999_T24-MT202-001-2.5
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "18"
-##    Then I input FTNumber and click Find On Incoming
-##      |FTNumber        |
-##      |SGL231320CGHJKGD|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click Find Multi Currency
-#    When I input ArrangementMCA "18"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020614528    |
-#    And I close driver
-#
-#
-#  @Incoming_Payment_999_T24-MT202-001-1.5
-#  Scenario:Incoming payment-999_T24-MT202-001-1.5
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "47"
-##    Then I input FTNumber and click Find On Incoming
-##    |FTNumber        |
-##    |SGL23237HFFCBKBB|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click find account
-#    When I input Arrangement "47"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020931884    |
-#    When I click Find Butt
-#    Then Assert enter Account Details Page
-#    And I close driver
+  @Incoming_Payment_999_T24-CBPRMX-001-1.1
+  Scenario:Incoming payment-999_T24-CBPRMX-001-1.1
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "29"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click Find Multi Currency
+    When I input ArrangementMCA "29"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020614528    |
+    And I close driver
+
+  @Incoming_Payment_999_T24-CBPRMX-001-1.2
+  Scenario:Incoming payment-999_T24-CBPRMX-001-1.2
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "30"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click Find Multi Currency
+    When I input ArrangementMCA "30"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020614528    |
+    And I close driver
+
+  @Incoming_Payment_999_T24-CBPRMX-001-1.3
+  Scenario:Incoming payment-999_T24-CBPRMX-001-1.3
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "31"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement "31"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020931884    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+    And I close driver
+
+
+  @Incoming_Payment_999_T24-CBPRMX-001-1.4
+  Scenario:Incoming payment-999_T24-CBPRMX-001-1.4
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "32"
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL231320CGHJKGD|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click Find Multi Currency
+    When I input ArrangementMCA "32"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020614528    |
+    And I close driver
+
+  @Incoming_Payment_999_T24-CBPRMX-001-2.1
+  Scenario:Incoming payment-999_T24-CBPRMX-001-2.1
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "33"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click Find Multi Currency
+    When I input ArrangementMCA "33"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020614528    |
+    And I close driver
+
+  @Incoming_Payment_999_T24-CBPRMX-001-2.2
+  Scenario:Incoming payment-999_T24-CBPRMX-001-2.2
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "34"
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL231320CGHJKGD|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement "34"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020931884    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+    And I close driver
+
+
+  @Incoming_Payment_999_T24-CBPRMX-001-2.3
+  Scenario:Incoming payment-999_T24-CBPRMX-001-2.3
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "35"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement "35"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020931884    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+    And I close driver
+
+  @Incoming_Payment_999_T24-CBPRMX-001-2.4
+  Scenario:Incoming payment-999_T24-CBPRMX-001-2.4
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "36"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click Find Multi Currency
+    When I input ArrangementMCA "37"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020614528    |
+    And I close driver
+
+
+  @Incoming_Payment_999_T24-CBPRMX-001-2.5
+  Scenario:Incoming payment-999_T24-CBPRMX-001-2.5
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "37"
+#    Then I input FTNumber and click Find On Incoming
+#      |FTNumber        |
+#      |SGL231320CGHJKGD|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click Find Multi Currency
+    When I input ArrangementMCA "37"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020614528    |
+    And I close driver
+
+
+  @Incoming_Payment_999_T24-CBPRMX-001-1.5
+  Scenario:Incoming payment-999_T24-CBPRMX-001-1.5
+    Given Use "T24-automation-UAT-login" to login to T24 environment
+    When I enter the Payments Enquiry - Transaction wise page
+    Then I input FTNumber and click Find On Incoming "38"
+#    Then I input FTNumber and click Find On Incoming
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
+    When I Assert enter View Page to USD Loan
+    Then I Assert enter View Details Page
+    When I close all tabs and jump to the home page
+    Then I click find account
+    When I input Arrangement "38"
+#    When I input Arrangement
+#      |Arrangement    |
+#      |11020931884    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
+    And I close driver
 
 
 #
@@ -1283,130 +1277,130 @@ Feature: Auto_Test1
 
   #MM-----------------------------------------------------------------------------------------------------------------
 
-
-  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_001
-  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_001
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Fixed Maturity Placement Contracts
-    Then I Assertion enter Fixed Maturity Placement Contracts Page
-    When I Input incomplete information on Placement Contracts Page "1"
-    Then I get MMNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized MM Transactions page
-    Then I input MM Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I enter the MM Payment Entry page
-    Then I input MM Number and click Find
-    When I enter the Payments Enquiry - Transaction wise status page
-    Then I input MMPINumber and click Find
-    When I Assert enter View Page Trans
-    When I change status code Trans
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
-    And I close driver
-
-
-  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_002
-  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_002
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Fixed Maturity Placement Contracts
-    Then I Assertion enter Fixed Maturity Placement Contracts Page
-    When I Input incomplete information on Placement Contracts Page "2"
-    Then I get MMNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized MM Transactions page
-    Then I input MM Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I enter the MM Payment Entry page
-    Then I input MM Number and click Find
-    When I enter the Payments Enquiry - Transaction wise status page
-    Then I input MMPINumber and click Find
-    When I Assert enter View Page Trans
-    When I change status code Trans
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
-    And I close driver
-
-  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_003
-  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_003
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Fixed Maturity Placement Contracts
-    Then I Assertion enter Fixed Maturity Placement Contracts Page
-    When I Input incomplete information on Placement Contracts Page "3"
-    Then I get MMNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized MM Transactions page
-    Then I input MM Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I enter the MM Payment Entry page
-    Then I input MM Number and click Find
-    When I enter the Payments Enquiry - Transaction wise status page
-    Then I input MMPINumber and click Find
-    When I Assert enter View Page Trans
-    When I change status code Trans
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    Then I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Pending Authorise Payments page
-    Then I input OE Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    When I enter the Currency Rates List
-    Then I close all tabs and jump to the home
-    And I close driver
+#
+#  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_001
+#  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_001
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Fixed Maturity Placement Contracts
+#    Then I Assertion enter Fixed Maturity Placement Contracts Page
+#    When I Input incomplete information on Placement Contracts Page "1"
+#    Then I get MMNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized MM Transactions page
+#    Then I input MM Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I enter the MM Payment Entry page
+#    Then I input MM Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise status page
+#    Then I input MMPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+##    When I close all tabs and jump to the home page
+##    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    And I close driver
+#
+#
+#  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_002
+#  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_002
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Fixed Maturity Placement Contracts
+#    Then I Assertion enter Fixed Maturity Placement Contracts Page
+#    When I Input incomplete information on Placement Contracts Page "2"
+#    Then I get MMNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized MM Transactions page
+#    Then I input MM Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I enter the MM Payment Entry page
+#    Then I input MM Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise status page
+#    Then I input MMPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+##    When I close all tabs and jump to the home page
+##    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    And I close driver
+#
+#  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_003
+#  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_003
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Fixed Maturity Placement Contracts
+#    Then I Assertion enter Fixed Maturity Placement Contracts Page
+#    When I Input incomplete information on Placement Contracts Page "3"
+#    Then I get MMNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized MM Transactions page
+#    Then I input MM Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I enter the MM Payment Entry page
+#    Then I input MM Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise status page
+#    Then I input MMPINumber and click Find
+#    When I Assert enter View Page Trans
+#    When I change status code Trans
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    Then I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Pending Authorise Payments page
+#    Then I input OE Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+##    When I close all tabs and jump to the home page
+##    When I enter the Currency Rates List
+#    Then I close all tabs and jump to the home
+#    And I close driver
 #
 #  @Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_004
 #  Scenario:Payment_MM_Fixed_Maturity_Placement_Contracts_235-677_Approved_004
