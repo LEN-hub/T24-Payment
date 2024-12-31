@@ -1,11 +1,11 @@
 @Auto_Test1
 Feature: Auto_Test1
 
-  @Incoming_Payment_999_T24-SGMEPS-001-1
-  Scenario:Incoming payment-999_T24-SGMEPS-001-1
+  @Incoming_Payment_999_T24-SGMEPS-003-1
+  Scenario:Incoming payment-999_T24-SGMEPS-003-1
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "21"
+    Then I input FTNumber and click Find On Incoming "25"
 #    Then I input FTNumber and click Find On Incoming
 #    |FTNumber        |
 #    |SGL23237HFFCBKBB|
@@ -13,7 +13,7 @@ Feature: Auto_Test1
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
     Then I click find account
-    When I input Arrangement "21"
+    When I input Arrangement "25"
 #    When I input Arrangement
 #      |Arrangement    |
 #      |11020931884    |
@@ -21,11 +21,11 @@ Feature: Auto_Test1
     Then Assert enter Account Details Page
     And I close driver
 
-  @Incoming_Payment_999_T24-SGMEPS-001-2
-  Scenario:Incoming payment-999_T24-SGMEPS-001-2
+  @Incoming_Payment_999_T24-SGMEPS-003-2
+  Scenario:Incoming payment-999_T24-SGMEPS-003-2
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "22"
+    Then I input FTNumber and click Find On Incoming "26"
 #    Then I input FTNumber and click Find On Incoming
 #    |FTNumber        |
 #    |SGL23237HFFCBKBB|
@@ -33,7 +33,7 @@ Feature: Auto_Test1
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
     Then I click find account
-    When I input Arrangement "22"
+    When I input Arrangement "26"
 #    When I input Arrangement
 #      |Arrangement    |
 #      |11020931884    |
@@ -41,11 +41,11 @@ Feature: Auto_Test1
     Then Assert enter Account Details Page
     And I close driver
 
-  @Incoming_Payment_999_T24-SGMEPS-002-1
-  Scenario:Incoming payment-999_T24-SGMEPS-002-1
+  @Incoming_Payment_999_T24-SGMEPS-004-1
+  Scenario:Incoming payment-999_T24-SGMEPS-004-1
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "23"
+    Then I input FTNumber and click Find On Incoming "27"
 #    Then I input FTNumber and click Find On Incoming
 #    |FTNumber        |
 #    |SGL23237HFFCBKBB|
@@ -53,7 +53,7 @@ Feature: Auto_Test1
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
     Then I click find account
-    When I input Arrangement "23"
+    When I input Arrangement "27"
 #    When I input Arrangement
 #      |Arrangement    |
 #      |11020931884    |
@@ -63,11 +63,11 @@ Feature: Auto_Test1
 
 
 
-  @Incoming_Payment_999_T24-SGMEPS-002-2
-  Scenario:Incoming payment-999_T24-SGMEPS-002-2
+  @Incoming_Payment_999_T24-SGMEPS-004-2
+  Scenario:Incoming payment-999_T24-SGMEPS-004-2
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
-    Then I input FTNumber and click Find On Incoming "24"
+    Then I input FTNumber and click Find On Incoming "28"
 #    Then I input FTNumber and click Find On Incoming
 #      |FTNumber        |
 #      |SGL231320CGHJKGD|
@@ -75,7 +75,7 @@ Feature: Auto_Test1
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
     Then I click find account
-    When I input Arrangement "24"
+    When I input Arrangement "28"
 #    When I input Arrangement
 #      |Arrangement    |
 #      |11020931884    |
