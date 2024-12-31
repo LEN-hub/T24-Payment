@@ -1,8 +1,8 @@
 @Auto_Test1
 Feature: Auto_Test1
 
-  @Incoming_Payment_999_T24-CBPRMX-005-1.1
-  Scenario:Incoming payment-999_T24-CBPRMX-005-1.1
+  @Incoming_Payment_999_T24-CBPRMX-006-1.1
+  Scenario:Incoming payment-999_T24-CBPRMX-006-1.1
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "49"
@@ -21,8 +21,8 @@ Feature: Auto_Test1
     Then Assert enter Account Details Page
     And I close driver
 
-  @Incoming_Payment_999_T24-CBPRMX-005-1.2
-  Scenario:Incoming payment-999_T24-CBPRMX-005-1.2
+  @Incoming_Payment_999_T24-CBPRMX-006-1.2
+  Scenario:Incoming payment-999_T24-CBPRMX-006-1.2
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "50"
@@ -39,8 +39,8 @@ Feature: Auto_Test1
 #      |11020614528    |
     And I close driver
 
-  @Incoming_Payment_999_T24-CBPRMX-005-1.3
-  Scenario:Incoming payment-999_T24-CBPRMX-005-1.3
+  @Incoming_Payment_999_T24-CBPRMX-006-1.3
+  Scenario:Incoming payment-999_T24-CBPRMX-006-1.3
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "51"
@@ -58,8 +58,8 @@ Feature: Auto_Test1
     And I close driver
 
 
-  @Incoming_Payment_999_T24-CBPRMX-005-1.4
-  Scenario:Incoming payment-999_T24-CBPRMX-005-1.4
+  @Incoming_Payment_999_T24-CBPRMX-006-1.4
+  Scenario:Incoming payment-999_T24-CBPRMX-006-1.4
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "52"
@@ -78,8 +78,8 @@ Feature: Auto_Test1
     Then Assert enter Account Details Page
     And I close driver
 
-  @Incoming_Payment_999_T24-CBPRMX-005-1.5
-  Scenario:Incoming payment-999_T24-CBPRMX-005-1.5
+  @Incoming_Payment_999_T24-CBPRMX-006-1.5
+  Scenario:Incoming payment-999_T24-CBPRMX-006-1.5
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "53"
@@ -96,8 +96,8 @@ Feature: Auto_Test1
 #      |11020614528    |
     And I close driver
 
-  @Incoming_Payment_999_T24-CBPRMX-005-2.1
-  Scenario:Incoming payment-999_T24-CBPRMX-005-2.1
+  @Incoming_Payment_999_T24-CBPRMX-006-2.1
+  Scenario:Incoming payment-999_T24-CBPRMX-006-2.1
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "54"
@@ -115,8 +115,8 @@ Feature: Auto_Test1
     And I close driver
 
 
-  @Incoming_Payment_999_T24-CBPRMX-005-2.2
-  Scenario:Incoming payment-999_T24-CBPRMX-005-2.2
+  @Incoming_Payment_999_T24-CBPRMX-006-2.2
+  Scenario:Incoming payment-999_T24-CBPRMX-006-2.2
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "55"
@@ -133,8 +133,8 @@ Feature: Auto_Test1
 #      |11020614528    |
     And I close driver
 
-  @Incoming_Payment_999_T24-CBPRMX-005-2.3
-  Scenario:Incoming payment-999_T24-CBPRMX-005-2.3
+  @Incoming_Payment_999_T24-CBPRMX-006-2.3
+  Scenario:Incoming payment-999_T24-CBPRMX-006-2.3
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "56"
@@ -154,8 +154,8 @@ Feature: Auto_Test1
     And I close driver
 
 
-  @Incoming_Payment_999_T24-CBPRMX-005-2.4
-  Scenario:Incoming payment-999_T24-CBPRMX-005-2.4
+  @Incoming_Payment_999_T24-CBPRMX-006-2.4
+  Scenario:Incoming payment-999_T24-CBPRMX-006-2.4
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "57"
@@ -173,8 +173,8 @@ Feature: Auto_Test1
     And I close driver
 
 
-  @Incoming_Payment_999_T24-CBPRMX-005-2.5
-  Scenario:Incoming payment-999_T24-CBPRMX-005-2.5
+  @Incoming_Payment_999_T24-CBPRMX-006-2.5
+  Scenario:Incoming payment-999_T24-CBPRMX-006-2.5
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "58"
