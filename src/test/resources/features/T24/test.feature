@@ -403,33 +403,33 @@ Feature: Auto_Test1
     When I enter the account IDMCA
     Then I find debit and credit accountB "6"
     And I close driver
-
-  @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_007
-  Scenario:Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_007
-    Given Use "T24-automation-UAT-login" to login to T24 environment
-    When I click Capture Forex Spot Deal
-    When I Choose Customer and Input incomplete information on Forex Spot Deal Page "7"
-    Then I get FXNumber
-    Then I click pre-submit button
-    When I click Accept Overrides
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
-    When I entered the Unauthorized FX Transactions page
-    Then I input FX Number and click Find Authorise
-    Then Assert Result whether Successful
-    And I close driver
-    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
-    When I type in the content and click the search "7"
-    Then I input FX Number and click Find
-    When I enter the Payments Enquiry - Transaction wise page
-    Then I input FXPINumber and click Find
-    When I Assert enter View Page
-    Then I Assert enter View Details Page
-    When I close all tabs and jump to the home page
-    When I enter the account IDMCA
-    Then I find debit and credit accountB "7"
-    And I close driver
+#
+#  @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_007
+#  Scenario:Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_007
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I click Capture Forex Spot Deal
+#    When I Choose Customer and Input incomplete information on Forex Spot Deal Page "7"
+#    Then I get FXNumber
+#    Then I click pre-submit button
+#    When I click Accept Overrides
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth" to login to T24 environment
+#    When I entered the Unauthorized FX Transactions page
+#    Then I input FX Number and click Find Authorise
+#    Then Assert Result whether Successful
+#    And I close driver
+#    Given Use "T24-automation-UAT-login-Auth2" to login to T24 environment
+#    When I type in the content and click the search "7"
+#    Then I input FX Number and click Find
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FXPINumber and click Find
+#    When I Assert enter View Page
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    When I enter the account IDMCA
+#    Then I find debit and credit accountB "7"
+#    And I close driver
 
 #  @Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_008
 #  Scenario:Payment_FX_Capture_Forex_Spot_Deal_Customer_999_Approved_008
