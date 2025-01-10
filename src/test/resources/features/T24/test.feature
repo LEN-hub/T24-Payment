@@ -1,6 +1,7 @@
 @Auto_Test1
 Feature: Auto_Test1
 
+  #GLDBCR-1802
   @Incoming_Payment_999_001-1.1
   Scenario:Incoming payment-999_001-1.1
     Given Use "T24-automation-UAT-login" to login to T24 environment
