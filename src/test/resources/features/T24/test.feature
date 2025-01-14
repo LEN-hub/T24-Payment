@@ -2,6 +2,98 @@
 Feature: Auto_Test1
 
   #GLDBCR-1802
+#  @Incoming_Payment_999_005.1-1
+#  Scenario:Incoming payment-999_005.1-1
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "33"
+##    Then I input FTNumber and click Find On Incoming
+##    |FTNumber        |
+##    |SGL23237HFFCBKBB|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click find account
+#    When I input Arrangement "33"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020931884    |
+#    When I click Find Butt
+#    Then Assert enter Account Details Page
+#    And I close driver
+#
+#  @Incoming_Payment_999Multi_Currency_005.1-3
+#  Scenario:Incoming payment-999Multi_Currency_005.1-3
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "35"
+##    Then I input FTNumber and click Find On Incoming
+##      |FTNumber        |
+##      |SGL231320CGHJKGD|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click Find Multi Currency
+#    When I input ArrangementMCA "35"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020614528    |
+#    And I close driver
+#
+#  @Incoming_Payment_999Multi_Currency_005.1-4
+#  Scenario:Incoming payment-999Multi_Currency_005.1-4
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "36"
+##    Then I input FTNumber and click Find On Incoming
+##      |FTNumber        |
+##      |SGL231320CGHJKGD|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click Find Multi Currency
+#    When I input ArrangementMCA "36"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020614528    |
+#    And I close driver
+
+#  @Incoming_Payment_999Multi_Currency_005.1-5
+#  Scenario:Incoming payment-999Multi_Currency_005.1-5
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "37"
+##    Then I input FTNumber and click Find On Incoming
+##      |FTNumber        |
+##      |SGL231320CGHJKGD|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click Find Multi Currency
+#    When I input ArrangementMCA "37"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020614528    |
+#    And I close driver
+#
+#  @Incoming_Payment_999Multi_Currency_004.1-5
+#  Scenario:Incoming payment-999Multi_Currency_004.1-5
+#    Given Use "T24-automation-UAT-login" to login to T24 environment
+#    When I enter the Payments Enquiry - Transaction wise page
+#    Then I input FTNumber and click Find On Incoming "27"
+##    Then I input FTNumber and click Find On Incoming
+##      |FTNumber        |
+##      |SGL231320CGHJKGD|
+#    When I Assert enter View Page to USD Loan
+#    Then I Assert enter View Details Page
+#    When I close all tabs and jump to the home page
+#    Then I click Find Multi Currency
+#    When I input ArrangementMCA "27"
+##    When I input Arrangement
+##      |Arrangement    |
+##      |11020614528    |
+#    And I close driver
+
   @Incoming_Payment_999_005.1-1
   Scenario:Incoming payment-999_005.1-1
     Given Use "T24-automation-UAT-login" to login to T24 environment
@@ -42,22 +134,24 @@ Feature: Auto_Test1
     Then Assert enter Account Details Page
     And I close driver
 
-  @Incoming_Payment_999Multi_Currency_005.1-3
-  Scenario:Incoming payment-999Multi_Currency_005.1-3
+  @Incoming_Payment_999_005.1-3
+  Scenario:Incoming payment-999_005.1-3
     Given Use "T24-automation-UAT-login" to login to T24 environment
     When I enter the Payments Enquiry - Transaction wise page
     Then I input FTNumber and click Find On Incoming "35"
 #    Then I input FTNumber and click Find On Incoming
-#      |FTNumber        |
-#      |SGL231320CGHJKGD|
+#    |FTNumber        |
+#    |SGL23237HFFCBKBB|
     When I Assert enter View Page to USD Loan
     Then I Assert enter View Details Page
     When I close all tabs and jump to the home page
-    Then I click Find Multi Currency
-    When I input ArrangementMCA "35"
+    Then I click find account
+    When I input Arrangement "35"
 #    When I input Arrangement
 #      |Arrangement    |
-#      |11020614528    |
+#      |11020931884    |
+    When I click Find Butt
+    Then Assert enter Account Details Page
     And I close driver
 
   @Incoming_Payment_999Multi_Currency_005.1-4
@@ -95,120 +189,6 @@ Feature: Auto_Test1
 #      |Arrangement    |
 #      |11020614528    |
     And I close driver
-#
-#  @Incoming_Payment_999Multi_Currency_004.1-5
-#  Scenario:Incoming payment-999Multi_Currency_004.1-5
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "27"
-##    Then I input FTNumber and click Find On Incoming
-##      |FTNumber        |
-##      |SGL231320CGHJKGD|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click Find Multi Currency
-#    When I input ArrangementMCA "27"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020614528    |
-#    And I close driver
-
-#  @Incoming_Payment_999_004.2-1
-#  Scenario:Incoming payment-999_004.2-1
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "28"
-##    Then I input FTNumber and click Find On Incoming
-##    |FTNumber        |
-##    |SGL23237HFFCBKBB|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click find account
-#    When I input Arrangement "28"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020931884    |
-#    When I click Find Butt
-#    Then Assert enter Account Details Page
-#    And I close driver
-#
-#  @Incoming_Payment_999_004.2-2
-#  Scenario:Incoming payment-999_004.2-2
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "29"
-##    Then I input FTNumber and click Find On Incoming
-##    |FTNumber        |
-##    |SGL23237HFFCBKBB|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click find account
-#    When I input Arrangement "29"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020931884    |
-#    When I click Find Butt
-#    Then Assert enter Account Details Page
-#    And I close driver
-#
-#  @Incoming_Payment_999_004.2-3
-#  Scenario:Incoming payment-999_004.2-3
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "30"
-##    Then I input FTNumber and click Find On Incoming
-##    |FTNumber        |
-##    |SGL23237HFFCBKBB|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click find account
-#    When I input Arrangement "30"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020931884    |
-#    When I click Find Butt
-#    Then Assert enter Account Details Page
-#    And I close driver
-#
-#  @Incoming_Payment_999Multi_Currency_004.2-4
-#  Scenario:Incoming payment-999Multi_Currency_004.2-4
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "31"
-##    Then I input FTNumber and click Find On Incoming
-##      |FTNumber        |
-##      |SGL231320CGHJKGD|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click Find Multi Currency
-#    When I input ArrangementMCA "31"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020614528    |
-#    And I close driver
-#
-#  @Incoming_Payment_999Multi_Currency_004.2-5
-#  Scenario:Incoming payment-999Multi_Currency_004.2-5
-#    Given Use "T24-automation-UAT-login" to login to T24 environment
-#    When I enter the Payments Enquiry - Transaction wise page
-#    Then I input FTNumber and click Find On Incoming "32"
-##    Then I input FTNumber and click Find On Incoming
-##      |FTNumber        |
-##      |SGL231320CGHJKGD|
-#    When I Assert enter View Page to USD Loan
-#    Then I Assert enter View Details Page
-#    When I close all tabs and jump to the home page
-#    Then I click Find Multi Currency
-#    When I input ArrangementMCA "32"
-##    When I input Arrangement
-##      |Arrangement    |
-##      |11020614528    |
-#    And I close driver
 
 #  @Incoming_Payment_999_003.1
 #  Scenario:Incoming payment-999_003.1
